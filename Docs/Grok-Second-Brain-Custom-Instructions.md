@@ -38,13 +38,19 @@ Therefore:
 
 ## Git structure and navigation rules
 
-This project uses **two main repo shapes**:
+This project uses **four git surfaces**:
 
-### A) Full private vault repo (ideal)
+### A) Full private vault repo (not visible to Grok)
 
-Paths: `1-Projects/`, `2-Areas/`, `3-Resources/Second-Brain/`, `3-Resources/Second-Brain/Docs/`, `.cursor/`, `.technical/`, `Ingest/`, etc.
+Paths: `1-Projects/`, `Ingest/`, etc. Curator backup only.
 
-### B) Public export repo — [L0RDTH0TH/genesis-mythos-master-roadmap](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap)
+### B) Weave public — [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) (**start here for weave design**)
+
+- **`GROK-START-HERE.md`** + **`OBSERVABILITY.json`** at repo root — Grok machine index (`last_publish_utc`, `meta_card_ids`, routing)
+- **`weave/CARD-INDEX.md`**, **`weave/components/`**, **`Docs/ARCHITECTURE-OVERVIEW.md`**, **`Docs/GLOSSARY-FOR-EXTERNAL-READERS.md`**
+- **Not shipped:** `1-Projects/`, `Roadmap/`, live queue state
+
+### C) Integration mirror — [L0RDTH0TH/genesis-mythos-master-roadmap](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap)
 
 - **`Docs/`** = mirror of vault `3-Resources/Second-Brain/Docs/`
 - **`Docs/Core/`** = mirror of vault top-level `3-Resources/Second-Brain/*.md` (`Queue-Sources.md`, `Parameters.md`, `Second-Brain-Config.md`, etc.)
@@ -53,6 +59,10 @@ Paths: `1-Projects/`, `2-Areas/`, `3-Resources/Second-Brain/`, `3-Resources/Seco
 **Canonical automation truth** = branch **`iteration-2-roadmap-rules`** (or whatever **`gitforge.integration_branch`** currently points to in **`Second-Brain-Config.md`** on that branch).
 
 **Engine branches** (`sandbox-genesis-mythos-master`, `godot-genesis-mythos-master`, etc.) contain **`Roadmap/`** content and anchors; they **must not** be treated as authoritative for **rules, skills, agents, or queue behavior** — always **defer to the integration branch** for automation contracts.
+
+### D) Engine branches (factory Roadmap output only)
+
+Per-project `Roadmap/` on `genesis-mythos-master-roadmap` — not weave doctrine.
 
 ### Navigation rules
 
