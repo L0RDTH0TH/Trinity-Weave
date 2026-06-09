@@ -6,9 +6,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from eat_queue_core.schedule_config import SchedulePlanesConfig
 from eat_queue_core.weave_public_publish import (
     DEFAULT_FORBIDDEN_PREFIXES,
+    compute_weave_publish_fingerprint,
     run_weave_public_sync,
+    run_weave_publish_on_schedule_tick,
     scan_forbidden,
     sync_weave_public_export,
 )
@@ -73,6 +76,59 @@ class TestWeavePublicPublish(unittest.TestCase):
             self.assertTrue(out.get("ok"), out)
             self.assertTrue((export / "scripts/eat_queue_core/weave_public_publish.py").is_file())
             self.assertFalse((export / "1-Projects").exists())
+
+    def test_fingerprint_changes_when_file_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            vault = Path(td)
+            (vault / "scripts/eat_queue_core").mkdir(parents=True)
+            f = vault / "scripts/eat_queue_core/weave_public_publish.py"
+            f.write_text("v1\n", encoding="utf-8")
+            fp1 = compute_weave_publish_fingerprint(vault, cfg={"export_contract": {"includes": ["scripts/eat_queue_core/weave_public_publish.py"]}})
+            f.write_text("v2\n", encoding="utf-8")
+            fp2 = compute_weave_publish_fingerprint(vault, cfg={"export_contract": {"includes": ["scripts/eat_queue_core/weave_public_publish.py"]}})
+            self.assertNotEqual(fp1, fp2)
+
+    def test_schedule_tick_skips_unchanged_fingerprint(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            t = Path(td)
+            wp_cfg = {
+                "export_contract": {
+                    "includes": ["scripts/eat_queue_core/weave_public_publish.py"],
+                }
+            }
+            (t / "scripts/eat_queue_core").mkdir(parents=True)
+            (t / "scripts/eat_queue_core/weave_public_publish.py").write_text("# stable\n", encoding="utf-8")
+            fp = compute_weave_publish_fingerprint(t, cfg=wp_cfg)
+            cfg = t / "c.md"
+            cfg.write_text(
+                """```yaml
+weave_publish:
+  enabled: true
+  on_schedule_tick: true
+  export_repo_root: "EXPORT"
+  push_on_sync: false
+  export_contract:
+    includes:
+      - scripts/eat_queue_core/weave_public_publish.py
+schedule_planes:
+  weave_publish_on_tick_enabled: true
+  weave_publish_every_n_ticks: 1
+```\n""".replace("EXPORT", str(t / "export")),
+                encoding="utf-8",
+            )
+            state = {"tick_count": 1, "weave_publish_fingerprint": fp}
+            planes = SchedulePlanesConfig()
+            act = run_weave_publish_on_schedule_tick(
+                t,
+                cfg,
+                state,
+                tick_count=1,
+                planes_cfg=planes,
+            )
+            self.assertIsNotNone(act)
+            assert act is not None
+            self.assertTrue(act.get("skipped"))
+            self.assertEqual(act.get("reason"), "unchanged_fingerprint")
 
     def test_skip_when_disabled(self) -> None:
         with tempfile.TemporaryDirectory() as td:

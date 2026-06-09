@@ -29,6 +29,8 @@ class SchedulePlanesConfig:
     memory_compact_every_n_eats: int = 10
     skill_gap_scan_max_per_day: int = 1
     maintain_wrap_streak_min: int = 3
+    weave_publish_on_tick_enabled: bool = True
+    weave_publish_every_n_ticks: int = 1
     graduation_promotions: tuple[GraduationPromotion, ...] = ()
 
 
@@ -131,5 +133,10 @@ def load_schedule_planes_config(vault_root: Path) -> SchedulePlanesConfig:
             grad_block.get("maintain_wrap_streak_min", sp.get("maintain_wrap_streak_min")),
             3,
         ),
+        weave_publish_on_tick_enabled=_coerce_bool(
+            sp.get("weave_publish_on_tick_enabled"),
+            True,
+        ),
+        weave_publish_every_n_ticks=_coerce_int(sp.get("weave_publish_every_n_ticks"), 1),
         graduation_promotions=tuple(promotions),
     )

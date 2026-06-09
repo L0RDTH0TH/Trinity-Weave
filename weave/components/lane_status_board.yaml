@@ -133,8 +133,8 @@ contract:
   - lane_run_no_receipt_inference
   - cq_lanesnapshot_canonical
 meta:
-  touch_refreshed_at: '2026-06-09T05:50:10.573550Z'
-  touch_content_hash: 6e142b9f42e10e51a8ab36765a8fd6da9aae616e73ff44aa9a808f6b9e816560
+  touch_refreshed_at: '2026-06-09T06:00:26.402494Z'
+  touch_content_hash: 4c79d42f78b29e31857823da7552b481070ab51fdcbd3f5b20da50de883eb677
   last_disconnect: null
   schema_version: 2
   closure_must_read_count: 21

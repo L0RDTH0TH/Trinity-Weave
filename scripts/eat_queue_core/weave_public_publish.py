@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
 import subprocess
 from dataclasses import dataclass
@@ -179,6 +180,152 @@ def _export_map_path(vault_path: Path, vault_root: Path) -> str:
     return rel
 
 
+def _fingerprint_file(path: Path) -> str:
+    st = path.stat()
+    return f"{path.resolve().as_posix()}:{st.st_mtime_ns}:{st.st_size}"
+
+
+def compute_weave_publish_fingerprint(
+    vault_root: Path,
+    *,
+    cfg: dict[str, Any] | None = None,
+) -> str:
+    """Content manifest hash for allowlisted weave sources (change detection)."""
+    vault_root = vault_root.resolve()
+    wp = cfg or {}
+    sources = resolve_include_paths(wp, vault_root)
+    parts: list[str] = []
+    for src in sorted(sources, key=lambda p: p.as_posix()):
+        if src.is_file():
+            try:
+                parts.append(_fingerprint_file(src))
+            except OSError:
+                continue
+        elif src.is_dir():
+            for f in sorted(src.rglob("*"), key=lambda p: p.as_posix()):
+                if f.is_file():
+                    try:
+                        parts.append(_fingerprint_file(f))
+                    except OSError:
+                        continue
+    payload = "\n".join(parts)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def weave_publish_commit_subject(
+    *,
+    tick_count: int | None = None,
+    summary: str = "",
+    trigger: str = "schedule_tick",
+) -> str:
+    """Standardized commit subject for Trinity-Weave external backup."""
+    parts = ["chore(weave):", trigger]
+    if tick_count is not None:
+        parts.append(f"tick={tick_count}")
+    parts.append("external-backup sync")
+    if summary:
+        parts.append(f"— {summary[:80]}")
+    return " ".join(parts)[:200]
+
+
+def run_weave_publish_on_schedule_tick(
+    vault_root: Path,
+    config_path: Path,
+    state: dict[str, Any],
+    *,
+    tick_count: int,
+    plane: str = "listener",
+    planes_cfg: Any | None = None,
+) -> dict[str, Any] | None:
+    """
+    Change-gated Trinity-Weave publish for pseudo-clock / schedule_tick.
+
+    Skips when fingerprint unchanged. Updates schedule state on success.
+    """
+    vault_root = vault_root.resolve()
+    merged = load_live_config(vault_root, config_path=config_path)
+    wp = get_weave_publish_config(merged)
+    if not wp.get("enabled", True):
+        return {
+            "action": "weave_public_publish",
+            "skipped": True,
+            "reason": "weave_publish_disabled",
+            "plane": plane,
+        }
+    if wp.get("on_schedule_tick", True) is False:
+        return {
+            "action": "weave_public_publish",
+            "skipped": True,
+            "reason": "on_schedule_tick_disabled",
+            "plane": plane,
+        }
+
+    if planes_cfg is None:
+        from .schedule_config import load_schedule_planes_config
+
+        planes_cfg = load_schedule_planes_config(vault_root)
+
+    if not getattr(planes_cfg, "weave_publish_on_tick_enabled", True):
+        return {
+            "action": "weave_public_publish",
+            "skipped": True,
+            "reason": "weave_publish_on_tick_disabled",
+            "plane": plane,
+        }
+
+    every_n = int(getattr(planes_cfg, "weave_publish_every_n_ticks", 1) or 1)
+    if every_n > 0 and tick_count > 0 and tick_count % every_n != 0:
+        return {
+            "action": "weave_public_publish",
+            "skipped": True,
+            "reason": "cadence_skip",
+            "every_n_ticks": every_n,
+            "plane": plane,
+        }
+
+    fingerprint = compute_weave_publish_fingerprint(vault_root, cfg=wp)
+    prior = str(state.get("weave_publish_fingerprint") or "")
+    if prior and prior == fingerprint:
+        return {
+            "action": "weave_public_publish",
+            "skipped": True,
+            "reason": "unchanged_fingerprint",
+            "fingerprint": fingerprint[:16],
+            "plane": plane,
+        }
+
+    subject = weave_publish_commit_subject(tick_count=tick_count, trigger="schedule_tick")
+    result = run_weave_public_sync(
+        vault_root,
+        config_path,
+        push=bool(wp.get("push_on_sync", True)),
+        summary=subject.replace("chore(weave): ", "", 1),
+        use_lock=True,
+    )
+    payload = dict(result.payload)
+    action: dict[str, Any] = {
+        "action": "weave_public_publish",
+        "plane": plane,
+        "status": result.status,
+        "exit_code": result.exit_code,
+        "fingerprint": fingerprint[:16],
+        "prior_fingerprint": prior[:16] if prior else None,
+        "commit": payload.get("commit"),
+        "pushed": payload.get("pushed"),
+    }
+    if result.status == "completed" and result.exit_code == 0:
+        state["weave_publish_fingerprint"] = fingerprint
+        state["last_weave_publish_at"] = _utc_now()
+        if payload.get("commit"):
+            state["last_weave_publish_commit"] = payload.get("commit")
+    elif result.status == "skipped":
+        action["skipped"] = True
+        action["reason"] = payload.get("reason")
+    else:
+        action["error"] = payload.get("reason") or payload.get("error")
+    return action
+
+
 def scan_forbidden(paths: list[str], forbidden: list[str]) -> list[str]:
     hits: list[str] = []
     for p in paths:
@@ -331,7 +478,12 @@ def run_weave_public_sync(
         commit_sha: str | None = None
         if (st.stdout or "").strip():
             _run([git, "add", "-A"], cwd=export_root, timeout=120).check_returncode()
-            msg = f"chore(weave): public sync {summary or _utc_now()}"[:200]
+            if summary.startswith("chore(weave):"):
+                msg = summary[:200]
+            elif summary.startswith("schedule_tick"):
+                msg = weave_publish_commit_subject(summary=summary, trigger="schedule_tick")[:200]
+            else:
+                msg = f"chore(weave): public sync {summary or _utc_now()}"[:200]
             c = _run([git, "commit", "-m", msg], cwd=export_root, timeout=120)
             if c.returncode != 0:
                 return finish("failed", 1, {"reason": "export_commit_failed", "stderr": c.stderr})

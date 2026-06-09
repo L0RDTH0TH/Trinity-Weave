@@ -111,8 +111,8 @@ meta:
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
   last_disconnect: null
-  touch_content_hash: 842a3a06724211aa5b3f3e6ee67bfb68ddf732c7aa0de2529a0a16def5f7d990
-  touch_refreshed_at: '2026-06-09T05:50:02.632056Z'
+  touch_content_hash: 1f60a7e7da373cb0ba00c9c88ce8287dc2244aa8eb0170bad2e5f00acbc4126f
+  touch_refreshed_at: '2026-06-09T06:00:15.812210Z'
   closure_must_read_count: 21
   provisional: false
   promotion_tier: locked

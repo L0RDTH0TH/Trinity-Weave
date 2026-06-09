@@ -48,7 +48,10 @@ def run_schedule_tick(
 
     if cfg.listener_enabled:
         by_plane["listener"] = run_listener_plane(
-            vault_root, config_path=config_path, state=state
+            vault_root,
+            config_path=config_path,
+            state=state,
+            planes_cfg=cfg,
         )
 
     if cfg.scheduled_enabled:
@@ -103,6 +106,8 @@ def run_schedule_tick(
             "reactive_enabled": cfg.reactive_enabled,
             "graduation_enabled": cfg.graduation_enabled,
             "maintain_wrap_every_n_ticks": cfg.maintain_wrap_every_n_ticks,
+            "weave_publish_on_tick_enabled": cfg.weave_publish_on_tick_enabled,
+            "weave_publish_every_n_ticks": cfg.weave_publish_every_n_ticks,
         },
         "counters": counters,
         "actions_by_plane": by_plane,

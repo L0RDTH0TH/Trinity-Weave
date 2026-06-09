@@ -101,6 +101,7 @@ def run_listener_plane(
     *,
     config_path: Path | None = None,
     state: dict[str, Any],
+    planes_cfg: SchedulePlanesConfig | None = None,
 ) -> list[dict[str, Any]]:
     actions: list[dict[str, Any]] = []
     bundle = vault_root / ".technical" / "parallel" / "institute"
@@ -188,6 +189,30 @@ def run_listener_plane(
         )
     except OSError:
         pass
+
+    try:
+        from .live_config import live_config_path
+        from .weave_public_publish import run_weave_publish_on_schedule_tick
+
+        cfg_path = config_path or live_config_path(vault_root)
+        wp_act = run_weave_publish_on_schedule_tick(
+            vault_root,
+            cfg_path,
+            state,
+            tick_count=int(state.get("tick_count") or 0),
+            plane="listener",
+            planes_cfg=planes_cfg,
+        )
+        if wp_act is not None:
+            actions.append(wp_act)
+    except Exception as exc:
+        actions.append(
+            {
+                "action": "weave_public_publish",
+                "error": str(exc)[:200],
+                "plane": "listener",
+            }
+        )
 
     return actions
 

@@ -54,11 +54,15 @@ Light Phase 18 distribution for **Grok** and external readers: weave maintenance
 
 ## Publish harness
 
+**Manual:**
+
 ```bash
 PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness weave_public_sync --vault-root .
 ```
 
-Config: `Second-Brain-Config.md` § `weave_publish`.
+**Automatic (pseudo-clock):** `schedule_tick` listener plane runs change-gated `weave_public_publish` every tick (when allowlisted fingerprint changes). Commits use `chore(weave): schedule_tick tick=N external-backup sync`. State: `schedule.json` → `weave_publish_fingerprint`, `last_weave_publish_at`.
+
+Config: `Second-Brain-Config.md` § `weave_publish` + `schedule_planes.weave_publish_*`.
 
 ## Related surfaces
 
