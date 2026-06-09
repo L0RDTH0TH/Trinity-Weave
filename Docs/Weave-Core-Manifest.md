@@ -14,6 +14,16 @@ tags: [weave, trinity-weave, phase-18, grok]
 
 Light Phase 18 distribution for **Grok** and external readers: weave maintenance grammar, filled meta, host-weld law. Second Brain vault remains private (Curator); this repo is the **weave design corpus** only.
 
+## Grok observability (auto-generated each sync)
+
+| Artifact | Path | Purpose |
+|----------|------|---------|
+| Start here | `GROK-START-HERE.md` | Grok read order + routing |
+| Machine index | `OBSERVABILITY.json` | Card ids, paths, last publish, routing |
+| Card catalog | `weave/CARD-INDEX.md` | Human table of all shipped cards |
+| Architecture | `Docs/ARCHITECTURE-OVERVIEW.md` | Plain-language system map |
+| Glossary | `Docs/GLOSSARY-FOR-EXTERNAL-READERS.md` | Jargon decoder |
+
 ## Shipped layers
 
 | Layer | Export path | Notes |

@@ -40,6 +40,10 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/Weave-Core-Manifest.md",
     "3-Resources/Second-Brain/Docs/External-Weave-Handoff.md",
     "3-Resources/Second-Brain/Docs/Grok-Trinity-Weave-Context.md",
+    "3-Resources/Second-Brain/Docs/GROK-START-HERE.md",
+    "3-Resources/Second-Brain/Docs/GROK-OBSERVABILITY.md",
+    "3-Resources/Second-Brain/Docs/ARCHITECTURE-OVERVIEW.md",
+    "3-Resources/Second-Brain/Docs/GLOSSARY-FOR-EXTERNAL-READERS.md",
     "3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution.md",
     "3-Resources/Second-Brain/Docs/Trinity-Weave-Export-README.md",
     "3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md",
@@ -50,6 +54,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     ".cursor/rules/always/host-weld-bridge.mdc",
     "scripts/eat_queue_core/weave/",
     "scripts/eat_queue_core/weave_public_publish.py",
+    "scripts/eat_queue_core/weave_observability.py",
     "scripts/eat_queue_core/post_queue_weave_publish.py",
     "scripts/eat_queue_core/harness.py",
     "scripts/eat_queue_core/live_config.py",
@@ -390,7 +395,34 @@ def sync_weave_public_export(
             "copied_before_fail": copied,
         }
 
-    return {"ok": True, "copied": copied, "file_count": len(all_paths)}
+    fingerprint = compute_weave_publish_fingerprint(vault_root, cfg=wp)
+    from .weave_observability import write_observability_artifacts
+
+    obs = write_observability_artifacts(
+        export_root,
+        vault_root,
+        fingerprint=fingerprint,
+    )
+    copied.extend(
+        [
+            obs.get("observability_json", "OBSERVABILITY.json"),
+            obs.get("card_index", "weave/CARD-INDEX.md"),
+            "GROK-START-HERE.md",
+        ]
+    )
+
+    all_paths_after: list[str] = []
+    for root, _dirs, files in os.walk(export_root):
+        for name in files:
+            all_paths_after.append((Path(root) / name).relative_to(export_root).as_posix())
+
+    return {
+        "ok": True,
+        "copied": copied,
+        "file_count": len(all_paths_after),
+        "fingerprint": fingerprint,
+        "observability": obs,
+    }
 
 
 def run_weave_public_sync(

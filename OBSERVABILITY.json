@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "repo": "Trinity-Weave",
+  "remote": "https://github.com/L0RDTH0TH/Trinity-Weave",
+  "branch": "main",
+  "weave_core_version": "2026.06.09-light",
+  "last_publish_utc": "2026-06-09T06:10:39Z",
+  "fingerprint": "f6333b5ed045d7ad956bc23504dca6a70749693917bac59035f400ef74d2da37",
+  "last_commit": null,
+  "grok_start_here": "GROK-START-HERE.md",
+  "observability_doc": "Docs/GROK-OBSERVABILITY.md",
+  "architecture_doc": "Docs/ARCHITECTURE-OVERVIEW.md",
+  "glossary_doc": "Docs/GLOSSARY-FOR-EXTERNAL-READERS.md",
+  "question_routing": {
+    "weave_design": {
+      "repo": "Trinity-Weave",
+      "branch": "main"
+    },
+    "queue_automation": {
+      "repo": "genesis-mythos-master-roadmap",
+      "branch": "iteration-2-roadmap-rules"
+    },
+    "project_roadmap": {
+      "repo": "genesis-mythos-master-roadmap",
+      "branch": "godot-genesis-mythos-master"
+    },
+    "live_runtime": null
+  },
+  "key_paths": {
+    "cards": "weave/components/",
+    "card_index": "weave/CARD-INDEX.md",
+    "registry": "weave/trinity-partition-registry.yaml",
+    "host_weld_safety": "weave/host-weld/live/safety.md",
+    "harness_cli": "scripts/eat_queue_core/harness.py",
+    "weave_python": "scripts/eat_queue_core/weave/",
+    "constitution": "Docs/Maintenance-Trinity-Constitution.md",
+    "manifest": "Docs/Weave-Core-Manifest.md"
+  },
+  "meta_card_ids": [
+    "agent_implementation_style",
+    "config_knob_parity",
+    "cursor_host_adapter",
+    "factory_lifecycle_doctrine",
+    "harness_runtime_contract",
+    "host_execution_safety_contract",
+    "maintenance_honesty_anchor",
+    "persona_atlas",
+    "public_surface_topology",
+    "schedule_event_planes",
+    "trinity_prompt_context",
+    "trinity_weave_public_export",
+    "vault_layout_naming_doctrine"
+  ],
+  "component_card_ids": [
+    "conceptual_style_guide",
+    "ghost_skill_audit",
+    "invariant_registry",
+    "l2_predictive_maintenance",
+    "l2_symbolic_conflict",
+    "l3_self_heal",
+    "l4_adaptive_policy",
+    "lane_activity",
+    "lane_status_board",
+    "launch_registry_reconcile",
+    "little_val_structural",
+    "operator_surface_verifier",
+    "recoverable_handlers",
+    "skill_gap",
+    "trinity_card_authoring",
+    "trinity_spine_maintenance",
+    "trinity_upgrade_integration",
+    "weave_governance"
+  ],
+  "card_count": 31,
+  "harness_commands_weave": [
+    "schedule_tick",
+    "pseudo_clock_tick",
+    "weave_public_sync",
+    "trinity_weave_self_wrap",
+    "trinity_touch_refresh",
+    "trinity_lock_card",
+    "trinity_type2_verify",
+    "trinity_core_charter_audit",
+    "trinity_catchup_sweep",
+    "trinity_provisional_corps_sweep",
+    "post_queue_gitforge",
+    "post_queue_weave_publish"
+  ],
+  "not_in_repo": [
+    "1-Projects/",
+    "Roadmap/",
+    "Ingest/",
+    ".technical/parallel/",
+    ".cursor/agents/",
+    "live Watcher-Result"
+  ],
+  "publish_source": "private Second Brain vault (path not published)",
+  "card_index_path": "weave/CARD-INDEX.md"
+}

@@ -140,5 +140,31 @@ schedule_planes:
             self.assertEqual(r.payload.get("reason"), "weave_publish_disabled")
 
 
+    def test_observability_artifacts_generated(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            vault = Path(td) / "vault"
+            export = Path(td) / "export"
+            vault.mkdir()
+            export.mkdir()
+            comp = vault / ".technical/weave/components"
+            comp.mkdir(parents=True)
+            (comp / "test_card.yaml").write_text(
+                "id: test_card\nconceptual:\n  summary: A test card.\nmeta:\n  card_kind: meta\n",
+                encoding="utf-8",
+            )
+            shutil = __import__("shutil")
+            shutil.copytree(comp, export / "weave" / "components")
+            from eat_queue_core.weave_observability import write_observability_artifacts
+
+            out = write_observability_artifacts(export, vault, fingerprint="abc123")
+            self.assertTrue(out.get("ok"))
+            self.assertTrue((export / "OBSERVABILITY.json").is_file())
+            self.assertTrue((export / "weave" / "CARD-INDEX.md").is_file())
+            import json
+
+            payload = json.loads((export / "OBSERVABILITY.json").read_text())
+            self.assertIn("test_card", payload.get("meta_card_ids", []))
+
+
 if __name__ == "__main__":
     unittest.main()
