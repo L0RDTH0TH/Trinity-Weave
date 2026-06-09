@@ -1,0 +1,107 @@
+id: public_surface_topology
+conceptual:
+  outcome: Public git surfaces stay orthogonal — Curator private, weave doctrine public, integration mirror for ops, engine
+    branches for factory roadmap output only — with zero project-file bleed into weave public.
+  summary: 'This meta card is the **multi-repo export topology** doctrine. Four surfaces: **curator_private** (full vault
+    backup, never public), **weave_public** ([Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) — weave + filled
+    meta + host-weld law for Grok), **integration_mirror** (genesis-mythos-master-roadmap / iteration-2-roadmap-rules — automation
+    ops contract), **engine_roadmap** (per-project branches — factory output Roadmap/ only). **Primary:** operator or harness
+    publishes weave context without 1-Projects/, Ingest/, or runtime parallel trees. **Secondary:** add a new surface or change
+    Grok precedence — update this card, trinity_weave_public_export, Config weave_publish, and Grok custom instructions together.'
+  primary_case: Grok or an external reader needs weave design context. Operator runs weave_public_sync (or post_queue_weave_publish
+    after clean maintenance). Harness copies allowlisted weave slice to isolated checkout, validates forbidden prefixes absent,
+    commits to Trinity-Weave main. Curator and vault paths never enter that checkout. Factory project files (Roadmap/, goals,
+    code repos) stay on engine branches via GitForge Step 1b only.
+  secondary_case: 'Planning a new public surface or Grok repo binding: read locked fit vs trinity_weave_public_export. Ripples:
+    Config keys, harness module, Grok-Second-Brain-Custom-Instructions, audit log schema. Never route project factory output
+    through weave_public.'
+  edge_cases:
+  - Empty export checkout — init clone before first sync.
+  - Forbidden path detected post-rsync — hard fail before commit.
+  - gitforge_lock held — weave publish skips with audit (shared lock).
+  - genesis-mythos game repo — separate from Trinity-Weave; do not conflate.
+  misread_risks:
+  - Treating Trinity-Weave as game code or project Roadmap host.
+  - Publishing 1-Projects via weave_public_sync.
+  - Replacing integration_mirror with weave_public for queue contract questions.
+  - Curator push to public remote.
+  frame_anchor: Export surface separation (primary); plan new surfaces with mesh (secondary).
+  operator_memory_hook: Curator private; Trinity-Weave weave; master-roadmap ops; engine Roadmap only.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Weave-Core-Manifest]]'
+  - '[[3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions]]'
+  - '[[3-Resources/Second-Brain/Docs/git-push-workflow-2026-04-02-0446]]'
+  - '[[.technical/weave/components/trinity_weave_public_export.yaml]]'
+  - '[[.technical/weave/components/trinity_weave_public_export.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave_public_publish.py
+  - scripts/eat_queue_core/post_queue_weave_publish.py
+  - 3-Resources/Second-Brain/Second-Brain-Config.md
+  - 3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md
+  - 3-Resources/Second-Brain/Docs/Weave-Core-Manifest.md
+  inbound:
+  - operator weave_public_sync
+  - post_queue_weave_publish after maintain_wrap or self-wrap
+  - Grok integration setup
+  outbound:
+  - trinity-weave-export checkout
+  - 3-Resources/Second-Brain/Docs/git-audit-log.md
+  harness_commands:
+  - weave_public_sync
+  - post_queue_weave_publish
+rules:
+  forbidden:
+  - publish 1-Projects/, 2-Areas/, Ingest/, Roadmap/, 5-Attachments/ via weave_public
+  - publish .technical/parallel/ runtime trees via weave_public
+  - publish component-proposals/ provisional churn to Trinity-Weave
+  - conflate curator_private with any public surface
+  - treat engine_roadmap factory output as weave doctrine
+  precedence:
+  - curator_private never public
+  - weave_public for Grok weave/design questions
+  - integration_mirror for queue/automation contract
+  - engine_roadmap for project Roadmap narrative only
+  - 'on conflict automation truth: integration_mirror wins until operator deprecates'
+  acceptance:
+  - test_weave_public_publish green
+  - forbidden prefix guard blocks project paths
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_weave_public_publish.py
+  - scripts/eat_queue_core/weave_public_publish.py
+  invariant_ids:
+  - weave_public_no_project_bleed
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: operator_meta_mint
+    phase: 18
+    generated_at: '2026-06-09T12:00:00Z'
+    operator_status: approved_for_lock
+    changelog: '2026-06-09: Trinity-Weave public surface topology — Grok weave context'
+    locked_at: '2026-06-09T12:00:00Z'
+    locked_from: operator_mint
+    lock_kind: maintenance_core
+    promotion_method: operator_meta_mint_lock
+  pairs_with:
+  - trinity_weave_public_export
+  - trinity_prompt_context
+  - cursor_host_adapter
+  - harness_runtime_contract
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  system_mutable: false
+  operator_status: amendment_review_before_relock
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-09T12:00:00Z'
+  rules_confirmed_at: '2026-06-09T12:00:00Z'

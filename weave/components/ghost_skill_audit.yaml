@@ -1,0 +1,105 @@
+id: ghost_skill_audit
+conceptual:
+  outcome: While you are away, scheduled checks keep temporary skill proposals honest
+    — without turning them into production skills on their own.
+  summary: Production skills need you at the keyboard. Away-from-keyboard runs rely
+    on proposal stubs as repeat recipes; skill_gap writes those stubs. This section
+    scans proposals against production and MEMORY patterns and reports drift — it
+    does not author or promote production skills.
+  primary_case: You return after headless work and need confidence the proposal folder
+    did not become canon by accident. A cadence scan surfaces mismatches; you decide
+    what to promote — nothing auto-merges overnight.
+  edge_cases:
+  - No proposals on disk — audit returns empty findings; does not call scan_and_stub.
+  - Orphan gap with no stub — report orphan_gap; do not write stub (skill_gap).
+  - Stale proposal — surface; do not delete proposal files autonomously.
+  - l4 peer pending operating adoption — converse before GHOST_SKILL_AUDIT queue.
+  misread_risks:
+  - Owning stub creation — that is skill_gap.
+  - Listing skill_gap.py in this card primary_paths — scope bleed.
+  - Auto-promoting ghost to .cursor/skills/.
+  - Expecting audit to invent proposals when skill_gap was skipped.
+  - Merging with skill_gap into one card.
+  operator_memory_hook: Proposals overnight; truth when you are back.
+  spine_ordinal: 9
+  set: governance_pyramid
+  polar_pair: skill_gap — writes temp ghost stubs; ghost_skill_audit — audits them.
+  pairs_with:
+  - skill_gap
+  - l4_adaptive_policy
+  - trinity_card_authoring
+  - weave_governance
+  - harness_pseudo_clock_tick
+  does_not:
+  - write_proposal_stub
+  - scan_and_stub
+  - SKILL_PROPOSAL_REVIEW queue from scan
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/ghost_skill_audit.py
+  inbound:
+  - existing files under .technical/**/skill-proposals/ (written by skill_gap or agent)
+  - production .cursor/skills/**/SKILL.md for missing-production checks
+  - MEMORY gap patterns (read-only for orphan_gap detection)
+  - per-lane skill-registry.yaml
+  - touch peer skill_gap — list of new stub paths since last audit
+  - touch peer l4_adaptive_policy — converse before outward queue
+  outbound:
+  - 'findings: stale_proposal | missing_production_skill | orphan_gap'
+  - maintenance PQ mode GHOST_SKILL_AUDIT only (not SKILL_PROPOSAL_REVIEW)
+  - .technical/parallel/maintenance/ghost-skill-last-audit.json
+  - touch peer skill_gap — audit report for next stub pass
+  - touch peer l4_adaptive_policy — converse request
+  behavior_signals:
+  - test_ghost_audit_no_findings_skips_pq
+rules:
+  forbidden:
+  - write or create skill-proposals/*.md stubs — skill_gap only
+  fixtures: []
+  precedence:
+  - audit read-only on proposal tree
+  - assume stubs already exist unless reporting absence via orphan_gap
+  - converse_before_propose with l4_adaptive_policy
+  - converse read skill_gap touch outbound before audit-driven outward queue
+  - 'policy: call scan_and_stub or write_proposal_stub'
+  - 'policy: append maintenance PQ as SKILL_PROPOSAL_REVIEW'
+  - 'policy: auto-write production .cursor/skills/'
+  - 'policy: queue outward proposal without l4 touch peer converse'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - detects stale and missing-production when files present
+  - orphan_gap when gap has no proposal and no queued remediation
+  - never creates proposal files
+contract:
+  proof:
+  - scripts/eat_queue_core/ghost_skill_audit.py
+  - 3-Resources/Second-Brain/Docs/Agent-Continuity-Layer.md
+  - scripts/eat_queue_core/tests/test_core_weave_hooks.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    draft_status: operator_locked
+    conceptual_style: audit_only_overnight_ghost_layer
+    governance_set_ordinal: 9
+    unlocked_at: '2026-06-01T06:27:43.543562Z'
+    unlocked_reason: separation_of_concerns vs skill_gap; prior lock conflated stub
+      paths
+    prior_locked_component: .technical/weave/components/ghost_skill_audit.yaml
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/ghost_skill_audit.yaml
+    locked_as: audit_only_separation_v6
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 178f6e0a4fb1c913bd2f520d31ac9820ce959dcf4d188ca73ab0cdcc327cd773
+  touch_refreshed_at: '2026-06-08T20:47:20.660447Z'
+  closure_must_read_count: 21
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

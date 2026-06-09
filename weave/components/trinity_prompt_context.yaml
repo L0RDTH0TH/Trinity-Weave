@@ -1,0 +1,369 @@
+id: trinity_prompt_context
+conceptual:
+  outcome: Given any trinity_id, operator ingress text, or weave question, hosts use
+    the same honesty-bounded contract — Route, optional Query, then Pull — not scattered
+    funnel improvisation.
+  summary: 'This **meta** card (`card_kind: meta`) is the **Prompt ↔ Trinity contract**
+    — not maintenance-only doctrine, not a duplicate of `trinity_card_authoring` (shape/growth).
+    **Face A (Pull):** given `trinity_id` + `task_kind`, which tier to load, which
+    legs enter the prompt, meta prepend order, write scope, forbidden patterns. **Face
+    B (Route):** given user/operator prompt, how to traverse Trinity (trigger class,
+    persona gate, id resolution order, lane/PQ/harness/layer, `task_kind` for Pull
+    or Query). **Face C (Query — optional):** given `query_kind` + scope, **read-only**
+    weave introspection (nerve map, consumable check, knob parity matrix, factory
+    lifecycle state, bounded closure) — **no** Pull write scope, **no** factory dispatch,
+    **no** external research. Indexes `dispatcher`, `system-funnels`, `trinity_pack`,
+    `persona_atlas`, `Queue-Sources` — does not replace them. Host-agnostic packs;
+    Cursor bindings stay on `cursor_host_adapter`. Nerve row / proof stderr are **10g
+    task overlays**, not this card.'
+  primary_case: 'You say **Fix conduct on harness_l3_validation_drill** or paste a
+    failing proof. Route resolves `trinity_id` + `task_kind: conduct_repair` + optional
+    lane. Pull loads provisional/locked card, prepends meta cards, includes Touch/Rules/Contract
+    per task table, forbids green-wash. **10g** may add stderr overlay; Pull rules
+    still govern write scope (`contract.proof` only). You say **EAT-QUEUE lane godot**
+    — Route says weave cycle, Layer 1 queue, no single consumable id; Pull is not
+    invoked for pack on one card. You say **We are making a prompt** — Route sends
+    Prompt Crafter funnel; no `trinity_pack` until queue line confirmed. You ask **Which
+    harness cards are conduct-red?** — Route sets `ingress_class: question` and `query_kind:
+    nerve_status`; **Query** reads corps-nerve-map (bounded), returns structural tier
+    answer with ids and paths — **Pull is not invoked**. You ask **Can I pack this
+    provisional on maintenance PQ?** — Route → `query_kind: consumable_check` → Query
+    only. Mixed ingress (**what is red on godot lane and fix conduct on harness_x**)
+    → Query narrow scope first, then Route/Pull for the action half.'
+  edge_cases:
+  - Explicit trinity_id in message — Route uses it before mode table.
+  - Non-consumable provisional on maintenance PQ — Route hard stop per trinity_pack.
+  - Architect packet mode — Route blocks inline pipeline until goal-authority confirmed.
+  - MCP-less Task subagent — Pull still applies; safety best-effort per agent_implementation_style.
+  - Multiple ids in one message — Route picks primary or asks one clarifying question.
+  - Meta card self-reference — Pull includes this card in prepend order after style
+    + authoring.
+  - Query-only ingress — no Pull, no write_scope, no queue append.
+  - Mixed question + command — Query first on question slice; Pull only for resolved
+    action trinity_id.
+  - Query cap exceeded — truncate with honesty uncertainty; never dump whole vault.
+  - Query on external/web research intent — Route to Research factory; Query stays
+    weave introspection only.
+  misread_risks:
+  - Treating this as A-meta maintenance repair only — it is **meta** for **all** hosts
+    and ids.
+  - Baking nerve red into doctrine — nerve data is 10g overlay.
+  - Replacing dispatcher/system-funnels bodies — index + digest only.
+  - Pull includes whole vault — forbidden; caps in Rules.
+  - Route guesses id on ambiguous chat — must clarify or needs_confirm.
+  - Duplicating Prompt Crafter Q&A — Route indexes crafter; does not embed §1 questions.
+  - Cursor Task assumptions on this card — use cursor_host_adapter.
+  - Using Pull audit_readonly as substitute for Query — Query is smaller, no action
+    legs.
+  - Query performing regen, conduct repair, or PQ writes — forbidden.
+  - Treating Query as long-form vault synthesis — bounded structural answers only.
+  - Skipping Query on ambiguous status questions and loading full meta prepend via
+    Pull.
+  frame_anchor: Ingress **Route**; optional read-only **Query**; action **Pull**.
+  operator_memory_hook: Route → (Query?) → Pull; Query never writes.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution]]'
+  - '[[3-Resources/Second-Brain/Queue-Sources]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[.cursor/rules/always/dispatcher]]'
+  - '[[.cursor/rules/always/system-funnels]]'
+  - '[[.cursor/rules/always/architect-goal-packet-shield]]'
+  - '[[.cursor/rules/context/curator-agent]]'
+  - '[[.technical/weave/components/trinity_card_authoring.yaml]]'
+  - '[[.technical/weave/components/conceptual_style_guide.yaml]]'
+  - '[[.technical/weave/components/persona_atlas.yaml]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/factory_lifecycle_doctrine.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/config_knob_parity.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/maintenance_honesty_anchor.yaml]]'
+  - '[[.technical/weave/components/host_execution_safety_contract.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/trinity_prompt_context_slice.py
+  - scripts/eat_queue_core/weave/trinity_pack.py
+  - scripts/eat_queue_core/weave/trinity_card_paths.py
+  - scripts/eat_queue_core/weave/trinity_conceptual_doctrine.py
+  inbound:
+  - user/operator prompt (Route face)
+  - trinity_id + task_kind (Pull face)
+  - build_conceptual_regen_pack consumers
+  - build_conduct_repair_pack (10g — pending)
+  - Layer 0 dispatcher digest (read-only)
+  - query_kind + scope (Query face)
+  - ingress_class question | command | mixed
+  outbound:
+  - TrinityRouteResult (route advisory)
+  - PromptContextBundle (pull bundle)
+  - regen pack markdown / JSON hand-off
+  - TrinityQueryResult (query advisory)
+  meta_prepend_order:
+  - conceptual_style_guide
+  - trinity_card_authoring
+  - config_knob_parity
+  - maintenance_honesty_anchor
+  - host_execution_safety_contract
+  - factory_lifecycle_doctrine
+  - agent_implementation_style
+  - harness_runtime_contract
+  - schedule_event_planes
+  - cursor_host_adapter
+  - persona_atlas
+  - vault_layout_naming_doctrine
+  - trinity_prompt_context
+  task_kinds:
+  - expand_self
+  - audit_readonly
+  - roadmap_continue
+  - generator_emit
+  - architect_packet
+  - prompt_crafter
+  - curator_capture
+  - queue_recovery
+  - redesign_factory
+  - conceptual_regen
+  - regen_burn
+  - weave_cycle
+  - conduct_repair
+  - acceptance_audit
+  - weave_query
+  behavior_signals:
+  - test_eat_queue_routes_weave_cycle
+  - test_prompt_crafter_trigger
+  - test_conduct_repair_extracts_harness_id
+  - test_pull_conduct_repair_includes_contract
+  - test_query_nerve_status_readonly
+  - test_query_consumable_check_no_write_scope
+  - test_route_question_skips_pull
+  - test_mixed_ingress_query_then_pull
+  task_meta_faces:
+    regen_burn:
+    - config_knob_parity
+    - maintenance_honesty_anchor
+    - factory_lifecycle_doctrine
+    - agent_implementation_style
+    redesign_factory:
+    - factory_lifecycle_doctrine
+    - config_knob_parity
+    - maintenance_honesty_anchor
+    - harness_runtime_contract
+    conduct_repair:
+    - maintenance_honesty_anchor
+    - agent_implementation_style
+    acceptance_audit:
+    - maintenance_honesty_anchor
+    - config_knob_parity
+    generator_emit:
+    - trinity_card_authoring
+    - agent_implementation_style
+    weave_cycle:
+    - harness_runtime_contract
+    - schedule_event_planes
+    expand_self:
+    - trinity_card_authoring
+    - agent_implementation_style
+    - config_knob_parity
+    - schedule_event_planes
+    weave_query:
+    - maintenance_honesty_anchor
+    - config_knob_parity
+    - factory_lifecycle_doctrine
+  query_kinds:
+    nerve_status:
+      sources:
+      - .technical/weave/corps-nerve-map.json
+      - corps tier counts
+      answers: conduct red/yellow ids, tier booleans, disconnect kinds
+    consumable_check:
+      sources:
+      - trinity_pack.resolve_consumable_trinity_id
+      - trinity_dual_lock
+      answers: consumable yes/no, lock_kind, advisory reason
+    knob_parity:
+      sources:
+      - .technical/weave/validation/knob-parity-matrix.json
+      - config_knob_parity meta
+      answers: factory × speed_mode cell status, documented asymmetry rows
+    factory_lifecycle:
+      sources:
+      - factory_lifecycle_doctrine meta
+      - maintenance-decisions.jsonl
+      answers: rust grade, refurb vs redesign_factory recommendation (advisory)
+    closure_read:
+      sources:
+      - trinity card touch.primary_paths
+      - bounded closure hop cap
+      answers: paths, linked ids — no full vault walk
+rules:
+  forbidden:
+  - whole-vault dump in prompt context
+  - unrelated trinity_id legs in one bundle
+  - green-wash (import-only pass, deleted asserts, skip tests)
+  - edit legs outside task write_scope
+  - replace dispatcher or Prompt Crafter Q&A bodies in this card
+  - maintenance_core YAML write without --operator-mutation
+  - Query face invoking Pull write_scope or regen/conduct repair
+  - Query dumping whole vault or unbounded closure
+  - Query substituting for Research factory external fetch
+  - Pull on pure question ingress without Route ingress_class command or mixed split
+  fixtures: []
+  precedence:
+  - Route before Pull on ingress — resolve task_kind then assemble context
+  - 'policy: meta card — card_kind meta; fixed id trinity_prompt_context'
+  - 'policy: Pull — prefer provisional tier unless task requires locked components'
+  - 'policy: Pull conceptual_regen — conceptual block only'
+  - 'policy: Pull conduct_repair — contract.proof paths only for writes'
+  - 'policy: Route weave_cycle — EAT-QUEUE → Layer 1 Task(queue); no single consumable
+    id'
+  - 'policy: Route prompt_crafter — We are making a prompt → full Q&A before append'
+  - 'policy: Route architect_packet — goal-authority before inline pipelines'
+  - 'policy: Route ambiguous — one clarifying question; never guess trinity_id'
+  - 'policy: id resolution — explicit id → resolve_consumable_trinity_id → mode table
+    → path→touch'
+  - 'policy: persona gate — Architect vs Curator vs Weave per persona_atlas'
+  - 'policy: 10g overlay — proof stderr + nerve fields; does not override Pull write_scope'
+  - 'meta prepend: task_meta_faces selects doctrine beyond base meta_prepend_order'
+  - 'policy: redesign_factory — load factory_lifecycle_doctrine + config_knob_parity
+    + maintenance_honesty_anchor'
+  - 'policy: regen_burn — load factory_lifecycle + honesty + knob parity + agent_implementation_style'
+  - 'Route classifies ingress_class: question | command | mixed'
+  - question → Query (optional terminal); command → Pull; mixed → Query narrow then
+    Pull action slice
+  - Query before Pull when mixed ingress unless operator explicitly action-only
+  - 'policy: Query — read-only; claim_tier structural; cite paths/ids; uncertainty
+    when incomplete'
+  - 'policy: Query — max_hops and max_ids caps in Rules; truncate with honesty block'
+  - 'policy: Query query_kinds — weave introspection only; external research → Research
+    factory Route'
+  route_table:
+  - trigger: EAT-QUEUE lane <token>
+    outcome: layer1_queue; lane filter; task_kind weave_cycle
+  - trigger: Resume roadmap / RESUME_ROADMAP
+    outcome: resolve_trinity_id_for_mode; task_kind roadmap_continue
+  - trigger: trinity_weave_self_wrap --full-corpus
+    outcome: harness acceptance_audit; id trinity_spine_maintenance or harness card
+  - trigger: trinity_weave_self_wrap --full-corpus --regenerate-complete
+    outcome: task_kind regen_burn; scorched-earth gate
+  - trigger: We are making a prompt
+    outcome: prompt_crafter funnel; no trinity_pack until confirmed append
+  - trigger: overnight / goal packet / headless architect
+    outcome: architect_packet; packet shield
+  - trigger: museum / curator capture
+    outcome: curator_capture; lane institute not curator
+  - trigger: Fix conduct on <trinity_id>
+    outcome: task_kind conduct_repair; Pull then 10g
+  - trigger: trinity_redesign_factory
+    outcome: task_kind redesign_factory; A/B provisional; operator deprecate gate
+  - trigger: trinity_weave_self_wrap --expand-self
+    outcome: task_kind expand_self; scoped delta; no scorched earth
+  - trigger: what is conduct red / which cards are red / nerve status
+    outcome: ingress_class question; query_kind nerve_status; Query face; no Pull
+  - trigger: can I pack / consumable check / is * consumable
+    outcome: ingress_class question; query_kind consumable_check; Query face
+  - trigger: knob parity / speed_mode parity / matrix gap
+    outcome: ingress_class question; query_kind knob_parity; Query face
+  - trigger: refurb or redesign / factory lifecycle / rust grade
+    outcome: ingress_class question; query_kind factory_lifecycle; Query face
+  pull_leg_inclusion:
+    conceptual_regen: touch, rules, conceptual_draft
+    conduct_repair: touch, rules, contract, conceptual_outcome
+    generator_emit: touch, rules, conceptual, contract
+    audit_readonly: conceptual, touch, rules, contract
+    queue_recovery: touch, rules, contract
+    acceptance_audit: touch, contract
+    redesign_factory:
+    - touch
+    - rules
+    - contract
+    - conceptual
+    expand_self:
+    - touch
+    - rules
+    - contract
+    weave_query: []
+  acceptance:
+  - test_eat_queue_routes_weave_cycle green
+  - test_conduct_repair_extracts_harness_id green
+  - test_pull_conduct_repair_includes_contract green
+  - test_query_nerve_status_readonly green
+  - test_query_consumable_check_no_write_scope green
+  - test_route_question_skips_pull green
+  query_leg_inclusion:
+    weave_query:
+    - conceptual_outcome
+    - rules
+    nerve_status:
+    - touch
+    - rules
+    consumable_check:
+    - touch
+    - rules
+    - contract
+    knob_parity:
+    - conceptual
+    - rules
+    factory_lifecycle:
+    - conceptual
+    - rules
+    closure_read:
+    - touch
+    - rules
+  meta_prepend_order:
+  - conceptual_style_guide
+  - trinity_card_authoring
+  - config_knob_parity
+  - maintenance_honesty_anchor
+  - host_execution_safety_contract
+  - factory_lifecycle_doctrine
+  - agent_implementation_style
+  - harness_runtime_contract
+  - schedule_event_planes
+  - cursor_host_adapter
+  - persona_atlas
+  - vault_layout_naming_doctrine
+  - trinity_prompt_context
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_prompt_context_slice.py
+  - scripts/eat_queue_core/weave/trinity_prompt_context_slice.py
+  - scripts/eat_queue_core/tests/test_trinity_query_context.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_kind: meta
+  anatomy: A-meta-target
+  card_class: complete_draft
+  source:
+    kind: phase_11b_meta_draft
+    phase: 11b
+    generated_at: '2026-06-04T22:00:00Z'
+    operator_status: draft_for_polish_and_lock
+    locked_at: '2026-06-05T23:46:03Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+    updated_at: '2026-06-05T21:00:00Z'
+    changelog: '2026-06-05: Face C Query (optional read-only); task_meta_faces; redesign_factory
+      + expand_self; Route → Query? → Pull'
+    promoted_from: meta-review-20260605
+    promoted_at: '2026-06-05T23:45:41Z'
+    promotion_method: operator_meta_review_lock
+  pairs_with:
+  - trinity_card_authoring
+  - conceptual_style_guide
+  - persona_atlas
+  - harness_runtime_contract
+  - agent_implementation_style
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  promotion_tier: locked
+  provisional: false
+  system_mutable: false
+  operator_status: amendment_review_before_relock
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-05T23:46:03Z'
+  rules_confirmed_at: '2026-06-05T23:46:03Z'
+  touch_content_hash: 1334fc381c8117354bc8fd00c3db4c1b89d829b9577435f8196f7678bf036e7c
+  touch_refreshed_at: '2026-06-08T21:22:46.162728Z'
+  closure_must_read_count: 15

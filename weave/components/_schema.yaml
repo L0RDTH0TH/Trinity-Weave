@@ -1,0 +1,104 @@
+# Component Trinity card schema (v2)
+# Normative human doc: 3-Resources/Second-Brain/Docs/Component-Trinity.md
+# Scope: one card per weave **code section** (component), NOT per project lane.
+schema_version: 2
+
+required_top_level:
+  - id
+  - conceptual
+  - touch
+  - rules
+  - contract
+  - meta
+
+conceptual:
+  role: user_alignment
+  description: What we are trying to achieve; Touch and Rules support this leg.
+  required:
+    - summary
+    - primary_case
+  optional:
+    - outcome
+    - edge_cases
+    - misread_risks
+    - operator_trust
+    - style
+    - refs
+  operator_gate: true
+
+touch:
+  role: agent_run_alignment
+  description: How we achieve the outcome through the weave (paths, closure, blast radius).
+  required:
+    - primary_paths
+  optional:
+    - blast_radius
+    - inbound
+    - outbound
+    - queue_modes
+    - behavior_signals
+    - behavior_signals_locked
+
+rules:
+  role: agent_understanding_alignment
+  description: How the LLM must act when editing or maintaining this code section.
+  required: []
+  optional:
+    - forbidden
+    - fixtures
+    - precedence
+    - acceptance
+    - maintainer_invocation
+  operator_gate: true
+
+contract:
+  role: harness_verification
+  description: Machine checks only (proof paths, invariant registry); not LLM instruction.
+  optional:
+    - proof
+    - invariant_ids
+
+meta:
+  optional:
+    - touch_refreshed_at
+    - touch_content_hash
+    - last_disconnect
+    - conceptual_confirmed_at
+    - rules_confirmed_at
+    - schema_version
+
+trinity_pack_envelope:
+  must_read_max_paths: 21
+  must_read_max_hops: 3
+  includes_legs:
+    - conceptual
+    - rules
+    - touch
+  disconnect_block_when_non_empty: true
+
+disconnect_kinds:
+  - precedence_collapse
+  - error_narrative_drift
+  - rules_conceptual_gap
+  - touch_conceptual_gap
+  - goal_impetus_gap
+  - touch_impetus_gap
+
+pilot_disconnect_rules_v1:
+  - precedence_collapse
+  - error_narrative_drift
+
+legacy_v1_keys:
+  goal: migrated to rules + contract + conceptual.outcome
+  impetus: migrated to conceptual
+
+meta_card:
+  trinity_id: trinity_card_authoring
+  path: .technical/weave/components/trinity_card_authoring.yaml
+  role: Normative reference for auto-generating component cards; operator validates Conceptual.
+  note: Not in pilot trio; excluded from trinity_align pilot_only batch unless --trinity-id set.
+
+voice:
+  conceptual: Prose allowed — operator validates intent; keep self-contained (no session context).
+  touch_rules_contract: Caveman — paths, lists, imperative fragments; token-cheap for trinity_pack.
+  generation: Auto-draft from inventory; operator review; see trinity_card_authoring meta card.

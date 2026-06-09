@@ -1,0 +1,97 @@
+id: invariant_registry
+conceptual:
+  outcome: Shared law lives in one apex place so every section references the same
+    non-negotiables instead of reinventing them.
+  summary: Apex of the policy spine for cross-cutting invariants operators and automation
+    must honor. Local discipline stays on the section that owns the behavior; only
+    shared law is registered here. Deliberate updates — not a repair engine or operator
+    surface.
+  primary_case: 'You are about to add another never-do-X somewhere in the weave. You
+    pause: shared law belongs here and is referenced by id; local discipline stays
+    on the owning section.'
+  edge_cases:
+  - New shared truth not yet registered — propose and activate through governance,
+    don't shadow-write in rules.
+  - Local Rules leg only — editing discipline for one component; does not replace
+    registry.
+  - Pending vs active — registered but not yet enforcing until governance approves
+    higher-risk law.
+  misread_risks:
+  - Treating this as an allow list of permitted repairs — that is a different concept.
+  - Duplicating shared law on every card instead of referencing the apex.
+  - Inventing forbidden logic in chat because it feels faster than registering law.
+  - Confusing shared law with save-point integrity — different layers of honesty.
+  - Thinking bootstrap seeds define the whole concept — they seed members; the class
+    is shared law at the apex.
+  operator_memory_hook: One apex for shared law; everything else references it.
+  spine_ordinal: 1
+  set: governance_pyramid
+  polar_pair: recoverable_handlers — registry is shared must/must-not; recoverable
+    class is permitted repair when broken.
+  pairs_with: l2_symbolic_conflict (enforcement reader), all Trinity cards' Rules
+    legs (reference, not duplicate)
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/invariant_registry.py
+  inbound:
+  - GOVERNANCE_REVIEW / counselor activation
+  - maintenance_handlers activate_invariant
+  outbound:
+  - .technical/weave/invariants/*.yaml
+  - .technical/weave/invariants/registry_index.json
+  - weave metrics via invariant_registry_bootstrap
+  behavior_signals:
+  - test_bootstrap_n2_creates_invariants
+  - test_medium_invariant_requires_counselor
+  - test_forbidden_flag_blocks_when_enforced
+  - test_clean_context_proceeds
+rules:
+  forbidden:
+  - add shadow forbidden logic in rules or skills without a registry entry when K3
+    is enabled
+  - activate medium or high risk invariants without counselor_approved
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures: []
+  precedence:
+  - list active invariants before symbolic gate evaluation
+  - bootstrap only when registry empty or force requested
+  - low risk may auto-activate on bootstrap; medium+ remain pending_counselor until
+    approved
+  - refresh registry_index after any invariant write
+  - 'policy: delete or overwrite active invariant YAML without governance review trail'
+  - 'policy: treat registry_index.json as authoritative over per-invariant YAML files'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_weave_symbolic green
+  - test_l2_validation_drill bootstrap + activate paths
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/invariant_registry.py
+  - scripts/eat_queue_core/tests/test_weave_symbolic.py
+  - scripts/eat_queue_core/weave/l2_validation_drill.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: apex_shared_law_rules_spine
+    governance_set_ordinal: 1
+    supersedes_backfill: .technical/weave/proposals/wide-net-v2/cards/invariant_registry.yaml
+    generated_at: '2026-06-01T00:06:52Z'
+    conceptual_revised_at: '2026-06-01T00:25:27Z'
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/invariant_registry.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 0f57a5c9ac36cc9e7020722a55bf46dcb74f1da7cce3d4ed11389a5459762173
+  touch_refreshed_at: '2026-06-04T04:41:05.505371Z'
+  closure_must_read_count: 13
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

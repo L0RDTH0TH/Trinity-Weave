@@ -1,0 +1,43 @@
+---
+description: "Host weld bridge — read manifest + active/trialing host law from .technical/weave/host-weld/ before factory dispatch. Maintenance never writes this file or other .cursor/rules/**."
+globs: []
+alwaysApply: true
+---
+
+# Host weld bridge (immutable socket)
+
+**Operator-owned.** Maintenance and self-wrap **must not** edit `.cursor/rules/**` (including this file). Host law lives under **`.technical/weave/host-weld/`**.
+
+## Session contract
+
+1. **Read** `.technical/weave/host-weld/manifest.yaml` at session start and before factory dispatch (`INGEST`, `EAT-QUEUE`, `ROADMAP`, `ARCHITECT`, `CURATOR`, queue modes, etc.).
+2. **Load** every manifest entry with `status: active` or `status: trialing` from paths relative to the vault root.
+3. Treat loaded **`live/`** and **`pilots/`** documents as **host law** at equal weight to native rules below this bridge — after locked Trinity meta (see `trinity_prompt_context` prepend order).
+4. **Never** autonomously write, rename, or delete under `.cursor/rules/**`.
+5. Host-weld mutations are **maintenance-only** under `.technical/weave/host-weld/` via `host_weld_sync` (future harness step).
+
+## Precedence (on conflict)
+
+1. Locked Trinity **meta** cards (MVL prepend — honesty, **execution safety**, style, …)
+2. **host-weld** `live/` and `trialing` `pilots/`
+3. This bridge socket + remaining **socket_retained** stubs (blacklist, curator backup, watcher format)
+4. Chat / operator message
+
+**Archived legacy** (e.g. `4-Archives/Resources/Second-Brain-Host-Weld-Legacy/`) is **reference only** — not active host law.
+
+## Socket retained (native stubs)
+
+These remain under `.cursor/rules/` until operator promotes compiled law:
+
+- `.cursor/rules/agents/execution-safety-blacklist.mdc` — delete → trash, no shell `rm`
+- `.cursor/rules/agents/curator-mandatory-backup.mdc` — post-edit Curator snapshot tail
+- `.cursor/rules/always/watcher-result-append.mdc` — Watcher-Result line format
+
+Doctrine digest for execution gates: **`.technical/weave/host-weld/live/safety.md`** (from locked `host_execution_safety_contract` meta).
+
+## Cross-links
+
+- [[.technical/weave/host-weld/manifest.yaml]]
+- [[.technical/weave/components/host_execution_safety_contract.yaml]]
+- [[.technical/weave/components/cursor_host_adapter.yaml]]
+- [[3-Resources/Second-Brain/Docs/Safety-Invariants]]

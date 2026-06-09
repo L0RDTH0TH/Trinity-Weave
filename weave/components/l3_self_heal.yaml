@@ -1,0 +1,125 @@
+id: l3_self_heal
+conceptual:
+  outcome: When a stall is recoverable, orchestration runs in a fixed order so closure
+    is attempted before spin resumes.
+  summary: L3 owns the ordered closure recipe after recoverability is established
+    — not the handler catalog, not the board. Preconditions, anti-spin, mapped reconciliation,
+    post-heal verification, and momentum checks run in sequence; skipping steps is
+    forbidden.
+  primary_case: A lane stalled but the fault class is recoverable. You expect one
+    disciplined cycle — mapped reconciliation, honest operator surface, restored momentum
+    — or escalation instead of circling.
+  edge_cases:
+  - L3 disabled → no auto orchestration; stall and ticket remain.
+  - Lane or handler outside rollout phase → skip auto orchestration.
+  - Same stall fingerprint → skip repeat closure (anti-spin).
+  - max L3 attempts per stall → stop auto orchestration for that stall.
+  - Post-heal verifier fail → human_gate when auto_rollback configured.
+  - eat_retry false (drills) → handler and verify only; lane retry skipped; partial
+    closure path.
+  - eat_retry true (production default) → lane retry required for full closure.
+  misread_risks:
+  - Treat L3 as recoverability classification — trinity_id recoverable_handlers owns
+    that.
+  - Recovery roulette or retry until lucky.
+  - Handler ok equals stall closed without verify or lane retry.
+  - Repeat closure without new evidence.
+  - Verifier fail treated as soft success.
+  operator_trust: 'Operator sees rollout, last heal, and attempts on the board L3
+    section — auto closure is visible and bounded, not hidden loops.
+
+    '
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Weave-L3-Self-Healing]]'
+  - '[[3-Resources/Second-Brain/Docs/Lane-Recovery-and-Recoverable-Codes]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[.technical/weave/components/recoverable_handlers.yaml]]'
+  - '[[.technical/weave/components/lane_status_board.yaml]]'
+  operator_memory_hook: Recoverable stall → ordered closure, not spin.
+touch:
+  blast_radius: .technical/weave/blast-radius/l3-closure-orchestration.yaml
+  primary_paths:
+  - scripts/eat_queue_core/weave/l3_self_heal.py
+  - scripts/eat_queue_core/lane_recovery.py
+  inbound:
+  - scripts/eat_queue_core/recoverable_handlers.py
+  - scripts/eat_queue_core/recoverable_codes.py
+  - scripts/eat_queue_core/headless_orchestrator.py
+  - .technical/parallel/*/lane-stall.json
+  outbound:
+  - scripts/eat_queue_core/lane_status_board.py
+  - scripts/eat_queue_core/weave/verifier.py
+  - .technical/weave/metrics.jsonl
+  - Ingest/Lane-Status-Board.md
+  queue_modes:
+  - REPAIR_PLAYBOOK
+  behavior_signals:
+  - test_rollout_f2_blocks_sandbox_lane
+  - test_rollout_f4_all_lanes
+  - test_f2_blocks_ghost_handler
+  - test_handler_blocked_under_f2_config
+  - test_verifier_requires_l3_section
+rules:
+  forbidden:
+  - classify recoverability inside L3
+  - recovery roulette or unbounded retry
+  - repeat closure without new evidence
+  - claim closure on handler ok alone
+  - skip post_heal_verify when required
+  fixtures:
+  - f2_blocks_sandbox_auto_heal
+  - f4_permits_all_lanes
+  precedence:
+  - preconditions recoverable retry eligible rollout permit
+  - anti_spin new_evidence_for_retry
+  - execute mapped reconciliation via recoverable_handlers
+  - post_heal_verify operator surface
+  - headless_eat lane retry when eat_retry true
+  - record metric apply caps
+  - escalate human_gate or true_stop on closure fail
+  - 'policy: skip lane retry in production auto-heal when eat_retry enabled'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_weave_l3 green
+  - l3 board section present in REQUIRED_SECTIONS
+  - metrics append l3_self_heal rows
+  maintainer_invocation: 'MAINTAIN OPERATOR SURFACE
+
+    trinity_id: l3_self_heal
+
+    concept: l3_closure_orchestration
+
+    serve: ordered stall closure when recoverable holds
+
+    forbidden: recovery roulette, skip verify, repeat without new evidence
+
+    gate: closure order 1-7; recoverability from recoverable_handlers
+
+    '
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/l3_self_heal.py
+  - scripts/eat_queue_core/lane_recovery.py
+  - scripts/eat_queue_core/tests/test_weave_l3.py
+  - scripts/eat_queue_core/tests/test_l3_validation_drill.py
+  - scripts/eat_queue_core/weave/l3_validation_drill.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  requires_trinity_id: recoverable_handlers
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  last_disconnect: null
+  touch_content_hash: 842a3a06724211aa5b3f3e6ee67bfb68ddf732c7aa0de2529a0a16def5f7d990
+  touch_refreshed_at: '2026-06-09T05:50:02.632056Z'
+  closure_must_read_count: 21
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false
+  source:
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core

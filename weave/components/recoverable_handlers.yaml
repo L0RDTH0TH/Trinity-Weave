@@ -1,0 +1,150 @@
+id: recoverable_handlers
+conceptual:
+  outcome: Recoverable problems are a bounded class — diagnosed with confidence, obvious
+    reconciliation, forward-assisting, blast-bounded — before orchestration spends
+    cycles on them.
+  summary: Defines the recoverability class, not today's handler list. A stall is
+    spin without closing the locus. Recoverable means safe to automate closure with
+    a known recipe; allowlisted handlers in code are current members and evolve with
+    doctrine.
+  primary_case: Something fails mid-run but feels familiar. You expect classification,
+    gates, then one mapped reconciliation that assists momentum — or an early not-recoverable
+    signal instead of heroic guessing.
+  edge_cases:
+  - Unknown primary_code → non_recoverable (fail closed) — not a member gap to improvise.
+  - human_gate and require_confirm → ticket without auto-reconciliation.
+  - release_pq_lock skips when holder alive — not failed repair; avoids breaking live
+    work.
+  - operator_surface_repair Phase 1 member = board refresh; class allows richer members
+    when proven.
+  - Trinity disconnect queues OPERATOR_SURFACE_REPAIR; member may refresh board while
+    class tracks root cause.
+  - reconcile_launch_registry as handler is repair member, not bypass of mandatory
+    pre-read on reads.
+  - predictive critical tier may block high-blast members; class still recoverable
+    when tier permits.
+  - stall_class non_recoverable or irrecoverable → route to L5 agent swarm (trinity_id
+    l5_sandbox; off by default — ticket + human gate until armed). L5 sandbox loop
+    is the test slice only, not the full agent swarm system.
+  misread_risks:
+  - Treat allowlist as the definition of recoverability instead of the class criteria.
+  - Improvise handlers off-catalog on low confidence.
+  - Confuse stall with any error — circling without advance vs one-shot failure.
+  - operator_surface_repair name implies full weave/code repair — member is refresh-only
+    today.
+  - Skip symbolic or predictive gates because handler looks harmless.
+  - Assume handler ok means lane healed — verifier and retry are separate.
+  operator_trust: 'Operator trusts that recoverable means the system knew what it
+    hit and chose a reconciliation that moves forward without wrecking the run. When
+    the class test fails, fail closed — ticket and human gate; irrecoverable operations
+    route to L5 agent swarm when armed (trinity_id l5_sandbox; off by default). L5
+    sandbox loop is the test slice only, not the full agent swarm system.
+
+    '
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Lane-Recovery-and-Recoverable-Codes]]'
+  - '[[3-Resources/Second-Brain/Docs/Weave-L3-Self-Healing]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[.technical/weave/components/l3_self_heal.yaml]]'
+  - '[[.technical/weave/components/l5_sandbox.yaml]]'
+  - '[[.technical/weave/components/launch_registry_reconcile.yaml]]'
+  - '[[.technical/weave/components/lane_status_board.yaml]]'
+  operator_memory_hook: Known fault class → one mapped reconciliation.
+touch:
+  blast_radius: .technical/weave/blast-radius/recoverable-repair.yaml
+  primary_paths:
+  - scripts/eat_queue_core/recoverable_handlers.py
+  - scripts/eat_queue_core/recoverable_codes.py
+  inbound:
+  - scripts/eat_queue_core/lane_recovery.py
+  - scripts/eat_queue_core/maintenance_handlers.py
+  - scripts/eat_queue_core/weave/predictive.py
+  - scripts/eat_queue_core/weave/symbolic_conflict.py
+  - scripts/eat_queue_core/weave/l3_self_heal.py
+  outbound:
+  - scripts/eat_queue_core/lane_status_board.py
+  - scripts/eat_queue_core/launch_registry_reconcile.py
+  - scripts/eat_queue_core/ghost_skill_audit.py
+  - scripts/eat_queue_core/pq_lock.py
+  - .technical/parallel/*/prompt-queue.jsonl
+  - .technical/weave/metrics.jsonl
+  - scripts/eat_queue_core/weave/l5_sandbox.py
+  queue_modes:
+  - OPERATOR_SURFACE_REPAIR
+  - REPAIR_PLAYBOOK
+  - MAINTAIN OPERATOR SURFACE
+  behavior_signals:
+  - test_pq_locked_recoverable
+  - test_unknown_fail_closed
+  - test_ensure_lane_bundle_handler
+  - test_release_pq_lock_handler_skips_live_holder
+  - test_release_pq_lock_handler_clears_dead_holder
+  - test_operator_surface_repair_handler_wrapped_refresh
+  - test_registry_stale_code_maps_handler
+rules:
+  forbidden:
+  - treat allowlist as recoverability definition
+  - reconcile on low confidence or unbounded blast
+  - improvise handler off catalog
+  - skip predictive or symbolic gates
+  - open-ended backbone or rules mutation overnight
+  - confuse stall with any error without circling semantics
+  - handler success without forward-momentum check
+  fixtures:
+  - pq_locked_recoverable
+  - unknown_code_fail_closed
+  - live_holder_skip_release
+  precedence:
+  - classify stall and primary_code before any handler
+  - recoverability class criteria before member selection
+  - gate chain before handler impl
+  - fail closed to ticket when class test fails
+  - irrecoverable routes to L5 agent swarm (l5_sandbox) when armed; else human gate
+  - L3 when-to-auto-heal defers to l3_self_heal card
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - recoverable class tests green
+  - unknown codes non_recoverable
+  - gated run_recoverable_handler returns structured ok or error
+  maintainer_invocation: 'MAINTAIN OPERATOR SURFACE
+
+    trinity_id: recoverable_handlers
+
+    concept: recoverable_repair
+
+    serve: bounded reconciliation — high confidence, forward movement, won''t break
+    work
+
+    forbidden: off-catalog improvise, skip gates, open-ended backbone edit
+
+    gate: classify recoverable → member handler → predictive + symbolic
+
+    '
+contract:
+  proof:
+  - scripts/eat_queue_core/recoverable_handlers.py
+  - scripts/eat_queue_core/recoverable_codes.py
+  - scripts/eat_queue_core/tests/test_phase_d_e.py
+  - scripts/eat_queue_core/tests/test_pq_lock_guard.py
+  - scripts/eat_queue_core/tests/test_weave_phase1_verifier.py
+  - scripts/eat_queue_core/tests/test_weave_l3.py
+  invariant_ids:
+  - registry_reconcile_pre_read
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  last_disconnect: null
+  touch_content_hash: 6f0d8abcddea9497a87ca7b14b8642a6440277efd56a4a70bd3d9d46c515de90
+  touch_refreshed_at: '2026-06-09T05:50:22.342596Z'
+  closure_must_read_count: 21
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false
+  source:
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core

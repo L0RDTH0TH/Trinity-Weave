@@ -1,0 +1,86 @@
+id: l2_predictive_maintenance
+conceptual:
+  outcome: The weave judges stability before acting and before absorbing upgrades
+    — so autonomous moves stay inside safe bounds.
+  summary: 'L2 foresight: runtime risk (is now safe to act?) and integration risk
+    (will this change cascade?). Emits narrow-scope or pause signals; pairs with symbolic
+    conflict checks and upgrade integration on the maintenance spine.'
+  primary_case: Before a big automated pass, you want a sanity check on the moment
+    — not only whether code runs, but whether the weave is coherent. Green proceeds;
+    amber narrows; red pauses with a visible why.
+  edge_cases:
+  - Runtime appears stable but integration risk is high — treat as high risk and slow/contain
+    change.
+  - Integration looks clean but live system health is degraded — protect runtime first.
+  - Signal quality is weak — default conservative until evidence improves.
+  misread_risks:
+  - Treating runtime and upgrade halves as unrelated when they share one stability
+    objective.
+  - Reducing this card to only runtime safety and ignoring integration coherence.
+  - Reducing this card to only upgrade flow and ignoring live-system volatility.
+  - Using this layer to bypass review during high-risk windows.
+  operator_memory_hook: 'Before we act: is the system stable now, and will this integrate
+    cleanly?'
+  spine_ordinal: 3
+  set: governance_pyramid
+  polar_pair: l2_symbolic_conflict — symbolic guards law alignment; predictive guards
+    stability and integration coherence.
+  pairs_with: l2_symbolic_conflict, recoverable_handlers, l3_self_heal
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/predictive.py
+  inbound:
+  - recent lane board integrity and attention signals
+  - maintenance/recovery contexts before autonomous action
+  outbound:
+  - risk tier and explanation
+  - patch scope decision (within caps vs blocked)
+  - .technical/weave/predictive_calibration.json
+  behavior_signals:
+  - test_calibration_requires_valid_runs
+  - test_enforcement_observe_only_when_disabled
+rules:
+  forbidden:
+  - treat observe-only mode as permission to ignore risk signals entirely
+  - bypass predictive gating for high-blast autonomous changes
+  fixtures: []
+  precedence:
+  - refresh/load calibration before enforcing risk gates
+  - assess current risk from recent telemetry context
+  - apply tier caps before autonomous patch or handler execution
+  - escalate to human when tier is critical and enforcement is active
+  - 'policy: hardcode permanent thresholds without calibration evidence'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - predictive calibration and tier gating tests green
+  - critical tier blocks autonomous path under enforcement
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/predictive.py
+  - scripts/eat_queue_core/tests/test_weave_predictive.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: dual_half_unified_plain_prose
+    governance_set_ordinal: 3
+    generated_at: '2026-06-01T03:23:14Z'
+    supersedes_backfill: .technical/weave/proposals/wide-net-v2/cards/l2_predictive_maintenance.yaml
+    requires_trinity_id: l2_symbolic_conflict
+    conceptual_revised_at: '2026-06-01T03:33:41Z'
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/l2_predictive_maintenance.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 6fa212fb80e47b4eaeede74e49a3246be8c1e8e548c7e612387acf4b6815b372
+  touch_refreshed_at: '2026-06-09T05:49:56.608046Z'
+  closure_must_read_count: 6
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

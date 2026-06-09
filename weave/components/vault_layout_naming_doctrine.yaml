@@ -1,0 +1,176 @@
+id: vault_layout_naming_doctrine
+conceptual:
+  outcome: Factories and agents place knowledge where the vault can find it — PARA,
+    canonical folders, honest names — without legacy inbox sprawl or silent path invention.
+  summary: 'This meta card is the **agent digest** for **where things live** and **what
+    files are called**. Full bodies stay in **Vault-Layout** and **Naming-Conventions**;
+    this card **points**, does not paste them. **PARA only:** `1-Projects`, `2-Areas`,
+    `3-Resources`, `4-Archives`, plus **Ingest**, **Templates**, **5-Attachments**,
+    **`.technical`**. **Never:** `00 Inbox`, `10 Zettelkasten`, `99 Attachments`,
+    `99 Templates`. New notes: **kebab-slug-YYYY-MM-DD-HHMM.md**, frontmatter minimums,
+    wiki-links not raw paths in prose. **Primary (steady meta):** you **launch a factory**
+    and its outputs land in **correct, searchable paths** (Ingest first for unknowns,
+    then PARA; Trinity under `.technical/weave/`; archives under `4-Archives/`). **Secondary
+    (meta evolution):** a **new factory** or layout philosophy shift — new archive
+    roots, execution mirrors, swarm artifact folders — mesh against Vault-Layout before
+    paths multiply.'
+  primary_case: 'Steady state under this meta: you **launch a factory** and artifacts
+    appear in the right **places**. Capture lands in **Ingest/** (or companion + **5-Attachments/**);
+    pipelines move to PARA when confident. Weave cards live in `.technical/weave/components/`
+    (locked) and `component-proposals/` (provisional). System docs in **3-Resources/Second-Brain/Docs/**;
+    dev indices in **3-Resources/Second-Brain/**. New `.md` files get **searchable
+    slugs + frontmatter**; attachments embed from **5-Attachments/**. The agent does
+    not invent `00 Inbox` or drop notes at vault root.'
+  secondary_case: 'Meta evolution planning: a **new factory** needs **new paths**
+    — e.g. `4-Archives/Weave/Trinity-Corpus/`, roadmap execution mirrors, agent-swarm
+    output trees, or a renamed PARA slice. The agent reads this doctrine plus **Vault-Layout**
+    and affected cards. **Locked fit** — existing PARA roots, protected paths, blacklist.
+    **Output shifts** — where operators look for receipts, boards, archives. **Ripples:**
+    add path **A** for factory **C** → update **D** (Vault-Layout doc, mcp-obsidian
+    rule, organize skill paths); **B** avoid (legacy inbox names, processing `Backups/**`,
+    moving Watcher-protected notes); **E** enhance (Quick Reference blocks, Conceptual-Amendments
+    folder pattern, archive bundle manifest). Any single product factory is an instance,
+    not the definition.'
+  edge_cases:
+  - Unknown file → Ingest/ first; do not assume already organized.
+  - Frozen conceptual roadmap → Conceptual-Amendments/ + Execution/ mirrors per dual-track
+    rule.
+  - Trinity corpus archive → 4-Archives/Weave/Trinity-Corpus/<stamp>/ (append-only
+    recovery).
+  - Decision Wrappers → Ingest/Decisions/**; applied → 4-Archives/Ingest-Decisions.
+  - .technical machine-only — excluded from Obsidian; PQ not edited by casual note
+    moves.
+  - MOCs and Hubs — naming exceptions; name-enhance protections.
+  misread_risks:
+  - Pasting full Vault-Layout into Rules — digest + refs only.
+  - Primary as ingest pipeline steps — primary is factory output placement under this
+    meta.
+  - Secondary tied to one archive path — any new factory path or layout philosophy
+    shift.
+  - Using blacklist folder names because they look familiar.
+  - Shell cp/mv/rm on vault — MCP or inline edits; delete → move-to-trash.
+  - Creating new top-level PARA roots without operator doctrine update.
+  - Mesh without ripples, shifts, E, B.
+  frame_anchor: Where factory outputs live and what they are called (primary); plan
+    new paths with card mesh (secondary).
+  operator_memory_hook: Ingest first, PARA only, kebab+frontmatter, blacklist legacy
+    folders.
+  refs:
+  - '[[3-Resources/Second-Brain/Vault-Layout]]'
+  - '[[3-Resources/Second-Brain/Naming-Conventions]]'
+  - '[[3-Resources/Second-Brain/Docs/Core/Vault-Layout]]'
+  - '[[3-Resources/Second-Brain/Docs/Rules/Core-Guardrails]]'
+  - '[[.cursor/rules/always/host-weld-bridge]]'
+  - '[[.technical/weave/host-weld/live/safety.md]]'
+  - '[[.cursor/rules/context/dual-roadmap-track]]'
+  - '[[3-Resources/Second-Brain/Templates]]'
+  - '[[.technical/weave/components/agent_implementation_style.yaml]]'
+touch:
+  primary_paths:
+  - 3-Resources/Second-Brain/Vault-Layout.md
+  - 3-Resources/Second-Brain/Naming-Conventions.md
+  - 3-Resources/Second-Brain/Docs/
+  - 3-Resources/Second-Brain/Docs/Rules/Core-Guardrails.md
+  - .cursor/rules/always/host-weld-bridge.mdc
+  - .technical/weave/host-weld/manifest.yaml
+  - .technical/weave/host-weld/live/safety.md
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/always/second-brain-standards.mdc
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/always/mcp-obsidian-integration.mdc
+  - Ingest/
+  - 1-Projects/
+  - 2-Areas/
+  - 3-Resources/
+  - 4-Archives/
+  - 5-Attachments/
+  - .technical/weave/
+  path_blacklist:
+  - 00 Inbox
+  - 10 Zettelkasten
+  - 99 Attachments
+  - 99 Templates
+  protected_globs:
+  - Backups/**
+  - 3-Resources/Watcher-Signal.md
+  - 3-Resources/Watcher-Result.md
+  - Ingest/watched-file.md
+  inbound:
+  - factory launch — where do outputs go? (primary_case)
+  - new factory paths or layout philosophy plan (secondary_case)
+  - ingest / organize / archive pipeline path proposals
+  outbound:
+  - 'primary: PARA paths, slugs, frontmatter on factory artifacts'
+  - 'secondary: mesh report — path ripples | operator lookup shifts | A→D | E | B'
+  - 4-Archives/ bundles when factory archives corpus
+  - Ingest/Decisions/ when low-confidence path
+  behavior_signals:
+  - test_museum_qr_detect_and_audit
+  - test_module_importable
+  - test_is_maintenance_mode
+rules:
+  forbidden:
+  - reference or create 00 Inbox, 10 Zettelkasten, 99 Attachments, 99 Templates
+  - move/delete Backups/** or watcher-protected paths from pipelines
+  - new top-level PARA root without operator Vault-Layout amendment
+  fixtures: []
+  precedence:
+  - 'primary_case: unknown → Ingest/; PARA classify before high-band move; kebab-slug-YYYY-MM-DD-HHMM.md'
+  - 'primary_case: frontmatter created, tags, title, para-type / project-id when under
+    PARA'
+  - 'primary_case: attachments under 5-Attachments/ with embed links in notes'
+  - 'secondary_case (meta evolution): mesh new paths vs Vault-Layout + protected paths
+    before creating folders'
+  - 'secondary_case: document path ripples in Vault-Layout / Naming-Conventions when
+    operator approves'
+  - 'dual roadmap: frozen conceptual → Conceptual-Amendments + Execution mirrors —
+    not in-place overwrite'
+  - 'trinity: components/ locked, component-proposals/ provisional, 4-Archives/Weave/
+    for corpus archive'
+  - 'policy: invent blacklist folder names for convenience'
+  - 'policy: skip Ingest check on new file tasks'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_museum_qr_detect_and_audit green
+  - test_module_importable green (architect_ingest_pickup / Ingest paths)
+  - test_is_maintenance_mode green
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_weave_enhancements.py
+  - scripts/eat_queue_core/tests/test_architect_ingest_pickup.py
+  - 3-Resources/Second-Brain/Vault-Layout.md
+  - 3-Resources/Second-Brain/Naming-Conventions.md
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_11_meta_draft
+    phase: 11
+    pack_ordinal: 5
+    generated_at: '2026-06-02T23:00:00Z'
+    operator_status: approved_for_lock
+    stamped_provisional_at: '2026-06-04T04:34:20.557741Z'
+    locked_at: '2026-06-04T04:40:57Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  pairs_with:
+  - agent_implementation_style
+  - persona_atlas
+  - trinity_card_authoring
+  - conceptual_style_guide
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  conceptual_confirmed_at: '2026-06-04T04:40:57Z'
+  rules_confirmed_at: '2026-06-04T04:40:57Z'
+  lock_kind: maintenance_core
+  system_mutable: false
+  touch_content_hash: f6190d20d2a6d68ed435d1e25d13c6aba67dab2bdd2a4733e762227c5d5772e7
+  touch_refreshed_at: '2026-06-08T03:58:14.627824Z'
+  closure_must_read_count: 21

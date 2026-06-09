@@ -1,0 +1,216 @@
+id: persona_atlas
+conceptual:
+  outcome: One atlas tells you which Layer 0 voice owns a factory launch — Architect,
+    Curator, or neutral Weave downstream — so personas do not sprawl into duplicate
+    cards or crossed STESM.
+  summary: This meta card **indexes personas and boundaries** — not one Trinity card
+    per persona. **Architect** — overnight goals, goal-authority packet, council,
+    headless fanout, project-lane orchestration prep; **not** museum capture-only.
+    **Curator Agent** — chat-first museum/librarian capture, institute lane STESM,
+    voice modes; **not** open-ended goal ownership. **The Weave** — software (harness,
+    queue, receipts); **neutral** in L1/L2 telemetry; never called 'Curator'. Pipeline
+    subagents (ingest, roadmap, …) are **Layer 2 executors**, not chat personas. **Primary
+    (steady meta):** you **launch a factory** and pick (or the funnel picks) the **right
+    persona** for Layer 0 — then hand off to runtime (#2) and adapter (#3). **Secondary
+    (meta evolution):** a **new factory** or **philosophy shift** (swarms, merged
+    persona, new voice) — cards show which persona boundaries move, which `architect_*`
+    / curator cards consolidate here vs stay component legs.
+  primary_case: 'Steady state under this meta: you **launch a factory** and need the
+    correct **Layer 0 face**. Overnight sandbox goal → **Architect** (packet, council
+    optional, headless — not inline deepen). Museum capture, exhibit, institute ingest
+    → **Curator** (PQ prep, `lane institute`, persona voice in report only). Project
+    roadmap EAT-QUEUE on godot/sandbox → operator phrase or **Architect** prep, then
+    **Task(queue)** — **Weave** executes; chat does not play Layer 1. You read this
+    atlas (and linked voice docs) instead of opening ten `architect_*` cards to guess
+    who speaks.'
+  secondary_case: 'Meta evolution planning: you add a **new factory** or shift **who
+    speaks when** — e.g. agent swarms, a third Layer 0 persona, or collapsing `architect_*`
+    provisionals into one spawn pattern. The agent uses this atlas plus indexed cards.
+    **Locked fit** — which persona rules and agent files already apply. **Output shifts**
+    — who prepends PQ, which lane, voice in chat vs neutral Watcher. **Ripples:**
+    change **A** (persona ownership) for **C** (swarm) → **D** (dispatcher funnel,
+    context_envelope, goal packet shield); **B** avoid (Curator owning overnight packet,
+    Architect doing museum STESM, calling Weave ''Curator''); **E** enhance (atlas
+    Touch index, USER.md persona card, consolidate architect cluster under one spawn
+    card). Product factories (roadmap, ingest) are examples only.'
+  edge_cases:
+  - Architect packet mode — goal-authority JSON only; no inline queue consume (shield
+    rule).
+  - Curator STESM — prep institute PQ + same-turn Task(queue); lane curator invalid
+    — use institute.
+  - EAT-QUEUE godot/sandbox — dispatcher; not Curator replacement.
+  - Layer 2 pipeline agents — neutral voice; persona atlas cites them as executors
+    not L0 faces.
+  - architect_* provisionals (10) — indexed here; promote as components when factory
+    legs mature.
+  - Council seats — Feature Council; Architect merges; not separate chat personas
+    in atlas.
+  misread_risks:
+  - One Trinity card per persona — atlas indexes; component cards hold legs.
+  - Primary as 'user says ingest' phrase list — primary is factory launch + correct
+    L0 persona.
+  - Secondary tied to one factory name — any new factory or persona philosophy shift.
+  - Curator = the Weave software — use Curator vs Weave doc.
+  - Architect doing capture STESM — route Curator.
+  - Skipping persona check before Layer 0 factory launch.
+  - Mesh without ripples, shifts, E, B.
+  frame_anchor: Who speaks at Layer 0 when factories launch (primary); how persona
+    boundaries evolve (secondary).
+  operator_memory_hook: Architect owns goals; Curator owns capture; Weave runs neutral;
+    atlas indexes the rest.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Curator-Agent]]'
+  - '[[3-Resources/Second-Brain/Docs/Curator-Persona-Voice]]'
+  - '[[3-Resources/Second-Brain/Docs/Curator-Software-vs-Agent]]'
+  - '[[3-Resources/Second-Brain/Docs/Goal-Authority-Spec]]'
+  - '[[3-Resources/Second-Brain/Docs/Architect-Intent-Thread]]'
+  - '[[3-Resources/Second-Brain/Docs/Council-Seat-Precedence]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution]]'
+  - '[[.cursor/rules/always/host-weld-bridge]]'
+  - '[[.cursor/agents/architect.md]]'
+  - '[[.technical/weave/components/cursor_host_adapter.yaml]]'
+touch:
+  primary_paths:
+  - .cursor/rules/always/host-weld-bridge.mdc
+  - .technical/weave/host-weld/manifest.yaml
+  - 3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution.md
+  - .cursor/agents/architect.md
+  - .cursor/agents/technical-weave.md
+  - 3-Resources/Second-Brain/Docs/Curator-Agent.md
+  - 3-Resources/Second-Brain/Docs/Curator-Persona-Voice.md
+  - 3-Resources/Second-Brain/Docs/Curator-Software-vs-Agent.md
+  - 3-Resources/Second-Brain/Docs/Goal-Authority-Spec.md
+  - 3-Resources/Second-Brain/Docs/Architect-Intent-Thread.md
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/context/architect-agent.mdc
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/context/curator-agent.mdc
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/always/architect-goal-packet-shield.mdc
+  persona_index:
+    layer_0:
+      architect:
+        rule: .cursor/rules/context/architect-agent.mdc
+        agent: .cursor/agents/architect.md
+        owns:
+        - goal packet
+        - council
+        - headless fanout
+        - overnight
+        - multi-lane prep
+        not:
+        - museum capture STESM
+        - institute-only ingest
+        related_provisionals:
+        - architect_action_plan
+        - architect_brief
+        - architect_fanout_recovery
+        - architect_goal_completion
+        - architect_ingest_pickup
+        - architect_lane_hold
+        - architect_orchestration
+        - architect_pq_planner
+        - architect_preflight
+        - architect_touch_apply
+      curator_agent:
+        rule: .cursor/rules/context/curator-agent.mdc
+        agent: persona-only (no .cursor/agents/curator.md)
+        owns:
+        - capture
+        - museum
+        - institute lane STESM
+        - voice_mode in context_envelope
+        not:
+        - goal authority packet
+        - EAT-QUEUE godot/sandbox replacement
+        lane: institute
+      weave_software:
+        note: The Weave — harness/queue/receipts; neutral L1/L2; see Curator-Software-vs-Agent
+        agent: .cursor/agents/technical-weave.md
+        not_a_chat_persona: true
+    layer_2_executors:
+    - ingest
+    - roadmap
+    - distill
+    - express
+    - archive
+    - organize
+    - research
+    - validator
+  inbound:
+  - factory launch — which persona? (primary_case)
+  - new factory or persona/swarm philosophy plan (secondary_case)
+  - operator ambiguous capture vs overnight goal
+  outbound:
+  - 'primary: route to architect-agent | curator-agent | dispatcher phrase'
+  - 'secondary: mesh report — persona ripples | output shifts | A→D | E | B'
+  - context_envelope voice_mode when Curator hands off
+  - goal-authority path when Architect hands off
+  behavior_signals:
+  - test_curator_alias_maps_to_institute_skip
+  - test_write_architect_brief
+  - test_default_curator_micro_workflow
+  - test_spawn_child_blocks_when_architect_preflight_blocks
+rules:
+  forbidden:
+  - new Layer 0 persona without atlas index update
+  - call the Weave software Curator in operator-facing copy
+  - Architect inline museum STESM or Curator goal packet ownership
+  - one card per persona as A-meta substitute for this atlas
+  fixtures: []
+  precedence:
+  - 'primary_case: classify factory launch → Architect | Curator | operator EAT-QUEUE
+    phrase before Layer 0 acts'
+  - 'primary_case: L1/L2 remain voice-neutral; persona voice in chat reports only
+    (Curator)'
+  - 'secondary_case: persona boundary changes → mesh + update persona_index; consolidate
+    architect_* not multiply A-meta'
+  - overnight / council / goal packet → Architect + shield; capture → Curator + institute
+  - pipeline Task agents are executors — index only; not L0 persona competition
+  - 'policy: route overnight to Curator or capture to Architect without atlas check'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_curator_alias_maps_to_institute_skip green
+  - test_write_architect_brief green
+  - test_spawn_child_blocks_when_architect_preflight_blocks green
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_institute_queue.py
+  - scripts/eat_queue_core/tests/test_architect_brief.py
+  - scripts/eat_queue_core/tests/test_workflows_curator.py
+  - scripts/eat_queue_core/tests/test_headless_fanout.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_11_meta_draft
+    phase: 11
+    pack_ordinal: 4
+    generated_at: '2026-06-02T22:00:00Z'
+    operator_status: approved_for_lock
+    stamped_provisional_at: '2026-06-04T04:34:20.557741Z'
+    locked_at: '2026-06-04T04:40:57Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  pairs_with:
+  - cursor_host_adapter
+  - harness_runtime_contract
+  - agent_implementation_style
+  - architect_orchestration
+  - conceptual_style_guide
+  - trinity_card_authoring
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  conceptual_confirmed_at: '2026-06-04T04:40:57Z'
+  rules_confirmed_at: '2026-06-04T04:40:57Z'
+  lock_kind: maintenance_core
+  system_mutable: false
+  touch_content_hash: f002c4e4cac4804e9a5d0f65816e50e39b65e4a523c10af289a07a05ae150549
+  touch_refreshed_at: '2026-06-08T03:58:13.347887Z'
+  closure_must_read_count: 20

@@ -1,0 +1,169 @@
+id: trinity_upgrade_integration
+conceptual:
+  outcome: Upgrades must prove the spine can carry new weight — with compensating
+    changes planned before implementation, not discovered only after merge.
+  summary: 'Design-time joint on the maintenance spine: name load, peers, and compensators
+    before ship; adapt after mistakes without abandoning intent. Distinct from corpus
+    sweep (spine maintenance); does not rewrite locked gauge doctrine. **Dual-lock
+    (Phase 8):** Upgrade compensators and predesign load live on provisional bridge
+    **D** with `tunnel_via: trinity_upgrade_integration` (this bridge **B**), not
+    by editing core **A** Touch legs. Operator owns Conceptual on core targets; corps
+    curates D Touch/Rules only.'
+  primary_case: You are designing a new capability or behavior change. Before implementation
+    you state intent, target section, and compensators; boundary checks on peers turn
+    gaps into a plan — not merge surprise. If you forgot a trigger post-ship, you
+    re-open integration under the same bridge without batch-rewriting neighbors.
+  primary_case_alt: 'Implementation already landed or you are mid-flight and realize
+    a forgotten trigger:
+
+    "this change should have fired that handler / updated that gauge / moved that
+    anchor."
+
+    Re-open integration under this bridge — add the compensating plan, re-audit peers,
+
+    adjust Touch or queue hand-offs — without violating the original upgrade intent
+    and
+
+    without batch-rewriting locked neighbors.
+
+    '
+  edge_cases:
+  - Predesign only (no code yet) — boundary audit on declared target + peers; document
+    compensators.
+  - Post-merge "oops" — same bridge; escalate anchor collision; do not auto-merge
+    cards.
+  - Upgrade touches multiple inventory rows — operator splits scope or sequences compensators.
+  - Compensator would duplicate a neighbor's outcome — rewrite plan, not neighbor
+    lock.
+  - Operator intent unclear — stop; Conceptual on target component must be stated
+    first.
+  misread_risks:
+  - Shipping code first and using this bridge only as post-hoc lint (predesign skipped).
+  - Using trinity_spine_maintenance for a forgotten compensator (corpus drift ≠ upgrade
+    fit).
+  - Letting automation rewrite locked Conceptual to "fix" integration (intent violation).
+  - Treating a green boundary audit as substitute for planned compensating changes.
+  - Merging upgrade scope into spine maintenance and blurring two joints.
+  operator_memory_hook: Predesign the weight on the spine; "oops" still triggers this
+    bridge, not the sweep.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Dual-Mandate]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Lock-Checklist]]'
+  - '[[3-Resources/Second-Brain/Docs/Weave-Component-Inventory]]'
+touch:
+  anatomy: bridge
+  bridges:
+  - lane_status_board
+  - operator_surface_verifier
+  - l3_self_heal
+  - recoverable_handlers
+  - weave_governance
+  - invariant_registry
+  - ghost_skill_audit
+  - skill_gap
+  overlap_watch_peers:
+  - l3_self_heal
+  - recoverable_handlers
+  - weave_governance
+  - invariant_registry
+  - ghost_skill_audit
+  - skill_gap
+  - lane_status_board
+  - operator_surface_verifier
+  registry_paths:
+  - .technical/weave/trinity-partition-registry.yaml
+  inbound:
+  - operator upgrade intent (Conceptual draft or approved frontmatter)
+  - new or changed trinity_id (component under upgrade)
+  - overlap_watch peers from registry
+  - TRINITY_UPGRADE_INTEGRATE maintenance PQ (planned)
+  outbound:
+  - .technical/weave/validation/trinity-boundary-*.json
+  - .technical/weave/validation/trinity-upgrade-*.json
+  harness_commands:
+  - trinity_boundary_audit
+  - trinity_align
+  - trinity_touch_refresh
+  - trinity_card_generate
+  queue_modes:
+  - TRINITY_UPGRADE_INTEGRATE
+  - OPERATOR_SURFACE_REPAIR
+  behavior_signals:
+  - test_load_partition_registry_maintenance_scope
+  - test_run_audit_on_maintenance_components
+rules:
+  forbidden:
+  - auto-lock upgraded component without operator Conceptual approval
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures: []
+  precedence:
+  - operator supplies upgrade Conceptual (outcome at minimum) before lock on new component
+  - run trinity_boundary_audit on target id + overlap_watch peers
+  - resolve trinity_pack to upgrade target component id for component work
+  - resolve trinity_pack to trinity_upgrade_integration for integration-only PQ
+  - escalate anchor collision or primary_path_overlap; never silent merge
+  - 'policy: trinity_spine_cascade --write-in-place on locked cards during upgrade
+    pass'
+  - 'policy: merge upgraded section into neighbor card Conceptual'
+  - 'policy: assign bridge primary_paths from component anchors'
+  - 'policy: skip boundary audit on upgrade target and overlap_watch peers'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  - Upgrade integration MUST tunnel via this bridge (B) — no direct corps mutation
+    of core component cards.
+  maintainer_invocation: 'INTEGRATE TRINITY UPGRADE
+
+    trinity_id: trinity_upgrade_integration
+
+    upgrade_target: <component_trinity_id>
+
+    operator_conceptual: required
+
+    peers: overlap_watch from registry
+
+    forbidden: corpus sweep, batch lock, owning component paths
+
+    '
+  acceptance:
+  - boundary audit on target + peers
+  - upgrade target has single registry primary_anchor when component
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/trinity_boundary_audit.py
+  - scripts/eat_queue_core/weave/trinity_partition.py
+  - scripts/eat_queue_core/weave/trinity_card_generate.py
+  - 3-Resources/Second-Brain/Docs/Weave-Component-Inventory.md
+  - scripts/eat_queue_core/tests/test_trinity_boundary_audit.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  anatomy: bridge
+  card_class: complete_draft
+  promotion_tier: locked
+  source:
+    draft: maintenance-spine-v1
+    generated_at: '2026-06-02T00:00:00Z'
+    author: Phase-1-upgrade-bridge
+    operator_status: conceptual_draft_v2_operator_review
+    promoted_from: maintenance-spine-v1
+    promoted_at: '2026-06-02T02:54:41.889885Z'
+    promotion_method: trinity_promote_proposals
+    source_stub: .technical/weave/proposals/maintenance-spine-v1/stubs/trinity_upgrade_integration.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  leg_status:
+    conceptual: draft_v2
+    touch: draft
+    rules: draft
+    contract: draft
+  provisional: false
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: b1c2fd1a88da92d7aad8ef4b1dee2528ba1f83c2ee35b1091410398f96ceefe7
+  touch_refreshed_at: '2026-06-05T19:17:04.884270Z'
+  closure_must_read_count: 11
+  last_disconnect: null
+  lock_kind: maintenance_core
+  system_mutable: false

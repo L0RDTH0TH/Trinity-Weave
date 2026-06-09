@@ -1,0 +1,164 @@
+id: conceptual_style_guide
+conceptual:
+  outcome: Component-card Conceptual legs stay human-readable and free of framework
+    meta — claim, principle, then story in the right fields.
+  summary: 'Anti-meta is the spine. All component cards follow `anti_meta` and `field_contract`
+    (outcome, summary, primary_case, optional frame_anchor). Infer purpose from Touch/Rules
+    internally; never name them in narrative fields. Gold voice: `gold_voice_ids`.
+    Story only in primary_case; frame_anchor is a separate optional lens (see field_contract).'
+  primary_case: 'You skim `harness_headless_eat` before locking it. The outcome is
+    one clear claim;
+
+    the summary states the principle (why the behavior exists) without walking you
+    through
+
+    a scene. The primary_case is where you feel the product — what "good" looks like
+    when
+
+    you rely on this section. If outcome or summary read like a story or a framework
+    tour,
+
+    send it back for rewrite.
+
+    '
+  anti_meta:
+    applies_to:
+    - outcome
+    - summary
+    - primary_case
+    - frame_anchor
+    exempt_trinity_ids:
+    - trinity_card_authoring
+    - conceptual_style_guide
+    forbidden_in_narrative:
+    - Touch
+    - Rules
+    - Trinity
+    - weave segment
+    - card
+    - LLM
+    - agent
+    - blast radius
+    - primary paths
+    - Conceptual leg
+    - inbound
+    - outbound
+    - behavior_signals
+    never:
+    - Explain what the card system or Trinity framework does (on component cards).
+    - Paste module docstring or implementation steps into narrative fields.
+    - Put framework vocabulary in outcome or summary even when paraphrased.
+  field_contract:
+    outcome:
+      role: One-line claim — what human/operator problem this section solves.
+      story: false
+      notes: '"So that …" is fine; no scene, no "you open …", no walkthrough.'
+    summary:
+      role: Principle and constraints — why Touch paths and Rules exist; how this
+        section differs from neighbors.
+      story: false
+      notes: 1–2 tight paragraphs max; metaphors as doctrine OK; no user vignette;
+        no path laundry lists.
+    primary_case:
+      role: User story / skim test — what "good" feels like for a busy operator.
+      story: true
+      notes: Warm second-person or short scenario allowed here only; this is the only
+        field that answers "why would I care?"
+    edge_cases:
+      role: Operational failure modes — not implementation steps.
+    misread_risks:
+      role: Dangerous confusions — especially mixing Conceptual with Touch/Rules.
+    frame_anchor:
+      role: Optional one-line orienting lens — metaphor or charter hook; few words.
+      story: false
+      optional: true
+      by_anatomy:
+        meta: Recommended — may name growth, harness, or charter (exempt from anti_meta).
+        bridge: Optional — joint lens only; not a second outcome.
+        component: Rare — prefer operator_memory_hook; must obey anti_meta if present.
+      notes: Not outcome (claim), not summary (principle), not primary_case (story).
+        Distinct from operator_memory_hook (recall line at end of Conceptual).
+    operator_memory_hook:
+      role: Optional short recall line at end of Conceptual — any anatomy.
+      story: false
+      optional: true
+      notes: Complements frame_anchor; does not replace field_contract on component
+        cards.
+  gold_voice_ids:
+  - harness_headless_eat
+  - harness_snapshot
+  - little_val_structural
+  - weave_governance
+  - skill_gap
+  negative_prompt: Never sound like internal docs about the framework. On component
+    cards, human claim and principle in outcome/summary; caring story only in primary_case.
+  post_gen_critic: 'Reject meta-contamination in outcome/summary/primary_case on component
+    cards.
+
+    Reject story or vignette in outcome/summary. Reject empty or docstring-shaped
+    primary_case.
+
+    Rewrite using gold_voice_ids and field_contract.
+
+    '
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - .technical/weave/components/trinity_card_authoring.yaml
+touch:
+  anatomy: meta
+  primary_paths:
+  - scripts/eat_queue_core/weave/trinity_conceptual_doctrine.py
+  - .technical/weave/components/conceptual_style_guide.yaml
+  inbound:
+  - trinity_spine_cascade
+  - trinity_card_generate
+  - trinity_card_authoring
+  outbound:
+  - proposals/*/stubs/*.yaml
+  - component-proposals/*.yaml
+  - components/*.yaml
+  harness_commands:
+  - trinity_spine_cascade
+  - trinity_card_generate
+rules:
+  forbidden:
+  - meta_governance_tone_in_component_conceptual
+  - user_story_in_outcome_or_summary
+  - cite_touch_or_rules_in_outcome_summary_primary_case
+  precedence:
+  - field_contract overrides experiential_default on component cards
+  - anti_meta.exempt_trinity_ids may name framework in their own Conceptual
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/trinity_conceptual_doctrine.py
+  - scripts/eat_queue_core/tests/test_trinity_card.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  anatomy: meta
+  card_class: complete_draft
+  operator_memory_hook: Claim, principle, story — only primary_case tells the story.
+  leg_status:
+    conceptual: draft_v2
+    touch: draft
+    rules: draft
+    contract: draft
+  provisional: false
+  promotion_tier: locked
+  source:
+    promoted_from: governance-set-v1
+    promoted_at: '2026-06-02T03:43:14.326910Z'
+    promotion_method: trinity_promote_proposals
+    source_stub: .technical/weave/proposals/governance-set-v1/stubs/conceptual_style_guide.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 16742cf7a7b3fb239ba87bd3ed3dcb7e6f46fee2a82bff893bf2f0e14b839b4c
+  touch_refreshed_at: '2026-06-02T19:47:48.314890Z'
+  closure_must_read_count: 5
+  lock_kind: maintenance_core
+  system_mutable: false

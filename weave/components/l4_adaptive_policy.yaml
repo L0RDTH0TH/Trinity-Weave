@@ -1,0 +1,203 @@
+id: l4_adaptive_policy
+conceptual:
+  outcome: Unknown failures become learnable over time — repeated signals can graduate
+    into maintained operations instead of endless one-off guesses.
+  summary: 'L4 owns the unmapped case: record stoppages and inefficiencies, correlate
+    across pseudo-clock audits, propose durable adoptions for operator approval. Does
+    not execute recovery; proposes permanent mappings when evidence accumulates.'
+  primary_case: The same unfamiliar stoppage keeps appearing. Self-heal correctly
+    does nothing unmapped. You want pattern evidence and eventually a maintained fix
+    to approve — not silent improvisation each night.
+  edge_cases:
+  - Registry match on arrival — adaptive idle; L3 only.
+  - First occurrence — register and observe; no adoption proposal yet.
+  - Recurrence across audits — proposal with explicit add-vs-modify recommendation.
+  - Short-term scary option with long-run benefit — proposal must state both costs.
+  misread_risks:
+  - Using adaptive to funnel every error into immediate self-heal retries.
+  - Replacing global behavior when a new maintained path suffices.
+  - Skipping pseudo-clock audit and proposing adoptions from a single bad run.
+  - Confusing adaptive with profile tuning, little val, or operator-surface honesty.
+  operator_memory_hook: Not in the book? Don't guess — adapt on the clock, then add
+    another way we operate.
+  spine_ordinal: 7
+  set: governance_pyramid
+  polar_pair: l3_self_heal — fix what we already maintain; l4_adaptive_policy — adapt
+    what we do not yet maintain.
+  pairs_with:
+  - l
+  - '3'
+  - _
+  - s
+  - e
+  - l
+  - f
+  - _
+  - h
+  - e
+  - a
+  - l
+  - ','
+  - ' '
+  - i
+  - n
+  - v
+  - a
+  - r
+  - i
+  - a
+  - n
+  - t
+  - _
+  - r
+  - e
+  - g
+  - i
+  - s
+  - t
+  - r
+  - y
+  - ','
+  - ' '
+  - r
+  - e
+  - c
+  - o
+  - v
+  - e
+  - r
+  - a
+  - b
+  - l
+  - e
+  - _
+  - h
+  - a
+  - n
+  - d
+  - l
+  - e
+  - r
+  - s
+  - ','
+  - ' '
+  - h
+  - a
+  - r
+  - n
+  - e
+  - s
+  - s
+  - _
+  - p
+  - s
+  - e
+  - u
+  - d
+  - o
+  - _
+  - c
+  - l
+  - o
+  - c
+  - k
+  - _
+  - t
+  - i
+  - c
+  - k
+  - ','
+  - ' '
+  - w
+  - e
+  - a
+  - v
+  - e
+  - _
+  - g
+  - o
+  - v
+  - e
+  - r
+  - n
+  - a
+  - n
+  - c
+  - e
+  - ghost_skill_audit
+  dual_side: L4 adaptive = operating-path adoption (another way we run). ghost_skill_audit
+    = capability adoption (pseudo-tool / skill). Distinct cards; touch peer converse
+    before either proposes outward.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/adaptive_policy.py
+  - scripts/eat_queue_core/pseudo_clock.py
+  inbound:
+  - run outcomes, stalls, and blocks that fail registry / recoverability lookup
+  - inefficiency and stoppage signals (gaps, metrics, hard blocks, recurrence)
+  - pseudo_clock tick — timed background audit trigger
+  - touch peer ghost_skill_audit — converse payload (pending proposals, registry slice,
+    pattern fingerprint) before this side proposes
+  outbound:
+  - inefficiency and stoppage registry (durable pattern store)
+  - permanent-adoption proposals (add or modify maintained support)
+  - maintenance or governance queue lines for operator/counselor review
+  - board summary of pending adoptions and audit rationale
+  - touch peer ghost_skill_audit — converse request (shared telemetry/metrics.jsonl
+    slice, recurrence keys, gap keys) before this side proposes
+  behavior_signals: []
+rules:
+  forbidden: []
+  fixtures: []
+  precedence:
+  - 'converse_before_propose: read ghost_skill_audit touch outbound; no permanent-adoption
+    proposal if peer has pending ghost/skill path for same pattern fingerprint'
+  - registry lookup and L3 dumb path first — known fix only
+  - adaptive engages only for non-normal (unmaintained) failures
+  - pseudo-clock audit batches evidence before permanent-adoption proposals
+  - approved adoptions graduate into registry so L3 can act dumbly next time
+  - 'policy: let L3 run allowlisted handlers when the failure class is not registry-maintained'
+  - 'policy: propose permanent adoption from a single observation without audit recurrence'
+  - 'policy: replace how the system operates when an added maintained path is sufficient'
+  - 'policy: auto-install adoptions that change invariants or blast radius without
+    approval'
+  - 'policy: propose permanent adoption without converse read of ghost_skill_audit
+    touch peer (same pattern fingerprint)'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - unmaintained failures never trigger silent L3 improvisation
+  - audit cadence can accumulate recurrence before proposing adoption
+  - every proposal states add vs modify and long-run vs short-run tradeoff
+  - post-approval, the same failure class is routable as a normal maintained operation
+  - converse gate documented on paired proposal payloads
+contract:
+  proof:
+  - scripts/eat_queue_core/pseudo_clock.py
+  - scripts/eat_queue_core/lane_recovery.py
+  - scripts/eat_queue_core/weave/adaptive_policy.py
+  - 3-Resources/Second-Brain/Docs/Weave-L4-Adaptive-Policy.md
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: l3_escalation_pseudo_clock_permanent_adoption
+    governance_set_ordinal: 7
+    generated_at: '2026-06-01T16:00:00Z'
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/l4_adaptive_policy.yaml
+    locked_as: intent_doctrine_v3
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_peer_updated_at: '2026-06-01T06:13:00.385300Z'
+  touch_content_hash: 1d7382df25527911c7f2d5872473efe2c9951bba5a5a77f23e17ca590e82ff7d
+  touch_refreshed_at: '2026-06-08T20:47:31.862721Z'
+  closure_must_read_count: 21
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

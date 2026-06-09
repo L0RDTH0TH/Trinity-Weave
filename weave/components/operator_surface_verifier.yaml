@@ -1,0 +1,82 @@
+id: operator_surface_verifier
+conceptual:
+  outcome: 'The weave enforces a trust contract with the operator: reported system
+    state must be honest enough to act on before autonomous continuation.'
+  summary: Operator surface verifier is the enforcement of do-not-lie-to-the-operator.
+    The operator must be able to see what the system claims; the weave must not present
+    a surface that implies clarity when it is incomplete or unverified. Structural
+    checks (required sections, tokens, shape) are mechanisms; the concept is honesty
+    at decision time, not dashboard lint.
+  primary_case: Before high-impact autonomous continuation, verifier asks whether
+    the operator surface can honestly support the next decision. Pass — proceed. Fail
+    — stop or escalate; no proceed on unproven visibility.
+  edge_cases:
+  - Surface present but trust markers incomplete — fail closed.
+  - Conflicting signals on the surface — untrusted until reconciled.
+  - Prior successful runs do not override current verifier failure.
+  misread_risks:
+  - Treating verifier as formatting or section lint only.
+  - Treating verifier as policy law (that belongs at invariant registry).
+  - Continuing automation when honesty cannot be established.
+  operator_memory_hook: Can we honestly show the operator what we claim? If not, do
+    not proceed.
+  spine_ordinal: 5
+  set: governance_pyramid
+  polar_pair: weave_governance — memory of what happened; operator_surface_verifier
+    — honesty of what we show now.
+  pairs_with: weave_governance, lane_status_board, l3_self_heal
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/verifier.py
+  inbound:
+  - current operator surface board file
+  - recovery/maintenance flows requiring trusted visibility
+  outbound:
+  - VerifierResult ok/code/detail
+  - integrity gate signal for downstream recovery control
+  behavior_signals:
+  - test_verifier_passes_on_generated_board
+  - test_operator_surface_repair_handler_wrapped_refresh
+rules:
+  forbidden:
+  - continue autonomous recovery when verifier reports integrity failure
+  - downgrade missing critical sections/tokens to cosmetic warnings
+  fixtures: []
+  precedence:
+  - verify operator surface before high-impact post-heal continuation
+  - fail closed when required sections or tokens are absent
+  - escalate to review path when verifier fails
+  - 'policy: modify verifier required structure ad hoc without governance review'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - strict verifier passes on complete board
+  - strict verifier fails on missing section/token
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/verifier.py
+  - scripts/eat_queue_core/tests/test_weave_phase1_verifier.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: honesty_contract_sterile_framing
+    governance_set_ordinal: 5
+    generated_at: '2026-06-01T03:50:48Z'
+    supersedes_backfill: .technical/weave/proposals/wide-net-v2/cards/operator_surface_verifier.yaml
+    conceptual_revised_at: '2026-06-01T04:00:21Z'
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/operator_surface_verifier.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 9d86a6c63d502df98d2422b69450167384f901480777eac6f38be9d18041f462
+  touch_refreshed_at: '2026-06-06T20:14:46.543703Z'
+  closure_must_read_count: 5
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

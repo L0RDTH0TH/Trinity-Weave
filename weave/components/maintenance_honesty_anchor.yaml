@@ -1,0 +1,103 @@
+id: maintenance_honesty_anchor
+meta:
+  schema_version: 2
+  card_kind: meta
+  anatomy: A-meta-target
+  card_class: complete_draft
+  promotion_tier: locked
+  provisional: false
+  system_mutable: false
+  source:
+    kind: phase_15_meta_lens_draft
+    phase: '15'
+    pack_ordinal: 3
+    generated_at: '2026-06-05T20:00:00Z'
+    operator_status: review_before_lock
+    changelog: Meta lens review bundle — operator lock after review
+    promoted_from: meta-review-20260605
+    promoted_at: '2026-06-05T23:45:41Z'
+    promotion_method: operator_meta_review_lock
+    locked_at: '2026-06-05T23:45:51.637468Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-05T23:45:51.637468Z'
+  rules_confirmed_at: '2026-06-05T23:45:51.637468Z'
+conceptual:
+  outcome: Maintenance and factory outputs stay honest — structural proof before success
+    claims; uncertainty explicit when proof is absent.
+  summary: 'This meta card is the **honesty anchor** for maintenance core and Run
+    receipts: anti-hallucination as **claim classification**, not a second verification
+    religion. Tier 0 (always): conduct, align, verifier, confidence bands. Tier 1:
+    uncertainty block on yellow/mid-band. Tier 2: validator, IRA, 10g, optional k-sample
+    on strict/quality or standalone harness host. **Precedence:** structural > inferred
+    > narrative. Narrative cannot upgrade tier without re-proof. Host-agnostic — Cursor
+    today, standalone harness tomorrow (see harness_runtime_contract honesty budget).'
+  primary_case: 'A self-wrap run reports pass_gate green. The honesty anchor requires
+    the receipt to say **structural** (conduct ok, report path, counts) — not prose
+    alone. If only narrative summary exists, emit **inferred** with uncertainty: what
+    would falsify the claim, which proof is missing. Watcher/intent receipts use provisional_success
+    + divergence_codes when enforcement incomplete — already aligned with this card.'
+  secondary_case: 'redesign_factory A/B: neither factory wins on narrative; compare
+    structural telemetry, conduct, knob parity cells, honesty tier per host.'
+  edge_cases:
+  - balance mode — Tier 0 + Tier 1 only; no k-sample tax unless configured.
+  - Standalone harness host — Tier 2 may use self-consistency and token entropy when
+    API exposes them.
+  - MCP-less Task — structural proof from files and pytest; no fake logprob claims.
+  - 'Merge into agent_implementation_style — operator may fold this card into #1 if
+    preferred; keep one honesty source.'
+  misread_risks:
+  - Duplicate gates stacked on gates — honesty tiers add classification, not redundant
+    checks at same stage.
+  - Chat confidence theater without structural receipt.
+  - Import-only smoke as structural green.
+  - Skipping uncertainty block when post_loop_conf flat or decayed.
+  frame_anchor: Honesty anchor — claim tiers, uncertainty, host-capability budgets.
+  operator_memory_hook: Structural before success; say what you don't know.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution]]'
+  - '[[.cursor/rules/always/confidence-loops.mdc]]'
+  - '[[.technical/weave/components/agent_implementation_style.yaml]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/components/little_val_structural.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/trinity_weave_self_wrap.py
+  - scripts/eat_queue_core/weave/trinity_honesty_anchor.py
+  - scripts/eat_queue_core/weave/corps_proof_adequacy.py
+  - 3-Resources/Watcher-Result.md
+  claim_tiers:
+  - structural
+  - inferred
+  - narrative
+  honesty_tiers:
+    tier_0: conduct, align, verifier, dual-lock, confidence bands
+    tier_1: uncertainty block + claim class on yellow/mid-band
+    tier_2: validator, IRA, 10g, optional k-sample (strict/quality or standalone host)
+    tier_3: operator / Curator chat
+rules:
+  forbidden:
+  - claim Success or pass_gate green without structural tier or explicit provisional_success
+    path
+  - merge narrative into user_guidance as if human-authored
+  - k-sample self-consistency on every balance-mode tick by default
+  - token logprob claims when host does not expose them
+  precedence:
+  - structural > inferred > narrative
+  - narrative cannot upgrade tier without re-proof
+  - Tier 0 always on maintenance outputs
+  - Tier 1 on yellow / mid-band refinement
+  - Tier 2 on red / strict profile / corps LLM repair / standalone harness when enabled
+  - provisional_success requires divergence_codes in trace (Watcher/intent receipt
+    parity)
+  - uncertainty block must state what evidence would change the claim
+  acceptance: []
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_honesty_anchor.py
+  - scripts/eat_queue_core/weave/trinity_honesty_anchor.py
+  - scripts/eat_queue_core/tests/test_trinity_phase9_10.py
+  - scripts/eat_queue_core/tests/test_weave_phase1_verifier.py
+  invariant_ids: []

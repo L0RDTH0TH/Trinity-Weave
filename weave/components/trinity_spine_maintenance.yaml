@@ -1,0 +1,164 @@
+id: trinity_spine_maintenance
+conceptual:
+  outcome: When the weave's design shifts, maintenance can keep the operator's trusted
+    reference library aligned with what the system actually runs — without hand-checking
+    every provisional draft line by line.
+  summary: 'Spine maintenance is the joint between your locked gauges and vehicle
+    sections and the wider corpus of drafts waiting behind them. Gauges tell you what
+    is happening now; spine maintenance asks whether the reference library still matches
+    reality. When philosophy changes or provisionals pile up, it runs boundary checks,
+    align sweeps, and bounded escalations — never silently rewriting what you already
+    locked. It is not the board, not the handler catalog, not governance memory itself;
+    it coordinates corpus health across those integral sections. **Dual-lock (Phase
+    8):** This card is bridge **B** between frozen core **A** (maintenance components)
+    and corps **C** (provisionals). New harness wiring lives on provisional bridge
+    **D** with `tunnel_via: trinity_spine_maintenance` — never direct `tunnel_via`
+    on core **A**. `TRINITY_SPINE_CATCHUP` sweeps mutable non-core only; core is read-only
+    for automation.'
+  primary_case: You approve a new maintenance pattern or a gauge section's story shifts
+    after a deepen pass. Locked references stay authoritative. A spine pass compares
+    provisionals and peers, refreshes what is safe, and surfaces only disconnects
+    that need your decision.
+  edge_cases:
+  - Locked reference disagrees with a provisional — escalate; do not auto-promote
+    or auto-lock.
+  - Disconnect found on a gauge card — repair that component's reference, not this
+    joint.
+  - Boundary audit fails on a maintenance component — stop corpus catch-up until components
+    are green.
+  - Operator has not requested regen — no in-place Conceptual rewrite on locked or
+    provisional files.
+  - Bridge run resolves wrong pack — component work uses component ids; corpus work
+    uses this id.
+  misread_risks:
+  - Treating spine maintenance as the Lane Status Board gauge (that is lane_status_board).
+  - Merging handler catalog and L3 orchestration because both appear in a sweep report.
+  - Batch-regenerating or batch-locking to make a sweep look green.
+  - Assuming align quiet means Conceptual voice is validated — boundary and operator
+    lock are separate gates.
+  operator_memory_hook: Gauges read truth; spine maintenance keeps the reference library
+    honest with the weave.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Dual-Mandate]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Lock-Checklist]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+touch:
+  anatomy: bridge
+  bridges:
+  - lane_status_board
+  - lane_activity
+  - launch_registry_reconcile
+  - operator_surface_verifier
+  - weave_governance
+  - invariant_registry
+  - l3_self_heal
+  - recoverable_handlers
+  - ghost_skill_audit
+  - skill_gap
+  - little_val_structural
+  registry_paths:
+  - .technical/weave/trinity-partition-registry.yaml
+  - .technical/weave/concept-trinity-map.yaml
+  corpus_paths:
+  - .technical/weave/components/
+  - .technical/weave/component-proposals/
+  artifact_paths:
+  - .technical/weave/validation/
+  inbound:
+  - locked maintenance component references (gauge + vehicle)
+  - operator Phase 0 boundary sign-off
+  - TRINITY_SPINE_CATCHUP maintenance PQ (planned)
+  - pseudo_clock maintenance tick (planned spine_catchup_on_tick)
+  outbound:
+  - .technical/weave/validation/trinity-boundary-*.json
+  - .technical/weave/validation/trinity-catchup-*.json
+  - maintenance board Trinity spine subsection (planned)
+  harness_commands:
+  - trinity_boundary_audit
+  - trinity_align
+  - trinity_touch_refresh
+  - trinity_promote_proposals
+  - trinity_lock_card
+  - trinity_catchup_sweep
+  queue_modes:
+  - TRINITY_SPINE_CATCHUP
+  - GOVERNANCE_REVIEW
+  behavior_signals:
+  - test_load_partition_registry_maintenance_scope
+  - test_run_audit_on_maintenance_components
+rules:
+  forbidden:
+  - trinity_spine_cascade --write-in-place without explicit operator request
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures: []
+  precedence:
+  - load trinity-partition-registry (role gauge vs vehicle)
+  - run trinity_boundary_audit on maintenance components before corpus catch-up
+  - align components first; then provisionals with --include-provisional
+  - escalate unresolved disconnects; never silent rewrite of locked Conceptual legs
+  - trinity_lock_card only per-id with operator intent
+  - 'policy: batch trinity_lock_card on provisionals'
+  - 'policy: auto-promote provisionals to locked components'
+  - 'policy: copy component primary_paths into this bridge as ownership'
+  - 'policy: report corpus-green while maintenance component boundary audit has errors'
+  - 'policy: merge two component references into one because a sweep lists both'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  - Catch-up MUST NOT write maintenance-core component YAML; hash-only gate reconcile
+    on core allowed.
+  maintainer_invocation: 'MAINTAIN TRINITY SPINE
+
+    trinity_id: trinity_spine_maintenance
+
+    concept: trinity_spine_maintenance
+
+    scope: maintenance partition components then provisionals
+
+    forbidden: batch lock, cascade write-in-place, owning component code paths
+
+    '
+  acceptance:
+  - trinity_boundary_audit ok on maintenance component set
+  - bridge lists >=2 component ids in touch.bridges
+  - no primary_path overlap with locked component anchors (boundary audit)
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/trinity_partition.py
+  - scripts/eat_queue_core/weave/trinity_boundary_audit.py
+  - scripts/eat_queue_core/weave/trinity_promote.py
+  - scripts/eat_queue_core/weave/trinity_align.py
+  - 3-Resources/Second-Brain/Docs/Maintenance-Trinity-Lock-Checklist.md
+  - scripts/eat_queue_core/tests/test_trinity_boundary_audit.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  anatomy: bridge
+  card_class: complete_draft
+  promotion_tier: locked
+  source:
+    draft: maintenance-spine-v1
+    generated_at: '2026-06-02T00:00:00Z'
+    author: Phase-1-first-draft
+    operator_status: review_pending
+    promoted_from: maintenance-spine-v1
+    promoted_at: '2026-06-02T00:51:54.444713Z'
+    promotion_method: trinity_promote_proposals
+    source_stub: .technical/weave/proposals/maintenance-spine-v1/stubs/trinity_spine_maintenance.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  leg_status:
+    conceptual: draft
+    touch: draft
+    rules: draft
+    contract: draft
+  provisional: false
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 5fbc8adf94d55de100ebc0cbfc493f979584e6a7b81cf4828d914d6e65d1de51
+  touch_refreshed_at: '2026-06-05T19:17:02.586701Z'
+  closure_must_read_count: 15
+  last_disconnect: null
+  lock_kind: maintenance_core
+  system_mutable: false

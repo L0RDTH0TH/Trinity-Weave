@@ -1,0 +1,303 @@
+id: trinity_card_authoring
+conceptual:
+  outcome: 'As the weave grows — new sections, upgrades, bridges, inventory rows —
+    every new Trinity
+
+    card is born from the same normative contract so the doctrinal corpus stays self-maintaining
+
+    and adapts without hand-rewriting the whole spine.
+
+    '
+  summary: 'This meta card is the reference for generation on additions and updates
+    — not a chronicle of
+
+    past automation. Locked corpus is the spine; this card is how growth extends it
+    (anatomy,
+
+    voice, neighbors, operator lock). Harness and agents load this card plus
+
+    `conceptual_style_guide` and `trinity-partition-registry`; generate, cascade,
+    promote, audit,
+
+    and lock implement growth — they do not define why the card exists.'
+  primary_case: 'A new row appears on the weave inventory — a handler, a board slice,
+    a joint between two
+
+    gauges. You do not invent card shape from scratch: generation reads this card
+    and the style
+
+    guide, assigns anatomy from the registry, grounds Touch on the real module, and
+    drafts
+
+    Conceptual in field_contract voice. You skim the proposal: one claim, one principle,
+    one
+
+    short story in primary_case. You lock when it matches intent; the corpus grew,
+    and the
+
+    neighbors still each own one job.
+
+    '
+  edge_cases:
+  - Brand-new section (no locked card yet) — generate per inventory + partition; style
+    guide governs voice.
+  - Upgrade to existing section — pair with trinity_upgrade_integration; regen or
+    extend conceptual only as rules allow.
+  - New bridge or meta card — anatomy from registry; bridge lists endpoints; meta
+    does not claim component anchors.
+  - Growth batch (many provisionals) — same contract per card; no batch lock without
+    operator.
+  - Target already locked — generation extends or skips per --extend-only; do not
+    silently overwrite doctrine.
+  - Generator embeds session/chat context — each card must stand alone for the next
+    growth cycle.
+  - One card per code section; never per project lane.
+  - trinity_pack truncates edge_cases (4) and misread_risks (6) — generator may write
+    more.
+  - maintenance_set Phase B drill green before trinity_checks_enabled flip (operator).
+  - factory_run segment for Run layer — cross-ref factory_lifecycle_doctrine; anatomy
+    component or dedicated factory_run per registry row
+  misread_risks:
+  - Naming harness commands as the card purpose — slaves serve growth; growth charter
+    is this card + locked spine.
+  - Treating this card as history of Wave 3 / stub_pass / spine_cascade instead of
+    the growth reference.
+  - Using this meta id as trinity_pack for a component or bridge PQ — wrong anatomy.
+  - Story in outcome/summary on component cards — style guide violation.
+  - New card that duplicates a neighbor outcome — partition and boundary audit must
+    catch.
+  - Module docstring voice as Conceptual — infer from corpus + neighbors, not code
+    comments alone.
+  - Batch regen or batch lock to make growth look complete — operator gate per card.
+  - Growth that skips conceptual_style_guide — voice drift across the corpus.
+  - Confusing corpus sweep (trinity_spine_maintenance) with birth of a new card (this
+    card).
+  operator_memory_hook: When the weave grows, this card is how new Trinity cards are
+    born — harness steps are slaves of growth.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[3-Resources/Second-Brain/Docs/Weave-Component-Inventory]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Dual-Mandate]]'
+  - .technical/weave/components/_schema.yaml
+  - .technical/weave/components/conceptual_style_guide.yaml
+  - '[[.technical/weave/component-proposals/meta-review-20260605/factory_lifecycle_doctrine.yaml]]'
+  style:
+    follows: conceptual_style_guide
+    component_cards:
+      outcome: claim only — no story
+      summary: principle only — no story
+      primary_case: user story / skim test only
+    meta_exempt:
+    - trinity_card_authoring
+    legs:
+      conceptual: Prose on component cards per field_contract; this meta card may
+        name harness.
+      touch: Caveman — paths, lists, queue_modes; grep-friendly.
+      rules: Caveman — forbidden/fixtures/precedence fragments.
+      contract: Caveman — proof paths + invariant_ids only.
+  growth_reference:
+    role: Normative contract whenever the weave adds or updates a trinity_id — not
+      a log of prior craft runs.
+    requires:
+    - conceptual_style_guide
+    - trinity-partition-registry.yaml
+    - concept-trinity-map.yaml
+    on_new_section: trinity_card_generate from inventory row → proposal stub → operator
+      review → promote → lock.
+    on_corpus_refresh: trinity_spine_cascade polishes conceptual on existing stubs
+      from locked corpus (when spine exists).
+  generation_contract:
+    purpose: Self-maintaining doctrinal growth — new cards match spine voice, anatomy,
+      and boundaries.
+    style_guide_locked: conceptual_style_guide
+    mechanisms_stub_pass_inputs:
+    - inventory
+    - module paths
+    - backfill
+    mechanisms_stub_pass_outputs:
+    - full stub yaml under proposals/
+    - conceptual often placeholder
+    mechanisms_spine_cascade_inputs:
+    - target stub or trinity_id
+    - validated conceptual corpus (.technical/weave/components/ with lock stamps)
+    - concept-trinity-map.yaml
+    - pairs_with neighbor conceptual legs
+    - locked conceptual_style_guide (field_contract + anti_meta)
+    mechanisms_spine_cascade_outputs:
+    - conceptual leg rewrite on target per field_contract
+    - meta.source.spine_cascade provenance
+    spine_cascade_grounding: touch.primary_paths read-only — names the code section,
+      not doctrinal source
+    leave_untouched_by_default:
+    - touch
+    - rules
+    - contract
+    spine_cascade_gold_examples:
+    - harness_headless_eat
+    - harness_snapshot
+    - little_val_structural
+    - weave_governance
+    - skill_gap
+    spine_cascade_method: trinity_conceptual_regen_v3
+  conceptual_field_guide:
+    inherits: conceptual_style_guide.field_contract
+    outcome: One-line claim — human problem solved; "so that" OK; no scene.
+    summary: Principle + constraints — no path laundry; no user vignette.
+    primary_case: Only field with user story — what good feels like when skimming
+      before lock.
+    edge_cases: Operational failure modes — not implementation steps.
+    misread_risks: Dangerous misreads — especially Conceptual vs Touch/Rules.
+  frame_anchor: Harness steps are slaves of growth.
+touch:
+  anatomy: meta
+  blast_radius: .technical/weave/
+  primary_paths:
+  - .technical/weave/components/_schema.yaml
+  - scripts/eat_queue_core/weave/trinity_card_generate.py
+  - scripts/eat_queue_core/weave/trinity_spine_cascade.py
+  - scripts/eat_queue_core/weave/trinity_conceptual_doctrine.py
+  - 3-Resources/Second-Brain/Docs/Component-Trinity.md
+  inbound:
+  - scripts/eat_queue_core/weave/trinity_card.py
+  - scripts/eat_queue_core/weave/trinity_align.py
+  - scripts/eat_queue_core/weave/trinity_harness_backfill.py
+  - .technical/weave/components/*.yaml
+  - .technical/weave/trinity-partition-registry.yaml
+  - concept-trinity-map.yaml
+  - proposals/*/stubs/*.yaml
+  outbound:
+  - .technical/weave/concept-trinity-map.yaml
+  - proposals/*/stubs/*.yaml
+  - .technical/weave/component-proposals/*.yaml
+  - conceptual leg on cascade targets
+  - meta.source.spine_cascade
+  harness_commands:
+  - trinity_card_generate
+  - trinity_spine_cascade
+  - trinity_promote_proposals
+  - trinity_lock_card
+  - trinity_touch_refresh
+  - trinity_align
+  - trinity_boundary_audit
+  queue_modes:
+  - GOVERNANCE_REVIEW
+  - MAINTENANCE_CHECKLIST
+  - GENERATE_TRINITY_CARD
+  behavior_signals:
+  - test_trinity_card
+  - drill_trinity_schema_v2
+  - test_v2_card_passthrough
+  - test_v1_legacy_normalized
+  - test_dry_run_all_passes
+  - test_schema_v2_drill
+  - test_enforcement_fault_drill
+  - test_unknown_drill_rejected
+  - test_drill_registry_complete
+  reference_sections:
+    phase_11a_card_kind_table: '| card_kind | trinity_id pattern | When |
+
+      | --- | --- | --- |
+
+      | component | ^[a-z][a-z0-9_]*$ (no harness_ prefix) | One card per module/skill/gauge
+      |
+
+      | harness_entrypoint | ^harness_[a-z][a-z0-9_]*$ | CLI slice only when no sibling
+      component |
+
+      | provisional_bridge | *_tunnel | D cards; tunnel_via required |
+
+      | meta | fixed doctrine ids | trinity_card_authoring, conceptual_style_guide,
+      … |'
+rules:
+  forbidden:
+  - spine cascade overwrite touch or rules without --fix-legs
+  - module docstring pasted as conceptual summary
+  - user_story_in_outcome_or_summary on component cards
+  - context/session/chat in conceptual fields
+  - prose paragraphs on touch or rules legs
+  - spine cascade on cards with conceptual_confirmed_at without --extend-only
+  - trinity_pack this meta id for component or bridge maintenance PQ
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures: []
+  precedence:
+  - locked conceptual_style_guide field_contract governs component/spine_cascade output
+  - validated conceptual corpus is doctrinal source for spine cascade
+  - stub_pass backward backfill OK when no spine
+  - spine cascade conceptual only unless --fix-legs
+  - trinity_boundary_audit before operator lock on new component or bridge
+  - disconnect + _schema enforce alignment
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  - 'policy: One card per responsibility, not per CLI surface.'
+  - 'policy: harness_* is an exception (card_kind harness_entrypoint), not a default.'
+  - 'policy: Same root module in primary_paths → one component card; CLI via touch.harness_commands.'
+  - 'policy: behavior_signals must resolve to def test_* in contract.proof paths.'
+  - 'policy: Merge harness_{cmd} + {module} duplicates → component + harness_commands.'
+  - 'policy: card_kind: component | harness_entrypoint | provisional_bridge | meta.'
+  - 'policy: card_kind factory_run — Trinity segment for a Run factory charter; lifecycle
+    doctrine on factory_lifecycle_doctrine meta'
+  - 'policy: factory_run cards weld factory entrypoints (harness subcommand, Task
+    dispatch handoff); not the lifecycle meta itself'
+  - 'policy: redesign_factory candidate + legacy pair — two factory_run or component
+    segments; merge harness orphans per 11a'
+  acceptance:
+  - cascade output matches field_contract on component targets
+  - meta.source.spine_cascade lists neighbor trinity_ids used
+  - touch/rules byte-stable when fix-legs not set
+  maintainer_invocation: "GENERATE TRINITY CARD\ntrinity_id: <component_slug>\nconcept:\
+    \ <concept_key>\nsource: <inventory path or code section>\nreference_only:\n \
+    \ - .technical/weave/components/_schema.yaml\n  - .technical/weave/components/conceptual_style_guide.yaml\n\
+    \  - .technical/weave/components/trinity_card_authoring.yaml\nvoice: field_contract\
+    \ — claim, principle, story in primary_case\noperator: review conceptual then\
+    \ touch_refresh\n"
+  card_kind_table_extension:
+    factory_run:
+      trinity_id_pattern: ^[a-z][a-z0-9_]*(_factory|_dispatch|_runtime)?$
+      when: Segment welds a Run factory graph (entrypoint + consumable pack); lifecycle
+        on factory_lifecycle_doctrine meta
+      cross_ref: factory_lifecycle_doctrine
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_card.py
+  - scripts/eat_queue_core/tests/test_trinity_validation_drill.py
+  - scripts/eat_queue_core/tests/test_trinity_spine_cascade.py
+  - scripts/eat_queue_core/weave/trinity_conceptual_doctrine.py
+  - .technical/weave/components/_schema.yaml
+  invariant_ids: []
+meta:
+  schema_version: 2
+  anatomy: meta
+  card_class: complete_draft
+  touch_refreshed_at: '2026-06-02T19:47:50.048290Z'
+  touch_content_hash: da2ec2f03c0e4edc3cac47d8c241e2c4f1bcccf2d2e659c9b4220991412c2247
+  last_disconnect: null
+  closure_must_read_count: 21
+  source:
+    governance_set: governance-set-v1
+    governance_set_ordinal: 8
+    draft_status: growth_reference_v3
+    operator_status: review_before_lock
+    style_guide_ref: conceptual_style_guide
+    locked_at: '2026-06-05T23:46:03Z'
+    locked_from: component-proposals
+    promoted_from: meta-review-20260605
+    lock_kind: maintenance_core
+    changelog: '2026-06-05: factory_run segment kind + cross-ref factory_lifecycle_doctrine'
+    updated_at: '2026-06-05T20:00:00Z'
+    promoted_at: '2026-06-05T23:45:41Z'
+    promotion_method: operator_meta_review_lock
+  leg_status:
+    conceptual: locked
+    touch: locked
+    rules: locked
+    contract: locked
+  provisional: false
+  promotion_tier: locked
+  system_mutable: false
+  phase_11a_card_identity: phase_11a_card_identity_v1
+  phase_11a_applied_at: '2026-06-04T15:38:56.821112Z'
+  operator_status: amendment_review_before_relock
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-05T23:46:03Z'
+  rules_confirmed_at: '2026-06-05T23:46:03Z'

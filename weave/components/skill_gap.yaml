@@ -1,0 +1,101 @@
+id: skill_gap
+conceptual:
+  outcome: Repeating MEMORY gaps can become temporary proposal stubs so unattended
+    runs reuse a stable recipe — auditing those stubs is a separate job.
+  summary: 'Propose-only half of the overnight pair: scan lane MEMORY for mapped gaps,
+    write one proposal stub per pattern when absent, hand paths to the audit cadence.
+    Does not promote production skills or judge proposal quality.'
+  primary_case: You stepped away with known gaps on a lane. Overnight the weave drafts
+    proposal stubs from MEMORY lines you already flagged — not surprise production
+    edits. You return, review proposals, and let the audit pass show what still looks
+    wrong.
+  edge_cases:
+  - Proposal exists for slug-date — skip rewrite.
+  - Unmapped gap — no stub; ghost audit may still flag orphan.
+  - skill_proposals_disabled — skip entire scan.
+  - Pending l4 adoption same fingerprint — converse before stub or PQ.
+  misread_risks:
+  - Owning stale/orphan audit — ghost_skill_audit only.
+  - Listing ghost_skill_audit.py in primary_paths.
+  - Expecting scan_and_stub to promote production SKILL.
+  - GHOST_SKILL_AUDIT queue from this card.
+  operator_memory_hook: Gap repeating overnight? Stub here — audit elsewhere — promote
+    when back.
+  spine_ordinal: 10
+  set: governance_pyramid
+  polar_pair: ghost_skill_audit — audit temp ghosts; skill_gap — stub from gaps.
+  pairs_with:
+  - ghost_skill_audit
+  - l4_adaptive_policy
+  - harness_post_queue_memory_pass
+  - harness_pseudo_clock_tick
+  does_not:
+  - run_ghost_skill_audit
+  - scan_proposals
+  - scan_orphan_gaps
+  - GHOST_SKILL_AUDIT
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/skill_gap.py
+  - scripts/eat_queue_core/skill_gap_mapping.py
+  inbound:
+  - 'MEMORY.md gap: lines per lane'
+  - GAP_SKILL_MAP
+  - curator-knobs auto_pilot_skills; skill_gap_after_repeat_recipe
+  - post_queue_memory_pass / memory_pass context
+  - touch peer l4_adaptive_policy — converse before stub
+  outbound:
+  - new skill-proposals/<slug>-<date>.md stubs
+  - optional maintenance PQ SKILL_PROPOSAL_REVIEW + proposal_paths
+  - touch peer ghost_skill_audit — paths created for audit cadence
+  - touch peer l4_adaptive_policy — converse before outward
+  behavior_signals:
+  - test_gap_to_skill_proposal_review
+rules:
+  forbidden:
+  - run run_ghost_skill_audit or scan_orphan_gaps
+  fixtures: []
+  precedence:
+  - read MEMORY gaps then map GAP_SKILL_MAP
+  - write stub once per slug-day if missing
+  - notify ghost_skill_audit via touch outbound
+  - operator promotes production — not this module
+  - 'policy: append GHOST_SKILL_AUDIT maintenance lines'
+  - 'policy: write production .cursor/skills/ without operator promote'
+  - 'policy: stub without l4 touch peer converse when operating adoption pending'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - mapped gap creates stub when file absent
+  - does not audit stale or orphan
+  - SKILL_PROPOSAL_REVIEW only from scan path
+contract:
+  proof:
+  - scripts/eat_queue_core/skill_gap.py
+  - scripts/eat_queue_core/skill_gap_mapping.py
+  - 3-Resources/Second-Brain/Docs/Curator-Skill-Crystallization.md
+  - scripts/eat_queue_core/tests/test_maintenance_pr2.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    draft_status: operator_locked
+    conceptual_style: propose_only_ghost_stubs
+    governance_set_ordinal: 10
+    separation_review_at: '2026-06-01T06:27:43.543562Z'
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/skill_gap.yaml
+    locked_as: propose_only_separation_v6
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: f72c6b13a95555e92aa96b538177963d0c0f699f84adb356941d88095c514251
+  touch_refreshed_at: '2026-06-08T20:47:54.703097Z'
+  closure_must_read_count: 21
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

@@ -1,0 +1,222 @@
+id: harness_runtime_contract
+conceptual:
+  outcome: Any host can launch factories through one runtime seam — harness in, structured
+    report out — so weave output (plans, receipts, board, Watcher) stays observable
+    and lock-aligned.
+  summary: 'This meta card is the **host-agnostic factory runtime**: Layer 0 invokes
+    `python3 -m scripts.eat_queue_core.harness` (and factory-specific subcommands);
+    Layer 1 Queue executes from EQPLAN; Layer 2 pipelines return structured results.
+    **Primary (steady meta):** you **launch a factory** — the factory''s run is mediated
+    by harness (PQ bytes, plan, dispatch, rewrite, tails) and weave locks, not by
+    the host mutating queue files ad hoc. **Secondary (meta evolution):** you plan
+    a **new factory** or a **runtime philosophy shift** (e.g. factories → swarms,
+    new launch pattern); cards show ripples across harness, parallel PQ, observe,
+    and enforcement. Cursor/Task/MCP: **`cursor_host_adapter`**. Integration style:
+    `agent_implementation_style`. Reserved **HostRunner** seam documented here, implemented
+    on adapter when needed.'
+  primary_case: 'Steady state under this meta: you **launch a factory** through the
+    runtime — headless eat, architect fanout, maintenance self-wrap, institute capture,
+    or the factory pattern du jour. The host does not own PQ bytes; harness does.
+    You get EQPLAN, dispatch, consumed rewrite, receipts, and board/Watcher lines
+    that prove what ran. EAT-QUEUE on one lane is an **instance** of factory launch,
+    not the definition of this meta card.'
+  secondary_case: 'Meta evolution planning: a **new factory** or a **shift in how
+    factories run** (philosophy change, swarms instead of monolithic factory, tighter
+    meta rules). The agent reads this card plus affected component and bridge cards.
+    **Locked fit** — which subcommands and queue steps already apply. **Potential
+    output shifts** — what changes in plans, verify, pass_gate, receipts, dual-track
+    PQ. **Ripples:** change **A** for **C** → **D** required; **B** avoid (inline
+    PQ in chat, skip verify, duplicate harness-only cards); **E** enhance (new subcommand
+    + tests, plan --all-tracks, self-wrap hook). Roadmap factory is one example instance,
+    not the story.'
+  edge_cases:
+  - Factory launch instances — EAT-QUEUE lane, headless_eat, headless_architect, trinity_weave_self_wrap
+    (maintenance factory).
+  - New factory or swarm philosophy — secondary_case before new harness surface ships.
+  - Dual-track parallel_context — per-track PQ; not legacy single global PQ when parallel
+    enabled.
+  - Empty PQ — A.1b bootstrap; no silent Layer 0 success.
+  - verify vs pipeline success — verify is bytes; pipeline ok is separate.
+  - GitForge tail — post_queue_gitforge after A.7 when enabled; not LLM Task.
+  misread_risks:
+  - Primary_case written as EAT-QUEUE walkthrough — primary is factory launch through
+    harness generically.
+  - Secondary_case tied to one factory name (roadmap) — secondary is new factory or
+    philosophy shift.
+  - Layer 0 as Layer 1 — chat launches; Queue + harness own orchestration bytes.
+  - Cursor/Task on this card — use cursor_host_adapter.
+  - Conflict-only mesh without ripples, shifts, E, B.
+  - harness_* card per subcommand — use harness_commands on component cards (11a).
+  frame_anchor: Factory runtime through harness (primary); plan meta evolution with
+    card ripples (secondary).
+  operator_memory_hook: Launch factories via harness; evolve runtime with mesh before
+    compensation.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Queue-Harness-Architecture]]'
+  - '[[3-Resources/Second-Brain/Docs/Python-Queue-Orchestrator]]'
+  - '[[3-Resources/Second-Brain/Docs/Headless-Overnight-Session]]'
+  - '[[3-Resources/Second-Brain/Docs/Dual-track-EAT-QUEUE-Operator]]'
+  - '[[3-Resources/Second-Brain/Docs/Lane-Vocabulary]]'
+  - '[[3-Resources/Second-Brain/Queue-Sources]]'
+  - '[[.technical/weave/component-proposals/agent_implementation_style.yaml]]'
+  - '[[.cursor/rules/agents/queue.mdc]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/config_knob_parity.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/maintenance_honesty_anchor.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/harness_daemon.py
+  - scripts/eat_queue_core/plan.py
+  - scripts/eat_queue_core/pool_sync.py
+  - scripts/eat_queue_core/queue_lane_io.py
+  - scripts/eat_queue_core/headless_orchestrator.py
+  - scripts/eat_queue_core/headless_single_lane.py
+  - scripts/eat_queue_core/post_queue_gitforge.py
+  - scripts/eat_queue_core/weave/trinity_weave_self_wrap.py
+  inbound:
+  - factory launch (primary_case) — any factory pattern the host starts via harness
+  - new factory or runtime philosophy-shift plan (secondary_case)
+  - Layer 0 hand-off with parallel_context
+  outbound:
+  - 'primary: EQPLAN, PQ mutations, receipts, Watcher-Result, lane board'
+  - 'secondary: mesh report — locked fit | output shifts | ripple | enhance E | avoid
+    B'
+  - .technical/parallel/*/prompt-queue.jsonl
+  - .technical/parallel/*/eat_queue_run_plan.json
+  - .technical/Run-Telemetry/
+  harness_commands:
+  - pool_sync
+  - plan
+  - full_cycle
+  - snapshot
+  - verify
+  - rewrite_consumed
+  - append_entries
+  - headless_eat
+  - headless_fanout
+  - headless_architect
+  - trinity_weave_self_wrap
+  - post_queue_gitforge
+  behavior_signals:
+  - test_headless_eat_single_dry_run
+  - test_split_lane_cli_rejects_comma
+  - test_hydrate_filters_lane_and_shared
+  - test_parallel_context_from_config_track_paths
+  - test_module_importable
+  knob_parity_expectation: harness proofs or redesign_factory runs must cover documented
+    speed_mode matrix per config_knob_parity
+rules:
+  forbidden:
+  - Layer 0 or Layer 2 mutating PQ bytes without harness subcommands
+  - inline parse-and-dispatch of prompt-queue.jsonl in parent chat as substitute for
+    Task(queue)
+  - assume MCP Obsidian tools replace harness for queue file writes
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures: []
+  precedence:
+  - 'primary_case: factory launch only through harness subcommands — host does not
+    mutate PQ inline'
+  - 'secondary_case (meta evolution): mesh locked fit, output shifts, ripple A→D,
+    enhance E, avoid B'
+  - 'PQ path: pool_sync → plan/full_cycle → dispatch → verify (optional) → rewrite_consumed'
+  - 'dual-track: parallel_context paths from Config'
+  - HostRunner documented here; Cursor binding on cursor_host_adapter only
+  - 'empty PQ: A.1b semantics; Layer 0 receipt gate'
+  - host invokes harness with --vault-root and PYTHONPATH=scripts; harness returns
+    JSON/report
+  - 'PQ mutations: pool_sync → plan/full_cycle → dispatch → verify (optional) → rewrite_consumed
+    → post_queue_gitforge when enabled'
+  - 'dual-track: resolve parallel_context paths; never assume single global .technical/prompt-queue.jsonl
+    when parallel enabled'
+  - 'empty PQ: A.1b bootstrap semantics; Layer 0 must not claim clean success without
+    receipt tokens'
+  - 'maintenance observe: lane_status_board after unclog when self-wrap runs'
+  - 'policy: skip rewrite_consumed after verify hard_stop when mutation_recovery_mode
+    requires'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  - 'host capability: Cursor path — honesty tier 0-1 default; tier 2 on strict/quality
+    only'
+  - 'host capability: standalone harness — tier 2 first-class when config enables'
+  - 'knob parity: factory harness tests must align with config_knob_parity matrix
+    or documented exemption'
+  - honesty budget follows speed_mode — see meta.honesty_budget_by_speed_mode
+  acceptance:
+  - test_headless_eat_single_dry_run green
+  - test_hydrate_filters_lane_and_shared green
+  - test_parallel_context_from_config_track_paths green
+contract:
+  proof:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_headless_single_lane.py
+  - scripts/eat_queue_core/tests/test_pool_sync.py
+  - scripts/eat_queue_core/tests/test_harness_all_tracks.py
+  - scripts/eat_queue_core/tests/test_harness.py
+  invariant_ids:
+  - headless_single_lane_required
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_11_meta_draft
+    phase: 11
+    pack_ordinal: 2
+    generated_at: '2026-06-02T18:00:00Z'
+    operator_status: approved_for_lock
+    changelog: '2026-06-05: host capability tiers + honesty budget per speed_mode
+      + knob parity proof expectations'
+    updated_at: '2026-06-05T20:00:00Z'
+    stamped_provisional_at: '2026-06-04T04:34:20.557741Z'
+    locked_at: '2026-06-05T23:46:03Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+    promoted_from: meta-review-20260605
+    promoted_at: '2026-06-05T23:45:41Z'
+    promotion_method: operator_meta_review_lock
+  pairs_with:
+  - agent_implementation_style
+  - cursor_host_adapter
+  - lane_status_board
+  - pool_sync
+  - trinity_spine_maintenance
+  - trinity_upgrade_integration
+  - harness_headless_eat
+  - conceptual_style_guide
+  - trinity_card_authoring
+  - config_knob_parity
+  - maintenance_honesty_anchor
+  - factory_lifecycle_doctrine
+  adapter_seam:
+    host_agnostic_owner: harness_runtime_contract
+    swappable_host_owner: cursor_host_adapter
+    reserved_runner: HostRunner
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  system_mutable: false
+  operator_status: amendment_review_before_relock
+  host_capabilities:
+    cursor_host:
+      tier_0_1_default: true
+      tier_2_optional: strict/quality profile or explicit config
+      logprobs: false
+      k_sample_self_consistency: defer unless config enabled
+    standalone_harness_host:
+      tier_0_1_default: true
+      tier_2_first_class: true
+      logprobs: when LLM client exposes
+      k_sample_self_consistency: configurable per speed_mode
+  honesty_budget_by_speed_mode:
+    fast: tier_0 structural only
+    balance: tier_0 + tier_1 uncertainty on yellow
+    quality: tier_0 + tier_1 + tier_2 validator/k-sample when enabled
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-05T23:46:03Z'
+  rules_confirmed_at: '2026-06-05T23:46:03Z'

@@ -1,0 +1,90 @@
+id: weave_governance
+conceptual:
+  outcome: The weave keeps one trustworthy operational memory, so decisions, board
+    state, and system signals stay coherent across runs instead of drifting between
+    chats or lanes.
+  summary: Weave governance is the system's memory backbone for operational truth.
+    It records what was reviewed, what the board looked like, and what signals were
+    observed, so the next move starts from shared context instead of partial recollection.
+    This is not policy law itself and not a repair engine; it is continuity infrastructure.
+    When governance memory is healthy, downstream cards can reason from the same facts.
+    When governance memory is stale or fragmented, intent mismatch and false confidence
+    rise quickly.
+  primary_case: A maintenance pass or recovery cycle completes. Governance writes
+    a durable record of review decisions and system signals, plus the latest board
+    snapshot context. The next pass reads that memory before acting, so decisions
+    are anchored to what actually happened, not what someone thinks happened.
+  edge_cases:
+  - No prior records yet — governance initializes baseline memory so future runs have
+    continuity.
+  - Conflicting signals across lanes — governance records both instead of silently
+    flattening disagreements.
+  - Corrupt or partial records — system should fail safe and request review rather
+    than infer missing truth.
+  misread_risks:
+  - Treating governance logs as optional notes rather than system memory.
+  - Using governance storage as policy law (law belongs in invariant registry).
+  - Assuming latest board view is enough without review and metric history.
+  - Overwriting history to look clean, which destroys continuity and trust.
+  operator_memory_hook: If the system cannot remember clearly, it cannot steer safely.
+  spine_ordinal: 4
+  set: governance_pyramid
+  polar_pair: invariant_registry — registry defines shared law; governance preserves
+    shared operational memory.
+  pairs_with: lane_status_board, operator_surface_verifier, l2_predictive_maintenance
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/governance.py
+  inbound:
+  - maintenance/review outcomes from weave flows
+  - lane board integrity and system telemetry signals
+  outbound:
+  - .technical/weave/governance_reviews.jsonl
+  - .technical/weave/lane_board_snapshot.json
+  - .technical/weave/metrics.jsonl
+  behavior_signals:
+  - test_governance_overdue_auto_queue_appends_line
+  - test_governance_observe_only
+rules:
+  forbidden:
+  - overwrite or rewrite governance history to hide instability
+  - record decisions without timestamped trace context
+  fixtures: []
+  precedence:
+  - ensure weave governance paths exist before appending records
+  - append governance review and metric rows as immutable event history
+  - read latest governance context before high-impact maintenance decisions
+  - 'policy: treat missing governance files as harmless when continuity is required'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - governance file paths initialize correctly on first run
+  - review + metric rows append and remain parseable
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/governance.py
+  - scripts/eat_queue_core/tests/test_weave_phase1_verifier.py
+  - scripts/eat_queue_core/tests/test_l4_validation_drill.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: plain_explanatory_prose
+    governance_set_ordinal: 4
+    generated_at: '2026-06-01T03:45:32Z'
+    supersedes_backfill: .technical/weave/proposals/wide-net-v2/cards/weave_governance.yaml
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/weave_governance.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: 049ce30924bb71ba2f4fb0d5143a5184321aeca6a42cd1114c673bcb52d2c7e9
+  touch_refreshed_at: '2026-06-09T05:50:27.693008Z'
+  closure_must_read_count: 6
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

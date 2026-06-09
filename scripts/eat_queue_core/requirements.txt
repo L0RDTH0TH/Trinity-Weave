@@ -1,0 +1,3 @@
+# Optional: pip install -r scripts/eat_queue_core/requirements.txt (for eat_queue_core + tests)
+pydantic>=2,<3
+pyyaml>=6,<7

@@ -1,0 +1,151 @@
+id: lane_status_board
+conceptual:
+  outcome: The Lane Status Board gives the operator a trustworthy remote view of lane
+    health and run state — without the console.
+  summary: Obsidian-facing surface over the lane snapshot kernel only — no inferring
+    live Run from receipt history. Health and Run columns reflect authoritative activity
+    after mandatory reconcile; timestamps and focus lines exist so mobile trust is
+    earned, not hoped for.
+  primary_case: Operator away from laptop opens Ingest/Lane-Status-Board.md (mobile
+    or secondary device). Board shows current kernel snapshot after pre-read reconcile
+    — Health and Run from authoritative lane activity, refreshed timestamp visible,
+    TL;DR and table aligned. Operator reads Health and Run per lane, checks system_attention
+    rollup, and acts (or waits) based on that glance alone.
+  edge_cases:
+  - 'Two axes are orthogonal: healthy lane can be paused; unhealthy lane can be running
+    — never collapse into one signal.'
+  - Ops/Syncthing partition may lag Bulk `.technical/` — a fundamental limitation.
+    Mistrust came from wrong semantics on the board (what was sent), not from sync
+    latency alone; refreshed stamp + kernel-only fields mark what the operator can
+    trust on this device.
+  - Recent runs is historical audit only; never drives the Run column.
+  - Paused policy overrides Run regardless of registry or receipt noise.
+  - Empty queue shows — for est. drain; absence of work is not hidden failure.
+  - system_attention rollup must reflect worst meaningful lane signal, not cosmetic
+    green.
+  misread_risks:
+  - Receipt tail or last ok:false treated as live Run or primary failure story.
+  - Health and Run collapsed into one inferred running or healthy state.
+  - Historical Recent runs collapsed with liveness into one signal.
+  - PQ depth alone interpreted as unhealthy or running.
+  - Stale or semantically wrong board (TL;DR, frontmatter, or table disagree, or Run
+    inferred from receipts) — operator cannot trust the surface.
+  - Manual edits to machine-maintained sections that drift from harness output.
+  - Assuming sync speed caused mistrust when the payload semantics were wrong.
+  operator_trust: The operator must always be able to trust what they see on the Lane
+    Status Board. Freshness, kernel-only semantics, correct Health/Run separation,
+    and section alignment exist to protect that trust. Touch and Rules legs serve
+    this conceptual outcome; they are not the primary leverage surface.
+  refs:
+  - '[[1-Projects/second-brain-curator-master/second-brain-curator-master-goal]]'
+  - '[[3-Resources/Second-Brain/Docs/Operator-Surface-Maintenance-Spec]]'
+  - '[[3-Resources/Second-Brain/Docs/Lane-Status-Board-Rules]]'
+  - '[[3-Resources/Second-Brain/Docs/Syncthing-Sync-Partitions]]'
+  - '[[Ingest/Lane-Status-Board]]'
+touch:
+  blast_radius: .technical/weave/blast-radius/lane-run-status.yaml
+  primary_paths:
+  - scripts/eat_queue_core/lane_snapshot.py
+  - scripts/eat_queue_core/lane_status_board.py
+  - scripts/eat_queue_core/lane_board_integrity.py
+  - scripts/eat_queue_core/weave/verifier.py
+  inbound:
+  - scripts/eat_queue_core/launch_registry_reconcile.py
+  - scripts/eat_queue_core/goal_authority_io.py
+  - scripts/eat_queue_core/lane_activity.py
+  - scripts/eat_queue_core/lane_health_signals.py
+  - scripts/eat_queue_core/weave/trinity_align.py
+  outbound:
+  - Ingest/Lane-Status-Board.md
+  - .technical/weave/lane_board_snapshot.json
+  - .technical/parallel/<lane>/lane_health_samples.jsonl
+  - scripts/eat_queue_core/tests/test_board_fixtures.py
+  refresh_triggers:
+  - harness lane_status_board
+  - pseudo_clock_tick
+  - headless_eat tail
+  - maintenance eat tail
+  queue_modes:
+  - REFRESH_LANE_BOARD
+  - OPERATOR_SURFACE_REPAIR
+  - STALE_LANE_BOARD
+  - MAINTAIN OPERATOR SURFACE
+  behavior_signals:
+  - test_receipt_success_only_idle_not_running
+  - test_paused_policy_run_paused
+  - test_kernel_stable_on_double_read
+  - test_fm_matches_table_run
+  - test_recent_runs_historical_callout
+rules:
+  forbidden:
+  - receipt or history implies Run
+  - health and Run collapsed; depth alone implies either
+  - second classifier for Run or health
+  - TL;DR FM table disagree or integrity_ok false shipped
+  - mtime or manual edits over harness snapshot
+  fixtures:
+  - ghost_inflight
+  - receipt_success_only
+  - paused_policy
+  - kernel_stable_double_read
+  precedence:
+  - 'pre_read: reconcile_launch_registry + release_stale_orchestration_lock'
+  - 'kernel: build_lane_snapshots — Run + health_score authoritative'
+  - 'Run: resolve_lane_activity only'
+  - 'Health: compute_lane_health / snapshot only'
+  - 'view: board maps snapshot — zero inference'
+  - 'write: TL;DR + FM + Lanes table aligned same pass'
+  - 'freshness: refreshed frontmatter every write'
+  - 'fail: integrity fail → OPERATOR_SURFACE_REPAIR stub — no silent ok'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_board_fixtures green
+  - validate_lane_board_integrity ok
+  - verify_operator_surface_integrity ok
+  - FM lane_run_* matches Lanes Run badge per lane
+  - trinity_align ok when trinity_checks_enabled
+  - conceptual_confirmed_at set before production flip
+  maintainer_invocation: 'MAINTAIN OPERATOR SURFACE
+
+    trinity_id: lane_status_board
+
+    concept: lane_run_status
+
+    serve: operator_trust + Health/Run axes
+
+    blast_radius: .technical/weave/blast-radius/lane-run-status.yaml
+
+    forbidden: receipt→run, collapse axes, stale sections
+
+    fixtures: ghost_inflight, receipt_success_only
+
+    gate: validate_lane_board_integrity + trinity_align
+
+    '
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_board_fixtures.py
+  - scripts/eat_queue_core/lane_board_integrity.py
+  - scripts/eat_queue_core/weave/verifier.py
+  - scripts/eat_queue_core/lane_snapshot.py
+  invariant_ids:
+  - lane_run_no_receipt_inference
+  - cq_lanesnapshot_canonical
+meta:
+  touch_refreshed_at: '2026-06-09T05:50:10.573550Z'
+  touch_content_hash: 6e142b9f42e10e51a8ab36765a8fd6da9aae616e73ff44aa9a808f6b9e816560
+  last_disconnect: null
+  schema_version: 2
+  closure_must_read_count: 21
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false
+  source:
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core

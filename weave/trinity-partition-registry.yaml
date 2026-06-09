@@ -1,0 +1,156 @@
+schema_version: 1
+updated_at: '2026-06-09'
+maintenance_core:
+  system_mutable: false
+  include_meta: true
+provisionals:
+  default_anatomy: component
+  inherit_from_registry: true
+partitions:
+  maintenance:
+    notes: Gauges (truthful readouts) + vehicle (weave infra); L5 deferred until L1–L4 stable.
+    components:
+    - id: lane_status_board
+      primary_anchor: scripts/eat_queue_core/lane_status_board.py
+      role: gauge
+      overlap_watch:
+      - operator_surface_verifier
+    - id: lane_activity
+      primary_anchor: scripts/eat_queue_core/lane_activity.py
+      role: gauge
+    - id: launch_registry_reconcile
+      primary_anchor: scripts/eat_queue_core/launch_registry_reconcile.py
+      role: gauge
+    - id: operator_surface_verifier
+      primary_anchor: scripts/eat_queue_core/weave/verifier.py
+      role: gauge
+      overlap_watch:
+      - lane_status_board
+    - id: recoverable_handlers
+      primary_anchor: scripts/eat_queue_core/recoverable_handlers.py
+      role: vehicle
+      overlap_watch:
+      - l3_self_heal
+    - id: l3_self_heal
+      primary_anchor: scripts/eat_queue_core/weave/l3_self_heal.py
+      role: vehicle
+      overlap_watch:
+      - recoverable_handlers
+    - id: l2_symbolic_conflict
+      primary_anchor: scripts/eat_queue_core/weave/symbolic_conflict.py
+      role: vehicle
+    - id: l2_predictive_maintenance
+      primary_anchor: scripts/eat_queue_core/weave/predictive.py
+      role: vehicle
+    - id: invariant_registry
+      primary_anchor: scripts/eat_queue_core/weave/invariant_registry.py
+      role: vehicle
+      overlap_watch:
+      - weave_governance
+    - id: weave_governance
+      primary_anchor: scripts/eat_queue_core/weave/governance.py
+      role: vehicle
+      overlap_watch:
+      - invariant_registry
+    - id: l4_adaptive_policy
+      primary_anchor: scripts/eat_queue_core/weave/adaptive_policy.py
+      role: vehicle
+    - id: little_val_structural
+      primary_anchor: .cursor/skills/little-val-structural/SKILL.md
+      role: vehicle
+    - id: ghost_skill_audit
+      primary_anchor: scripts/eat_queue_core/ghost_skill_audit.py
+      role: vehicle
+      overlap_watch:
+      - skill_gap
+    - id: skill_gap
+      primary_anchor: scripts/eat_queue_core/skill_gap.py
+      role: vehicle
+      overlap_watch:
+      - ghost_skill_audit
+    bridges:
+    - id: trinity_spine_maintenance
+      status: locked
+      role: vehicle
+    - id: trinity_upgrade_integration
+      status: locked
+      role: vehicle
+      overlap_watch_from_registry: true
+    meta:
+    - id: trinity_card_authoring
+      status: locked
+    - id: conceptual_style_guide
+      status: locked
+    - id: agent_implementation_style
+      status: locked
+    - id: harness_runtime_contract
+      status: locked
+    - id: schedule_event_planes
+      status: locked
+    - id: cursor_host_adapter
+      status: locked
+    - id: persona_atlas
+      status: locked
+    - id: vault_layout_naming_doctrine
+      status: locked
+    - id: trinity_prompt_context
+      status: locked
+    - id: config_knob_parity
+      status: locked
+    - id: factory_lifecycle_doctrine
+      status: locked
+    - id: maintenance_honesty_anchor
+      status: locked
+    - id: host_execution_safety_contract
+      status: locked
+    - id: public_surface_topology
+      status: locked
+    - id: trinity_weave_public_export
+      status: locked
+    deferred:
+    - id: l5_sandbox
+      reason: L1–L4 stability required; large job minimal gain until prior layers green.
+  harness:
+    components:
+    - id: harness_headless_eat
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_snapshot
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_headless_architect
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_lane_recovery_retry
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_post_queue_gitforge
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_post_queue_memory_pass
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_pseudo_clock_tick
+      primary_anchor: scripts/eat_queue_core/pseudo_clock.py
+    - id: harness_rewrite_consumed
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_verify
+      primary_anchor: scripts/eat_queue_core/harness.py
+    - id: harness_append_entries
+      primary_anchor: scripts/eat_queue_core/harness.py
+    bridges: []
+known_overlap_risks:
+- ids:
+  - l3_self_heal
+  - recoverable_handlers
+  risk: merge_orchestration_and_catalog
+  expected: two_component_cards
+- ids:
+  - weave_governance
+  - invariant_registry
+  risk: governance_swallows_k3
+  expected: two_component_cards
+- ids:
+  - ghost_skill_audit
+  - skill_gap
+  risk: audit_and_propose_merged
+  expected: two_component_cards
+- ids:
+  - lane_status_board
+  - operator_surface_verifier
+  risk: board_and_verifier_merged
+  expected: two_component_cards

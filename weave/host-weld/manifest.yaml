@@ -1,0 +1,23 @@
+version: 1
+legacy_archive_root: 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z
+legacy_archive_stamp: 20260606T055949Z
+not_retained_for_stability: true
+precedence:
+  - trinity_meta
+  - host_weld_live
+  - host_weld_pilot
+  - bridge_socket
+
+socket_retained:
+  - .cursor/rules/always/host-weld-bridge.mdc
+  - .cursor/rules/agents/execution-safety-blacklist.mdc
+  - .cursor/rules/agents/curator-mandatory-backup.mdc
+  - .cursor/rules/always/watcher-result-append.mdc
+
+rules:
+  safety:
+    status: active
+    path: .technical/weave/host-weld/live/safety.md
+    trinity_ref: host_execution_safety_contract
+    legacy_archive_path: always/core-guardrails.mdc
+    note: Surgical digest of locked execution-safety meta; not a paste of archived rules.

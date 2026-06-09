@@ -1,0 +1,173 @@
+id: schedule_event_planes
+conceptual:
+  outcome: The weave keeps a predictable background rhythm — listen every tick, cadence
+    heavy work, react to state, graduate evidence — without smuggling operator surgery
+    or full factory burns into the heartbeat.
+  summary: 'This meta card is the **schedule / pseudo-clock planes** doctrine (Phase
+    17). **Primary (steady meta):** one **`schedule_tick`** (alias **`pseudo_clock_tick`**)
+    runs four **planes** — **listener** (every tick), **scheduled** (N-tick / N-eat
+    cadence), **reactive** (PQ depth, stalls, skill-gap dedupe), **graduation** (evidence-gated
+    trial→global, bounded config promotion). State lives in **`.technical/parallel/institute/schedule.json`**
+    with a legacy mirror **`pseudo-clock.json`**. **Secondary (meta evolution):**
+    you add a new cadence job, promotion row, or plane gate — mesh ripples through
+    `schedule_planes` config, `curator-knobs.yaml`, harness subcommands, and operator
+    checklist before enabling on every tick. Chef vs pulse: **factory launch** = `harness_runtime_contract`;
+    **background rhythm** = this card + component **`harness_pseudo_clock_tick`**
+    (provisional mirror).'
+  primary_case: 'Cron, daemon, or operator runs **`schedule_tick`**. Listener always
+    runs when enabled: board, neighbor prep, nav colors, inbox, continuity, warning
+    rollup. Scheduled runs on counters: **`memory_compact`** every N eats; **`maintain_wrap`**
+    every N ticks (type2 verify + charter audit — heavy, not every tick). Reactive
+    fires on thresholds: PQ depth → MAP_REFRESH enqueue, stall compensate, skill_gap
+    at most once per day. Graduation evaluates promotion matrix when enabled; defaults
+    **off**. Receipts land in structured **`last_actions_by_plane`** — operators validate
+    one plane at a time.'
+  secondary_case: 'Planning a new schedule job or graduation promotion: read locked
+    meta + affected component cards. State **locked fit** (which plane owns the job).
+    **Output shifts** (what operators see in schedule.json / validation artifacts).
+    **Ripples:** new scheduled job → update config keys, harness wiring, Operator
+    Guide checklist, proofs in `test_schedule_planes.py`; never enable `trinity_*_on_pseudo_clock`
+    heavy weave on every tick without explicit counter.'
+  edge_cases:
+  - curator_pseudo_clock disabled — tick skips cleanly; no fake progress.
+  - maintain_wrap on tick 24 — may run 30+ min type2; plan cadence accordingly.
+  - graduation_enabled false — evaluator reports only; no config apply.
+  - graduation rollback — type2 or charter red clears graduation-overrides.yaml.
+  - Legacy readers — pseudo-clock.json flat last_actions mirror for continuity_bridge.
+  - Parallel institute bundle — canonical path under `.technical/parallel/institute/`.
+  misread_risks:
+  - Treating schedule_tick as a lane pipeline or factory launch — use harness_runtime_contract.
+  - Enabling trinity_weave_self_wrap_on_pseudo_clock on every tick — forbidden default.
+  - Operator --operator-mutation or maintenance_core YAML edits on the clock — hard
+    exclusion; use explicit harness + operator ack.
+  - Confusing graduation with operator mutation or scorched-earth burn — graduation
+    is evidence-gated config promotion only.
+  - Hand-editing tick_count or counters — bypasses audit trail.
+  - Expecting wall-clock cron semantics alone — event counters + knobs drive cadence.
+  frame_anchor: Background schedule planes (primary); plan cadence/graduation changes
+    with mesh (secondary).
+  operator_memory_hook: Listen every tick; cadence the heavy stuff; graduate with
+    receipts — not operator surgery on the clock.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Operator-Guide]]'
+  - '[[3-Resources/Second-Brain/Docs/Curator-Software-vs-Agent]]'
+  - '[[3-Resources/Second-Brain/Docs/Curator-CLI-Orchestrator]]'
+  - '[[3-Resources/Second-Brain/Docs/Usage-Proven-Runbook]]'
+  - '[[3-Resources/Second-Brain-Config]]'
+  - '[[.technical/weave/component-proposals/harness_pseudo_clock_tick.yaml]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/components/factory_lifecycle_doctrine.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/schedule_tick.py
+  - scripts/eat_queue_core/schedule_planes.py
+  - scripts/eat_queue_core/schedule_state.py
+  - scripts/eat_queue_core/schedule_config.py
+  - scripts/eat_queue_core/pseudo_clock.py
+  - scripts/eat_queue_core/weave/trinity_graduation_evaluator.py
+  inbound:
+  - harness_daemon run_pseudo_clock_tick
+  - headless_orchestrator post-eat hooks
+  - operator manual schedule_tick / pseudo_clock_tick
+  - secondary_case schedule/graduation plan
+  outbound:
+  - .technical/parallel/institute/schedule.json
+  - .technical/parallel/institute/pseudo-clock.json
+  - .technical/parallel/institute/graduation-receipts.jsonl
+  - .technical/parallel/institute/graduation-overrides.yaml
+  - .technical/weave/validation/ (maintain_wrap type2 + charter artifacts)
+  - lane_status_board, continuity_bridge, warning_ledger
+  harness_commands:
+  - command: schedule_tick
+    help: Phase 17 schedule planes — listener / scheduled / reactive / graduation
+    import: run_schedule_tick
+  - command: pseudo_clock_tick
+    help: Alias for schedule_tick (legacy name)
+    import: tick
+  - command: trinity_graduation_evaluator
+    help: Graduation plane — evidence-gated promotion matrix
+    import: run_graduation_evaluator
+  behavior_signals:
+  - test_tick_increments_tick_count
+  - test_migrate_legacy_clock
+  - test_save_writes_schedule_and_legacy
+  - test_schedule_planes_config_defaults
+  - test_graduation_disabled_skips_apply
+  - test_promotion_requires_streak
+  - test_tick_writes_clock
+rules:
+  forbidden:
+  - --operator-mutation on schedule_tick path
+  - maintenance_core YAML body writes from any schedule plane
+  - trinity_weave_self_wrap_on_pseudo_clock true without explicit cadence counter
+  - --regenerate-complete or scorched-earth burn triggered from schedule planes
+  - host-weld socket or live/ edits from schedule planes
+  - hand-edit schedule.json tick_count or counters to fake green
+  - shell rm on vault; claim Success when maintain_wrap failed silently
+  fixtures: []
+  precedence:
+  - 'plane order: listener → scheduled → reactive → graduation (single tick)'
+  - 'listener: observability + enqueue only; no core YAML / no heavy weave'
+  - 'scheduled: memory_compact + maintain_wrap cadence; maintain_wrap = type2 + charter'
+  - 'reactive: threshold trips only; skill_gap_scan max once per UTC day unless config
+    raises cap'
+  - 'graduation: default off; apply only when graduation_enabled + apply_enabled +
+    matrix passes'
+  - 'hard exclusion: operator mutation, maintenance_core writes, burns on clock'
+  - 'legacy alias: pseudo_clock_tick === schedule_tick'
+  - 'config: schedule_planes.* in Second-Brain-Config; curator-knobs may override'
+  - pairs_with harness_runtime_contract — factory launch vs background pulse
+  - 'policy: trinity_*_on_pseudo_clock heavy hooks default false'
+  - 'policy: graduation rollback on type2.pass_gate_ok false or charter.charter_aligned
+    false'
+  - 'honesty: maintain_wrap ok requires both type2_ok and charter_ok receipts'
+  acceptance:
+  - test_schedule_planes green
+  - test_pseudo_clock green
+  - charter audit includes schedule_event_planes when locked
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_schedule_planes.py
+  - scripts/eat_queue_core/tests/test_pseudo_clock.py
+  - scripts/eat_queue_core/schedule_tick.py
+  - scripts/eat_queue_core/weave/trinity_graduation_evaluator.py
+  invariant_ids:
+  - schedule_planes_isolated
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_17_meta_mint
+    phase: 17
+    generated_at: '2026-06-08T21:00:00Z'
+    operator_status: approved_for_lock
+    changelog: '2026-06-08: Phase 17 schedule planes meta — listener/scheduled/reactive/graduation'
+    locked_at: '2026-06-08T21:00:00Z'
+    locked_from: operator_mint
+    lock_kind: maintenance_core
+    promotion_method: operator_meta_mint_lock
+  pairs_with:
+  - harness_runtime_contract
+  - harness_pseudo_clock_tick
+  - factory_lifecycle_doctrine
+  - trinity_usage_proven
+  - maintenance_honesty_anchor
+  - trinity_prompt_context
+  - agent_implementation_style
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  system_mutable: false
+  operator_status: amendment_review_before_relock
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-08T21:00:00Z'
+  rules_confirmed_at: '2026-06-08T21:00:00Z'
+  touch_content_hash: 549f55f711ec53fbdf31bbc4a9554d38345481362b841e00bb79aff09eb51c77
+  touch_refreshed_at: '2026-06-08T22:53:34.777708Z'
+  closure_must_read_count: 21

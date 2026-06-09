@@ -1,0 +1,184 @@
+id: cursor_host_adapter
+conceptual:
+  outcome: In Cursor, launching a factory means Layer 0 routes through Task, handoffs,
+    and MCP-aware subagents — not chat improvising queue bytes or pipeline steps inline.
+  summary: 'This meta card is the **swappable host adapter** for today''s **Cursor
+    IDE** binding. **`harness_runtime_contract`** (#2) owns host-agnostic factory
+    runtime; **`agent_implementation_style`** (#1) owns how agents integrate code
+    and cards. **This card** owns: `.cursor/rules`, `.cursor/skills`, `.cursor/agents`,
+    **Task harden pass**, **task-handoff-comms**, Obsidian MCP when present, and Layer
+    0 dispatcher/funnel routing (EAT-QUEUE → `Task(queue)`, pipeline modes → `Task(ingest|roadmap|…)`).
+    **Primary (steady meta):** you **launch a factory from chat** — Architect prep,
+    Curator capture, EAT-QUEUE, headless hand-off — Layer 0 builds the hand-off block,
+    attempts real `Task` calls, records comms, and does **not** run Layer 1 queue
+    logic inline in the parent. **Secondary (meta evolution):** you plan a **new factory**
+    or **philosophy shift** (e.g. factories → **agent swarms**, different Layer 0
+    launch pattern, slimmer Task graph) — cards show how Cursor binding must change
+    vs locked runtime (#2). Future hosts (HostRunner, API) get **new adapter cards**;
+    this card stays Cursor-specific. Capability gaps (MCP down → inline edits) are
+    declared, not hidden.'
+  primary_case: 'Steady state under this meta: you **launch a factory from Cursor**
+    — say EAT-QUEUE on a lane, Resume roadmap, Curator institute prep, or Architect
+    overnight hand-off. Layer 0 recognizes the funnel, writes **task-handoff-comms**
+    when enabled, and **`Task(subagent_type: …)`** with the mandatory hand-off prompt
+    (Subagent-Safety-Contract). The child runs harness + pipelines; the parent waits,
+    parses `task_harden_result` / ledger / Watcher lines, and does not claim the factory
+    finished if Task failed or proof-on-failure was not recorded. `model: fast` only
+    when intentional; never `model: inherit` on Task.'
+  secondary_case: 'Meta evolution planning: you add a **new factory** or change **how
+    Cursor hosts work** — swarms instead of one Task per mode, a new Layer 0 phrase,
+    MCP-less-by-default, or a different comms schema. The agent reads this adapter
+    card plus **`harness_runtime_contract`** and affected component cards. **Locked
+    fit** — which rules, agents, and hand-off blocks already apply. **Output shifts**
+    — what operators see in chat vs Watcher, Task failure rates, MCP vs inline paths.
+    **Ripples:** change **A** (dispatcher trigger) for **C** (swarm) → **D** (queue.mdc,
+    handoff_build, agent files); **B** avoid (Layer 0 inline PQ parse, skipping Task
+    attempt-before-skip, Prompt Craft from IRA); **E** enhance (task-handoff-comms
+    fields, architect-agent shield, parallel_context in hand-off). Examples are instances;
+    the story is any host-binding evolution.'
+  edge_cases:
+  - Task subagent without obsidian_* — pipeline uses inline path per contract; still
+    attempt Task + ledger honesty.
+  - ROADMAP_HANDOFF_VALIDATE — Task(validator) with Config model; read-only on inputs.
+  - REPAIR CRAFT / PROMPT CRAFT — Layer 0 only; not nested pipeline helper.
+  - Dual-track hand-off — parallel_context YAML in Layer 0→1 hand-off; per-track comms
+    path.
+  - New factory / swarm philosophy — secondary_case before rewriting dispatcher wholesale.
+  misread_risks:
+  - Primary_case as 'user types INGEST MODE' only — primary is any factory launch
+    via Cursor Layer 0.
+  - Secondary_case tied to one product factory — secondary is new factory or host
+    philosophy shift.
+  - Folding harness PQ contract into this card — use harness_runtime_contract.
+  - Layer 0 running queue A.0–A.7 inline — violates adapter; use Task(queue).
+  - Success without Task attempt or proof-on-failure when helper was mandatory.
+  - 'Passing model: inherit on Task payload.'
+  - Mesh without ripples, output shifts, E, B.
+  frame_anchor: Cursor host binding for factory launch (primary); plan adapter evolution
+    (secondary).
+  operator_memory_hook: Chat launches factories via Task + handoff; evolve Cursor
+    binding with card mesh first.
+  refs:
+  - '[[3-Resources/Second-Brain/Subagent-Safety-Contract]]'
+  - '[[3-Resources/Second-Brain/Docs/Task-Handoff-Comms-Spec]]'
+  - '[[3-Resources/Second-Brain/Docs/Subagent-Layers-Reference]]'
+  - '[[3-Resources/Second-Brain/Docs/Rules/Dispatcher-Rule]]'
+  - '[[.cursor/rules/always/host-weld-bridge]]'
+  - '[[.technical/weave/host-weld/manifest.yaml]]'
+  - '[[.technical/weave/host-weld/live/safety.md]]'
+  - '[[.cursor/agents/queue.md]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/components/agent_implementation_style.yaml]]'
+touch:
+  primary_paths:
+  - .cursor/rules/always/host-weld-bridge.mdc
+  - .technical/weave/host-weld/manifest.yaml
+  - .technical/weave/host-weld/live/safety.md
+  - 3-Resources/Second-Brain/Docs/Rules/Dispatcher-Rule.md
+  - 3-Resources/Second-Brain/Docs/README.md
+  - 3-Resources/Second-Brain/Subagent-Safety-Contract.md
+  - 3-Resources/Second-Brain/Docs/Task-Handoff-Comms-Spec.md
+  - 3-Resources/Second-Brain/Docs/Subagent-Layers-Reference.md
+  - .cursor/agents/queue.md
+  - .cursor/agents/roadmap.md
+  - .cursor/agents/ingest.md
+  - scripts/eat_queue_core/handoff_build.py
+  - scripts/eat_queue_core/continuity_handoff.py
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/always/dispatcher.mdc
+  - 4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/always/system-funnels.mdc
+  inbound:
+  - factory launch from Cursor chat (primary_case)
+  - EAT-QUEUE / PROCESS TASK QUEUE / mode phrases (system-funnels)
+  - new factory or swarm/host philosophy plan (secondary_case)
+  outbound:
+  - Task(subagent_type) with hand-off prompt + task_harden_metadata
+  - .technical/task-handoff-comms.jsonl (and per-track mirror when parallel)
+  - 'Task(subagent_type: queue) → harness + Layer 1 per harness_runtime_contract'
+  - 'secondary: mesh report — locked fit | output shifts | ripple | enhance E | avoid
+    B'
+  - 3-Resources/Watcher-Result.md (via Layer 1; parent does not substitute)
+  behavior_signals:
+  - test_build_handoff_godot_lane
+  - test_handoff_includes_context_envelope
+  - test_envelope_includes_trinity_pack_for_maintenance_handoff
+  - test_json_roundtrip_handoff
+rules:
+  forbidden:
+  - Layer 0 inline queue orchestration when EAT-QUEUE or PROCESS TASK QUEUE triggered
+  - 'model: inherit on Task tool arguments'
+  - nested pipeline helpers calling Task(prompt_craft) or Task(gitforge) — Layer 1
+    / harness only
+  - Validator or IRA mutating input artifacts beyond explicit output path
+  fixtures: []
+  precedence:
+  - 'primary_case: factory launch → dispatcher → Task harden pass → real Task call
+    → handoff_out/return_in when comms enabled'
+  - 'primary_case: parent does not report factory success if mandatory Task failed
+    (proof-on-failure)'
+  - 'secondary_case (meta evolution): mesh adapter + runtime cards; ripple A→D, enhance
+    E, avoid B'
+  - 'Task model: omit for inherit parent; fast only when intentional; Config model
+    for validator types'
+  - MCP probe per Subagent-Safety-Contract; inline fallback declared in run_mode /
+    ledger
+  - architect goal packet / curator STESM — context rules; hand-off may include context_envelope
+  - 'policy: skip Task attempt-before-skip for mandatory subagent_type'
+  - 'policy: merge Prompt Craft reasoning into user_guidance'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_build_handoff_godot_lane green
+  - test_handoff_includes_context_envelope green
+  - test_envelope_includes_trinity_pack_for_maintenance_handoff green
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_headless_orchestrator.py
+  - scripts/eat_queue_core/tests/test_continuity_handoff.py
+  - scripts/eat_queue_core/tests/test_weave_trinity_pack.py
+  - scripts/eat_queue_core/tests/test_gitforge_harness.py
+  - scripts/eat_queue_core/handoff_build.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_11_meta_draft
+    phase: 11
+    pack_ordinal: 3
+    generated_at: '2026-06-02T21:00:00Z'
+    operator_status: approved_for_lock
+    stamped_provisional_at: '2026-06-04T04:34:20.557741Z'
+    locked_at: '2026-06-04T04:40:57Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  pairs_with:
+  - harness_runtime_contract
+  - agent_implementation_style
+  - architect_orchestration
+  - handoff_build
+  - continuity_handoff
+  - conceptual_style_guide
+  - trinity_card_authoring
+  adapter_seam:
+    role: swappable_host
+    host_agnostic_owner: harness_runtime_contract
+    cursor_binding_owner: cursor_host_adapter
+    future_adapters:
+    - openai_host_adapter
+    - local_runner_adapter
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: false
+  promotion_tier: locked
+  conceptual_confirmed_at: '2026-06-04T04:40:57Z'
+  rules_confirmed_at: '2026-06-04T04:40:57Z'
+  lock_kind: maintenance_core
+  system_mutable: false
+  touch_content_hash: 2d59f1aa077793f12a56371df8f2d2a61c72cc5620d8453f4b4a3fb55f116e74
+  touch_refreshed_at: '2026-06-08T03:58:12.422455Z'
+  closure_must_read_count: 21

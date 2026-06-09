@@ -1,0 +1,98 @@
+id: little_val_structural
+conceptual:
+  outcome: 'Before a step claims success, the weave can confirm it is not lying to
+    itself: what was done must match the structural contract for that step.'
+  summary: 'Little val is internal structural honesty. For whatever step is running
+    (mode, action, pipeline — present or future), the system declares what structure
+    that step requires and checks whether artifacts match. It does not judge prose
+    quality; it judges whether the run left behind the evidence it claims. Operator
+    surface verifier guards honesty toward the operator; little val guards honesty
+    toward the system''s own record. The skill contract is general: expected structure
+    in, match or mismatch out — not a fixed catalog of today''s commands.'
+  primary_case: An autonomous step completes and wants to report success. Little val
+    receives the step identity and its structural expectations, then inspects artifacts
+    read-only. Match — success may be claimed. Mismatch — repair within attempt budget,
+    re-check, or fail without pretending the step closed cleanly.
+  edge_cases:
+  - New step types — register structural expectations; do not hard-code only legacy
+    pipelines.
+  - Step-specific rules (e.g. exhibit Quick Reference) apply when context matches,
+    not as global closure.
+  - Attempt budget exhausted — fail closed; no success on unproven structure.
+  misread_risks:
+  - Freezing the concept to a fixed list of modes or pipelines.
+  - Confusing with operator surface verifier (user-facing honesty vs internal self-honesty).
+  - Confusing with hostile validator (content/readiness vs structural proof).
+  - Letting little val mutate artifacts — inspection only; repair belongs to the step
+    runner.
+  operator_memory_hook: Are we lying to ourselves about what this step actually did?
+  spine_ordinal: 6
+  set: governance_pyramid
+  polar_pair: operator_surface_verifier — operator honesty; little_val_structural
+    — internal self-honesty.
+  pairs_with: operator_surface_verifier, internal-repair-agent, validator, harness
+    record_little_val_block
+touch:
+  primary_paths:
+  - .cursor/skills/little-val-structural/SKILL.md
+  inbound:
+  - pipeline subagent return (mode, params, ids, artifacts)
+  - queue A.5b / post-little-val validator path when little_val_ok required
+  outbound:
+  - ok / missing / hint / category per run
+  - failure or review-needed when structure unproven after attempt budget
+  - optional harness record_little_val_block → maintenance escalation
+  behavior_signals:
+  - returns ok/missing/hint/category from expected_structure or v1 profile
+  - read-only; caller repairs structure within attempt budget
+rules:
+  forbidden: []
+  fixtures: []
+  precedence:
+  - run pipeline steps and logging first
+  - invoke little-val-structural before Success
+  - structural repair only within attempt budget, then re-check
+  - escalate to IRA or queue repair path when still not ok
+  - 'policy: return Success without little val ok when contract requires structural
+    attestation'
+  - 'policy: use little val to mutate notes, logs, or state (read-only inspection
+    only)'
+  - 'policy: treat validator pass as substitute for little val structural pass'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - skill evaluates step identity + expected structure (explicit or v1 profile) and
+    returns match result
+  - subagent and queue require little_val_ok before Success when contract applies
+  - harness record_little_val_block optional on hard block
+contract:
+  proof:
+  - .cursor/skills/little-val-structural/SKILL.md
+  - 3-Resources/Second-Brain/Subagent-Safety-Contract.md
+  invariant_ids: []
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: general_step_contract_self_honesty
+    governance_set_ordinal: 6
+    generated_at: '2026-06-01T04:12:49Z'
+    supersedes_backfill: .technical/weave/proposals/wide-net-v2/cards/little_val_structural.yaml
+    conceptual_revised_at: '2026-06-01T04:25:50Z'
+    skill_contract_v2: '2026-06-01'
+    implementation_note: Skill reframed general contract + v1 profiles; wire format
+      backward compatible.
+    promoted_from: .technical/weave/proposals/governance-set-v1/stubs/little_val_structural.yaml
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  touch_content_hash: ff308aae86a7f9411b5bd39823648dd9d5996531108a8c87d1813a35c9020816
+  touch_refreshed_at: '2026-06-08T05:09:04.980429Z'
+  closure_must_read_count: 6
+  last_disconnect: null
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false

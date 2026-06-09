@@ -1,0 +1,128 @@
+id: lane_activity
+conceptual:
+  outcome: resolve_lane_activity is the single authority for the Run axis (paused
+    | idle | running). After mandatory pre-read reconcile, it classifies liveness
+    from registry, monitor, and orchestration — and from pq.lock only when it represents
+    active forward momentum, not a block. Receipt history never sets Run.
+  summary: Single authority for the Run axis after mandatory pre-read reconcile. running
+    means forward momentum — a blocking lock without active eat is idle, not running.
+    Serves operator trust on the board Run column; Health is computed elsewhere.
+  primary_case: You glance at the board on your phone. The Run badge should mean the
+    lane is actually moving — not receipt tail, not a stale mutex, not historical
+    in_flight. After reconcile, each lane gets run_status plus focus and why you can
+    act on.
+  edge_cases:
+  - 'paused: policy or manual stall overrides all — immediate paused.'
+  - 'running: requires forward momentum — live registry, monitor, or orchestration
+    after reconcile; pq.lock counts only when holder indicates active queue consumption
+    (not block-only wait).'
+  - 'idle: no live momentum signals; stale/dead pq.lock cleared — not running.'
+  - 'Orthogonal to Health: unhealthy lane can run; healthy lane can be paused.'
+  - Registry/monitor/orchestration assumed live signals imply momentum when reconciled
+    — not block-only.
+  misread_risks:
+  - Last receipt ok or receipt tail → Run.
+  - pq.lock with live PID but no forward progress → running.
+  - Monitor in_flight or registry row without reconcile/liveness → running.
+  - Collapsing Run with Health or queue depth.
+  - Board or kernel re-implements Run instead of calling this resolver.
+  operator_trust: Wrong Run on the remote board breaks trust faster than wrong Health.
+    running must mean the lane is working, not stuck behind a lock. Touch and Rules
+    enforce this semantics; implementation must not treat block-only locks as running.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Operator-Surface-Maintenance-Spec]]'
+  - '[[3-Resources/Second-Brain/Docs/Lane-Status-Board-Rules]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[.technical/weave/components/lane_status_board.yaml]]'
+  operator_memory_hook: Run means momentum, not history.
+touch:
+  blast_radius: .technical/weave/blast-radius/lane-run-status.yaml
+  primary_paths:
+  - scripts/eat_queue_core/lane_activity.py
+  - scripts/eat_queue_core/pq_lock.py
+  inbound:
+  - scripts/eat_queue_core/launch_registry_reconcile.py
+  - scripts/eat_queue_core/orchestrator_io.py
+  - scripts/eat_queue_core/goal_authority_io.py
+  - .technical/parallel/*/orchestrator-policy.yaml
+  - .technical/parallel/*/pq.lock
+  outbound:
+  - scripts/eat_queue_core/lane_snapshot.py
+  - scripts/eat_queue_core/lane_status_board.py
+  queue_modes:
+  - OPERATOR_SURFACE_REPAIR
+  - MAINTAIN OPERATOR SURFACE
+  behavior_signals:
+  - test_block_only_pq_lock_not_running
+  - test_maintenance_idle_after_reconcile
+  - test_operator_cancelled_not_running
+  - test_in_flight_without_timestamp_ghost_cleared
+  - test_clear_stale_lock_skips_live_holder
+  - test_paused_policy_run_paused
+rules:
+  forbidden:
+  - receipt or history implies Run
+  - block-only pq.lock implies running
+  - monitor or registry without reconcile implies running
+  - health and Run collapsed
+  - second Run classifier outside this module
+  - System must not auto-mutate this maintenance-core card (operator --operator-mutation
+    only).
+  fixtures:
+  - ghost_inflight
+  - receipt_success_only
+  - paused_policy
+  - stale_lock_cleared
+  precedence:
+  - 'pre_read: reconcile_launch_registry before classify'
+  - 'paused: policy + manual stall override all'
+  - 'running: forward momentum only — live registry, monitor, orchestration; lock
+    only if active eat'
+  - 'idle: default when no momentum'
+  - kernel + board call this resolver — no re-implement
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only;
+    provisional bridge D must tunnel_via locked bridge B, not core A.'
+  acceptance:
+  - test_launch_registry_reconcile + test_goal_authority_io green
+  - resolve_lane_activity returns paused|idle|running
+  - stale lock cleared without false running
+  - conceptual_confirmed_at set
+  maintainer_invocation: 'MAINTAIN OPERATOR SURFACE
+
+    trinity_id: lane_activity
+
+    concept: lane_activity
+
+    serve: Run axis + forward momentum
+
+    forbidden: receipt→run, block-only lock→running
+
+    gate: resolve_lane_activity + reconcile pre-read
+
+    '
+contract:
+  proof:
+  - scripts/eat_queue_core/lane_activity.py
+  - scripts/eat_queue_core/tests/test_launch_registry_reconcile.py
+  - scripts/eat_queue_core/tests/test_goal_authority_io.py
+  - scripts/eat_queue_core/tests/test_pq_lock_guard.py
+  - scripts/eat_queue_core/tests/test_lane_activity.py
+  invariant_ids:
+  - lane_run_authoritative_activity
+meta:
+  touch_refreshed_at: '2026-06-09T05:50:06.477044Z'
+  touch_content_hash: 818c3090d86be588febc546826389edb8a16d90a8f28649cbbeca20a2cd9a5f8
+  last_disconnect: null
+  schema_version: 2
+  closure_must_read_count: 21
+  conceptual_confirmed_at: '2026-06-03T00:12:12Z'
+  rules_confirmed_at: '2026-06-03T00:12:12Z'
+  provisional: false
+  promotion_tier: locked
+  card_class: complete_draft
+  lock_kind: maintenance_core
+  system_mutable: false
+  source:
+    locked_at: '2026-06-03T00:12:12Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core

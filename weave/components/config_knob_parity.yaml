@@ -1,0 +1,108 @@
+id: config_knob_parity
+meta:
+  schema_version: 2
+  card_kind: meta
+  anatomy: A-meta-target
+  card_class: complete_draft
+  promotion_tier: locked
+  provisional: false
+  system_mutable: false
+  source:
+    kind: phase_15_meta_lens_draft
+    phase: '15'
+    pack_ordinal: 2
+    generated_at: '2026-06-05T20:00:00Z'
+    operator_status: review_before_lock
+    changelog: Meta lens review bundle — operator lock after review
+    promoted_from: meta-review-20260605
+    promoted_at: '2026-06-05T23:45:41Z'
+    promotion_method: operator_meta_review_lock
+    locked_at: '2026-06-05T23:45:49.097698Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  lock_kind: maintenance_core
+  conceptual_confirmed_at: '2026-06-05T23:45:49.097698Z'
+  rules_confirmed_at: '2026-06-05T23:45:49.097698Z'
+conceptual:
+  outcome: Every enumerated option under a profile knob stays at development parity
+    across factories — fixing balance does not forget fast and quality.
+  summary: 'This meta card is **network interlocking for familial profiles**: Config
+    (`Second-Brain-Config`) defines knobs; Rules on segments cite them; this meta
+    defines **parity obligations** — when you change behavior for one option under
+    a knob, you must evaluate **all sibling options** unless operator documents intentional
+    asymmetry. Primary knob family: `speed_mode` (`fast` | `balance` | `extreme`)
+    with bundled `repair_strategy` and `validator_tier` via config-resolve-profile.
+    Does not duplicate Config bodies — **points** at Config and harness proofs.'
+  primary_case: 'You fix a redundant gate in the queue factory for `balance` and remove
+    a duplicate check. Before lock, you open the **factory × knob matrix**: does `fast`
+    still run the old duplicate path? does `extreme` still expect the removed check?
+    If yes, that''s **knob skew rust**. You update all three paths or file an documented
+    asymmetry row in the matrix with operator ack.'
+  secondary_case: 'Scorched earth or redesign_factory A/B: the harness runs `--speed-mode-matrix
+    fast,balance,quality` (or config equivalent) and fails if any cell is stale relative
+    to the doctrine row for that factory.'
+  edge_cases:
+  - Intentional asymmetry — extreme runs extra validator passes; document in matrix, not
+    silent drift.
+  - Combo syntax in queue params — config-resolve-profile expansion still counts as
+    explicit lock.
+  - Default familial bundle when keys omitted — parity applies to effective resolved
+    profile.
+  - Pseudo-clock maintenance ticks — fast path may skip Tier-2 honesty; must be documented
+    per harness_runtime_contract.
+  misread_risks:
+  - Treating speed_mode options as lifecycle stages — they are parallel options under
+    one knob.
+  - Testing only default bundle in CI — parity requires per-option proofs or matrix
+    exemption.
+  - Duplicating Second-Brain-Config YAML in this card — digest and precedence only.
+  - Applying parity to maintenance_core meta locks — operator mutation only.
+  frame_anchor: Profile knob parity — all enumerated options maintained.
+  operator_memory_hook: Change one speed_mode option → check the other two.
+  refs:
+  - '[[3-Resources/Second-Brain-Config.md]]'
+  - '[[3-Resources/Second-Brain/Parameters.md]]'
+  - '[[.cursor/skills/config-resolve-profile/SKILL.md]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/components/factory_lifecycle_doctrine.yaml]]'
+touch:
+  primary_paths:
+  - 3-Resources/Second-Brain-Config.md
+  - scripts/eat_queue_core/config_resolve_profile.py
+  - scripts/eat_queue_core/weave/trinity_knob_parity.py
+  - scripts/eat_queue_core/weave/config.py
+  - .cursor/skills/config-resolve-profile/SKILL.md
+  knob_families:
+    speed_mode:
+    - fast
+    - balance
+    - extreme
+    repair_strategy:
+    - repair_first
+    - forward_first
+    validator_tier:
+    - forgiving
+    - aggressive
+  parity_matrix_artifact: .technical/weave/validation/knob-parity-matrix.json
+rules:
+  forbidden:
+  - ship factory behavior change tested under one speed_mode only without matrix update
+  - silent asymmetry between knob options
+  - redefine speed_mode options as sequential pipeline stages without operator ack
+  precedence:
+  - explicit queue params > profile expansion > Second-Brain-Config > card Rules defaults
+  - 'default familial bundle: speed_mode balance + repair_strategy repair_first +
+    validator_tier forgiving'
+  - 'any factory change: evaluate all enumerated options per affected knob'
+  - documented asymmetry requires matrix row + operator ack + harness proof reference
+  - redesign_factory A/B must include speed_mode matrix unless exempted
+  - merge order matches trinity_prompt_context Pull contract
+  acceptance: []
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_knob_parity.py
+  - scripts/eat_queue_core/config_resolve_profile.py
+  - scripts/eat_queue_core/tests/test_trinity_phase9_10.py
+  - .cursor/skills/config-resolve-profile/SKILL.md
+  invariant_ids: []
