@@ -192,8 +192,8 @@ meta:
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
   touch_peer_updated_at: '2026-06-01T06:13:00.385300Z'
-  touch_content_hash: 23d8e1cb0b78ded72ceddabd424c5bfca264f0096999acde6c1711e3309c7e8c
-  touch_refreshed_at: '2026-06-09T06:00:16.062079Z'
+  touch_content_hash: 973a718ca4a61cf6504a5eef34bb5f555368736ad57cb24b925363fc9717a8fc
+  touch_refreshed_at: '2026-06-10T04:34:37.236703Z'
   closure_must_read_count: 21
   last_disconnect: null
   provisional: false

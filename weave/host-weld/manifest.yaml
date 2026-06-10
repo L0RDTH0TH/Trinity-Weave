@@ -21,3 +21,15 @@ rules:
     trinity_ref: host_execution_safety_contract
     legacy_archive_path: always/core-guardrails.mdc
     note: Surgical digest of locked execution-safety meta; not a paste of archived rules.
+
+pilots:
+  implementation_factory_loop:
+    status: trialing
+    path: .technical/weave/host-weld/pilots/implementation_factory_loop.md
+    trinity_refs:
+      - implementation_segment_charter
+      - implementation_gate_catalog
+      - implementation_handoff_tunnel
+      - mcp_postedit_validator
+      - cursor_engine_mcp_loop
+    note: Track C implementation factory loop — first pilot godot-genesis-mythos-master

@@ -1066,6 +1066,30 @@ def cmd_memory_compact(vault_root: Path, args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_mcp_postedit_validate(vault_root: Path, args: argparse.Namespace) -> int:
+    """Track C — post-MCP validation receipt → maintenance + lane mirror jsonl."""
+    from .weave.mcp_postedit_validate import run_mcp_postedit_validate
+
+    try:
+        out = run_mcp_postedit_validate(
+            vault_root,
+            lane=str(getattr(args, "lane", "") or "").strip(),
+            project_id=str(getattr(args, "project_id", "") or "").strip(),
+            engine_adapter=str(getattr(args, "engine_adapter", "") or "").strip(),
+            milestone_id=str(getattr(args, "milestone_id", "") or "").strip(),
+            repo_root=getattr(args, "repo_root", None),
+            status=str(getattr(args, "status", "pass") or "pass"),
+            message=str(getattr(args, "message", "") or ""),
+            debug_output=getattr(args, "debug_output", None),
+            smoke=bool(getattr(args, "smoke", False)),
+        )
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
 def cmd_memory_pass(vault_root: Path, args: argparse.Namespace) -> int:
     """Merge receipt into continuity/MEMORY; run skill-gap scan."""
     from .continuity_bridge import run_memory_pass
@@ -2088,6 +2112,29 @@ def cmd_maintenance_eat(vault_root: Path, args: argparse.Namespace) -> int:
     return 0 if out.get("ok") else 1
 
 
+def cmd_implementation_eat(vault_root: Path, args: argparse.Namespace) -> int:
+    from .layer1_implementation import run_layer1_implementation_pass
+    from .lane_status_board import write_lane_status_board
+
+    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    try:
+        out = run_layer1_implementation_pass(
+            vault_root,
+            lane,
+            max_entries=int(getattr(args, "max_entries", 1) or 1),
+            dry_run=bool(getattr(args, "dry_run", False)),
+            skip_agent=bool(getattr(args, "skip_agent", False)),
+            skip_preflight=bool(getattr(args, "skip_preflight", False)),
+        )
+        if not getattr(args, "dry_run", False):
+            write_lane_status_board(vault_root)
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
 def cmd_warning_ledger_rollup(vault_root: Path, args: argparse.Namespace) -> int:
     from .warning_ledger import rollup_warnings_to_maintenance
 
@@ -2480,6 +2527,7 @@ def cmd_headless_eat(vault_root: Path, args: argparse.Namespace) -> int:
             orchestrator_run_id=getattr(args, "orchestrator_run_id", None),
             operator_declared_backlog=bool(getattr(args, "declared_backlog", False)),
             max_queue_entries=getattr(args, "max_queue_entries", None),
+            goal_authority_path=getattr(args, "goal_authority", None),
         )
     except (OSError, ValueError) as e:
         print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
@@ -2987,6 +3035,22 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     )
     add_parallel(mc)
     mc.set_defaults(func=cmd_memory_compact)
+
+    mpv = sub.add_parser(
+        "mcp_postedit_validate",
+        help="Track C — write MCP implementation validation receipt (maintenance + lane mirror)",
+        parents=[common],
+    )
+    mpv.add_argument("--lane", required=True)
+    mpv.add_argument("--project-id", required=True)
+    mpv.add_argument("--engine-adapter", required=True)
+    mpv.add_argument("--milestone-id", required=True)
+    mpv.add_argument("--repo-root", default=None)
+    mpv.add_argument("--status", default="pass", choices=["pass", "fail", "provisional"])
+    mpv.add_argument("--message", default="")
+    mpv.add_argument("--debug-output", default=None)
+    mpv.add_argument("--smoke", action="store_true", help="Run M0 structural checks when milestone is M0")
+    mpv.set_defaults(func=cmd_mcp_postedit_validate)
 
     qnp = sub.add_parser(
         "queue_neighbor_prep",
@@ -3894,6 +3958,11 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         default=None,
         help="Stable run id for registry/receipts (fan-out children pass parent-prefixed ids)",
     )
+    he.add_argument(
+        "--goal-authority",
+        default=None,
+        help="Path to goal-authority.json (default .technical/parallel/<lane>/goal-authority.json)",
+    )
     he.set_defaults(func=cmd_headless_eat)
 
     hf = sub.add_parser(
@@ -4179,6 +4248,18 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     me.add_argument("--max-entries", type=int, default=5, help="Max PQ lines to consume (default 5)")
     me.add_argument("--dry-run", action="store_true")
     me.set_defaults(func=cmd_maintenance_eat, lane="maintenance")
+
+    ie = sub.add_parser(
+        "implementation_eat",
+        help="Process godot implementation_milestone PQ via IMPLEMENT_SLICE harness",
+        parents=[common],
+    )
+    add_parallel(ie)
+    ie.add_argument("--max-entries", type=int, default=1, help="Max milestones per pass (default 1)")
+    ie.add_argument("--dry-run", action="store_true")
+    ie.add_argument("--skip-agent", action="store_true", help="Skip Cursor agent (M1 vault_doc still runs)")
+    ie.add_argument("--skip-preflight", action="store_true", help="Skip MCP/engine preflight (repo already verified)")
+    ie.set_defaults(func=cmd_implementation_eat, lane="godot")
 
     wr = sub.add_parser(
         "warning_ledger_rollup",
