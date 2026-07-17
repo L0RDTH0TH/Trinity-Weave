@@ -14,6 +14,7 @@ What Grok **can** and **cannot** observe from Trinity-Weave, and which files to 
 | Signal | Location | Refresh |
 |--------|----------|---------|
 | Card catalog | `weave/CARD-INDEX.md`, `OBSERVABILITY.json` | Each weave sync |
+| **Product** slice-catalog (GMM mint) | `project/genesis-mythos-master` → `Roadmap/User-Story/slice-catalog.yaml` | Each project sync |
 | Last publish time | `OBSERVABILITY.json` → `last_publish_utc` | Each sync |
 | Content fingerprint | `OBSERVABILITY.json` → `fingerprint` | Each sync |
 | Locked / provisional ids | `OBSERVABILITY.json` | Each sync |

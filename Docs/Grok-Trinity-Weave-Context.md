@@ -11,9 +11,9 @@ Attach **[L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)**
 
 ## Start here
 
-1. **`GROK-START-HERE.md`** (repo root)
+1. **`GROK-START-HERE.md`** (repo root) — includes **STOP** box for catalog mint / GMM
 2. **`OBSERVABILITY.json`** — card ids, paths, `last_publish_utc`, question routing
-3. **`weave/CARD-INDEX.md`** — card catalog with `locked` \| `provisional` tier
+3. **`weave/CARD-INDEX.md`** — **weave card** catalog (`locked` \| `provisional`) — **not** product mint
 4. **`Docs/GROK-OBSERVABILITY.md`** — what you can/cannot observe
 5. **`Docs/GROK-PROJECT-BRIDGE.md`** — three-tier bridge (`main` / `project/<id>` / fulfill)
 
@@ -21,8 +21,9 @@ Attach **[L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)**
 
 | Question type | Branch / surface |
 |---------------|------------------|
+| **Mint the catalog / GMM / Genesis Mythos deliverable rows** | **`project/genesis-mythos-master`** → `Roadmap/User-Story/CATALOG-MINT-BLANK.md` |
 | Weave design, maintenance grammar, meta cards, host-weld, gate cards | **`main`** |
-| Project instances (Roadmap, catalog, observability) | **`project/<id>`** |
+| Other project instances (Roadmap, catalog, observability) | **`project/<id>`** |
 | Tertiary bodies (`tert_*`) | Mediated fulfill pack |
 | Live runtime (queues, Watcher) | **None** — paste only |
 
