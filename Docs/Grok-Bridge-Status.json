@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-17T08:31:23Z",
+  "generated_utc": "2026-07-17T08:36:14Z",
   "export_repo_root": "/home/darth/Documents/trinity-weave-export",
   "remote_ok": true,
   "remote_actual": "https://github.com/L0RDTH0TH/Trinity-Weave.git",
@@ -13,13 +13,13 @@
     "project/godot-genesis-mythos-master": 0
   },
   "local_fingerprint": {
-    "weave": "03b077cacda3c558",
+    "weave": "94dfb294bb8d4a99",
     "project": "3b1186a40a751616"
   },
   "awaiting_push": false,
-  "last_successful_push_utc": null,
-  "next_eligible_push_utc": null,
-  "push_skipped_reason": "push_disabled",
-  "recommendation": "push_disabled",
+  "last_successful_push_utc": "2026-07-17T08:36:05Z",
+  "next_eligible_push_utc": "2026-07-18T08:36:05Z",
+  "push_skipped_reason": "cooldown",
+  "recommendation": "awaiting_push_window",
   "gmmr_zero_bridge_budget": true
 }

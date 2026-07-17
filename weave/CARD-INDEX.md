@@ -1,6 +1,6 @@
 # Trinity card index (auto-generated)
 
-Generated: `2026-07-17T08:35:40Z` — do not hand-edit; regenerated on each `weave_public_sync`.
+Generated: `2026-07-17T15:54:26Z` — do not hand-edit; regenerated on each `weave_public_sync`.
 
 Includes **locked** (`weave/components/`) and **provisional** (`weave/component-proposals/`).
 
@@ -178,4 +178,4 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 Locked YAML: `weave/components/<id>.yaml`
 Provisional YAML: `weave/component-proposals/<id>.yaml`
 
-Grok: start at `GROK-START-HERE.md`. Bone pilot: `Docs/bone-pilot/README.md`.
+Grok: start at `GROK-START-HERE.md`. Meat suit entry: `meat-suit-entry/README.md`.

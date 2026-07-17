@@ -1,8 +1,8 @@
 # Grok Bridge Status
 
-Generated: `2026-07-17T08:31:23Z`
+Generated: `2026-07-17T08:36:14Z`
 
-**Recommendation:** `push_disabled`
+**Recommendation:** `awaiting_push_window`
 
 ## Branches
 
@@ -11,8 +11,8 @@ Generated: `2026-07-17T08:31:23Z`
 
 ## Push
 
-- Last successful push: `—`
-- Next eligible push: `—`
+- Last successful push: `2026-07-17T08:36:05Z`
+- Next eligible push: `2026-07-18T08:36:05Z`
 - Awaiting push: **False**
 - Remote OK (Trinity-Weave): **True**
 

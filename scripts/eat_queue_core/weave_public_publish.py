@@ -50,7 +50,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/GROK-PROJECT-BRIDGE.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
-    "3-Resources/Second-Brain/Docs/bone-pilot/",
+    "3-Resources/Second-Brain/Docs/meat-suit-entry/",
     ".technical/weave/components/",
     ".technical/weave/component-proposals/",
     ".technical/weave/trinity-partition-registry.yaml",
@@ -186,6 +186,12 @@ def resolve_include_paths(cfg: dict[str, Any], vault_root: Path) -> list[Path]:
 def _export_map_path(vault_path: Path, vault_root: Path) -> str:
     """Map vault path to export-repo-relative path."""
     rel = vault_path.resolve().relative_to(vault_root.resolve()).as_posix()
+    # Bone-pilot hub ships at repo root as meat-suit-entry/ (not under Docs/)
+    mse_prefix = "3-Resources/Second-Brain/Docs/meat-suit-entry"
+    if rel == mse_prefix:
+        return "meat-suit-entry"
+    if rel.startswith(mse_prefix + "/"):
+        return "meat-suit-entry/" + rel[len(mse_prefix) + 1 :]
     if rel.startswith("3-Resources/Second-Brain/Docs/"):
         return "Docs/" + rel.split("3-Resources/Second-Brain/Docs/", 1)[1]
     if rel.startswith(".technical/weave/"):
@@ -392,6 +398,11 @@ def sync_weave_public_export(
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dest)
         copied.append(dest_rel)
+
+    # Prune legacy bone-pilot path (renamed to meat-suit-entry/ at repo root)
+    legacy_bp = export_root / "Docs" / "bone-pilot"
+    if legacy_bp.exists():
+        shutil.rmtree(legacy_bp)
 
     # Post-sync forbidden scan on all export files
     all_paths: list[str] = []

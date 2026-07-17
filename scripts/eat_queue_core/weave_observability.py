@@ -136,7 +136,7 @@ def render_card_index_md(rows: list[dict[str, Any]], *, generated_at: str) -> st
             "Locked YAML: `weave/components/<id>.yaml`",
             "Provisional YAML: `weave/component-proposals/<id>.yaml`",
             "",
-            "Grok: start at `GROK-START-HERE.md`. Bone pilot: `Docs/bone-pilot/README.md`.",
+            "Grok: start at `GROK-START-HERE.md`. Meat suit entry: `meat-suit-entry/README.md`.",
             "",
         ]
     )
@@ -168,7 +168,8 @@ def build_observability_payload(
         "fingerprint": fingerprint,
         "last_commit": commit_sha,
         "grok_start_here": "GROK-START-HERE.md",
-        "bone_pilot_docs_path": "Docs/bone-pilot/README.md",
+        "bone_pilot_docs_path": "meat-suit-entry/README.md",
+        "meat_suit_entry_path": "meat-suit-entry/README.md",
         "observability_doc": "Docs/GROK-OBSERVABILITY.md",
         "architecture_doc": "Docs/ARCHITECTURE-OVERVIEW.md",
         "glossary_doc": "Docs/GLOSSARY-FOR-EXTERNAL-READERS.md",
@@ -258,7 +259,8 @@ def write_observability_artifacts(
         doorway = (
             "\n\n## Who are you?\n\n"
             "- **Grok / agent** → `GROK-START-HERE.md` → `OBSERVABILITY.json` → `weave/CARD-INDEX.md`\n"
-            "- **Bone pilot** (spinal interface / bio-mech / exo-flesh) → `Docs/bone-pilot/README.md`\n"
+            "- **Meat suit glitch** / bone pilot (spinal interface · bio-mech · exo-flesh · organ suites · "
+            "vein power lines · calcium frame) → `meat-suit-entry/README.md`\n"
         )
         if "## Who are you?" not in text:
             text = text.strip() + doorway

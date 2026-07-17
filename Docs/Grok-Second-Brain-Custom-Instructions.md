@@ -31,7 +31,7 @@ version: 2026-04-15
 
 **Project mint/execution:** *For project-specific minting or execution, read `project/<id>` branch root; request fulfill packs when remote is stale or tertiary ids need bodies.*
 
-**Bone pilot docs:** `Docs/bone-pilot/` — ignore unless the operator asks for bone-pilot wording; prefer machine entry + cards.
+**Meat suit entry / bone pilot docs:** `meat-suit-entry/` — ignore unless the operator asks for meat-suit / bone-pilot wording; prefer machine entry + cards.
 
 **Push lag:** When `Docs/Grok-Bridge-Status.json` shows `awaiting_push` or `recommendation: push_main_recommended`, tell the bone pilot GitHub may lag; cite status fields.
 
@@ -86,7 +86,7 @@ Paths: `1-Projects/`, `Ingest/`, etc. Curator backup only.
 - **`GROK-START-HERE.md`** + **`OBSERVABILITY.json`** at repo root — Grok machine index (`last_publish_utc`, `meta_card_ids`, routing, `bone_pilot_docs_path`)
 - **`weave/CARD-INDEX.md`**, **`weave/components/`**, **`weave/component-proposals/`** (provisional cards — active law)
 - **`Docs/GROK-PROJECT-BRIDGE.md`**, **`Docs/Grok-Bridge-Status.json`**
-- **`Docs/bone-pilot/`** — bone pilot orientation (Grok: ignore unless asked)
+- **`meat-suit-entry/`** — bone pilot orientation (Grok: ignore unless asked)
 - **Project branch** `project/godot-genesis-mythos-master` — instances at branch root (see `GROK-PROJECT-START.md`)
 - **Not shipped:** live vault, private resolve maps, fulfill packs, Curator backup
 

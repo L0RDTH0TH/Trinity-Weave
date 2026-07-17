@@ -5,7 +5,7 @@
 - `weave/components/` — locked cards
 - `weave/component-proposals/` — provisional cards (still authoritative for active gates)
 - `OBSERVABILITY.json`, `weave/CARD-INDEX.md`
-- `Docs/bone-pilot/` — you are here
+- `meat-suit-entry/` — you are here
 
 ## `project/<project-id>` — project instances
 
