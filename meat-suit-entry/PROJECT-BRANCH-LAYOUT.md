@@ -13,6 +13,7 @@ project/genesis-mythos-master/   ← branch name (not a folder on branch)
     ├── (conceptual phases…)
     ├── Execution/
     └── User-Story/
+        ├── CATALOG-MINT-BLANK.md  ← single-row dialogue contract
         ├── MINT-EPOCH.md          ← poison guard / active mint epoch
         ├── user-story-state.md
         ├── slice-catalog.yaml
@@ -32,4 +33,4 @@ project/genesis-mythos-master/   ← branch name (not a folder on branch)
 
 Gate cards (`catalog_mint_gate`, etc.) live on **`main`**, not this branch.
 
-**Mint with Grok:** attach `main` (gate cards) + this project branch (catalog instance). Read `MINT-EPOCH.md` first — historical remint is archived cite-only. Propose rows → vault apply → `project_bridge_sync` → push.
+**Mint with Grok:** attach this project branch. Read `CATALOG-MINT-BLANK.md` first (one row → approve/edit/reject → next). Historical remint is cite-only (`MINT-EPOCH.md`). Cursor applies each approved row → `project_bridge_sync` → push when you want Grok to see applied rows.
