@@ -4,12 +4,12 @@ updated: 2026-07-17
 tags: [second-brain, grok, custom-instructions, trinity-weave]
 title: Grok — Trinity-Weave custom instructions
 source: "Paste into Grok Chat custom instructions when attached to Trinity-Weave."
-version: 2026-07-17
+version: 2026-07-17b
 ---
 
 # Grok — Trinity-Weave custom instructions
 
-**Version:** 2026-07-17  
+**Version:** 2026-07-17b  
 **Surface:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) only.
 
 These instructions govern **Grok Chat** when this repo is attached. They are not Cursor vault rules.
@@ -44,17 +44,24 @@ Your **only** view is **committed git** on the attached branch(es), plus anythin
 
 **Meat suit entry:** `meat-suit-entry/` — ignore unless the operator asks for bone-pilot wording; prefer machine entry + cards.
 
-### Catalog mint (GMM) — hard disambiguation
+### Catalog mint (GMM) — dialogue contract
 
 When the operator says **mint the catalog** for **GMM** / **`project/genesis-mythos-master`**:
 
 | | |
 |--|--|
-| **Right file** | `Roadmap/User-Story/slice-catalog.yaml` — product **deliverable rows** |
-| **Right how-to** | `Roadmap/User-Story/CATALOG-MINT-BLANK.md` |
-| **Wrong** | `weave/CARD-INDEX.md`, OBSERVABILITY card regen, spine align, corps, self-wrap, cloning, inventing harness sandboxes |
+| **Right file** | `Roadmap/User-Story/slice-catalog.yaml` — product **deliverable** rows |
+| **Right how-to** | `Roadmap/User-Story/CATALOG-MINT-BLANK.md` (**read first**) |
+| **Wrong** | `weave/CARD-INDEX.md`, OBSERVABILITY regen, spine/corps/self-wrap, cloning, batch row dumps, invented wiki-links |
 
-Reply with proposed YAML `rows` only (`mint_status: proposed`). Do not set `catalog_signed_at`. Do not invent weave mint templates.
+**Loop (mandatory):**
+
+1. Propose **exactly one** candidate row (`mint_status: proposed`).
+2. Stop and wait for bone pilot: `approve` / `edit` / `reject`.
+3. Do **not** propose the next row until the current one is settled.
+4. Rows are **Genesis Mythos product deliverables** (player/DM/world/sim), never Second-Brain process chores.
+5. `conceptual_pin` must match a **live** `Roadmap/` note title — or say `needs pin` + real candidates.
+6. Do **not** set `catalog_signed_at`.
 
 **Push lag:** If `Docs/Grok-Bridge-Status.json` shows `awaiting_push` or a push `recommendation`, tell the bone pilot GitHub may lag.
 
@@ -65,7 +72,7 @@ grok_fulfill_request:
   request_id: "20260717-gmm-001"
   project_id: genesis-mythos-master
   project_branch: project/genesis-mythos-master
-  purpose: "Clarify a conceptual_pin Roadmap note for a proposed catalog row"
+  purpose: "Clarify a conceptual_pin Roadmap note for the current single-row mint candidate"
   node_ids: ["tert_a1b2c3"]
   need: summary
   max_chars: 2000
@@ -100,7 +107,7 @@ Outside this repo / without triggers → plain Grok.
 | `Docs/ARCHITECTURE-OVERVIEW.md` | System map |
 | `Docs/GROK-PROJECT-BRIDGE.md` | Bridge tiers |
 | `Docs/GROK-OBSERVABILITY.md` | Can/cannot observe |
-| `project/genesis-mythos-master` → `Roadmap/User-Story/CATALOG-MINT-BLANK.md` | **Product catalog mint blank** (not weave CARD-INDEX) |
+| `project/genesis-mythos-master` → `Roadmap/User-Story/CATALOG-MINT-BLANK.md` | **Single-row mint dialogue contract** |
 | `Docs/GLOSSARY-FOR-EXTERNAL-READERS.md` | Jargon |
-| `weave/CARD-INDEX.md` | Card catalog |
+| `weave/CARD-INDEX.md` | Card catalog (Tier A only — not product mint) |
 | `meat-suit-entry/README.md` | Bone pilot hub |

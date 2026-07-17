@@ -31,6 +31,11 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 1. *Provisional cards are active system law but may evolve — cite tier when advising.*
 2. *When a provisional card is referenced, note its tier and cross-check against locked equivalents or operator intent if advising on implementation.*
 
+## Catalog mint (project branch)
+
+Product mint = fill `Roadmap/User-Story/slice-catalog.yaml` via **one-row dialogue** (`CATALOG-MINT-BLANK.md`).  
+Not `weave/CARD-INDEX.md`. Gate cards on `main` are process law only.
+
 ## Example fulfill request
 
 ```yaml
@@ -38,8 +43,8 @@ grok_fulfill_request:
   request_id: "20260717-gmm-001"
   project_id: genesis-mythos-master
   project_branch: project/genesis-mythos-master
-  purpose: "Clarify catalog row ui_presentation_shell L5 scope for mint review"
-  node_ids: ["tert_a1b2c3", "catalog:ui_presentation_shell"]
+  purpose: "Clarify a conceptual_pin Roadmap note for the current single-row mint candidate"
+  node_ids: ["tert_a1b2c3"]
   need: summary
   max_chars: 2000
 ```
