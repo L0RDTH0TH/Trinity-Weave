@@ -44,6 +44,18 @@ Your **only** view is **committed git** on the attached branch(es), plus anythin
 
 **Meat suit entry:** `meat-suit-entry/` — ignore unless the operator asks for bone-pilot wording; prefer machine entry + cards.
 
+### Catalog mint (GMM) — hard disambiguation
+
+When the operator says **mint the catalog** for **GMM** / **`project/genesis-mythos-master`**:
+
+| | |
+|--|--|
+| **Right file** | `Roadmap/User-Story/slice-catalog.yaml` — product **deliverable rows** |
+| **Right how-to** | `Roadmap/User-Story/CATALOG-MINT-BLANK.md` |
+| **Wrong** | `weave/CARD-INDEX.md`, OBSERVABILITY card regen, spine align, corps, self-wrap, cloning, inventing harness sandboxes |
+
+Reply with proposed YAML `rows` only (`mint_status: proposed`). Do not set `catalog_signed_at`. Do not invent weave mint templates.
+
 **Push lag:** If `Docs/Grok-Bridge-Status.json` shows `awaiting_push` or a push `recommendation`, tell the bone pilot GitHub may lag.
 
 ### Example fulfill request
@@ -53,8 +65,8 @@ grok_fulfill_request:
   request_id: "20260717-gmm-001"
   project_id: genesis-mythos-master
   project_branch: project/genesis-mythos-master
-  purpose: "Clarify catalog row ui_presentation_shell L5 scope for mint review"
-  node_ids: ["tert_a1b2c3", "catalog:ui_presentation_shell"]
+  purpose: "Clarify a conceptual_pin Roadmap note for a proposed catalog row"
+  node_ids: ["tert_a1b2c3"]
   need: summary
   max_chars: 2000
 ```
@@ -88,6 +100,7 @@ Outside this repo / without triggers → plain Grok.
 | `Docs/ARCHITECTURE-OVERVIEW.md` | System map |
 | `Docs/GROK-PROJECT-BRIDGE.md` | Bridge tiers |
 | `Docs/GROK-OBSERVABILITY.md` | Can/cannot observe |
+| `project/genesis-mythos-master` → `Roadmap/User-Story/CATALOG-MINT-BLANK.md` | **Product catalog mint blank** (not weave CARD-INDEX) |
 | `Docs/GLOSSARY-FOR-EXTERNAL-READERS.md` | Jargon |
 | `weave/CARD-INDEX.md` | Card catalog |
 | `meat-suit-entry/README.md` | Bone pilot hub |
