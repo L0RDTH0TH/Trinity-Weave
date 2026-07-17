@@ -143,15 +143,22 @@ def run_project_bridge_push(
 
         git = _git()
         ahead = _commits_ahead(export_root, target_branch)
-        if ahead == 0:
+        # Orphan project tips rewrite history relative to a polluted prior tip — force-with-lease.
+        is_project = str(target_branch).startswith("project/")
+        push_cmd = [git, "push", "-u", "origin", target_branch]
+        if is_project or force:
+            push_cmd = [git, "push", "--force-with-lease", "-u", "origin", target_branch]
+
+        # ahead==0 only skips when histories share ancestry; orphan rewrite may need push anyway
+        if ahead == 0 and not is_project:
             return ProjectBridgePushResult("completed", 0, {"branch": target_branch, "pushed": False, "reason": "nothing_to_push"})
 
-        pu = _run([git, "push", "-u", "origin", target_branch], cwd=export_root, timeout=300)
+        pu = _run(push_cmd, cwd=export_root, timeout=300)
         if pu.returncode != 0:
             return ProjectBridgePushResult(
                 "failed",
                 1,
-                {"error": "push_failed", "stderr": pu.stderr, "branch": target_branch},
+                {"error": "push_failed", "stderr": pu.stderr, "branch": target_branch, "cmd": push_cmd},
             )
 
         state = _load_push_state(vault_root)

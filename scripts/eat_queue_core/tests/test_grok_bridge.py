@@ -115,12 +115,34 @@ class TestGrokBridge(unittest.TestCase):
             )
             out = sync_project_to_export(vault, export, pid, cfg=cfg)
             self.assertTrue(out.get("ok"), out)
+            self.assertTrue(out.get("orphan"))
+
+            # Project tip must not carry weave law
+            subprocess.run(
+                ["git", "checkout", f"project/{pid}"], cwd=export, check=True, capture_output=True
+            )
+            names = {p.name for p in export.iterdir() if p.name != ".git"}
+            self.assertNotIn("weave", names)
+            self.assertNotIn("scripts", names)
+            self.assertNotIn("Docs", names)
+            self.assertIn("GROK-PROJECT-START.md", names)
 
             subprocess.run(["git", "checkout", "main"], cwd=export, check=True, capture_output=True)
             main_head_after = subprocess.check_output(
                 ["git", "rev-parse", "HEAD"], cwd=export, text=True
             ).strip()
             self.assertEqual(main_head_before, main_head_after)
+
+    def test_project_scan_rejects_weave(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            export = Path(td) / "export"
+            export.mkdir()
+            (export / "weave").mkdir()
+            (export / "weave/x.yaml").write_text("id: x\n", encoding="utf-8")
+            (export / "GROK-PROJECT-START.md").write_text("# ok\n", encoding="utf-8")
+            hits = scan_branch_forbidden(export, "project/x", project_id="x")
+            self.assertTrue(any(h.startswith("weave/") for h in hits))
+            self.assertFalse(any(h == "GROK-PROJECT-START.md" for h in hits))
 
     def test_main_forbidden_roadmap_on_main_branch_scan(self) -> None:
         with tempfile.TemporaryDirectory() as td:

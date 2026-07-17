@@ -32,11 +32,16 @@ MAIN_FORBIDDEN_PREFIXES = (
     "GROK-PROJECT-START.md",
 )
 
+# Project branches are instance-only — never ship weave law / harness / Docs from main.
+PROJECT_ALLOWED_EXACT = frozenset(
+    {
+        "GROK-PROJECT-START.md",
+        "PROJECT-OBSERVABILITY.json",
+        "TERTIARY-INDEX.json",
+    }
+)
 PROJECT_ALLOWED_PREFIXES = (
     "Roadmap/",
-    "GROK-PROJECT-START.md",
-    "PROJECT-OBSERVABILITY.json",
-    "TERTIARY-INDEX.json",
 )
 
 
@@ -72,17 +77,76 @@ def verify_trinity_remote(export_root: Path, expected_url: str) -> tuple[bool, s
     return True, actual
 
 
-def scan_branch_forbidden(export_root: Path, branch: str) -> list[str]:
-    forbidden = MAIN_FORBIDDEN_PREFIXES if branch == "main" else ()
+def _is_project_allowed_rel(rel: str, project_id: str | None = None) -> bool:
+    if rel in PROJECT_ALLOWED_EXACT:
+        return True
+    for prefix in PROJECT_ALLOWED_PREFIXES:
+        if rel.startswith(prefix):
+            return True
+    if project_id:
+        if rel == f"{project_id}-goal.md" or rel == f"{project_id}-Roadmap-MOC.md":
+            return True
+    # Allow goal/MOC naming without requiring project_id when scanning loosely
+    if rel.endswith("-goal.md") or rel.endswith("-Roadmap-MOC.md"):
+        if "/" not in rel:
+            return True
+    return False
+
+
+def scan_branch_forbidden(export_root: Path, branch: str, *, project_id: str | None = None) -> list[str]:
     hits: list[str] = []
-    for root, _dirs, files in os.walk(export_root):
+    for root, dirs, files in os.walk(export_root):
+        # skip .git
+        dirs[:] = [d for d in dirs if d != ".git"]
         for name in files:
             rel = (Path(root) / name).relative_to(export_root).as_posix()
-            for prefix in forbidden:
-                if rel.startswith(prefix):
+            if branch == "main":
+                for prefix in MAIN_FORBIDDEN_PREFIXES:
+                    if rel.startswith(prefix) or rel == prefix.rstrip("/"):
+                        hits.append(rel)
+                        break
+            else:
+                # project/* — anything outside allowlist is forbidden (incl. weave/, scripts/, Docs/)
+                if not _is_project_allowed_rel(rel, project_id):
                     hits.append(rel)
-                    break
     return hits
+
+
+def wipe_export_worktree(export_root: Path) -> list[str]:
+    """Remove all worktree entries except `.git`. Returns removed names."""
+    removed: list[str] = []
+    for child in list(export_root.iterdir()):
+        if child.name == ".git":
+            continue
+        removed.append(child.name)
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink(missing_ok=True)
+    return removed
+
+
+def checkout_orphan_project_branch(
+    export_root: Path,
+    branch: str,
+    *,
+    main_branch: str,
+) -> dict[str, Any]:
+    """Create/replace local project branch as orphan (no weave history)."""
+    git = _git()
+    # Always start from main so we drop polluted project tip before orphaning.
+    co_main = _run([git, "checkout", main_branch], cwd=export_root, timeout=60)
+    if co_main.returncode != 0:
+        return {"ok": False, "error": "checkout_main_failed", "stderr": co_main.stderr}
+    # Delete local branch if present (remote tip replaced on force push).
+    _run([git, "branch", "-D", branch], cwd=export_root, timeout=30)
+    orphan = _run([git, "checkout", "--orphan", branch], cwd=export_root, timeout=60)
+    if orphan.returncode != 0:
+        return {"ok": False, "error": "orphan_checkout_failed", "stderr": orphan.stderr}
+    # Clear index + worktree leftovers from the start-point tree.
+    _run([git, "rm", "-rf", "--ignore-unmatch", "."], cwd=export_root, timeout=120)
+    removed = wipe_export_worktree(export_root)
+    return {"ok": True, "removed": removed}
 
 
 def heal_stale_session(vault_root: Path, export_root: Path, cfg: dict[str, Any]) -> dict[str, Any] | None:
@@ -165,10 +229,14 @@ def sync_project_to_export(
         st = _run([git, "status", "--porcelain"], cwd=export_root, timeout=60)
         if st.returncode != 0:
             return {"ok": False, "error": "git_status_failed", "stderr": st.stderr}
+        if (st.stdout or "").strip():
+            return {"ok": False, "error": "export_worktree_dirty", "status": st.stdout[:500]}
 
-        co = _run([git, "checkout", branch], cwd=export_root, timeout=60)
-        if co.returncode != 0:
-            _run([git, "checkout", "-b", branch], cwd=export_root, timeout=60)
+        orphan = checkout_orphan_project_branch(
+            export_root, branch, main_branch=main_branch
+        )
+        if not orphan.get("ok"):
+            return orphan
 
         copied: list[str] = []
         for src, dest_name in _project_files_to_copy(project_root, project_id):
@@ -176,30 +244,38 @@ def sync_project_to_export(
             if src.is_dir():
                 if dest.exists():
                     shutil.rmtree(dest)
-                shutil.copytree(src, dest)
+                shutil.copytree(
+                    src,
+                    dest,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store"),
+                )
             else:
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(src, dest)
             copied.append(dest_name)
 
-        hits = scan_branch_forbidden(export_root, branch)
+        hits = scan_branch_forbidden(export_root, branch, project_id=project_id)
         if hits:
-            return {"ok": False, "error": "forbidden_on_branch", "paths": hits[:20]}
+            return {"ok": False, "error": "forbidden_on_branch", "paths": hits[:40]}
 
         msg = f"chore(grok-bridge): project sync {project_id} {_utc_now()}"
         _run([git, "add", "-A"], cwd=export_root, timeout=120)
         commit_sha = None
         if (_run([git, "status", "--porcelain"], cwd=export_root).stdout or "").strip():
             c = _run([git, "commit", "-m", msg], cwd=export_root, timeout=120)
-            if c.returncode == 0:
-                rev = _run([git, "rev-parse", "HEAD"], cwd=export_root, timeout=30)
-                commit_sha = (rev.stdout or "").strip()
+            if c.returncode != 0:
+                return {"ok": False, "error": "commit_failed", "stderr": c.stderr}
+            rev = _run([git, "rev-parse", "HEAD"], cwd=export_root, timeout=30)
+            commit_sha = (rev.stdout or "").strip()
+        else:
+            return {"ok": False, "error": "nothing_to_commit", "copied": copied}
 
         return {
             "ok": True,
             "branch": branch,
             "copied": copied,
             "commit": commit_sha,
+            "orphan": True,
             "heal": heal,
         }
     finally:
