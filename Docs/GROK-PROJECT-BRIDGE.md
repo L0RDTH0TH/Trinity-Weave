@@ -31,10 +31,14 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 1. *Provisional cards are active system law but may evolve — cite tier when advising.*
 2. *When a provisional card is referenced, note its tier and cross-check against locked equivalents or operator intent if advising on implementation.*
 
-## Catalog mint (project branch)
+## Catalog mint (what Grok actually uses)
 
-Product mint = fill `Roadmap/User-Story/slice-catalog.yaml` via **one-row dialogue** (`CATALOG-MINT-BLANK.md`).  
-Not `weave/CARD-INDEX.md`. Gate cards on `main` are process law only.
+GitHub connector ≈ **`main` only** (no branch picker).
+
+Product mint pack on **`main`:** `Docs/gmm-catalog-mint/`  
+(`CATALOG-MINT-BLANK.md`, `PMG-EXCERPT.md`, `PIN-INDEX.md`, `slice-catalog.yaml`)
+
+Project branch `project/genesis-mythos-master` remains Cursor/export instance — not something the bone pilot configures inside Grok.
 
 ## Example fulfill request
 

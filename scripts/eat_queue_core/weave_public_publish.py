@@ -50,6 +50,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/GROK-PROJECT-BRIDGE.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
+    "3-Resources/Second-Brain/Docs/gmm-catalog-mint/",
     "3-Resources/Second-Brain/Docs/meat-suit-entry/",
     ".technical/weave/components/",
     ".technical/weave/component-proposals/",

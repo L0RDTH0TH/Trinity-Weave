@@ -8,76 +8,59 @@ audience: grok_github_integration
 # Grok — start here
 
 **Repo:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)  
-**Branch:** `main` (weave law) · `project/<id>` (project instances)  
-**Purpose:** Committed **weave maintenance architecture** — YAML cards, harness, host-weld law.
+**What the bone pilot’s GitHub connector usually sees:** **`main` only** (OAuth login — **no branch picker**).
 
 ---
 
 ## STOP — “mint the catalog” / GMM
 
-If the bone pilot said **mint the catalog**, **GMM**, or **Genesis Mythos** catalog:
+Do **not** talk about regenerating `CARD-INDEX`, OBSERVABILITY, spine, corps, self-wrap, or harness.
 
-| | |
-|--|--|
-| **Wrong** | Regenerating `weave/CARD-INDEX.md`, OBSERVABILITY, spine, corps, self-wrap, curator/gmm export, harness sandbox |
-| **Right** | Switch to branch **`project/genesis-mythos-master`** |
-| **Then read** | `Roadmap/User-Story/CATALOG-MINT-BLANK.md` |
-| **Then do** | Propose **exactly one** product deliverable row → await `approve` / `edit` / `reject` |
+Open this folder on **`main`**:
 
-Do **not** answer that question from `main` weave grammar. Say you need the project branch attached (or already have it) and open the blank.
+**`Docs/gmm-catalog-mint/`**
+
+1. `CATALOG-MINT-BLANK.md` — dialogue contract  
+2. `PMG-EXCERPT.md` — product feedstock  
+3. `PIN-INDEX.md` — legal pin titles  
+4. Propose **exactly one** row → await `approve` / `edit` / `reject`
 
 ---
 
-## What this repo is
+## What this repo is (weave law)
 
-Trinity-Weave is the **public design manual + code slice** for an agentic Second Brain maintenance layer:
+Trinity-Weave is the public design manual + code slice for an agentic Second Brain maintenance layer (YAML cards, harness, host-weld).
 
-- YAML **cards** describe components (intent, code touchpoints, rules, proofs)
-- Python **harness** aligns and operates that grammar
-- **Schedule tick** keeps published indexes fresh
+You see **committed git** (usually `main`). Bone pilot may paste packs for anything else.
 
-You see **committed git only**. You do not see live local workspaces unless the bone pilot pastes a fulfill pack.
+## Read order — weave law only (not mint)
 
-## Read order (5 minutes) — weave law only
-
-1. **`OBSERVABILITY.json`** — machine index: card ids, paths, routing, last publish
-2. **`Docs/ARCHITECTURE-OVERVIEW.md`** — system map
-3. **`weave/CARD-INDEX.md`** — every shipped card id + tier + one-line role
-4. **`Docs/GLOSSARY-FOR-EXTERNAL-READERS.md`** — jargon → plain English
-5. **`weave/components/trinity_prompt_context.yaml`** — how cards compose for prompts
+1. `OBSERVABILITY.json`
+2. `Docs/ARCHITECTURE-OVERVIEW.md`
+3. `weave/CARD-INDEX.md` — **card** catalog, not product mint
+4. `Docs/GLOSSARY-FOR-EXTERNAL-READERS.md`
 
 ## Question routing
 
-| If the question is about… | Read |
-|---------------------------|------|
-| **Mint the catalog / GMM / Genesis Mythos deliverable rows** | **`project/genesis-mythos-master`** → `CATALOG-MINT-BLANK.md` (one-row dialogue) |
-| Weave design, meta cards, self-wrap, schedule, host-weld, gate cards | **`main`** — `weave/components/`, `weave/component-proposals/` |
-| Other project instances / execution Roadmap | **`project/<id>`** branch root (`GROK-PROJECT-START.md`) |
-| Tertiary note bodies (`tert_*`) | Mediated **fulfill pack** — request; do not invent |
-| Live queue / Watcher / unpublished edits | **Unavailable** — say so; ask for paste |
+| Question | Where |
+|----------|--------|
+| Mint catalog / GMM / Genesis Mythos deliverables | **`Docs/gmm-catalog-mint/`** on `main` |
+| Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
+| Live queue / Watcher | Unavailable — ask for paste |
 
 ## Hard limits
 
-- No live vault, MCP, or Watcher access
-- Provisional cards are **active law** but may evolve — cite tier (`locked` \| `provisional`)
-- `[[wiki-links]]` in YAML are Obsidian paths — map to `weave/components/<id>.yaml` or `weave/component-proposals/<id>.yaml`
-- Never confuse **card catalog** (`CARD-INDEX`) with **product slice-catalog** (`slice-catalog.yaml` on a project branch)
+- No live vault / Watcher
+- Never confuse **card catalog** (`CARD-INDEX`) with **product slice-catalog** (`Docs/gmm-catalog-mint/slice-catalog.yaml`)
+- Pasteable custom instructions: `Docs/Grok-Second-Brain-Custom-Instructions.md` (short body under “PASTE FROM HERE”)
 
 ## Key paths
 
 | Path | Contents |
 |------|----------|
-| `weave/components/*.yaml` | Locked Trinity cards |
-| `weave/component-proposals/*.yaml` | Provisional cards (active; may evolve) |
-| `weave/trinity-partition-registry.yaml` | Maintenance core id registry |
-| `weave/host-weld/live/safety.md` | Execution safety digest |
-| `scripts/eat_queue_core/harness.py` | CLI entry |
-| `Docs/Maintenance-Trinity-Constitution.md` | Dual-lock / corps charter |
-| `Docs/GROK-PROJECT-BRIDGE.md` | Three-tier bridge contract |
-| `Docs/Grok-Second-Brain-Custom-Instructions.md` | Paste into Grok Chat custom instructions |
-| `meat-suit-entry/` | Bone pilot orientation |
-
-## Test engagement
-
-Ask for a **card id**, a **harness command**, or a **scenario**. Ground answers in matching YAML + constitution.  
-For catalog mint: one product row only — see STOP box above.
+| `Docs/gmm-catalog-mint/` | **Product catalog mint pack (use this)** |
+| `Docs/GROK-PROJECT-BRIDGE.md` | Bridge notes (historical; mint pack is authoritative for mint) |
+| `Docs/Grok-Second-Brain-Custom-Instructions.md` | Paste into Grok Chat |
+| `meat-suit-entry/` | Bone pilot hub |
+| `weave/components/*.yaml` | Locked cards |
+| `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — not Grok’s job for mint) |
