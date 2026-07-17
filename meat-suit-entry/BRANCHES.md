@@ -9,7 +9,7 @@
 
 ## `project/<project-id>` — project instances
 
-Pilot: **`project/godot-genesis-mythos-master`**
+Pilot: **`project/genesis-mythos-master`** (living PMG + `slice-catalog.yaml` for catalog mint)
 
 Artifacts at **branch root** (not nested under a `project/` folder on the branch):
 

@@ -19,7 +19,7 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 ## Routing
 
 - **Weave / gates / cards** → `main` (`weave/components/`, `weave/component-proposals/`)
-- **Project mint / execution** → `project/<id>` branch root (pilot: `project/godot-genesis-mythos-master`)
+- **Project mint / execution** → `project/genesis-mythos-master` (branch root)
 - **Tertiary bodies** → never on GitHub; request by `tert_*` id via fulfill broker
 
 ## Hard boundary (Grok)
@@ -35,9 +35,9 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 
 ```yaml
 grok_fulfill_request:
-  request_id: "20260717-godot-001"
-  project_id: godot-genesis-mythos-master
-  project_branch: project/godot-genesis-mythos-master
+  request_id: "20260717-gmm-001"
+  project_id: genesis-mythos-master
+  project_branch: project/genesis-mythos-master
   purpose: "Clarify catalog row ui_presentation_shell L5 scope for mint review"
   node_ids: ["tert_a1b2c3", "catalog:ui_presentation_shell"]
   need: summary
@@ -52,7 +52,7 @@ grok_fulfill_request:
 ## Harness (operator workspace)
 
 ```bash
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_sync --vault-root . --project-id godot-genesis-mythos-master
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_push --vault-root . --branch project/godot-genesis-mythos-master
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_sync --vault-root . --project-id genesis-mythos-master
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_push --vault-root . --branch project/genesis-mythos-master
 PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness grok_bridge_status --vault-root .
 ```

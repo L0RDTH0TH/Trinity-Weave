@@ -50,7 +50,7 @@ Trinity-Weave/
 | `main` | Weave law — cards, harness, indexes, meat-suit entry |
 | `project/<id>` | Project **instances** (Roadmap, catalog, observability) — never merge into `main` |
 
-Pilot project branch: `project/godot-genesis-mythos-master` (see `meat-suit-entry/PROJECT-BRANCH-LAYOUT.md`).
+Pilot project branch: `project/genesis-mythos-master` (see `meat-suit-entry/PROJECT-BRANCH-LAYOUT.md`).
 
 ## Grok integration
 

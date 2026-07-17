@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-17T16:02:36Z",
+  "generated_utc": "2026-07-17T16:16:43Z",
   "remote_ok": true,
   "remote_identity": "L0RDTH0TH/Trinity-Weave",
   "active_branches": [
     "main",
-    "project/godot-genesis-mythos-master"
+    "project/genesis-mythos-master"
   ],
   "commits_ahead_per_branch": {
     "main": 0,
-    "project/godot-genesis-mythos-master": 0
+    "project/genesis-mythos-master": 0
   },
   "local_fingerprint": {
-    "weave": "c117781219e0dfc5",
-    "project": "3b1186a40a751616"
+    "weave": "bfead5d2b8eedf3b",
+    "project": "22e0b74868893242"
   },
   "awaiting_push": false,
-  "last_successful_push_utc": "2026-07-17T08:36:05Z",
-  "next_eligible_push_utc": "2026-07-18T08:36:05Z",
+  "last_successful_push_utc": "2026-07-17T16:16:41Z",
+  "next_eligible_push_utc": "2026-07-18T16:16:41Z",
   "push_skipped_reason": "cooldown",
   "recommendation": "awaiting_push_window"
 }

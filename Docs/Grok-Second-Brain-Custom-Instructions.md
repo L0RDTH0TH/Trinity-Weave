@@ -50,9 +50,9 @@ Your **only** view is **committed git** on the attached branch(es), plus anythin
 
 ```yaml
 grok_fulfill_request:
-  request_id: "20260717-godot-001"
-  project_id: godot-genesis-mythos-master
-  project_branch: project/godot-genesis-mythos-master
+  request_id: "20260717-gmm-001"
+  project_id: genesis-mythos-master
+  project_branch: project/genesis-mythos-master
   purpose: "Clarify catalog row ui_presentation_shell L5 scope for mint review"
   node_ids: ["tert_a1b2c3", "catalog:ui_presentation_shell"]
   need: summary

@@ -8,7 +8,7 @@ from typing import Any
 from .live_config import load_live_config
 from .weave_public_publish import get_weave_publish_config
 
-DEFAULT_PILOT_PROJECT_ID = "godot-genesis-mythos-master"
+DEFAULT_PILOT_PROJECT_ID = "genesis-mythos-master"
 DEFAULT_EXPORT_ROOT = "/home/darth/Documents/trinity-weave-export"
 DEFAULT_REMOTE_URL = "https://github.com/L0RDTH0TH/Trinity-Weave.git"
 DEFAULT_MAIN_BRANCH = "main"
