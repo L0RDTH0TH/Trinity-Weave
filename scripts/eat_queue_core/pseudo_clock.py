@@ -18,6 +18,8 @@ from .schedule_state import (
 DEFAULT_KNOBS: dict[str, Any] = {
     "headless_eat": False,
     "headless_lanes": ["institute"],
+    "llm_host": "cursor_cli",
+    "headless_agent_model": "auto",
     "auto_after_sync": False,
     "max_headless_eat_per_day": 3,
     "memory_compact_after_eat_completions": 10,

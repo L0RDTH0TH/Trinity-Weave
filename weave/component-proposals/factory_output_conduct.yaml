@@ -1,0 +1,80 @@
+id: factory_output_conduct
+conceptual:
+  outcome: Product slice Success claims require conduct on LaunchShell → PlayRegion (alpha track) —
+    smokes, Sparky weld, and no narrative deferral loopholes — not stack-only or orphan-harness proof.
+  summary: Factory output honesty card for Product 2 (closed_alpha). Binds slice smokes,
+    LaunchShell → PlayRegion critical path, Core/ narrative drift scan, and enforcement ladder off|warn|block.
+  primary_case: Agent marks slice3 complete after stack interpretation_pass while Main.tscn
+    still uses legacy DMCameraRig — conduct proofs fail before Success.
+  secondary_case: Operator runs factory-output-gate in warn mode — trace receives warnings
+    without blocking ship rollup grandfathered slices.
+  edge_cases:
+  - Grandfathered slices 1–4 complete_pre_conduct until re-proof under block mode
+  - Ortho tabletop stack-green but not operator-bound — documented gap not silent waiver
+  - little_val_ok on harness scene without Main.tscn weld
+  misread_risks:
+  - Treating stack_baseline_honesty green as closed_alpha slice conduct
+  - Re-opening until-then little_val-only slice Trinity deferral
+touch:
+  primary_paths:
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/closed-alpha-v1.md
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/PlayRegion.tscn
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.tscn
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.cs
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/PlayRegion.cs
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/Camera/SparkyDmFreeCamRig.cs
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/Core/
+  - .technical/parallel/godot/goal-authority.json
+  - .technical/weave/host-weld/pilots/implementation_factory_loop.md
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.tscn
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/project.godot
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/Ship-Rollup-v1.md
+  harness_commands:
+  - factory_output_conduct
+  - factory_output_gate
+  - trinity_align
+  behavior_signals:
+  - test_product_play_path_launch_to_play_region
+  - test_play_region_tscn_uses_sparky_not_legacy_dm_rig
+  - test_factory_output_conduct_card_present
+  - test_pilot_documents_factory_output_enforcement
+  - test_closed_alpha_v1_closes_until_then_loophole
+  - test_goal_authority_vault_roadmap_planner_hints
+  - test_core_narrative_drift_scan_clean
+  - test_launch_shell_product_track
+  - test_config_declares_factory_output_trinity_gate_block
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - claim closed_alpha slice complete without Main.tscn smoke pass
+  - use orphan harness scene as Alpha stand-in for slice Success
+  - waive Sparky visual weld by default when stack interpretation_pass is green
+  - defer slice Trinity to little_val_ok only (until-then loophole)
+  - mark slice complete without factory_output_conduct when enforcement_mode is block
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: stack_baseline_honesty gates Product 1 — factory_output_conduct gates Product 2 graybox output'
+  - 'policy: enforcement_mode warn must not block grandfathered complete_pre_conduct slices'
+  acceptance:
+  - test_slice_smoke_scripts_exist_and_target_main
+  - test_main_tscn_uses_sparky_not_legacy_dm_rig
+  - test_closed_alpha_v1_closes_until_then_loophole
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/factory/factory_output_gate.py
+  - scripts/eat_queue_core/tests/test_factory_output_conduct.py
+  invariant_ids:
+  - factory_output_main_conduct
+  - closed_alpha_no_until_then_loophole
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-10T22:00:00Z'
+  rules_confirmed_at: '2026-06-10T22:00:00Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Closed Alpha factory output conduct — staged warn then block 2026-06-10
+  last_disconnect: null

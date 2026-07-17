@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import load_trinity_config
+from .stub_honesty import evaluate_stub_honesty_payload
 from .trinity_card_paths import load_trinity_card
 
 MATRIX_ARTIFACT = Path(".technical/weave/validation/honesty-anchor-matrix.json")
@@ -84,6 +85,10 @@ def evaluate_claim(payload: dict[str, Any]) -> tuple[bool, list[str], str]:
 
     if payload.get("merge_narrative_into_guidance"):
         errors.append("forbidden: merge narrative into user_guidance as human-authored")
+
+    stub_ok, stub_errors = evaluate_stub_honesty_payload(payload)
+    if not stub_ok:
+        errors.extend(stub_errors)
 
     ok = len(errors) == 0
     return ok, errors, tier
@@ -170,6 +175,42 @@ def scenario_fixtures() -> list[dict[str, Any]]:
             "expect_ok": True,
             "expect_tier": "narrative",
         },
+        {
+            "id": "stub_completion_fail",
+            "description": "pass_gate with untraced stubs must fail",
+            "payload": {
+                "pass_gate_ok": True,
+                "conduct_ok": True,
+                "counts": {"green": 1},
+                "report_path": "r.json",
+                "untraced_stub_count": 2,
+            },
+            "expect_ok": False,
+            "expect_tier": "structural",
+        },
+        {
+            "id": "conduct_repair_stub_not_complete",
+            "description": "conduct repair import stub cannot claim complete",
+            "payload": {
+                "conduct_repair_stub_as_complete": True,
+                "claimed_success": True,
+            },
+            "expect_ok": False,
+            "expect_tier": "narrative",
+        },
+        {
+            "id": "suppress_stub_check_fail",
+            "description": "forbidden suppress flag on completion claim",
+            "payload": {
+                "suppress_stub_check": True,
+                "pass_gate_ok": True,
+                "conduct_ok": True,
+                "counts": {"green": 1},
+                "report_path": "r.json",
+            },
+            "expect_ok": False,
+            "expect_tier": "structural",
+        },
     ]
 
 
@@ -190,9 +231,17 @@ def run_honesty_anchor_proofs(
 ) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     cfg = load_trinity_config(vault_root)
+    matrix_skipped = not getattr(cfg, "honesty_anchor_enabled", True)
 
-    if not getattr(cfg, "honesty_anchor_enabled", True):
-        return {"ok": True, "skipped": True, "reason": "honesty_anchor_disabled"}
+    # Stub honesty audit runs even when claim-matrix is disabled (core law; not shut-uppable).
+    from .stub_honesty import run_stub_honesty_audit
+
+    stub_audit = run_stub_honesty_audit(
+        vault_root,
+        dry_run=dry_run,
+        write_artifact=write_artifact and not dry_run,
+        trace_open=not dry_run,
+    )
 
     meta_touch = load_meta_honesty_touch(vault_root)
     scenarios_out: list[dict[str, Any]] = []
@@ -217,22 +266,29 @@ def run_honesty_anchor_proofs(
     green = sum(1 for s in scenarios_out if s.get("ok"))
     red = len(scenarios_out) - green
 
+    matrix_ok = red == 0
     report: dict[str, Any] = {
-        "ok": red == 0,
+        "ok": matrix_ok and bool(stub_audit.get("ok")),
         "dry_run": dry_run,
         "generated_at": _now_iso(),
         "claim_tiers": list(CLAIM_TIERS),
+        "matrix_skipped": matrix_skipped,
         "meta_card_readable": meta_touch is not None,
         "meta_touch_claim_tiers": (meta_touch or {}).get("claim_tiers"),
         "meta_touch_honesty_tiers": (meta_touch or {}).get("honesty_tiers"),
         "scenarios": scenarios_out,
         "summary": {"total": len(scenarios_out), "green": green, "red": red},
         "artifact_path": str(MATRIX_ARTIFACT),
+        "stub_honesty": stub_audit,
     }
 
-    if mismatches:
+    if matrix_skipped:
+        report["matrix_skipped_reason"] = "honesty_anchor_disabled"
+        report["ok"] = bool(stub_audit.get("ok"))
+
+    if mismatches and not matrix_skipped:
         report["mismatches"] = mismatches
-        report["ok"] = False
+        report["ok"] = bool(stub_audit.get("ok")) and matrix_ok
 
     if not dry_run and write_artifact:
         out_path = vault_root / MATRIX_ARTIFACT

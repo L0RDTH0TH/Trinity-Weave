@@ -1,0 +1,50 @@
+id: cursor_engine_mcp_loop
+conceptual:
+  outcome: Daily implementation loop uses Cursor MCP + engine plugin — not copy-paste
+    — with primary server stable before editor opens.
+  summary: Cursor-side godot-mcp-server + editor plugin WebSocket bridge; engine adapter
+    config per instance.
+  primary_case: Agent invokes MCP tools with editor open; primary on :6505 via godot-mcp-primary.sh
+    when adapter=godot.
+  edge_cases:
+  - Proxy-only Cursor MCP without primary on 6505
+  - AssetLib GUI failure — manual addon copy OK
+  misread_risks:
+  - Using legacy Coding-Solo MCP with tomyud plugin
+touch:
+  primary_paths:
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/addons/godot_mcp/
+  - scripts/eat_queue_core/weave/mcp_postedit_validate.py
+  harness_commands:
+  - mcp_postedit_validate
+  behavior_signals:
+  - test_godot_mcp_primary_script
+  - test_demo_project_mcp_addon
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - claim MCP connected without ws :6505 listener
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  acceptance:
+  - test_demo_project_mcp_addon
+  - test_godot_mcp_primary_script
+  fixtures: []
+contract:
+  proof:
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/addons/godot_mcp/plugin.cfg
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  invariant_ids:
+  - cursor_engine_mcp_primary_bridge
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+  last_disconnect: null

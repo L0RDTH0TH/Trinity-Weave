@@ -1,0 +1,183 @@
+id: agent_implementation_style
+conceptual:
+  outcome: Agents that extend the factory-era weave leave the vault safer, smaller in diff, and honest
+    about proof — factories launch through the locks; implementation stays integrated, not ad-hoc.
+  summary: 'This meta card is how agents **implement and integrate** under the **factory + weave-lock**
+    era — not how a single pipeline ticket is closed. **Primary (steady meta):** you launch or run a **factory**
+    (today''s production pattern; tomorrow may be agent swarms or another shape); the agent wires code,
+    cards, tests, and config so the factory''s output is trustworthy inside maintenance doctrine. **Secondary
+    (meta evolution):** you plan a **new factory** or a **philosophy shift** (e.g. factories → swarms,
+    a small change in what ''meta'' means); the agent uses Trinity cards for ripple mesh before large
+    compensation. Prefer config knobs over hardcoded policy; minimal diffs; harness proofs; move-to-trash
+    not rm; curator snapshot after substantive vault edits; conduct must resolve to real `test_*`. Points
+    at Safety-Invariants / Harness-Patterns — does not clone `invariant_registry` or `core-guardrails`.
+    Runtime launch contract: **`harness_runtime_contract`** (#2). Host UI: **`cursor_host_adapter`** (#3).'
+  primary_case: 'Steady state under this meta: you **launch a factory** — the normal way work leaves your
+    head and enters the weave through the locks (not by freezing yesterday''s pipeline with a manual lock).
+    The agent implements what the factory needs: weave modules, Trinity legs (Conceptual / Touch / Rules),
+    proofs, and config — scoped, config-driven, harness-verified. It integrates new behavior into component-proposals
+    and bridges without duplicate `harness_*` cards, without shell rm, and without claiming success when
+    conduct or pass_gate says otherwise. Ticket-scale fixes (conduct red, one pytest) are **tasks inside**
+    this mode, not the definition of the meta.'
+  edge_cases:
+  - New factory type — secondary_case mesh first; primary_case integration after plan is explicit.
+  - Philosophy shift (e.g. factories → swarms) — secondary_case names Layer 0 launch, harness, and card
+    ripples; do not lock old factory pattern as freeze.
+  - Conduct red or one-off pytest — primary_case task inside factory integration; not a separate meta.
+  - MCP unavailable in Task — inline edits allowed; safety intent best-effort; still no shell rm.
+  - Note pipelines (ingest, archive) — MCP snapshot bands; factory weave work uses harness + curator snapshot.
+  - New harness surface — component card + harness_commands per trinity_card_authoring 11a.
+  - Backbone change when factory lands — backbone-docs-sync + curator_snapshot.
+  misread_risks:
+  - Defining primary_case as EAT-QUEUE on one lane or corps ticket fix — that is component/runtime detail
+    under this meta.
+  - Defining secondary_case as one named factory (e.g. roadmap only) — secondary is any new factory or
+    philosophy shift.
+  - Skipping ripple mesh (output shifts, D, E, B) during meta evolution planning.
+  - Manually locking the current pipeline to block a new factory — locks are doctrine gates, not a planning
+    substitute.
+  - Treating this card as the factory product spec — factories get their own cards; this governs agent
+    integration style.
+  - Monolithic one card for an entire factory instead of atomized legs.
+  - 'rm on vault; Success without curator_snapshot; conduct green-wash; Cursor host on this card (use
+    #3).'
+  frame_anchor: How agents **integrate factories** into the weave (primary) and **plan meta evolution**
+    with card ripples (secondary).
+  operator_memory_hook: Launch factories through the locks; evolve meta with cards before big compensation.
+  refs:
+  - '[[3-Resources/Second-Brain/Docs/Harness-Patterns-and-Guidelines]]'
+  - '[[3-Resources/Second-Brain/Docs/Safety-Invariants]]'
+  - '[[3-Resources/Second-Brain/Docs/Backup-and-Recovery-Strategy]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution]]'
+  - '[[3-Resources/Second-Brain/Docs/Component-Trinity]]'
+  - '[[.cursor/rules/agents/execution-safety-blacklist]]'
+  - '[[.cursor/rules/agents/curator-mandatory-backup]]'
+  - '[[.cursor/rules/always/backbone-docs-sync]]'
+  - '[[.cursor/rules/always/core-guardrails]]'
+  - '[[.technical/weave/components/trinity_card_authoring.yaml]]'
+  - '[[.technical/weave/components/conceptual_style_guide.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/maintenance_honesty_anchor.yaml]]'
+  - '[[.technical/weave/component-proposals/meta-review-20260605/factory_lifecycle_doctrine.yaml]]'
+  secondary_case: 'Meta evolution planning: you introduce a **new factory**, or you **shift philosophy**
+    — factories become agent swarms, you tighten what ''meta'' means, you change how factories bind to
+    weave locks. You are still in the plan; the agent **uses Trinity cards as the map** (locked, bridged,
+    provisional). It explains **locked fit** and **potential shifts in weave output** (what operators
+    will see differently). It reasons in **ripples**: change **A** to reach **C** → **D** must move; flag
+    **B** to avoid; point at **E** to enhance the whole mesh. It states what the **plan** must amend and
+    what the **weave** must compensate (new legs, tunnels, harness surface, tests) before implementation.
+    Examples (roadmap factory, institute capture, overnight architect) are instances — not the definition.'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/
+  - scripts/eat_queue_core/weave/
+  - scripts/eat_queue_core/harness.py
+  - scripts/move-to-trash.sh
+  - scripts/curator_snapshot.sh
+  - scripts/eat_queue_core/curator_snapshot_util.py
+  inbound:
+  - factory launch / factory integration (steady meta — primary_case)
+  - new factory or philosophy-shift plan (meta evolution — secondary_case)
+  - Phase 10 corps hygiene on provisionals (in-task under primary)
+  - operator --operator-mutation on maintenance core
+  - backbone-docs-sync trigger
+  outbound:
+  - 'primary: integrated weave code, provisionals, proofs, config for running factory'
+  - 'secondary: mesh report — locked fit | output shifts | ripple A→D | enhance E | avoid B (trinity_id
+    keyed)'
+  - 3-Resources/Second-Brain/Docs/ when backbone touched
+  - .cursor/sync/ when rules or skills change
+  behavior_signals:
+  - test_prune_drops_orphan_signals
+  - test_prune_respects_locked_signals
+  - test_enforce_skipped_when_conduct_not_ok
+  - test_module_importable
+rules:
+  forbidden:
+  - shell rm/rmdir/find-delete on vault paths
+  - ad-hoc git push to public export remotes from vault root
+  - overwrite maintenance core A YAML without --operator-mutation
+  - duplicate full invariant_registry or core-guardrails bodies in card Rules
+  - claim Success when only narrative summary exists without structural proof path
+  - overconfidence prose on verifiable facts without uncertainty block (honesty Tier 1)
+  fixtures: []
+  precedence:
+  - 'primary_case (factory era): integrate factory through weave locks — atomized Trinity legs, harness
+    proofs, minimal diff'
+  - 'primary_case: conduct/proof fixes are in-scope tasks; not the meta definition'
+  - 'secondary_case (meta evolution): mesh locked fit, output shifts, ripple (A→C⇒D), enhance E, avoid
+    B — trinity_id keyed'
+  - 'secondary_case: plan amendments + weave compensation explicit before implementation'
+  - delete intent → move-to-trash.sh; vault mutation end → curator_snapshot.sh
+  - backbone change → Docs + .cursor/sync
+  - config knobs over constants; no duplicate harness_* per 11a
+  - 'plan-stage (secondary_case): load affected locked + provisional cards + bridges before recommending
+    implementation order'
+  - read Safety-Invariants + Harness-Patterns before substantive weave edits
+  - minimize diff scope; prefer Second-Brain-Config weave keys over code constants
+  - delete intent → scripts/move-to-trash.sh only
+  - vault mutation session end → git status --porcelain then curator_snapshot.sh
+  - backbone component change → update 3-Resources/Second-Brain/Docs + .cursor/sync
+  - new harness surface → cmd + tests; card identity per trinity_card_authoring
+  - conduct tier → behavior_signals must resolve; no import-only green-wash
+  - 'policy: claim pass_gate or Success when conduct_ok false without provisional_enforcement_untrusted
+    path'
+  - 'policy: skip curator_snapshot after substantive vault file writes'
+  - 'policy: promote this card to components/ without operator lock + nerve-green'
+  - 'policy: Phase 8 dual-lock — automation read/align/gate only; YAML edits operator-only; provisional
+    bridge D must tunnel_via locked bridge B, not core A.'
+  - 'efficiency: bounded loops, config read once, harness-friendly timeouts; no redundant scans in balance
+    without justification'
+  - 'robustness: fail closed, verifier contracts, no silent config fallback to wrong path (see headless
+    live-config lesson)'
+  - 'maintainability: one card per responsibility (11a); behavior_signals resolve; shared-test anchors'
+  - 'honesty: claim tier structural|inferred|narrative — no Success without structural receipt (maintenance_honesty_anchor)'
+  - 'anti-pattern: generic filler, overconfidence on obscure claims, I recall without grounding'
+  - 'policy: prefer merge honesty into this card OR lock maintenance_honesty_anchor — not both active
+    without 11b prepend order update'
+  acceptance:
+  - test_prune_drops_orphan_signals green
+  - test_enforce_skipped_when_conduct_not_ok green
+  - test_module_importable green
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_phase9_10.py
+  - scripts/eat_queue_core/tests/test_curator_snapshot_util.py
+  - scripts/move-to-trash.sh
+  - scripts/curator_snapshot.sh
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  card_kind: meta
+  anatomy: A-meta-target
+  source:
+    kind: phase_11_meta_draft
+    phase: 11
+    pack_ordinal: 1
+    generated_at: '2026-06-02T12:00:00Z'
+    operator_status: approved_for_lock
+    updated_at: '2026-06-05T20:00:00Z'
+    changelog: '2026-06-05: efficiency/robustness/maintainability + honesty anchor Rules (or cross-ref
+      maintenance_honesty_anchor)'
+    stamped_provisional_at: '2026-06-04T04:34:20.557741Z'
+    locked_at: '2026-06-04T04:40:57Z'
+    locked_from: component-proposals
+    lock_kind: maintenance_core
+  pairs_with:
+  - trinity_card_authoring
+  - conceptual_style_guide
+  - little_val_structural
+  - invariant_registry
+  - harness_runtime_contract
+  - cursor_host_adapter
+  - maintenance_honesty_anchor
+  leg_status:
+    conceptual: present
+    touch: present
+    rules: present
+    contract: present
+  provisional: true
+  promotion_tier: provisional
+  lock_kind: maintenance_core
+  system_mutable: false
+  operator_status: amendment_review_before_relock

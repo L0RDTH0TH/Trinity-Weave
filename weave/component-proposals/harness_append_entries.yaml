@@ -1,0 +1,97 @@
+id: harness_append_entries
+conceptual:
+  outcome: New follow-up work can enter the queue without corrupting it — the vault
+    can say 'and also do this' without duplicate noise or manual file surgery.
+  summary: Mid-pass discovery needs a legitimate next seat in line — one clean append
+    per ask, same contract every time. Registers repair, deepen, wrapper outcomes,
+    and hygiene nudges without shouting into the void or duplicating lines.
+  primary_case: Mid-run or after a step, the system realizes more work is warranted.
+    Instead of shouting into the void or duplicating the same repair three times,
+    registration adds one clean new line to the queue — same contract every time.
+  edge_cases:
+  - The system may refuse to register a near-duplicate — that is protection, not failure.
+  - Only so many registrations per pass — prevents runaway self-queueing.
+  misread_risks:
+  - Using registration to remove finished work — that is release's job.
+  - Pasting lines into the queue file yourself — you lose dedupe and the audit story.
+  - Expecting every whisper to become a line — some intents are correctly suppressed.
+  operator_memory_hook: Something new to do? Register it. Something done? Release
+    it.
+  polar_pair: harness_rewrite_consumed — release completed asks; append_entries registers
+    new ones.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/a5b_dedupe.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/queue_io.py
+  - .technical/parallel/*/prompt-queue.jsonl
+  outbound:
+  - .technical/parallel/*/prompt-queue.jsonl
+  - .technical/parallel/*/prompt-queue-audit.jsonl
+  - .technical/parallel/*/task-handoff-comms.jsonl
+  - 3-Resources/Watcher-Result.md
+  harness_commands:
+  - append_entries
+  behavior_signals:
+  - test_append_entries_rejects_inline_grep_paste
+  - test_not_eligible_without_origin
+  - test_handoff_repair_eligible
+  - test_resume_handoff_audit_eligible
+  - test_suppress_same_origin_identical_guidance
+  - test_suppress_fuzzy_guidance
+  - test_allow_different_origin
+  - test_pending_same_run_blocks_duplicate
+  - test_normalize_strips_noise
+  - test_jaccard_fuzzy_match_public_api
+  - test_dedupe_entries_shape
+  - test_origin_window_allows_after_25h
+  - test_missing_timestamp_treated_in_window_suppresses
+  - test_never_merge_different_validator_report
+  - test_strict_merge_merges_identical_hygiene_godot_batch
+  - test_strict_merge_disabled_passthrough
+  - test_merge_queue_entry_group_merged_from
+  - test_jaccard_threshold_boundary_stricter_than_dedupe
+  - test_verify_ok_when_unchanged
+  - test_verify_fails_after_mutation
+  - test_resolve_parallel_context_lane_synthetic
+rules:
+  forbidden:
+  - hand-edit or shell-concat new lines into prompt-queue.jsonl
+  - use append_entries to delete or rewrite consumed ids
+  fixtures: []
+  precedence:
+  - read current PQ before append (A.5b.0z decide_append per line)
+  - honor max_midrun_jsonl_appends_per_eat_queue_run cap
+  - optional require-snapshot verify before write when snapshot gate enabled
+  - 'policy: bypass dedupe by writing the same repair line with a new id to game the
+    queue'
+  acceptance:
+  - test_a5b_dedupe green
+  - test_harness_verify test_append_entries_rejects_inline_grep_paste
+contract:
+  proof:
+  - scripts/eat_queue_core/a5b_dedupe.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_a5b_dedupe.py
+  - scripts/eat_queue_core/tests/test_harness_verify.py
+  invariant_ids:
+  - a5b_harness_only_pq_append
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T16:58:03Z'
+  rules_confirmed_at: '2026-05-31T16:58:03Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_append_entries.yaml
+    conceptual_style: intent_polar_pair_not_implementation
+    spine_ordinal: 3
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:48Z'
+  touch_content_hash: 64c29e190f65e6f7d9319214076f32baf0e965e74b1df56f092f92c0d425e4c8
+  touch_refreshed_at: '2026-06-07T23:56:54.717180Z'
+  closure_must_read_count: 21
+  last_disconnect: null

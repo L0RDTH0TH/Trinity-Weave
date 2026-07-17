@@ -1,0 +1,176 @@
+id: harness_plan
+conceptual:
+  outcome: When plan runs, you get a clear receipt of what happened — so you are not
+    left wondering whether the vault actually did the step.
+  summary: 'This harness step is part of unattended maintenance: it runs in the background,
+    logs what it touched, and lets you verify later instead of watching every line
+    scroll by.'
+  primary_case: You triggered or scheduled plan on a lane. You move on; when you return,
+    the receipt tells you success, skip, or failure without re-running the whole pass.
+  edge_cases:
+  - Session or plan id pasted into narrative — must stand alone for batch generation.
+  - Outcome reads like a module docstring — busy operators skim past it.
+  - Treating plan as optional when the maintenance board says it is due.
+  - Pending vs active — registered but not yet enforcing until governance approves
+    higher-risk law.
+  - No prior records yet — governance initializes baseline memory so future runs have
+    continuity.
+  - Conflicting signals across lanes — governance records both instead of silently
+    flattening disagreements.
+  misread_risks:
+  - Writing about the documentation system instead of what the person gains.
+  - Copying implementation vocabulary into the outcome line.
+  - Locking narrative before a human read-through — story drifts from reality.
+  - Treating this as an allow list of permitted repairs — that is a different concept.
+  - Duplicating shared law on every card instead of referencing the apex.
+  - Inventing forbidden logic in chat because it feels faster than registering law.
+  - Confusing shared law with save-point integrity — different layers of honesty.
+  - Thinking bootstrap seeds define the whole concept — they seed members; the class
+    is shared law at the apex.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/plan.py
+  inbound:
+  - scripts/eat_queue_core/a5b_dedupe.py
+  - scripts/eat_queue_core/lanes.py
+  - scripts/eat_queue_core/models.py
+  - scripts/eat_queue_core/harness.py
+  outbound:
+  - .technical/prompt-queue.jsonl
+  - scripts/eat_queue_core/harness.py
+  behavior_signals:
+  - test_module_importable
+  harness_commands:
+  - plan
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - bypass harness-only write contract
+  fixtures: []
+  precedence:
+  - 'policy: meta_lens_force_align — regen under locked maintenance_core doctrine'
+  - 'policy: maintenance_core meta cards are read-only during regen'
+  - 'policy: lens/conceptual_style_guide — field_contract overrides experiential_default
+    on component cards'
+  - 'policy: lens/conceptual_style_guide — anti_meta.exempt_trinity_ids may name framework
+    in their own Conceptual'
+  - 'policy: lens/conceptual_style_guide — policy: Phase 8 dual-lock — automation
+    read/align/gate only; YAML edits operator-only; provisional bridge D must tunnel_via
+    locked bridge B, not core A.'
+  - 'policy: lens/trinity_card_authoring — locked conceptual_style_guide field_contract
+    governs component/spine_cascade output'
+  - 'policy: lens/trinity_card_authoring — validated conceptual corpus is doctrinal
+    source for spine cascade'
+  - 'policy: lens/trinity_card_authoring — stub_pass backward backfill OK when no
+    spine'
+  - 'policy: lens/trinity_card_authoring — spine cascade conceptual only unless --fix-legs'
+  - 'policy: lens/config_knob_parity — explicit queue params > profile expansion >
+    Second-Brain-Config > card Rules defaults'
+  - 'policy: lens/config_knob_parity — default familial bundle: speed_mode balance
+    + repair_strategy repair_first + validator_tier forgiving'
+  - 'policy: lens/config_knob_parity — any factory change: evaluate all enumerated
+    options per affected knob'
+  - 'policy: lens/config_knob_parity — documented asymmetry requires matrix row +
+    operator ack + harness proof reference'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: lens/maintenance_honesty_anchor — narrative cannot upgrade tier without
+    re-proof'
+  - 'policy: lens/maintenance_honesty_anchor — Tier 0 always on maintenance outputs'
+  - 'policy: lens/maintenance_honesty_anchor — Tier 1 on yellow / mid-band refinement'
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/host_execution_safety_contract — backup_before_destructive_batch_or_stale_gap'
+  - 'policy: lens/host_execution_safety_contract — high_band_plus_per_change_snapshot_before_destructive_step'
+  - 'policy: lens/host_execution_safety_contract — mid_band_at_most_one_non_destructive_loop_per_note_per_run'
+  - 'policy: lens/factory_lifecycle_doctrine — rust grade before weld — no permanent
+    lock on rusted Run'
+  - 'policy: lens/factory_lifecycle_doctrine — surgical (10g, prune, touch refresh)
+    before rewrite'
+  - 'policy: lens/factory_lifecycle_doctrine — rewrite/refurbish in place before redesign_factory
+    fork'
+  - 'policy: lens/factory_lifecycle_doctrine — redesign_factory: both factories provisional
+    until deprecate'
+  - 'policy: lens/trinity_prompt_context — Route before Pull on ingress — resolve
+    task_kind then assemble context'
+  - 'policy: lens/trinity_prompt_context — policy: meta card — card_kind meta; fixed
+    id trinity_prompt_context'
+  - 'policy: lens/trinity_prompt_context — policy: Pull — prefer provisional tier
+    unless task requires locked components'
+  - 'policy: lens/trinity_prompt_context — policy: Pull conceptual_regen — conceptual
+    block only'
+  - 'policy: lens/agent_implementation_style — primary_case (factory era): integrate
+    factory through weave locks — atomized Trinity legs, harness proofs, minimal diff'
+  - 'policy: lens/agent_implementation_style — primary_case: conduct/proof fixes are
+    in-scope tasks; not the meta definition'
+  - 'policy: lens/agent_implementation_style — secondary_case (meta evolution): mesh
+    locked fit, output shifts, ripple (A→C⇒D), enhance E, avoid B — trinity_id keyed'
+  - 'policy: lens/agent_implementation_style — secondary_case: plan amendments + weave
+    compensation explicit before implementation'
+  - respect config master switch before side effects
+  - 'policy: bypass harness-only write contract'
+  - 'policy: mutate without reading config master switch'
+  - 'policy: treat subprocess side effects as operator-approved without review'
+  - 'policy: whole_vault_dump'
+  - 'policy: unrelated_trinity_ids'
+  - 'policy: green_wash_import_only'
+  - 'policy: deleted_asserts'
+  - 'policy: edit_outside_write_contract'
+  - 'policy: whole-vault dump in prompt context'
+  - 'policy: unrelated trinity_id legs in one bundle'
+  - 'policy: green-wash (import-only pass, deleted asserts, skip tests)'
+  - 'policy: edit legs outside task write_scope'
+  - 'policy: replace dispatcher or Prompt Crafter Q&A bodies in this card'
+  - 'policy: maintenance_core YAML write without --operator-mutation'
+  - 'policy: Query face invoking Pull write_scope or regen/conduct repair'
+  - 'policy: Query dumping whole vault or unbounded closure'
+  - 'policy: Query substituting for Research factory external fetch'
+  - 'policy: Pull on pure question ingress without Route ingress_class command or
+    mixed split'
+  acceptance: []
+  meta_lens_force_align: true
+  meta_lens_task_kind: regen_burn
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_plan.py
+  invariant_ids: []
+meta:
+  schema_version: 2
+  card_class: complete_draft
+  source:
+    kind: regenerate_complete
+    anchors:
+    - path: scripts/eat_queue_core/plan.py
+      role: regenerate_complete
+    generated_at: '2026-06-07T19:57:54.377173Z'
+    backfill:
+      method: harness_backward_extrapolation
+      module_path: scripts/eat_queue_core/plan.py
+      harness_commands:
+      - plan
+      enforcement_bullets:
+      - 'Harness subcommand `plan`: plan'
+      artifacts_touched:
+      - .technical/prompt-queue.jsonl
+      - scripts/eat_queue_core/harness.py
+      harness_side_effects: []
+      config_keys: []
+    backfill_applied: true
+    meta_lens_force_align: true
+    meta_lens_prepend:
+    - conceptual_style_guide
+    - trinity_card_authoring
+    - config_knob_parity
+    - maintenance_honesty_anchor
+    - host_execution_safety_contract
+    - factory_lifecycle_doctrine
+    - trinity_prompt_context
+    - agent_implementation_style
+    lens_source: locked
+    meta_lens_task_kind: regen_burn
+    regenerated_at: '2026-06-07T19:57:54Z'
+    regenerate_complete: true
+  leg_status:
+    conceptual: draft
+    touch: draft
+    rules: present
+    contract: present
+  card_kind: harness_entrypoint

@@ -1,0 +1,86 @@
+id: harness_headless_architect
+conceptual:
+  outcome: An autonomous Architect run can own the vault for a bounded mission — acting
+    with system control under a goal packet you already signed — while you are elsewhere.
+  summary: Architect persona running headless with an explicit goal-authority packet
+    — not a dumb script. Confirmed mission, promoted packet, background run; receipts
+    and lane work obey packet scope and harness gates.
+  primary_case: You confirmed a mission and promoted goal-authority.json. You start
+    headless architect and leave. The Architect persona works the weave on its own
+    — may convene council, records architect-receipts, may invoke headless eat — until
+    the packet says stop or done_when is satisfied. You return to outcomes and receipts,
+    not to micromanaging steps.
+  edge_cases:
+  - No valid packet — autonomous run refuses to invent a mission.
+  - Council is counsel inside the run; Architect still owns the merge and decision.
+  - Receipt-only path — autonomous decision logged without starting cook.
+  misread_risks:
+  - Framing it as file I/O — it is an autonomous agent with system control.
+  - Doing the mission in the packet-crafting chat — that steals work from the headless
+    actor.
+  - Equating it with headless eat — eat is queue chef; architect is mission-owning
+    L0.
+  operator_memory_hook: Hand the Architect persona a signed packet; let it run the
+    system alone.
+  spine_ordinal: 6
+  pairs_with: harness_headless_eat — architect owns the mission autonomously; eat
+    cooks the queue when told.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/headless_architect.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/goal_authority_io.py
+  - scripts/eat_queue_core/council_chamber.py
+  - scripts/eat_queue_core/headless_orchestrator.py
+  outbound:
+  - .technical/parallel/*/goal-authority.json
+  - .technical/parallel/*/architect-receipts.jsonl
+  - .technical/council/sessions/
+  harness_commands:
+  - headless_architect
+  - headless_fanout
+  - headless_overnight
+  behavior_signals:
+  - test_soft_two_vetoes_proceed
+  - test_two_high_deliberative
+  - test_missing_packet_pause
+  - test_valid_packet_runs_council
+rules:
+  forbidden:
+  - headless architect without confirmed goal-authority packet
+  fixtures: []
+  precedence:
+  - valid confirmed packet before autonomous work
+  - situation scan before optional council
+  - architect_decision proceed before optional headless_eat
+  - 'policy: execute mission work in packet-crafting chat instead of autonomous headless
+    run'
+  - 'policy: council seats overriding architect merge'
+  acceptance:
+  - test_headless_architect_council green
+contract:
+  proof:
+  - scripts/eat_queue_core/headless_architect.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_headless_architect_council.py
+  - 3-Resources/Second-Brain/Docs/Goal-Authority-Spec.md
+  invariant_ids:
+  - goal_authority_confirmed_before_headless
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T18:24:04Z'
+  rules_confirmed_at: '2026-05-31T18:24:04Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_headless_architect.yaml
+    conceptual_style: intent_autonomous_actor_not_input_pipeline
+    spine_ordinal: 6
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:48Z'
+  touch_content_hash: 2238f4f0ae8bdea1db6f1f6d3b2f45aa9e702a5644c788592bec14e6bd7401ad
+  touch_refreshed_at: '2026-06-07T23:57:28.849429Z'
+  closure_must_read_count: 21
+  last_disconnect: null

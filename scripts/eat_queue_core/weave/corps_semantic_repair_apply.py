@@ -9,16 +9,14 @@ from __future__ import annotations
 
 import copy
 import json
-import os
 import re
-import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-from ..agent_cli import find_agent_cli
+from ..host_runner import HostInvokeRequest, rel_log_path, resolve_host_runner
 from .config import load_trinity_config
 from .corps_repair_audit import append_corps_repair_audit
 from .governance import append_metric_row
@@ -247,43 +245,35 @@ def invoke_host_apply_agent(
     handoff = build_semantic_host_apply_handoff(
         vault_root, tid, pack_path=pack_path, card_path=card_path
     )
-    cli = find_agent_cli()
-    if not cli:
-        rec["error"] = "cursor_or_agent_cli_not_found"
-        return rec
-
+    runner = resolve_host_runner(vault_root)
     log_dir = vault_root / ".technical/weave/validation/host-apply-logs"
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{tid}-{_stamp()}.log"
-    cmd = [*cli, "-p", "--force", "--model", "auto", handoff]
-    env = os.environ.copy()
-    env["PYTHONPATH"] = str(vault_root / "scripts")
 
     before_conceptual = get_conceptual(load_trinity_card(vault_root, tid, prefer="provisional"))
 
-    try:
-        with log_path.open("w", encoding="utf-8") as logf:
-            logf.write(f"# semantic host apply trinity_id={tid}\n")
-            r = subprocess.run(
-                cmd,
-                cwd=str(vault_root),
-                stdout=logf,
-                stderr=subprocess.STDOUT,
-                text=True,
-                timeout=timeout_sec,
-                env=env,
-            )
+    hr = runner.invoke(
+        HostInvokeRequest(
+            vault_root=vault_root,
+            handoff=handoff,
+            model="auto",
+            timeout_sec=timeout_sec,
+            log_path=log_path,
+            role="corps_semantic_repair",
+        )
+    )
+    if hr.error and hr.exit_code is None:
+        rec["error"] = hr.error
+        if hr.log_path is not None:
+            rec["log_path"] = rel_log_path(vault_root, hr.log_path)
+        return rec
+
+    raw = hr.raw_text or ""
+    if not raw and log_path.is_file():
         raw = log_path.read_text(encoding="utf-8", errors="replace")
-        rec["exit_code"] = r.returncode
-        rec["log_path"] = str(log_path.relative_to(vault_root))
-        rec["implementation_path"] = "agent_p"
-    except subprocess.TimeoutExpired:
-        rec["error"] = "agent_timeout"
-        rec["log_path"] = str(log_path.relative_to(vault_root))
-        return rec
-    except OSError as e:
-        rec["error"] = str(e)
-        return rec
+    rec["exit_code"] = hr.exit_code
+    rec["log_path"] = rel_log_path(vault_root, hr.log_path or log_path)
+    rec["implementation_path"] = "agent_p"
 
     try:
         after_card = load_trinity_card(vault_root, tid, prefer="provisional")

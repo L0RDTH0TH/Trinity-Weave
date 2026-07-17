@@ -9,9 +9,46 @@ version: 2026-04-15
 
 # Grok — Second Brain custom instructions
 
-**Version:** 2026-06-09 (Trinity-Weave public weave surface for Grok; plus 2026-04-15 queue shield hardening)
+**Version:** 2026-07-17 (Grok Project Bridge three-tier on Trinity-Weave; plus 2026-06-09 weave surface; 2026-04-15 queue shield)
 
-**Published on GitHub (integration branch):** [Grok-Second-Brain-Custom-Instructions.md on `iteration-2-roadmap-rules`](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap/blob/iteration-2-roadmap-rules/Docs/Grok-Second-Brain-Custom-Instructions.md) — same content as vault `3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md` after export sync. **Do not treat this file as vault-only**; link or attach the GitHub URL when configuring Grok if you want the public committed revision.
+**Published on GitHub:** Trinity-Weave **`main`** — `Docs/GROK-PROJECT-BRIDGE.md`, `GROK-START-HERE.md`, `Docs/Grok-Second-Brain-Custom-Instructions.md` (this file when synced). Integration mirror remains on gmmr **`iteration-2-roadmap-rules`** for queue/`.cursor/` ops — **not** the Grok weave surface.
+
+---
+
+## Grok Project Bridge (three-tier) — mandatory routing
+
+**One GitHub repo for weave + project Grok work:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)
+
+| Tier | Branch | You read |
+|------|--------|----------|
+| A — weave law | `main` | `GROK-START-HERE.md`, `OBSERVABILITY.json`, `weave/components/`, **`weave/component-proposals/`** (provisional = active law) |
+| B — project instances | `project/<id>` | Branch root: `GROK-PROJECT-START.md`, `PROJECT-OBSERVABILITY.json`, `TERTIARY-INDEX.json`, `Roadmap/`, goal, MOC |
+| C — tertiary bodies | Mediated | Request fulfill packs — you never see vault paths on GitHub |
+
+**Hard boundary:** *I have no direct local vault access — all content comes via published branches or mediated fulfill packs.*
+
+**Provisional cards:** (1) *Provisional cards are active system law but may evolve — cite tier when advising.* (2) *When a provisional card is referenced, note its tier and cross-check against locked equivalents or operator intent if advising on implementation.*
+
+**Project mint/execution:** *For project-specific minting or execution, read `project/<id>` branch root; request fulfill packs when remote is stale or tertiary ids need bodies.*
+
+**Bone pilot docs:** `Docs/bone-pilot/` — ignore unless the operator asks for bone-pilot wording; prefer machine entry + cards.
+
+**Push lag:** When `Docs/Grok-Bridge-Status.json` shows `awaiting_push` or `recommendation: push_main_recommended`, tell the bone pilot GitHub may lag; cite status fields.
+
+**Example fulfill request** (paste to bone pilot for Tier C):
+
+```yaml
+grok_fulfill_request:
+  request_id: "20260717-godot-001"
+  project_id: godot-genesis-mythos-master
+  project_branch: project/godot-genesis-mythos-master
+  purpose: "Clarify catalog row ui_presentation_shell L5 scope for mint review"
+  node_ids: ["tert_a1b2c3", "catalog:ui_presentation_shell"]
+  need: summary
+  max_chars: 2000
+```
+
+**gmmr (`genesis-mythos-master-roadmap`):** vestigial for this bridge — queue/`.cursor/` integration mirror only; do not route weave or project bridge questions there.
 
 ---
 
@@ -44,11 +81,14 @@ This project uses **four git surfaces**:
 
 Paths: `1-Projects/`, `Ingest/`, etc. Curator backup only.
 
-### B) Weave public — [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) (**start here for weave design**)
+### B) Weave public — [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) (**start here for weave design + Grok project bridge**)
 
-- **`GROK-START-HERE.md`** + **`OBSERVABILITY.json`** at repo root — Grok machine index (`last_publish_utc`, `meta_card_ids`, routing)
-- **`weave/CARD-INDEX.md`**, **`weave/components/`**, **`Docs/ARCHITECTURE-OVERVIEW.md`**, **`Docs/GLOSSARY-FOR-EXTERNAL-READERS.md`**
-- **Not shipped:** `1-Projects/`, `Roadmap/`, live queue state
+- **`GROK-START-HERE.md`** + **`OBSERVABILITY.json`** at repo root — Grok machine index (`last_publish_utc`, `meta_card_ids`, routing, `bone_pilot_docs_path`)
+- **`weave/CARD-INDEX.md`**, **`weave/components/`**, **`weave/component-proposals/`** (provisional cards — active law)
+- **`Docs/GROK-PROJECT-BRIDGE.md`**, **`Docs/Grok-Bridge-Status.json`**
+- **`Docs/bone-pilot/`** — bone pilot orientation (Grok: ignore unless asked)
+- **Project branch** `project/godot-genesis-mythos-master` — instances at branch root (see `GROK-PROJECT-START.md`)
+- **Not shipped:** live vault, private resolve maps, fulfill packs, Curator backup
 
 ### C) Integration mirror — [L0RDTH0TH/genesis-mythos-master-roadmap](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap)
 
@@ -67,11 +107,12 @@ Per-project `Roadmap/` on `genesis-mythos-master-roadmap` — not weave doctrine
 ### Navigation rules
 
 1. **Always name** the repo + branch you are referencing.
-2. **Weave design / maintenance meta / host-weld / self-wrap / schedule planes** → **Trinity-Weave** `main`.
-3. **Automation / queue / subagent / safety / MCP / pipelines** questions → **integration** branch (`.cursor/`, `Docs/Core/`, `Docs/`).
-4. **Game / roadmap narrative** → matching **engine** branch’s `Roadmap/` + anchors; still **cite integration** for how the **system runs** it.
-5. If a branch is **not visible** on GitHub, it may be local-only or unpushed.
-6. **Conflict between branches** → **integration branch wins** for automation truth; **Trinity-Weave wins** for weave doctrine.
+2. **Weave design / maintenance meta / host-weld / self-wrap / schedule planes / gate cards (locked + provisional)** → **Trinity-Weave** `main`.
+3. **Project mint / catalog / execution instances** → **Trinity-Weave** `project/<id>` branch root.
+4. **Automation / queue / subagent / safety / MCP / pipelines** questions → **integration** branch on gmmr (`.cursor/`, `Docs/Core/`, `Docs/`).
+5. **Legacy engine Roadmap on gmmr** → matching engine branch — **not** authoritative for weave; prefer Trinity project branch for Grok project work.
+6. If a branch is **not visible** on GitHub, it may be local-only or unpushed — cite **`Grok-Bridge-Status`** `recommendation`.
+7. **Conflict:** integration branch wins for **queue automation**; **Trinity-Weave wins** for weave doctrine and project bridge surfaces.
 
 **Browse Trinity-Weave:** [github.com/L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) · **Browse integration:** [tree/iteration-2-roadmap-rules](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap/tree/iteration-2-roadmap-rules) · **sandbox engine:** [tree/sandbox-genesis-mythos-master](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap/tree/sandbox-genesis-mythos-master) · **godot engine:** [tree/godot-genesis-mythos-master](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap/tree/godot-genesis-mythos-master) · **default:** [tree/main](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap/tree/main)
 

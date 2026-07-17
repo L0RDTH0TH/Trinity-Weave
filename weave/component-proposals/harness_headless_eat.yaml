@@ -1,0 +1,93 @@
+id: harness_headless_eat
+conceptual:
+  outcome: Pipeline work on one project can run while you stay free — other chats,
+    other lanes, packet prep — without one long queue pass holding your attention
+    hostage.
+  summary: Background execution for one lane's prompt queue — the spine's delegate-cooking
+    step. You enqueue work, start headless eat for that lane only, and walk away;
+    the vault keeps processing without this chat open. Institute tail and lane filters
+    obey goal-authority and config.
+  primary_case: You have ingest or roadmap items queued on sandbox, godot, or institute.
+    You kick off background eat for that one lane and leave. When you return, receipts
+    and board state should reflect what actually ran — not a silent no-op.
+  edge_cases:
+  - Autopilot may refuse or cap runs — that is policy, not silent failure.
+  - One lane per background run — two projects cooking means two runs, not one combined.
+  - Museum autopilot and project-lane background eat are not the same policy story.
+  misread_risks:
+  - Thinking this is only for overnight — it is whenever you want parallel attention.
+  - Confusing background eat with housekeeping ticks — eat runs full pipelines; ticks
+    do not.
+  - Expecting chat to process the queue inline when you asked for background.
+  operator_memory_hook: Let one lane cook in the background while you work somewhere
+    else.
+  spine_ordinal: 1
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/headless_orchestrator.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/headless_single_lane.py
+  - scripts/eat_queue_core/agent_cli.py
+  - scripts/eat_queue_core/handoff_build.py
+  - scripts/eat_queue_core/orchestrator_io.py
+  - scripts/eat_queue_core/pq_lock.py
+  - scripts/eat_queue_core/plan.py
+  outbound:
+  - .technical/parallel/*/prompt-queue.jsonl
+  - .technical/parallel/*/headless-completion-receipts.jsonl
+  - .technical/parallel/*/orchestrator-launch-registry.jsonl
+  - .technical/parallel/*/watcher-request-headless-eat.json
+  - 3-Resources/Watcher-Result.md
+  queue_modes: []
+  harness_commands:
+  - headless_eat
+  behavior_signals:
+  - test_split_lane_cli_rejects_comma
+  - test_require_single_raises
+  - test_headless_eat_rejects_multi
+  - test_headless_eat_single_dry_run
+  - test_module_importable
+rules:
+  forbidden:
+  - dispatch pipeline modes inline in Layer 0 when operator requested background eat
+  - pass more than one lane token to a single headless_eat process
+  - treat headless_eat as harness-only (no agent -p) when CLI is available
+  fixtures: []
+  precedence:
+  - resolve exactly one lane per process (headless_single_lane)
+  - honor orchestrator policy caps and daily headless limits before launch
+  - optional architect preflight when architect_before_eat is enabled
+  - write registry + completion receipt; operator monitors out-of-band
+  - 'policy: ignore completion receipts and re-run the same PQ lines without rewrite_consumed'
+  acceptance:
+  - test_headless_orchestrator green
+  - test_headless_single_lane green
+contract:
+  proof:
+  - scripts/eat_queue_core/headless_orchestrator.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_headless_orchestrator.py
+  - scripts/eat_queue_core/tests/test_headless_single_lane.py
+  invariant_ids:
+  - headless_single_lane_required
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T16:43:01Z'
+  rules_confirmed_at: '2026-05-31T16:43:01Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_headless_eat.yaml
+    operator_conceptual_note: '2026-05-31: Operator confirmed intent — background
+      pipelines on one project lane while continuing other system work; not merely
+      ''CLI wrapper'' description.'
+    conceptual_style: intent_spine_not_implementation
+  conceptual_reconfirmed_at: '2026-05-31T16:58:03Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:48Z'
+  touch_content_hash: 83c12fe96c2bd8142b4383080d70c622f2ef360d115b6d8061d99e3070c9190e
+  touch_refreshed_at: '2026-06-07T23:57:48.704483Z'
+  closure_must_read_count: 21
+  last_disconnect: null

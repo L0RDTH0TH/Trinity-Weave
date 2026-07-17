@@ -90,8 +90,8 @@ meta:
     lock_kind: maintenance_core
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
-  touch_content_hash: 57fb11c04bb430269007f65808ff3655239d40cfbeecb2261fc3c5993e7ac836
-  touch_refreshed_at: '2026-06-10T04:35:02.939578Z'
+  touch_content_hash: ec4722eba99cd6c2e35a03800c613d07e3a0f2b6c8a5fd8f6c79d6d18fa57d6b
+  touch_refreshed_at: '2026-07-17T05:32:53.028029Z'
   closure_must_read_count: 21
   last_disconnect: null
   provisional: false

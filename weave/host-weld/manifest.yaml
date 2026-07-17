@@ -33,3 +33,12 @@ pilots:
       - mcp_postedit_validator
       - cursor_engine_mcp_loop
     note: Track C implementation factory loop — first pilot godot-genesis-mythos-master
+
+  product_factory_pipeline:
+    status: trialing
+    path: .technical/weave/host-weld/pilots/product_factory_pipeline.md
+    trinity_refs:
+      - product_factory_pipeline
+      - catalog_mint_gate
+      - ux_context_execution_gate
+    note: PMG → product via three operator loops; GMM first post-build run

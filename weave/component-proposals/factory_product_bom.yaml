@@ -1,0 +1,43 @@
+id: factory_product_bom
+conceptual:
+  outcome: Operator and factory share one receipt-backed checklist of ingredients required before building Product — no parallel mental models.
+  summary: Product Factory BOM evaluator composes existing verifiers into sections (product, roadmap_factory, implementation_factory, build_progress, product_acceptance).
+  primary_case: Operator runs factory-bom; blocked_at catalog_signed; brief shows same gaps factory orchestrator sees before ROADMAP_FACTORY_STAGE_FACTORY.
+  edge_cases:
+  - product-bom.yaml missing — product section fails first
+  - feed_authority vault_roadmap but roadmap rows incomplete — vault_roadmap_feed_ready partial
+  - enforce_product_acceptance true — surface_pass becomes required
+  misread_risks:
+  - Treating BOM markdown brief as source of truth — evaluator registry is canonical
+  - Duplicating verifier logic inside BOM module
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/factory/factory_bom.py
+  - scripts/eat_queue_core/weave/factory/factory_bom_brief.py
+  - scripts/eat_queue_core/weave/factory/factory_bom_io.py
+  - scripts/eat_queue_core/weave/versioning_contract.py
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/product-bom.yaml
+  - Templates/Factory-DRB/product-bom.yaml
+  - 3-Resources/Second-Brain/Docs/Factory-BOM-and-Versioning.md
+  harness_commands:
+  - factory_bom
+  - factory_bom_brief
+  behavior_signals:
+  - test_factory_bom.py passes
+rules:
+  forbidden:
+  - claim factory-ready without factory_bom evaluate when orchestrator gate enabled
+  - self-report BOM pass without delegating to proof modules
+  acceptance:
+  - test_factory_bom.py passes
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/factory/factory_bom.py
+  - scripts/eat_queue_core/tests/test_factory_bom.py
+meta:
+  schema_version: 2
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Factory Product BOM fold 2026-06-16

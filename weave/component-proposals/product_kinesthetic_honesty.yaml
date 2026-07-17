@@ -1,0 +1,59 @@
+id: product_kinesthetic_honesty
+conceptual:
+  outcome: Closed Alpha kinesthetic claims require external leg — playtest trace + operator
+    confirm, or operator tier — never static lint or harness smokes alone.
+  summary: Weave honesty core for Product 2+ human-facing operate claims. Mirrors stack_baseline_honesty
+    for player shell, camera, HUD, and operator_feedback proof tiers.
+  primary_case: Agent claims camera/HUD pass after grep-green kinesthetic probes — product_kinesthetic_honesty
+    and surface_pass fail with proxy_pass_as_kinesthetic.
+  secondary_case: Operator runs F6 playtest capture — playtest_session_ingest suggests rows; operator
+    confirms before factory_ship_valid.
+  edge_cases:
+  - playtest_trace window_pass true without operator_confirmed
+  - Q3 acceptance copy remains on Main/HUD play path
+  - product welds only in vault harness, not on game repo weave_track.yaml
+  misread_risks:
+  - Treating factory_output_conduct as substitute for kinesthetic external leg
+  - Re-running structural lint after operator retract without preserving operator rows
+touch:
+  primary_paths:
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/operator-feedback/godot-closed-alpha-kinesthetic.yaml
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Product-Kinesthetic-Honesty-Trinity-v1.md
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/.technical/weave/weave_track.yaml
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/Core/ClosedAlpha/PlaytestTraceHost.cs
+  - scripts/eat_queue_core/weave/factory/proof_tiers.py
+  - scripts/eat_queue_core/weave/factory/product_kinesthetic_honesty.py
+  - scripts/eat_queue_core/tests/test_product_kinesthetic_honesty.py
+  harness_commands:
+  - surface-pass
+  - playtest-ingest
+  - trinity_align
+  behavior_signals:
+  - test_product_kinesthetic_honesty_card_registered
+  - test_proof_tiers_forbid_structural_kinesthetic_pass
+  - test_weave_track_on_product_repo
+  - test_playtest_trace_host_present
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - proxy_pass_as_kinesthetic
+  - q3_acceptance_remnant_on_main
+  - vault_only_weld
+  - playtest_trace pass true without operator_confirmed
+  precedence:
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: structural_lint informs only — never sets kinesthetic pass true'
+  acceptance:
+  - test_proof_tiers_forbid_structural_kinesthetic_pass
+  - test_weave_track_on_product_repo
+  - test_playtest_trace_host_present
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/factory/proof_tiers.py
+  - scripts/eat_queue_core/weave/factory/product_kinesthetic_honesty.py
+  invariant_ids:
+  - product_kinesthetic_proof_tiers
+meta:
+  schema_version: 2
+  provisional: true

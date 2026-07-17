@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -152,18 +153,25 @@ schedule_planes:
                 "id: test_card\nconceptual:\n  summary: A test card.\nmeta:\n  card_kind: meta\n",
                 encoding="utf-8",
             )
+            proposals = vault / ".technical/weave/component-proposals"
+            proposals.mkdir(parents=True)
+            (proposals / "prop_card.yaml").write_text(
+                "id: prop_card\nstatus: proposal\nconceptual:\n  summary: Provisional.\n",
+                encoding="utf-8",
+            )
             shutil = __import__("shutil")
             shutil.copytree(comp, export / "weave" / "components")
+            shutil.copytree(proposals, export / "weave" / "component-proposals")
             from eat_queue_core.weave_observability import write_observability_artifacts
 
             out = write_observability_artifacts(export, vault, fingerprint="abc123")
             self.assertTrue(out.get("ok"))
             self.assertTrue((export / "OBSERVABILITY.json").is_file())
             self.assertTrue((export / "weave" / "CARD-INDEX.md").is_file())
-            import json
-
             payload = json.loads((export / "OBSERVABILITY.json").read_text())
-            self.assertIn("test_card", payload.get("meta_card_ids", []))
+            self.assertIn("test_card", payload.get("locked_card_ids", []))
+            self.assertIn("prop_card", payload.get("provisional_card_ids", []))
+            self.assertTrue(payload.get("card_index_includes_proposals"))
 
 
 if __name__ == "__main__":

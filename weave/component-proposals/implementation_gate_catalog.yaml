@@ -1,0 +1,48 @@
+id: implementation_gate_catalog
+conceptual:
+  outcome: Binary milestone gates (M0–M8) are machine-checkable done_when strings
+    — engine adapter fills concrete checks.
+  summary: Gate catalog schema for implementation milestones; instance spec supplies
+    milestone table.
+  primary_case: Agent claims M3 complete; gate catalog requires M2 receipt and demo-spec
+    done_when match.
+  edge_cases:
+  - Skipping M0 engine smoke
+  - Subjective 'feels done' without receipt
+  misread_risks:
+  - Hardcoding Godot checks into factory core
+touch:
+  primary_paths:
+  - 1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md
+  - .technical/parallel/godot/goal-authority.json
+  harness_commands:
+  - mcp_postedit_validate
+  behavior_signals:
+  - test_demo_spec_milestone_table
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - advance milestone without prior gate pass
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  acceptance:
+  - test_demo_spec_milestone_table
+  fixtures: []
+contract:
+  proof:
+  - 1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  invariant_ids:
+  - implementation_milestone_binary_gate
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+  last_disconnect: null

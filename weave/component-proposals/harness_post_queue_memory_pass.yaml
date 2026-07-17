@@ -1,0 +1,78 @@
+id: harness_post_queue_memory_pass
+conceptual:
+  outcome: After a queue pass finishes, the vault remembers what happened — so the
+    next chat or background run does not start cold or repeat the same story.
+  summary: 'Cook (headless eat), register and release (append / rewrite), heartbeat
+    (pseudo-clock) — then this step: the diary. When a pass actually succeeded, memory
+    pass updates lane continuity and MEMORY with a bounded summary of the run. It
+    is not another pipeline; it is what the weave hands to the next agent. Implementation
+    bundles often live under a lane''s parallel folder; the role is cross-run continuity
+    for the weave stack.'
+  primary_case: You finished EAT-QUEUE or headless eat on a lane. The queue was rewritten
+    (release). Memory pass runs once with a hand-off of what succeeded — continuity
+    tail, MEMORY seed, optional skill-gap scan — so when you open Cursor again, context_envelope
+    has something true to read.
+  edge_cases:
+  - Queue failed or nothing succeeded — skip; don't invent memory from a bad pass.
+  - Continuity disabled in config — skip quietly.
+  - Failure here does not undo queue release — diary failed, todo list still honest.
+  misread_risks:
+  - Expecting memory pass to ingest or roadmap — it only updates continuity artifacts.
+  - Skipping it and wondering why the next agent is amnesiac.
+  - Treating MEMORY.md as operator notes — it is machine continuity, not your prose
+    journal.
+  operator_memory_hook: Pass done? Write the diary for the next run.
+  spine_ordinal: 5
+  pairs_with: After harness_rewrite_consumed (release). Before you return to chat.
+    Complements harness_headless_eat — chef cooked; diary records the meal.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/continuity_handoff.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/continuity_bridge.py
+  - scripts/eat_queue_core/agent_continuity_config.py
+  outbound:
+  - .technical/parallel/*/MEMORY.md
+  - .technical/parallel/*/continuity.md
+  - .technical/Run-Telemetry/continuity/
+  - scripts/eat_queue_core/skill_gap.py
+  harness_commands:
+  - post_queue_memory_pass
+  behavior_signals:
+  - test_post_queue_memory_pass_skips_when_disabled
+  - test_handoff_includes_context_envelope
+  - test_proposal_covers_gap_by_slug
+  - test_ghost_audit_queues_orphan_when_enabled
+rules:
+  forbidden:
+  - run memory pass as substitute for pipeline dispatch
+  fixtures: []
+  precedence:
+  - after successful queue rewrite (release)
+  - skip when agent_continuity disabled or queue_success false
+  - bounded MEMORY trim after seed
+  - 'policy: memory pass on failed queue_success without explicit force'
+  - 'policy: roll back queue release when memory pass fails'
+  acceptance:
+  - test_continuity_handoff green
+contract:
+  proof:
+  - scripts/eat_queue_core/continuity_handoff.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_continuity_handoff.py
+  invariant_ids:
+  - memory_pass_after_queue_release
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T17:17:50Z'
+  rules_confirmed_at: '2026-05-31T17:17:50Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_post_queue_memory_pass.yaml
+    conceptual_style: intent_spine_not_implementation
+    spine_ordinal: 5
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'

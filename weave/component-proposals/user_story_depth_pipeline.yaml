@@ -1,0 +1,60 @@
+id: user_story_depth_pipeline
+conceptual:
+  outcome: Implementation factory receives level-scoped objectives derived top-down from L5 complete vision — one rung per dispatch — not whole execution pins or target_depth in a single pass.
+  summary: Weave card for roadmap factory depth semantics — L5 authoring, depth slicer (L5→L4..L1), rollout budget slicer (operator bar), dispatch_depth one-rung feed, depth_bump weld receipts.
+  primary_case: Operator authors scopes/ui_presentation_shell/L5.md, runs DEPTH_SLICE, sets rollout budget target_depth=2, factory first pass feeds L1.md scope with slice_id _d1, depth_bump advances current_depth after weld.
+  secondary_case: Relaunch orchestrator runs depth_slice after catalog sign and again after rollout budget for assigned rows.
+  edge_cases:
+  - L5 missing — bootstrap scaffold only; operator must flesh before sign-off
+  - Operator-edited L1..L4 with operator-edited marker — slicer skips overwrite
+  - Scope file missing at dispatch — pin excerpt fallback with honest trace
+  misread_risks:
+  - Conflating rollout_slicer with depth_slicer
+  - Using target_depth as slice_id suffix instead of dispatch_depth
+  - Treating current_depth as authoring control
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/user_story/depth_scope.py
+  - scripts/eat_queue_core/weave/user_story/depth_slicer.py
+  - scripts/eat_queue_core/weave/user_story/rollout_slicer.py
+  - scripts/eat_queue_core/weave/user_story/work_order_translate.py
+  - scripts/eat_queue_core/weave/user_story/depth_bump.py
+  - scripts/eat_queue_core/weave/user_story/roadmap_factory_orchestrator.py
+  - scripts/eat_queue_core/weave/user_story/roadmap_factory_handlers.py
+  - scripts/eat_queue_core/weave/factory/implementation_handoff.py
+  - 1-Projects/godot-genesis-mythos-master/Roadmap/User-Story/scopes/
+  - Templates/Roadmap/User-Story/scopes/L5-template.md
+  - 3-Resources/Second-Brain/Docs/Slice-Catalog-and-Slicer.md
+  harness_commands:
+  - depth_slice
+  - user_story_rollout
+  - roadmap_factory_eat
+  queue_modes:
+  - DEPTH_SLICE
+  - SET_ROLLOUT_BUDGET
+  - ROADMAP_FACTORY_RELAUNCH
+  behavior_signals:
+  - test_depth_scope_dispatch_and_slice
+  - test_translate_uses_dispatch_depth_in_slice_id
+rules:
+  forbidden:
+  - dispatch factory with slice_id suffix target_depth when current_depth is behind
+  - overwrite operator-edited L1..L4 scope files without explicit intent
+  - treat rollout_slicer output as factory food without depth_slice
+  precedence:
+  - 'policy: maintenance_honesty_anchor — current_depth is weld receipt only'
+  - 'policy: host_execution_safety_contract — no destructive vault deletes'
+  acceptance:
+  - test_depth_scope.py passes
+  - test_user_story_track.py passes
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/user_story/depth_scope.py
+  - scripts/eat_queue_core/tests/test_depth_scope.py
+meta:
+  schema_version: 2
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Fold L5-first depth slicer into roadmap factory operator loop plan 2026-06-16

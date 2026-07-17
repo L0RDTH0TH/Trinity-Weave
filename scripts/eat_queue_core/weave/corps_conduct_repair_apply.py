@@ -212,7 +212,18 @@ def apply_conduct_repair_pack(
         full = vault_root / proof_rel
         if not full.is_file() and not dry_run:
             if _ensure_minimal_proof_stub(vault_root, proof_rel, primary_path=str(primary)):
+                from .stub_honesty import append_stub_trace, stub_trace_entry_from_repair
+
+                append_stub_trace(
+                    vault_root,
+                    stub_trace_entry_from_repair(
+                        proof_rel=proof_rel,
+                        trinity_id=tid,
+                    ),
+                )
                 rec["applied"].append(f"stub_created:{proof_rel}")
+                rec["provisional_stub_only"] = True
+                rec["conduct_repair_stub_as_complete"] = False
                 rec["changed"] = True
 
     if dry_run:
@@ -237,6 +248,9 @@ def apply_conduct_repair_pack(
     failed = [p for p in proofs if not p.ok]
     rec["proof_results"] = [p.to_dict() for p in proofs]
     rec["proofs_ok"] = len(failed) == 0
+    if rec.get("provisional_stub_only"):
+        rec["proofs_ok"] = False
+        rec["proofs_ok_reason"] = "conduct_repair_import_stub_not_structural"
     rec["proofs_failed"] = [p.test_name for p in failed][:8]
 
     if pack_path and pack_path.is_file():

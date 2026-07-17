@@ -1,0 +1,49 @@
+id: implementation_handoff_tunnel
+conceptual:
+  outcome: Queue and architect hand-offs for Track C carry stack-baseline phase context
+    (Path B tracker, repo_path, engine_adapter) — tunneled without fanout to wrong
+    lanes.
+  summary: D→B-style hand-off contract for implementation segment; stack baseline
+    phase wired via Path B tracker and stack_baseline_honesty card.
+  primary_case: Layer 1 dispatches implementation work from godot lane with stack
+    baseline phase artifacts present (tracker + honesty card + goal-authority).
+  edge_cases:
+  - Stale sandbox modes on godot PQ
+  - Missing demo_spec_ref in params
+  misread_risks:
+  - Using HANDOFF_AUDIT_REPAIR for gameplay build
+touch:
+  primary_paths:
+  - .technical/parallel/godot/prompt-queue.jsonl
+  - .technical/parallel/godot/goal-authority.json
+  harness_commands:
+  - append_entries
+  behavior_signals:
+  - test_stack_baseline_phase_wired
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - fanout implementation to sandbox lane
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  acceptance:
+  - test_stack_baseline_phase_wired
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  invariant_ids:
+  - implementation_handoff_tunnel_params
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+  last_disconnect: null

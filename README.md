@@ -59,3 +59,8 @@ Auto-published from private vault via `weave_public_sync` / `schedule_tick` when
 
 - [genesis-mythos-master-roadmap](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap) — queue/automation + engine Roadmaps
 - Curator (private) — full vault backup
+
+## Who are you?
+
+- **Grok / agent** → `GROK-START-HERE.md` → `OBSERVABILITY.json` → `weave/CARD-INDEX.md`
+- **Bone pilot** (spinal interface / bio-mech / exo-flesh) → `Docs/bone-pilot/README.md`

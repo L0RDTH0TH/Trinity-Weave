@@ -1,0 +1,12 @@
+id: product_factory_pipeline
+conceptual:
+  outcome: Product factory gate — product_factory_pipeline (three operator loops, UX-before-execution).
+  summary: Harness-verified law for PMG → product conductor path.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
+  - scripts/eat_queue_core/weave/user_story/product_factory_ux_context.py
+behavior_signals:
+  - product_factory.tick blocked_at operator_loop
+  - ux_context present on execution RESUME when product_factory_run_id set
+status: proposal

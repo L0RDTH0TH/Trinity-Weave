@@ -57,6 +57,12 @@ def _check_invariant(entry: InvariantEntry, context: dict[str, Any]) -> str | No
     if check == "integrity_required":
         if context.get("integrity_ok") is False:
             return entry.message or "operator surface integrity failed"
+    if check == "forbidden_stub_completion":
+        from .stub_honesty import evaluate_stub_honesty_payload
+
+        ok, errors = evaluate_stub_honesty_payload(context)
+        if not ok:
+            return errors[0] if errors else (entry.message or "stub completion forbidden")
     return None
 
 

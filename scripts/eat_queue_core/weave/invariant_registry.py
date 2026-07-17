@@ -71,6 +71,33 @@ BOOTSTRAP_INVARIANTS: tuple[dict[str, Any], ...] = (
     },
 )
 
+# Phase 16b — stub honesty fold (core law; corps cannot suppress to go green)
+PHASE16_INVARIANTS: tuple[dict[str, Any], ...] = (
+    {
+        "id": "closure_no_stub_completion",
+        "module": "stub_honesty",
+        "risk": "high",
+        "check": "forbidden_stub_completion",
+        "message": "Cannot claim success or pass_gate with untraced stubs in closure paths",
+    },
+    {
+        "id": "forbidden_suppress_stub_check",
+        "module": "stub_honesty",
+        "risk": "high",
+        "check": "forbidden_context_flag",
+        "flag": "suppress_stub_check",
+        "message": "Stub honesty check cannot be suppressed without operator mutation",
+    },
+    {
+        "id": "forbidden_import_only_conduct_complete",
+        "module": "stub_honesty",
+        "risk": "high",
+        "check": "forbidden_context_flag",
+        "flag": "import_only_as_conduct_complete",
+        "message": "Import-only conduct-repair stub cannot count as structural completion",
+    },
+)
+
 # Phase 9 — weave spine enforcement (pack + locked spine writes)
 PHASE9_INVARIANTS: tuple[dict[str, Any], ...] = (
     {
@@ -288,6 +315,43 @@ def bootstrap_phase9_invariants(vault_root: Path, *, force: bool = False) -> dic
         },
     )
     return {"ok": True, "created": created, "skipped": skipped, "phase": 9}
+
+
+def bootstrap_phase16_invariants(vault_root: Path, *, force: bool = False) -> dict[str, Any]:
+    """Phase 16b — seed stub honesty invariants (high risk; activate via counselor)."""
+    vault_root = vault_root.resolve()
+    invariants_dir(vault_root).mkdir(parents=True, exist_ok=True)
+    created: list[str] = []
+    skipped: list[str] = []
+
+    for spec in PHASE16_INVARIANTS:
+        iid = str(spec["id"])
+        existing = load_invariant(vault_root, iid)
+        if existing and not force:
+            skipped.append(iid)
+            continue
+        risk = str(spec.get("risk") or "high")
+        status: InvariantStatus = "active" if risk == "low" else "pending_counselor"
+        row = {
+            **spec,
+            "status": status,
+            "bootstrapped_at": _now_iso(),
+            "bootstrap_phase": 16,
+            "core_immutable": True,
+        }
+        save_invariant(vault_root, row)
+        created.append(iid)
+
+    append_metric_row(
+        vault_root,
+        {
+            "metric_type": "invariant_registry_bootstrap",
+            "phase": 16,
+            "created": created,
+            "skipped": skipped,
+        },
+    )
+    return {"ok": True, "created": created, "skipped": skipped, "phase": 16}
 
 
 def activate_invariant(

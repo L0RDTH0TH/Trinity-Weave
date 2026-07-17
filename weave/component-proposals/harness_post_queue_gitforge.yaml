@@ -1,0 +1,73 @@
+id: harness_post_queue_gitforge
+conceptual:
+  outcome: After a successful queue pass, durable history is published — private vault
+    backup and optional public export mirror — without undoing what the pass already
+    committed.
+  summary: Deterministic publish step after Layer 1 eat in balance or quality mode
+    — lock, commit, optional export checkout sync. Failure is visible; it does not
+    roll back queue consumption.
+  primary_case: Layer 1 finished eat, released consumed lines, maybe wrote continuity.
+    post_queue_gitforge runs once with the same hand-off — snapshot of what the pass
+    did, git discipline, export if configured. You get audit lines; the queue does
+    not rewind.
+  edge_cases:
+  - Speed mode — skipped by policy, not an error.
+  - Lock held — skip or wait; another publish may be in flight.
+  - Export optional — private curator backup may succeed when public mirror does not.
+  misread_risks:
+  - Treating GitForge as an autonomous agent — it is a deterministic publish tail.
+  - Expecting publish failure to restore queue lines — release already happened.
+  - Ad-hoc git push from chat — bypasses lock, audit, and export contract.
+  operator_memory_hook: Pass committed? Publish the story — GitForge does not rewind
+    the queue.
+  spine_ordinal: 7
+  pairs_with: After harness_rewrite_consumed and often after harness_post_queue_memory_pass.
+    Complements autonomous Architect/eat — they work the vault; GitForge archives
+    the run.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/post_queue_gitforge.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/gitforge_config.py
+  - 3-Resources/Second-Brain/Docs/git-push-workflow-2026-04-02-0446.md
+  outbound:
+  - 3-Resources/Second-Brain/Docs/git-audit-log.md
+  - vault_backup.private_export_repo_root
+  - gitforge.export_repo_root
+  harness_commands:
+  - post_queue_gitforge
+  behavior_signals:
+  - test_module_importable
+rules:
+  forbidden: []
+  fixtures: []
+  precedence:
+  - after successful queue rewrite
+  - acquire lock before mutating git state
+  - append audit log on success or failure
+  - 'policy: roll back queue rewrite when gitforge fails'
+  - 'policy: ad-hoc git push to export remote outside harness'
+  - 'policy: run gitforge as LLM Task subagent when harness_enabled default'
+  acceptance: []
+contract:
+  proof:
+  - scripts/eat_queue_core/post_queue_gitforge.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_post_queue_gitforge.py
+  - scripts/eat_queue_core/tests/test_harness.py
+  invariant_ids:
+  - gitforge_no_queue_rollback
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T18:26:02Z'
+  rules_confirmed_at: '2026-05-31T18:26:02Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_post_queue_gitforge.yaml
+    conceptual_style: intent_spine_not_implementation
+    spine_ordinal: 7
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'

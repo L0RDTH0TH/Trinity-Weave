@@ -1,0 +1,50 @@
+id: implementation_segment_charter
+conceptual:
+  outcome: 'Implementation work has a clear charter: readonly roadmap inputs, repo
+    writes, maintenance receipts — without reopening RESUME_ROADMAP deepens.'
+  summary: Track C segment charter — effective_track implementation; A+B readonly;
+    Code-Repos write target.
+  primary_case: Agent receives implementation hand-off; must know what is readonly
+    vs writable before touching engine or repo.
+  edge_cases:
+  - Treating demo spec as factory core
+  - Blocking on B rollup while demo milestones pending
+  misread_risks:
+  - Confusing Track C with another RESUME_ROADMAP deepen
+  - Writing vault rules instead of host-weld pilots
+touch:
+  primary_paths:
+  - .technical/weave/host-weld/pilots/implementation_factory_loop.md
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  harness_commands:
+  - trinity_expand_self
+  meta_lens_force_align: true
+  behavior_signals:
+  - test_pilot_manifest_registered
+rules:
+  forbidden:
+  - mutate .cursor/rules/**
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  - 'policy: block demo on HANDOFF_AUDIT_REPAIR'
+  acceptance:
+  - test_pilot_manifest_registered
+  fixtures: []
+contract:
+  proof:
+  - .technical/weave/host-weld/pilots/implementation_factory_loop.md
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  invariant_ids:
+  - implementation_readonly_roadmap_inputs
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+  last_disconnect: null

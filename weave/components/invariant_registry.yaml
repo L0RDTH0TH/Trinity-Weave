@@ -86,9 +86,9 @@ meta:
     lock_kind: maintenance_core
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
-  touch_content_hash: 0f57a5c9ac36cc9e7020722a55bf46dcb74f1da7cce3d4ed11389a5459762173
-  touch_refreshed_at: '2026-06-04T04:41:05.505371Z'
-  closure_must_read_count: 13
+  touch_content_hash: 7e68e4d0f00f45532064be9a9458a692d5c3e283cc1023848400a05ef212e34f
+  touch_refreshed_at: '2026-06-15T18:28:43.792921Z'
+  closure_must_read_count: 16
   last_disconnect: null
   provisional: false
   promotion_tier: locked

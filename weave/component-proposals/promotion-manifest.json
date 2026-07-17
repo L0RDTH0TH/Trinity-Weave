@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "stamp": "governance-set-v1",
+  "dry_run": false,
+  "force": false,
+  "generated_at": "2026-06-02T04:33:45.068322Z",
+  "source_dir": ".technical/weave/proposals/governance-set-v1/stubs",
+  "dest_dir": ".technical/weave/component-proposals",
+  "promoted_count": 0,
+  "skipped_locked": 0,
+  "skipped_exists": 0,
+  "skipped_invalid": 1,
+  "records": [
+    {
+      "trinity_id": "trinity_card_authoring",
+      "source_path": ".technical/weave/proposals/governance-set-v1/stubs/trinity_card_authoring.yaml",
+      "output_path": "",
+      "action": "skipped_invalid",
+      "detail": "reserved id"
+    }
+  ]
+}

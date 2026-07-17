@@ -1,0 +1,103 @@
+id: factory_lifecycle_doctrine
+meta:
+  schema_version: 2
+  card_kind: meta
+  anatomy: A-meta-target
+  card_class: complete_draft
+  promotion_tier: provisional
+  provisional: true
+  lock_kind: maintenance_core
+  system_mutable: false
+  source:
+    kind: phase_15_meta_lens_draft
+    phase: '15'
+    pack_ordinal: 1
+    generated_at: '2026-06-05T20:00:00Z'
+    operator_status: review_before_lock
+    changelog: Meta lens review bundle — operator lock after review
+conceptual:
+  outcome: Run-layer factories stay replaceable without scorched earth — rust is graded, refurbish is
+    bounded, redesign_factory A/B is provisional until operator deprecates the old charter.
+  summary: 'This meta card is the **Run lifecycle charter**: how factories (queue dispatch, headless paths,
+    roadmap Run, Curator STESM, etc.) move through rust detection, in-place refurbish, **redesign_factory**
+    A/B, and operator-gated archive. It is **not** card authoring (trinity_card_authoring) and **not**
+    harness bytes (harness_runtime_contract) — it governs **when to surgical-fix vs rewrite vs fork a
+    factory** and what evidence must exist before the old factory is deprecated. Segment Trinity cards
+    describe weld points; this card describes **factory responsibility** over time. Companion to Phase
+    15 `redesign_factory` in the maintenance trinity plan.'
+  primary_case: You notice the queue factory has duplicate gates in `balance` but `fast` and `quality`
+    were never updated — that's **knob skew rust**, not a conduct red on one card. You grade rust (duplicate
+    gate, legacy path, structural drift), try refurbish (10g, signal prune, in-place graph fix). If the
+    factory graph is still wrong, you stand up **candidate_factory_id** beside **legacy_factory_id**,
+    run A/B under **provisional** locks on both, collect telemetry with honesty receipts, and only after
+    operator ack do you archive the old factory under `4-Archives/Weave/Factory-Lifecycle/` and reroute
+    consumable resolution. You do not weld a perfect segment onto a rusted Run.
+  secondary_case: 'Construction-era scorched earth: you force-align Segment **and** Run together using
+    meta lenses — not cards-only regen. This card tells the conductor which factories are sound, which
+    are refurb candidates, and which need **redesign_factory** before `--regenerate-complete` or post-PASS
+    service work.'
+  edge_cases:
+  - Rust is conduct-green but structurally wrong — still a refurb/redesign candidate.
+  - expand_self additive factory — not redesign; use trinity_card_authoring + expand_self harness.
+  - Both A/B factories provisional — neither usage_proven until operator path completes.
+  - Operator declines deprecate — candidate stays provisional; legacy remains in_service.
+  - Factory has no Trinity segment yet — create factory_run segment cards per trinity_card_authoring cross-ref.
+  misread_risks:
+  - Treating this as EAT-QUEUE documentation — primary is lifecycle policy for any Run factory.
+  - Auto-deprecating legacy on better A/B metrics without operator ack.
+  - Using redesign_factory for new responsibility — that is expand_self.
+  - Skipping knob parity across speed_mode options during A/B.
+  - Confusing usage_proven with A/B completion — proven lock is Phase 14 after deprecate.
+  frame_anchor: Run factory lifecycle — rust, refurbish, redesign_factory A/B, deprecate.
+  operator_memory_hook: Don't weld to rust; A/B provisional; operator deprecates old factory.
+  refs:
+  - '[[.cursor/plans/maintenance_trinity_integration_2b0215e3.plan.md]]'
+  - '[[3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution]]'
+  - '[[.technical/weave/components/trinity_card_authoring.yaml]]'
+  - '[[.technical/weave/components/harness_runtime_contract.yaml]]'
+  - '[[.technical/weave/components/config_knob_parity.yaml]]'
+  - '[[.technical/weave/components/maintenance_honesty_anchor.yaml]]'
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/trinity_weave_self_wrap.py
+  - scripts/eat_queue_core/harness.py
+  - .cursor/plans/maintenance_trinity_integration_2b0215e3.plan.md
+  inbound:
+  - rust grade audit
+  - redesign_factory harness
+  - A/B telemetry compare
+  - operator deprecate ack
+  outbound:
+  - factory lifecycle state
+  - refurb vs redesign decision
+  - archive path for deprecated Run
+  factory_lifecycle_states:
+  - in_service
+  - rust_detected
+  - refurbish
+  - redesign_provisional
+  - ab_test
+  - candidate_proven
+  - operator_deprecate_ack
+  - archived
+rules:
+  forbidden:
+  - deprecate legacy factory without operator explicit ack
+  - treat A/B winner as usage_proven without Phase 14 evidence
+  - redesign_factory for additive new responsibility (use expand_self)
+  - skip knob parity matrix during A/B unless asymmetry documented in config_knob_parity
+  - archive factory without structural honesty receipt (maintenance_honesty_anchor)
+  precedence:
+  - rust grade before weld — no permanent lock on rusted Run
+  - surgical (10g, prune, touch refresh) before rewrite
+  - rewrite/refurbish in place before redesign_factory fork
+  - 'redesign_factory: both factories provisional until deprecate'
+  - force align (scorched earth + meta lens) when rust is systemic across Run layer
+  - operator deprecate → archive under 4-Archives/Weave/Factory-Lifecycle/<stamp>/
+  - 'after deprecate: consumable pack routes to candidate id only'
+  acceptance: []
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_trinity_phase9_10.py
+  invariant_ids: []

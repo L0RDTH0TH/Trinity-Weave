@@ -57,6 +57,10 @@ from .pool_sync import hydrate_track_pq_from_pool
 from .post_queue_gitforge import load_handoff_json, run_post_queue_gitforge
 from .post_queue_weave_publish import run_post_queue_weave_publish
 from .weave_public_publish import run_weave_public_sync
+from .project_bridge_sync import run_project_bridge_sync
+from .project_bridge_push import run_project_bridge_push
+from .grok_bridge_status import write_grok_bridge_status
+from .grok_fulfill_broker import run_grok_fulfill_broker
 from .continuity_handoff import load_handoff_json as load_memory_handoff_json
 from .continuity_handoff import run_post_queue_memory_pass
 from .lane_status_board import write_lane_status_board
@@ -1252,7 +1256,7 @@ def cmd_l5_sandbox_tick(vault_root: Path, args: argparse.Namespace) -> int:
 
 
 def cmd_lane_status_board(vault_root: Path, args: argparse.Namespace) -> int:
-    """Refresh Ingest/Lane-Status-Board.md from lane PQ + receipts."""
+    """Refresh Ingest/Weave-Status-Board.md (factory-first operator surface)."""
     try:
         out = write_lane_status_board(vault_root)
     except (OSError, ValueError) as e:
@@ -1260,6 +1264,9 @@ def cmd_lane_status_board(vault_root: Path, args: argparse.Namespace) -> int:
         return 1
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok", True) else 1
+
+
+cmd_weave_status_board = cmd_lane_status_board
 
 
 def cmd_trinity_pack_preview(vault_root: Path, args: argparse.Namespace) -> int:
@@ -1687,6 +1694,85 @@ def cmd_trinity_honesty_anchor(vault_root: Path, args: argparse.Namespace) -> in
     return 0 if out.get("ok") else 1
 
 
+def cmd_trinity_stub_honesty_fold(vault_root: Path, args: argparse.Namespace) -> int:
+    """Phase 16b — bootstrap stub honesty invariants + closure audit."""
+    from .weave.stub_honesty import activate_stub_honesty_invariants, run_stub_honesty_audit
+
+    try:
+        out: dict[str, Any] = {}
+        if bool(getattr(args, "bootstrap", True)):
+            out["fold"] = activate_stub_honesty_invariants(vault_root)
+        out["audit"] = run_stub_honesty_audit(
+            vault_root,
+            dry_run=bool(getattr(args, "dry_run", False)),
+            write_artifact=not bool(getattr(args, "dry_run", False)),
+            trace_open=not bool(getattr(args, "dry_run", False)),
+        )
+        out["ok"] = bool(out.get("audit", {}).get("ok")) and (
+            out.get("fold", {}).get("ok", True) if "fold" in out else True
+        )
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_trinity_integration_vet(vault_root: Path, args: argparse.Namespace) -> int:
+    """Read-only Trinity integration vet — charter, honesty, stub, operator path, runtime contract."""
+    from .weave.harness_runtime_contract import (
+        run_operator_path_conduct,
+        run_runtime_contract_parity,
+    )
+    from .weave.stub_honesty import run_stub_honesty_audit
+    from .weave.trinity_core_charter_audit import run_core_charter_audit
+    from .weave.trinity_honesty_anchor import run_honesty_anchor_proofs
+
+    dry = bool(getattr(args, "dry_run", False))
+    report: dict[str, Any] = {"phase": "trinity_integration_vet", "dry_run": dry, "steps": {}}
+
+    try:
+        report["steps"]["core_charter"] = run_core_charter_audit(
+            vault_root, write_artifact=not dry
+        )
+        report["steps"]["honesty_anchor"] = run_honesty_anchor_proofs(
+            vault_root, dry_run=dry, write_artifact=not dry
+        )
+        report["steps"]["stub_honesty"] = run_stub_honesty_audit(
+            vault_root,
+            dry_run=dry,
+            write_artifact=not dry,
+            trace_open=not dry,
+        )
+        report["steps"]["runtime_contract_parity"] = run_runtime_contract_parity(vault_root)
+        report["steps"]["operator_path_conduct"] = run_operator_path_conduct(vault_root)
+        charter_ok = all(
+            bool((report["steps"].get(k) or {}).get("ok"))
+            for k in ("core_charter", "honesty_anchor", "stub_honesty")
+        )
+        integration_ok = all(
+            bool((report["steps"].get(k) or {}).get("ok"))
+            for k in ("runtime_contract_parity", "operator_path_conduct")
+        )
+        report["integration_ok"] = integration_ok
+        report["ok"] = charter_ok and integration_ok
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e), "partial": report}, indent=2), file=sys.stderr)
+        return 1
+
+    if not dry:
+        from datetime import datetime, timezone
+
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        out_path = vault_root / ".technical/weave/validation" / f"trinity-integration-vet-{stamp}.json"
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        report["artifact_path"] = str(out_path.relative_to(vault_root))
+
+    print(json.dumps(report, indent=2))
+    return 0 if report.get("ok") else 1
+
+
 def cmd_trinity_redesign_factory(vault_root: Path, args: argparse.Namespace) -> int:
     """Phase 16 — redesign_factory A/B structural compare (no auto-deprecate)."""
     from .weave.trinity_redesign_factory import run_redesign_factory
@@ -1828,6 +1914,48 @@ def cmd_trinity_core_charter_audit(vault_root: Path, args: argparse.Namespace) -
             write_artifact=not bool(getattr(args, "dry_run", False)),
         )
     except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_roadmap_organize_paths(vault_root: Path, args: argparse.Namespace) -> int:
+    """Repath flat roadmap notes into canonical nested folders (content-preserving)."""
+    from .weave.roadmap.roadmap_repath_organize import organize_roadmap_paths
+    from .weave.roadmap.roadmap_path_resolver import scan_structural_path_violations
+
+    project_id = str(getattr(args, "project_id", "") or "").strip()
+    if not project_id:
+        print(json.dumps({"ok": False, "error": "project_id_required"}), file=sys.stderr)
+        return 1
+    dry_run = bool(getattr(args, "dry_run", False))
+    if getattr(args, "scan_only", False):
+        rows = scan_structural_path_violations(vault_root, project_id)
+        print(json.dumps({"ok": True, "violations": rows, "count": len(rows)}, indent=2))
+        return 0
+    try:
+        out = organize_roadmap_paths(vault_root, project_id, dry_run=dry_run)
+    except OSError as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_roadmap_clean_nav(vault_root: Path, args: argparse.Namespace) -> int:
+    """Fix secondary Dataview scopes and minor roadmap nav hygiene."""
+    from .weave.roadmap.roadmap_nav_clean import clean_roadmap_navigation
+
+    project_id = str(getattr(args, "project_id", "") or "").strip()
+    if not project_id:
+        print(json.dumps({"ok": False, "error": "project_id_required"}), file=sys.stderr)
+        return 1
+    try:
+        out = clean_roadmap_navigation(
+            vault_root, project_id, dry_run=bool(getattr(args, "dry_run", False))
+        )
+    except OSError as e:
         print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
         return 1
     print(json.dumps(out, indent=2))
@@ -2118,14 +2246,31 @@ def cmd_implementation_eat(vault_root: Path, args: argparse.Namespace) -> int:
 
     lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
     try:
-        out = run_layer1_implementation_pass(
-            vault_root,
-            lane,
-            max_entries=int(getattr(args, "max_entries", 1) or 1),
-            dry_run=bool(getattr(args, "dry_run", False)),
-            skip_agent=bool(getattr(args, "skip_agent", False)),
-            skip_preflight=bool(getattr(args, "skip_preflight", False)),
-        )
+        if bool(getattr(args, "replay_seats", False)):
+            from .weave.factory.factory_lane_recovery import replay_factory_lane_by_job_id
+
+            job_id = str(getattr(args, "job_id", "") or "").strip()
+            if not job_id:
+                print(json.dumps({"ok": False, "error": "job_id required with --replay-seats"}, indent=2))
+                return 1
+            out = replay_factory_lane_by_job_id(
+                vault_root,
+                lane,
+                job_id,
+                agent_log_path=getattr(args, "agent_log", None),
+                complete_if_ok=not bool(getattr(args, "seats_only", False)),
+            )
+        else:
+            out = run_layer1_implementation_pass(
+                vault_root,
+                lane,
+                max_entries=int(getattr(args, "max_entries", 1) or 1),
+                dry_run=bool(getattr(args, "dry_run", False)),
+                skip_agent=bool(getattr(args, "skip_agent", False)),
+                skip_preflight=bool(getattr(args, "skip_preflight", False)),
+                agent_log_path=getattr(args, "agent_log", None),
+                resume_from=getattr(args, "resume_from", None),
+            )
         if not getattr(args, "dry_run", False):
             write_lane_status_board(vault_root)
     except (OSError, ValueError) as e:
@@ -2720,6 +2865,69 @@ def cmd_post_queue_weave_publish(vault_root: Path, args: argparse.Namespace) -> 
     return result.exit_code
 
 
+def cmd_git_push_policy(vault_root: Path, args: argparse.Namespace) -> int:
+    """Print master git.push_enabled policy from live config."""
+    from .git_push_policy import policy_snapshot
+
+    snap = policy_snapshot(vault_root, config_path=getattr(args, "resolved_config", None))
+    print(json.dumps(snap, indent=2))
+    return 0 if snap.get("push_enabled") else 1
+
+
+def cmd_project_bridge_sync(vault_root: Path, args: argparse.Namespace) -> int:
+    """Regenerate project indexes and sync to Trinity-Weave project branch (local commit)."""
+    result = run_project_bridge_sync(
+        vault_root,
+        args.resolved_config,
+        project_id=getattr(args, "project_id", None),
+        push=getattr(args, "push", False),
+        use_lock=not getattr(args, "no_lock", False),
+    )
+    print(json.dumps(result.payload, indent=2))
+    return result.exit_code
+
+
+def cmd_project_bridge_push(vault_root: Path, args: argparse.Namespace) -> int:
+    """Budgeted push of Trinity-Weave main or project branch."""
+    result = run_project_bridge_push(
+        vault_root,
+        args.resolved_config,
+        branch=getattr(args, "branch", None),
+        force=getattr(args, "force", False),
+        use_lock=not getattr(args, "no_lock", False),
+    )
+    print(json.dumps(result.payload, indent=2))
+    return result.exit_code
+
+
+def cmd_grok_bridge_status(vault_root: Path, args: argparse.Namespace) -> int:
+    """Write Grok-Bridge-Status.md + .json from export checkout state."""
+    out = write_grok_bridge_status(vault_root, args.resolved_config)
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_grok_fulfill_broker(vault_root: Path, args: argparse.Namespace) -> int:
+    """Tier C mediated fulfill — fail-closed; requires --operator-ack."""
+    raw: str | dict
+    if getattr(args, "request_file", None):
+        raw = Path(args.request_file).read_text(encoding="utf-8")
+    elif getattr(args, "request_json", None):
+        raw = args.request_json
+    else:
+        print(json.dumps({"ok": False, "error": "provide --request-file or --request-json"}), file=sys.stderr)
+        return 1
+    result = run_grok_fulfill_broker(
+        vault_root,
+        args.resolved_config,
+        request_raw=raw,
+        operator_ack=getattr(args, "operator_ack", False),
+        write_pack=not getattr(args, "no_write_pack", False),
+    )
+    print(json.dumps(result.payload, indent=2))
+    return result.exit_code
+
+
 def cmd_post_queue_gitforge(vault_root: Path, args: argparse.Namespace) -> int:
     """Layer 1 post–A.7 deterministic GitForge (lock, vault git, optional export, audit)."""
     try:
@@ -2753,6 +2961,179 @@ def cmd_post_queue_memory_pass(vault_root: Path, args: argparse.Namespace) -> in
     )
     print(result.to_json())
     return result.exit_code
+
+
+def cmd_user_story_rollout(vault_root: Path, args: argparse.Namespace) -> int:
+    """SET_ROLLOUT_BUDGET harness — write slice-depth-budget + optional beat auto-gen."""
+    from .weave.user_story.rollout_slicer import run_rollout_slicer
+
+    assignments_raw = getattr(args, "assignments_json", None) or "[]"
+    try:
+        assignments = json.loads(assignments_raw)
+    except json.JSONDecodeError as e:
+        print(json.dumps({"ok": False, "error": f"invalid_assignments_json:{e}"}), file=sys.stderr)
+        return 1
+    if not isinstance(assignments, list):
+        print(json.dumps({"ok": False, "error": "assignments_must_be_list"}), file=sys.stderr)
+        return 1
+
+    out = run_rollout_slicer(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        rollout_version=getattr(args, "rollout_version", None),
+        row_assignments=assignments,
+        generate_beats=not getattr(args, "no_beats", False),
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
+
+
+def cmd_user_story_beats(vault_root: Path, args: argparse.Namespace) -> int:
+    """BEAT_GENERATE harness — auto-generate beats from budget without reslicing."""
+    from .weave.user_story.beat_auto_generate import run_beat_auto_generate
+
+    out = run_beat_auto_generate(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+    )
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_depth_slice(vault_root: Path, args: argparse.Namespace) -> int:
+    """DEPTH_SLICE — L5 complete vision → L4..L1 scope files (top-down)."""
+    from .weave.user_story.depth_slicer import run_depth_slicer
+
+    row_id = getattr(args, "row_id", None)
+    row_ids_raw = getattr(args, "row_ids", None)
+    row_ids = [x.strip() for x in row_ids_raw.split(",") if x.strip()] if row_ids_raw else None
+    out = run_depth_slicer(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        row_id=row_id,
+        row_ids=row_ids,
+        bootstrap_l5=not getattr(args, "no_bootstrap", False),
+    )
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_factory_bom(vault_root: Path, args: argparse.Namespace) -> int:
+    """FACTORY_BOM — evaluate Product Factory BOM checklist."""
+    from .weave.factory.factory_bom import evaluate_factory_bom
+
+    sections_raw = getattr(args, "sections", None)
+    sections = tuple(x.strip() for x in sections_raw.split(",") if x.strip()) if sections_raw else None
+    out = evaluate_factory_bom(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        sections=sections,
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
+
+
+def cmd_factory_bom_brief(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.factory.factory_bom_brief import write_factory_bom_brief
+
+    out = write_factory_bom_brief(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
+
+
+def cmd_catalog_coverage(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.catalog_coverage import run_catalog_coverage
+
+    planned = getattr(args, "planned_rows", None)
+    planned_tuple = tuple(x.strip() for x in planned.split(",") if x.strip()) if planned else None
+    out = run_catalog_coverage(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        planned_row_ids=planned_tuple,
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
+
+
+def cmd_conceptual_feed_gate(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.conceptual_factory_feed import conceptual_factory_feed_report
+
+    out = conceptual_factory_feed_report(
+        vault_root,
+        str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        mint_batch=getattr(args, "mint_batch", None) or None,
+    )
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_reconcile_conceptual_telemetry(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.conceptual_dispatch_authority import (
+        reconcile_workflow_state_telemetry,
+    )
+
+    out = reconcile_workflow_state_telemetry(
+        vault_root,
+        str(getattr(args, "project_id", "genesis-mythos-master")),
+    )
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_catalog_freeze_gate(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.catalog_coverage import run_catalog_freeze_gate
+
+    out = run_catalog_freeze_gate(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+    )
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_slice_producer_eat(vault_root: Path, args: argparse.Namespace) -> int:
+    from .layer1_slice_producer import run_layer1_slice_producer_pass
+
+    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    try:
+        out = run_layer1_slice_producer_pass(
+            vault_root,
+            lane,
+            max_entries=int(getattr(args, "max_entries", 2) or 2),
+            dry_run=bool(getattr(args, "dry_run", False)),
+            harness_fallback=bool(getattr(args, "harness_fallback", False)),
+            invoke_pm_agent=bool(getattr(args, "invoke_pm_agent", False))
+            or (
+                not bool(getattr(args, "harness_fallback", False))
+                and not bool(getattr(args, "dry_run", False))
+            ),
+        )
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
+
+
+def cmd_roadmap_factory_eat(vault_root: Path, args: argparse.Namespace) -> int:
+    from .layer1_roadmap_factory import run_layer1_roadmap_factory_pass
+
+    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    try:
+        out = run_layer1_roadmap_factory_pass(
+            vault_root,
+            lane,
+            max_entries=int(getattr(args, "max_entries", 3) or 3),
+            dry_run=bool(getattr(args, "dry_run", False)),
+        )
+    except (OSError, ValueError) as e:
+        print(json.dumps({"ok": False, "error": str(e)}), file=sys.stderr)
+        return 1
+    print(json.dumps(out, indent=2))
+    return 0 if out.get("ok") else 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -2988,6 +3369,13 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     )
     pg.set_defaults(func=cmd_post_queue_gitforge)
 
+    gpp = sub.add_parser(
+        "git_push_policy",
+        help="Resolve master git.push_enabled from live config",
+        parents=[common],
+    )
+    gpp.set_defaults(func=cmd_git_push_policy)
+
     wps = sub.add_parser(
         "weave_public_sync",
         help="Publish allowlisted weave slice to Trinity-Weave (Grok public context)",
@@ -2999,6 +3387,48 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     wps.add_argument("--dry-run", action="store_true", help="Sync to export checkout without commit/push")
     wps.add_argument("--summary", default="", help="Commit message suffix")
     wps.set_defaults(func=cmd_weave_public_sync)
+
+    pbs = sub.add_parser(
+        "project_bridge_sync",
+        help="Grok bridge: regen project indexes + sync to Trinity-Weave project/* branch",
+        parents=[common],
+    )
+    add_parallel(pbs)
+    pbs.add_argument("--project-id", default=None, help="Project id under 1-Projects/ (default pilot from config)")
+    pbs.add_argument("--push", action="store_true", help="Also run budgeted push after sync")
+    pbs.add_argument("--no-lock", action="store_true", help="Skip gitforge lock (tests/debug)")
+    pbs.set_defaults(func=cmd_project_bridge_sync)
+
+    pbp = sub.add_parser(
+        "project_bridge_push",
+        help="Grok bridge: budgeted push of main or project branch on Trinity-Weave",
+        parents=[common],
+    )
+    add_parallel(pbp)
+    pbp.add_argument("--branch", default=None, help="Branch to push (default pilot project branch)")
+    pbp.add_argument("--force", action="store_true", help="Skip cooldown (not git.push_enabled)")
+    pbp.add_argument("--no-lock", action="store_true", help="Skip gitforge lock")
+    pbp.set_defaults(func=cmd_project_bridge_push)
+
+    gbs = sub.add_parser(
+        "grok_bridge_status",
+        help="Write Grok-Bridge-Status.md + .json",
+        parents=[common],
+    )
+    add_parallel(gbs)
+    gbs.set_defaults(func=cmd_grok_bridge_status)
+
+    gfb = sub.add_parser(
+        "grok_fulfill_broker",
+        help="Tier C mediated fulfill pack (requires --operator-ack)",
+        parents=[common],
+    )
+    add_parallel(gfb)
+    gfb.add_argument("--request-file", type=Path, default=None, help="YAML/JSON fulfill request file")
+    gfb.add_argument("--request-json", default=None, help="Inline JSON request")
+    gfb.add_argument("--operator-ack", action="store_true", help="Bone pilot approved this fulfill")
+    gfb.add_argument("--no-write-pack", action="store_true", help="Audit only; do not write pack file")
+    gfb.set_defaults(func=cmd_grok_fulfill_broker)
 
     pwp = sub.add_parser(
         "post_queue_weave_publish",
@@ -3097,11 +3527,19 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
 
     lsb = sub.add_parser(
         "lane_status_board",
-        help="Refresh Ingest/Lane-Status-Board.md (operator weave health)",
+        help="Refresh Ingest/Weave-Status-Board.md (alias: weave_status_board)",
         parents=[common],
     )
     add_parallel(lsb)
     lsb.set_defaults(func=cmd_lane_status_board)
+
+    wsb = sub.add_parser(
+        "weave_status_board",
+        help="Refresh Ingest/Weave-Status-Board.md (factory-first operator surface)",
+        parents=[common],
+    )
+    add_parallel(wsb)
+    wsb.set_defaults(func=cmd_weave_status_board)
 
     tal = sub.add_parser(
         "trinity_align",
@@ -3522,6 +3960,23 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     )
     tha.add_argument("--dry-run", action="store_true")
     tha.set_defaults(func=cmd_trinity_honesty_anchor)
+
+    tshf = sub.add_parser(
+        "trinity_stub_honesty_fold",
+        help="Phase 16b — bootstrap stub honesty invariants + trace closure stubs",
+        parents=[common],
+    )
+    tshf.add_argument("--dry-run", action="store_true")
+    tshf.add_argument("--no-bootstrap", dest="bootstrap", action="store_false")
+    tshf.set_defaults(func=cmd_trinity_stub_honesty_fold, bootstrap=True)
+
+    tiv = sub.add_parser(
+        "trinity_integration_vet",
+        help="Trinity integration vet — charter + honesty + stub honesty (read-only)",
+        parents=[common],
+    )
+    tiv.add_argument("--dry-run", action="store_true")
+    tiv.set_defaults(func=cmd_trinity_integration_vet)
 
     tup = sub.add_parser(
         "trinity_usage_proven",
@@ -4259,7 +4714,36 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     ie.add_argument("--dry-run", action="store_true")
     ie.add_argument("--skip-agent", action="store_true", help="Skip Cursor agent (M1 vault_doc still runs)")
     ie.add_argument("--skip-preflight", action="store_true", help="Skip MCP/engine preflight (repo already verified)")
+    ie.add_argument("--replay-seats", action="store_true", help="Replay lane seats for a jammed job (requires --job-id)")
+    ie.add_argument("--job-id", type=str, default=None, help="Factory PQ entry id for replay-seats")
+    ie.add_argument("--agent-log", type=str, default=None, help="Agent telemetry log path (vault-relative)")
+    ie.add_argument("--resume-from", type=str, default=None, choices=("interpretation", "preflight", "agent", "seats"))
+    ie.add_argument(
+        "--seats-only",
+        action="store_true",
+        help="With --replay-seats: run seats only without mark_lane_complete / slice rollup",
+    )
     ie.set_defaults(func=cmd_implementation_eat, lane="godot")
+
+    spe = sub.add_parser(
+        "slice_producer_eat",
+        help="Validate PM compose/review receipts or harness fallback for SLICE_PRODUCER_* PQ lines",
+        parents=[common],
+    )
+    add_parallel(spe)
+    spe.add_argument("--max-entries", type=int, default=2, help="Max compose/review lines per pass (default 2)")
+    spe.add_argument("--dry-run", action="store_true")
+    spe.add_argument(
+        "--harness-fallback",
+        action="store_true",
+        help="Run harness compose/review when PM agent artifacts missing (headless / smoke)",
+    )
+    spe.add_argument(
+        "--invoke-pm-agent",
+        action="store_true",
+        help="Run agent -p for SLICE_PRODUCER_* before validation (default when not --harness-fallback)",
+    )
+    spe.set_defaults(func=cmd_slice_producer_eat, lane="godot")
 
     wr = sub.add_parser(
         "warning_ledger_rollup",
@@ -4345,6 +4829,124 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     sta.add_argument("--trial-type", default="new", choices=["new", "upgrade"])
     sta.add_argument("--min-runs", type=int, default=3)
     sta.set_defaults(func=cmd_skill_trial_activate)
+
+    usr = sub.add_parser(
+        "user_story_rollout",
+        help="Write slice-depth-budget from operator row assignments (SET_ROLLOUT_BUDGET)",
+        parents=[common],
+    )
+    usr.add_argument("--project-id", default="godot-genesis-mythos-master")
+    usr.add_argument("--rollout-version", type=int, default=None)
+    usr.add_argument(
+        "--assignments-json",
+        required=True,
+        help='JSON list e.g. [{"row_id":"ui_presentation_shell","target_depth":2}]',
+    )
+    usr.add_argument("--no-beats", action="store_true", help="Skip beat auto-generation")
+    usr.set_defaults(func=cmd_user_story_rollout)
+
+    usb = sub.add_parser(
+        "user_story_beats",
+        help="Auto-generate beats from slice-depth-budget (BEAT_GENERATE)",
+        parents=[common],
+    )
+    usb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    usb.set_defaults(func=cmd_user_story_beats)
+
+    ds = sub.add_parser(
+        "depth_slice",
+        help="Top-down depth slicer — L5 complete → L4..L1 scope files (DEPTH_SLICE)",
+        parents=[common],
+    )
+    ds.add_argument("--project-id", default="godot-genesis-mythos-master")
+    ds.add_argument("--row-id", default=None, help="Single catalog row id")
+    ds.add_argument("--row-ids", default=None, help="Comma-separated row ids")
+    ds.add_argument("--no-bootstrap", action="store_true", help="Do not bootstrap L5 scaffold")
+    ds.set_defaults(func=cmd_depth_slice)
+
+    fbom = sub.add_parser(
+        "factory_bom",
+        help="Evaluate Product Factory BOM (setup checklist → Product)",
+        parents=[common],
+    )
+    fbom.add_argument("--project-id", default="godot-genesis-mythos-master")
+    fbom.add_argument("--sections", default=None, help="Comma-separated BOM sections")
+    fbom.set_defaults(func=cmd_factory_bom)
+
+    fbb = sub.add_parser(
+        "factory_bom_brief",
+        help="Write operator Factory BOM brief markdown",
+        parents=[common],
+    )
+    fbb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    fbb.set_defaults(func=cmd_factory_bom_brief)
+
+    cc = sub.add_parser(
+        "catalog_coverage",
+        help="Validate slice-catalog completeness and execution pins",
+        parents=[common],
+    )
+    cc.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cc.add_argument("--planned-rows", default=None, help="Comma-separated expected row ids")
+    cc.set_defaults(func=cmd_catalog_coverage)
+
+    cfg = sub.add_parser(
+        "catalog_freeze_gate",
+        help="Loop 2 levels gate — catalog signed, depth charter, influence deck",
+        parents=[common],
+    )
+    cfg.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cfg.set_defaults(func=cmd_catalog_freeze_gate)
+
+    cfeed = sub.add_parser(
+        "conceptual_feed_gate",
+        help="Rung 1 factory feed readiness (mint-batch-scoped)",
+        parents=[common],
+    )
+    cfeed.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cfeed.add_argument("--mint-batch", default=None, help="pmg_phases | presentation_first")
+    cfeed.set_defaults(func=cmd_conceptual_feed_gate)
+
+    ctele = sub.add_parser(
+        "reconcile_conceptual_telemetry",
+        help="Demote legacy workflow_state rollup closed stamps when feed gate is red",
+        parents=[common],
+    )
+    ctele.add_argument("--project-id", default="genesis-mythos-master")
+    ctele.set_defaults(func=cmd_reconcile_conceptual_telemetry)
+
+    rfe = sub.add_parser(
+        "roadmap_factory_eat",
+        help="Process roadmap-factory PQ modes (SET_ROLLOUT_BUDGET, ROADMAP_FACTORY_BOOTSTRAP, …)",
+        parents=[common],
+    )
+    add_parallel(rfe)
+    rfe.add_argument("--max-entries", type=int, default=3)
+    rfe.add_argument("--dry-run", action="store_true")
+    rfe.set_defaults(func=cmd_roadmap_factory_eat, lane="godot")
+
+    rop = sub.add_parser(
+        "roadmap_organize_paths",
+        help="Repath flat roadmap notes to canonical Phase-N-M-* folders",
+        parents=[common],
+    )
+    rop.add_argument("--project-id", required=True)
+    rop.add_argument("--dry-run", action="store_true", help="Plan moves only (default: apply)")
+    rop.add_argument(
+        "--scan-only",
+        action="store_true",
+        help="Report structural path violations without moving",
+    )
+    rop.set_defaults(func=cmd_roadmap_organize_paths)
+
+    rcn = sub.add_parser(
+        "roadmap_clean_nav",
+        help="Fix secondary Dataview FROM scopes after path organize",
+        parents=[common],
+    )
+    rcn.add_argument("--project-id", required=True)
+    rcn.add_argument("--dry-run", action="store_true")
+    rcn.set_defaults(func=cmd_roadmap_clean_nav)
 
     return p
 

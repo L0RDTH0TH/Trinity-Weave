@@ -1,0 +1,84 @@
+id: harness_rewrite_consumed
+conceptual:
+  outcome: The vault stops asking you to do work you already finished — the queue
+    reflects what is still open, not a graveyard of completed asks.
+  summary: 'Every queue pass is a conversation: the system proposed jobs, ran them,
+    and some completed. Release is the moment you close those chapters. Without release,
+    the same asks keep resurfacing — duplicate effort, false urgency, and the feeling
+    that nothing ever clears. This is the opposite pole from registration: registration
+    adds new asks; release clears honored ones.'
+  primary_case: You ran work (in chat or in the background). Items that truly finished
+    should no longer sit in your 'still to do' list. Release removes them so the next
+    pass only sees what remains.
+  edge_cases:
+  - Something failed or needs another look — it stays until you decide otherwise.
+  - Two parallel tracks may both need to forget the same finished ask — release must
+    be complete, not half.
+  misread_risks:
+  - Treating release as housekeeping instead of honesty — the queue lies if finished
+    work stays listed.
+  - Releasing before follow-up work is registered — you can erase an ask that still
+    needed a sequel.
+  - Hand-editing the list — breaks trust in what the system thinks is still open.
+  operator_memory_hook: Done means off the list. Release = cross off finished asks.
+  polar_pair: harness_append_entries — register new asks; this card releases completed
+    ones.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/full_cycle.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/harness.py
+  - .technical/parallel/*/eat_queue_run_plan.json
+  - .technical/prompt-queue.jsonl
+  outbound:
+  - .technical/parallel/*/prompt-queue.jsonl
+  - .technical/prompt-queue.jsonl
+  queue_modes: []
+  harness_commands:
+  - rewrite_consumed
+  behavior_signals:
+  - test_apply_queue_cleanup_dual_track
+  - test_hydrate_filters_lane_and_shared
+  - test_merge_preserves_lane_only_not_in_central
+  - test_strict_central_only_drops_lane_only
+rules:
+  forbidden:
+  - ad-hoc PQ line deletion outside harness rewrite_consumed or full_cycle helpers
+  fixtures: []
+  precedence:
+  - Layer 1 mandatory pre-write PQ re-read before invoking harness
+  - prefer --plan EQPLAN queue_rewrite_ids over ad-hoc --ids when both exist
+  - dual-track fanout → apply_queue_cleanup_dual_track unless --single-pool
+  - 'policy: rewrite before processed_success_ids and Pass 3 ids are merged into the
+    plan'
+  - 'policy: dual-track partial removal (track only or pool only) when fanout is enabled'
+  acceptance:
+  - test_pool_sync test_apply_queue_cleanup_dual_track green
+  - queue.mdc A.7 harness rewrite_consumed only
+contract:
+  proof:
+  - scripts/eat_queue_core/full_cycle.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_pool_sync.py
+  invariant_ids:
+  - a7_harness_only_pq_rewrite
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T16:48:00Z'
+  rules_confirmed_at: '2026-05-31T16:48:00Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_rewrite_consumed.yaml
+    pairs_with: harness_headless_eat
+    conceptual_refined_at: '2026-05-31T16:51:47Z'
+    conceptual_style: intent_polar_pair_not_implementation
+  conceptual_reconfirmed_at: '2026-05-31T16:51:47Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'
+  touch_content_hash: da25866182aa2af39f9af1f652ece81abe73bbdeb8849efefbeca7ef434a5869
+  touch_refreshed_at: '2026-06-07T23:59:15.458938Z'
+  closure_must_read_count: 21
+  last_disconnect: null

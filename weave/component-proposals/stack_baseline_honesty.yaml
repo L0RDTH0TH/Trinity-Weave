@@ -1,0 +1,85 @@
+id: stack_baseline_honesty
+conceptual:
+  outcome: Every stack baseline claim (interop, operational, manifest sign-off) is
+    backed by structural proof — internal little_val and external operator-runnable
+    artifacts.
+  summary: Weave honesty core for Product 1 = vetted tech stack. One card binds Factory-DRB
+    ladder, factory harness passes, interop smokes, and Path B tracker — not 27 per-row
+    cards.
+  primary_case: Agent or harness claims wave-N interop pass or row operational — trinity_align
+    and factory passes must green before Success or manifest mutation.
+  secondary_case: Operator runs Path B dummies guide — smoke exit 0 + receipt frontmatter
+    must match claim tier (interop vs operational vs vetted).
+  edge_cases:
+  - Green interop smokes while CI or Terrain3D runtime still red
+  - Narrative "consider it vetted" without operator_stack_baseline_vetted flip
+  - Horizon-Q3 M1–M8 milestones cited as stack baseline proof
+  misread_risks:
+  - Treating expand_self green as substitute for smoke scripts
+  - Creating per-row Trinity cards for BOM rows
+touch:
+  primary_paths:
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Stack-Operational-Tracker-PathB-v1.yaml
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/stack-baseline-v1.md
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Stack-Baseline-Honesty-Trinity-v1.md
+  - Ingest/Agent-Research/Raw/Stack-Vetting/
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/scripts/run-b1-interop-smokes.sh
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/scripts/run-b2-interop-smokes.sh
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/scripts/run-b3-interop-smokes.sh
+  - 5-Attachments/Code-Repos/genesis-mythos-demo/scripts/run-b4-interop-smokes.sh
+  - scripts/eat_queue_core/weave/factory/review_pass_runner.py
+  - scripts/eat_queue_core/tests/test_stack_baseline_honesty.py
+  harness_commands:
+  - trinity_align
+  - trinity_expand_self
+  - factory_all_passes
+  behavior_signals:
+  - test_manifest_signoff_gate_earned
+  - test_path_b_tracker_present
+  - test_factory_baseline_passes_runnable
+  - test_factory_honesty_invariants_clean
+  - test_interop_smoke_scripts_catalog
+  - test_interop_wave_receipts_present
+  - test_vetting_receipts_separate_interop_from_operational
+  - test_release_definition_lists_harness_passes
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - flip operator_stack_baseline_vetted without release_readiness_pass green
+  - mark operational_confirmed on interop-only wave receipt
+  - claim stack vetted from Horizon-Q3 M milestone PQ lines alone
+  - skeleton_marked_operational on manifest rows
+  - poc_assumed_locked on museum prototype rows
+  - file_exists_integrate_theater without integrate receipt
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: stack baseline claims require trinity_align green on stack_baseline_honesty
+    for sign-off scope'
+  - 'policy: interop_pass does not imply operational_confirmed or operator_stack_baseline_vetted'
+  acceptance:
+  - test_manifest_signoff_gate_earned
+  - test_interop_wave_receipts_present
+  - test_vetting_receipts_separate_interop_from_operational
+  - test_factory_baseline_passes_runnable
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/factory/review_pass_runner.py
+  - scripts/eat_queue_core/weave/factory/factory_little_val.py
+  - scripts/eat_queue_core/tests/test_stack_baseline_honesty.py
+  - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Factory-Honesty-Recovery-Doctrine-v1.md
+  invariant_ids:
+  - stack_baseline_honesty_ladder
+  - operator_stack_baseline_signoff_gate
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-13T18:00:00Z'
+  rules_confirmed_at: '2026-06-13T18:00:00Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Path B stack baseline honesty core — weave standard 2026-06-13
+  last_disconnect: null

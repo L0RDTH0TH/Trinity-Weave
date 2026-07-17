@@ -1,0 +1,94 @@
+id: harness_lane_recovery_retry
+conceptual:
+  outcome: When a lane stalls, the operator always gets visibility — and the weave
+    retries only when recovery is understood, bounded, and forward-assisting.
+  summary: 'Lane recovery retry is the harness entry for stall closure after a lane
+    eat or architect run fails. First principle: ticket always — every stall lands
+    on the maintenance surface so nothing dies silently. Second: retry only when classify
+    says recoverable — an allowlisted handler, attempt caps, L3 rollout permit, and
+    (in production) a capped headless eat to confirm momentum returned. Non-recoverable
+    stalls stop at ticket + human gate; recoverable ones delegate handler work to
+    recoverable_handlers and closure order to l3_self_heal. Pairs with harness_snapshot
+    / harness_verify — post-heal verify confirms mutations from recovery handlers
+    matched intent.'
+  primary_case: 'Headless eat fails (lock, timeout, agent missing). The weave records
+    lane-stall.json, opens a maintenance ticket, and classifies primary_code. Operator
+    or pseudo-clock invokes lane_recovery_retry: if recoverable and under cap, run
+    the mapped handler, post-heal verify, then one forced headless eat on that lane.
+    Success clears momentum; failure escalates or gates human.'
+  edge_cases:
+  - lane_recovery_disabled — record skipped; no silent retry.
+  - max_recovery_attempts or max L3 heal attempts — true_stop; no roulette.
+  - eat_retry false (validation drills) — handler + verify only; no lane eat.
+  - architect_decision not proceed — skip auto retry.
+  - human_gate after verifier fail — ticket without further auto closure.
+  misread_risks:
+  - Retry on every error — only recoverable stall_class with retry_eligible.
+  - Handler ok equals lane healed — verify + optional eat retry required for closure.
+  - Confusing with mutation snapshot/verify on PQ — stall recovery is lane momentum,
+    not queue bytes.
+  - Improvising handlers — must be allowlisted members of recoverable_handlers class.
+  operator_memory_hook: Lane stuck? Ticket always — retry only when recovery is understood.
+  spine_ordinal: 10
+  pairs_with: recoverable_handlers (what may be fixed), l3_self_heal (closure order),
+    harness_headless_eat (retry eat), harness_verify (post-heal mutation check)
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/lane_recovery.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - lane-stall.json per lane bundle
+  - headless_eat / headless_architect failure receipts
+  - recoverable_codes classification
+  outbound:
+  - lane-stall.json updates
+  - maintenance ticket (REPAIR_PLAYBOOK or OPERATOR_ALERT)
+  - recoverable_handlers patch
+  - optional headless_eat retry
+  harness_commands:
+  - lane_recovery_retry
+  behavior_signals:
+  - test_pq_lock_guard
+  - test_l3_validation_drill
+rules:
+  forbidden:
+  - retry without recorded lane-stall and classification
+  - bypass lane_recovery_max_attempts or L3 heal caps
+  fixtures: []
+  precedence:
+  - record stall + ticket before retry
+  - classify primary_code → stall_class
+  - L3 rollout + new-evidence gates before handler
+  - post_heal_verify before declaring closure
+  - headless_eat retry when eat_retry enabled
+  - 'policy: run recovery when lane_recovery_enabled is false'
+  - 'policy: improvise handlers outside recoverable_handlers allowlist'
+  acceptance:
+  - test_l3_validation_drill green
+  - test_pq_lock_guard primary_code mapping
+contract:
+  proof:
+  - scripts/eat_queue_core/lane_recovery.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/recoverable_handlers.py
+  - scripts/eat_queue_core/weave/l3_self_heal.py
+  invariant_ids:
+  - lane_stall_ticket_always_retry_bounded
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: intent_stall_closure_not_backfill
+    spine_ordinal: 10
+    initial_validation_set: true
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_lane_recovery_retry.yaml
+  conceptual_confirmed_at: '2026-05-31T23:54:58Z'
+  rules_confirmed_at: '2026-05-31T23:54:58Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:48Z'
+  touch_content_hash: 03dc5f3c5095074edb4c074dfee6b1ed3ccc748162c633500ec677f9156db721
+  touch_refreshed_at: '2026-06-07T23:58:10.907848Z'
+  closure_must_read_count: 21
+  last_disconnect: null

@@ -103,7 +103,9 @@ def _stall_fingerprint(stall: dict[str, Any]) -> str:
 
 
 def post_heal_verify(vault_root: Path) -> VerifierResult:
-    board_path = vault_root.resolve() / "Ingest" / "Lane-Status-Board.md"
+    from ..lane_status_board import BOARD_REL
+
+    board_path = vault_root.resolve() / BOARD_REL
     result = verify_operator_surface_integrity(board_path)
     try:
         from .trinity_align import check_spine_bridge_status

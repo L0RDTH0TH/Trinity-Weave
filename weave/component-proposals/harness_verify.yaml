@@ -1,0 +1,85 @@
+id: harness_verify
+conceptual:
+  outcome: After a mutation (or at a checkpoint), the weave can confirm what actually
+    changed on disk and whether that change was expected — not whether the file stayed
+    frozen.
+  summary: 'Verify is the paired post-mutation honesty check. Snapshot captured before;
+    verify compares live bytes to the contract: either nothing unexpected moved since
+    the save point (safe to proceed with our write), or the file now reflects the
+    mutation we planned (append landed, consumed ids removed, plan fields updated).
+    Mismatch means reality diverged from intent — external race, half write, wrong
+    target — and verify fails loud with a recovery hint. It is not append bureaucracy;
+    it is mutation audit.'
+  primary_case: You snapshotted targets, ran work that should mutate them, then verify
+    against the saved receipt and the pass's expected outcome. Match — the change
+    you wanted happened (or no one else touched the file before you did). Mismatch
+    — something else mutated the file or the mutation did not land as planned; do
+    not pretend corrupt or drifted bytes are truth.
+  edge_cases:
+  - No expected snapshot — verify cannot invent a baseline.
+  - Pre-write vs post-write verify — unchanged-since-snapshot vs expected-after-mutation.
+  - mutation_recovery_mode shapes recovery_hint when drift is detected.
+  - Multi-target — verify may check several labeled paths from one snapshot blob.
+  misread_risks:
+  - Thinking verify only means 'file unchanged' — it also validates expected mutations
+    landed.
+  - Queue-only framing — verify applies to any snapshotted mutation target.
+  - Ignoring mismatch and writing anyway — you lose the before receipt's value.
+  - Expecting verify to restore files — it diagnoses; recovery is the next step.
+  operator_memory_hook: Did the change you wanted actually happen — and only that?
+    Verify.
+  spine_ordinal: 9
+  polar_pair: harness_snapshot — snapshot holds before; verify judges whether after
+    matches intent.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - snapshot JSON receipt
+  - expected mutation intent from plan or pass
+  outbound:
+  - ok/mismatches JSON
+  - recovery_hint
+  harness_commands:
+  - verify
+  behavior_signals:
+  - test_verify_ok_when_unchanged
+  - test_verify_fails_after_mutation
+  - test_append_entries_rejects_inline_grep_paste
+  - test_resolve_parallel_context_lane_synthetic
+rules:
+  forbidden:
+  - mutate a snapshotted file without a prior snapshot when policy requires one
+  fixtures: []
+  precedence:
+  - snapshot all mutation targets before write
+  - verify against saved receipt and pass intent
+  - fail loud on mismatch — do not silently continue
+  - 'policy: treat verify success as substitute for snapshot before risky mutation'
+  - 'policy: commit rewrite when verify reports mismatch under hard_stop policy'
+  acceptance:
+  - test_harness_verify green
+contract:
+  proof:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_harness_verify.py
+  invariant_ids:
+  - post_mutation_verify_matches_intent
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: intent_mutation_integrity_not_queue_centric
+    spine_ordinal: 9
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_verify.yaml
+    pairs_with: harness_snapshot
+  conceptual_confirmed_at: '2026-05-31T19:04:11Z'
+  rules_confirmed_at: '2026-05-31T19:04:11Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'
+  touch_content_hash: 8137004840fcbb40aee1783de096e8e67f1e8344ca64d5a9bec546a3f3153bb0
+  touch_refreshed_at: '2026-06-08T00:00:00.020920Z'
+  closure_must_read_count: 21
+  last_disconnect: null

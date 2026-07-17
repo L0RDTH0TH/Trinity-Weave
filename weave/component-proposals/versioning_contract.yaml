@@ -1,0 +1,29 @@
+id: versioning_contract
+conceptual:
+  outcome: Cross-layer version pins (weave, system, product, artifacts) prevent silent drift between operator declarations and factory receipts.
+  summary: Layered versioning — bom_schema_version, bom_revision, product_version, rollout_version, depth_charter_version, artifact schema_version.
+  primary_case: product-bom.yaml versioning block pins closed-alpha-v1; bom_revision bumps when checklist changes without changing product_version.
+  misread_risks:
+  - Single global version for entire vault
+  - Using current_depth as authoring version
+  - Conflating product_version with bom_schema_version
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/versioning_contract.py
+  - scripts/eat_queue_core/weave_observability.py
+  - 3-Resources/Second-Brain/Docs/Factory-BOM-and-Versioning.md
+rules:
+  forbidden:
+  - bump bom_schema_version without updating SUPPORTED_BOM_SCHEMA_VERSIONS and tests
+  acceptance:
+  - check_bom_schema_compat passes for current BOM_SCHEMA_VERSION
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/versioning_contract.py
+meta:
+  schema_version: 2
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: General versioning doctrine fold 2026-06-16

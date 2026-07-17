@@ -172,6 +172,9 @@ def collect_replay_episodes(vault_root: Path, *, max_rows: int = 500) -> list[Re
 
     episodes: list[ReplayEpisode] = []
     prev_integrity: bool | None = None
+    calibrate_predictive_tiers(vault_root)
+    assessment = assess_maintenance_risk(vault_root)
+    default_attention = assessment.signals.get("system_attention")
     lines = metrics.read_text(encoding="utf-8", errors="replace").splitlines()
     for line in lines[-max_rows:]:
         line = line.strip()
@@ -196,11 +199,9 @@ def collect_replay_episodes(vault_root: Path, *, max_rows: int = 500) -> list[Re
         recurrence = prev_integrity is True and integrity_ok is False
         prev_integrity = integrity_ok if integrity_ok is not None else prev_integrity
 
-        calibrate_predictive_tiers(vault_root)
-        assessment = assess_maintenance_risk(vault_root)
         features = {
             "risk_tier": assessment.risk_tier,
-            "system_attention": attention or assessment.signals.get("system_attention"),
+            "system_attention": attention or default_attention,
             "metric_type": mtype,
         }
         outcome = {
@@ -328,7 +329,13 @@ def recommend_profile(
     """Recommend workflow profile arm for current state (pilot — does not mutate queue)."""
     cfg = cfg or load_l4_config(vault_root)
     active = load_active_policy(vault_root)
-    if active and active.get("live_apply_enabled") and active.get("counselor_approved"):
+    # Config master kill: weave.l4_live_apply_enabled must be true for active_policy live.
+    if (
+        cfg.live_apply_enabled
+        and active
+        and active.get("live_apply_enabled")
+        and active.get("counselor_approved")
+    ):
         bucket = _feature_bucket(context or _current_features(vault_root))
         arm = active.get("bucket_arms", {}).get(bucket) or active.get("default_arm", "balance")
         return {
@@ -362,13 +369,17 @@ def recommend_profile(
             best_score = score
             best_arm = arm
 
+    note = "Pilot observe-only until counselor approves pending promotion."
+    if active and active.get("live_apply_enabled") and not cfg.live_apply_enabled:
+        note = "active_policy present but weave.l4_live_apply_enabled=false (Config master kill)."
+
     return {
         "arm": best_arm,
         "source": "bandit_ucb",
         "bucket": bucket,
         "live": False,
         "risk_tier": assessment.risk_tier,
-        "note": "Pilot observe-only until counselor approves pending promotion.",
+        "note": note,
     }
 
 
@@ -458,6 +469,13 @@ def approve_policy_promotion(
     live_apply: bool = False,
 ) -> dict[str, Any]:
     """Q3 counselor path — activate audited policy version."""
+    cfg = load_l4_config(vault_root)
+    if live_apply and not cfg.live_apply_enabled:
+        return {
+            "ok": False,
+            "error": "l4_live_apply_disabled_in_config",
+            "hint": "Set weave.l4_live_apply_enabled: true before counselor live_apply.",
+        }
     pending_p = pending_promotion_path(vault_root)
     if not pending_p.is_file():
         return {"ok": False, "error": "no_pending_promotion"}
@@ -514,9 +532,25 @@ def render_l4_board_section(vault_root: Path, *, cfg: L4Config | None = None) ->
     pending = pending_promotion_path(vault_root)
     pending_note = "none"
     if pending.is_file():
-        pending_note = "awaiting counselor"
+        try:
+            pend = json.loads(pending.read_text(encoding="utf-8"))
+            if pend.get("counselor_approved"):
+                pending_note = "approved"
+            else:
+                pending_note = "awaiting counselor"
+        except (json.JSONDecodeError, OSError):
+            pending_note = "awaiting counselor"
     active = load_active_policy(vault_root)
-    live = "active" if active and active.get("live_apply_enabled") else "observe-only"
+    live = (
+        "active"
+        if (
+            cfg.live_apply_enabled
+            and active
+            and active.get("live_apply_enabled")
+            and active.get("counselor_approved")
+        )
+        else "observe-only"
+    )
     return (
         f"> [!info] L4 adaptive pilot (G1→G2)\n"
         f"> **Enabled:** {cfg.enabled} · **Live apply:** {live} · **Pending:** {pending_note}\n"

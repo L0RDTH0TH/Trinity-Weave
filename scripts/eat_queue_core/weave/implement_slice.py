@@ -10,13 +10,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from ..agent_cli import find_agent_cli
+from ..host_runner import HostInvokeRequest, rel_log_path, resolve_host_runner
 from ..goal_authority_io import goal_authority_path_for_lane, load_goal_authority
 from ..pseudo_clock import load_knobs
 from .engine_preflight import resolve_godot_binary, run_engine_preflight
 from .implementation_handoff import build_implementation_handoff
 from .mcp_postedit_validate import run_mcp_postedit_validate
 from .milestone_charter import get_milestone_spec, next_milestone_id
+from .factory.factory_lane_runner import run_factory_lane_job
+from .factory.factory_output_gate import apply_factory_output_gate_to_trace
 
 
 def _utc_iso() -> str:
@@ -188,46 +190,71 @@ def run_implementation_agent(
     timeout: int = 3600,
     log_path: Path | None = None,
 ) -> dict[str, Any]:
-    cli = find_agent_cli()
-    if not cli:
-        return {"ok": False, "error": "cursor_or_agent_cli_not_found"}
+    vault_root = vault_root.resolve()
+    runner = resolve_host_runner(vault_root)
+    if not runner.available():
+        probe = runner.invoke(
+            HostInvokeRequest(vault_root=vault_root, handoff="", model="auto", role="implement_slice")
+        )
+        return {"ok": False, "error": probe.error or "cursor_or_agent_cli_not_found"}
     if dry_run:
         return {"ok": True, "dry_run": True, "handoff_preview": handoff[:600]}
 
     knobs = load_knobs(vault_root)
     model = str(knobs.get("headless_agent_model") or "auto").strip()
-    cmd = [*cli, "-p", "--force", "--model", model, handoff]
-    env = os.environ.copy()
-    env["PYTHONPATH"] = str(vault_root / "scripts")
-
-    if log_path:
-        log_path.parent.mkdir(parents=True, exist_ok=True)
-        with log_path.open("w", encoding="utf-8") as logf:
-            logf.write(f"# implement_slice agent\n# cmd: {' '.join(cmd)}\n\n")
-            r = subprocess.run(
-                cmd,
-                cwd=vault_root,
-                stdout=logf,
-                stderr=subprocess.STDOUT,
-                text=True,
-                timeout=timeout,
-                env=env,
-            )
-    else:
-        r = subprocess.run(
-            cmd,
-            cwd=vault_root,
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            env=env,
+    hr = runner.invoke(
+        HostInvokeRequest(
+            vault_root=vault_root,
+            handoff=handoff,
+            model=model,
+            timeout_sec=timeout,
+            log_path=log_path,
+            role="implement_slice",
         )
+    )
+    if hr.error and hr.exit_code is None:
+        out: dict[str, Any] = {"ok": False, "error": hr.error}
+        if hr.log_path is not None:
+            out["log_path"] = rel_log_path(vault_root, hr.log_path)
+        return out
 
     return {
-        "ok": r.returncode == 0,
-        "exit_code": r.returncode,
-        "log_path": str(log_path.relative_to(vault_root)) if log_path else None,
+        "ok": bool(hr.ok),
+        "exit_code": hr.exit_code,
+        "log_path": rel_log_path(vault_root, hr.log_path) if hr.log_path else None,
     }
+
+
+def _run_factory_lane_slice(
+    vault_root: Path,
+    lane: str,
+    entry: dict[str, Any],
+    *,
+    params: dict[str, Any],
+    dry_run: bool = False,
+    parent_run_id: str | None = None,
+    skip_agent: bool = False,
+    skip_preflight: bool = False,
+    agent_log_path: str | None = None,
+    resume_from: str | None = None,
+    complete_pipeline: bool = True,
+    auto_retry_seats: bool = True,
+) -> dict[str, Any]:
+    return run_factory_lane_job(
+        vault_root,
+        lane,
+        entry,
+        params=params,
+        dry_run=dry_run,
+        parent_run_id=parent_run_id,
+        skip_agent=skip_agent,
+        skip_preflight=skip_preflight,
+        run_agent_fn=run_implementation_agent,
+        agent_log_path=agent_log_path,
+        resume_from=resume_from,
+        complete_pipeline=complete_pipeline,
+        auto_retry_seats=auto_retry_seats,
+    )
 
 
 def run_implement_slice(
@@ -239,12 +266,34 @@ def run_implement_slice(
     parent_run_id: str | None = None,
     skip_agent: bool = False,
     skip_preflight: bool = False,
+    agent_log_path: str | None = None,
+    resume_from: str | None = None,
+    complete_pipeline: bool = True,
+    auto_retry_seats: bool = True,
 ) -> dict[str, Any]:
-    """Execute one IMPLEMENT_SLICE for an implementation_milestone queue entry."""
+    """Execute one IMPLEMENT_SLICE for an implementation_milestone or factory_lane queue entry."""
     vault_root = vault_root.resolve()
     lane = lane.strip().lower()
     eid = str(entry.get("id") or "")
     params = entry.get("params") if isinstance(entry.get("params"), dict) else {}
+    action = str(params.get("action") or "").lower()
+
+    if action == "factory_lane":
+        return _run_factory_lane_slice(
+            vault_root,
+            lane,
+            entry,
+            params=params,
+            dry_run=dry_run,
+            parent_run_id=parent_run_id,
+            skip_agent=skip_agent,
+            skip_preflight=skip_preflight,
+            agent_log_path=agent_log_path,
+            resume_from=resume_from,
+            complete_pipeline=complete_pipeline,
+            auto_retry_seats=auto_retry_seats,
+        )
+
     milestone_id = str(params.get("milestone_id") or "").upper()
     project_id = str(entry.get("project_id") or params.get("project_id") or "godot-genesis-mythos-master")
     engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
@@ -381,6 +430,8 @@ def run_implement_slice(
 
     advance = advance_goal_milestone(vault_root, lane, milestone_id)
 
+    gate_result, gate_trace = apply_factory_output_gate_to_trace(vault_root, {})
+
     return {
         "ok": True,
         "id": eid,
@@ -391,5 +442,7 @@ def run_implement_slice(
         "receipt": receipt,
         "advance": advance,
         "preflight": preflight,
+        "factory_output_gate": gate_result.to_dict(),
+        "factory_output_trace": gate_trace,
         "message": f"IMPLEMENT_SLICE {milestone_id} complete → next {advance.get('next_milestone')}",
     }

@@ -1,0 +1,29 @@
+id: product_factory_operator_path
+conceptual:
+  outcome: One repeatable operator session from PMG through factory_staged, lane drain, and loop-3 reopen without mode hunting.
+  summary: Integration card for conductor, PRODUCT_FACTORY_CONTINUE, headless_eat, and overnight on a single PQ drain surface.
+  primary_case: Operator runs product-factory session then headless_eat or headless_overnight on the project lane.
+touch:
+  primary_paths:
+    - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
+    - scripts/eat_queue_core/weave/user_story/product_factory_continue.py
+    - scripts/eat_queue_core/weave/user_story/factory_eat_handoff.py
+    - scripts/eat_queue_core/weave/user_story/roadmap_factory_handlers.py
+    - scripts/eat_queue_core/layer1_roadmap_factory.py
+    - scripts/eat_queue_core/headless_orchestrator.py
+    - scripts/eat_queue_core/headless_overnight.py
+  behavior_signals:
+    - test_headless_eat_drains_product_factory_continue_dry_run
+    - test_layer1_roadmap_factory_consumes_continue_tick
+    - test_factory_staged_eat_factory_lanes_drains_in_harness_context
+    - test_no_orphan_execution_gap_mode
+rules:
+  forbidden:
+    - require roadmap_factory_eat as normative operator path when headless_eat is available
+    - eat_factory_lanes ack-only in harness_context when IMPLEMENT_SLICE jobs pending
+contract:
+  proof:
+    - scripts/eat_queue_core/tests/test_product_factory_operator_path.py
+meta:
+  lock_kind: provisional
+  status: trialing

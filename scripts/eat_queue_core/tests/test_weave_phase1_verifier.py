@@ -33,6 +33,10 @@ parallel_execution:
       technical_subdir: parallel/maintenance
 ```
 ```yaml
+lane_board:
+  health_semantics: readiness
+```
+```yaml
 weave:
   enabled: true
   governance_interval_days: 14
@@ -43,6 +47,13 @@ weave:
     pol = root / ".technical/parallel/institute/orchestrator-policy.yaml"
     pol.parent.mkdir(parents=True, exist_ok=True)
     pol.write_text("paused_lanes: []\nstall_watch_lanes: []\n", encoding="utf-8")
+    for lane in ("maintenance", "institute", "godot"):
+        b = root / ".technical/parallel" / lane
+        b.mkdir(parents=True, exist_ok=True)
+        (b / "prompt-queue.jsonl").write_text("", encoding="utf-8")
+        if lane == "maintenance":
+            mp = root / ".technical/parallel/maintenance/orchestrator-policy.yaml"
+            mp.write_text("paused_lanes: []\nstall_watch_lanes: []\n", encoding="utf-8")
 
 
 class WeavePhase1VerifierTests(unittest.TestCase):
@@ -50,9 +61,10 @@ class WeavePhase1VerifierTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             _write_min_config(root)
+            (root / "1-Projects" / "demo").mkdir(parents=True)
             write_lane_status_board(root)
             vr = verify_operator_surface_integrity(root / BOARD_REL)
-            self.assertTrue(vr.ok)
+            self.assertTrue(vr.ok, vr.detail)
 
     def test_verifier_fails_when_section_missing(self) -> None:
         with tempfile.TemporaryDirectory() as td:

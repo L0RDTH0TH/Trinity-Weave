@@ -1,0 +1,52 @@
+id: mcp_postedit_validator
+conceptual:
+  outcome: After MCP/engine edits, maintenance receives structured receipts — lane,
+    project, milestone, pass/fail — for audit without LLM.
+  summary: Post-MCP validate + debug parse → maintenance jsonl receipts (general module).
+  primary_case: Harness writes one receipt row after smoke or milestone check; maintenance
+    daemon tail ingests.
+  edge_cases:
+  - Missing engine_adapter param
+  - Receipt without milestone_id
+  misread_risks:
+  - Replacing human prototype history with receipts only
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/weave/mcp_postedit_validate.py
+  - .technical/parallel/maintenance/mcp-implementation-receipts.jsonl
+  harness_commands:
+  - mcp_postedit_validate
+  behavior_signals:
+  - test_mcp_postedit_validate_module
+  - test_mcp_postedit_validate_receipt
+  - test_harness_registers_mcp_postedit_validate
+  - test_module_importable
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - skip receipt on substantive repo mutation
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  acceptance:
+  - test_mcp_postedit_validate_receipt
+  - test_harness_registers_mcp_postedit_validate
+  fixtures: []
+contract:
+  proof:
+  - scripts/eat_queue_core/weave/mcp_postedit_validate.py
+  - scripts/eat_queue_core/tests/test_mcp_postedit_validate.py
+  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  invariant_ids:
+  - mcp_postedit_receipt_required
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  source:
+    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+  last_disconnect: null

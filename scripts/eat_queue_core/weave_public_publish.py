@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .git_push_policy import effective_push
 from .gitforge_config import get_parallel_execution_config, lock_timeout_seconds, merge_yaml_blocks_from_config
 from .live_config import load_live_config
 from ._lock import acquire_gitforge_lock as _acquire_lock_impl
@@ -27,7 +28,6 @@ DEFAULT_FORBIDDEN_PREFIXES: tuple[str, ...] = (
     ".technical/parallel/",
     ".technical/prompt-queue",
     ".technical/Run-Telemetry/",
-    "component-proposals/",
     ".cursor/rules/",
     ".cursor/skills/",
     ".cursor/agents/",
@@ -47,7 +47,12 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/Maintenance-Trinity-Constitution.md",
     "3-Resources/Second-Brain/Docs/Trinity-Weave-Export-README.md",
     "3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md",
+    "3-Resources/Second-Brain/Docs/GROK-PROJECT-BRIDGE.md",
+    "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
+    "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
+    "3-Resources/Second-Brain/Docs/bone-pilot/",
     ".technical/weave/components/",
+    ".technical/weave/component-proposals/",
     ".technical/weave/trinity-partition-registry.yaml",
     ".technical/weave/host-weld/manifest.yaml",
     ".technical/weave/host-weld/live/",
@@ -55,6 +60,14 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "scripts/eat_queue_core/weave/",
     "scripts/eat_queue_core/weave_public_publish.py",
     "scripts/eat_queue_core/weave_observability.py",
+    "scripts/eat_queue_core/project_bridge_sync.py",
+    "scripts/eat_queue_core/project_bridge_push.py",
+    "scripts/eat_queue_core/grok_bridge_status.py",
+    "scripts/eat_queue_core/grok_bridge_config.py",
+    "scripts/eat_queue_core/grok_bridge_export_session.py",
+    "scripts/eat_queue_core/grok_fulfill_broker.py",
+    "scripts/eat_queue_core/weave/project_observability.py",
+    "scripts/eat_queue_core/weave/project_tertiary_index.py",
     "scripts/eat_queue_core/post_queue_weave_publish.py",
     "scripts/eat_queue_core/harness.py",
     "scripts/eat_queue_core/live_config.py",
@@ -74,6 +87,7 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_trinity*.py",
     "scripts/eat_queue_core/tests/test_schedule*.py",
     "scripts/eat_queue_core/tests/test_grok_guards.py",
+    "scripts/eat_queue_core/tests/test_grok_bridge.py",
     "scripts/eat_queue_core/tests/test_pseudo_clock.py",
 )
 
@@ -462,6 +476,7 @@ def run_weave_public_sync(
     export_root = Path(export_root_s).expanduser().resolve()
     branch = str(wp.get("branch") or "main")
     remote_url = str(wp.get("remote_url") or "https://github.com/L0RDTH0TH/Trinity-Weave.git")
+    allow_push = effective_push(push, merged)
 
     lock_acquired = False
     if use_lock:
@@ -524,7 +539,7 @@ def run_weave_public_sync(
                 commit_sha = (rev.stdout or "").strip()
 
         pushed = False
-        if push and commit_sha:
+        if allow_push and commit_sha:
             pu = _run([git, "push", "-u", "origin", branch], cwd=export_root, timeout=300)
             if pu.returncode != 0:
                 return finish(
@@ -533,6 +548,12 @@ def run_weave_public_sync(
                     {"reason": "export_push_failed", "stderr": pu.stderr, "commit": commit_sha},
                 )
             pushed = True
+        elif commit_sha and push and not allow_push:
+            pass  # local commit only — master git.push_enabled false
+
+        payload_push_meta: dict[str, Any] = {}
+        if push and not allow_push:
+            payload_push_meta["push_skipped_git_push_disabled"] = True
 
         return finish(
             "completed",
@@ -541,6 +562,7 @@ def run_weave_public_sync(
                 "sync": sync_out,
                 "commit": commit_sha,
                 "pushed": pushed,
+                **payload_push_meta,
                 "export_repo_root": str(export_root),
                 "branch": branch,
                 "remote_url": remote_url,

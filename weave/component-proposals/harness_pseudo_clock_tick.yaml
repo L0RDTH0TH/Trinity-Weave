@@ -1,0 +1,88 @@
+id: harness_pseudo_clock_tick
+conceptual:
+  outcome: The weave keeps a pulse in the background — infrastructure stays aligned,
+    synced, and honest while you are not in chat, without starting a full pipeline
+    cook.
+  summary: 'Headless eat is the chef (lane pipelines). The pseudo-clock is the harness
+    heartbeat: the periodic check that the system underneath is still healthy. Implementation
+    state often lives under the institute bundle; the role is vault/weave infrastructure
+    rhythm — sync windows, board, continuity, hygiene. Counters move; thresholds fire
+    small, bounded actions when those rhythms need a nudge.'
+  primary_case: 'Cron, daemon, or autopilot fires one tick. You did not ask for ingest
+    or roadmap in chat; the harness still asks: Is sync allowed in this window? Is
+    the board stale? Is the queue depth lying? Should continuity be trimmed? Receipts
+    and clock state record what fired — you review when you care.'
+  edge_cases:
+  - Disabled in config — heartbeat skips; no fake progress.
+  - Daemon cycle may run syncthing policy in the same cadence as a tick — same heartbeat
+    story, sibling step.
+  misread_risks:
+  - Treating the heartbeat as a lane pipeline — ticks do not run full dispatch.
+  - Expecting a tick to replace headless eat — chef vs pulse.
+  - Hand-editing clock counters or .technical sync state — bypasses policy and audit.
+  operator_memory_hook: Harness heartbeat — background pulse for weave infra (sync
+    windows, board, hygiene), not the chef.
+  spine_ordinal: 4
+  pairs_with: harness_headless_eat — chef cooks lanes; heartbeat keeps harness/infra
+    in rhythm. Often sequenced with harness daemon + syncthing_sync_policy in the
+    same background cycle.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/pseudo_clock.py
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - scripts/eat_queue_core/harness_daemon.py
+  - scripts/eat_queue_core/headless_orchestrator.py
+  outbound:
+  - scripts/eat_queue_core/syncthing_sync_policy.py
+  - scripts/eat_queue_core/lane_status_board.py
+  - scripts/eat_queue_core/continuity_bridge.py
+  - scripts/eat_queue_core/weave/trinity_touch_refresh.py
+  - scripts/eat_queue_core/warning_ledger.py
+  - .technical/**
+  - .technical/parallel/institute/pseudo-clock.json
+  - .technical/parallel/institute/curator-knobs.yaml
+  harness_commands:
+  - pseudo_clock_tick
+  behavior_signals:
+  - test_knobs_defaults
+  - test_pq_lock_acquire_release
+  - test_merge_pending
+  - test_tick_writes_clock
+rules:
+  forbidden: []
+  fixtures: []
+  precedence:
+  - config master switch before side effects
+  - infra rhythm before lane pipeline dispatch
+  - record actions to pseudo-clock state
+  - 'policy: treat heartbeat as full pipeline eat on a project lane'
+  - 'policy: mutate when pseudo-clock disabled in config'
+  - 'policy: operator hand-edit clock counters or sync policy outside harness'
+  acceptance: []
+contract:
+  proof:
+  - scripts/eat_queue_core/pseudo_clock.py
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/harness_daemon.py
+  - scripts/eat_queue_core/syncthing_sync_policy.py
+  - scripts/eat_queue_core/tests/test_pseudo_clock.py
+  invariant_ids:
+  - weave_pseudo_clock_harness_only
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-05-31T17:14:06Z'
+  rules_confirmed_at: '2026-05-31T17:14:06Z'
+  source:
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_pseudo_clock_tick.yaml
+    conceptual_style: intent_spine_not_implementation
+    spine_ordinal: 4
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'
+  touch_content_hash: 8fd67737791ed1fd195f221f4eeb66de1cdde8b9c0623ca25907cae1fd2c43b7
+  touch_refreshed_at: '2026-06-07T23:58:55.622665Z'
+  closure_must_read_count: 21
+  last_disconnect: null

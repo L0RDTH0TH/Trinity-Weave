@@ -1,0 +1,79 @@
+id: harness_snapshot
+conceptual:
+  outcome: Before the weave mutates any file, it can capture a deterministic receipt
+    of that file's current bytes — so there is always a before picture, not just hope.
+  summary: 'Pre-mutation save point: hash and shape of files about to change — queue
+    JSONL, run plan, board bundle, policy doc, note body. Queue is one consumer among
+    many; snapshot is universal insurance before risky writes.'
+  primary_case: 'A pass is about to rewrite, append, enrich, or otherwise mutate one
+    or more files. First action: snapshot each target. Mid-pass something fails that
+    you did not intend — crash, I/O error, another actor touched the same path. You
+    still have the before receipt; recovery realigns from that truth instead of guessing.'
+  edge_cases:
+  - Multi-target snapshot — one JSON may hold several labeled paths (e.g. track PQ
+    + central pool).
+  - Missing file — snapshot records missing:true; verify must interpret that baseline
+    honestly.
+  - Read-only capture — snapshot never fixes disk by itself; it preserves before bytes.
+  misread_risks:
+  - Thinking snapshot is queue-only — it is any-file-about-to-be-mutated.
+  - Treating snapshot as dedupe nicety — it is the integrity anchor for verify.
+  - Expecting snapshot to auto-restore — it records before; verify + recovery decide
+    next.
+  - Confusing with release — rewrite removes done items; snapshot preserves pre-mutation
+    state.
+  operator_memory_hook: About to change a file? Snapshot first — you need the before
+    picture.
+  spine_ordinal: 8
+  polar_pair: harness_verify — snapshot is before; verify asks whether what changed
+    matches intent.
+touch:
+  primary_paths:
+  - scripts/eat_queue_core/harness.py
+  inbound:
+  - any file path about to be mutated by a harness or weave pass
+  outbound:
+  - snapshot JSON receipt (labeled paths, sha256, line_count or shape)
+  harness_commands:
+  - snapshot
+  behavior_signals:
+  - test_verify_ok_when_unchanged
+  - test_verify_fails_after_mutation
+  - test_append_entries_rejects_inline_grep_paste
+  - test_resolve_parallel_context_lane_synthetic
+rules:
+  forbidden:
+  - mutate a snapshotted file without a prior snapshot when policy requires one
+  fixtures: []
+  precedence:
+  - snapshot all mutation targets before write
+  - verify against saved receipt and pass intent
+  - fail loud on mismatch — do not silently continue
+  - 'policy: treat verify success as substitute for snapshot before risky mutation'
+  - 'policy: snapshot after mutation and call it recovery'
+  acceptance:
+  - test_harness_verify green (snapshot leg)
+contract:
+  proof:
+  - scripts/eat_queue_core/harness.py
+  - scripts/eat_queue_core/tests/test_harness_verify.py
+  invariant_ids:
+  - pre_mutation_snapshot_before_trust
+meta:
+  schema_version: 2
+  source:
+    conceptual_style: intent_mutation_integrity_not_queue_centric
+    spine_ordinal: 8
+    promoted_from: .technical/weave/proposals/wide-net-v2/stubs/harness/harness_snapshot.yaml
+    pairs_with: harness_verify
+  conceptual_confirmed_at: '2026-05-31T19:04:11Z'
+  rules_confirmed_at: '2026-05-31T19:04:11Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  retiered_from: components
+  retiered_at: '2026-06-03T00:06:49Z'
+  touch_content_hash: 6a9fce2af583b7d7389ee38b40f7d42d76f080ab9ba99375be7952c92a4f263c
+  touch_refreshed_at: '2026-06-07T23:59:36.722928Z'
+  closure_must_read_count: 21
+  last_disconnect: null
