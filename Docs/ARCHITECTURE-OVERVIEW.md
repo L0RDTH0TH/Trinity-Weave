@@ -1,76 +1,71 @@
 ---
 title: Trinity-Weave architecture overview
 created: 2026-06-09
+updated: 2026-07-17
 audience: external_readers
 ---
 
-# Architecture overview (external readers)
+# Architecture overview
 
 ## One-sentence summary
 
-**Trinity-Weave** ships the **maintenance and governance layer** for an agentic Second Brain: YAML cards describe behavior, Python harnesses align code to cards, and a schedule tick runs background hygiene.
+**Trinity-Weave** ships the **maintenance and governance layer** for an agentic Second Brain: YAML cards describe behavior, Python harnesses align code to cards, and a schedule tick keeps the public surface current.
 
 ## System map
 
 ```mermaid
 flowchart TB
-  subgraph public [Trinity-Weave — this repo]
-    CARDS[weave/components YAML cards]
+  subgraph main_br [main — weave law]
+    CARDS[weave/components locked]
+    PROP[weave/component-proposals provisional]
     HARNESS[scripts/eat_queue_core harness]
     HOST[weave/host-weld live law]
-    DOCS[Docs constitution + manifest]
+    IDX[OBSERVABILITY + CARD-INDEX]
   end
 
-  subgraph private [Private vault — not shipped]
-    VAULT[Full Obsidian vault]
-    QUEUE[Runtime prompt queues]
-    PROJECTS[1-Projects factory output]
+  subgraph proj_br [project/id — instances]
+    ROAD[Roadmap + catalog]
+    POBS[PROJECT-OBSERVABILITY]
+    TERT[TERTIARY-INDEX metadata]
   end
 
-  subgraph other_public [Other public repos]
-    INTEG[master-roadmap integration branch]
-    ENGINE[engine Roadmap branches]
-  end
-
-  VAULT -->|weave_public_sync| public
-  VAULT -->|GitForge| INTEG
-  VAULT -->|GitForge Step 1b| ENGINE
+  HARNESS --> CARDS
+  HARNESS --> PROP
+  HARNESS -->|project_bridge_sync| proj_br
+  IDX --> CARDS
+  IDX --> PROP
 ```
 
-## Core concepts (minimal jargon)
+## Core concepts
 
 | Concept | What it is |
 |---------|------------|
-| **Trinity card** | One YAML file (`weave/components/<id>.yaml`) with four legs: conceptual (intent), touch (code paths), rules (forbidden/precedence), contract (tests/proofs) |
-| **Maintenance core** | Registry-listed card ids frozen against autonomous mutation; operator edits via `--operator-mutation` |
-| **Harness** | `python3 -m scripts.eat_queue_core.harness <subcommand>` — CLI for align, self-wrap, publish, schedule |
-| **Schedule tick** | Background listener/scheduled/reactive/graduation planes; includes Trinity-Weave auto-publish when weave files change |
-| **Host-weld** | Compiled execution-safety law (`weave/host-weld/live/`) consumed by Cursor sessions |
+| **Trinity card** | One YAML file with four legs: conceptual (intent), touch (code paths), rules, contract (tests/proofs) |
+| **Locked vs provisional** | Locked under `weave/components/`; provisional under `weave/component-proposals/` — both are active law; provisional may evolve |
+| **Maintenance core** | Registry-listed card ids frozen against autonomous mutation |
+| **Harness** | `python3 -m scripts.eat_queue_core.harness <subcommand>` |
+| **Schedule tick** | Background planes; change-gated public sync when weave fingerprints move |
+| **Host-weld** | Compiled execution-safety law (`weave/host-weld/live/`) |
+| **Project branch** | `project/<id>` — instances only; never merge into `main` |
 
 ## Data flow: public export
 
-1. Operator edits weave files in private vault
-2. `schedule_tick` listener detects fingerprint change on allowlisted paths
-3. `weave_public_sync` copies allowlist → `trinity-weave-export` checkout
-4. Git commit + push to GitHub `main`
+1. Weave files change in the operator workspace
+2. Fingerprint change detected on allowlisted paths
+3. `weave_public_sync` copies allowlist → Trinity-Weave export checkout (`main`)
+4. Commit + push (when push budget allows)
 5. Grok reads committed state only
+
+Project instances follow the same idea via `project_bridge_sync` onto `project/<id>`.
 
 ## What is intentionally missing
 
-- Project notes, Roadmaps, Ingest captures (factory output)
-- `.cursor/` agents/rules/skills (on integration mirror repo)
-- Runtime queue JSONL, lane board live state, Watcher append-only logs
+- Live queue JSONL and Watcher tails
+- Unpublished local paths and fulfill resolve maps
+- Game/application source trees
 
 ## Dependencies
 
 - Python 3.10+
 - `pydantic`, `pyyaml` (`scripts/eat_queue_core/requirements.txt`)
-- Assumes vault layout when run locally; **this repo is read-only context for Grok**
-
-## Related repositories
-
-| Repo | Role |
-|------|------|
-| [Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave) | Weave design (this) |
-| [genesis-mythos-master-roadmap](https://github.com/L0RDTH0TH/genesis-mythos-master-roadmap) | Queue/automation ops + engine Roadmaps |
-| Curator (private) | Full vault backup |
+- This clone is **read-only context** for Grok; harness runs against the operator workspace

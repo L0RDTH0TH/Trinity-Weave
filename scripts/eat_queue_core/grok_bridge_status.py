@@ -130,9 +130,8 @@ def build_status_payload(vault_root: Path, config_path: Path, *, cfg: dict[str, 
     return {
         "schema_version": 1,
         "generated_utc": _utc_iso(),
-        "export_repo_root": str(export_root),
         "remote_ok": remote_ok,
-        "remote_actual": remote_actual,
+        "remote_identity": "L0RDTH0TH/Trinity-Weave",
         "active_branches": [main_branch, project_branch],
         "commits_ahead_per_branch": {main_branch: main_ahead, project_branch: project_ahead},
         "local_fingerprint": {"weave": weave_fp[:16] if weave_fp else "", "project": project_fp[:16] if project_fp else ""},
@@ -141,7 +140,6 @@ def build_status_payload(vault_root: Path, config_path: Path, *, cfg: dict[str, 
         "next_eligible_push_utc": next_eligible,
         "push_skipped_reason": block_reason if not allowed else None,
         "recommendation": recommendation,
-        "gmmr_zero_bridge_budget": cfg.get("gmmr_zero_bridge_budget", True),
     }
 
 

@@ -8,8 +8,6 @@ You found **Trinity-Weave** on GitHub. This folder is the **meat suit entry** fo
 |-------------|----------------------------|
 | **bone pilot** | exo-flesh, organ suites, vein power lines, calcium frame, meat suit glitch, spinal interface, bio-mech |
 
-Not “human.” Not “Flesh Mecha.”
-
 ## Who should read what
 
 | You | Start here |
@@ -19,9 +17,8 @@ Not “human.” Not “Flesh Mecha.”
 
 ## What this repo is
 
-- Public **weave grammar** + **project surfaces** for the Second Brain maintenance layer
-- **Not** your private vault, live queues, or game code repos
-- **Not** gmmr (`genesis-mythos-master-roadmap`) for bridge work — vestigial for Grok
+- Public **weave architecture**: cards, harness, host-weld, project instance branches
+- **Not** live queues, unpublished workspaces, or game source trees
 
 ## Next steps
 
@@ -30,4 +27,4 @@ Not “human.” Not “Flesh Mecha.”
 3. [[SYNC-AND-SESSION-HEAL|Sync and session heal]]
 4. [[GROK-VS-BONE-PILOT|Grok vs bone pilot]]
 
-Law lives in YAML cards under `weave/` — meat-suit-entry docs **explain**; they do not override cards.
+Law lives in YAML under `weave/` — these pages **explain**; they do not override cards.

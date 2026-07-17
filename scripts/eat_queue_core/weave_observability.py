@@ -183,7 +183,7 @@ def build_observability_payload(
             "queue_automation": {
                 "repo": "Trinity-Weave",
                 "branch": "main",
-                "note": "gmmr vestigial for bridge; integration docs on main when exported",
+                "note": "Harness + card law on main; live queue state not published",
             },
             "live_runtime": None,
         },
@@ -208,13 +208,12 @@ def build_observability_payload(
         "provisional_card_count": len(provisional_ids),
         "harness_commands_weave": list(KEY_HARNESS_COMMANDS),
         "not_in_repo": [
-            "1-Projects/",
-            "Ingest/",
-            ".technical/parallel/",
-            ".technical/grok-bridge/",
-            "live Watcher-Result",
+            "live queues",
+            "Watcher tails",
+            "fulfill resolve maps",
+            "unpublished local edits",
         ],
-        "publish_source": "private Second Brain vault (path not published)",
+        "publish_source": "operator workspace (paths not published)",
     }
 
 

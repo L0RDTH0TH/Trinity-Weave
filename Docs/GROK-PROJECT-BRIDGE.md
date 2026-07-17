@@ -6,7 +6,7 @@ audience: grok_github_integration
 
 # Grok Project Bridge
 
-Three-tier Cursor ↔ Grok bridge on **Trinity-Weave** only.
+Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 
 ## Tiers
 
@@ -14,21 +14,13 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave** only.
 |------|---------|----------|
 | A | `main` | Weave law: locked + **provisional** cards, harness, indexes |
 | B | `project/<id>` | Project instances: Roadmap, catalog, observability |
-| C | Mediated fulfill | Tertiary vault pointers → Cursor gate → pack paste |
+| C | Mediated fulfill | Tertiary pointers → security gate → bone-pilot ack → pack paste |
 
 ## Routing
 
 - **Weave / gates / cards** → `main` (`weave/components/`, `weave/component-proposals/`)
-- **Project mint / execution** → `project/godot-genesis-mythos-master` (branch root)
+- **Project mint / execution** → `project/<id>` branch root (pilot: `project/godot-genesis-mythos-master`)
 - **Tertiary bodies** → never on GitHub; request by `tert_*` id via fulfill broker
-
-## Harness
-
-```bash
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_sync --vault-root . --project-id godot-genesis-mythos-master
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_push --vault-root . --branch project/godot-genesis-mythos-master
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness grok_bridge_status --vault-root .
-```
 
 ## Hard boundary (Grok)
 
@@ -54,8 +46,13 @@ grok_fulfill_request:
 
 ## Push economy
 
-- Grok remote = Trinity-Weave only (`main` first, then `project/*`)
-- Curator = private backup (separate cadence)
-- gmmr = vestigial for this bridge
+- Remote for Grok = this repo only (`main` first, then `project/*`)
+- Local sync may succeed while remote push waits on budget — cite `Docs/Grok-Bridge-Status.json` → `recommendation`
 
-Status: [[3-Resources/Second-Brain/Docs/Grok-Bridge-Status|Grok-Bridge-Status]]
+## Harness (operator workspace)
+
+```bash
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_sync --vault-root . --project-id godot-genesis-mythos-master
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness project_bridge_push --vault-root . --branch project/godot-genesis-mythos-master
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness grok_bridge_status --vault-root .
+```

@@ -4,8 +4,8 @@
   "remote": "https://github.com/L0RDTH0TH/Trinity-Weave",
   "branch": "main",
   "weave_core_version": "2026.07.17-grok-bridge",
-  "last_publish_utc": "2026-07-17T15:54:31Z",
-  "fingerprint": "cbaae5194271b2a4112c71c2b5b0665b73fb1b84b66430c34735520ed65300f6",
+  "last_publish_utc": "2026-07-17T16:02:43Z",
+  "fingerprint": "7c9f3ac9f0bb63c6527f636cd64fa54e6c856dd9231e4f9addefeab8ccdfdff9",
   "last_commit": null,
   "grok_start_here": "GROK-START-HERE.md",
   "bone_pilot_docs_path": "meat-suit-entry/README.md",
@@ -26,7 +26,7 @@
     "queue_automation": {
       "repo": "Trinity-Weave",
       "branch": "main",
-      "note": "gmmr vestigial for bridge; integration docs on main when exported"
+      "note": "Harness + card law on main; live queue state not published"
     },
     "live_runtime": null
   },
@@ -406,12 +406,11 @@
     "post_queue_weave_publish"
   ],
   "not_in_repo": [
-    "1-Projects/",
-    "Ingest/",
-    ".technical/parallel/",
-    ".technical/grok-bridge/",
-    "live Watcher-Result"
+    "live queues",
+    "Watcher tails",
+    "fulfill resolve maps",
+    "unpublished local edits"
   ],
-  "publish_source": "private Second Brain vault (path not published)",
+  "publish_source": "operator workspace (paths not published)",
   "card_index_path": "weave/CARD-INDEX.md"
 }
