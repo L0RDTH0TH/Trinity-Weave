@@ -32,7 +32,7 @@ from ..user_story.work_order_translate import (
     translate_vault_work_orders,
 )
 
-DEFAULT_QUEUE_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/alpha-factory-queue.yaml"
+DEFAULT_QUEUE_REL = "1-Projects/genesis-mythos-master/Factory-DRB/alpha-factory-queue.yaml"
 DISPATCH_DIR_REL = ".technical/factory/dispatch"
 
 

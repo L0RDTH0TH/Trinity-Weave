@@ -18,7 +18,7 @@ Destructive vault work is allowed only through explicit operational gates — ba
 
 ## Summary
 
-This meta card is the execution safety contract for all hosts and pipelines: how destructive work may proceed, distinct from maintenance_honesty_anchor (whether success claims are structurally honest). It distills the worth keeping from archived Cursor rules (20260606T055949Z) into Trinity engine law. Gates: (1) backup before destructive batch or stale gap; (2) per-change snapshot + high confidence band before destructive step; (3) mid-band = one non-destructive loop only, decay on flat/decrease; (4) low-band = proposals/wrappers, no destructive; (5) delete intent via scripts/move-to-trash.sh to .trash/ — never shell rm or vault cp; (6) MCP mutate path = ensure_structure, dry_run move, snapshot, commit; (7) protected paths never autonomously moved/deleted; (8) post-edit curator_snapshot.sh tail before Success; (9) MCP-less hosts apply same gates best-effort via inline file tools. Not a full MCP catalog or routing table — those stay on factory cards and harness_runtime_contract. First host-weld/live/safety.md mint = surgical digest of this card.
+**Inert roots** (`4-Archives/`, `.trash/`, `.backups/`): reference-only and **not executable** — never import/run code or invoke scripts resident there; reads allowed; reactivate only by moving out first. Cross-ref [[vault_layout_naming_doctrine]] (Archives = inactive/inert). This meta card is the execution safety contract for all hosts and pipelines: how destructive work may proceed, distinct from maintenance_honesty_anchor (whether success claims are structurally honest). It distills the worth keeping from archived Cursor rules (20260606T055949Z) into Trinity engine law. Gates: (1) backup before destructive batch or stale gap; (2) per-change snapshot + high confidence band before destructive step; (3) mid-band = one non-destructive loop only, decay on flat/decrease; (4) low-band = proposals/wrappers, no destructive; (5) delete intent via scripts/move-to-trash.sh to .trash/ — never shell rm or vault cp; (6) MCP mutate path = ensure_structure, dry_run move, snapshot, commit; (7) protected paths never autonomously moved/deleted; (8) post-edit curator_snapshot.sh tail before Success; (9) MCP-less hosts apply same gates best-effort via inline file tools. Not a full MCP catalog or routing table — those stay on factory cards and harness_runtime_contract. First host-weld/live/safety.md mint = surgical digest of this card.
 
 ## Non-negotiable
 
@@ -50,6 +50,7 @@ Log to **`3-Resources/Errors.md`**, flag **`#review-needed`**, optional Decision
 
 ## Precedence (engine)
 
+- inert_roots_are_reference_only_never_executed
 - protected_paths_and_trash_policy_are_non_negotiable
 - backup_before_destructive_batch_or_stale_gap
 - high_band_plus_per_change_snapshot_before_destructive_step
@@ -71,6 +72,7 @@ Log to **`3-Resources/Errors.md`**, flag **`#review-needed`**, optional Decision
 - `skip_dry_run_before_obsidian_move_note`
 - `advance_roadmap_current_phase_when_prior_phases_below_threshold`
 - `paste_full_subagent_safety_contract_into_meta_body`
+- `execute_or_import_code_resident_under_inert_root`
 
 ## Pointers (full detail)
 
@@ -80,3 +82,4 @@ Log to **`3-Resources/Errors.md`**, flag **`#review-needed`**, optional Decision
 - [[.technical/weave/components/maintenance_honesty_anchor.yaml]]
 - [[.technical/weave/components/harness_runtime_contract.yaml]]
 - [[4-Archives/Resources/Second-Brain-Host-Weld-Legacy/20260606T055949Z/ARCHIVE-MANIFEST.md]]
+- [[.technical/weave/components/vault_layout_naming_doctrine.yaml]]

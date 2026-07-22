@@ -11,6 +11,7 @@ from .factory_orchestrator import DEFAULT_QUEUE_REL, load_alpha_queue
 from .implementation_handoff_ready import implementation_handoff_ready
 from .playtest_gate_policy import DEFAULT_POLICY, resolve_playtest_gate_policy
 from .slice_advance import load_completion_tracker
+from .slice_producer_harness import load_cell_dispatch_plan
 from ..user_story.goal_packet_profile import ProfileValidation, validate_goal_packet_profile
 from ..user_story.implementation_artifact_ledger import reconcile_implementation_ledger_drift
 from ..user_story.playtest_manual_gate import playtest_gate_surface_ready

@@ -16,7 +16,7 @@ from .product_kinesthetic_honesty import row_is_protected_override
 from .proof_tiers import normalize_source
 
 DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-alpha"
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 
 DRB_NAV = "Factory-DRB/usability-navigation-v1.md"
 DRB_LAUNCH = "Factory-DRB/usability-launch-v1.md"

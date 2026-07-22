@@ -2979,7 +2979,7 @@ def cmd_user_story_rollout(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_rollout_slicer(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
         rollout_version=getattr(args, "rollout_version", None),
         row_assignments=assignments,
         generate_beats=not getattr(args, "no_beats", False),
@@ -2994,7 +2994,7 @@ def cmd_user_story_beats(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_beat_auto_generate(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
     )
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok") else 1
@@ -3009,7 +3009,7 @@ def cmd_depth_slice(vault_root: Path, args: argparse.Namespace) -> int:
     row_ids = [x.strip() for x in row_ids_raw.split(",") if x.strip()] if row_ids_raw else None
     out = run_depth_slicer(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
         row_id=row_id,
         row_ids=row_ids,
         bootstrap_l5=not getattr(args, "no_bootstrap", False),
@@ -3026,7 +3026,7 @@ def cmd_factory_bom(vault_root: Path, args: argparse.Namespace) -> int:
     sections = tuple(x.strip() for x in sections_raw.split(",") if x.strip()) if sections_raw else None
     out = evaluate_factory_bom(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
         sections=sections,
     )
     print(json.dumps(out.to_dict(), indent=2))
@@ -3038,7 +3038,7 @@ def cmd_factory_bom_brief(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = write_factory_bom_brief(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
     )
     print(json.dumps(out.to_dict(), indent=2))
     return 0 if out.ok else 1
@@ -3051,7 +3051,7 @@ def cmd_catalog_coverage(vault_root: Path, args: argparse.Namespace) -> int:
     planned_tuple = tuple(x.strip() for x in planned.split(",") if x.strip()) if planned else None
     out = run_catalog_coverage(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
         planned_row_ids=planned_tuple,
     )
     print(json.dumps(out.to_dict(), indent=2))
@@ -3063,7 +3063,7 @@ def cmd_conceptual_feed_gate(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = conceptual_factory_feed_report(
         vault_root,
-        str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        str(getattr(args, "project_id", "genesis-mythos-master")),
         mint_batch=getattr(args, "mint_batch", None) or None,
     )
     print(json.dumps(out, indent=2))
@@ -3088,10 +3088,46 @@ def cmd_catalog_freeze_gate(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_catalog_freeze_gate(
         vault_root,
-        project_id=str(getattr(args, "project_id", "godot-genesis-mythos-master")),
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
     )
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok") else 1
+
+
+def cmd_catalog_mint_pack_emit(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.catalog_mint_pack import emit_catalog_mint_pack
+
+    out = emit_catalog_mint_pack(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        set_active=not bool(getattr(args, "no_set_active", False)),
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
+
+
+def cmd_catalog_mint_receipt_validate(vault_root: Path, args: argparse.Namespace) -> int:
+    from .weave.user_story.catalog_mint_receipt import validate_catalog_mint_receipt
+
+    receipt_file = getattr(args, "receipt_file", None)
+    receipt_yaml = getattr(args, "receipt_yaml", None)
+    if receipt_file:
+        raw = Path(receipt_file).read_text(encoding="utf-8")
+    elif receipt_yaml:
+        raw = str(receipt_yaml)
+    else:
+        print(
+            json.dumps({"ok": False, "error": "need --receipt-file or --receipt-yaml"}),
+            file=sys.stderr,
+        )
+        return 2
+    out = validate_catalog_mint_receipt(
+        vault_root,
+        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        receipt=raw,
+    )
+    print(json.dumps(out.to_dict(), indent=2))
+    return 0 if out.ok else 1
 
 
 def cmd_slice_producer_eat(vault_root: Path, args: argparse.Namespace) -> int:
@@ -4667,7 +4703,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     pbv.set_defaults(func=cmd_phase_b_validation, skip_touch_refresh=False)
 
     bbp = sub.add_parser(
-        "backbone_promotion",
+        "backbone_promotion",  # DEPRECATED 2026-07-21: vestigial .cursor/sync
         help="Gated sync rules/skills to .cursor/sync (Phase E)",
         parents=[common],
     )
@@ -4677,7 +4713,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     bbp.set_defaults(func=cmd_backbone_promotion)
 
     bbs = sub.add_parser(
-        "backbone_sync",
+        "backbone_sync",  # DEPRECATED 2026-07-21: vestigial .cursor/sync
         help="Gated sync rules/skills to .cursor/sync (canonical name)",
         parents=[common],
     )
@@ -4835,7 +4871,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Write slice-depth-budget from operator row assignments (SET_ROLLOUT_BUDGET)",
         parents=[common],
     )
-    usr.add_argument("--project-id", default="godot-genesis-mythos-master")
+    usr.add_argument("--project-id", default="genesis-mythos-master")
     usr.add_argument("--rollout-version", type=int, default=None)
     usr.add_argument(
         "--assignments-json",
@@ -4850,7 +4886,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Auto-generate beats from slice-depth-budget (BEAT_GENERATE)",
         parents=[common],
     )
-    usb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    usb.add_argument("--project-id", default="genesis-mythos-master")
     usb.set_defaults(func=cmd_user_story_beats)
 
     ds = sub.add_parser(
@@ -4858,7 +4894,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Top-down depth slicer — L5 complete → L4..L1 scope files (DEPTH_SLICE)",
         parents=[common],
     )
-    ds.add_argument("--project-id", default="godot-genesis-mythos-master")
+    ds.add_argument("--project-id", default="genesis-mythos-master")
     ds.add_argument("--row-id", default=None, help="Single catalog row id")
     ds.add_argument("--row-ids", default=None, help="Comma-separated row ids")
     ds.add_argument("--no-bootstrap", action="store_true", help="Do not bootstrap L5 scaffold")
@@ -4869,7 +4905,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Evaluate Product Factory BOM (setup checklist → Product)",
         parents=[common],
     )
-    fbom.add_argument("--project-id", default="godot-genesis-mythos-master")
+    fbom.add_argument("--project-id", default="genesis-mythos-master")
     fbom.add_argument("--sections", default=None, help="Comma-separated BOM sections")
     fbom.set_defaults(func=cmd_factory_bom)
 
@@ -4878,7 +4914,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Write operator Factory BOM brief markdown",
         parents=[common],
     )
-    fbb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    fbb.add_argument("--project-id", default="genesis-mythos-master")
     fbb.set_defaults(func=cmd_factory_bom_brief)
 
     cc = sub.add_parser(
@@ -4886,7 +4922,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Validate slice-catalog completeness and execution pins",
         parents=[common],
     )
-    cc.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cc.add_argument("--project-id", default="genesis-mythos-master")
     cc.add_argument("--planned-rows", default=None, help="Comma-separated expected row ids")
     cc.set_defaults(func=cmd_catalog_coverage)
 
@@ -4895,15 +4931,38 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Loop 2 levels gate — catalog signed, depth charter, influence deck",
         parents=[common],
     )
-    cfg.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cfg.add_argument("--project-id", default="genesis-mythos-master")
     cfg.set_defaults(func=cmd_catalog_freeze_gate)
+
+    cmpe = sub.add_parser(
+        "catalog_mint_pack_emit",
+        help="Emit Docs/catalog-mint/<project_id>/ pack (conceptual + stack + pins + manifest)",
+        parents=[common],
+    )
+    cmpe.add_argument("--project-id", default="genesis-mythos-master")
+    cmpe.add_argument(
+        "--no-set-active",
+        action="store_true",
+        help="Do not rewrite Docs/catalog-mint/ACTIVE.md",
+    )
+    cmpe.set_defaults(func=cmd_catalog_mint_pack_emit)
+
+    cmrv = sub.add_parser(
+        "catalog_mint_receipt_validate",
+        help="Fail-closed validate one catalog mint YAML receipt against pack",
+        parents=[common],
+    )
+    cmrv.add_argument("--project-id", default="genesis-mythos-master")
+    cmrv.add_argument("--receipt-file", default=None)
+    cmrv.add_argument("--receipt-yaml", default=None)
+    cmrv.set_defaults(func=cmd_catalog_mint_receipt_validate)
 
     cfeed = sub.add_parser(
         "conceptual_feed_gate",
         help="Rung 1 factory feed readiness (mint-batch-scoped)",
         parents=[common],
     )
-    cfeed.add_argument("--project-id", default="godot-genesis-mythos-master")
+    cfeed.add_argument("--project-id", default="genesis-mythos-master")
     cfeed.add_argument("--mint-batch", default=None, help="pmg_phases | presentation_first")
     cfeed.set_defaults(func=cmd_conceptual_feed_gate)
 

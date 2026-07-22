@@ -24,13 +24,17 @@ def _manifest_path(vault_root: Path) -> Path:
     return vault_root / HOST_WELD_DIR / MANIFEST_NAME
 
 
-def load_host_weld_manifest(vault_root: Path) -> dict[str, Any]:
+def load_host_weld_manifest(vault_root: Path) -> dict[str, Any] | None:
+    """Load host-weld manifest, or None when missing/unreadable (fail-safe for self-wrap)."""
     path = _manifest_path(vault_root)
     if not path.is_file():
-        raise FileNotFoundError(f"host-weld manifest missing: {path}")
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+        return None
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, yaml.YAMLError):
+        return None
     if not isinstance(data, dict):
-        raise ValueError(f"expected YAML object: {path}")
+        return None
     return data
 
 
@@ -322,6 +326,8 @@ def run_host_weld_sync(
         return {"ok": True, "skipped": True, "reason": "host_weld_sync_disabled"}
 
     manifest = load_host_weld_manifest(vault_root)
+    if manifest is None:
+        return {"ok": True, "skipped": True, "reason": "no_manifest"}
     archive_root = str(manifest.get("legacy_archive_root") or "")
     archive_stamp = str(manifest.get("legacy_archive_stamp") or "")
     socket_retained = list(manifest.get("socket_retained") or [])

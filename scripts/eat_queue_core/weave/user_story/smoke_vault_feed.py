@@ -61,7 +61,7 @@ def _resolve_active_slice(
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Smoke test vault_roadmap factory feed")
     parser.add_argument("--vault-root", type=Path, default=Path.cwd())
-    parser.add_argument("--project-id", default="godot-genesis-mythos-master")
+    parser.add_argument("--project-id", default="genesis-mythos-master")
     parser.add_argument("--lane", default="godot")
     parser.add_argument("--row-id", default="", help="Loop 3 catalog row (smoke override)")
     parser.add_argument("--dispatch-depth", type=int, default=None, help="Loop 3 dispatch depth")

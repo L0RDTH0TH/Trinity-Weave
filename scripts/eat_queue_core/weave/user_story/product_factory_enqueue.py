@@ -38,7 +38,7 @@ def enrich_queue_entry(entry: QueueEntry, vault_root: Path) -> QueueEntry:
         return entry
 
     project_id = str(
-        entry.project_id or params.get("project_id") or "godot-genesis-mythos-master"
+        entry.project_id or params.get("project_id") or "genesis-mythos-master"
     )
     track = str(params.get("roadmap_track") or "execution").lower()
     merged = dict(params)

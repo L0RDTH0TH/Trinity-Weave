@@ -15,7 +15,7 @@ from .playtest_brief import BRIEF_DIR_REL
 from .playtest_session_ingest import ingest_playtest_session
 from .surface_pass import run_surface_pass
 
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 
 
 @dataclass(frozen=True)
@@ -51,7 +51,7 @@ def _config_path(vault_root: Path) -> Path:
 def _feedback_rel(vault_root: Path) -> str:
     raw = parse_factory_orchestrator_yaml(_config_path(vault_root))
     return str(raw.get("operator_feedback_path") or "").strip() or (
-        "1-Projects/godot-genesis-mythos-master/Factory-DRB/operator-feedback/"
+        "1-Projects/genesis-mythos-master/Factory-DRB/operator-feedback/"
         "godot-closed-alpha-kinesthetic.yaml"
     )
 
@@ -87,7 +87,7 @@ def run_operator_playtest_session(
         from .operator_playtest_lifecycle import record_playtest_pass
 
         packet = load_goal_authority(vault_root, "godot", require_confirmed=False) or {}
-        pid = str(packet.get("project_id") or "godot-genesis-mythos-master")
+        pid = str(packet.get("project_id") or "genesis-mythos-master")
         lifecycle = record_playtest_pass(
             vault_root,
             pid,

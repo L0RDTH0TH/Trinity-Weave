@@ -21,9 +21,9 @@ Attach **[L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)**
 
 | Question type | Branch / surface |
 |---------------|------------------|
-| **Mint the catalog / GMM / Genesis Mythos deliverable rows** | **`project/genesis-mythos-master`** → `Roadmap/User-Story/CATALOG-MINT-BLANK.md` |
+| **Mint the catalog / product deliverable rows** | **`main`** → `weave/component-proposals/catalog_mint.yaml` + `Docs/catalog-mint/<project_id>/` |
 | Weave design, maintenance grammar, meta cards, host-weld, gate cards | **`main`** |
-| Other project instances (Roadmap, catalog, observability) | **`project/<id>`** |
+| Other project instances (Roadmap, catalog, observability) | **`project/<id>`** (Cursor/export — not Grok mint feedstock) |
 | Tertiary bodies (`tert_*`) | Mediated fulfill pack |
 | Live runtime (queues, Watcher) | **None** — paste only |
 

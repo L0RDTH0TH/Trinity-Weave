@@ -228,7 +228,7 @@ def run_factory_lane_job(
     eid = str(entry.get("id") or "")
     slice_id = str(params.get("slice_id") or "")
     lane_id = str(params.get("lane_id") or "")
-    project_id = str(entry.get("project_id") or params.get("project_id") or "godot-genesis-mythos-master")
+    project_id = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
     engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
     repo_rel = str(
         params.get("repo_path") or "5-Attachments/Code-Repos/genesis-mythos-alpha/"
@@ -1051,7 +1051,7 @@ def run_factory_lane_job(
     if advance.get("vault_feed") and packet:
         from .factory_authority_sync import sync_goal_authority_from_vault_feed
 
-        pid = str(entry.get("project_id") or params.get("project_id") or "godot-genesis-mythos-master")
+        pid = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
         auth = sync_goal_authority_from_vault_feed(
             vault_root, queue_lane, advance, project_id=pid
         )

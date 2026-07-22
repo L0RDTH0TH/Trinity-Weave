@@ -17,6 +17,8 @@ class TestTrinityHostWeldSync(unittest.TestCase):
         )
 
         manifest = load_host_weld_manifest(VAULT_ROOT)
+        self.assertIsNotNone(manifest)
+        assert manifest is not None
         scan = count_production_legacy_mdc(
             VAULT_ROOT, socket_retained=list(manifest.get("socket_retained") or [])
         )

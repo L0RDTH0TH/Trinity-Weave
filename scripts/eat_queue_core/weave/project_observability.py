@@ -11,6 +11,7 @@ from typing import Any
 
 BRIDGE_LAYOUT_VERSION = "1"
 DEFAULT_GATE_CARDS = (
+    "catalog_mint",
     "catalog_mint_gate",
     "product_factory_pipeline",
     "ux_context_execution_gate",

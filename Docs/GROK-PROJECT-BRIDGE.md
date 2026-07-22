@@ -35,10 +35,20 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 
 GitHub connector ≈ **`main` only** (no branch picker).
 
-Product mint pack on **`main`:** `Docs/gmm-catalog-mint/`  
-(`CATALOG-MINT-BLANK.md`, `PMG-EXCERPT.md`, `PIN-INDEX.md`, `slice-catalog.yaml`)
+1. **Instruction law:** `weave/component-proposals/catalog_mint.yaml` (Trinity card)
+2. **Per-project pack:** `Docs/catalog-mint/<project_id>/`  
+   (`PACK-MANIFEST.yaml`, conceptual + pins + tech stack excerpts, `slice-catalog.yaml`)
+3. **Active pointer:** `Docs/catalog-mint/ACTIVE.md`
 
-Project branch `project/genesis-mythos-master` remains Cursor/export instance — not something the bone pilot configures inside Grok.
+Emit / refresh packs (Cursor/operator):
+
+```bash
+PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness catalog_mint_pack_emit --vault-root . --project-id <id>
+```
+
+Bone pilot **names `project_id` in the mint cue** — Grok does not discover it from branches or ACTIVE.md.
+
+Project branch `project/<id>` remains Cursor/export instance — not something the bone pilot configures inside Grok.
 
 ## Example fulfill request
 

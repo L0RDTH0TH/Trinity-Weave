@@ -55,7 +55,7 @@ parallel_execution:
 class TestWeavePublicPublish(unittest.TestCase):
     def test_scan_forbidden_detects_project_paths(self) -> None:
         hits = scan_forbidden(
-            ["Docs/foo.md", "1-Projects/godot-genesis-mythos-master/goal.md", "weave/components/x.yaml"],
+            ["Docs/foo.md", "1-Projects/genesis-mythos-master/goal.md", "weave/components/x.yaml"],
             list(DEFAULT_FORBIDDEN_PREFIXES),
         )
         self.assertEqual(len(hits), 1)

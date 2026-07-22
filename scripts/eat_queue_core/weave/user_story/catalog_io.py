@@ -10,8 +10,8 @@ from typing import Any
 import yaml
 
 from ..factory.factory_output_gate import parse_factory_orchestrator_yaml
+from ..factory.project_identity import ProjectIdMissingError, resolve_project_id
 
-DEFAULT_PROJECT_ID = "godot-genesis-mythos-master"
 DEFAULT_BUDGET_REL = "Roadmap/User-Story/slice-depth-budget.json"
 DEFAULT_CATALOG_REL = "Roadmap/User-Story/slice-catalog.yaml"
 DEFAULT_LANE_MAP_REL = "Factory-DRB/lane-map.yaml"

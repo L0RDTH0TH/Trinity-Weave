@@ -66,7 +66,7 @@ def build_implementation_handoff(
     spec_ref = str(
         params.get("demo_spec_ref")
         or (goal_packet or {}).get("planner_hints", {}).get("demo_spec_ref")
-        or "1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md"
+        or "1-Projects/genesis-mythos-master/Horizon-Q3-Demo-Spec.md"
     )
     guidance = str(params.get("user_guidance") or charter.get("done_when") or "")
     targets = charter.get("target_files") or []
@@ -96,7 +96,7 @@ def build_implementation_handoff(
         f"- Do **not** edit `.cursor/rules/**`\n"
         f"- When done: ensure `dotnet build` passes in `{repo_rel}/`\n"
         f"- Append a one-line receipt stub to "
-        f"`1-Projects/godot-genesis-mythos-master/GMM-Godot-Prototype-History.md` "
+        f"`1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md` "
         f"under a `## {milestone_id} harness receipt` heading\n\n"
         f"## Finish\n"
         f"Implement **only** {milestone_id}. Do not start later milestones. "
@@ -167,7 +167,7 @@ def build_factory_lane_handoff(
         f"Factory lane: **{lane_id}**\n"
         f"Active slice: **{slice_id}** (`IMPLEMENT_SLICE` / `factory_lane`)\n"
         f"Game repo (edit in-vault): `{repo_rel}/`\n"
-        f"Factory manifest: `1-Projects/{params.get('project_id') or 'godot-genesis-mythos-master'}/Factory-DRB/factory-project.yaml`\n"
+        f"Factory manifest: `1-Projects/{params.get('project_id') or 'genesis-mythos-master'}/Factory-DRB/factory-project.yaml`\n"
         f"{mission_block}"
         f"{vault_feed_block}\n"
         f"## Objective\n"

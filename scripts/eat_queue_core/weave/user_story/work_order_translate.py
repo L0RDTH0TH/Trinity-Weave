@@ -13,6 +13,7 @@ import yaml
 
 from ..factory.factory_output_gate import parse_factory_orchestrator_yaml
 from ..factory.lane_factories import build_lane_job, enrich_job_from_charter
+from ..factory.project_identity import ProjectIdMissingError, resolve_project_id
 from .catalog_io import (
     catalog_rows_by_id,
     load_json,
@@ -27,7 +28,6 @@ FEED_ALPHA_QUEUE = "alpha_queue"
 FEED_VAULT_ROADMAP = "vault_roadmap"
 VALID_FEED_AUTHORITIES = frozenset({FEED_ALPHA_QUEUE, FEED_VAULT_ROADMAP})
 
-DEFAULT_PROJECT_ID = "godot-genesis-mythos-master"
 DEFAULT_BUDGET_REL = "Roadmap/User-Story/slice-depth-budget.json"
 DEFAULT_CATALOG_REL = "Roadmap/User-Story/slice-catalog.yaml"
 DEFAULT_LANE_MAP_REL = "Factory-DRB/lane-map.yaml"
@@ -339,8 +339,8 @@ def translate_vault_work_orders(
     """Return operator-confirmed catalog row as a factory dispatch bundle, or None."""
     vault_root = vault_root.resolve()
     bootstrap = queue_bootstrap or {}
-    project_id = str(
-        project_id or bootstrap.get("project_id") or DEFAULT_PROJECT_ID
+    project_id = resolve_project_id(
+        vault_root, project_id or bootstrap.get("project_id")
     )
     game_repo_rel = str(bootstrap.get("game_repo_path") or "").strip("/")
     if not game_repo_rel:

@@ -8,7 +8,7 @@ from typing import Any
 
 import yaml
 
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-demo"
 
 TRACK_COUPLED = "coupled"

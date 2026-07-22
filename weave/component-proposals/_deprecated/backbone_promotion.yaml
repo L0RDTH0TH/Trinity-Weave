@@ -1,3 +1,5 @@
+# DEPRECATED 2026-07-21 — vestigial backbone sync/promotion (.cursor/sync retired)
+# See 4-Archives/Resources/Cursor-Sync-Vestigial/
 id: backbone_promotion
 conceptual:
   outcome: You get a dependable outcome from phase e backbone promotion — gated; never

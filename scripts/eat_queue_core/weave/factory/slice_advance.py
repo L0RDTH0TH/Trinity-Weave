@@ -129,10 +129,33 @@ def advance_alpha_queue_if_ready(
             "done": (load_completion_tracker(vault_root).get("slices") or {}).get(slice_id, {}),
         }
 
-    pid = str(queue.get("project_id") or "godot-genesis-mythos-master")
-    from .weld_beat_ready import playtest_exit_honestly_eligible, weld_beat_ready
+    pid = str(queue.get("project_id") or "")
+    if not pid:
+        try:
+            from .project_identity import resolve_project_id
 
-    if playtest_exit_honestly_eligible(vault_root, pid):
+            pid = resolve_project_id(vault_root, None)
+        except Exception:
+            pid = ""
+    from .weld_beat_ready import (
+        PLAYTEST_PENDING_SIGN_OFF,
+        playtest_exit_honestly_eligible,
+        weld_beat_ready,
+    )
+    from ..user_story.product_factory_state import load_product_factory
+
+    # Hard park: do not advance slices while awaiting operator playtest sign-off.
+    if pid:
+        pf = load_product_factory(vault_root, pid)
+        if str(pf.get("blocked_at") or "") == PLAYTEST_PENDING_SIGN_OFF:
+            return {
+                "ok": True,
+                "advanced": False,
+                "reason": f"playtest_gate:{PLAYTEST_PENDING_SIGN_OFF}",
+                "slice_id": slice_id,
+            }
+
+    if pid and playtest_exit_honestly_eligible(vault_root, pid):
         beat_ok, beat_reason = weld_beat_ready(vault_root, pid, slice_id=slice_id)
         if not beat_ok:
             return {

@@ -126,8 +126,10 @@ class TrinityPackTests(unittest.TestCase):
             (root / ".technical/parallel/curator/MEMORY.md").write_text("x", encoding="utf-8")
             (root / ".technical/parallel/curator/continuity.md").write_text("y", encoding="utf-8")
             block = build_context_envelope_yaml(root, "maintenance")
-            self.assertIn("trinity_pack:", block)
+            # Without resolved trinity_id, envelope reports missing (not an empty pack block).
+            self.assertIn("trinity_pack_missing: true", block)
             self.assertIn("trinity_pack_mandatory: true", block)
+            self.assertIn("trinity_pack_note:", block)
 
 
 if __name__ == "__main__":

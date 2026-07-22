@@ -137,7 +137,7 @@ def run_m1_vault_doc(
     *,
     repo_rel: str,
     spec_ref: str,
-    history_ref: str = "1-Projects/godot-genesis-mythos-master/GMM-Godot-Prototype-History.md",
+    history_ref: str = "1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md",
 ) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     repo = vault_root / repo_rel.strip("/")
@@ -295,7 +295,7 @@ def run_implement_slice(
         )
 
     milestone_id = str(params.get("milestone_id") or "").upper()
-    project_id = str(entry.get("project_id") or params.get("project_id") or "godot-genesis-mythos-master")
+    project_id = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
     engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
     repo_rel = str(params.get("repo_path") or "5-Attachments/Code-Repos/genesis-mythos-demo/").rstrip("/") + "/"
 
@@ -357,7 +357,7 @@ def run_implement_slice(
             spec_ref=str(params.get("demo_spec_ref") or hints.get("demo_spec_ref") or ""),
             history_ref=str(
                 hints.get("prototype_history_ref")
-                or "1-Projects/godot-genesis-mythos-master/GMM-Godot-Prototype-History.md"
+                or "1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md"
             ),
         )
     else:

@@ -1,0 +1,217 @@
+id: catalog_mint
+meta:
+  schema_version: 2
+  card_kind: component
+  promotion_tier: provisional
+  provisional: true
+  card_class: complete_draft
+  anatomy: A-grol-mint
+  source:
+    kind: catalog_mint_hybrid
+    generated_at: '2026-07-22T07:00:00Z'
+    notes: Grok + Cursor instruction law for product slice-catalog mint (any project_id)
+conceptual:
+  outcome: Settle one product deliverable catalog row per dialogue turn — never weave
+    CARD-INDEX entries.
+  summary: Catalog mint is an opt-in three-party session, started only when the bone
+    pilot explicitly instructs mint. Otherwise Grok converses normally. When minting,
+    Grok negotiates one deliverable noun using the project pack on main (conceptual
+    + pins + tech stack excerpts), the bone pilot gates, and Cursor applies. Not code
+    generation and not weave card authoring.
+  primary_case: 'You say "mint for genesis-mythos-master." Grok opens this card first,
+    resolves the project id, reads the pack in must_read order, prints a preflight
+    line, then discusses one candidate with prose sections and a draft YAML receipt.
+    You approve; Cursor applies; the next turn starts only after that row is settled.
+
+    '
+  edge_cases:
+  - Bone pilot says mint but omits project_id → ask; do not open any pack until named.
+  - Pack missing required files or PACK-MANIFEST → stop; ask bone pilot to run catalog_mint_pack_emit
+    / sync — do not invent pins or domains.
+  - Pin body thin in pack → ask for fulfill paste or PIN-EXCERPT; do not invent wiki-link
+    titles.
+  misread_risks:
+  - Starting a mint session without an explicit bone-pilot mint instruction.
+  - Confusing product slice-catalog with weave CARD-INDEX / OBSERVABILITY.
+  - Treating project/* branches as Grok-attached (connector sees main only).
+  - Dumping multi-row YAML or writing L5 essays into the receipt.
+  - Inferring project_id from ACTIVE.md, branch names, or memory instead of bone-pilot
+    mint cue.
+  - Using archived gmm-catalog-mint paths as live mint feedstock.
+  process:
+    turn_order:
+    - Grok: preflight → prose Meaning sections → one draft YAML receipt
+    - Bone pilot: approve | edit | reject (or keep talking)
+    - On approve: Cursor applies + Join (stack domains) + coverage; republish pack
+    - Next deliverable only after settle
+    roles:
+      grok: Meaning dialogue + draft receipt from pack feedstock
+      bone_pilot: Gate
+      cursor: Apply, normalize Join, validate, republish
+  activation:
+    default: normal_conversation
+    mint_only_when:
+    - Bone pilot explicitly instructs catalog mint AND names project_id
+    - 'Example: mint a row for genesis-mythos-master'
+    when_not_instructed: Stay in ordinary dialogue — discuss topic, pins, stack, weave
+      law as asked. Do not emit YAML receipts, preflight lines, or mint turn structure.
+touch:
+  primary_paths:
+  - weave/component-proposals/catalog_mint.yaml
+  - Docs/catalog-mint/<project_id>/MINT-PACK.md
+  - Docs/catalog-mint/<project_id>/PACK-MANIFEST.yaml
+  - Docs/catalog-mint/<project_id>/CONCEPTUAL-EXCERPT.md
+  - Docs/catalog-mint/<project_id>/PIN-INDEX.md
+  - Docs/catalog-mint/<project_id>/ROADMAP-RESOURCE-INDEX.yaml
+  - Docs/catalog-mint/<project_id>/PIN-EXCERPTS/
+  - Docs/catalog-mint/<project_id>/Tech-Stack-Excerpt.yaml
+  - Docs/catalog-mint/<project_id>/Stack-Domain-Registry-Excerpt.yaml
+  - Docs/catalog-mint/<project_id>/slice-catalog.yaml
+  - Docs/catalog-mint/_shared/WHAT-GOOD-LOOKS-LIKE.md
+  - scripts/eat_queue_core/weave/user_story/catalog_mint_pack.py
+  - scripts/eat_queue_core/weave/user_story/catalog_mint_receipt.py
+  card_export_path_on_main: weave/component-proposals/catalog_mint.yaml
+  vault_card_path: .technical/weave/component-proposals/catalog_mint.yaml
+  pack_root_on_main: Docs/catalog-mint/<project_id>/
+  pack_root_vault: 3-Resources/Second-Brain/Docs/catalog-mint/<project_id>/
+  git_navigation: 'Connector ≈ main only (no branch picker). Do not open vault-local
+    1-Projects/ paths.
+
+    Do not treat project/<id> as attached for mint dialogue.
+
+    Card path on main: weave/component-proposals/catalog_mint.yaml
+
+    Pack path on main: Docs/catalog-mint/<project_id>/
+
+    Archived gmm-catalog-mint under 4-Archives is cite-only — ignore for mint.
+
+    '
+  project_id_resolution:
+  - Bone pilot must name project_id in the mint instruction — this is the only source
+  - Do not infer from git branch names, ACTIVE.md, or prior chat memory
+  - If project_id omitted → ask and wait; never invent
+  - Then open Docs/catalog-mint/<that_project_id>/ only
+  must_read_order:
+  - weave/component-proposals/catalog_mint.yaml
+  - Docs/catalog-mint/<project_id>/PACK-MANIFEST.yaml
+  - Docs/catalog-mint/<project_id>/MINT-PACK.md
+  - Docs/catalog-mint/_shared/WHAT-GOOD-LOOKS-LIKE.md
+  - Docs/catalog-mint/<project_id>/CONCEPTUAL-EXCERPT.md
+  - Docs/catalog-mint/<project_id>/PIN-INDEX.md
+  - Docs/catalog-mint/<project_id>/ROADMAP-RESOURCE-INDEX.yaml
+  - Docs/catalog-mint/<project_id>/Tech-Stack-Excerpt.yaml
+  - Docs/catalog-mint/<project_id>/Stack-Domain-Registry-Excerpt.yaml
+  - Docs/catalog-mint/<project_id>/slice-catalog.yaml
+  - Docs/catalog-mint/<project_id>/PIN-EXCERPTS/ (as needed for the candidate)
+  fulfill_vs_pack: 'Prefer pack files. If pin body or stack detail is missing from
+    pack, ask bone pilot
+
+    for Tier C fulfill or catalog_mint_pack_emit — do not invent content.
+
+    '
+  inbound:
+  - product_factory_pipeline (upstream gate)
+  - catalog_mint_gate (factory tick gate — not Grok feedstock)
+  outbound:
+  - vault Roadmap/User-Story/slice-catalog.yaml (Cursor apply only)
+  - Docs/catalog-mint/<project_id>/ mirror (republish)
+  behavior_signals:
+  - catalog_mint_pack_emit writes PACK-MANIFEST.yaml
+  - catalog_mint_receipt_validate fail-closed on bad shape
+  - forbidden: invent wiki-links
+  - forbidden: regenerate CARD-INDEX
+  relevance_pull: 'During an instructed mint: read CONCEPTUAL-EXCERPT for product
+    vision; PIN-INDEX (+ PIN-EXCERPTS for the candidate) for legal pins; ROADMAP-RESOURCE-INDEX.yaml
+    to poll roadmap notes and connected resources; Tech-Stack-Excerpt + Stack-Domain-Registry-Excerpt
+    so proposed stack_domain_ids / spine_interfaces match locked|trialing|integrated
+    domains; slice-catalog.yaml to avoid duplicate ids and note depends_on. Do not
+    invent stack, pins, or resources outside the pack/index.'
+  poll_index: ROADMAP-RESOURCE-INDEX.yaml is the poll surface for roadmap notes and
+    their connected resources (wiki_links, linked_resources, tert_id). During mint,
+    when more context is needed, consult this index first; request fulfill by tert_id
+    if body is not in PIN-EXCERPTS. Do not invent roadmap or resource titles.
+rules:
+  forbidden:
+  - Infer project_id from ACTIVE.md, git branch, or memory
+  - Use archived gmm-catalog-mint as live feedstock
+  - Start mint / emit receipt without explicit bone-pilot mint instruction
+  - Mint or regenerate weave CARD-INDEX / OBSERVABILITY / spine / corps / self-wrap
+  - Invent conceptual_pin wiki-link titles not listed in PIN-INDEX
+  - Invent stack_domain_ids not listed in Tech-Stack-Excerpt / Stack-Domain-Registry-Excerpt
+  - Multi-row rows: dumps or batch proposals in one reply
+  - Bare YAML-only replies with no prose Meaning sections
+  - Set catalog_signed_at
+  - Fields trinity_id, progress, priority, pass_gate, CARD-INDEX-update
+  - Open vault 1-Projects/ or claim project/* is attached
+  - Second-Brain / weave process chores as catalog rows
+  - Invent roadmap or resource titles not listed in ROADMAP-RESOURCE-INDEX / PIN-INDEX
+  fixtures:
+  - name: preflight_line
+    text: 'Preflight: card=catalog_mint path=weave/component-proposals/catalog_mint.yaml
+      project_id=<id> pack=Docs/catalog-mint/<id>/ synced_at=<PACK-MANIFEST.synced_at>
+
+      '
+  - name: opening_line
+    text: Filling one product catalog row from PMG — not weave CARD-INDEX. Prose negotiation
+      first.
+  - name: closing_line
+    text: Questions for you above. Draft receipt below — say approve / edit / reject,
+      or keep talking.
+  - name: receipt_yaml
+    yaml: "- id: snake_case_deliverable_noun\n  dimension: ui_surface\n  label: Human-readable\
+      \ deliverable name\n  planned: true\n  mint_status: proposed\n  conceptual_pin:\
+      \ \"[[Exact-Title-From-PIN-INDEX]]\"\n  execution_pins: []\n  depends_on: []\n\
+      \  touchstone_refs: []\n  stack_domain_ids: []\n  spine_interfaces: []\n"
+  prose_sections:
+  - Candidate — working id + one-sentence label
+  - What it is — short player/DM-visible paragraph
+  - From the pin — PIN-INDEX title + 3–6 intent bullets
+  - Full vision (L5 direction) — largest honest done
+  - Early / PoC cut — what to omit first and why
+  - Hard dependencies — what must already be true
+  - Out of scope — what this row must not swallow
+  - Open questions — 2–4 concrete choices
+  - Draft YAML receipt — exactly one row, mint_status proposed
+  dimensions:
+  - ui_surface
+  - sim_system
+  - world_gen
+  - dm_rail
+  - player_rail
+  - rules
+  - session_bootstrap
+  - platform
+  - other
+  stack_join: 'Grok may propose stack_domain_ids / spine_interfaces only from published
+    pack excerpts.
+
+    Cursor normalizes Join on apply and runs catalog_coverage. Empty arrays OK when
+    unsure;
+
+    dimension other may leave domains empty.
+
+    '
+  precedence:
+  - This card over retired mint blanks and custom-instruction essays
+  - Pack PIN-INDEX over memory
+  - PACK-MANIFEST required-files over improvisation
+  acceptance:
+  - Mint session only after explicit bone-pilot mint instruction; otherwise normal
+    chat
+  - Every draft turn starts with preflight_line (card + project_id + pack + synced_at)
+  - Exactly one YAML receipt row per turn
+  - mint_status is proposed
+  - conceptual_pin ∈ PIN-INDEX or explicit needs pin
+  - stack_domain_ids ⊆ published excerpt domain ids when non-empty
+  - Cursor catalog_mint_receipt_validate passes before vault apply
+  - Poll ROADMAP-RESOURCE-INDEX before inventing context; fulfill for missing bodies
+contract:
+  proof:
+  - scripts/eat_queue_core/tests/test_catalog_mint_pack.py
+  - scripts/eat_queue_core/weave/user_story/catalog_mint_pack.py
+  - scripts/eat_queue_core/weave/user_story/catalog_mint_receipt.py
+  invariant_ids:
+  - catalog_mint_card_first
+  - catalog_mint_one_row
+  - catalog_mint_pack_manifest
+status: provisional

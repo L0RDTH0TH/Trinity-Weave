@@ -38,7 +38,7 @@ def sync_goal_authority_from_vault_feed(
     if not isinstance(data, dict):
         return {"ok": False, "error": "goal_authority_invalid"}
 
-    pid = project_id or str(data.get("project_id") or "godot-genesis-mythos-master")
+    pid = project_id or str(data.get("project_id") or "genesis-mythos-master")
     pf = load_product_factory(vault_root, pid)
     active = pf.get("active_slice") if isinstance(pf.get("active_slice"), dict) else {}
     row_ids = [str(x) for x in (active.get("row_ids") or []) if x]

@@ -5,7 +5,11 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .factory_project import DEFAULT_PROJECT_ID, load_factory_project
+from .factory_project import load_factory_project
+from .project_identity import (
+    ProjectIdMissingError,
+    resolve_project_id,
+)
 
 DRB_ARTIFACTS: dict[str, str] = {
     "tech_stack_manifest": "Tech-Stack-Manifest-v1.yaml",
@@ -24,12 +28,17 @@ DRB_ARTIFACTS: dict[str, str] = {
     "closed_alpha_release": "Release-Definitions/closed-alpha-v1.md",
 }
 
-
-def resolve_project_id(vault_root: Path, project_id: str | None = None) -> str:
-    if project_id:
-        return project_id.strip()
-    boot = load_factory_project(vault_root, None)
-    return str(boot.get("project_id") or DEFAULT_PROJECT_ID)
+__all__ = [
+    "DRB_ARTIFACTS",
+    "ProjectIdMissingError",
+    "drb_artifact_path",
+    "factory_drb_dir",
+    "resolve_game_repo_path",
+    "resolve_project_id",
+    "scaffold_factory_project",
+    "stack_domain_registry_path",
+    "tech_stack_manifest_path",
+]
 
 
 def factory_drb_dir(vault_root: Path, project_id: str | None = None) -> Path:

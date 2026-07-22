@@ -31,6 +31,6 @@ project/genesis-mythos-master/   ← branch name (not a folder on branch)
 }
 ```
 
-Gate cards (`catalog_mint_gate`, etc.) live on **`main`**, not this branch.
+Gate cards (`catalog_mint_gate`, `catalog_mint`, etc.) live on **`main`**, not this branch.
 
-**Mint with Grok:** attach this project branch. Read `CATALOG-MINT-BLANK.md` first (one row → approve/edit/reject → next). Historical remint is cite-only (`MINT-EPOCH.md`). Cursor applies each approved row → `project_bridge_sync` → push when you want Grok to see applied rows.
+**Mint with Grok:** do **not** attach this project branch. On **`main`**, open `weave/component-proposals/catalog_mint.yaml` then `Docs/catalog-mint/<project_id>/`. Historical remint is cite-only (`MINT-EPOCH.md`). Cursor applies approved rows → `catalog_mint_pack_emit` (+ weave publish) so Grok sees the updated pack.

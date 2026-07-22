@@ -10,3 +10,8 @@ behavior_signals:
   - product_factory.tick blocked_at operator_loop
   - ux_context present on execution RESUME when product_factory_run_id set
 status: proposal
+# Grok-facing mint instruction law (full legs): catalog_mint.yaml (sibling provisional card).
+# This gate remains product-factory tick law; do not treat as Grok feedstock.
+pairs_with:
+  - catalog_mint
+

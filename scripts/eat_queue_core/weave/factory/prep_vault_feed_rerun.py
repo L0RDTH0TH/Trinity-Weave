@@ -23,7 +23,7 @@ def refresh_goal_packet_vault_feed(
     vault_root: Path,
     *,
     lane: str,
-    project_id: str = "godot-genesis-mythos-master",
+    project_id: str = "genesis-mythos-master",
 ) -> dict[str, Any]:
     """Rewrite goal-authority for levels+waves (vault_roadmap). closed_alpha = user label only."""
     vault_root = vault_root.resolve()
@@ -174,7 +174,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Prep vault-feed factory re-run")
     p.add_argument("--vault-root", type=Path, default=Path("."))
     p.add_argument("--lane", default="godot")
-    p.add_argument("--project-id", default="godot-genesis-mythos-master")
+    p.add_argument("--project-id", default="genesis-mythos-master")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("goal-packet", help="Refresh goal-authority.json for vault_roadmap")
     sub.add_parser("clear-pq", help="Archive legacy alpha-queue PQ lines")

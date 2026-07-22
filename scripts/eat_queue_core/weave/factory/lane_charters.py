@@ -11,7 +11,7 @@ import yaml
 LANE_IDS: tuple[str, ...] = ("asset", "techart", "content", "presentation", "audio", "module")
 
 DEFAULT_LANE_ROOT = ".technical/parallel"
-FALLBACK_LANE_ROOT = "1-Projects/godot-genesis-mythos-master/Factory-DRB/lanes"
+FALLBACK_LANE_ROOT = "1-Projects/genesis-mythos-master/Factory-DRB/lanes"
 
 
 @dataclass(frozen=True)

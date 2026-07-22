@@ -8,9 +8,14 @@ from typing import Any
 import yaml
 
 from .factory_output_gate import parse_factory_orchestrator_yaml
+from .project_identity import (
+    ProjectIdMissingError,
+    resolve_project_id,
+)
 
-DEFAULT_PROJECT_ID = "godot-genesis-mythos-master"
-LEGACY_ALPHA_QUEUE_REL = f"1-Projects/{DEFAULT_PROJECT_ID}/Factory-DRB/alpha-factory-queue.yaml"
+# Re-export for callers that imported DEFAULT_PROJECT_ID historically.
+# Must never be used as a silent resolution fallback.
+LEGACY_STRANDED_PROJECT_ID = "godot-genesis-mythos-master"
 
 
 def factory_project_rel(project_id: str) -> str:
@@ -28,10 +33,14 @@ def load_factory_project(
 
     Legacy alpha-factory-queue.yaml is used only to fill missing fields when manifest
     is absent (migration shim).
+
+    ``project_id`` resolves fail-closed via :func:`resolve_project_id` (explicit arg
+    or ``factory_orchestrator.project_id``). Raises :exc:`ProjectIdMissingError`
+    when neither is set — never falls back to a hardcoded slug.
     """
     vault_root = vault_root.resolve()
     cfg = parse_factory_orchestrator_yaml(vault_root / "3-Resources/Second-Brain-Config.md")
-    pid = str(project_id or cfg.get("project_id") or DEFAULT_PROJECT_ID)
+    pid = resolve_project_id(vault_root, project_id)
 
     manifest: dict[str, Any] = {}
     manifest_path = vault_root / factory_project_rel(pid)
@@ -40,9 +49,14 @@ def load_factory_project(
         if isinstance(raw, dict):
             manifest = raw
 
-    legacy_rel = legacy_alpha_rel or str(
-        manifest.get("legacy_alpha_queue_ref") or LEGACY_ALPHA_QUEUE_REL
-    )
+    legacy_rel = legacy_alpha_rel or str(manifest.get("legacy_alpha_queue_ref") or "")
+    # Only consult legacy alpha queue under the *resolved* project — never the
+    # stranded slug as a default path.
+    if not legacy_rel:
+        candidate = f"1-Projects/{pid}/Factory-DRB/alpha-factory-queue.yaml"
+        if (vault_root / candidate).is_file():
+            legacy_rel = candidate
+
     legacy: dict[str, Any] = {}
     if legacy_rel:
         from .factory_orchestrator import load_alpha_queue
@@ -90,3 +104,12 @@ def load_factory_project(
         "legacy_alpha_queue_ref": legacy_rel,
         "manifest_path": str(manifest_path.relative_to(vault_root)) if manifest_path.is_file() else "",
     }
+
+
+__all__ = [
+    "LEGACY_STRANDED_PROJECT_ID",
+    "ProjectIdMissingError",
+    "factory_project_rel",
+    "load_factory_project",
+    "resolve_project_id",
+]

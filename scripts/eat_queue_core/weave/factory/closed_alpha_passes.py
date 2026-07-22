@@ -44,7 +44,7 @@ def run_closed_alpha_release_readiness_pass(vault_root: Path) -> ReviewPassResul
         violations.append("factory_output_conduct_fail")
 
     closed_alpha_doc = vault_root / (
-        "1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/closed-alpha-v1.md"
+        "1-Projects/genesis-mythos-master/Factory-DRB/Release-Definitions/closed-alpha-v1.md"
     )
     if closed_alpha_doc.is_file():
         text = closed_alpha_doc.read_text(encoding="utf-8")

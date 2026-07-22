@@ -1,0 +1,190 @@
+schema_version: 1
+excerpt_of: Factory-DRB/Tech-Stack-Manifest-v1.yaml
+project_id: genesis-mythos-master
+filter: locked|trialing|integrated
+rows:
+- id: engine-godot-463-dotnet
+  stack_domain_id: engine_runtime
+  status: locked
+  row_kind: locked
+  wrap_policy: null
+  vendor_or_source: Godot 4.6.3 .NET / .NET 8 SDK
+  notes: Locked engine — Godot 4.6.3 .NET / .NET 8; not engine-swappable. 4.7 is rc1
+    only — stay on 4.6.3.
+- id: stack-seed-authority
+  stack_domain_id: world_gen_pipeline
+  status: locked
+  row_kind: integrated
+  wrap_policy: ISeedAuthority
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: First-party ISeedAuthority spine re-affirmed (currency 2026-07-21) — vendor
+    seeds normalize in; not source of truth.
+- id: stack-world-gen-pipeline
+  stack_domain_id: world_gen_pipeline
+  status: locked
+  row_kind: integrated
+  wrap_policy: IWorldGenStage
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Pipeline orchestrator (staged DAG)
+- id: stack-procedural-maps
+  stack_domain_id: procedural_maps
+  status: locked
+  row_kind: integrated
+  wrap_policy: IMapGenAuthority
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Overland map authority (2D)
+- id: stack-hydrology
+  stack_domain_id: procedural_maps
+  status: locked
+  row_kind: integrated
+  wrap_policy: IHydrologyStage
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Hydrology (rivers, lakes, watersheds)
+- id: stack-biome-assignment
+  stack_domain_id: world_gen_pipeline
+  status: locked
+  row_kind: integrated
+  wrap_policy: IBiomeStage
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Biome classification & splat/material weights
+- id: stack-poi-settlement
+  stack_domain_id: world_gen_pipeline
+  status: locked
+  row_kind: integrated
+  wrap_policy: IPOIStage
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — POI, settlements, roads/trails
+- id: stack-procedural-terrain
+  stack_domain_id: procedural_terrain
+  status: locked
+  row_kind: integrated
+  wrap_policy: ITerrainAuthority
+  vendor_or_source: res://addons/terrain_3d/
+  notes: Path B operational — 3D terrain authority & streaming
+- id: stack-entity-bootstrap
+  stack_domain_id: world_gen_pipeline
+  status: locked
+  row_kind: integrated
+  wrap_policy: IEntityBootstrapStage
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Entity / prop bootstrap from world data
+- id: stack-procedural-maps-gaea-parallel
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: null
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — stack-procedural-maps-gaea-parallel
+- id: stack-simulation-tick
+  stack_domain_id: simulation_tick
+  status: locked
+  row_kind: integrated
+  wrap_policy: ISimTickHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Sim tick & event bus
+- id: stack-weather-ambience
+  stack_domain_id: simulation_tick
+  status: locked
+  row_kind: integrated
+  wrap_policy: IWeatherModule
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Weather & ambient systems
+- id: stack-npc-schedules
+  stack_domain_id: simulation_tick
+  status: locked
+  row_kind: integrated
+  wrap_policy: INPCScheduleModule
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — NPC schedules & faction ripples
+- id: stack-rules-engine
+  stack_domain_id: rules_engine
+  status: locked
+  row_kind: integrated
+  wrap_policy: IRulesPluginHost
+  vendor_or_source: IRulesPluginHost + IDiceRoller → skizzerz/DiceRoller (MIT); 5e-bits
+    SRD 5.1 CC-BY seed; ref jamesplotts/opencombatengine
+  notes: 'Adopt DiceRoller behind IDiceRoller / IRulesPluginHost.Roll; exclude AGPL
+    kupka/libsrd5 + vokimon/godot-dice-roller; ruleset-agnostic host on Godot (not
+    engine swap). CDR: rules-base-srd-5-1-cc-by-2026-07-21.'
+- id: stack-character-creation
+  stack_domain_id: character_creation
+  status: locked
+  row_kind: integrated
+  wrap_policy: ICharacterCreationHost
+  vendor_or_source: Path B first-party — SRD 5.1 species-baked ability bonuses
+  notes: 'SRD 5.1 species-baked ability bonuses (not floating ASI pool). CDR: rules-base-srd-5-1-cc-by-2026-07-21.'
+- id: stack-intent-lore-loop
+  stack_domain_id: intent_lore_loop
+  status: locked
+  row_kind: integrated
+  wrap_policy: IIntentResolver
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Intent parser & lore → systemic hooks
+- id: stack-perspective-camera
+  stack_domain_id: perspective_camera
+  status: locked
+  row_kind: integrated
+  wrap_policy: ICameraRig
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Sparky camera (FP, free-cam, ortho tabletop)
+- id: stack-vtt-overlays
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IVttOverlayHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — VTT overlay modules
+- id: stack-ui-hosts
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IUiHost
+  vendor_or_source: First-party IUiHost + CommunityToolkit.Mvvm; optional DotPudica
+    / GUML
+  notes: First-party UI spine re-affirmed; CommunityToolkit.Mvvm default; DotPudica/GUML
+    currency noted as optional spikes (2026-07-21).
+- id: stack-input-intent
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IInputIntentHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Input loop & interaction raycasts
+- id: stack-dm-overwrites
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IDmOverwriteHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — DM live overwrites vs structural regen gate
+- id: stack-regional-modules
+  stack_domain_id: regional_modules
+  status: locked
+  row_kind: integrated
+  wrap_policy: IRegionalModuleHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Regional module host & re-generation boundaries
+- id: stack-persistence-snapshots
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IPersistenceHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Snapshots, dry-run, provenance
+- id: stack-ci-gdunit4net
+  stack_domain_id: ci_tooling
+  status: locked
+  row_kind: integrated
+  wrap_policy: null
+  vendor_or_source: godot-gdunit-labs/gdUnit4Net (ex MikeSchulze); gdUnit4 6.1.x +
+    gdUnit4.api 5.x + gdUnit4.test.adapter 3.0.0 + Microsoft.NET.Test.Sdk 18.0.0
+  notes: 'Org migrate MikeSchulze → godot-gdunit-labs. Pins: gdUnit4 plugin 6.1.x
+    (Godot 4.6.3), gdUnit4.api 5.x, gdUnit4.test.adapter 3.0.0, Microsoft.NET.Test.Sdk
+    18.0.0. Action godot-gdunit-labs/gdUnit4-action@v1.'
+- id: stack-editor-tooling
+  stack_domain_id: null
+  status: locked
+  row_kind: integrated
+  wrap_policy: IEditorToolHost
+  vendor_or_source: Path B first-party — see operational receipt
+  notes: Path B operational — Editor tooling & map preview

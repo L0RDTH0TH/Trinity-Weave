@@ -11,7 +11,7 @@ from .operator_feedback import DEFAULT_FEEDBACK_REL
 from .proof_tiers import normalize_source
 from .weave_track import is_track_coupled, track_status
 
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-demo"
 TRINITY_CARD_REL = ".technical/weave/component-proposals/product_kinesthetic_honesty.yaml"
 

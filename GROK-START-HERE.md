@@ -5,18 +5,18 @@
 
 ---
 
-## STOP — “mint the catalog” / GMM
+## STOP — “mint the catalog” / product deliverables
 
-Do **not** talk about regenerating `CARD-INDEX`, OBSERVABILITY, spine, corps, self-wrap, or harness.
+**Only when the bone pilot explicitly instructs mint and names `project_id`.** Otherwise talk normally — do not open a mint session or emit a YAML receipt. Do not guess `project_id` from branches or ACTIVE.md.
 
-Open this folder on **`main`**:
+When instructed:
 
-**`Docs/gmm-catalog-mint/`**
+1. Use the **named** `project_id` from the mint cue.
+2. Open **`weave/component-proposals/catalog_mint.yaml`** (Trinity card — process / touch / rules).
+3. Open pack **`Docs/catalog-mint/<project_id>/`** — pull conceptual + pins + `ROADMAP-RESOURCE-INDEX.yaml` + tech-stack excerpts. Poll the index for more context; request fulfill by `tert_id` for missing bodies.
+4. Preflight every draft; **one** YAML receipt; await `approve` / `edit` / `reject`.
 
-1. `CATALOG-MINT-BLANK.md` — dialogue contract  
-2. `PMG-EXCERPT.md` — product feedstock  
-3. `PIN-INDEX.md` — legal pin titles  
-4. Propose **exactly one** row → await `approve` / `edit` / `reject`
+Ignore archived `gmm-catalog-mint` if old links surface it.
 
 ---
 
@@ -37,23 +37,24 @@ You see **committed git** (usually `main`). Bone pilot may paste packs for anyth
 
 | Question | Where |
 |----------|--------|
-| Mint catalog / GMM / Genesis Mythos deliverables | **`Docs/gmm-catalog-mint/`** on `main` |
+| Mint catalog / product deliverable rows (any project) | **`catalog_mint` card** + **`Docs/catalog-mint/<project_id>/`** |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
 | Live queue / Watcher | Unavailable — ask for paste |
 
 ## Hard limits
 
 - No live vault / Watcher
-- Never confuse **card catalog** (`CARD-INDEX`) with **product slice-catalog** (`Docs/gmm-catalog-mint/slice-catalog.yaml`)
-- Pasteable custom instructions: `Docs/Grok-Second-Brain-Custom-Instructions.md` (short body under “PASTE FROM HERE”)
+- Never confuse **card catalog** (`CARD-INDEX`) with **product slice-catalog** (`Docs/catalog-mint/<id>/slice-catalog.yaml`)
+- Pasteable custom instructions: `Docs/Grok-Second-Brain-Custom-Instructions.md`
 
 ## Key paths
 
 | Path | Contents |
 |------|----------|
-| `Docs/gmm-catalog-mint/` | **Product catalog mint pack (use this)** |
-| `Docs/GROK-PROJECT-BRIDGE.md` | Bridge notes (historical; mint pack is authoritative for mint) |
+| `weave/component-proposals/catalog_mint.yaml` | **Mint instruction law** |
+| `Docs/catalog-mint/` | **Per-project packs** (+ `ACTIVE.md`) |
+| `Docs/GROK-PROJECT-BRIDGE.md` | Bridge notes |
 | `Docs/Grok-Second-Brain-Custom-Instructions.md` | Paste into Grok Chat |
 | `meat-suit-entry/` | Bone pilot hub |
 | `weave/components/*.yaml` | Locked cards |
-| `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — not Grok’s job for mint) |
+| `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — pack emit / receipt validate) |

@@ -10,8 +10,8 @@ import yaml
 
 from .factory_little_val import FactoryLittleValResult
 
-DEFAULT_ZONES_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/FACTORY_ZONES.yaml"
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+DEFAULT_ZONES_REL = "1-Projects/genesis-mythos-master/Factory-DRB/FACTORY_ZONES.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 
 
 @dataclass(frozen=True)

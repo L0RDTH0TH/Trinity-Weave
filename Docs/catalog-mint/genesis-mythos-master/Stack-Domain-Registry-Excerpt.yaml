@@ -1,0 +1,52 @@
+schema_version: 1
+excerpt_of: Factory-DRB/Stack-Domain-Registry-v1.yaml
+project_id: genesis-mythos-master
+domains:
+- id: world_gen_pipeline
+  title: World generation pipeline
+  spine_interface: IWorldGenStage
+  description: Seed parsing → terrain → biome → POI → entity → simulation bootstrap;
+    staged DAG.
+- id: procedural_maps
+  title: Procedural maps (2D authority)
+  spine_interface: IMapGenAuthority
+  description: Map generation authority, export format, handoff contract to terrain/world
+    state.
+- id: procedural_terrain
+  title: Procedural terrain (3D)
+  spine_interface: ITerrainAuthority
+  description: Heightfield/mesh terrain, streaming, bake from map handoff, runtime
+    admission.
+- id: character_creation
+  title: Character creation
+  spine_interface: ICharacterCreationHost
+  description: Character data model, creation UI host, persistence, handoff to rules/sim.
+    SRD 5.1 species-baked ability bonuses.
+- id: rules_engine
+  title: Rules engine (D&D-like)
+  spine_interface: IRulesPluginHost
+  description: Rules-as-plugins on Godot host; IDiceRoller → skizzerz/DiceRoller;
+    SRD 5.1 CC-BY first plugin; ToV/A5E later.
+- id: simulation_tick
+  title: Living simulation tick
+  spine_interface: ISimTickHost
+  description: Tick-scoped sim, event bus, state stores decoupled from rendering.
+- id: intent_lore_loop
+  title: Intent / lore population loop
+  spine_interface: IIntentResolver
+  description: Intent parser, resolver, lore → systemic hooks (reputation, events,
+    environment).
+- id: perspective_camera
+  title: Perspective & camera (Sparky)
+  spine_interface: ICameraRig
+  description: FP + DM free-cam + ortho; camera interpolator; PMG Sparky behavior.
+- id: regional_modules
+  title: Regional / module factory host
+  spine_interface: IRegionalModuleHost
+  description: RegionalState ModuleFactory, module admission, regional persistence
+    seams.
+- id: ci_tooling
+  title: CI & test harness
+  spine_interface: null
+  description: Linux headless Godot 4.6.3 .NET + GdUnit4Net (godot-gdunit-labs); gdUnit4
+    6.1.x / api 5.x / adapter 3.0.0 / Test.Sdk 18.0.0; interop smokes.

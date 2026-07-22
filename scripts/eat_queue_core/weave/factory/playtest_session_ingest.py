@@ -14,7 +14,7 @@ from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS
 from .product_kinesthetic_honesty import row_is_protected_override
 
 DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-alpha"
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 OPERATOR_VERDICTS = frozenset({"pass", "fail", "skip", "unsure"})
 
 

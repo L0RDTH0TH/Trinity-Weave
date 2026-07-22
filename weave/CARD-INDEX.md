@@ -1,6 +1,6 @@
 # Trinity card index (auto-generated)
 
-Generated: `2026-07-17T20:45:52Z` — do not hand-edit; regenerated on each `weave_public_sync`.
+Generated: `2026-07-22T07:50:55Z` — do not hand-edit; regenerated on each `weave_public_sync`.
 
 Includes **locked** (`weave/components/`) and **provisional** (`weave/component-proposals/`).
 
@@ -13,7 +13,7 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `factory_lifecycle_doctrine` | **locked** | meta | maintenance_core | This meta card is the **Run lifecycle charter**: how factories (queue dispatch, headless paths, roadmap Run, Curator STE |
 | `ghost_skill_audit` | **locked** | component | maintenance_core | Production skills need you at the keyboard. Away-from-keyboard runs rely on proposal stubs as repeat recipes; skill_gap  |
 | `harness_runtime_contract` | **locked** | meta | maintenance_core | This meta card is the **host-agnostic factory runtime**: Layer 0 invokes `python3 -m scripts.eat_queue_core.harness` (an |
-| `host_execution_safety_contract` | **locked** | meta | maintenance_core | This meta card is the execution safety contract for all hosts and pipelines: how destructive work may proceed, distinct  |
+| `host_execution_safety_contract` | **locked** | meta | maintenance_core | **Inert roots** (`4-Archives/`, `.trash/`, `.backups/`): reference-only and **not executable** — never import/run code o |
 | `invariant_registry` | **locked** | component | maintenance_core | Apex of the policy spine for cross-cutting invariants operators and automation must honor. Local discipline stays on the |
 | `l2_predictive_maintenance` | **locked** | component | maintenance_core | L2 foresight: runtime risk (is now safe to act?) and integration risk (will this change cascade?). Emits narrow-scope or |
 | `l2_symbolic_conflict` | **locked** | component | maintenance_core | L2 pause: compare imminent action against registered invariants. Aligned — continue within bounds. Mismatch — narrow sco |
@@ -35,7 +35,7 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `trinity_spine_maintenance` | **locked** | component | maintenance_core | Spine maintenance is the joint between your locked gauges and vehicle sections and the wider corpus of drafts waiting be |
 | `trinity_upgrade_integration` | **locked** | component | maintenance_core | Design-time joint on the maintenance spine: name load, peers, and compensators before ship; adapt after mistakes without |
 | `trinity_weave_public_export` | **locked** | meta | maintenance_core | This meta card binds the **Trinity-Weave** public repo ([L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-W |
-| `vault_layout_naming_doctrine` | **locked** | meta | maintenance_core | This meta card is the **agent digest** for **where things live** and **what files are called**. Full bodies stay in **Va |
+| `vault_layout_naming_doctrine` | **locked** | meta | maintenance_core | **PARA (vault-agnostic):** **Projects** = active, end-stated efforts with a finish line; **Areas** = ongoing responsibil |
 | `weave_governance` | **locked** | component | maintenance_core | Weave governance is the system's memory backbone for operational truth. It records what was reviewed, what the board loo |
 | `a5b_dedupe` | **provisional** | component |  | A5B Dedupe exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels like |
 | `ab2_run_controller` | **provisional** | component |  | Ab2 Run Controller exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' fe |
@@ -51,8 +51,7 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `architect_pq_planner` | **provisional** | component |  | Architect Pq Planner exists so everyday operation stays understandable: what it protects, when it runs, and what 'done'  |
 | `architect_preflight` | **provisional** | component |  | Architect Preflight exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' f |
 | `architect_touch_apply` | **provisional** | component |  | Architect Apply exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
-| `backbone_promotion` | **provisional** | component |  | Backbone Promotion exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' fe |
-| `backbone_sync` | **provisional** | component |  | Backbone Sync exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels l |
+| `catalog_mint` | **provisional** | component |  | Catalog mint is an opt-in three-party session, started only when the bone pilot explicitly instructs mint. Otherwise Gro |
 | `catalog_mint_gate` | **provisional** | component |  | Harness-verified law for PMG → product conductor path. |
 | `catchup_corpus_tunnel` | **provisional** | component |  | Catchup Corpus Tunnel exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' |
 | `cli_eat` | **provisional** | component |  | Cli Eat exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels like fo |

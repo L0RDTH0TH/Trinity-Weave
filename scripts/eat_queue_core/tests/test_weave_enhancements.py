@@ -33,11 +33,19 @@ class EnhancementsTests(unittest.TestCase):
                 mode="MAINTENANCE_NOTE",
                 params={"meta_only": True, "detail": "test"},
             )
-            out = run_layer1_maintenance_pass(root, max_entries=5, emit_watcher=False)
+            # Isolate consume behavior; board refresh may enqueue follow-ups separately.
+            out = run_layer1_maintenance_pass(
+                root, max_entries=5, emit_watcher=False, refresh_board=False
+            )
             self.assertEqual(out.get("processed"), 1)
-            self.assertEqual(len(load_queue_file(maintenance_pq_path(root))), 0)
+            remaining = load_queue_file(maintenance_pq_path(root))
+            self.assertFalse(any(e.mode == "MAINTENANCE_NOTE" for e in remaining))
+            self.assertEqual(remaining, [])
 
     def test_full_cycle_maintenance_short_circuit(self) -> None:
+        # Board refresh after maintenance may auto-enqueue GOVERNANCE_REVIEW and/or
+        # OPERATOR_SURFACE_REPAIR (trinity/integrity) — not a short-circuit regression.
+        _board_followups = frozenset({"GOVERNANCE_REVIEW", "OPERATOR_SURFACE_REPAIR"})
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             pq = root / ".technical" / "parallel" / "maintenance" / "prompt-queue.jsonl"
@@ -45,7 +53,7 @@ class EnhancementsTests(unittest.TestCase):
             append_maintenance_entry(
                 root,
                 mode="OPERATOR_ALERT",
-                params={"meta_only": True, "code": "test", "origin_lane": "curator"},
+                params={"meta_only": True, "code": "test", "origin_lane": "institute"},
             )
             result = run_full_eat_queue_cycle(
                 initial_action="deepen",
@@ -59,12 +67,18 @@ class EnhancementsTests(unittest.TestCase):
             self.assertEqual(result.passes_run, 1)
             self.assertEqual(len(result.plans), 0)
             self.assertTrue(result.execute_summaries)
-            self.assertTrue(result.queue_empty_after_cleanup)
+            remaining = load_queue_file(pq) if pq.is_file() else []
+            self.assertFalse(any(e.mode == "OPERATOR_ALERT" for e in remaining))
+            if remaining:
+                self.assertTrue(all(e.mode in _board_followups for e in remaining))
+            else:
+                self.assertTrue(result.queue_empty_after_cleanup)
 
     def test_pq_cap_apply_and_restore(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            bundle = root / ".technical" / "parallel" / "curator"
+            # curator → institute (legacy alias); write under canonical lane.
+            bundle = root / ".technical" / "parallel" / "institute"
             bundle.mkdir(parents=True)
             pq = bundle / "prompt-queue.jsonl"
             lines = [
@@ -72,10 +86,10 @@ class EnhancementsTests(unittest.TestCase):
                 for i in range(8)
             ]
             pq.write_text("\n".join(lines) + "\n", encoding="utf-8")
-            applied = apply_pq_cap(root, "curator", 3)
+            applied = apply_pq_cap(root, "institute", 3)
             self.assertTrue(applied.get("applied"))
             self.assertEqual(len(load_queue_file(pq)), 3)
-            restored = restore_pq_overflow(root, "curator")
+            restored = restore_pq_overflow(root, "institute")
             self.assertEqual(restored.get("restored_lines"), 5)
             self.assertEqual(len(load_queue_file(pq)), 8)
 

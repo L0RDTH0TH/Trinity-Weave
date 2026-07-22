@@ -70,7 +70,7 @@ def run_canon_pass(vault_root: Path, *, game_repo_rel: str = "", **_: Any) -> Re
 
 def run_art_direction_pass(vault_root: Path, *, game_repo_rel: str = "", **_: Any) -> ReviewPassResult:
     violations: list[str] = []
-    vsc = vault_root / "1-Projects/godot-genesis-mythos-master/Factory-DRB/Visual-Style-Charter-v1.md"
+    vsc = vault_root / "1-Projects/genesis-mythos-master/Factory-DRB/Visual-Style-Charter-v1.md"
     if not vsc.is_file():
         violations.append("missing_visual_style_charter")
     if game_repo_rel:
@@ -180,7 +180,7 @@ def run_extensibility_pass(vault_root: Path, *, game_repo_rel: str = "", **_: An
     violations: list[str] = []
     if game_repo_rel:
         repo = _repo(vault_root, game_repo_rel)
-        spine = vault_root / "1-Projects/godot-genesis-mythos-master/Factory-DRB/Spine-Host-Contract-v0.md"
+        spine = vault_root / "1-Projects/genesis-mythos-master/Factory-DRB/Spine-Host-Contract-v0.md"
         if not spine.is_file():
             violations.append("missing_spine_host_contract")
         if not (repo / "Core").is_dir():

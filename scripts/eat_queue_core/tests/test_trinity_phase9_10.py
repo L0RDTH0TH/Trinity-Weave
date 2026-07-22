@@ -271,7 +271,13 @@ class TestCombinedCycle(unittest.TestCase):
             self.assertEqual(
                 out.get("cycle_order"),
                 [
+                    "load_mvl_bundle",
                     "align_spine",
+                    "mvl_lens",
+                    "meta_corpus_charter",
+                    "host_weld_sync",
+                    "knob_parity",
+                    "honesty_anchor",
                     "unclog",
                     "regenerate_complete",
                     "corps_sweep",

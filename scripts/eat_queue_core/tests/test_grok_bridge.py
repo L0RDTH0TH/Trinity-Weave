@@ -96,7 +96,7 @@ class TestGrokBridge(unittest.TestCase):
             vault = Path(td) / "vault"
             export = Path(td) / "export"
             vault.mkdir()
-            pid = "godot-genesis-mythos-master"
+            pid = "genesis-mythos-master"
             proj = vault / "1-Projects" / pid
             proj.mkdir(parents=True)
             (proj / "GROK-PROJECT-START.md").write_text("# start\n", encoding="utf-8")
@@ -169,7 +169,7 @@ class TestGrokBridge(unittest.TestCase):
             export = Path(td) / "trinity-export"
             vault.mkdir()
             gmmr.mkdir()
-            pid = "godot-genesis-mythos-master"
+            pid = "genesis-mythos-master"
             proj = vault / "1-Projects" / pid
             proj.mkdir(parents=True)
             (proj / "GROK-PROJECT-START.md").write_text("# s\n", encoding="utf-8")
@@ -189,10 +189,10 @@ class TestGrokBridge(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             vault = Path(td) / "vault"
             vault.mkdir()
-            cfg = resolve_grok_bridge({"grok_bridge": {"pilot_project_id": "godot-genesis-mythos-master"}})
+            cfg = resolve_grok_bridge({"grok_bridge": {"pilot_project_id": "genesis-mythos-master"}})
             req = {
                 "request_id": "t1",
-                "project_id": "godot-genesis-mythos-master",
+                "project_id": "genesis-mythos-master",
                 "purpose": "test",
                 "node_ids": ["tert_missing"],
             }

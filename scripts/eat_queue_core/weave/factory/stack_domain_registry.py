@@ -9,7 +9,7 @@ from typing import Any
 from .factory_drb_paths import drb_artifact_path, resolve_project_id
 
 DEFAULT_REGISTRY_REL = (
-    "1-Projects/godot-genesis-mythos-master/Factory-DRB/Stack-Domain-Registry-v1.yaml"
+    "1-Projects/genesis-mythos-master/Factory-DRB/Stack-Domain-Registry-v1.yaml"
 )
 
 

@@ -32,7 +32,7 @@ def _normalize_mode(mode: str) -> str:
 
 def _project_id(entry: dict[str, Any]) -> str:
     params = entry.get("params") if isinstance(entry.get("params"), dict) else {}
-    return str(entry.get("project_id") or params.get("project_id") or "godot-genesis-mythos-master")
+    return str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
 
 
 def _queue_lane(entry: dict[str, Any]) -> str:

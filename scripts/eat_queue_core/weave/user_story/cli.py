@@ -28,19 +28,19 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     usb = sub.add_parser("user-story-brief", help="Write operator UserStory-Brief")
-    usb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    usb.add_argument("--project-id", default="genesis-mythos-master")
 
     ops = sub.add_parser("operator-user-story-session", help="Ingest session + list pending")
-    ops.add_argument("--project-id", default="godot-genesis-mythos-master")
+    ops.add_argument("--project-id", default="genesis-mythos-master")
     ops.add_argument("--session", type=Path, default=None)
 
     ing = sub.add_parser("user-story-ingest", help="Ingest user_story_mark JSONL session")
-    ing.add_argument("--project-id", default="godot-genesis-mythos-master")
+    ing.add_argument("--project-id", default="genesis-mythos-master")
     ing.add_argument("--session", type=Path, default=None)
     ing.add_argument("--dry-run", action="store_true")
 
     oc = sub.add_parser("operator-user-story-confirm", help="Confirm row or catalog sign")
-    oc.add_argument("--project-id", default="godot-genesis-mythos-master")
+    oc.add_argument("--project-id", default="genesis-mythos-master")
     oc.add_argument("--list", action="store_true")
     oc.add_argument("--row-id", default=None)
     oc.add_argument("--pass", dest="pass_val", type=str, default=None)
@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
         "roadmap-factory-relaunch",
         help="Deprecated — use roadmap-factory-bootstrap (resets factory cursor)",
     )
-    rel.add_argument("--project-id", default="godot-genesis-mythos-master")
+    rel.add_argument("--project-id", default="genesis-mythos-master")
     rel.add_argument("--pmg-path", default=None)
     rel.add_argument("--skip-operator-gates", action="store_true")
     rel.add_argument("--dry-run", action="store_true")
@@ -61,7 +61,7 @@ def main(argv: list[str] | None = None) -> int:
         "roadmap-factory-bootstrap",
         help="First factory boot — reset product_factory cursor + conductor tick",
     )
-    rfb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    rfb.add_argument("--project-id", default="genesis-mythos-master")
     rfb.add_argument("--pmg-path", default=None)
     rfb.add_argument("--skip-operator-gates", action="store_true")
     rfb.add_argument("--dry-run", action="store_true")
@@ -70,7 +70,7 @@ def main(argv: list[str] | None = None) -> int:
         "product-factory-relaunch",
         help="Deprecated — use product-factory-bootstrap (resets factory cursor)",
     )
-    pfr.add_argument("--project-id", default="godot-genesis-mythos-master")
+    pfr.add_argument("--project-id", default="genesis-mythos-master")
     pfr.add_argument("--pmg-path", default=None)
     pfr.add_argument("--dry-run", action="store_true")
     pfr.add_argument("--skip-agent-enqueue", action="store_true")
@@ -79,26 +79,26 @@ def main(argv: list[str] | None = None) -> int:
         "product-factory-bootstrap",
         help="First factory boot — reset product_factory cursor + conductor tick",
     )
-    pfb.add_argument("--project-id", default="godot-genesis-mythos-master")
+    pfb.add_argument("--project-id", default="genesis-mythos-master")
     pfb.add_argument("--pmg-path", default=None)
     pfb.add_argument("--dry-run", action="store_true")
     pfb.add_argument("--skip-agent-enqueue", action="store_true")
 
     pfs = sub.add_parser("product-factory-status", help="Product factory phase + operator loops")
-    pfs.add_argument("--project-id", default="godot-genesis-mythos-master")
+    pfs.add_argument("--project-id", default="genesis-mythos-master")
 
     pft = sub.add_parser("product-factory-tick", help="Advance conductor one pass")
-    pft.add_argument("--project-id", default="godot-genesis-mythos-master")
+    pft.add_argument("--project-id", default="genesis-mythos-master")
     pft.add_argument("--dry-run", action="store_true")
     pft.add_argument("--skip-agent-enqueue", action="store_true")
 
     pfc = sub.add_parser("product-factory-confirm-slice", help="Loop 3 — confirm active slice")
-    pfc.add_argument("--project-id", default="godot-genesis-mythos-master")
+    pfc.add_argument("--project-id", default="genesis-mythos-master")
     pfc.add_argument("--row-ids", required=True, help="Comma-separated catalog row ids")
     pfc.add_argument("--dispatch-depth", type=int, required=True)
 
     ds = sub.add_parser("depth-slice", help="L5 complete → L4..L1 scope files (top-down)")
-    ds.add_argument("--project-id", default="godot-genesis-mythos-master")
+    ds.add_argument("--project-id", default="genesis-mythos-master")
     ds.add_argument("--row-id", default=None)
     ds.add_argument("--row-ids", default=None, help="Comma-separated row ids")
     ds.add_argument("--no-bootstrap", action="store_true")
@@ -107,7 +107,7 @@ def main(argv: list[str] | None = None) -> int:
         "operator-scope-validate",
         help="Loop 2 — operator attestation of L5..target_depth scope files per row",
     )
-    osv.add_argument("--project-id", default="godot-genesis-mythos-master")
+    osv.add_argument("--project-id", default="genesis-mythos-master")
     osv.add_argument("--list", action="store_true")
     osv.add_argument("--row-id", default=None)
     osv.add_argument("--notes", default="")
@@ -115,7 +115,7 @@ def main(argv: list[str] | None = None) -> int:
 
     hnd = sub.add_parser("handle-mode", help="Run one roadmap factory queue mode")
     hnd.add_argument("--mode", required=True)
-    hnd.add_argument("--project-id", default="godot-genesis-mythos-master")
+    hnd.add_argument("--project-id", default="genesis-mythos-master")
     hnd.add_argument("--params-json", default="{}")
 
     args = parser.parse_args(argv)

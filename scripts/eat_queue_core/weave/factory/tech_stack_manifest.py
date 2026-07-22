@@ -14,7 +14,7 @@ from .factory_drb_paths import (
 from .stack_domain_registry import load_stack_domain_registry
 
 DEFAULT_MANIFEST_REL = (
-    "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+    "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 )
 
 ROW_KINDS_INTEGRATABLE = frozenset({"locked", "integrated"})

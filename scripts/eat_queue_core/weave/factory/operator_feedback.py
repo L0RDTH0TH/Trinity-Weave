@@ -13,7 +13,7 @@ from .proof_tiers import (
 )
 
 DEFAULT_FEEDBACK_REL = (
-    "1-Projects/godot-genesis-mythos-master/Factory-DRB/operator-feedback/godot-closed-alpha-kinesthetic.yaml"
+    "1-Projects/genesis-mythos-master/Factory-DRB/operator-feedback/godot-closed-alpha-kinesthetic.yaml"
 )
 
 KINESTHETIC_CHECKLIST_IDS: tuple[str, ...] = (

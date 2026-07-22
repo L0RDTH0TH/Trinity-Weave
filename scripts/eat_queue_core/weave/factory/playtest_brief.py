@@ -12,9 +12,9 @@ import yaml
 from .factory_orchestrator import DEFAULT_QUEUE_REL, load_alpha_queue
 from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS, load_operator_feedback
 
-BRIEF_DIR_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/operator-feedback/playtest-briefs"
+BRIEF_DIR_REL = "1-Projects/genesis-mythos-master/Factory-DRB/operator-feedback/playtest-briefs"
 GAME_CHECKLIST_REL = ".technical/weave/kinesthetic_checklist.yaml"
-MANIFEST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
 
 
 @dataclass(frozen=True)

@@ -11,9 +11,9 @@ import yaml
 from .factory_little_val import FactoryLittleValResult
 from .lane_charters import load_lane_charter
 
-STACK_CHARTER_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Stack-Charter-v0.md"
-SPINE_HOST_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Spine-Host-Contract-v0.md"
-CONSTITUTION_REL = "1-Projects/godot-genesis-mythos-master/Factory-DRB/Implementation-Factory-Constitution.md"
+STACK_CHARTER_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Stack-Charter-v0.md"
+SPINE_HOST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Spine-Host-Contract-v0.md"
+CONSTITUTION_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Implementation-Factory-Constitution.md"
 
 
 @dataclass(frozen=True)

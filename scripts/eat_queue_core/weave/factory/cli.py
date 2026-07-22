@@ -151,7 +151,7 @@ def main(argv: list[str] | None = None) -> int:
     ms.add_argument("--job-id", type=str, default=None, help="Show one job state JSON")
 
     fb = sub.add_parser("factory-bom", help="Evaluate Product Factory BOM (setup checklist)")
-    fb.add_argument("--project-id", type=str, default="godot-genesis-mythos-master")
+    fb.add_argument("--project-id", type=str, default="genesis-mythos-master")
     fb.add_argument(
         "--sections",
         type=str,
@@ -160,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     fbb = sub.add_parser("factory-bom-brief", help="Write operator Factory BOM brief markdown")
-    fbb.add_argument("--project-id", type=str, default="godot-genesis-mythos-master")
+    fbb.add_argument("--project-id", type=str, default="genesis-mythos-master")
 
     sc = sub.add_parser("scaffold-project", help="Bootstrap Factory-DRB for a new project_id")
     sc.add_argument("--project-id", type=str, required=True)
