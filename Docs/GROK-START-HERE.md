@@ -10,6 +10,8 @@ audience: grok_github_integration
 **Repo:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)  
 **What the bone pilot’s GitHub connector usually sees:** **`main` only** (OAuth login — **no branch picker**).
 
+**Not a mint corpus:** Grok’s `/home/workdir/artifacts/` sandbox. Load mint files from GitHub **`L0RDTH0TH/Trinity-Weave`** `@ main`.
+
 ---
 
 ## STOP — “mint the catalog” / product deliverables
