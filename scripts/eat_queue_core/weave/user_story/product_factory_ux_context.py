@@ -25,8 +25,14 @@ def build_ux_context(
     *,
     project_id: str,
     active_slice: dict[str, Any] | None = None,
+    include_neighbors: bool = False,
+    neighbor_cap: int = 3,
 ) -> dict[str, Any]:
-    """Scope paths from catalog + rollout budget; dispatch_depth from active_slice when set."""
+    """Scope paths from catalog + rollout budget; dispatch_depth from active_slice when set.
+
+    Optional ``neighbor_refs`` (same ux_axis / backlog-adjacent) only when
+    ``include_neighbors=True`` — capped, never auto-flood.
+    """
     vault_root = vault_root.resolve()
     pf_slice = active_slice
     if pf_slice is None:
@@ -70,11 +76,27 @@ def build_ux_context(
             if sp.is_file():
                 dispatch_scope_paths.append(str(sp.relative_to(vault_root)))
 
+    from .feed_envelope import resolve_neighbor_refs
+
+    neighbors = resolve_neighbor_refs(
+        vault_root,
+        project_id=project_id,
+        focal_ids=row_ids,
+        include_neighbors=include_neighbors
+        or bool(pf_slice and pf_slice.get("include_neighbors")),
+        cap=int(
+            (pf_slice or {}).get("neighbor_cap")
+            if pf_slice and (pf_slice or {}).get("neighbor_cap") is not None
+            else neighbor_cap
+        ),
+    )
+
     return {
         "catalog_row_ids": row_ids,
         "l5_paths": l5_paths,
         "target_scope_paths": target_scope_paths,
         "dispatch_scope_paths": dispatch_scope_paths,
+        "neighbor_refs": neighbors,
     }
 
 
@@ -139,6 +161,15 @@ def format_ux_context_handoff(params: dict[str, Any]) -> str:
     lines.extend(["", "### Target-depth scopes (do not exceed UX bar)", ""])
     for p in scope_paths:
         lines.append(f"- [[{p}]]")
+    neighbors = ux.get("neighbor_refs") or []
+    if neighbors:
+        lines.extend(["", "### Neighbor refs (optional thickener)", ""])
+        for n in neighbors:
+            if isinstance(n, dict):
+                lines.append(
+                    f"- `{n.get('id')}` ({n.get('reason') or 'neighbor'})"
+                    + (f" — {n.get('label')}" if n.get("label") else "")
+                )
     lines.extend(
         [
             "",

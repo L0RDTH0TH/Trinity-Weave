@@ -3101,6 +3101,9 @@ def cmd_catalog_mint_pack_emit(vault_root: Path, args: argparse.Namespace) -> in
         vault_root,
         project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
         set_active=not bool(getattr(args, "no_set_active", False)),
+        include_neighbors=bool(getattr(args, "include_neighbors", False)),
+        neighbor_cap=int(getattr(args, "neighbor_cap", 3) or 3),
+        enqueue_thin_feed_research=bool(getattr(args, "enqueue_thin_feed_research", False)),
     )
     print(json.dumps(out.to_dict(), indent=2))
     return 0 if out.ok else 1
@@ -4944,6 +4947,17 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         "--no-set-active",
         action="store_true",
         help="Do not rewrite Docs/catalog-mint/ACTIVE.md",
+    )
+    cmpe.add_argument(
+        "--include-neighbors",
+        action="store_true",
+        help="Fill capped neighbor_refs in FEED-ENVELOPE (no auto-flood by default)",
+    )
+    cmpe.add_argument("--neighbor-cap", type=int, default=3)
+    cmpe.add_argument(
+        "--enqueue-thin-feed-research",
+        action="store_true",
+        help="Set research_enqueue_suggested when completeness flags are thin",
     )
     cmpe.set_defaults(func=cmd_catalog_mint_pack_emit)
 

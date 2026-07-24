@@ -25,6 +25,8 @@ REQUIRED_FILES = (
     "Tech-Stack-Excerpt.yaml",
     "Stack-Domain-Registry-Excerpt.yaml",
     "slice-catalog.yaml",
+    "MINT-BACKLOG.yaml",
+    "FEED-ENVELOPE.yaml",
 )
 
 _ALLOWED_STACK_STATUS = frozenset({"locked", "trialing", "integrated"})
@@ -211,6 +213,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 | File | Use |
 |------|-----|
 | `PACK-MANIFEST.yaml` | synced_at + required files |
+| `FEED-ENVELOPE.yaml` | Core vs thickeners + completeness flags |
+| `MINT-BACKLOG.yaml` | **Walk queue** — ordered UX experience nouns (post-freeze) |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
@@ -218,6 +222,21 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
 | `slice-catalog.yaml` | Applied rows mirror |
+
+## Feed envelope
+
+**Core (always):** conceptual excerpt + THIS backlog noun + pins index + stack excerpts + catalog mirror.
+
+**Thickeners (optional — no auto-flood):** `neighbor_refs` (same `ux_axis` / backlog-adjacent, only when bone pilot requests `include_neighbors`), poll index, fulfill pastes, gap research when completeness flags fire.
+
+See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / completeness.
+
+## Walk Order
+
+1. Confirm `MINT-BACKLOG.yaml` has `backlog_status: frozen_for_mint` (or bone pilot names an item id).
+2. Process **pending** items **sequentially** (one UX noun per receipt). Bone pilot may reorder via manual edit.
+3. Map experience shape → pseudo-code stubs; do **not** invent backlog entries.
+4. After Cursor apply: friction check (`Docs/catalog-mint/_shared/FRICTION-CHECK.md`) before marking the item `done`.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
@@ -379,6 +398,9 @@ def emit_catalog_mint_pack(
     project_id: str,
     set_active: bool = True,
     copy_pin_excerpts_from: Path | None = None,
+    include_neighbors: bool = False,
+    neighbor_cap: int = 3,
+    enqueue_thin_feed_research: bool = False,
 ) -> CatalogMintPackResult:
     """Write Docs/catalog-mint/<project_id>/ from vault project surfaces."""
     vault_root = vault_root.resolve()
@@ -463,6 +485,41 @@ def emit_catalog_mint_pack(
         warnings.append("catalog_missing_seeded_empty")
     (out_dir / "slice-catalog.yaml").write_text(cat_text, encoding="utf-8")
     hashes["slice-catalog.yaml"] = _sha256_text(cat_text)
+
+    # UX mint backlog (walk queue)
+    bl_path = paths["catalog"].parent / "MINT-BACKLOG.yaml"
+    if bl_path.is_file():
+        bl_text = bl_path.read_text(encoding="utf-8")
+    else:
+        bl_text = _dump_yaml(
+            {
+                "schema_version": 1,
+                "project_id": pid,
+                "backlog_status": "proposed",
+                "items": [],
+                "note": "Run generate_ux_mint_backlog / UX_MINT_BACKLOG after conceptual freeze",
+            }
+        )
+        warnings.append("mint_backlog_missing_seeded_empty")
+    (out_dir / "MINT-BACKLOG.yaml").write_text(bl_text, encoding="utf-8")
+    hashes["MINT-BACKLOG.yaml"] = _sha256_text(bl_text)
+
+    from .feed_envelope import build_feed_envelope_doc
+
+    feed_doc = build_feed_envelope_doc(
+        vault_root,
+        project_id=pid,
+        include_neighbors=include_neighbors,
+        neighbor_cap=neighbor_cap,
+        enqueue_thin_feed_research=enqueue_thin_feed_research,
+    )
+    feed_text = _dump_yaml(feed_doc)
+    (out_dir / "FEED-ENVELOPE.yaml").write_text(feed_text, encoding="utf-8")
+    hashes["FEED-ENVELOPE.yaml"] = _sha256_text(feed_text)
+    for flag in (feed_doc.get("completeness") or {}).get("flags") or []:
+        warnings.append(f"feed_completeness:{flag}")
+    if feed_doc.get("research_enqueue_suggested"):
+        warnings.append("research_enqueue_suggested")
 
     mint_pack = _mint_pack_md(pid, synced_at)
     (out_dir / "MINT-PACK.md").write_text(mint_pack, encoding="utf-8")

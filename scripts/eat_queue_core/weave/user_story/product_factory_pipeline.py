@@ -10,7 +10,7 @@ from typing import Any
 
 from ...research_enqueue import enqueue_research
 from ..roadmap.deepen_enqueue import merge_deepen_params
-from .catalog_mint_propose import propose_catalog_from_pmg
+from .ux_mint_backlog import generate_ux_mint_backlog, load_mint_backlog
 from .catalog_io import user_story_paths
 from .depth_slicer import run_depth_slicer
 from .execution_pin_sync import sync_catalog_execution_pins
@@ -668,36 +668,122 @@ def tick(
             vault_root, project_id, gate_signature=gate_reason
         )
         steps.append({"step": "conceptual_freeze_stamp", **freeze_stamp})
-        mint_batch = str(params.get("mint_batch") or gate_kw.get("mint_batch") or "pmg_phases")
-        mint = propose_catalog_from_pmg(
+        # UX backlog replaces automatic PMG phase→slice-catalog flood.
+        backlog = generate_ux_mint_backlog(
             vault_root,
             project_id=project_id,
             pmg_path=Path(vault_root / params["pmg_path"]) if params.get("pmg_path") else None,
-            dimension=str(params.get("dimension") or "ui_surface"),
-            mint_batch=mint_batch,
         )
-        steps.append({"step": "catalog_mint", **mint.to_dict()})
-        if mint.ok:
-            from .catalog_moc_sync import sync_catalog_moc
-            from .roadmap_artifact_ledger import record_artifact
-
-            steps.append({"step": "catalog_moc", **sync_catalog_moc(vault_root, project_id=project_id)})
-            paths = user_story_paths(vault_root, project_id)
-            record_artifact(
-                vault_root,
-                project_id,
-                artifact_path=str(paths["catalog"].relative_to(vault_root)),
-                event_type="catalog_mint",
-                product_factory_run_id=run_id,
-                goal_authority_run_id=str((goal_packet or {}).get("run_id") or ""),
+        steps.append({"step": "ux_mint_backlog", **backlog.to_dict()})
+        bl_doc = load_mint_backlog(vault_root, project_id)
+        bl_status = str(bl_doc.get("backlog_status") or "proposed")
+        if not backlog.coverage_ok:
+            _persist(
+                "catalog_mint",
+                operator_loop=1,
+                blocked_at="ux_axis_coverage_gap",
             )
+            return TickResult(
+                True,
+                "ux_axis_coverage_gap",
+                "catalog_mint",
+                1,
+                steps,
+                "ux_axis_coverage_gap",
+            )
+        if bl_status != "frozen_for_mint":
+            _persist(
+                "catalog_mint",
+                operator_loop=1,
+                blocked_at="ux_mint_backlog_prune",
+            )
+            return TickResult(
+                True,
+                "ux_mint_backlog_prune",
+                "catalog_mint",
+                1,
+                steps,
+                "ux_mint_backlog_prune",
+            )
+        from .catalog_mint_pack import emit_catalog_mint_pack
+        from .roadmap_artifact_ledger import record_artifact
+
+        pack = emit_catalog_mint_pack(
+            vault_root,
+            project_id=project_id,
+            include_neighbors=bool(params.get("include_neighbors")),
+            neighbor_cap=int(params.get("neighbor_cap") or 3),
+            enqueue_thin_feed_research=bool(params.get("enqueue_thin_feed_research")),
+        )
+        steps.append({"step": "catalog_mint_pack", **pack.to_dict()})
+        from .feed_envelope import assess_feed_completeness
+
+        steps.append(
+            {
+                "step": "feed_completeness",
+                **assess_feed_completeness(vault_root, project_id=project_id),
+            }
+        )
+        paths = user_story_paths(vault_root, project_id)
+        record_artifact(
+            vault_root,
+            project_id,
+            artifact_path=str(paths["catalog"].parent.joinpath("MINT-BACKLOG.yaml").relative_to(vault_root)),
+            event_type="ux_mint_backlog_written",
+            product_factory_run_id=run_id,
+            goal_authority_run_id=str((goal_packet or {}).get("run_id") or ""),
+        )
+        steps.append(
+            {
+                "step": "catalog_mint",
+                "ok": True,
+                "detail": "backlog_frozen_pack_emitted",
+                "rows_added": 0,
+                "note": "catalog rows enter only via operator/Grok receipt apply",
+            }
+        )
         completed.append("catalog_mint")
 
     if "loop2_prep" not in completed:
         from .loop2_prep import prepare_loop2_operator_surface
-        from .done_when_eval import LOOP_2_PENDING_SIGN_OFF, park_loop2_machine_ready
+        from .done_when_eval import park_loop2_machine_ready
+        from .ux_mint_backlog import backlog_summary
+
+        bl_surf = backlog_summary(vault_root, project_id)
+        paths = user_story_paths(vault_root, project_id)
+        from .catalog_io import load_yaml, catalog_rows_by_id
+
+        cat = load_yaml(paths["catalog"]) if paths["catalog"].is_file() else {"rows": []}
+        planned = [
+            rid
+            for rid, r in catalog_rows_by_id(cat).items()
+            if r.get("planned") is not False
+        ]
+        if not planned:
+            steps.append(
+                {
+                    "step": "loop2_prep",
+                    "ok": False,
+                    "detail": "ux_mint_walk_pending",
+                    "mint_backlog": bl_surf,
+                }
+            )
+            _persist(
+                "catalog_mint",
+                operator_loop=1,
+                blocked_at="ux_mint_walk_pending",
+            )
+            return TickResult(
+                True,
+                "ux_mint_walk_pending",
+                "catalog_mint",
+                1,
+                steps,
+                "ux_mint_walk_pending",
+            )
 
         prep = prepare_loop2_operator_surface(vault_root, project_id=project_id)
+        prep["mint_backlog"] = bl_surf
         steps.append({"step": "loop2_prep", **prep})
         if prep.get("ok"):
             completed.append("loop2_prep")

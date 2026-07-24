@@ -11,8 +11,8 @@ meta:
     generated_at: '2026-07-22T07:00:00Z'
     notes: Grok + Cursor instruction law for product slice-catalog mint (any project_id)
 conceptual:
-  outcome: Settle one product deliverable catalog row per dialogue turn — never weave
-    CARD-INDEX entries.
+  outcome: Walk the next pending UX noun from MINT-BACKLOG (frozen_for_mint) into one
+    product catalog row per turn — never invent the list; never weave CARD-INDEX entries.
   summary: Catalog mint is an opt-in three-party session, started only when the bone
     pilot explicitly instructs mint. Otherwise Grok converses normally. When minting,
     Grok negotiates one deliverable noun using the project pack on main (conceptual
@@ -59,6 +59,7 @@ touch:
   primary_paths:
   - weave/component-proposals/catalog_mint.yaml
   - Docs/catalog-mint/<project_id>/MINT-PACK.md
+  - Docs/catalog-mint/<project_id>/MINT-BACKLOG.yaml
   - Docs/catalog-mint/<project_id>/PACK-MANIFEST.yaml
   - Docs/catalog-mint/<project_id>/CONCEPTUAL-EXCERPT.md
   - Docs/catalog-mint/<project_id>/PIN-INDEX.md
@@ -95,7 +96,10 @@ touch:
   - weave/component-proposals/catalog_mint.yaml
   - Docs/catalog-mint/<project_id>/PACK-MANIFEST.yaml
   - Docs/catalog-mint/<project_id>/MINT-PACK.md
+  - Docs/catalog-mint/<project_id>/MINT-BACKLOG.yaml
   - Docs/catalog-mint/_shared/WHAT-GOOD-LOOKS-LIKE.md
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
+  - Docs/catalog-mint/_shared/FRICTION-CHECK.md
   - Docs/catalog-mint/<project_id>/CONCEPTUAL-EXCERPT.md
   - Docs/catalog-mint/<project_id>/PIN-INDEX.md
   - Docs/catalog-mint/<project_id>/ROADMAP-RESOURCE-INDEX.yaml
@@ -131,7 +135,16 @@ touch:
     when more context is needed, consult this index first; request fulfill by tert_id
     if body is not in PIN-EXCERPTS. Do not invent roadmap or resource titles.
 rules:
+  backlog_driven: true
+  walk_order: Process next pending item in MINT-BACKLOG.yaml when backlog_status
+    is frozen_for_mint (or bone pilot names an id). One pending UX noun per
+    receipt → experience shape → pseudo-code stubs. Do not invent the list.
+  friction_check: After Cursor apply, ask whether the stub reduces imagined
+    friction for the persona before marking the backlog item done.
   forbidden:
+  - Inventing backlog entries not present in MINT-BACKLOG.yaml
+  - Walking MINT-BACKLOG when backlog_status is proposed without an operator-named id
+  - Auto-flooding slice-catalog from PMG phase headings during mint dialogue
   - Infer project_id from ACTIVE.md, git branch, or memory
   - Use archived gmm-catalog-mint as live feedstock
   - Start mint / emit receipt without explicit bone-pilot mint instruction
@@ -152,8 +165,8 @@ rules:
 
       '
   - name: opening_line
-    text: Filling one product catalog row from PMG — not weave CARD-INDEX. Prose negotiation
-      first.
+    text: Filling one product catalog row from the next pending MINT-BACKLOG UX noun
+      — not weave CARD-INDEX. Prose negotiation first.
   - name: closing_line
     text: Questions for you above. Draft receipt below — say approve / edit / reject,
       or keep talking.
@@ -208,6 +221,8 @@ rules:
 contract:
   proof:
   - scripts/eat_queue_core/tests/test_catalog_mint_pack.py
+  - scripts/eat_queue_core/tests/test_ux_mint_backlog.py
+  - scripts/eat_queue_core/weave/user_story/ux_mint_backlog.py
   - scripts/eat_queue_core/weave/user_story/catalog_mint_pack.py
   - scripts/eat_queue_core/weave/user_story/catalog_mint_receipt.py
   invariant_ids:

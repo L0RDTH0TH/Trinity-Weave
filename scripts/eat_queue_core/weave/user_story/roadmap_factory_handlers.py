@@ -14,6 +14,7 @@ from ..factory.factory_pq_stage import stage_factory_dispatch_to_pq
 from .beat_auto_generate import run_beat_auto_generate
 from .catalog_coverage import run_catalog_coverage, run_catalog_freeze_gate
 from .catalog_mint_propose import propose_catalog_from_pmg
+from .ux_mint_backlog import freeze_mint_backlog, generate_ux_mint_backlog
 from .rollout_slicer import run_rollout_slicer
 from .user_story_brief import write_user_story_brief
 
@@ -37,6 +38,7 @@ ROADMAP_FACTORY_MODES = frozenset(
         "USER_STORY_BRIEF",
         "ROADMAP_FACTORY_STAGE_FACTORY",
         "CATALOG_MINT_PROPOSE",
+        "UX_MINT_BACKLOG",
         "DEPTH_SLICE",
         "L5_SCOPE_AUTHOR",
     }
@@ -89,6 +91,48 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
                 "skipped": True,
                 "reason": "loop2_exit_eligible",
             }
+
+    if mode == "UX_MINT_BACKLOG":
+        params.setdefault(
+            "persona_handoff",
+            build_persona_envelope(persona_id="half_a.catalog_ux_indexer"),
+        )
+        action = str(params.get("action") or "generate").lower().replace("-", "_")
+        pmg = params.get("pmg_path")
+        if action == "freeze":
+            out = freeze_mint_backlog(vault_root, project_id)
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        else:
+            gen = generate_ux_mint_backlog(
+                vault_root,
+                project_id=project_id,
+                pmg_path=vault_root / str(pmg) if pmg else None,
+            )
+            result = {"ok": gen.ok, "id": eid, "mode": mode, "action": action, **gen.to_dict()}
+            if params.get("freeze_after") is True and gen.coverage_ok:
+                fr = freeze_mint_backlog(vault_root, project_id)
+                result["freeze"] = fr
+                result["ok"] = bool(fr.get("ok"))
+        if result.get("ok"):
+            from .catalog_mint_pack import emit_catalog_mint_pack
+
+            if action == "freeze" or params.get("emit_pack") is True:
+                pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
+                result["pack"] = pack.to_dict()
+            backlog_rel = f"1-Projects/{project_id}/Roadmap/User-Story/MINT-BACKLOG.yaml"
+            att = synthetic_persona_attestation(
+                "half_a.catalog_ux_indexer",
+                [backlog_rel],
+            )
+            save_half_a_provenance_sidecar(
+                vault_root,
+                project_id=project_id,
+                phase="catalog_mint",
+                persona_attestation=att,
+                artifacts={"mint_backlog": backlog_rel},
+            )
+            result["persona_attestation"] = att
+        return result
 
     if mode == "CATALOG_MINT_PROPOSE":
         params.setdefault(

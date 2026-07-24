@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-07-22T07:41:42Z'
+synced_at: '2026-07-24T07:32:46Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -13,6 +13,8 @@ required_files:
 - Tech-Stack-Excerpt.yaml
 - Stack-Domain-Registry-Excerpt.yaml
 - slice-catalog.yaml
+- MINT-BACKLOG.yaml
+- FEED-ENVELOPE.yaml
 file_hashes:
   CONCEPTUAL-EXCERPT.md: 6f3505a5125f2025
   PIN-INDEX.md: 10d53a3a841a0a9c
@@ -20,5 +22,8 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 26fd83c87d7ec9f4
-  MINT-PACK.md: 8fe9fc56a6b6ed73
-warnings: []
+  MINT-BACKLOG.yaml: 09454bb6344e7c47
+  FEED-ENVELOPE.yaml: 690eb2e848ec377d
+  MINT-PACK.md: b00cfa2a3aa985b8
+warnings:
+- feed_completeness:backlog_not_frozen
