@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-07-27T05:00:15Z'
+synced_at: '2026-07-27T05:14:09Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -18,12 +18,12 @@ required_files:
 file_hashes:
   CONCEPTUAL-EXCERPT.md: 6f3505a5125f2025
   PIN-INDEX.md: 10d53a3a841a0a9c
-  ROADMAP-RESOURCE-INDEX.yaml: 62b37fe6a7fae153
+  ROADMAP-RESOURCE-INDEX.yaml: eeced98293c0eeee
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 26fd83c87d7ec9f4
-  MINT-BACKLOG.yaml: 28749a520d59fab5
-  MINT-BACKLOG.md: 2203f3ef8b4ecfed
+  MINT-BACKLOG.yaml: 2bb0795202ae2626
+  MINT-BACKLOG.md: b26f5748d110fbd3
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -38,8 +38,12 @@ file_hashes:
   Actual-Play-Feedstock/CR-C1-1x60-social-identity-texture.md: 0dff3e0328617d64
   Actual-Play-Feedstock/CR-C1-1x85-party-fracture.md: 51d4e0947dfe8f9b
   Actual-Play-Feedstock/CR-C2-2x97-information-scent-social-agency.md: 707920d59cf54294
-  Actual-Play-Feedstock/INDEX.md: 88d66657a1dba38f
+  Actual-Play-Feedstock/WB-control-surface-mapping.md: 18d6b32db4e0b62c
+  Actual-Play-Feedstock/WB-human-operated-story.md: cdf0453ce0c52338
+  Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
+  Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
+  Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   FEED-ENVELOPE.yaml: ab9bd8915856b2d3
-  MINT-PACK.md: d2a0d6a296d22c17
+  MINT-PACK.md: b7f523ff1f67384c
 warnings:
 - feed_completeness:backlog_not_frozen

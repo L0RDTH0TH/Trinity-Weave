@@ -131,6 +131,10 @@ _THEME_SEEDS: tuple[tuple[re.Pattern[str], str, str, str, str, str], ...] = (
 )
 
 _HEADING_RE = re.compile(r"^#{2,4}\s+(.+)$", re.MULTILINE)
+# Moment-card experience nouns: "- label: …\n  summary: …"
+_NOUN_CANDIDATE_RE = re.compile(
+    r"(?m)^-\s*label:\s*(.+?)\s*$\n[ \t]*summary:\s*(.+?)\s*$",
+)
 
 
 @dataclass(frozen=True)
@@ -471,6 +475,64 @@ def _pin_from_derived(derived_from: str) -> str:
     return ""
 
 
+def _seed_experience_noun_candidates(
+    derived_from: str,
+    text: str,
+) -> list[dict[str, Any]]:
+    """Lift `label` / `summary` pairs from Actual-Play moment cards into supplements."""
+    if not derived_from.startswith("actual_play:"):
+        return []
+    pin = _pin_from_derived(derived_from)
+    out: list[dict[str, Any]] = []
+    for m in _NOUN_CANDIDATE_RE.finditer(text or ""):
+        label = m.group(1).strip().strip("`\"'")
+        summary = m.group(2).strip().strip("`\"'")
+        if not label or len(label) < 3:
+            continue
+        if _is_junk_heading(label):
+            continue
+        item_id = f"ux_{_slug(label)}"
+        if is_rejected_candidate(item_id, label, summary):
+            continue
+        axis = "agency"
+        for pat, ax, *_rest in _THEME_SEEDS:
+            if pat.search(f"{label} {summary}"):
+                axis = ax
+                break
+        face = "table"
+        low = f"{label} {summary}".lower()
+        if any(k in low for k in ("chrome", "screen", "verb", "feedback", "diegetic", "hud")):
+            face = "surfaces"
+        elif any(k in low for k in ("world", "faction", "npc", "lore", "earned", "conspiracy")):
+            face = "living_world"
+        elif any(k in low for k in ("camp", "quiet", "pillar", "companion", "trust", "social")):
+            face = "table"
+        elif any(k in low for k in ("flee", "agency", "stolen", "control", "authorship")):
+            face = "inhabit"
+        out.append(
+            {
+                "id": item_id,
+                "label": label[:80],
+                "dimension": "ui_surface",
+                "ux_axis": axis,
+                "summary": summary[:400] or f"Experience noun from actual-play card: {label}",
+                "conceptual_pin": pin,
+                "derived_from": derived_from,
+                "ux_family": "",
+                "status": "pending",
+                "catalog_face": face,
+                "experience_mode": "",
+                "mode_tier": "supplement",
+                "dnd_pillar": "shared",
+                "feedstock_hit": True,
+                "pillar_notes": "",
+                "supplement": True,
+                "maps_to": _AXIS_TO_MODE.get(axis, ""),
+            }
+        )
+    return out
+
+
 def _seed_from_text(
     derived_from: str,
     text: str,
@@ -483,6 +545,8 @@ def _seed_from_text(
     out: list[dict[str, Any]] = []
     seen_axes: set[str] = set()
     pin = _pin_from_derived(derived_from)
+    # Prefer explicit moment-card candidates before heading/theme heuristics
+    out.extend(_seed_experience_noun_candidates(derived_from, text))
     for pat, axis, dim, id_stub, label, summary in _THEME_SEEDS:
         if axis in seen_axes and axis != "presentation_shells":
             if any(x["ux_axis"] == axis for x in out):
@@ -591,7 +655,7 @@ def _is_junk_heading(title: str) -> bool:
     return False
 
 
-def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 80) -> list[dict[str, Any]]:
+def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 120) -> list[dict[str, Any]]:
     """Union pin-noun supplements; prefer UX-rich tiers (actual_play/pmg/research/pin Phase 4–6)."""
     by_id: dict[str, dict[str, Any]] = {}
     ordered = sorted(
@@ -610,8 +674,20 @@ def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 
             else 5
         ),
     )
+    # Pass 1: moment-card experience noun candidates only (primary phenomenology)
     for ref, text in ordered:
-        if len(by_id) >= max_items * 2:
+        if not ref.startswith("actual_play:"):
+            continue
+        for item in _seed_experience_noun_candidates(ref, text):
+            iid = str(item.get("id") or "")
+            if not iid or iid in by_id:
+                continue
+            by_id[iid] = item
+            if len(by_id) >= max_items:
+                return list(by_id.values())
+    # Pass 2: theme seeds + headings (fill remaining budget)
+    for ref, text in ordered:
+        if len(by_id) >= max_items:
             break
         if ref.startswith("pin:"):
             low = ref.lower()
@@ -619,7 +695,6 @@ def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 
                 k in low for k in ("perspective", "agency", "chrome", "presentation", "hud")
             ):
                 continue
-        # Headings from phenomenology cards + PMG + pins — not raw research URL noise
         allow_headings = (
             ref.startswith("actual_play:") or ref.startswith("pmg:") or ref.startswith("pin:")
         )
@@ -627,6 +702,7 @@ def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 
             iid = str(item.get("id") or "")
             if not iid or iid in by_id:
                 continue
+            # Skip re-adding candidates already harvested in pass 1
             by_id[iid] = item
             if len(by_id) >= max_items:
                 return list(by_id.values())
@@ -646,9 +722,17 @@ def _rank_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     }
     pillar_rank = {"shared": 0, "exploration": 1, "combat": 2, "roleplay": 3}
 
-    def key(it: dict[str, Any]) -> tuple[int, int, str, int, str]:
+    def key(it: dict[str, Any]) -> tuple[int, int, int, str, int, str]:
+        derived = str(it.get("derived_from") or "")
+        ap = 0 if derived.startswith("actual_play:") else 1
+        # Taxonomy coverage first; then AP supplements; then other supplements
+        if it.get("supplement"):
+            bucket = 1 if ap == 0 else 2
+        else:
+            bucket = 0
         return (
-            1 if it.get("supplement") else 0,
+            bucket,
+            ap if bucket == 0 else 0,
             face_rank.get(str(it.get("catalog_face") or ""), 9),
             str(it.get("experience_mode") or ""),
             pillar_rank.get(str(it.get("dnd_pillar") or ""), 9),

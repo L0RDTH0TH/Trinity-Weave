@@ -3,7 +3,7 @@
 Human-phenomenology / feel-pattern moment cards for UX mint.
 **Pattern paraphrases only** — not story clones; no full transcripts.
 
-Card count: **14**
+Card count: **18**
 
 | File | pattern_id (from name) |
 |------|------------------------|
@@ -21,3 +21,7 @@ Card count: **14**
 | `CR-C1-1x60-social-identity-texture.md` | `CR-C1-1x60-social-identity-texture` |
 | `CR-C1-1x85-party-fracture.md` | `CR-C1-1x85-party-fracture` |
 | `CR-C2-2x97-information-scent-social-agency.md` | `CR-C2-2x97-information-scent-social-agency` |
+| `WB-control-surface-mapping.md` | `WB-control-surface-mapping` |
+| `WB-human-operated-story.md` | `WB-human-operated-story` |
+| `WB-ordinary-progression-rhythm.md` | `WB-ordinary-progression-rhythm` |
+| `WB-quiet-between-pillars.md` | `WB-quiet-between-pillars` |
