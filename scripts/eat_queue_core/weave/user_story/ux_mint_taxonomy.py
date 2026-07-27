@@ -596,33 +596,36 @@ def expand_taxonomy_to_items(
             if excerpt:
                 base_summary = f"{base_summary} Nearest context: {excerpt}"
 
+        # Coverage rows are supplementary to Actual-Play phenomenology.
+        # critical_matrix: one shared row (pillar notes carry explore/combat/roleplay cues)
+        # instead of aggressive triplication that dilutes the mint walk.
         if tier == "critical_matrix" and pillars:
-            for pillar in pillars:
-                item_id = f"ux_{_slug(sid)}_{pillar}"
-                pillar_excerpt = _excerpt_around(chunk_text, pillar, radius=120) if chunk_text else ""
-                summary = f"{base_summary} Pillar focus: {pillar}."
-                if pillar_excerpt and pillar.lower() in (chunk_text or "").lower():
-                    summary = f"{summary} Pillar cue: {pillar_excerpt}"
-                items.append(
-                    {
-                        "id": item_id,
-                        "label": f"{base_label} ({pillar})",
-                        "dimension": dim,
-                        "ux_axis": axis,
-                        "summary": summary,
-                        "conceptual_pin": pin if hit else "needs pin",
-                        "derived_from": derived,
-                        "ux_family": str(slot.get("mode_family") or sid),
-                        "status": "pending",
-                        "catalog_face": face,
-                        "experience_mode": sid,
-                        "mode_tier": tier,
-                        "dnd_pillar": pillar,
-                        "feedstock_hit": hit,
-                        "pillar_notes": _pillar_notes_from_text(chunk_text, (pillar,), hit=hit),
-                        "supplement": False,
-                    }
-                )
+            pillar_notes = _pillar_notes_from_text(chunk_text, pillars, hit=hit)
+            summary = base_summary
+            if pillar_notes:
+                summary = f"{summary} Pillars: {pillar_notes}."
+            items.append(
+                {
+                    "id": f"ux_{_slug(sid)}",
+                    "label": base_label,
+                    "dimension": dim,
+                    "ux_axis": axis,
+                    "summary": summary,
+                    "conceptual_pin": pin if hit else "needs pin",
+                    "derived_from": derived,
+                    "ux_family": str(slot.get("mode_family") or sid),
+                    "status": "pending",
+                    "catalog_face": face,
+                    "experience_mode": sid,
+                    "mode_tier": tier,
+                    "dnd_pillar": "shared",
+                    "feedstock_hit": hit,
+                    "pillar_notes": pillar_notes,
+                    "supplement": True,
+                    "coverage_slot": True,
+                    "walk_tier": "coverage",
+                }
+            )
         else:
             pillar = str(slot.get("dnd_pillar") or ("shared" if tier == "shared_chrome" else "shared"))
             pillar_notes = ""
@@ -645,7 +648,9 @@ def expand_taxonomy_to_items(
                     "dnd_pillar": pillar,
                     "feedstock_hit": hit,
                     "pillar_notes": pillar_notes,
-                    "supplement": False,
+                    "supplement": True,
+                    "coverage_slot": True,
+                    "walk_tier": "coverage",
                 }
             )
     return items

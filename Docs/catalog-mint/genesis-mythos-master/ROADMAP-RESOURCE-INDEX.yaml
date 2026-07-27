@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 315
+roadmap_note_count: 316
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4481,6 +4481,16 @@ roadmap_notes:
   - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
   linked_resources:
   - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG--20260727-pre-pheno-primary-remine
+  wiki: '[[MINT-BACKLOG--20260727-pre-pheno-primary-remine]]'
+  rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--20260727-pre-pheno-primary-remine.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
+  linked_resources: []
   tert_id: null
   pin_excerpt_available: false
 - title: MINT-BACKLOG--20260727-pre-waveb-remine

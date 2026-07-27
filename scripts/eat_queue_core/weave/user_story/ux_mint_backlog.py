@@ -253,7 +253,10 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         if st == "in_dialogue":
             mark = " "
         suffix = f" [{face}]" if face else ""
-        if it.get("supplement"):
+        walk = str(it.get("walk_tier") or "")
+        if walk:
+            suffix += f" [{walk}]"
+        elif it.get("supplement"):
             suffix += " [supplement]"
         lines.append(f"- [{mark}] `{iid}` — {label} (`{st}`){suffix}")
     lines.extend(["", "## Items", ""])
@@ -267,6 +270,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         lines.append("")
         for key in (
             "status",
+            "walk_tier",
             "catalog_face",
             "experience_mode",
             "mode_tier",
@@ -279,6 +283,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             "derived_from",
             "ux_family",
             "supplement",
+            "coverage_slot",
             "maps_to",
             "notes",
         ):
@@ -355,9 +360,16 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
             "dnd_pillar",
             "pillar_notes",
             "notes",
+            "walk_tier",
+            "maps_to",
         ):
             if fields.get(extra):
                 item[extra] = fields[extra]
+        for flag in ("supplement", "coverage_slot", "feedstock_hit"):
+            raw = fields.get(flag)
+            if raw is None or raw == "":
+                continue
+            item[flag] = str(raw).strip().lower() in {"true", "1", "yes"}
         items.append(item)
 
     doc: dict[str, Any] = {
@@ -522,11 +534,14 @@ def _seed_experience_noun_candidates(
                 "status": "pending",
                 "catalog_face": face,
                 "experience_mode": "",
-                "mode_tier": "supplement",
+                "mode_tier": "phenomenology",
                 "dnd_pillar": "shared",
                 "feedstock_hit": True,
                 "pillar_notes": "",
-                "supplement": True,
+                # Primary mint walk — CR/BG moment nouns lead; taxonomy is coverage.
+                "supplement": False,
+                "coverage_slot": False,
+                "walk_tier": "phenomenology",
                 "maps_to": _AXIS_TO_MODE.get(axis, ""),
             }
         )
@@ -565,11 +580,13 @@ def _seed_from_text(
             "status": "pending",
             "catalog_face": "supplement",
             "experience_mode": "",
-            "mode_tier": "supplement",
+            "mode_tier": "thickener",
             "dnd_pillar": "shared",
             "feedstock_hit": True,
             "pillar_notes": "",
             "supplement": True,
+            "coverage_slot": False,
+            "walk_tier": "thickener",
             "maps_to": _AXIS_TO_MODE.get(axis, ""),
         }
         if is_rejected_candidate(item["id"], item["label"], item["summary"]):
@@ -613,11 +630,13 @@ def _seed_from_text(
                 "status": "pending",
                 "catalog_face": "supplement",
                 "experience_mode": "",
-                "mode_tier": "supplement",
+                "mode_tier": "thickener",
                 "dnd_pillar": "shared",
                 "feedstock_hit": True,
                 "pillar_notes": "",
                 "supplement": True,
+                "coverage_slot": False,
+                "walk_tier": "thickener",
                 "maps_to": _AXIS_TO_MODE.get(axis, ""),
             }
         )
@@ -721,18 +740,25 @@ def _rank_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "supplement": 8,
     }
     pillar_rank = {"shared": 0, "exploration": 1, "combat": 2, "roleplay": 3}
+    # Walk order: CR/BG phenomenology → taxonomy coverage → pin/theme thickeners
+    tier_rank = {"phenomenology": 0, "coverage": 1, "thickener": 2}
 
     def key(it: dict[str, Any]) -> tuple[int, int, int, str, int, str]:
         derived = str(it.get("derived_from") or "")
         ap = 0 if derived.startswith("actual_play:") else 1
-        # Taxonomy coverage first; then AP supplements; then other supplements
-        if it.get("supplement"):
-            bucket = 1 if ap == 0 else 2
-        else:
-            bucket = 0
+        walk = str(it.get("walk_tier") or "").strip()
+        if not walk:
+            if it.get("coverage_slot"):
+                walk = "coverage"
+            elif it.get("supplement"):
+                walk = "thickener"
+            elif ap == 0:
+                walk = "phenomenology"
+            else:
+                walk = "coverage"
         return (
-            bucket,
-            ap if bucket == 0 else 0,
+            tier_rank.get(walk, 9),
+            ap if walk == "phenomenology" else 0,
             face_rank.get(str(it.get("catalog_face") or ""), 9),
             str(it.get("experience_mode") or ""),
             pillar_rank.get(str(it.get("dnd_pillar") or ""), 9),

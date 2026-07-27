@@ -32,7 +32,15 @@ Catalog mint drafts **experience nouns** as the primary feed for later L5 / pseu
 
 **Corpus weight (GMM):** BG feel-pattern cards + CR table cards are **co-primary**. Architecture pins are coverage thickeners, not the experiential source of truth.
 
-Harvest emits taxonomy rows (coverage gate) plus supplements. Prefer phenomenology cards over architecture pins when both match. Enrichment must pull `actual_play:` excerpts first.
+Harvest emits **Actual-Play experience nouns as the primary mint walk**, then taxonomy slots as **coverage supplements**, then pin/theme thickeners. Prefer phenomenology cards over architecture pins when both match. Enrichment must pull `actual_play:` excerpts first.
+
+**Walk tiers**
+
+| `walk_tier` | Role | `supplement` |
+|-------------|------|--------------|
+| `phenomenology` | CR/BG moment-card nouns — **walk first** | `false` |
+| `coverage` | Taxonomy slots (coverage gate; collapsed pillars) | `true` |
+| `thickener` | Theme seeds / pin headings | `true` |
 
 ## Post-harvest quality gates (human criteria)
 
