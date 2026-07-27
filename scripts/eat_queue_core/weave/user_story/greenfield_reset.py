@@ -33,6 +33,10 @@ def reset_greenfield_factory_artifacts(vault_root: Path, project_id: str) -> dic
     if backlog.is_file():
         backlog.unlink()
         removed.append(str(backlog.relative_to(vault_root)))
+    backlog_md = paths["catalog"].parent / "MINT-BACKLOG.md"
+    if backlog_md.is_file():
+        backlog_md.unlink()
+        removed.append(str(backlog_md.relative_to(vault_root)))
 
     scopes = paths.get("scopes_dir")
     if scopes and scopes.is_dir():

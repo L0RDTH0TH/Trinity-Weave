@@ -5,8 +5,8 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 290
-resource_count: 1
+roadmap_note_count: 310
+resource_count: 2
 roadmap_notes:
 - title: decisions-log
   wiki: '[[decisions-log]]'
@@ -4273,6 +4273,136 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: README
+  wiki: '[[README]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/README.md
+  kind: user_story
+  wiki_links:
+  - Ingest/Agent-Research/2026-07-27-cr-c1-actual-play-feedstock-candidates-gmm
+  - Ingest/Agent-Research/2026-07-27-bg-lineage-actual-play-feedstock-candidates-gmm
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P01-moral-fork-with-combat
+  wiki: '[[BG-P01-moral-fork-with-combat]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P02-camp-social-layer
+  wiki: '[[BG-P02-camp-social-layer]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P04-institutional-faith-betrayal
+  wiki: '[[BG-P04-institutional-faith-betrayal]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P06-loyalty-trial-authored-space
+  wiki: '[[BG-P06-loyalty-trial-authored-space]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P07-conspiracy-rewires-trust
+  wiki: '[[BG-P07-conspiracy-rewires-trust]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P10-endgame-authorship-fork
+  wiki: '[[BG-P10-endgame-authorship-fork]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P11-stolen-agency-open
+  wiki: '[[BG-P11-stolen-agency-open]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BG-P12-institutional-seizure
+  wiki: '[[BG-P12-institutional-seizure]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C1-1x39-flee-as-correct-agency
+  wiki: '[[CR-C1-1x39-flee-as-correct-agency]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C1-1x44-progression-as-identity
+  wiki: '[[CR-C1-1x44-progression-as-identity]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C1-1x52-personal-stakes-combat
+  wiki: '[[CR-C1-1x52-personal-stakes-combat]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C1-1x60-social-identity-texture
+  wiki: '[[CR-C1-1x60-social-identity-texture]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C1-1x85-party-fracture
+  wiki: '[[CR-C1-1x85-party-fracture]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CR-C2-2x97-information-scent-social-agency
+  wiki: '[[CR-C2-2x97-information-scent-social-agency]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: _TEMPLATE
+  wiki: '[[_TEMPLATE]]'
+  rel_under_project: Roadmap/User-Story/Actual-Play-Feedstock/moments/_TEMPLATE.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: CATALOG-MINT-BLANK
   wiki: '[[CATALOG-MINT-BLANK]]'
   rel_under_project: Roadmap/User-Story/CATALOG-MINT-BLANK.md
@@ -4281,12 +4411,54 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: MINT-BACKLOG
+  wiki: '[[MINT-BACKLOG]]'
+  rel_under_project: Roadmap/User-Story/MINT-BACKLOG.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
+  - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  linked_resources:
+  - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  tert_id: null
+  pin_excerpt_available: false
 - title: MINT-EPOCH
   wiki: '[[MINT-EPOCH]]'
   rel_under_project: Roadmap/User-Story/MINT-EPOCH.md
   kind: user_story
   wiki_links:
   - CATALOG-MINT-BLANK
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG--20260724-proposed
+  wiki: '[[MINT-BACKLOG--20260724-proposed]]'
+  rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--20260724-proposed.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG--20260727-pre-actualplay-remine
+  wiki: '[[MINT-BACKLOG--20260727-pre-actualplay-remine]]'
+  rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--20260727-pre-actualplay-remine.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
+  - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  linked_resources:
+  - 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG--20260727-taxonomy-skeleton
+  wiki: '[[MINT-BACKLOG--20260727-taxonomy-skeleton]]'
+  rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--20260727-taxonomy-skeleton.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4670,3 +4842,9 @@ resources:
   linked_from:
   - decisions-log
   - decisions-log.pre-hygiene-512-triad-20260717-051852
+- title: Five-Factories-Trail
+  ref: 3-Resources/Second-Brain/Docs/Five-Factories-Trail
+  tert_id: null
+  linked_from:
+  - MINT-BACKLOG
+  - MINT-BACKLOG--20260727-pre-actualplay-remine

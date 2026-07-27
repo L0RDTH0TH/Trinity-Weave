@@ -214,7 +214,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 |------|-----|
 | `PACK-MANIFEST.yaml` | synced_at + required files |
 | `FEED-ENVELOPE.yaml` | Core vs thickeners + completeness flags |
-| `MINT-BACKLOG.yaml` | **Walk queue** — ordered UX experience nouns (post-freeze) |
+| `MINT-BACKLOG.yaml` | **Walk queue** — machine mirror (Grok pack) |
+| `MINT-BACKLOG.md` | **Obsidian prune surface** — operator edits status / labels here |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
@@ -233,7 +234,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-1. Confirm `MINT-BACKLOG.yaml` has `backlog_status: frozen_for_mint` (or bone pilot names an item id).
+1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` (Obsidian `.md` or YAML mirror; or bone pilot names an item id).
 2. Process **pending** items **sequentially** (one UX noun per receipt). Bone pilot may reorder via manual edit.
 3. Map experience shape → pseudo-code stubs; do **not** invent backlog entries.
 4. After Cursor apply: friction check (`Docs/catalog-mint/_shared/FRICTION-CHECK.md`) before marking the item `done`.
@@ -486,8 +487,9 @@ def emit_catalog_mint_pack(
     (out_dir / "slice-catalog.yaml").write_text(cat_text, encoding="utf-8")
     hashes["slice-catalog.yaml"] = _sha256_text(cat_text)
 
-    # UX mint backlog (walk queue)
+    # UX mint backlog (walk queue + Obsidian surface)
     bl_path = paths["catalog"].parent / "MINT-BACKLOG.yaml"
+    bl_md = paths["catalog"].parent / "MINT-BACKLOG.md"
     if bl_path.is_file():
         bl_text = bl_path.read_text(encoding="utf-8")
     else:
@@ -503,6 +505,19 @@ def emit_catalog_mint_pack(
         warnings.append("mint_backlog_missing_seeded_empty")
     (out_dir / "MINT-BACKLOG.yaml").write_text(bl_text, encoding="utf-8")
     hashes["MINT-BACKLOG.yaml"] = _sha256_text(bl_text)
+    if bl_md.is_file():
+        bl_md_text = bl_md.read_text(encoding="utf-8")
+        (out_dir / "MINT-BACKLOG.md").write_text(bl_md_text, encoding="utf-8")
+        hashes["MINT-BACKLOG.md"] = _sha256_text(bl_md_text)
+    elif bl_path.is_file():
+        # Derive Obsidian surface from YAML so pack stays complete
+        from .ux_mint_backlog import load_mint_backlog, render_mint_backlog_markdown
+
+        bl_doc = load_mint_backlog(vault_root, pid)
+        bl_md_text = render_mint_backlog_markdown(bl_doc)
+        (out_dir / "MINT-BACKLOG.md").write_text(bl_md_text, encoding="utf-8")
+        hashes["MINT-BACKLOG.md"] = _sha256_text(bl_md_text)
+        warnings.append("mint_backlog_md_derived_from_yaml")
 
     from .feed_envelope import build_feed_envelope_doc
 

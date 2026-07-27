@@ -1,42 +1,41 @@
 # UX mint rubric (cross-project)
 
-Law for `MINT-BACKLOG.yaml` harvest after conceptual freeze. Enforced in `ux_mint_backlog.py`.
+Law for post-conceptual-freeze backlog draft. Enforced via split taxonomy + `ux_mint_taxonomy.py`.
 
-## Purpose
+## Purpose (LLM-feed-first)
 
-Catalog mint walks **player/DM experience nouns** — how the product *feels* and *flows* — not backend phases or stack domains.
+Catalog mint drafts **experience nouns** as the primary feed for later L5 / pseudo-code.
 
-## Required `ux_axis` set
+## Split taxonomy architecture
 
-Every backlog (unless operator waives an axis in `waived_axes`) must cover:
+| Layer | Path | Role |
+|-------|------|------|
+| **Core** | `Templates/Roadmap/User-Story/UX-MINT-TAXONOMY/UX-MINT-TAXONOMY.core.yaml` | Product-agnostic framework + minimal slots |
+| **Manifest** | `.../UX-MINT-TAXONOMY/manifest.yaml` | Domain pack registry + defaults |
+| **Domain packs** | `.../UX-MINT-TAXONOMY/domains/<id>.yaml` | Game, web, etc. (optional per project) |
+| **Project profile** | `Roadmap/User-Story/UX-MINT-TAXONOMY.project.yaml` | `domain_packs: []` or `[game_vtt]` |
+| **Overlay** | `UX-MINT-TAXONOMY.overlay.yaml` | Operator slot tweaks |
 
-| Axis | Experience focus |
-|------|------------------|
-| `perspective_overrides` | Scry / Clairvoyance / FP presentation feel |
-| `agency` | Player authorship loops |
-| `dm_player_rails` | Shared DM/player session chrome and flow |
-| `class_chrome` | Class/subclass visible identity polish |
-| `combat_cast_feedback` | Cast/hit sensory feedback (not damage formulas) |
-| `session0_identity_art` | Session 0 rituals, art direction, palette |
+**Core-only example (website):** `domain_packs: []` — no game/VTT slots.  
+**Game example:** omit profile (uses manifest default `game_vtt`) or `domain_packs: [game_vtt]`.
 
-Supporting (optional, never the whole list): `presentation_shells`.
+## Feedstock (authority order)
 
-## Include / exclude
+1. PMG (full / high limit)
+2. **Actual-Play-Feedstock** moment / feel-pattern cards (`actual_play:`)
+3. Influence deck + Agent-Research (project aliases)
+4. Rules CDRs + Factory-DRB
+5. Phase 4–6 + UX-relevant pins
+6. Remaining conceptual / Phase 1–3
+7. Resources → Archives (cite-only)
 
-**Include:** Scry presentation, class chrome, booming-blade *feedback*, art direction, rail feel.  
-**Exclude:** Phase titles as rows, stack domain ids, pure damage/rules resolution, factory chores. Spell *families* may be one noun — not one row per SRD spell.
-
-## Entry fields
-
-`id`, `label`, `dimension`, `ux_axis`, `summary`, `conceptual_pin`, `derived_from` (pin path or `pmg:…`), optional `ux_family`, `status` (`pending` \| `in_dialogue` \| `done` \| `dropped`).
+Harvest emits **taxonomy rows** (coverage gate) plus **supplement** pin-nouns (`supplement: true`, optional `maps_to`). Summaries include feedstock excerpts when detect hits. Prefer phenomenology cards over architecture pins when both match.
 
 ## Operator gate
 
-1. Harvest writes `backlog_status: proposed`
-2. Bone pilot prunes → `frozen_for_mint`
-3. Grok walks next `pending` only when frozen (or operator names an id)
-4. After apply: friction check — “Does this stub reduce imagined friction for [persona]?” before `done`
+1. Harvest → `MINT-BACKLOG.md` + `.yaml` (`proposed`)
+2. Prune in Obsidian → `frozen_for_mint`
+3. Grok walks `pending` nouns
+4. Friction check before `done`
 
-## Pack
-
-See `MINT-PACK.md` **Walk Order**. Mirror: `Docs/catalog-mint/<project_id>/MINT-BACKLOG.yaml`.
+If still thin after A+B+C harvest, run a Grok deepen pass (action D) before freeze.
