@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-07-27T04:53:59Z'
+synced_at: '2026-07-27T05:00:15Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -24,7 +24,22 @@ file_hashes:
   slice-catalog.yaml: 26fd83c87d7ec9f4
   MINT-BACKLOG.yaml: 28749a520d59fab5
   MINT-BACKLOG.md: 2203f3ef8b4ecfed
+  Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
+  Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
+  Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
+  Actual-Play-Feedstock/BG-P06-loyalty-trial-authored-space.md: e9bfb87138a954b5
+  Actual-Play-Feedstock/BG-P07-conspiracy-rewires-trust.md: 3dc6f13e80945e65
+  Actual-Play-Feedstock/BG-P10-endgame-authorship-fork.md: 7df6fab459a5a22f
+  Actual-Play-Feedstock/BG-P11-stolen-agency-open.md: 832b09c927a351f3
+  Actual-Play-Feedstock/BG-P12-institutional-seizure.md: e846714646a3bbb6
+  Actual-Play-Feedstock/CR-C1-1x39-flee-as-correct-agency.md: 1b62409cc23ca013
+  Actual-Play-Feedstock/CR-C1-1x44-progression-as-identity.md: b7f270d109814c51
+  Actual-Play-Feedstock/CR-C1-1x52-personal-stakes-combat.md: 3cee6cafa5f1602d
+  Actual-Play-Feedstock/CR-C1-1x60-social-identity-texture.md: 0dff3e0328617d64
+  Actual-Play-Feedstock/CR-C1-1x85-party-fracture.md: 51d4e0947dfe8f9b
+  Actual-Play-Feedstock/CR-C2-2x97-information-scent-social-agency.md: 707920d59cf54294
+  Actual-Play-Feedstock/INDEX.md: 88d66657a1dba38f
   FEED-ENVELOPE.yaml: ab9bd8915856b2d3
-  MINT-PACK.md: 8626b0cd52978bbc
+  MINT-PACK.md: d2a0d6a296d22c17
 warnings:
 - feed_completeness:backlog_not_frozen

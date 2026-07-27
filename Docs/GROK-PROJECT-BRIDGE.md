@@ -37,8 +37,11 @@ GitHub connector ≈ **`main` only** (no branch picker).
 
 1. **Instruction law:** `weave/component-proposals/catalog_mint.yaml` (Trinity card)
 2. **Per-project pack:** `Docs/catalog-mint/<project_id>/`  
-   (`PACK-MANIFEST.yaml`, conceptual + pins + tech stack excerpts, `slice-catalog.yaml`)
+   (`PACK-MANIFEST.yaml`, conceptual + pins + tech stack excerpts, `slice-catalog.yaml`, **`Actual-Play-Feedstock/`** moment cards)
 3. **Active pointer:** `Docs/catalog-mint/ACTIVE.md`
+
+**Actual-play moment cards** must live under the pack on **`main`** (`Docs/catalog-mint/<id>/Actual-Play-Feedstock/`).  
+Vault path `1-Projects/.../Actual-Play-Feedstock/` and Trinity `project/<id>` are **not** visible to the Grok connector.
 
 Emit / refresh packs (Cursor/operator):
 

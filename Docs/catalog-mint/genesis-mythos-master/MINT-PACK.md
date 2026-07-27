@@ -14,6 +14,7 @@
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
 | `PIN-EXCERPTS/` | Optional pin body mirrors |
+| `Actual-Play-Feedstock/` | **Human phenomenology cards** (feel-pattern paraphrases) — Grok-readable on `main` |
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
 | `slice-catalog.yaml` | Applied rows mirror |
@@ -21,6 +22,8 @@
 ## Feed envelope
 
 **Core (always):** conceptual excerpt + THIS backlog noun + pins index + stack excerpts + catalog mirror.
+
+**Human feedstock (when present):** `Actual-Play-Feedstock/` moment cards — pattern paraphrases from live-table / digital-D&D *feel* exemplars (not story clones). Prefer these when critiquing backlog quality.
 
 **Thickeners (optional — no auto-flood):** `neighbor_refs` (same `ux_axis` / backlog-adjacent, only when bone pilot requests `include_neighbors`), poll index, fulfill pastes, gap research when completeness flags fire.
 
@@ -35,6 +38,6 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-07-27T04:53:59Z`
+synced_at: `2026-07-27T05:00:15Z`
 
 Connector = **main only**. Ask bone pilot to re-run `catalog_mint_pack_emit` if files are missing.

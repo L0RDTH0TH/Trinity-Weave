@@ -220,6 +220,7 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
 | `PIN-EXCERPTS/` | Optional pin body mirrors |
+| `Actual-Play-Feedstock/` | **Human phenomenology cards** (feel-pattern paraphrases) — Grok-readable on `main` |
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
 | `slice-catalog.yaml` | Applied rows mirror |
@@ -227,6 +228,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 ## Feed envelope
 
 **Core (always):** conceptual excerpt + THIS backlog noun + pins index + stack excerpts + catalog mirror.
+
+**Human feedstock (when present):** `Actual-Play-Feedstock/` moment cards — pattern paraphrases from live-table / digital-D&D *feel* exemplars (not story clones). Prefer these when critiquing backlog quality.
 
 **Thickeners (optional — no auto-flood):** `neighbor_refs` (same `ux_axis` / backlog-adjacent, only when bone pilot requests `include_neighbors`), poll index, fulfill pastes, gap research when completeness flags fire.
 
@@ -245,6 +248,60 @@ synced_at: `{synced_at}`
 
 Connector = **main only**. Ask bone pilot to re-run `catalog_mint_pack_emit` if files are missing.
 """
+
+
+def _copy_actual_play_feedstock(
+    vault_root: Path,
+    project_id: str,
+    out_dir: Path,
+    hashes: dict[str, str],
+) -> tuple[int, list[str]]:
+    """
+    Mirror User-Story Actual-Play-Feedstock moment cards into the main-visible pack.
+
+    Grok's GitHub connector reads Trinity ``main`` only — project branch paths are invisible.
+    """
+    from .ux_mint_taxonomy import actual_play_feedstock_dir, _is_actual_play_moment_card
+
+    warnings: list[str] = []
+    src = actual_play_feedstock_dir(vault_root, project_id)
+    dest = out_dir / "Actual-Play-Feedstock"
+    if dest.exists():
+        shutil.rmtree(dest)
+    dest.mkdir(parents=True, exist_ok=True)
+
+    cards: list[Path] = []
+    if src.is_dir():
+        cards = sorted(p for p in src.rglob("*.md") if _is_actual_play_moment_card(p))
+
+    for p in cards:
+        rel_name = p.name
+        target = dest / rel_name
+        text = p.read_text(encoding="utf-8")
+        target.write_text(text, encoding="utf-8")
+        hashes[f"Actual-Play-Feedstock/{rel_name}"] = _sha256_text(text)
+
+    index_lines = [
+        f"# Actual-Play-Feedstock — `{project_id}`",
+        "",
+        "Human-phenomenology / feel-pattern moment cards for UX mint.",
+        "**Pattern paraphrases only** — not story clones; no full transcripts.",
+        "",
+        f"Card count: **{len(cards)}**",
+        "",
+        "| File | pattern_id (from name) |",
+        "|------|------------------------|",
+    ]
+    for p in cards:
+        index_lines.append(f"| `{p.name}` | `{p.stem}` |")
+    if not cards:
+        index_lines.append("")
+        index_lines.append("_No moment cards yet — vault `Roadmap/User-Story/Actual-Play-Feedstock/moments/`._")
+        warnings.append("actual_play_feedstock_missing")
+    index_text = "\n".join(index_lines) + "\n"
+    (dest / "INDEX.md").write_text(index_text, encoding="utf-8")
+    hashes["Actual-Play-Feedstock/INDEX.md"] = _sha256_text(index_text)
+    return len(cards), warnings
 
 
 def _load_tert_resolve(vault_root: Path, project_id: str) -> dict[str, str]:
@@ -518,6 +575,12 @@ def emit_catalog_mint_pack(
         (out_dir / "MINT-BACKLOG.md").write_text(bl_md_text, encoding="utf-8")
         hashes["MINT-BACKLOG.md"] = _sha256_text(bl_md_text)
         warnings.append("mint_backlog_md_derived_from_yaml")
+
+    # Actual-play / feel-pattern moment cards → main-visible pack folder
+    ap_count, ap_warn = _copy_actual_play_feedstock(vault_root, pid, out_dir, hashes)
+    warnings.extend(ap_warn)
+    if ap_count == 0:
+        warnings.append("actual_play_feedstock_empty")
 
     from .feed_envelope import build_feed_envelope_doc
 
