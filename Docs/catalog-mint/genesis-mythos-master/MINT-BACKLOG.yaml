@@ -299,16 +299,16 @@ items:
   notes: 'Dropped 2026-07-28 (park): map-as-enemy panic texture from same CR flee
     cluster; optional exemplar notes under combat/crisis authorship rather than a
     first-class mandated row. Re-open only if walk proves a distinct product surface.'
-- id: ux_costly_identity_pact_after_a_death
-  label: Costly identity pact after a death
+- id: ux_visible_lasting_costs
+  label: Visible lasting costs
   dimension: ui_surface
   ux_axis: agency
-  summary: How resurrection/progression feels when the price is a lasting role the
-    whole table can see.
-  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  summary: Persistent, table-readable consequences that remain after the scene (political
+    outcomes, world changes, individual lasting effects such as curses).
+  conceptual_pin: needs pin
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -319,6 +319,44 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Locked 2026-07-28 (renamed from ux_costly_identity_pact_after_a_death):
+    Persistent, table-readable consequences after the scene — political outcomes,
+    world changes, individual lasting effects (e.g. curses). Owns end-state readability
+    + primary trigger feel, not living-world/faction machinery that produces it. CR-C1-1x44
+    feedstock for lasting-visible-cost feel only — not mandatory resurrection/cosmic-bargain.
+    Locked answers: (1) id/label Visible lasting costs; (2) cost types = political
+    / world change / individual lasting (curse etc.); "visible role" discarded; (3)
+    affected player sees UI change; other players diegetic + optional mental-stat
+    hints; (4) end state focus, not trigger systems. Product stance: collaborative
+    table first (DM + players), world/NPC interaction second. Out of scope: every
+    rest/level-up/resurrection as lasting cost; ordinary progression rhythm; cosmic
+    patrons. Friction: (1) yes — lasting costs readable at table; (2) anti-mandate
+    PASS — optional lasting residue, not every progression is a pact. conceptual_pin=needs
+    pin; meaning CR-C1-1x44-progression-as-identity.'
+  supersedes: ux_costly_identity_pact_after_a_death
+- id: ux_costly_identity_pact_after_a_death
+  label: Costly identity pact after a death
+  dimension: ui_surface
+  ux_axis: agency
+  summary: How resurrection/progression feels when the price is a lasting role the
+    whole table can see.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  ux_family: ''
+  status: dropped
+  catalog_face: table
+  experience_mode: ''
+  mode_tier: phenomenology
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+  coverage_slot: false
+  walk_tier: phenomenology
+  maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28: renamed/re-scoped to ux_visible_lasting_costs — old
+    id was too resurrection/pact-specific; new row owns lasting readable end states
+    generally.'
 - id: ux_cure_that_harms
   label: Cure that harms
   dimension: ui_surface

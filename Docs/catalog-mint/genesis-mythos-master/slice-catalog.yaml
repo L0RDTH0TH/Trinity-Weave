@@ -63,3 +63,14 @@ rows:
     touchstone_refs: []
     stack_domain_ids: []
     spine_interfaces: []
+  - id: ux_visible_lasting_costs
+    dimension: ui_surface
+    label: Visible lasting costs
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []

@@ -37,7 +37,8 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`done`) [inhabit] [phenomenology]
 - [-] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`dropped`) [table] [phenomenology]
 - [-] `ux_city_scale_panic_texture` — City-scale panic texture (`dropped`) [table] [phenomenology]
-- [ ] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`pending`) [table] [phenomenology]
+- [x] `ux_visible_lasting_costs` — Visible lasting costs (`done`) [table] [phenomenology]
+- [-] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`dropped`) [table] [phenomenology]
 - [ ] `ux_cure_that_harms` — Cure that harms (`pending`) [table] [phenomenology]
 - [ ] `ux_empty_chair_fracture` — Empty-chair fracture (`pending`) [table] [phenomenology]
 - [ ] `ux_estranged_home_social_ordeal` — Estranged-home social ordeal (`pending`) [table] [phenomenology]
@@ -338,9 +339,29 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - maps_to: baseline_fp
 - notes: Dropped 2026-07-28 (park): map-as-enemy panic texture from same CR flee cluster; optional exemplar notes under combat/crisis authorship rather than a first-class mandated row. Re-open only if walk proves a distinct product surface.
 
+### `ux_visible_lasting_costs` — Visible lasting costs
+
+- status: done
+- walk_tier: phenomenology
+- catalog_face: table
+- experience_mode: 
+- mode_tier: phenomenology
+- dnd_pillar: shared
+- ux_axis: agency
+- dimension: ui_surface
+- summary: Persistent, table-readable consequences that remain after the scene (political outcomes, world changes, individual lasting effects such as curses).
+- pillar_notes: 
+- conceptual_pin: needs pin
+- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+- ux_family: 
+- supplement: False
+- coverage_slot: False
+- maps_to: baseline_fp
+- notes: Locked 2026-07-28 (renamed from ux_costly_identity_pact_after_a_death): Persistent, table-readable consequences after the scene — political outcomes, world changes, individual lasting effects (e.g. curses). Owns end-state readability + primary trigger feel, not living-world/faction machinery that produces it. CR-C1-1x44 feedstock for lasting-visible-cost feel only — not mandatory resurrection/cosmic-bargain. Locked answers: (1) id/label Visible lasting costs; (2) cost types = political / world change / individual lasting (curse etc.); "visible role" discarded; (3) affected player sees UI change; other players diegetic + optional mental-stat hints; (4) end state focus, not trigger systems. Product stance: collaborative table first (DM + players), world/NPC interaction second. Out of scope: every rest/level-up/resurrection as lasting cost; ordinary progression rhythm; cosmic patrons. Friction: (1) yes — lasting costs readable at table; (2) anti-mandate PASS — optional lasting residue, not every progression is a pact. conceptual_pin=needs pin; meaning CR-C1-1x44-progression-as-identity.
+
 ### `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -356,7 +377,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28: renamed/re-scoped to ux_visible_lasting_costs — old id was too resurrection/pact-specific; new row owns lasting readable end states generally.
 
 ### `ux_cure_that_harms` — Cure that harms
 
