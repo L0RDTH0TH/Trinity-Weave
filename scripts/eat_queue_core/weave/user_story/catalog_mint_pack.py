@@ -239,8 +239,9 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` (Obsidian `.md` or YAML mirror; or bone pilot names an item id).
 2. Process **pending** items **sequentially** (one UX noun per receipt). Bone pilot may reorder via manual edit.
-3. Map experience shape → pseudo-code stubs; do **not** invent backlog entries.
-4. After Cursor apply: friction check (`Docs/catalog-mint/_shared/FRICTION-CHECK.md`) before marking the item `done`.
+3. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts over single-skin story nouns. If several pending siblings share one feedstock pin, ask whether a **general parent** should replace N narrow clones before drafting.
+4. Map experience shape → pseudo-code stubs; do **not** invent backlog entries. In Meaning prose, name **alternatives this row does not ban** (see `_shared/WHAT-GOOD-LOOKS-LIKE.md`).
+5. After Cursor apply: friction check (`Docs/catalog-mint/_shared/FRICTION-CHECK.md`) — persona friction **and** “does this encode one plot/structure as the product default?” — before marking the item `done`.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 

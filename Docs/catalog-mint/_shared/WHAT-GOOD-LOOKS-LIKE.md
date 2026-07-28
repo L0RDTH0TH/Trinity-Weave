@@ -17,8 +17,20 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 4. **PoC / early depth cut** — what you would **omit** first without lying (same shape as: full rules include ½/¾ cover; L1 omits them because nothing else depends on them yet).
 5. **Hard dependencies** — “cannot validate X until Y exists” (same shape as: cover before AC is nonsense).
 6. **Out of scope** — explicit exclusions so the row doesn’t swallow the product.
-7. **Open questions** — 2–4 choices for you; Grok does not invent code or harness steps.
-8. **Draft YAML** — only after the above, as a candidate receipt.
+7. **Alternatives this does *not* ban** — legitimate sibling structures that stay first-class (e.g. regular tavern alongside captivity; win/parley alongside flee). If you cannot name any, the row is probably an exemplar-mandate — re-scope.
+8. **Open questions** — 2–4 choices for you; Grok does not invent code or harness steps.
+9. **Draft YAML** — only after the above, as a candidate receipt.
+
+### Smell language (stop and re-scope)
+
+Treat these as red flags that the draft is minting a **default story** instead of a product surface:
+
+- “the game begins by…”, “first session teaches…”, “must start…”
+- “the only correct ending is…”, “exploration *is* jailbreak” (as product law)
+- Twisting every warm open into a secret prison / soft constraint
+- One CR/BG episode caption with no reusable structure menu
+
+**Exemplar ≠ product default.** Actual-Play cards prove a *feel* can exist; they do not require every campaign to use that skin.
 
 ## What a good *row* looks like (YAML)
 
@@ -36,7 +48,7 @@ Minimal, stable nouns — not essays:
     touchstone_refs: []
 ```
 
-A “good” first entry is **narrow enough to debate**, pinned to a real note, with deps/out-of-scope settled in chat. It is **not** a full L5 document stuffed into YAML.
+A “good” first entry is **narrow enough to debate**, pinned to a real note, with deps/out-of-scope settled in chat. It is **not** a full L5 document stuffed into YAML. Narrow ≠ “one mandatory campaign plot.” Prefer **structure menus** and **capability contracts** over single-skin story nouns.
 
 ## Historical note
 
