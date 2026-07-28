@@ -35,7 +35,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_incomplete_information_before_blood` — Incomplete information before blood (`done`) [inhabit] [phenomenology]
 - [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [phenomenology]
 - [x] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`done`) [inhabit] [phenomenology]
-- [ ] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`pending`) [table] [phenomenology]
+- [-] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`dropped`) [table] [phenomenology]
 - [-] `ux_city_scale_panic_texture` — City-scale panic texture (`dropped`) [table] [phenomenology]
 - [ ] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`pending`) [table] [phenomenology]
 - [ ] `ux_cure_that_harms` — Cure that harms (`pending`) [table] [phenomenology]
@@ -300,7 +300,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -316,7 +316,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: Scope note 2026-07-28: optional environmental residue when a cruel-place / captivity structure is chosen — not required for tavern or other warm starts; not a campaign-default.
+- notes: Scope note 2026-07-28: optional environmental residue when a cruel-place / captivity structure is chosen — not required for tavern or other warm starts; not a campaign-default. Dropped 2026-07-28 (operator skip): not minting. Optional cruel-place environmental residue stays cite-only under campaign start / captivity exemplars if needed later; not a first-class catalog row.
 
 ### `ux_city_scale_panic_texture` — City-scale panic texture
 

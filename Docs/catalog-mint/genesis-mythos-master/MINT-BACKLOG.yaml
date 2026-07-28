@@ -261,7 +261,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -274,7 +274,9 @@ items:
   maps_to: baseline_fp
   notes: 'Scope note 2026-07-28: optional environmental residue when a cruel-place
     / captivity structure is chosen — not required for tavern or other warm starts;
-    not a campaign-default.'
+    not a campaign-default. Dropped 2026-07-28 (operator skip): not minting. Optional
+    cruel-place environmental residue stays cite-only under campaign start / captivity
+    exemplars if needed later; not a first-class catalog row.'
 - id: ux_city_scale_panic_texture
   label: City-scale panic texture
   dimension: ui_surface
