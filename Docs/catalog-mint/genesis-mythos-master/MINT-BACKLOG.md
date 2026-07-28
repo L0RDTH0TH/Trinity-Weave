@@ -30,7 +30,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_dm_soft_framing_tools` — DM soft framing tools (`done`) [inhabit] [phenomenology]
 - [x] `ux_campaign_start_structures` — Campaign start structures (`done`) [table] [phenomenology]
 - [-] `ux_escape_as_first_authorship` — Escape as first authorship (`dropped`) [inhabit] [phenomenology]
-- [ ] `ux_combat_resolution_authorship` — Combat resolution authorship (`pending`) [inhabit] [phenomenology]
+- [x] `ux_combat_resolution_authorship` — Combat resolution authorship (`done`) [inhabit] [phenomenology]
 - [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [phenomenology]
 - [ ] `ux_incomplete_information_before_blood` — Incomplete information before blood (`pending`) [inhabit] [phenomenology]
 - [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [phenomenology]
@@ -200,7 +200,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_combat_resolution_authorship` — Combat resolution authorship
 
-- status: pending
+- status: done
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -216,7 +216,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: Re-scoped 2026-07-28 from ux_flee_as_authorship_combat_end. Problem: elevated flee-as-correct as the special combat authorship noun (CR flee exemplar). New job: support multiple legitimate combat endings as first-class authorship — win, flee, parley, surrender, evacuate/carry, etc. Flee is one option, not the product default. Soft framing / fourth-option siblings stay separate. Related texture nouns ux_triage_under_asymmetric_power and ux_city_scale_panic_texture parked as optional exemplars pending walk, not competing mandated structures.
+- notes: Re-scoped 2026-07-28 from ux_flee_as_authorship_combat_end. Problem: elevated flee-as-correct as the special combat authorship noun (CR flee exemplar). New job: support multiple legitimate combat endings as first-class authorship — win, flee, parley, surrender, evacuate/carry, etc. Flee is one option, not the product default. Soft framing / fourth-option siblings stay separate. Related texture nouns ux_triage_under_asymmetric_power and ux_city_scale_panic_texture parked as optional exemplars pending walk, not competing mandated structures. Locked 2026-07-28: Multiple legitimate combat endings are first-class — win is one option, not the only honest end. CR-C1-1x39 flee is one exemplar among many, not the default. Locked answers: (1) PoC minimum = win + flee + parley/soft-exit; (2) killing potential non-hostiles can raise hostility in related NPCs who have a realistic way to learn of it; (3) Int/Wis gate UI hints for alternate endings — everyone can still attempt the actions; (4) surrender / carry-someone-out flexible under general authored exit in PoC — no forced first-class verb yet. Out of scope: soft framing → ux_dm_soft_framing_tools; fourth-option UI → ux_fourth_option_social_agency; city-scale panic / triage as mandated rows. Friction: (1) yes — clears victory-only combat friction; (2) anti-mandate PASS — resolution menu, not flee-default. conceptual_pin=needs pin; meaning from CR flee card as optional exemplar.
 
 ### `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end
 

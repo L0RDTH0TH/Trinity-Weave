@@ -115,7 +115,7 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
     (one exemplar among many)
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -132,7 +132,18 @@ items:
     flee, parley, surrender, evacuate/carry, etc. Flee is one option, not the product
     default. Soft framing / fourth-option siblings stay separate. Related texture
     nouns ux_triage_under_asymmetric_power and ux_city_scale_panic_texture parked
-    as optional exemplars pending walk, not competing mandated structures.'
+    as optional exemplars pending walk, not competing mandated structures. Locked
+    2026-07-28: Multiple legitimate combat endings are first-class — win is one option,
+    not the only honest end. CR-C1-1x39 flee is one exemplar among many, not the default.
+    Locked answers: (1) PoC minimum = win + flee + parley/soft-exit; (2) killing potential
+    non-hostiles can raise hostility in related NPCs who have a realistic way to learn
+    of it; (3) Int/Wis gate UI hints for alternate endings — everyone can still attempt
+    the actions; (4) surrender / carry-someone-out flexible under general authored
+    exit in PoC — no forced first-class verb yet. Out of scope: soft framing → ux_dm_soft_framing_tools;
+    fourth-option UI → ux_fourth_option_social_agency; city-scale panic / triage as
+    mandated rows. Friction: (1) yes — clears victory-only combat friction; (2) anti-mandate
+    PASS — resolution menu, not flee-default. conceptual_pin=needs pin; meaning from
+    CR flee card as optional exemplar.'
   supersedes: ux_flee_as_authorship_combat_end
 - id: ux_flee_as_authorship_combat_end
   label: Flee-as-authorship combat end
