@@ -32,7 +32,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [-] `ux_escape_as_first_authorship` — Escape as first authorship (`dropped`) [inhabit] [phenomenology]
 - [x] `ux_combat_resolution_authorship` — Combat resolution authorship (`done`) [inhabit] [phenomenology]
 - [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [phenomenology]
-- [ ] `ux_incomplete_information_before_blood` — Incomplete information before blood (`pending`) [inhabit] [phenomenology]
+- [x] `ux_incomplete_information_before_blood` — Incomplete information before blood (`done`) [inhabit] [phenomenology]
 - [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [phenomenology]
 - [ ] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`pending`) [inhabit] [phenomenology]
 - [ ] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`pending`) [table] [phenomenology]
@@ -240,7 +240,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_incomplete_information_before_blood` — Incomplete information before blood
 
-- status: pending
+- status: done
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -256,7 +256,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Locked 2026-07-28: Incomplete information is a deliberate authoring tool for consequential choices (esp. violence/allegiance) so regret and authorship coexist — not a mandate that every choice be information-starved. BG-P01 is feedstock exemplar, not product default. Locked answers: (1) primary authoring tool — leave gaps so players shape story (warehouse-meme); (2) PoC = three strong example forks that change later combat cast / camp / faction; (3) UI assistance tied to mental stats and skill checks — visible/usable, observant play still works; (4) high Wisdom may get light "this seems related to…" snippet when connected info arrives — stat-gated. Out of scope: full moral-fork system → ux_moral_fork_that_schedules_the_next_fight; soft framing / fourth-option. Friction: (1) yes — supports authorship under fog; (2) anti-mandate PASS — optional tool, explicitly not required for every fork. conceptual_pin=needs pin (PIN-INDEX gate); meaning BG-P01-moral-fork-with-combat.
 
 ### `ux_wake_in_violation_open` — Wake-in-violation open
 

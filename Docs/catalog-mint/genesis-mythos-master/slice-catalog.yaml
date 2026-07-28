@@ -41,3 +41,14 @@ rows:
     touchstone_refs: []
     stack_domain_ids: []
     spine_interfaces: []
+  - id: ux_incomplete_information_before_blood
+    dimension: ui_surface
+    label: Incomplete information before blood
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []

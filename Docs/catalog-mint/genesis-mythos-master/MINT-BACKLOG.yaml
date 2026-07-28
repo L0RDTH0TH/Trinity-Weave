@@ -174,7 +174,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -185,6 +185,18 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Locked 2026-07-28: Incomplete information is a deliberate authoring tool
+    for consequential choices (esp. violence/allegiance) so regret and authorship
+    coexist — not a mandate that every choice be information-starved. BG-P01 is feedstock
+    exemplar, not product default. Locked answers: (1) primary authoring tool — leave
+    gaps so players shape story (warehouse-meme); (2) PoC = three strong example forks
+    that change later combat cast / camp / faction; (3) UI assistance tied to mental
+    stats and skill checks — visible/usable, observant play still works; (4) high
+    Wisdom may get light "this seems related to…" snippet when connected info arrives
+    — stat-gated. Out of scope: full moral-fork system → ux_moral_fork_that_schedules_the_next_fight;
+    soft framing / fourth-option. Friction: (1) yes — supports authorship under fog;
+    (2) anti-mandate PASS — optional tool, explicitly not required for every fork.
+    conceptual_pin=needs pin (PIN-INDEX gate); meaning BG-P01-moral-fork-with-combat.'
 - id: ux_wake_in_violation_open
   label: Wake-in-violation open
   dimension: ui_surface
