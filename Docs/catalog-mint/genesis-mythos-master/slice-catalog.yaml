@@ -19,3 +19,14 @@ rows:
     touchstone_refs: []
     stack_domain_ids: []
     spine_interfaces: []
+  - id: ux_campaign_start_structures
+    dimension: session_bootstrap
+    label: Campaign start structures
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []

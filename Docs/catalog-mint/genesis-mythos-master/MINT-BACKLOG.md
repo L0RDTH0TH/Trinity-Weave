@@ -28,7 +28,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 ## Quick status
 
 - [x] `ux_dm_soft_framing_tools` — DM soft framing tools (`done`) [inhabit] [phenomenology]
-- [ ] `ux_campaign_start_structures` — Campaign start structures (`pending`) [table] [phenomenology]
+- [x] `ux_campaign_start_structures` — Campaign start structures (`done`) [table] [phenomenology]
 - [-] `ux_escape_as_first_authorship` — Escape as first authorship (`dropped`) [inhabit] [phenomenology]
 - [ ] `ux_combat_resolution_authorship` — Combat resolution authorship (`pending`) [inhabit] [phenomenology]
 - [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [phenomenology]
@@ -160,7 +160,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_campaign_start_structures` — Campaign start structures
 
-- status: pending
+- status: done
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -176,7 +176,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: session_onboarding
-- notes: Re-scoped 2026-07-28 from ux_escape_as_first_authorship. Problem: elevated one BG-lineage opening (stolen-agency jailbreak) into a mandated product shape, fighting agency-from-the-start and allowing a regular tavern. New job: catalog first-class campaign start structures selectable via Session 0 / tone / collaborative canon. Examples (non-exhaustive): regular tavern/inn/neutral gathering; prison/captivity/stolen-agency wake-up; caravan guards/already-on-the-job; parasite/experiment victim; ship/road/camp already in motion; faction inductee/already bound. Default: full player agency from the first moment unless a chosen structure deliberately constrains it. BG-P11 remains feedstock for the optional captivity pattern only (ux_wake_in_violation_open dropped as mandated-open noun); ux_beautiful_rooms_in_a_cruel_place stays environmental residue for cruel-place starts, not required for tavern starts. Do not twist every tavern into a secret prison.
+- notes: Re-scoped 2026-07-28 from ux_escape_as_first_authorship. Problem: elevated one BG-lineage opening (stolen-agency jailbreak) into a mandated product shape, fighting agency-from-the-start and allowing a regular tavern. New job: catalog first-class campaign start structures selectable via Session 0 / tone / collaborative canon. Examples (non-exhaustive): regular tavern/inn/neutral gathering; prison/captivity/stolen-agency wake-up; caravan guards/already-on-the-job; parasite/experiment victim; ship/road/camp already in motion; faction inductee/already bound. Default: full player agency from the first moment unless a chosen structure deliberately constrains it. BG-P11 remains feedstock for the optional captivity pattern only (ux_wake_in_violation_open dropped as mandated-open noun); ux_beautiful_rooms_in_a_cruel_place stays environmental residue for cruel-place starts, not required for tavern starts. Do not twist every tavern into a secret prison. Locked 2026-07-28: Multiple legitimate campaign-start structures are first-class; Session 0 / tone / collaborative canon choose (or invent). Default = full agency from first moment unless table opt-in constrains. BG-P11 captivity is one optional exemplar only — not product default. Regular tavern first-class; never twist warm starts into soft prisons. Locked answers: (1) non-exhaustive example list lives in catalog-row notes + Session 0 helper copy pointing here — no fixed core UI menu until L5; (2) full agency hard default, tone may shift defaults but never assumes constrained start; (3) invent-your-own supported at L5; (4) constrained UI = progressive reveal + tooltips ("hands bound but you can still walk"), not hard lockout. Out of scope: Session 0 ritual itself → ux_session0_bootstrap; mid-campaign seizure siblings. Example list (non-exhaustive): regular tavern/inn/neutral gathering; prison/captivity/stolen-agency wake-up; caravan/already-on-the-job; parasite/experiment victim; ship/road/camp in motion; faction inductee/already bound. Friction: (1) yes — clears forced-opening friction for DM/table; (2) anti-mandate PASS — structure menu, not single skin. conceptual_pin=needs pin (PIN-INDEX gate); meaning from PMG Session 0 + optional BG-P11 exemplar.
 
 ### `ux_escape_as_first_authorship` — Escape as first authorship
 

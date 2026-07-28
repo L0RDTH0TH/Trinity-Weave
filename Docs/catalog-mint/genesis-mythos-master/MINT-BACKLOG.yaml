@@ -45,7 +45,7 @@ items:
   derived_from: pmg:session-0 + actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
     (one exemplar among many)
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -67,7 +67,22 @@ items:
     remains feedstock for the optional captivity pattern only (ux_wake_in_violation_open
     dropped as mandated-open noun); ux_beautiful_rooms_in_a_cruel_place stays environmental
     residue for cruel-place starts, not required for tavern starts. Do not twist every
-    tavern into a secret prison.'
+    tavern into a secret prison. Locked 2026-07-28: Multiple legitimate campaign-start
+    structures are first-class; Session 0 / tone / collaborative canon choose (or
+    invent). Default = full agency from first moment unless table opt-in constrains.
+    BG-P11 captivity is one optional exemplar only — not product default. Regular
+    tavern first-class; never twist warm starts into soft prisons. Locked answers:
+    (1) non-exhaustive example list lives in catalog-row notes + Session 0 helper
+    copy pointing here — no fixed core UI menu until L5; (2) full agency hard default,
+    tone may shift defaults but never assumes constrained start; (3) invent-your-own
+    supported at L5; (4) constrained UI = progressive reveal + tooltips ("hands bound
+    but you can still walk"), not hard lockout. Out of scope: Session 0 ritual itself
+    → ux_session0_bootstrap; mid-campaign seizure siblings. Example list (non-exhaustive):
+    regular tavern/inn/neutral gathering; prison/captivity/stolen-agency wake-up;
+    caravan/already-on-the-job; parasite/experiment victim; ship/road/camp in motion;
+    faction inductee/already bound. Friction: (1) yes — clears forced-opening friction
+    for DM/table; (2) anti-mandate PASS — structure menu, not single skin. conceptual_pin=needs
+    pin (PIN-INDEX gate); meaning from PMG Session 0 + optional BG-P11 exemplar.'
   supersedes: ux_escape_as_first_authorship
 - id: ux_escape_as_first_authorship
   label: Escape as first authorship
