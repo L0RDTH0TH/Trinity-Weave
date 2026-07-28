@@ -34,7 +34,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [phenomenology]
 - [x] `ux_incomplete_information_before_blood` — Incomplete information before blood (`done`) [inhabit] [phenomenology]
 - [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [phenomenology]
-- [ ] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`pending`) [inhabit] [phenomenology]
+- [x] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`done`) [inhabit] [phenomenology]
 - [ ] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`pending`) [table] [phenomenology]
 - [-] `ux_city_scale_panic_texture` — City-scale panic texture (`dropped`) [table] [phenomenology]
 - [ ] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`pending`) [table] [phenomenology]
@@ -280,7 +280,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_who_to_sit_with_tonight` — Who to sit with tonight
 
-- status: pending
+- status: done
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -296,7 +296,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Locked 2026-07-28: Soft agency over relationship temperature between quests — core verb "talk to [NPC name]," not a quest or approval grind. BG-P02 feedstock exemplar. Locked answers: (1) core verb talk to [NPC name]; (2) temperature visibility scales with mental stats; (3) NPC initiation when DM-triggered or high Charisma; (4) class/identity chrome NOT owned here → ux_campfire_identity_chrome. Product stance (bone-pilot, lock-time): collaborative table first (DM + players together), world-interaction second — not a single-player companion-camp sim. "Talk to [NPC]" must eventually support multi-player social shapes (one player side-chat while others talk to another NPC; several players with the same NPC; etc.). PoC may ship a thin conversation path; contract must not freeze SP-only. Out of scope: full quiet-between-pillars → ux_quiet_between_pillars; long-rest refill; mandatory relationship grind. Friction: (1) yes — soft social agency between pillars; (2) anti-mandate PASS — optional soft choice, not grind default. conceptual_pin=needs pin; meaning BG-P02-camp-social-layer.
 
 ### `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place
 

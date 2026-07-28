@@ -228,7 +228,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -239,6 +239,20 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Locked 2026-07-28: Soft agency over relationship temperature between quests
+    — core verb "talk to [NPC name]," not a quest or approval grind. BG-P02 feedstock
+    exemplar. Locked answers: (1) core verb talk to [NPC name]; (2) temperature visibility
+    scales with mental stats; (3) NPC initiation when DM-triggered or high Charisma;
+    (4) class/identity chrome NOT owned here → ux_campfire_identity_chrome. Product
+    stance (bone-pilot, lock-time): collaborative table first (DM + players together),
+    world-interaction second — not a single-player companion-camp sim. "Talk to [NPC]"
+    must eventually support multi-player social shapes (one player side-chat while
+    others talk to another NPC; several players with the same NPC; etc.). PoC may
+    ship a thin conversation path; contract must not freeze SP-only. Out of scope:
+    full quiet-between-pillars → ux_quiet_between_pillars; long-rest refill; mandatory
+    relationship grind. Friction: (1) yes — soft social agency between pillars; (2)
+    anti-mandate PASS — optional soft choice, not grind default. conceptual_pin=needs
+    pin; meaning BG-P02-camp-social-layer.'
 - id: ux_beautiful_rooms_in_a_cruel_place
   label: Beautiful rooms in a cruel place
   dimension: ui_surface
