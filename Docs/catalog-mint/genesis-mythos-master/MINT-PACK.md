@@ -38,6 +38,6 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-07-27T05:30:06Z`
+synced_at: `2026-07-28T19:51:51Z`
 
 Connector = **main only**. Ask bone pilot to re-run `catalog_mint_pack_emit` if files are missing.

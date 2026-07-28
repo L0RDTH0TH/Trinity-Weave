@@ -27,14 +27,16 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ## Quick status
 
-- [ ] `ux_dm_soft_framing_tools` — DM soft framing tools (`pending`) [inhabit] [phenomenology]
-- [ ] `ux_escape_as_first_authorship` — Escape as first authorship (`pending`) [inhabit] [phenomenology]
-- [ ] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`pending`) [inhabit] [phenomenology]
+- [x] `ux_dm_soft_framing_tools` — DM soft framing tools (`done`) [inhabit] [phenomenology]
+- [ ] `ux_campaign_start_structures` — Campaign start structures (`pending`) [table] [phenomenology]
+- [-] `ux_escape_as_first_authorship` — Escape as first authorship (`dropped`) [inhabit] [phenomenology]
+- [ ] `ux_combat_resolution_authorship` — Combat resolution authorship (`pending`) [inhabit] [phenomenology]
+- [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [phenomenology]
 - [ ] `ux_incomplete_information_before_blood` — Incomplete information before blood (`pending`) [inhabit] [phenomenology]
-- [ ] `ux_wake_in_violation_open` — Wake-in-violation open (`pending`) [inhabit] [phenomenology]
+- [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [phenomenology]
 - [ ] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`pending`) [inhabit] [phenomenology]
 - [ ] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`pending`) [table] [phenomenology]
-- [ ] `ux_city_scale_panic_texture` — City-scale panic texture (`pending`) [table] [phenomenology]
+- [-] `ux_city_scale_panic_texture` — City-scale panic texture (`dropped`) [table] [phenomenology]
 - [ ] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`pending`) [table] [phenomenology]
 - [ ] `ux_cure_that_harms` — Cure that harms (`pending`) [table] [phenomenology]
 - [ ] `ux_empty_chair_fracture` — Empty-chair fracture (`pending`) [table] [phenomenology]
@@ -58,8 +60,8 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [ ] `ux_side_deal_mischief_beside_sincere_pain` — Side-deal mischief beside sincere pain (`pending`) [table] [phenomenology]
 - [ ] `ux_soft_power_party_seizure` — Soft-power party seizure (`pending`) [table] [phenomenology]
 - [ ] `ux_spare_or_swear_companion_crisis` — Spare-or-swear companion crisis (`pending`) [table] [phenomenology]
-- [ ] `ux_triage_under_asymmetric_power` — Triage under asymmetric power (`pending`) [table] [phenomenology]
-- [ ] `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty (`pending`) [table] [phenomenology]
+- [-] `ux_triage_under_asymmetric_power` — Triage under asymmetric power (`dropped`) [table] [phenomenology]
+- [-] `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty (`dropped`) [table] [phenomenology]
 - [ ] `ux_who_owns_the_ending` — Who owns the ending (`pending`) [table] [phenomenology]
 - [ ] `ux_earned_conspiracy_payoff` — Earned conspiracy payoff (`pending`) [living_world] [phenomenology]
 - [ ] `ux_earned_spy_reveal` — Earned spy reveal (`pending`) [living_world] [phenomenology]
@@ -138,7 +140,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_dm_soft_framing_tools` — DM soft framing tools
 
-- status: pending
+- status: done
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -154,11 +156,31 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Locked 2026-07-28: meaning authority WB-human-operated-story (Actual-Play feedstock; conceptual_pin=needs pin per PIN-INDEX gate). Issue=DM rail, receipt=inhabit, ephemeral shared channel. Diegetic-first; PoC light non-exclusive meta cue OK. Free-text proves unlock; silence/approach/walk-away first-class in contract; fourth-option UI = ux_fourth_option_social_agency; cue issuance = ux_operator_dm_rail_hotkey_vs_scripted_cue. Same inhabit language human/sim; provenance operator-side only. Friction check: yes — reduces DM steer-vs-steal and player locked-wheel friction. Scope-bug audit 2026-07-28: PASS — not the mandated-structure bug. This row is a capability/contract (suggest without lock; rail issues / inhabit receives; option trees as tools only). It does not encode a single campaign plot or opening. No catalog adjustment required.
+
+### `ux_campaign_start_structures` — Campaign start structures
+
+- status: pending
+- walk_tier: phenomenology
+- catalog_face: table
+- experience_mode: 
+- mode_tier: phenomenology
+- dnd_pillar: shared
+- ux_axis: agency
+- dimension: session_bootstrap
+- summary: First-class ways a campaign can begin (tavern, captivity, already-on-the-job, etc.) without hard-coding one opening fantasy.
+- pillar_notes: 
+- conceptual_pin: needs pin
+- derived_from: pmg:session-0 + actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md (one exemplar among many)
+- ux_family: 
+- supplement: False
+- coverage_slot: False
+- maps_to: session_onboarding
+- notes: Re-scoped 2026-07-28 from ux_escape_as_first_authorship. Problem: elevated one BG-lineage opening (stolen-agency jailbreak) into a mandated product shape, fighting agency-from-the-start and allowing a regular tavern. New job: catalog first-class campaign start structures selectable via Session 0 / tone / collaborative canon. Examples (non-exhaustive): regular tavern/inn/neutral gathering; prison/captivity/stolen-agency wake-up; caravan guards/already-on-the-job; parasite/experiment victim; ship/road/camp already in motion; faction inductee/already bound. Default: full player agency from the first moment unless a chosen structure deliberately constrains it. BG-P11 remains feedstock for the optional captivity pattern only (ux_wake_in_violation_open dropped as mandated-open noun); ux_beautiful_rooms_in_a_cruel_place stays environmental residue for cruel-place starts, not required for tavern starts. Do not twist every tavern into a secret prison.
 
 ### `ux_escape_as_first_authorship` — Escape as first authorship
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -174,11 +196,31 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28: too narrow / BG3-shaped. Superseded by ux_campaign_start_structures. Specific stolen-agency feel remains on sibling ux_wake_in_violation_open.
+
+### `ux_combat_resolution_authorship` — Combat resolution authorship
+
+- status: pending
+- walk_tier: phenomenology
+- catalog_face: inhabit
+- experience_mode: 
+- mode_tier: phenomenology
+- dnd_pillar: shared
+- ux_axis: agency
+- dimension: ui_surface
+- summary: First-class ways a fight can end by player authorship (win, flee, parley, surrender, carry-someone-out, etc.) without hard-coding one heroic ending.
+- pillar_notes: 
+- conceptual_pin: needs pin
+- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md (one exemplar among many)
+- ux_family: 
+- supplement: False
+- coverage_slot: False
+- maps_to: baseline_fp
+- notes: Re-scoped 2026-07-28 from ux_flee_as_authorship_combat_end. Problem: elevated flee-as-correct as the special combat authorship noun (CR flee exemplar). New job: support multiple legitimate combat endings as first-class authorship — win, flee, parley, surrender, evacuate/carry, etc. Flee is one option, not the product default. Soft framing / fourth-option siblings stay separate. Related texture nouns ux_triage_under_asymmetric_power and ux_city_scale_panic_texture parked as optional exemplars pending walk, not competing mandated structures.
 
 ### `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -194,7 +236,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28: too narrow / CR-flee-shaped. Superseded by ux_combat_resolution_authorship. Flee remains one valid combat ending among many.
 
 ### `ux_incomplete_information_before_blood` — Incomplete information before blood
 
@@ -218,7 +260,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_wake_in_violation_open` — Wake-in-violation open
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: inhabit
 - experience_mode: 
@@ -234,7 +276,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28: same scope bug as ux_escape_as_first_authorship — elevated stolen-agency first-session as product default. Captivity/wake-under-violation remains an optional example under ux_campaign_start_structures, not a mandated opening noun.
 
 ### `ux_who_to_sit_with_tonight` — Who to sit with tonight
 
@@ -274,11 +316,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Scope note 2026-07-28: optional environmental residue when a cruel-place / captivity structure is chosen — not required for tavern or other warm starts; not a campaign-default.
 
 ### `ux_city_scale_panic_texture` — City-scale panic texture
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -294,7 +336,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28 (park): map-as-enemy panic texture from same CR flee cluster; optional exemplar notes under combat/crisis authorship rather than a first-class mandated row. Re-open only if walk proves a distinct product surface.
 
 ### `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death
 
@@ -758,7 +800,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_triage_under_asymmetric_power` — Triage under asymmetric power
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -774,11 +816,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28 (park): episode-texture under asymmetric power; treat as optional exemplar of ux_combat_resolution_authorship / crisis authorship, not a separate mandated structure. Re-open only if walk proves a distinct product surface.
 
 ### `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty
 
-- status: pending
+- status: dropped
 - walk_tier: phenomenology
 - catalog_face: table
 - experience_mode: 
@@ -794,7 +836,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: False
 - coverage_slot: False
 - maps_to: baseline_fp
-- notes: 
+- notes: Dropped 2026-07-28 (park): encoded one dungeon shape (trial → loyalty boss) as a catalog row. Need a broader authored-space / relationship-gate exploration noun before minting; do not mandate this dungeon type. BG-P06 feedstock remains cite-only for optional campaigns.
 
 ### `ux_who_owns_the_ending` — Who owns the ending
 

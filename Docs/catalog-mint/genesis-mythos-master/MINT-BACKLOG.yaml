@@ -14,7 +14,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   ux_family: ''
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -25,6 +25,50 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Locked 2026-07-28: meaning authority WB-human-operated-story (Actual-Play
+    feedstock; conceptual_pin=needs pin per PIN-INDEX gate). Issue=DM rail, receipt=inhabit,
+    ephemeral shared channel. Diegetic-first; PoC light non-exclusive meta cue OK.
+    Free-text proves unlock; silence/approach/walk-away first-class in contract; fourth-option
+    UI = ux_fourth_option_social_agency; cue issuance = ux_operator_dm_rail_hotkey_vs_scripted_cue.
+    Same inhabit language human/sim; provenance operator-side only. Friction check:
+    yes — reduces DM steer-vs-steal and player locked-wheel friction. Scope-bug audit
+    2026-07-28: PASS — not the mandated-structure bug. This row is a capability/contract
+    (suggest without lock; rail issues / inhabit receives; option trees as tools only).
+    It does not encode a single campaign plot or opening. No catalog adjustment required.'
+- id: ux_campaign_start_structures
+  label: Campaign start structures
+  dimension: session_bootstrap
+  ux_axis: agency
+  summary: First-class ways a campaign can begin (tavern, captivity, already-on-the-job,
+    etc.) without hard-coding one opening fantasy.
+  conceptual_pin: needs pin
+  derived_from: pmg:session-0 + actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+    (one exemplar among many)
+  ux_family: ''
+  status: pending
+  catalog_face: table
+  experience_mode: ''
+  mode_tier: phenomenology
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+  coverage_slot: false
+  walk_tier: phenomenology
+  maps_to: session_onboarding
+  notes: 'Re-scoped 2026-07-28 from ux_escape_as_first_authorship. Problem: elevated
+    one BG-lineage opening (stolen-agency jailbreak) into a mandated product shape,
+    fighting agency-from-the-start and allowing a regular tavern. New job: catalog
+    first-class campaign start structures selectable via Session 0 / tone / collaborative
+    canon. Examples (non-exhaustive): regular tavern/inn/neutral gathering; prison/captivity/stolen-agency
+    wake-up; caravan guards/already-on-the-job; parasite/experiment victim; ship/road/camp
+    already in motion; faction inductee/already bound. Default: full player agency
+    from the first moment unless a chosen structure deliberately constrains it. BG-P11
+    remains feedstock for the optional captivity pattern only (ux_wake_in_violation_open
+    dropped as mandated-open noun); ux_beautiful_rooms_in_a_cruel_place stays environmental
+    residue for cruel-place starts, not required for tavern starts. Do not twist every
+    tavern into a secret prison.'
+  supersedes: ux_escape_as_first_authorship
 - id: ux_escape_as_first_authorship
   label: Escape as first authorship
   dimension: ui_surface
@@ -33,7 +77,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -44,13 +88,17 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
-- id: ux_flee_as_authorship_combat_end
-  label: Flee-as-authorship combat end
+  notes: 'Dropped 2026-07-28: too narrow / BG3-shaped. Superseded by ux_campaign_start_structures.
+    Specific stolen-agency feel remains on sibling ux_wake_in_violation_open.'
+- id: ux_combat_resolution_authorship
+  label: Combat resolution authorship
   dimension: ui_surface
   ux_axis: agency
-  summary: Ending a fight by surviving and saving others when winning is impossible.
-  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  summary: First-class ways a fight can end by player authorship (win, flee, parley,
+    surrender, carry-someone-out, etc.) without hard-coding one heroic ending.
+  conceptual_pin: needs pin
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+    (one exemplar among many)
   ux_family: ''
   status: pending
   catalog_face: inhabit
@@ -63,6 +111,35 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Re-scoped 2026-07-28 from ux_flee_as_authorship_combat_end. Problem: elevated
+    flee-as-correct as the special combat authorship noun (CR flee exemplar). New
+    job: support multiple legitimate combat endings as first-class authorship — win,
+    flee, parley, surrender, evacuate/carry, etc. Flee is one option, not the product
+    default. Soft framing / fourth-option siblings stay separate. Related texture
+    nouns ux_triage_under_asymmetric_power and ux_city_scale_panic_texture parked
+    as optional exemplars pending walk, not competing mandated structures.'
+  supersedes: ux_flee_as_authorship_combat_end
+- id: ux_flee_as_authorship_combat_end
+  label: Flee-as-authorship combat end
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Ending a fight by surviving and saving others when winning is impossible.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: ''
+  status: dropped
+  catalog_face: inhabit
+  experience_mode: ''
+  mode_tier: phenomenology
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+  coverage_slot: false
+  walk_tier: phenomenology
+  maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28: too narrow / CR-flee-shaped. Superseded by ux_combat_resolution_authorship.
+    Flee remains one valid combat ending among many.'
 - id: ux_incomplete_information_before_blood
   label: Incomplete information before blood
   dimension: ui_surface
@@ -90,7 +167,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   experience_mode: ''
   mode_tier: phenomenology
@@ -101,6 +178,10 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28: same scope bug as ux_escape_as_first_authorship — elevated
+    stolen-agency first-session as product default. Captivity/wake-under-violation
+    remains an optional example under ux_campaign_start_structures, not a mandated
+    opening noun.'
 - id: ux_who_to_sit_with_tonight
   label: Who to sit with tonight
   dimension: ui_surface
@@ -139,6 +220,9 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Scope note 2026-07-28: optional environmental residue when a cruel-place
+    / captivity structure is chosen — not required for tavern or other warm starts;
+    not a campaign-default.'
 - id: ux_city_scale_panic_texture
   label: City-scale panic texture
   dimension: ui_surface
@@ -147,7 +231,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -158,6 +242,9 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28 (park): map-as-enemy panic texture from same CR flee
+    cluster; optional exemplar notes under combat/crisis authorship rather than a
+    first-class mandated row. Re-open only if walk proves a distinct product surface.'
 - id: ux_costly_identity_pact_after_a_death
   label: Costly identity pact after a death
   dimension: ui_surface
@@ -605,7 +692,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -616,6 +703,10 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28 (park): episode-texture under asymmetric power; treat
+    as optional exemplar of ux_combat_resolution_authorship / crisis authorship, not
+    a separate mandated structure. Re-open only if walk proves a distinct product
+    surface.'
 - id: ux_trial_dungeon_that_ends_in_loyalty
   label: Trial dungeon that ends in loyalty
   dimension: ui_surface
@@ -624,7 +715,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   experience_mode: ''
   mode_tier: phenomenology
@@ -635,6 +726,10 @@ items:
   coverage_slot: false
   walk_tier: phenomenology
   maps_to: baseline_fp
+  notes: 'Dropped 2026-07-28 (park): encoded one dungeon shape (trial → loyalty boss)
+    as a catalog row. Need a broader authored-space / relationship-gate exploration
+    noun before minting; do not mandate this dungeon type. BG-P06 feedstock remains
+    cite-only for optional campaigns.'
 - id: ux_who_owns_the_ending
   label: Who owns the ending
   dimension: ui_surface

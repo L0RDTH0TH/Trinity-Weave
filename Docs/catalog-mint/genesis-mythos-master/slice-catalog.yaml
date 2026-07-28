@@ -7,4 +7,15 @@ historical_mint_authority: cite_only_non_authoritative
 # Prior remint rows and L5 scopes were archived — do not resurrect without operator rollback.
 catalog_levels_unsigned_advisory: true
 execution_pins_advisory: empty execution_pins[] expected until Operator Loop 2 / execution track
-rows: []
+rows:
+  - id: ux_dm_soft_framing_tools
+    dimension: ui_surface
+    label: DM soft framing tools
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
