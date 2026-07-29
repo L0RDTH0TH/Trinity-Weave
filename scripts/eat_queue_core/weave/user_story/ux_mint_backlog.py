@@ -298,7 +298,10 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             if val is None:
                 val = ""
             if isinstance(val, (list, dict)):
-                text = yaml.safe_dump(val, default_flow_style=True).strip()
+                # JSON keeps lists on one line so MD field parser does not truncate wraps.
+                import json
+
+                text = json.dumps(val, ensure_ascii=False)
             else:
                 text = str(val).replace("\n", " ").strip()
             lines.append(f"- {key}: {text}")
@@ -388,6 +391,14 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
                     "does_not_mandate",
                     "alternatives_not_banned",
                 ) and raw.strip().startswith("["):
+                    try:
+                        import json
+
+                        parsed = json.loads(raw)
+                        item[extra] = parsed if isinstance(parsed, list) else raw
+                        continue
+                    except Exception:
+                        pass
                     try:
                         parsed = yaml.safe_load(raw)
                         item[extra] = parsed if isinstance(parsed, list) else raw
@@ -915,27 +926,42 @@ def backlog_summary(vault_root: Path, project_id: str) -> dict[str, Any]:
     }
 
 
-def _alternatives_count(item: dict[str, Any]) -> int:
-    raw = item.get("alternatives_not_banned")
+def _list_field_count(raw: Any) -> int:
+    """Count entries in list-ish backlog fields (list, JSON/YAML string, or truncated)."""
     if isinstance(raw, list):
         return len([x for x in raw if str(x).strip()])
-    if isinstance(raw, str) and raw.strip():
-        # markdown may store as comma-ish string
-        if raw.strip().startswith("["):
-            try:
-                parsed = yaml.safe_load(raw)
-                if isinstance(parsed, list):
-                    return len([x for x in parsed if str(x).strip()])
-            except Exception:
-                pass
-        return len([p for p in re.split(r"[|;]", raw) if p.strip()])
-    return 0
+    if not isinstance(raw, str) or not raw.strip():
+        return 0
+    s = raw.strip()
+    if s.startswith("["):
+        try:
+            import json
+
+            parsed = json.loads(s)
+            if isinstance(parsed, list):
+                return len([x for x in parsed if str(x).strip()])
+        except Exception:
+            pass
+        try:
+            parsed = yaml.safe_load(s)
+            if isinstance(parsed, list):
+                return len([x for x in parsed if str(x).strip()])
+        except Exception:
+            pass
+        inner = s.strip("[]")
+        parts = [p.strip().strip("'\"") for p in inner.split(",") if p.strip().strip("'\"")]
+        return len(parts)
+    return len([p for p in re.split(r"[|;]", s) if p.strip()])
+
+
+def _alternatives_count(item: dict[str, Any]) -> int:
+    return _list_field_count(item.get("alternatives_not_banned"))
 
 
 def assert_series_freeze_gates(items: list[dict[str, Any]]) -> tuple[bool, list[str]]:
     """
     Fail-closed freeze gate for series parents: each pending/in_dialogue/done series
-    item needs ≥2 alternatives_not_banned (or non-empty does_not_mandate ≥2 as bootstrap).
+    item needs ≥2 alternatives_not_banned (or ≥2 does_not_mandate) as bootstrap.
     """
     gaps: list[str] = []
     for it in items:
@@ -944,18 +970,7 @@ def assert_series_freeze_gates(items: list[dict[str, Any]]) -> tuple[bool, list[
         st = str(it.get("status") or "pending")
         if st == "dropped":
             continue
-        n = _alternatives_count(it)
-        if n < 2:
-            dnm = it.get("does_not_mandate") or []
-            if isinstance(dnm, list) and len([x for x in dnm if str(x).strip()]) >= 2:
-                continue
-            if isinstance(dnm, str) and dnm.strip().startswith("["):
-                try:
-                    parsed = yaml.safe_load(dnm)
-                    if isinstance(parsed, list) and len(parsed) >= 2:
-                        continue
-                except Exception:
-                    pass
+        if _alternatives_count(it) < 2 and _list_field_count(it.get("does_not_mandate")) < 2:
             gaps.append(str(it.get("id") or "?"))
     return (len(gaps) == 0, gaps)
 
