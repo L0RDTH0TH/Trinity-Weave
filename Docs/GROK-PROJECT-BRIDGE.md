@@ -24,34 +24,21 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 
 ## Hard boundary (Grok)
 
-*I have no direct local vault access — all content comes via published branches or mediated fulfill packs.*
+Grok **cannot** be given private vault access. All content comes via **Trinity-Weave** (published packs / weave law) or mediated fulfill packs the bone pilot pastes.
 
 ## Provisional cards
 
 1. *Provisional cards are active system law but may evolve — cite tier when advising.*
 2. *When a provisional card is referenced, note its tier and cross-check against locked equivalents or operator intent if advising on implementation.*
 
-## Catalog mint (what Grok actually uses)
+## Catalog mint (Trinity system serves a project)
 
-GitHub connector ≈ **`main` only** (no branch picker).
+- **`main`** = **Trinity (the system)** — `catalog_mint` card, `Docs/catalog-mint/<project_id>/` walk queue, shared rubric.
+- **`project/<project_id>`** = **the project being served** (e.g. GMM) — PMG, full `Roadmap/`, `GROK-PROJECT-START.md`, observability.
 
-1. **Instruction law:** `weave/component-proposals/catalog_mint.yaml` (Trinity card)
-2. **Per-project pack:** `Docs/catalog-mint/<project_id>/`  
-   (`PACK-MANIFEST.yaml`, conceptual + pins + tech stack excerpts, `slice-catalog.yaml`, **`Actual-Play-Feedstock/`** moment cards)
-3. **Active pointer:** `Docs/catalog-mint/ACTIVE.md`
+Mint uses **both**. Project branch is in-bounds for grounding. Vault inaccessible. Stale main pack → `catalog_mint_pack_emit` + `weave_public_sync`.
 
-**Actual-play moment cards** must live under the pack on **`main`** (`Docs/catalog-mint/<id>/Actual-Play-Feedstock/`).  
-Vault path `1-Projects/.../Actual-Play-Feedstock/` and Trinity `project/<id>` are **not** visible to the Grok connector.
-
-Emit / refresh packs (Cursor/operator):
-
-```bash
-PYTHONPATH=scripts python3 -m scripts.eat_queue_core.harness catalog_mint_pack_emit --vault-root . --project-id <id>
-```
-
-Bone pilot **names `project_id` in the mint cue** — Grok does not discover it from branches or ACTIVE.md.
-
-Project branch `project/<id>` remains Cursor/export instance — not something the bone pilot configures inside Grok.
+Bone pilot names **`project_id`** in the mint cue.
 
 ## Example fulfill request
 
@@ -68,7 +55,7 @@ grok_fulfill_request:
 
 ## Push economy
 
-- Remote for Grok = this repo only (`main` first, then `project/*`)
+- Remote for Grok = Trinity-Weave only (published packs under `Docs/catalog-mint/<project_id>/` + weave law)
 - Local sync may succeed while remote push waits on budget — cite `Docs/Grok-Bridge-Status.json` → `recommendation`
 
 ## Harness (operator workspace)

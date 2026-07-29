@@ -13,10 +13,10 @@ meta:
 conceptual:
   outcome: Walk the next pending UX noun from MINT-BACKLOG (frozen_for_mint) into one product catalog
     row per turn — never invent the list; never weave CARD-INDEX entries.
-  summary: Catalog mint is an opt-in three-party session, started only when the bone pilot explicitly
-    instructs mint. Otherwise Grok converses normally. When minting, Grok negotiates one deliverable noun
-    using the project pack on main (conceptual + pins + tech stack excerpts), the bone pilot gates, and
-    Cursor applies. Not code generation and not weave card authoring.
+  summary: 'Catalog mint is an opt-in three-party session, started only when the bone pilot explicitly
+    instructs mint. Otherwise Grok converses normally. When minting, Grok operates in Trinity main (the
+    system: card + pack walk queue) while serving project/<project_id> (PMG/Roadmap grounding). Bone pilot
+    gates; Cursor applies. Not code generation and not weave card authoring.'
   primary_case: 'You say "mint for genesis-mythos-master." Grok opens this card first, resolves the project
     id, reads the pack in must_read order, prints a preflight line, then discusses one candidate with
     prose sections and a draft YAML receipt. You approve; Cursor applies; the next turn starts only after
@@ -31,10 +31,12 @@ conceptual:
   misread_risks:
   - Starting a mint session without an explicit bone-pilot mint instruction.
   - Confusing product slice-catalog with weave CARD-INDEX / OBSERVABILITY.
-  - Treating project/* branches as Grok-attached (connector sees main only).
+  - Ignoring named project_id pack paths or inventing vault 1-Projects/ paths Grok cannot access.
   - Dumping multi-row YAML or writing L5 essays into the receipt.
   - Inferring project_id from ACTIVE.md, branch names, or memory instead of bone-pilot mint cue.
   - Using archived gmm-catalog-mint paths as live mint feedstock.
+  - Treating mint as main-only and refusing project/<project_id> grounding for the project being served.
+  - Inventing vault 1-Projects/ paths Grok cannot access.
   process:
     turn_order:
     - Grok: preflight → prose Meaning sections → one draft YAML receipt
@@ -72,22 +74,23 @@ touch:
   vault_card_path: .technical/weave/component-proposals/catalog_mint.yaml
   pack_root_on_main: Docs/catalog-mint/<project_id>/
   pack_root_vault: 3-Resources/Second-Brain/Docs/catalog-mint/<project_id>/
-  git_navigation: 'Connector ≈ main only (no branch picker). Do not open vault-local 1-Projects/ paths.
+  git_navigation: 'Trinity-Weave layout for Grok:
 
-    Do not treat project/<id> as attached for mint dialogue.
+    - main = the system (weave cards, mint process, Docs/catalog-mint/<id>/ walk queue, shared rubric).
 
-    Card path on main: weave/component-proposals/catalog_mint.yaml
+    - project/<project_id> = the project being served (PMG, full Roadmap/, GROK-PROJECT-START, observability).
 
-    Pack path on main: Docs/catalog-mint/<project_id>/
+    When minting for a named project_id, USE BOTH: main pack for backlog walk; project branch for goals/roadmap
+    grounding.
 
-    Archived gmm-catalog-mint under 4-Archives is cite-only — ignore for mint.
+    Never invent vault 1-Projects/ paths. If main pack/card stale, ask bone pilot to weave_public_sync.
 
-    '
+    Card path (system): weave/component-proposals/catalog_mint.yaml on main.'
   project_id_resolution:
   - Bone pilot must name project_id in the mint instruction — this is the only source
   - Do not infer from git branch names, ACTIVE.md, or prior chat memory
   - If project_id omitted → ask and wait; never invent
-  - Then open Docs/catalog-mint/<that_project_id>/ only
+  - Then open Docs/catalog-mint/<that_project_id>/ on main (walk queue) AND project/<project_id> for grounding
   must_read_order:
   - weave/component-proposals/catalog_mint.yaml
   - Docs/catalog-mint/<project_id>/PACK-MANIFEST.yaml
@@ -119,11 +122,10 @@ touch:
   - catalog_mint_receipt_validate fail-closed on bad shape
   - forbidden: invent wiki-links
   - forbidden: regenerate CARD-INDEX
-  relevance_pull: 'During an instructed mint: read CONCEPTUAL-EXCERPT for product vision; PIN-INDEX (+
-    PIN-EXCERPTS for the candidate) for legal pins; ROADMAP-RESOURCE-INDEX.yaml to poll roadmap notes
-    and connected resources; Tech-Stack-Excerpt + Stack-Domain-Registry-Excerpt so proposed stack_domain_ids
-    / spine_interfaces match locked|trialing|integrated domains; slice-catalog.yaml to avoid duplicate
-    ids and note depends_on. Do not invent stack, pins, or resources outside the pack/index.'
+  relevance_pull: 'During instructed mint: operate in Trinity main pack for walk queue (CONCEPTUAL-EXCERPT,
+    PIN-INDEX, ROADMAP-RESOURCE-INDEX); serve project/<project_id> for PMG and full Roadmap note bodies
+    (rel_under_project). Tech-Stack excerpts on main for legal stack_domain_ids. Do not invent outside
+    pack/index/project branch.'
   poll_index: ROADMAP-RESOURCE-INDEX.yaml is the poll surface for roadmap notes and their connected resources
     (wiki_links, linked_resources, tert_id). During mint, when more context is needed, consult this index
     first; request fulfill by tert_id if body is not in PIN-EXCERPTS. Do not invent roadmap or resource
@@ -153,12 +155,14 @@ rules:
   - Bare YAML-only replies with no prose Meaning sections
   - Set catalog_signed_at
   - Fields trinity_id, progress, priority, pass_gate, CARD-INDEX-update
-  - Open vault 1-Projects/ or claim project/* is attached
+  - Open vault 1-Projects/ paths (inaccessible) or invent pack content not on Trinity-Weave
   - Second-Brain / weave process chores as catalog rows
   - Invent roadmap or resource titles not listed in ROADMAP-RESOURCE-INDEX / PIN-INDEX
   - Elevate a single Actual-Play exemplar skin as the product default opening, combat ending, or exploration
     fantasy
   - Twist every warm/neutral start (e.g. regular tavern) into a soft prison to fit an exemplar
+  - Refuse project/<project_id> grounding when Meaning needs PMG/Roadmap for the project being served
+  - Open vault 1-Projects/ paths (inaccessible)
   fixtures:
   - name: preflight_line
     text: 'Preflight: card=catalog_mint path=weave/component-proposals/catalog_mint.yaml project_id=<id>

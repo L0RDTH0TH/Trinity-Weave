@@ -238,16 +238,19 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 ## Walk Order
 
 1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` (Obsidian `.md` or YAML mirror; or bone pilot names an item id).
-2. Process **pending** items **sequentially** (one UX noun per receipt). Bone pilot may reorder via manual edit.
-3. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts over single-skin story nouns. If several pending siblings share one feedstock pin, ask whether a **general parent** should replace N narrow clones before drafting.
-4. Map experience shape → pseudo-code stubs; do **not** invent backlog entries. In Meaning prose, name **alternatives this row does not ban** (see `_shared/WHAT-GOOD-LOOKS-LIKE.md`).
-5. After Cursor apply: friction check (`Docs/catalog-mint/_shared/FRICTION-CHECK.md`) — persona friction **and** “does this encode one plot/structure as the product default?” — before marking the item `done`.
+2. Process **pending** items **sequentially** — prefer `walk_tier: series` first (series packs), then coverage, then thickeners. Bone pilot may reorder via manual edit.
+3. **Altitude:** series parents must be `product_contract`. AP / scene captions are thickeners only — never promote to series.
+4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban** (see `_shared/WHAT-GOOD-LOOKS-LIKE.md` + pack `does_not_mandate`).
+5. **DM seat:** privileged DM tools OK; refuse DM-as-infrastructure; keep orchestrator fun (`dm_as_player`) visible.
+6. Follow card legs. **One pending UX noun per turn** — prefer `walk_tier: series` first; do not invent the list.
+7. **Ground Meaning in project goals/intent:** cite pack `CONCEPTUAL-EXCERPT` (PMG) and, when needed, poll `ROADMAP-RESOURCE-INDEX.yaml` for the owning roadmap/resource; request fulfill/`tert_id` or paste if the body is not in pack. Do not invent note titles/bodies; do not ground only on AP skins.
+8. Preflight every draft; never CARD-INDEX. After Cursor apply: friction check before `done`.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
 synced_at: `{synced_at}`
 
-Connector = **main only**. Ask bone pilot to re-run `catalog_mint_pack_emit` if files are missing.
+Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.
 """
 
 

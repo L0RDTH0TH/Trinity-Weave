@@ -271,6 +271,13 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         for key in (
             "status",
             "walk_tier",
+            "series_id",
+            "series_order",
+            "altitude",
+            "seat",
+            "time_scale",
+            "does_not_mandate",
+            "alternatives_not_banned",
             "catalog_face",
             "experience_mode",
             "mode_tier",
@@ -290,15 +297,19 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             val = it.get(key)
             if val is None:
                 val = ""
-            text = str(val).replace("\n", " ").strip()
+            if isinstance(val, (list, dict)):
+                text = yaml.safe_dump(val, default_flow_style=True).strip()
+            else:
+                text = str(val).replace("\n", " ").strip()
             lines.append(f"- {key}: {text}")
         lines.append("")
 
     lines.append("## Coverage reminder")
     lines.append("")
     lines.append(
-        "Required taxonomy: core + domain pack(s) per `UX-MINT-TAXONOMY/manifest.yaml` "
-        "and project `UX-MINT-TAXONOMY.project.yaml`. LLM-feed-first; prune before freeze."
+        "Primary walk: `UX-MINT-SERIES` packs (`walk_tier: series`). "
+        "Taxonomy slots are coverage supplements; Actual-Play nouns are thickeners/skins. "
+        "See rubric lenses + `SERIES-ALTITUDE-EXEMPLARS.md`. Prune before freeze."
     )
     lines.append("")
     return "\n".join(lines)
@@ -362,9 +373,34 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
             "notes",
             "walk_tier",
             "maps_to",
+            "series_id",
+            "altitude",
+            "time_scale",
+            "seat",
+            "does_not_mandate",
+            "alternatives_not_banned",
+            "series_order",
         ):
             if fields.get(extra):
-                item[extra] = fields[extra]
+                raw = fields[extra]
+                if extra in (
+                    "seat",
+                    "does_not_mandate",
+                    "alternatives_not_banned",
+                ) and raw.strip().startswith("["):
+                    try:
+                        parsed = yaml.safe_load(raw)
+                        item[extra] = parsed if isinstance(parsed, list) else raw
+                        continue
+                    except Exception:
+                        pass
+                if extra == "series_order":
+                    try:
+                        item[extra] = int(raw)
+                        continue
+                    except (TypeError, ValueError):
+                        pass
+                item[extra] = raw
         for flag in ("supplement", "coverage_slot", "feedstock_hit"):
             raw = fields.get(flag)
             if raw is None or raw == "":
@@ -534,14 +570,15 @@ def _seed_experience_noun_candidates(
                 "status": "pending",
                 "catalog_face": face,
                 "experience_mode": "",
-                "mode_tier": "phenomenology",
+                "mode_tier": "thickener",
                 "dnd_pillar": "shared",
                 "feedstock_hit": True,
                 "pillar_notes": "",
-                # Primary mint walk — CR/BG moment nouns lead; taxonomy is coverage.
-                "supplement": False,
+                # AP nouns are exemplar skins only — never series/primary walk.
+                "supplement": True,
                 "coverage_slot": False,
-                "walk_tier": "phenomenology",
+                "walk_tier": "thickener",
+                "altitude": "scene_exemplar",
                 "maps_to": _AXIS_TO_MODE.get(axis, ""),
             }
         )
@@ -693,7 +730,7 @@ def collect_supplement_items(chunks: list[tuple[str, str]], *, max_items: int = 
             else 5
         ),
     )
-    # Pass 1: moment-card experience noun candidates only (primary phenomenology)
+    # Pass 1: moment-card experience noun candidates (thickeners / scene skins only)
     for ref, text in ordered:
         if not ref.startswith("actual_play:"):
             continue
@@ -740,28 +777,41 @@ def _rank_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "supplement": 8,
     }
     pillar_rank = {"shared": 0, "exploration": 1, "combat": 2, "roleplay": 3}
-    # Walk order: CR/BG phenomenology → taxonomy coverage → pin/theme thickeners
-    tier_rank = {"phenomenology": 0, "coverage": 1, "thickener": 2}
+    # Walk order: series packs → taxonomy coverage → AP/theme thickeners
+    # Legacy "phenomenology" ranks with thickener (demoted).
+    tier_rank = {"series": 0, "coverage": 1, "thickener": 2, "phenomenology": 2}
 
-    def key(it: dict[str, Any]) -> tuple[int, int, int, str, int, str]:
+    def key(it: dict[str, Any]) -> tuple[int, int, int, int, int, str, int, str]:
         derived = str(it.get("derived_from") or "")
-        ap = 0 if derived.startswith("actual_play:") else 1
         walk = str(it.get("walk_tier") or "").strip()
         if not walk:
-            if it.get("coverage_slot"):
+            if derived.startswith("series:"):
+                walk = "series"
+            elif it.get("coverage_slot"):
                 walk = "coverage"
-            elif it.get("supplement"):
+            elif it.get("supplement") or derived.startswith("actual_play:"):
                 walk = "thickener"
-            elif ap == 0:
-                walk = "phenomenology"
             else:
                 walk = "coverage"
+        # Enforce invariant: AP source never ranks as series
+        if derived.startswith("actual_play:") and walk == "series":
+            walk = "thickener"
+        try:
+            s_rank = int(it.get("series_walk_rank") or 0)
+        except (TypeError, ValueError):
+            s_rank = 0
+        try:
+            s_order = int(it.get("series_order") or 0)
+        except (TypeError, ValueError):
+            s_order = 0
         return (
             tier_rank.get(walk, 9),
-            ap if walk == "phenomenology" else 0,
+            s_rank if walk == "series" else 0,
+            s_order if walk == "series" else 0,
             face_rank.get(str(it.get("catalog_face") or ""), 9),
-            str(it.get("experience_mode") or ""),
             pillar_rank.get(str(it.get("dnd_pillar") or ""), 9),
+            str(it.get("series_id") or ""),
+            0,
             str(it.get("id") or ""),
         )
 
@@ -865,6 +915,51 @@ def backlog_summary(vault_root: Path, project_id: str) -> dict[str, Any]:
     }
 
 
+def _alternatives_count(item: dict[str, Any]) -> int:
+    raw = item.get("alternatives_not_banned")
+    if isinstance(raw, list):
+        return len([x for x in raw if str(x).strip()])
+    if isinstance(raw, str) and raw.strip():
+        # markdown may store as comma-ish string
+        if raw.strip().startswith("["):
+            try:
+                parsed = yaml.safe_load(raw)
+                if isinstance(parsed, list):
+                    return len([x for x in parsed if str(x).strip()])
+            except Exception:
+                pass
+        return len([p for p in re.split(r"[|;]", raw) if p.strip()])
+    return 0
+
+
+def assert_series_freeze_gates(items: list[dict[str, Any]]) -> tuple[bool, list[str]]:
+    """
+    Fail-closed freeze gate for series parents: each pending/in_dialogue/done series
+    item needs ≥2 alternatives_not_banned (or non-empty does_not_mandate ≥2 as bootstrap).
+    """
+    gaps: list[str] = []
+    for it in items:
+        if str(it.get("walk_tier") or "") != "series":
+            continue
+        st = str(it.get("status") or "pending")
+        if st == "dropped":
+            continue
+        n = _alternatives_count(it)
+        if n < 2:
+            dnm = it.get("does_not_mandate") or []
+            if isinstance(dnm, list) and len([x for x in dnm if str(x).strip()]) >= 2:
+                continue
+            if isinstance(dnm, str) and dnm.strip().startswith("["):
+                try:
+                    parsed = yaml.safe_load(dnm)
+                    if isinstance(parsed, list) and len(parsed) >= 2:
+                        continue
+                except Exception:
+                    pass
+            gaps.append(str(it.get("id") or "?"))
+    return (len(gaps) == 0, gaps)
+
+
 def freeze_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     bl = load_mint_backlog(vault_root, project_id)
@@ -877,6 +972,15 @@ def freeze_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
             "detail": "coverage_gap",
             "missing_axes": list(missing),
             "backlog_status": bl.get("backlog_status"),
+        }
+    alt_ok, alt_gaps = assert_series_freeze_gates(items)
+    if not alt_ok:
+        return {
+            "ok": False,
+            "detail": "alternatives_not_banned_gap",
+            "missing_alternatives_ids": alt_gaps,
+            "backlog_status": bl.get("backlog_status"),
+            "hint": "Each series parent needs ≥2 alternatives_not_banned (or ≥2 does_not_mandate) before freeze.",
         }
     bl["backlog_status"] = "frozen_for_mint"
     bl["frozen_at"] = _utc_now()
@@ -911,6 +1015,11 @@ def generate_ux_mint_backlog(
         expand_taxonomy_to_items,
         load_ux_mint_taxonomy,
     )
+    from .ux_mint_series import (
+        expand_series_to_items,
+        load_ux_mint_series,
+        write_lens_audit,
+    )
 
     vault_root = vault_root.resolve()
     pid = str(project_id or "").strip()
@@ -934,19 +1043,36 @@ def generate_ux_mint_backlog(
 
     taxonomy = load_ux_mint_taxonomy(vault_root, pid)
     chunks = collect_ux_mint_feedstock(vault_root, pid, pmg_path=pmg_path)
-    harvested = expand_taxonomy_to_items(taxonomy, chunks)
-    # B: union project-specific pin nouns (supplements) — coverage still taxonomy-only
+    series_doc = load_ux_mint_series(vault_root, pid)
+    series_items = expand_series_to_items(series_doc)
+    harvested: list[dict[str, Any]] = list(series_items)
+    harvested.extend(expand_taxonomy_to_items(taxonomy, chunks))
     supplements = collect_supplement_items(chunks)
-    tax_ids = {str(i.get("id") or "") for i in harvested}
+    existing_ids = {str(i.get("id") or "") for i in harvested}
     for item in supplements:
         iid = str(item.get("id") or "")
-        if iid and iid not in tax_ids:
+        if str(item.get("derived_from") or "").startswith("actual_play:"):
+            item["walk_tier"] = "thickener"
+            item["supplement"] = True
+            item["altitude"] = item.get("altitude") or "scene_exemplar"
+        if iid and iid not in existing_ids:
             harvested.append(item)
+            existing_ids.add(iid)
     for item in harvested:
         if item.get("id") in applied:
             item["status"] = "done"
+        if str(item.get("walk_tier") or "") == "series":
+            if str(item.get("altitude") or "") != "product_contract":
+                item["walk_tier"] = "thickener"
+                item["supplement"] = True
+            if not str(item.get("derived_from") or "").startswith("series:"):
+                item["walk_tier"] = "thickener"
+                item["supplement"] = True
 
-    merged = _merge_items(prior_items, harvested)
+    if merge:
+        merged = _merge_items(prior_items, harvested)
+    else:
+        merged = list(harvested)
     merged = [
         i
         for i in merged
@@ -963,22 +1089,30 @@ def generate_ux_mint_backlog(
     pending = [i for i in merged if str(i.get("status") or "") == "pending"]
     nxt = str(pending[0]["id"]) if pending else None
 
-    backlog_status = prior_status if prior_status == "frozen_for_mint" else "proposed"
+    backlog_status = prior_status if (merge and prior_status == "frozen_for_mint") else "proposed"
+    now = _utc_now()
 
     doc: dict[str, Any] = {
         "schema_version": 1,
         "project_id": pid,
         "backlog_status": backlog_status,
-        "generated_at": _utc_now(),
+        "generated_at": now,
         "waived_axes": waived,
         "rubric": "Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md",
         "taxonomy": "Templates/Roadmap/User-Story/UX-MINT-TAXONOMY/manifest.yaml",
+        "series": "Templates/Roadmap/User-Story/UX-MINT-SERIES/manifest.yaml",
         "items": merged,
     }
     if existing.get("frozen_at") and backlog_status == "frozen_for_mint":
         doc["frozen_at"] = existing["frozen_at"]
 
     path, _md = write_mint_backlog(vault_root, pid, doc)
+    write_lens_audit(
+        vault_root,
+        pid,
+        [i for i in merged if str(i.get("walk_tier") or "") == "series"],
+        generated_at=now,
+    )
 
     detail = "ux_mint_backlog_written"
     if not cov_ok:

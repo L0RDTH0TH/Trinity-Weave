@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 316
+roadmap_note_count: 318
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4462,6 +4462,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: MINT-LENS-AUDIT
+  wiki: '[[MINT-LENS-AUDIT]]'
+  rel_under_project: Roadmap/User-Story/MINT-LENS-AUDIT.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: MINT-BACKLOG--20260724-proposed
   wiki: '[[MINT-BACKLOG--20260724-proposed]]'
   rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--20260724-proposed.md
@@ -4511,6 +4519,16 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG--pre-series-mine-wipe-20260729
+  wiki: '[[MINT-BACKLOG--pre-series-mine-wipe-20260729]]'
+  rel_under_project: Roadmap/User-Story/Versions/MINT-BACKLOG--pre-series-mine-wipe-20260729.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

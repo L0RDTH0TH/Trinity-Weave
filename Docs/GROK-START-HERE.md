@@ -1,16 +1,21 @@
 ---
 title: Grok — start here (Trinity-Weave)
 created: 2026-06-09
-updated: 2026-07-22
+updated: 2026-07-29
 audience: grok_github_integration
 ---
 
 # Grok — start here
 
-**Repo:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)  
-**What the bone pilot’s GitHub connector usually sees:** **`main` only** (OAuth login — **no branch picker**).
+**Repo:** [L0RDTH0TH/Trinity-Weave](https://github.com/L0RDTH0TH/Trinity-Weave)
 
-**Not a mint corpus:** Grok’s `/home/workdir/artifacts/` sandbox. Load mint files from GitHub **`L0RDTH0TH/Trinity-Weave`** `@ main`.
+**Capability:** Grok **cannot** be given the private Second-Brain vault. Trinity-Weave is the public surface so Grok **can** navigate published project material.
+
+**Layout:** **`main`** = Trinity (**the system** — mint law + pack walk queue). **`project/<project_id>`** = **the project being served** (PMG + full `Roadmap/`). Mint uses both.
+
+**Project navigation (mint):** bone pilot names **`project_id`** → open **`main` pack** `Docs/catalog-mint/<project_id>/` (walk queue) **and** branch **`project/<project_id>`** (PMG + full `Roadmap/` grounding). Both surfaces. Not “main only.”
+
+**Not a mint corpus:** `/home/workdir/artifacts/` sandbox. Load from GitHub **Trinity-Weave**.
 
 ---
 
@@ -22,7 +27,7 @@ When instructed:
 
 1. Use the **named** `project_id` from the mint cue.
 2. Open **`weave/component-proposals/catalog_mint.yaml`** (Trinity card — process / touch / rules).
-3. Open pack **`Docs/catalog-mint/<project_id>/`** — pull conceptual + pins + `ROADMAP-RESOURCE-INDEX.yaml` + tech-stack excerpts. Poll the index for more context; request fulfill by `tert_id` for missing bodies.
+3. Open pack **`Docs/catalog-mint/<project_id>/`** — backlog, conceptual, pins, index, stack excerpts. Poll the index; request fulfill by `tert_id` for missing bodies.
 4. Preflight every draft; **one** YAML receipt; await `approve` / `edit` / `reject`.
 
 Ignore archived `gmm-catalog-mint` if old links surface it.
@@ -31,9 +36,9 @@ Ignore archived `gmm-catalog-mint` if old links surface it.
 
 ## What this repo is (weave law)
 
-Trinity-Weave is the public design manual + code slice for an agentic Second Brain maintenance layer (YAML cards, harness, host-weld).
+Trinity-Weave is the public design manual + code slice for an agentic Second Brain maintenance layer (YAML cards, harness, host-weld) **and** the published per-project mint packs.
 
-You see **committed git** (usually `main`). Bone pilot may paste packs for anything else.
+Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Stale pack = ask for republish.
 
 ## Read order — weave law only (not mint)
 
@@ -46,13 +51,13 @@ You see **committed git** (usually `main`). Bone pilot may paste packs for anyth
 
 | Question | Where |
 |----------|--------|
-| Mint catalog / product deliverable rows (any project) | **`catalog_mint` card** + **`Docs/catalog-mint/<project_id>/`** |
+| Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
-| Live queue / Watcher | Unavailable — ask for paste |
+| Live queue / Watcher / vault notes | Unavailable — ask for paste or fulfill |
 
 ## Hard limits
 
-- No live vault / Watcher
+- **Cannot** access private vault / Watcher / `1-Projects/…`
 - Never confuse **card catalog** (`CARD-INDEX`) with **product slice-catalog** (`Docs/catalog-mint/<id>/slice-catalog.yaml`)
 - Pasteable custom instructions: `Docs/Grok-Second-Brain-Custom-Instructions.md`
 
@@ -61,7 +66,7 @@ You see **committed git** (usually `main`). Bone pilot may paste packs for anyth
 | Path | Contents |
 |------|----------|
 | `weave/component-proposals/catalog_mint.yaml` | **Mint instruction law** |
-| `Docs/catalog-mint/` | **Per-project packs** (+ `ACTIVE.md`) |
+| `Docs/catalog-mint/<project_id>/` | **That project’s published pack** (navigate here when `project_id` is named) |
 | `Docs/GROK-PROJECT-BRIDGE.md` | Bridge notes |
 | `Docs/Grok-Second-Brain-Custom-Instructions.md` | Paste into Grok Chat |
 | `meat-suit-entry/` | Bone pilot hub |
