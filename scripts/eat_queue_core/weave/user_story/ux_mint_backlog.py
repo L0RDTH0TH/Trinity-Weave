@@ -178,7 +178,9 @@ _ITEM_HEADER_RE = re.compile(
     r"^###\s+`([^`]+)`\s*(?:—|--|-)?\s*(.*)$",
     re.MULTILINE,
 )
-_ITEM_FIELD_RE = re.compile(r"^- (\w+):\s*(.*)$", re.MULTILINE)
+# Do not use \s* after the colon — it eats newlines and merges the next `- key:` line
+# into an empty value (e.g. `- series_id: \n- series_order:` → series_id="- series_order:").
+_ITEM_FIELD_RE = re.compile(r"^- (\w+):[ \t]*(.*)$", re.MULTILINE)
 
 
 def _utc_now() -> str:
@@ -304,6 +306,10 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
                 text = json.dumps(val, ensure_ascii=False)
             else:
                 text = str(val).replace("\n", " ").strip()
+            # Skip empty scalars so blank `- key: ` lines cannot confuse operators/Grok;
+            # parser still accepts them after the [ \\t]* (non-newline) fix above.
+            if text == "" and not isinstance(val, (list, dict)):
+                continue
             lines.append(f"- {key}: {text}")
         lines.append("")
 

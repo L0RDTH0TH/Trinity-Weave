@@ -17,6 +17,19 @@ title: Series altitude exemplars (pack-authoring targets)
 ## Good pack member shape (product_contract)
 
 ```yaml
+- role_key: world_generation
+  label: Table can generate or import a persistent living world
+  summary: >
+    World is the durable container — multiple campaigns and character sets can
+    share it over time.
+  altitude: product_contract
+  seat: [shared_table, dm_as_player, privileged_access]
+  does_not_mandate:
+    - one world equals exactly one campaign forever
+    - worldgen is only a Session 0 checkbox with no persistent container
+```
+
+```yaml
 - role_key: combat_play_surface
   label: Combat can resolve by authored paths including non-win ends
   summary: >

@@ -4,23 +4,52 @@ backlog_status: frozen_for_mint
 waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 items:
+- id: ux_world_generation
+  label: Table can generate or import a persistent living world
+  dimension: world_gen
+  ux_axis: session0_identity_art
+  summary: World is the durable container — procedural gen, import, or collaborative
+    bootstrap — that outlives any single campaign. Multiple campaigns (and character
+    sets) can run in the same world with the same group over time.
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:world_generation
+  ux_family: lifecycle
+  status: pending
+  catalog_face: living_world
+  experience_mode: world_generation
+  mode_tier: series
+  dnd_pillar: shared
+  walk_tier: series
+  series_id: lifecycle
+  altitude: product_contract
+  time_scale: world_era
+  seat:
+  - shared_table
+  - dm_as_player
+  - privileged_access
+  does_not_mandate:
+  - one world equals exactly one campaign forever
+  - worldgen is only a Session 0 checkbox with no persistent container
+  alternatives_not_banned: []
+  series_order: 0
+  supplement: false
+  coverage_slot: false
 - id: ux_dm_campaign_creation
-  label: DM can bootstrap a campaign world with table bounds
+  label: DM can bootstrap a campaign frame inside a world
   dimension: session_bootstrap
   ux_axis: session0_identity_art
-  summary: Orchestrator creates or imports a campaign frame (tone, bounds, canon seed)
-    as a player-facing authorship act — not a backend admin chore.
-  conceptual_pin: '- derived_from: series:lifecycle:dm_campaign_creation'
-  derived_from: ''
+  summary: Orchestrator creates or revises a campaign frame (tone, bounds, canon seed,
+    cast expectations) as a player-facing authorship act inside an existing or newly
+    attached world — not the world container itself.
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:dm_campaign_creation
   ux_family: lifecycle
   status: pending
   catalog_face: table
   experience_mode: dm_campaign_creation
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: campaign
@@ -30,8 +59,9 @@ items:
   does_not_mandate:
   - every campaign begins in captivity
   - offline Microscope play is required before Session 0
+  - starting a campaign must regenerate the whole world
   alternatives_not_banned: []
-  series_order: 0
+  series_order: 1
   supplement: false
   coverage_slot: false
 - id: ux_player_character_creation
@@ -39,18 +69,17 @@ items:
   dimension: session_bootstrap
   ux_axis: session0_identity_art
   summary: Character creation is collaborative authorship with visible identity chrome
-    and table accept/revise — not a solitary sheet dump into the sim.
-  conceptual_pin: '- derived_from: series:lifecycle:player_character_creation'
-  derived_from: ''
+    and table accept/revise — not a solitary sheet dump into the sim. Characters may
+    change across campaigns in the same world.
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:player_character_creation
   ux_family: lifecycle
   status: pending
   catalog_face: table
   experience_mode: player_character_creation
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: campaign
@@ -61,7 +90,7 @@ items:
   - characters must start with a stolen-agency wound
   - backstory is only flavor text with no play hooks
   alternatives_not_banned: []
-  series_order: 1
+  series_order: 2
   supplement: false
   coverage_slot: false
 - id: ux_dm_session_prep
@@ -70,17 +99,15 @@ items:
   ux_axis: dm_player_rails
   summary: Session prep surfaces reduce cognitive load for the orchestrator while
     remaining a player experience — privileged tools, not invisible infrastructure.
-  conceptual_pin: '- derived_from: series:lifecycle:dm_session_prep'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:dm_session_prep
   ux_family: lifecycle
   status: pending
   catalog_face: table
   experience_mode: dm_session_prep
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: session
@@ -91,7 +118,7 @@ items:
   - prep must be a separate offline app
   - players never see any prep residue
   alternatives_not_banned: []
-  series_order: 2
+  series_order: 3
   supplement: false
   coverage_slot: false
 - id: ux_game_start
@@ -100,17 +127,15 @@ items:
   ux_axis: agency
   summary: Session open supports a menu of legitimate starts; agency from the first
     moment unless a chosen structure deliberately constrains it.
-  conceptual_pin: '- derived_from: series:lifecycle:game_start'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:game_start
   ux_family: lifecycle
   status: pending
   catalog_face: table
   experience_mode: game_start
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: session
@@ -120,7 +145,7 @@ items:
   - every campaign begins in captivity
   - tavern opens must secretly be prisons
   alternatives_not_banned: []
-  series_order: 3
+  series_order: 4
   supplement: false
   coverage_slot: false
 - id: ux_early_game
@@ -129,17 +154,15 @@ items:
   ux_axis: agency
   summary: Early-game capability contract for ordinary progression, soft framing,
     and quiet between pillars — not a mandatory tutorial plot.
-  conceptual_pin: '- derived_from: series:lifecycle:early_game'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:early_game
   ux_family: lifecycle
   status: pending
   catalog_face: flows
   experience_mode: early_game
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: session
@@ -149,7 +172,7 @@ items:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   alternatives_not_banned: []
-  series_order: 4
+  series_order: 5
   supplement: false
   coverage_slot: false
 - id: ux_mid_game
@@ -158,17 +181,15 @@ items:
   ux_axis: agency
   summary: Mid-game contract for lasting costs, faction motion, and collaborative
     forks — without locking one CR/BG mid-arc skin.
-  conceptual_pin: '- derived_from: series:lifecycle:mid_game'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:mid_game
   ux_family: lifecycle
   status: pending
   catalog_face: living_world
   experience_mode: mid_game
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: campaign
@@ -178,7 +199,7 @@ items:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   alternatives_not_banned: []
-  series_order: 5
+  series_order: 6
   supplement: false
   coverage_slot: false
 - id: ux_end_game
@@ -187,17 +208,15 @@ items:
   ux_axis: agency
   summary: End-game structures for who owns the ending and what persists — menu of
     closes, not one mandatory mythic finale.
-  conceptual_pin: '- derived_from: series:lifecycle:end_game'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:end_game
   ux_family: lifecycle
   status: pending
   catalog_face: table
   experience_mode: end_game
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: campaign
@@ -208,7 +227,7 @@ items:
   - the only correct ending is institutional seizure
   - end game must erase player legacies
   alternatives_not_banned: []
-  series_order: 6
+  series_order: 7
   supplement: false
   coverage_slot: false
 - id: ux_mental_stat_interpretation
@@ -217,17 +236,15 @@ items:
   ux_axis: agency
   summary: Capability for mental-stat driven hints, social temperature, and perception
     texture as structure menus — not one episode's insight beat.
-  conceptual_pin: '- derived_from: series:lifecycle:mental_stat_interpretation'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:lifecycle:mental_stat_interpretation
   ux_family: lifecycle
   status: pending
   catalog_face: surfaces
   experience_mode: mental_stat_interpretation
   mode_tier: series
   dnd_pillar: roleplay
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: lifecycle
   altitude: product_contract
   time_scale: moment
@@ -237,7 +254,7 @@ items:
   - mental stats unlock a single romance dialogue tree
   - low mental stats hide all social information
   alternatives_not_banned: []
-  series_order: 7
+  series_order: 8
   supplement: false
   coverage_slot: false
 - id: ux_collaborative_table_agency
@@ -247,17 +264,15 @@ items:
   summary: Multiplayer collaborative storytelling with curated world-control tools;
     DM has privileged access and a different seat, and their fun is in-product — they
     are not system infrastructure.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:collaborative_table_agency'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:collaborative_table_agency
   ux_family: pmg_capabilities
   status: pending
   catalog_face: table
   experience_mode: collaborative_table_agency
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: session
@@ -278,17 +293,15 @@ items:
   ux_axis: agency
   summary: Quiet-between is designed product surface — linger, camp, road — not a
     rest button or loading state alone.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:quiet_between_pillars'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:quiet_between_pillars
   ux_family: pmg_capabilities
   status: pending
   catalog_face: table
   experience_mode: quiet_between_pillars
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: session
@@ -307,17 +320,15 @@ items:
   ux_axis: combat_cast_feedback
   summary: Combat authorship menu (fight, flee, parley, stakes) as product contract
     — not one flee-or-die caption.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:combat_play_surface'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:combat_play_surface
   ux_family: pmg_capabilities
   status: pending
   catalog_face: inhabit
   experience_mode: combat_play_surface
   mode_tier: series
   dnd_pillar: combat
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: moment
@@ -337,17 +348,15 @@ items:
   summary: FP baseline, rules-bound overrides, pilots, and DM WorldCam/MapCam/Sensorium
     as experiential seats with enter/exit — privileged DM tools included, orchestrator
     fun considered.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:camera_control_envelopes'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:camera_control_envelopes
   ux_family: pmg_capabilities
   status: pending
   catalog_face: inhabit
   experience_mode: camera_control_envelopes
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: moment
@@ -368,17 +377,15 @@ items:
   ux_axis: agency
   summary: Living-world continuity contract — factions, threads, visible lasting costs
     — without mandating one conspiracy skin.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:living_world_continuity'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:living_world_continuity
   ux_family: pmg_capabilities
   status: pending
   catalog_face: living_world
   experience_mode: living_world_continuity
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: campaign
@@ -398,17 +405,15 @@ items:
   ux_axis: class_chrome
   summary: Personal and table legacies surface in play and player-lite chronicle —
     structure menu for how hooks appear, not one CR identity pact.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:backstory_legacy_integration'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:backstory_legacy_integration
   ux_family: pmg_capabilities
   status: pending
   catalog_face: table
   experience_mode: backstory_legacy_integration
   mode_tier: series
   dnd_pillar: roleplay
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: campaign
@@ -428,17 +433,15 @@ items:
   ux_axis: session0_identity_art
   summary: Session 0, timelines/eras, factions, intentional re-gen, and modability
     as first-class authorship — Microscope-informed non-linear history welcome.
-  conceptual_pin: '- derived_from: series:pmg_capabilities:world_authorship_modability'
-  derived_from: ''
+  conceptual_pin: needs pin
+  derived_from: series:pmg_capabilities:world_authorship_modability
   ux_family: pmg_capabilities
   status: pending
   catalog_face: living_world
   experience_mode: world_authorship_modability
   mode_tier: series
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: needs pin'
   walk_tier: series
-  maps_to: '- notes:'
   series_id: pmg_capabilities
   altitude: product_contract
   time_scale: world_era
@@ -468,17 +471,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: absent_proxy
   status: pending
-  catalog_face: '- experience_mode: absent_proxy'
+  catalog_face: inhabit
+  experience_mode: absent_proxy
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_agency_handoff_enter_exit
@@ -490,20 +489,15 @@ items:
     by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms
     around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit
     - dm_workbench_lore_gui / wa_faction_hierarchy'
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: agency_handoff_enter_exit
   status: pending
-  catalog_face: '- experience_mode: agency_handoff_enter_exit'
+  catalog_face: inhabit
+  experience_mode: agency_handoff_enter_exit
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_baseline_fp
@@ -521,17 +515,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: baseline_embodiment
   status: pending
-  catalog_face: '- experience_mode: baseline_fp'
+  catalog_face: inhabit
+  experience_mode: baseline_fp
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_baseline_fp_controls
@@ -544,20 +534,15 @@ items:
     that procedurally creates living, collaborative open worlds from shared DM and
     player intents — mandatory in-tool session 0, visible world continuity, player-lite
     legacies and chronicle — players in fir…'
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: baseline_fp_controls
   status: pending
-  catalog_face: '- experience_mode: baseline_fp_controls'
+  catalog_face: inhabit
+  experience_mode: baseline_fp_controls
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_class_chrome_discovery
@@ -574,17 +559,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   ux_family: class_chrome_discovery
   status: pending
-  catalog_face: '- experience_mode: class_chrome_discovery'
+  catalog_face: inhabit
+  experience_mode: class_chrome_discovery
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_divination_override
@@ -604,17 +585,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: divination_overrides
   status: pending
-  catalog_face: '- experience_mode: divination_override'
+  catalog_face: inhabit
+  experience_mode: divination_override
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_mapcam
@@ -633,17 +610,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: dm_observe_rails
   status: pending
-  catalog_face: '- experience_mode: dm_mapcam'
+  catalog_face: inhabit
+  experience_mode: dm_mapcam
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_pilot
@@ -661,17 +634,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: dm_pilot
   status: pending
-  catalog_face: '- experience_mode: dm_pilot'
+  catalog_face: inhabit
+  experience_mode: dm_pilot
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_sensorium
@@ -688,17 +657,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   ux_family: dm_observe_rails
   status: pending
-  catalog_face: '- experience_mode: dm_sensorium'
+  catalog_face: inhabit
+  experience_mode: dm_sensorium
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_worldcam
@@ -715,17 +680,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: dm_observe_rails
   status: pending
-  catalog_face: '- experience_mode: dm_worldcam'
+  catalog_face: inhabit
+  experience_mode: dm_worldcam
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dominate_pilot
@@ -743,17 +704,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: dominate_pilot
   status: pending
-  catalog_face: '- experience_mode: dominate_pilot'
+  catalog_face: inhabit
+  experience_mode: dominate_pilot
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dominate_victim
@@ -770,17 +727,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: victim_overlay
   status: pending
-  catalog_face: '- experience_mode: dominate_victim'
+  catalog_face: inhabit
+  experience_mode: dominate_victim
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_liminal_unconscious
@@ -796,17 +749,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   ux_family: liminal_states
   status: pending
-  catalog_face: '- experience_mode: liminal_unconscious'
+  catalog_face: inhabit
+  experience_mode: liminal_unconscious
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_planar_travel_override
@@ -825,17 +774,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: planar_travel_overrides
   status: pending
-  catalog_face: '- experience_mode: planar_travel_override'
+  catalog_face: inhabit
+  experience_mode: planar_travel_override
   mode_tier: critical_matrix
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_combat_cast_feedback
@@ -853,17 +798,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: combat_cast_feedback
   status: pending
-  catalog_face: '- experience_mode: combat_cast_feedback'
+  catalog_face: inhabit
+  experience_mode: combat_cast_feedback
   mode_tier: multi_pillar
   dnd_pillar: combat
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: inhabit'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_chronicle_buckets
@@ -875,20 +816,15 @@ items:
     fiction holding comedy theft and family grief in one session. ## maps_to_taxonomy
     - session0_bootstrap / tone_profile_surface - player_lite_lore_gui / chronicle_buckets
     - agency_handoff_enter_exit'
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   ux_family: chronicle_buckets
   status: pending
-  catalog_face: '- experience_mode: chronicle_buckets'
+  catalog_face: table
+  experience_mode: chronicle_buckets
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: table'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_workbench_lore_gui
@@ -906,17 +842,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: dm_workbench_lore_gui
   status: pending
-  catalog_face: '- experience_mode: dm_workbench_lore_gui'
+  catalog_face: table
+  experience_mode: dm_workbench_lore_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: table'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_player_lite_lore_gui
@@ -934,17 +866,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: player_lite_lore_gui
   status: pending
-  catalog_face: '- experience_mode: player_lite_lore_gui'
+  catalog_face: table
+  experience_mode: player_lite_lore_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: table'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_session0_bootstrap
@@ -958,20 +886,15 @@ items:
     world continuity, player-lite legacies and chronicle — players in first-person
     by default with rules-driven perspective and agency envelopes, DMs on a dedicated
     rail (WorldCam, map-fixed Tabletop MapCam, read-o…'
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: session0_bootstrap
   status: pending
-  catalog_face: '- experience_mode: session0_bootstrap'
+  catalog_face: table
+  experience_mode: session0_bootstrap
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: table'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_tone_profile_surface
@@ -989,17 +912,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: tone_profile_surface
   status: pending
-  catalog_face: '- experience_mode: tone_profile_surface'
+  catalog_face: table
+  experience_mode: tone_profile_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: table'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_canon_pipeline_feel
@@ -1017,17 +936,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: canon_pipeline_feel
   status: pending
-  catalog_face: '- experience_mode: canon_pipeline_feel'
+  catalog_face: living_world
+  experience_mode: canon_pipeline_feel
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_economy_resources
@@ -1044,17 +959,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
   ux_family: economy_resources
   status: pending
-  catalog_face: '- experience_mode: economy_resources'
+  catalog_face: living_world
+  experience_mode: economy_resources
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: mentioned in feedstock
     | roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_economy_trade
@@ -1071,17 +982,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: economy_trade
   status: pending
-  catalog_face: '- experience_mode: economy_trade'
+  catalog_face: living_world
+  experience_mode: economy_trade
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_quest_pressure_surface
@@ -1099,17 +1006,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: quest_pressure_surface
   status: pending
-  catalog_face: '- experience_mode: quest_pressure_surface'
+  catalog_face: living_world
+  experience_mode: quest_pressure_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_faction_goals
@@ -1127,17 +1030,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: wa_faction_goals
   status: pending
-  catalog_face: '- experience_mode: wa_faction_goals'
+  catalog_face: living_world
+  experience_mode: wa_faction_goals
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_faction_hierarchy
@@ -1153,17 +1052,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: wa_faction_hierarchy
   status: pending
-  catalog_face: '- experience_mode: wa_faction_hierarchy'
+  catalog_face: living_world
+  experience_mode: wa_faction_hierarchy
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_faction_offscreen
@@ -1181,17 +1076,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: wa_faction_offscreen
   status: pending
-  catalog_face: '- experience_mode: wa_faction_offscreen'
+  catalog_face: living_world
+  experience_mode: wa_faction_offscreen
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_faction_reputation
@@ -1206,17 +1097,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: wa_faction_reputation
   status: pending
-  catalog_face: '- experience_mode: wa_faction_reputation'
+  catalog_face: living_world
+  experience_mode: wa_faction_reputation
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_lore_articles
@@ -1234,17 +1121,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   ux_family: wa_lore_articles
   status: pending
-  catalog_face: '- experience_mode: wa_lore_articles'
+  catalog_face: living_world
+  experience_mode: wa_lore_articles
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_npc_agenda
@@ -1262,17 +1145,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: wa_npc_agenda
   status: pending
-  catalog_face: '- experience_mode: wa_npc_agenda'
+  catalog_face: living_world
+  experience_mode: wa_npc_agenda
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_npc_relations
@@ -1289,17 +1168,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: wa_npc_relations
   status: pending
-  catalog_face: '- experience_mode: wa_npc_relations'
+  catalog_face: living_world
+  experience_mode: wa_npc_relations
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_npc_secrets
@@ -1317,17 +1192,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   ux_family: wa_npc_secrets
   status: pending
-  catalog_face: '- experience_mode: wa_npc_secrets'
+  catalog_face: living_world
+  experience_mode: wa_npc_secrets
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_npc_sheet
@@ -1343,17 +1214,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   ux_family: wa_npc_sheet
   status: pending
-  catalog_face: '- experience_mode: wa_npc_sheet'
+  catalog_face: living_world
+  experience_mode: wa_npc_sheet
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_timelines
@@ -1371,17 +1238,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: wa_timelines
   status: pending
-  catalog_face: '- experience_mode: wa_timelines'
+  catalog_face: living_world
+  experience_mode: wa_timelines
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_worldgen_gui
@@ -1399,17 +1262,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: worldgen_gui
   status: pending
-  catalog_face: '- experience_mode: worldgen_gui'
+  catalog_face: living_world
+  experience_mode: worldgen_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_sim_weather_pulse
@@ -1424,17 +1283,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: sim_weather_pulse
   status: pending
-  catalog_face: '- experience_mode: sim_weather_pulse'
+  catalog_face: living_world
+  experience_mode: sim_weather_pulse
   mode_tier: multi_pillar
   dnd_pillar: exploration
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_faction_territory
@@ -1452,17 +1307,13 @@ items:
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
   ux_family: wa_faction_territory
   status: pending
-  catalog_face: '- experience_mode: wa_faction_territory'
+  catalog_face: living_world
+  experience_mode: wa_faction_territory
   mode_tier: multi_pillar
   dnd_pillar: exploration
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_locations
@@ -1480,17 +1331,13 @@ items:
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: wa_locations
   status: pending
-  catalog_face: '- experience_mode: wa_locations'
+  catalog_face: living_world
+  experience_mode: wa_locations
   mode_tier: multi_pillar
   dnd_pillar: exploration
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_maps_vs_embodied
@@ -1508,17 +1355,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: wa_maps_vs_embodied
   status: pending
-  catalog_face: '- experience_mode: wa_maps_vs_embodied'
+  catalog_face: living_world
+  experience_mode: wa_maps_vs_embodied
   mode_tier: multi_pillar
   dnd_pillar: exploration
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_wa_npc_dialogue_hooks
@@ -1536,17 +1379,13 @@ items:
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: wa_npc_dialogue_hooks
   status: pending
-  catalog_face: '- experience_mode: wa_npc_dialogue_hooks'
+  catalog_face: living_world
+  experience_mode: wa_npc_dialogue_hooks
   mode_tier: multi_pillar
   dnd_pillar: roleplay
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: living_world'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_application_shell
@@ -1558,20 +1397,15 @@ items:
     Soft agency over relationship temperature between quests. ## maps_to_taxonomy
     - session0_bootstrap / tone_profile_surface - class_chrome_discovery - application_shell
     / primary_navigation'
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: application_shell
   status: pending
-  catalog_face: '- experience_mode: application_shell'
+  catalog_face: surfaces
+  experience_mode: application_shell
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: surfaces'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_primary_navigation
@@ -1582,20 +1416,15 @@ items:
     wayfinding. Feedstock: …abel: Who to sit with tonight summary: Soft agency over
     relationship temperature between quests. ## maps_to_taxonomy - session0_bootstrap
     / tone_profile_surface - class_chrome_discovery - application_shell / primary_navigation'
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: primary_navigation
   status: pending
-  catalog_face: '- experience_mode: primary_navigation'
+  catalog_face: flows
+  experience_mode: primary_navigation
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: flows'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_session_onboarding
@@ -1607,20 +1436,15 @@ items:
     of a missing seat summary: How the table reconfigures roles without a recruit
     screen. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - session_onboarding
     / primary_navigation - chronicle_buckets'
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
-  derived_from: ''
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   ux_family: session_onboarding
   status: pending
-  catalog_face: '- experience_mode: session_onboarding'
+  catalog_face: flows
+  experience_mode: session_onboarding
   mode_tier: shared_chrome
   dnd_pillar: shared
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: flows'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_content_authoring_surface
@@ -1638,17 +1462,13 @@ items:
   derived_from: research:Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
   ux_family: content_authoring_surface
   status: pending
-  catalog_face: '- experience_mode: content_authoring_surface'
+  catalog_face: content
+  experience_mode: content_authoring_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
   walk_tier: coverage
-  maps_to: '- notes:'
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: content'
-  series_order: '- altitude: - seat:'
   supplement: true
   coverage_slot: true
 - id: ux_dm_soft_framing_tools
@@ -1656,1221 +1476,1037 @@ items:
   dimension: ui_surface
   ux_axis: agency
   summary: Surfaces that help a human steer without stealing player authorship.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_escape_as_first_authorship
   label: Escape as first authorship
   dimension: ui_surface
   ux_axis: agency
   summary: Exploration fantasy born as jailbreak, not travel map.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_flee_as_authorship_combat_end
   label: Flee-as-authorship combat end
   dimension: ui_surface
   ux_axis: agency
   summary: Ending a fight by surviving and saving others when winning is impossible.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_incomplete_information_before_blood
   label: Incomplete information before blood
   dimension: ui_surface
   ux_axis: agency
   summary: Deciding with partial truth so regret and authorship coexist.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_wake_in_violation_open
   label: Wake-in-violation open
   dimension: ui_surface
   ux_axis: agency
   summary: First session teaches stolen agency before empowerment.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_who_to_sit_with_tonight
   label: Who to sit with tonight
   dimension: ui_surface
   ux_axis: agency
   summary: Soft agency over relationship temperature between quests.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
+  catalog_face: inhabit
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: inhabit'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_beautiful_rooms_in_a_cruel_place
   label: Beautiful rooms in a cruel place
   dimension: ui_surface
   ux_axis: agency
   summary: Environmental storytelling that makes the villain intimate.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_city_scale_panic_texture
   label: City-scale panic texture
   dimension: ui_surface
   ux_axis: agency
   summary: How inhabit/table feel when the map itself is the enemy.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_costly_identity_pact_after_a_death
   label: Costly identity pact after a death
   dimension: ui_surface
   ux_axis: agency
   summary: How resurrection/progression feels when the price is a lasting role the
     whole table can see.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_cure_that_harms
   label: Cure that harms
   dimension: ui_surface
   ux_axis: agency
   summary: Trusted procedure as betrayal of body and belief.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_empty_chair_fracture
   label: Empty-chair fracture
   dimension: ui_surface
   ux_axis: agency
   summary: The feel when a living party member chooses out.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_estranged_home_social_ordeal
   label: Estranged-home social ordeal
   dimension: ui_surface
   ux_axis: agency
   summary: Returning to a hostile intimate space where rolls are insight and composure.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_faith_shatter_at_the_machine
   label: Faith shatter at the machine
   dimension: ui_surface
   ux_axis: agency
   summary: Identity progression via institutional doubt.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_fourth_option_social_agency
   label: Fourth-option social agency
   dimension: ui_surface
   ux_axis: agency
   summary: Room to invent a response the wheel did not list.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_guide_who_was_the_problem
   label: Guide who was the problem
   dimension: ui_surface
   ux_axis: agency
   summary: Narrator/ally trust collapse without removing player agency.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_joy_ritual_beside_betrayal_beat
   label: Joy ritual beside betrayal beat
   dimension: ui_surface
   ux_axis: agency
   summary: Continuous fiction holding celebration and moral crisis in one arc.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_linger_after_the_fight
   label: Linger after the fight
   dimension: ui_surface
   ux_axis: agency
   summary: Authored post-combat social/exploration residue before the next hook.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_moral_fork_that_schedules_the_next_fight
   label: Moral fork that schedules the next fight
   dimension: ui_surface
   ux_axis: agency
   summary: Choosing allegiance rewrites the combat cast and camp trust.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_party_trust_under_ascension_pressure
   label: Party trust under ascension pressure
   dimension: ui_surface
   ux_axis: agency
   summary: Social contract tested when power offers an exit from humanity.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_personal_stakes_set_piece_combat
   label: Personal-stakes set-piece combat
   dimension: ui_surface
   ux_axis: agency
   summary: Fight where lineage, shame, and crowd politics ride every swing.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_post_coma_blame_texture
   label: Post-coma blame texture
   dimension: ui_surface
   ux_axis: agency
   summary: Social fallout when recovery reveals emotional injury.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_post_kill_political_handoff
   label: Post-kill political handoff
   dimension: ui_surface
   ux_axis: agency
   summary: The social beat that starts the second the boss drops.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_power_object_that_demanded_a_person_not_a_check
   label: Power object that demanded a person, not a check
   dimension: ui_surface
   ux_axis: agency
   summary: Artifact moments that rewrite identity instead of filling an inventory
     slot.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_rehabilitation_bargain_after_betrayal
   label: Rehabilitation bargain after betrayal
   dimension: ui_surface
   ux_axis: agency
   summary: Social agency choosing path over punishment when war politics loom.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_rescue_as_social_contract
   label: Rescue as social contract
   dimension: ui_surface
   ux_axis: agency
   summary: The table re-forms around getting them back.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_rest_as_presence_not_only_refill
   label: Rest as presence, not only refill
   dimension: ui_surface
   ux_axis: agency
   summary: Long rest as camp identity layer, not a resource button alone.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_sibling_panic_in_the_quiet_after_the_roll
   label: Sibling panic in the quiet after the roll
   dimension: ui_surface
   ux_axis: agency
   summary: Social texture of the table when one life depends on another’s vow.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_side_deal_mischief_beside_sincere_pain
   label: Side-deal mischief beside sincere pain
   dimension: ui_surface
   ux_axis: agency
   summary: Continuous fiction holding comedy theft and family grief in one session.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_soft_power_party_seizure
   label: Soft-power party seizure
   dimension: ui_surface
   ux_axis: agency
   summary: A living companion removed by law/magic, not HP.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_spare_or_swear_companion_crisis
   label: Spare-or-swear companion crisis
   dimension: ui_surface
   ux_axis: agency
   summary: Party trust rewritten by one mid-campaign choice.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_triage_under_asymmetric_power
   label: Triage under asymmetric power
   dimension: ui_surface
   ux_axis: agency
   summary: Choosing who to carry when you cannot save the day.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_trial_dungeon_that_ends_in_loyalty
   label: Trial dungeon that ends in loyalty
   dimension: ui_surface
   ux_axis: agency
   summary: Authored exploration whose boss is a relationship decision.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_who_owns_the_ending
   label: Who owns the ending
   dimension: ui_surface
   ux_axis: agency
   summary: Cosmic fork where companions and combat hang on the choice.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md'
+  catalog_face: table
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: table'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_earned_conspiracy_payoff
   label: Earned conspiracy payoff
   dimension: ui_surface
   ux_axis: agency
   summary: Lore that lands because the player assembled it.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md'
+  catalog_face: living_world
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: living_world'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_earned_spy_reveal
   label: Earned spy reveal
   dimension: ui_surface
   ux_axis: agency
   summary: Looking on purpose and being right — cleverness without spoon-feeding.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
+  catalog_face: living_world
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: living_world'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_friend_who_was_the_conspiracy
   label: Friend who was the conspiracy
   dimension: ui_surface
   ux_axis: agency
   summary: Trust rewrite when the ally is the information leak.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md'
+  catalog_face: living_world
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: living_world'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_living_world_remembers_without_a_script
   label: Living-world remembers without a script
   dimension: ui_surface
   ux_axis: agency
   summary: Trust/combat/faction shift from play, not only flagged dialogue nodes.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md'
+  catalog_face: living_world
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: living_world'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_quiet_level_acknowledgment
   label: Quiet level acknowledgment
   dimension: ui_surface
   ux_axis: agency
   summary: Companions/world notice growth without a banner-only UI.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
+  catalog_face: living_world
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: living_world'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_campfire_identity_chrome
   label: Campfire identity chrome
   dimension: ui_surface
   ux_axis: class_chrome
   summary: Class and backstory felt as conversation, not menu.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_chrome_that_grew_with_you
   label: Chrome that grew with you
   dimension: ui_surface
   ux_axis: class_chrome
   summary: Class identity polish that tracks ordinary advancement.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_diegetic_chrome_persistence
   label: Diegetic chrome persistence
   dimension: ui_surface
   ux_axis: class_chrome
   summary: Identity/class cues that stay in the world view without opening a sheet.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_feedback_anchored_to_the_body
   label: Feedback anchored to the body
   dimension: ui_surface
   ux_axis: agency
   summary: Cast/hit/trust signals felt at the avatar or companion, not a floating
     toast only.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_logistics_of_a_missing_seat
   label: Logistics of a missing seat
   dimension: ui_surface
   ux_axis: agency
   summary: How the table reconfigures roles without a recruit screen.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_new_toy_in_the_next_fight
   label: New toy in the next fight
   dimension: ui_surface
   ux_axis: agency
   summary: Progression that changes the next combat verb, felt immediately.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_power_trophy_that_the_table_can_feel
   label: Power trophy that the table can feel
   dimension: ui_surface
   ux_axis: class_chrome
   summary: Progression chrome earned in the kill, visible to allies and rivals.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_region_map_for_a_social_beat
   label: Region map for a social beat
   dimension: ui_surface
   ux_axis: agency
   summary: Camp vs inhabit vs table workbench — which screen owns the moment.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_title_reclaim_as_identity_chrome
   label: Title reclaim as identity chrome
   dimension: ui_surface
   ux_axis: class_chrome
   summary: A spoken correction that makes class/status feel worn on the body.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_verb_first_soft_exit
   label: Verb-first soft exit
   dimension: ui_surface
   ux_axis: agency
   summary: Leaving a beat via flee, silence, or walk-away as authored input, not cancel
     UI.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md'
+  catalog_face: surfaces
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: surfaces'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_class_chrome
   label: Class / subclass chrome
   dimension: ui_surface
   ux_axis: class_chrome
   summary: Visible class identity polish — not class feature math.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: class_chrome_discovery
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: supplement'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_dm_player_rails
   label: DM / player rails
   dimension: dm_rail
   ux_axis: dm_player_rails
   summary: How DM and player flows share chrome without fighting each other.
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: dm_pilot
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_dmpausegate_interaction
   label: DMPauseGate interaction
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `DMPauseGate interaction`.
     Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_feedback_payload_composition_demo_truncated
   label: Feedback payload composition (demo-truncated)
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `Feedback payload
     composition (demo-truncated)`. Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_launch_playregion_hud_flow
   label: Launch → PlayRegion → HUD flow
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `Launch → PlayRegion
     → HUD flow`. Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_operator_dm_rail_hotkey_vs_scripted_cue
   label: Operator DM rail hotkey vs scripted cue
   dimension: ui_surface
   ux_axis: dm_player_rails
   summary: Project-specific experience noun from feedstock heading `Operator DM rail
     hotkey vs scripted cue`. Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: dm_pilot
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_perspectiveenvelope_player_fp_activation
   label: PerspectiveEnvelope `player_fp` activation
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope
     `player_fp` activation`. Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_player_agency_loop
   label: Player agency loop
   dimension: player_rail
   ux_axis: agency
   summary: Frictionless moments where the player feels authorship over outcomes.
-  conceptual_pin: '- derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
   status: pending
-  experience_mode: '- mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  time_scale: '- does_not_mandate: - alternatives_not_banned:'
-  seat: '- time_scale:'
-  alternatives_not_banned: '- catalog_face: supplement'
-  series_order: '- altitude: scene_exemplar'
-  supplement: false
+  altitude: scene_exemplar
+  supplement: true
+  coverage_slot: false
 - id: ux_playerfprig_attachment
   label: PlayerFPRig attachment
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `PlayerFPRig attachment`.
     Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_presentation_shell
   label: Presentation shell
   dimension: ui_surface
   ux_axis: presentation_shells
   summary: Baseline shell that hosts experience surfaces (supporting axis only).
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: application_shell
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_rule_representation
   label: Rule representation
   dimension: ui_surface
   ux_axis: agency
   summary: Project-specific experience noun from feedstock heading `Rule representation`.
     Grounds taxonomy coverage in local pin language.
-  conceptual_pin: '- derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: baseline_fp
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_scry_presentation
   label: Scry / Clairvoyance presentation
   dimension: ui_surface
   ux_axis: perspective_overrides
   summary: How perspective overrides feel and present to the player (not the sim alone).
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: divination_override
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
+  supplement: true
+  coverage_slot: false
 - id: ux_session0_identity_art
   label: Session 0 / identity art
   dimension: session_bootstrap
   ux_axis: session0_identity_art
   summary: Bootstrap rituals and art direction that set identity tone.
-  conceptual_pin: '- derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  derived_from: ''
-  ux_family: '- supplement: True'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
   status: pending
-  catalog_face: '- experience_mode: - mode_tier: thickener'
-  mode_tier: '- dnd_pillar: shared'
-  pillar_notes: '- conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md'
-  notes: '## Coverage reminder'
+  catalog_face: supplement
+  mode_tier: thickener
+  dnd_pillar: shared
   walk_tier: thickener
   maps_to: session0_bootstrap
-  series_id: '- series_order:'
-  seat: '- time_scale: - does_not_mandate:'
-  does_not_mandate: '- alternatives_not_banned: - catalog_face: supplement'
-  series_order: '- altitude: - seat:'
-  supplement: false
-generated_at: '2026-07-29 04:43:43+00:00'
-frozen_at: '2026-07-29T05:27:41Z'
+  supplement: true
+  coverage_slot: false
+generated_at: '2026-07-29 05:52:39+00:00'
+frozen_at: '2026-07-29T05:52:40Z'
