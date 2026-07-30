@@ -36,7 +36,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_mid_game` — Mid play is a power band for lasting pressure and deeper world response (`done`) [living_world] [series]
 - [x] `ux_late_game` — Late play is a power band for campaign crescendo, close, and character-to-world persistence (`done`) [living_world] [series]
 - [x] `ux_mental_stat_interpretation` — Mental stats surface available read paths not only sheet numbers (`done`) [surfaces] [series]
-- [ ] `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator (`pending`) [table] [series]
+- [x] `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration (`done`) [table] [series]
 - [ ] `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore (`pending`) [table] [series]
 - [ ] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`pending`) [inhabit] [series]
 - [ ] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`pending`) [inhabit] [series]
@@ -375,29 +375,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - coverage_slot: False
 - notes: applied:2026-07-30T20:12:38Z player-facing stat-gated cues; DM trigger; receipt=Mint-Receipts/ux_mental_stat_interpretation.receipt.yaml
 
-### `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator
+### `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 0
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player", "privileged_access"]
 - time_scale: session
-- does_not_mandate: ["DM is only a cue issuer for other players", "players and DM share identical control envelopes"]
-- alternatives_not_banned: []
+- does_not_mandate: ["DM is only a cue issuer for other players", "players and DM share identical control envelopes", "system-owned NPC dialogue is the product default", "player social play defaults to dialogue-option trees", "play must be combat-primary / hack-and-slash"]
+- alternatives_not_banned: ["Combat-heavy tables vs social/explore-primary tables", "Heavy transcription vs light note capture of player intent", "Rich NPC context assist vs minimal prompts", "DM who also runs a character vs DM seat only", "Optional later system-suggested NPC lines under DM accept (not default auto-speak)"]
 - catalog_face: table
 - experience_mode: collaborative_table_agency
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: dm_player_rails
 - dimension: dm_rail
-- summary: Multiplayer collaborative storytelling with curated world-control tools; DM has privileged access and a different seat, and their fun is in-product — they are not system infrastructure.
+- summary: Virtual tabletop for collaborative storytelling: players act through character tools in an open 3D world; the DM is the privileged orchestrator in the same product loop. Loop is player agency → system and DM resolution → world reacts → roleplay inside that structure. Motives/stakes are table-defined and recorded; player speech can be transcribed. NPC dialogue is the DM’s responsibility — assist tools surface context, they do not replace the DM as speaker by default.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:collaborative_table_agency
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-30T22:42:32Z DM owns NPC voice; assist≠auto-speak; receipt=Mint-Receipts/ux_collaborative_table_agency.receipt.yaml
 
 ### `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore
 
