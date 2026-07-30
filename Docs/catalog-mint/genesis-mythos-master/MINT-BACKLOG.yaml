@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-backlog_status: frozen_for_mint
+backlog_status: proposed
 waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 items:
@@ -38,13 +38,14 @@ items:
   label: DM can bootstrap a campaign frame inside a world
   dimension: session_bootstrap
   ux_axis: session0_identity_art
-  summary: Orchestrator creates or revises a campaign frame (tone, bounds, canon seed,
-    cast expectations) as a player-facing authorship act inside an existing or newly
-    attached world — not the world container itself.
+  summary: Orchestrator creates or revises a campaign frame (tone, bounds, public
+    facts, cast expectations, logging seam) as a player-facing authorship act inside
+    an existing or newly attached world — not the world container itself. Exit to
+    world or session prep; not player character creation.
   conceptual_pin: needs pin
   derived_from: series:lifecycle:dm_campaign_creation
   ux_family: lifecycle
-  status: pending
+  status: in_dialogue
   catalog_face: table
   experience_mode: dm_campaign_creation
   mode_tier: series
@@ -60,10 +61,18 @@ items:
   - every campaign begins in captivity
   - offline Microscope play is required before Session 0
   - starting a campaign must regenerate the whole world
-  alternatives_not_banned: []
+  - campaign creation's default next step is player character creation
+  - DM is the primary author of player characters after frame bootstrap
+  alternatives_not_banned:
+  - Second campaign in a long-lived world vs first campaign in a new world
+  - Thin collaborative seed (table proposes; DM accepts) vs DM-solo then reveal public
+    slice
+  - Minimal quick-start frame vs deep Session 0 on top of an existing world
   series_order: 1
   supplement: false
   coverage_slot: false
+  notes: locked_draft:2026-07-30T04:15:08Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml
+    apply_after=ux_world_generation focal_remains=ux_world_generation
 - id: ux_player_character_creation
   label: Players can author characters the table accepts into play
   dimension: session_bootstrap
@@ -1254,7 +1263,7 @@ items:
   summary: 'Collaborative generation dialogue — propose scaffolds, choose/refine,
     preview, accept/regenerate. Feedstock: …onflict | | **Grimdark** | Moral gray,
     harsh consequences (Witcher-like) | Bleak weather bias, costly hope, persistent
-    scars | - **`ToneProfile`** — one bundled profile per campaign (chosen at session
+    scars | - `ToneProfile` — one bundled profile per campaign (chosen at session
     0), consumed by **world gen**, **weather**, **sim defaults**, **lore/event tone**,
     and **quest framing** — not siloed presets per subsystem. - Profiles are **defaults**,
     not stereotypes; table Palette can veto elements. **Player & DM surfaces.**…'
@@ -2396,8 +2405,8 @@ items:
   label: PerspectiveEnvelope `player_fp` activation
   dimension: ui_surface
   ux_axis: agency
-  summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope
-    `player_fp` activation`. Grounds taxonomy coverage in local pin language.
+  summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope`
+    player_fp `activation`. Grounds taxonomy coverage in local pin language.
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
   ux_family: ''
@@ -2508,5 +2517,3 @@ items:
   maps_to: session0_bootstrap
   supplement: true
   coverage_slot: false
-generated_at: '2026-07-29 05:52:39+00:00'
-frozen_at: '2026-07-29T05:52:40Z'

@@ -15,12 +15,14 @@ thickeners:
 focal_pending_id: ux_world_generation
 completeness:
   ok: true
-  thin: false
-  flags: []
+  thin: true
+  flags:
+  - backlog_not_frozen
   detail:
-    backlog_status: frozen_for_mint
+    backlog_status: proposed
     focal_id: ux_world_generation
-  research_hint: ''
+  research_hint: Consider influence or gap research enqueue if pin/UX feel thin (set
+    enqueue_thin_feed_research=true to auto-hint).
 research_enqueue_suggested: false
 note: Core is always present. neighbor_refs stay empty unless include_neighbors was
   requested at pack emit — no auto-flood.

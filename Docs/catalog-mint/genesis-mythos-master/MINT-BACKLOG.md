@@ -2,11 +2,9 @@
 title: MINT-BACKLOG — genesis-mythos-master
 project-id: genesis-mythos-master
 para-type: Project
-backlog_status: frozen_for_mint
+backlog_status: proposed
 waived_axes: []
 schema_version: 1
-generated_at: 2026-07-29 05:52:39+00:00
-frozen_at: 2026-07-29T05:52:40Z
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
 ---
@@ -22,14 +20,14 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 3. When ready: set frontmatter `backlog_status: frozen_for_mint` **or** run `UX_MINT_BACKLOG` `action: freeze`.
 4. Mint walk: Grok takes next `pending` only when frozen (or you name an id).
 
-**Current status:** `frozen_for_mint`  
+**Current status:** `proposed`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
 
 ## Quick status
 
 - [ ] `ux_world_generation` — Table can generate or import a persistent living world (`pending`) [living_world] [series]
-- [ ] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`pending`) [table] [series]
+- [ ] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`in_dialogue`) [table] [series]
 - [ ] `ux_player_character_creation` — Players can author characters the table accepts into play (`pending`) [table] [series]
 - [ ] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`pending`) [table] [series]
 - [ ] `ux_game_start` — Table can start play under a chosen campaign-start structure (`pending`) [table] [series]
@@ -178,27 +176,28 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world
 
-- status: pending
+- status: in_dialogue
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 1
 - altitude: product_contract
 - seat: ["dm_as_player", "privileged_access"]
 - time_scale: campaign
-- does_not_mandate: ["every campaign begins in captivity", "offline Microscope play is required before Session 0", "starting a campaign must regenerate the whole world"]
-- alternatives_not_banned: []
+- does_not_mandate: ["every campaign begins in captivity", "offline Microscope play is required before Session 0", "starting a campaign must regenerate the whole world", "campaign creation's default next step is player character creation", "DM is the primary author of player characters after frame bootstrap"]
+- alternatives_not_banned: ["Second campaign in a long-lived world vs first campaign in a new world", "Thin collaborative seed (table proposes; DM accepts) vs DM-solo then reveal public slice", "Minimal quick-start frame vs deep Session 0 on top of an existing world"]
 - catalog_face: table
 - experience_mode: dm_campaign_creation
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: session0_identity_art
 - dimension: session_bootstrap
-- summary: Orchestrator creates or revises a campaign frame (tone, bounds, canon seed, cast expectations) as a player-facing authorship act inside an existing or newly attached world — not the world container itself.
+- summary: Orchestrator creates or revises a campaign frame (tone, bounds, public facts, cast expectations, logging seam) as a player-facing authorship act inside an existing or newly attached world — not the world container itself. Exit to world or session prep; not player character creation.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:dm_campaign_creation
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: locked_draft:2026-07-30T04:15:08Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml apply_after=ux_world_generation focal_remains=ux_world_generation
 
 ### `ux_player_character_creation` — Players can author characters the table accepts into play
 
@@ -1154,7 +1153,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: presentation_shells
 - dimension: world_gen
-- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate. Feedstock: …onflict | | **Grimdark** | Moral gray, harsh consequences (Witcher-like) | Bleak weather bias, costly hope, persistent scars | - **`ToneProfile`** — one bundled profile per campaign (chosen at session 0), consumed by **world gen**, **weather**, **sim defaults**, **lore/event tone**, and **quest framing** — not siloed presets per subsystem. - Profiles are **defaults**, not stereotypes; table Palette can veto elements. **Player & DM surfaces.**…
+- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate. Feedstock: …onflict | | **Grimdark** | Moral gray, harsh consequences (Witcher-like) | Bleak weather bias, costly hope, persistent scars | - `ToneProfile` — one bundled profile per campaign (chosen at session 0), consumed by **world gen**, **weather**, **sim defaults**, **lore/event tone**, and **quest framing** — not siloed presets per subsystem. - Profiles are **defaults**, not stereotypes; table Palette can veto elements. **Player & DM surfaces.**…
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -2243,7 +2242,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope `player_fp` activation`. Grounds taxonomy coverage in local pin language.
+- summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope` player_fp `activation`. Grounds taxonomy coverage in local pin language.
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
 - derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
 - supplement: True
