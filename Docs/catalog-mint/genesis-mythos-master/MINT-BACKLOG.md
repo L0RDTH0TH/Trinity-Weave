@@ -35,7 +35,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_early_game` — Early play is a power band that gates world and pillar response (`done`) [flows] [series]
 - [x] `ux_mid_game` — Mid play is a power band for lasting pressure and deeper world response (`done`) [living_world] [series]
 - [x] `ux_late_game` — Late play is a power band for campaign crescendo, close, and character-to-world persistence (`done`) [living_world] [series]
-- [ ] `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers (`pending`) [surfaces] [series]
+- [x] `ux_mental_stat_interpretation` — Mental stats surface available read paths not only sheet numbers (`done`) [surfaces] [series]
 - [ ] `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator (`pending`) [table] [series]
 - [ ] `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore (`pending`) [table] [series]
 - [ ] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`pending`) [inhabit] [series]
@@ -350,29 +350,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - coverage_slot: False
 - notes: applied:2026-07-30T19:33:10Z renamed_from=ux_end_game; default_same_world_next_campaign; receipt=Mint-Receipts/ux_late_game.receipt.yaml
 
-### `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers
+### `ux_mental_stat_interpretation` — Mental stats surface available read paths not only sheet numbers
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 7
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: moment
-- does_not_mandate: ["mental stats unlock a single romance dialogue tree", "low mental stats hide all social information"]
-- alternatives_not_banned: []
+- does_not_mandate: ["mental stats unlock a single romance dialogue tree", "low mental stats hide all social information", "cues auto-reveal facts without a check or roleplay", "mental-stat cues are DM-only with no player-facing affordance", "one insight beat is the only product presentation"]
+- alternatives_not_banned: ["Subtle diegetic cue vs strong highlight", "Always-on stat aura vs cue only when DM or system arms it", "Shared party cues vs strictly per-player vision", "Sparse cues vs frequent mental-stat texture"]
 - catalog_face: surfaces
 - experience_mode: mental_stat_interpretation
 - mode_tier: series
 - dnd_pillar: roleplay
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Capability for mental-stat driven hints, social temperature, and perception texture as structure menus — not one episode's insight beat.
+- summary: INT, WIS, and CHA can drive visual cues on people, places, and objects that hold relevant information. The cue signals that a mental-stat path is available — it does not spill the content. Cues are stat-gated per player where appropriate; the DM can place or fire cues. Structure menu for presentation, not auto-solving the interaction and not one social-scene skin.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:mental_stat_interpretation
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-30T20:12:38Z player-facing stat-gated cues; DM trigger; receipt=Mint-Receipts/ux_mental_stat_interpretation.receipt.yaml
 
 ### `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator
 

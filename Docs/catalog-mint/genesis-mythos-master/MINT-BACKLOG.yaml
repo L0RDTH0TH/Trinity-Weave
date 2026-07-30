@@ -316,15 +316,18 @@ items:
   notes: applied:2026-07-30T19:33:10Z renamed_from=ux_end_game; default_same_world_next_campaign;
     receipt=Mint-Receipts/ux_late_game.receipt.yaml
 - id: ux_mental_stat_interpretation
-  label: Mental stats can surface as readable interpretation not only numbers
+  label: Mental stats surface available read paths not only sheet numbers
   dimension: ui_surface
   ux_axis: agency
-  summary: Capability for mental-stat driven hints, social temperature, and perception
-    texture as structure menus — not one episode's insight beat.
+  summary: INT, WIS, and CHA can drive visual cues on people, places, and objects
+    that hold relevant information. The cue signals that a mental-stat path is available
+    — it does not spill the content. Cues are stat-gated per player where appropriate;
+    the DM can place or fire cues. Structure menu for presentation, not auto-solving
+    the interaction and not one social-scene skin.
   conceptual_pin: needs pin
   derived_from: series:lifecycle:mental_stat_interpretation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: surfaces
   experience_mode: mental_stat_interpretation
   mode_tier: series
@@ -338,10 +341,18 @@ items:
   does_not_mandate:
   - mental stats unlock a single romance dialogue tree
   - low mental stats hide all social information
-  alternatives_not_banned: []
+  - cues auto-reveal facts without a check or roleplay
+  - mental-stat cues are DM-only with no player-facing affordance
+  - one insight beat is the only product presentation
+  alternatives_not_banned:
+  - Subtle diegetic cue vs strong highlight
+  - Always-on stat aura vs cue only when DM or system arms it
+  - Shared party cues vs strictly per-player vision
+  - Sparse cues vs frequent mental-stat texture
   series_order: 7
   supplement: false
   coverage_slot: false
+  notes: applied:2026-07-30T20:12:38Z player-facing stat-gated cues; DM trigger; receipt=Mint-Receipts/ux_mental_stat_interpretation.receipt.yaml
 - id: ux_collaborative_table_agency
   label: Every seat is a player including the DM orchestrator
   dimension: dm_rail

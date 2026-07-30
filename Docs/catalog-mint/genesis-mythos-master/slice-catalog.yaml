@@ -107,4 +107,16 @@ rows:
   spine_interfaces: []
   renamed_from: ux_end_game
   minted_at: '2026-07-30T19:33:10Z'
+- id: ux_mental_stat_interpretation
+  dimension: ui_surface
+  label: Mental stats surface available read paths not only sheet numbers
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T20:12:38Z'
 last_amended_at: '2026-07-30T18:37:43Z'
