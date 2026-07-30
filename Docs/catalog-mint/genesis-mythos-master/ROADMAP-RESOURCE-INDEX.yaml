@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 324
+roadmap_note_count: 325
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4551,6 +4551,14 @@ roadmap_notes:
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5.md
   kind: user_story
   wiki_links: []
   linked_resources: []

@@ -200,15 +200,18 @@ items:
   notes: demoted:2026-07-30T19:10:59Z maps_to=ux_dm_session_prep; enter_play→shell/nav;
     reason=opening_is_prep_authorship
 - id: ux_early_game
-  label: Early play establishes rhythm across combat social and explore
+  label: Early play is a power band that gates world and pillar response
   dimension: ui_surface
   ux_axis: agency
-  summary: Early-game capability contract for ordinary progression, soft framing,
-    and quiet between pillars — not a mandatory tutorial plot.
+  summary: 'Early-game is the low power band for the cast: world access, social audience,
+    explore pressure, and combat offer scale to that band. Pillar rhythm follows the
+    band rather than a second axis. Not a tutorial plot, not session prep, and not
+    a mandatory onboarding fantasy. Mid/end stages own their bands the same way —
+    no parallel progression parent.'
   conceptual_pin: needs pin
   derived_from: series:lifecycle:early_game
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: flows
   experience_mode: early_game
   mode_tier: series
@@ -220,12 +223,17 @@ items:
   seat:
   - shared_table
   does_not_mandate:
-  - first session must teach stolen agency
-  - early game is combat-only onboarding
-  alternatives_not_banned: []
+  - the only correct ending is institutional seizure
+  - end game must erase player legacies
+  alternatives_not_banned:
+  - Implicit band (content only) vs visible band indicator
+  - Strict gates vs soft advice the DM can override
+  - Fast climb out of early vs long stay in band
+  - Prep-authored early situations vs mostly emergent within band limits
   series_order: 4
   supplement: false
   coverage_slot: false
+  notes: applied:2026-07-30T19:16:52Z power_band_on_stages; receipt=Mint-Receipts/ux_early_game.receipt.yaml
 - id: ux_mid_game
   label: Mid play sustains living-world pressure and party authorship
   dimension: ui_surface
@@ -253,6 +261,7 @@ items:
   series_order: 5
   supplement: false
   coverage_slot: false
+  notes: power_band_on_stage_rows:true
 - id: ux_end_game
   label: Table can author campaign close and ending ownership
   dimension: ui_surface
@@ -281,6 +290,7 @@ items:
   series_order: 6
   supplement: false
   coverage_slot: false
+  notes: power_band_on_stage_rows:true
 - id: ux_mental_stat_interpretation
   label: Mental stats can surface as readable interpretation not only numbers
   dimension: ui_surface

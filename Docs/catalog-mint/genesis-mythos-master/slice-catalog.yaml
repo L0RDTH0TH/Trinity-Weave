@@ -66,4 +66,16 @@ rows:
     - depends_on
     - meaning_rev
     - mint_status
+- id: ux_early_game
+  dimension: ui_surface
+  label: Early play is a power band that gates world and pillar response
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T19:16:52Z'
 last_amended_at: '2026-07-30T18:37:43Z'

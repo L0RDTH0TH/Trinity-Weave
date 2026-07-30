@@ -32,7 +32,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_player_character_creation` — Players can author characters and submit them for DM acceptance into a world (`done`) [table] [series]
 - [x] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`done`) [table] [series]
 - [-] `ux_game_start` — Table can start play under a chosen campaign-start structure (`dropped`) [table] [coverage]
-- [ ] `ux_early_game` — Early play establishes rhythm across combat social and explore (`pending`) [flows] [series]
+- [x] `ux_early_game` — Early play is a power band that gates world and pillar response (`done`) [flows] [series]
 - [ ] `ux_mid_game` — Mid play sustains living-world pressure and party authorship (`pending`) [living_world] [series]
 - [ ] `ux_end_game` — Table can author campaign close and ending ownership (`pending`) [table] [series]
 - [ ] `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers (`pending`) [surfaces] [series]
@@ -275,29 +275,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - maps_to: ux_dm_session_prep
 - notes: demoted:2026-07-30T19:10:59Z maps_to=ux_dm_session_prep; enter_play→shell/nav; reason=opening_is_prep_authorship
 
-### `ux_early_game` — Early play establishes rhythm across combat social and explore
+### `ux_early_game` — Early play is a power band that gates world and pillar response
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 4
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: session
-- does_not_mandate: ["first session must teach stolen agency", "early game is combat-only onboarding"]
-- alternatives_not_banned: []
+- does_not_mandate: ["the only correct ending is institutional seizure", "end game must erase player legacies"]
+- alternatives_not_banned: ["Implicit band (content only) vs visible band indicator", "Strict gates vs soft advice the DM can override", "Fast climb out of early vs long stay in band", "Prep-authored early situations vs mostly emergent within band limits"]
 - catalog_face: flows
 - experience_mode: early_game
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Early-game capability contract for ordinary progression, soft framing, and quiet between pillars — not a mandatory tutorial plot.
+- summary: Early-game is the low power band for the cast: world access, social audience, explore pressure, and combat offer scale to that band. Pillar rhythm follows the band rather than a second axis. Not a tutorial plot, not session prep, and not a mandatory onboarding fantasy. Mid/end stages own their bands the same way — no parallel progression parent.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:early_game
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-30T19:16:52Z power_band_on_stages; receipt=Mint-Receipts/ux_early_game.receipt.yaml
 
 ### `ux_mid_game` — Mid play sustains living-world pressure and party authorship
 
@@ -322,6 +323,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: power_band_on_stage_rows:true
 
 ### `ux_end_game` — Table can author campaign close and ending ownership
 
@@ -346,6 +348,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: power_band_on_stage_rows:true
 
 ### `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers
 
