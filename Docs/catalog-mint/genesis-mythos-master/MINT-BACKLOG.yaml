@@ -171,29 +171,34 @@ items:
   label: Table can start play under a chosen campaign-start structure
   dimension: session_bootstrap
   ux_axis: agency
-  summary: Session open supports a menu of legitimate starts; agency from the first
-    moment unless a chosen structure deliberately constrains it.
+  summary: 'DEMOTE: opening situation / start structure / situational constraints
+    fold into ux_dm_session_prep. Enter-live-play is shell (Play readiness), not a
+    series peer. Do not mint as product_contract series parent.'
   conceptual_pin: needs pin
-  derived_from: series:lifecycle:game_start
+  derived_from: demoted_from:series:lifecycle:game_start
   ux_family: lifecycle
-  status: pending
+  status: dropped
   catalog_face: table
   experience_mode: game_start
-  mode_tier: series
+  mode_tier: coverage
   dnd_pillar: shared
-  walk_tier: series
-  series_id: lifecycle
-  altitude: product_contract
+  walk_tier: coverage
+  series_id: ''
+  altitude: experience_texture
   time_scale: session
   seat:
   - shared_table
   does_not_mandate:
   - every campaign begins in captivity
   - tavern opens must secretly be prisons
+  - session open is a separate series product noun from prep
   alternatives_not_banned: []
-  series_order: 4
-  supplement: false
-  coverage_slot: false
+  series_order: null
+  supplement: true
+  coverage_slot: true
+  maps_to: ux_dm_session_prep
+  notes: demoted:2026-07-30T19:10:59Z maps_to=ux_dm_session_prep; enter_play→shell/nav;
+    reason=opening_is_prep_authorship
 - id: ux_early_game
   label: Early play establishes rhythm across combat social and explore
   dimension: ui_surface
@@ -218,7 +223,7 @@ items:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   alternatives_not_banned: []
-  series_order: 5
+  series_order: 4
   supplement: false
   coverage_slot: false
 - id: ux_mid_game
@@ -245,7 +250,7 @@ items:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   alternatives_not_banned: []
-  series_order: 6
+  series_order: 5
   supplement: false
   coverage_slot: false
 - id: ux_end_game
@@ -273,7 +278,7 @@ items:
   - the only correct ending is institutional seizure
   - end game must erase player legacies
   alternatives_not_banned: []
-  series_order: 7
+  series_order: 6
   supplement: false
   coverage_slot: false
 - id: ux_mental_stat_interpretation
@@ -300,7 +305,7 @@ items:
   - mental stats unlock a single romance dialogue tree
   - low mental stats hide all social information
   alternatives_not_banned: []
-  series_order: 8
+  series_order: 7
   supplement: false
   coverage_slot: false
 - id: ux_collaborative_table_agency

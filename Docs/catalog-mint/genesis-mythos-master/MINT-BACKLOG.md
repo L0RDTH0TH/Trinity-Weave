@@ -31,7 +31,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`done`) [table] [series]
 - [x] `ux_player_character_creation` — Players can author characters and submit them for DM acceptance into a world (`done`) [table] [series]
 - [x] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`done`) [table] [series]
-- [ ] `ux_game_start` — Table can start play under a chosen campaign-start structure (`pending`) [table] [series]
+- [-] `ux_game_start` — Table can start play under a chosen campaign-start structure (`dropped`) [table] [coverage]
 - [ ] `ux_early_game` — Early play establishes rhythm across combat social and explore (`pending`) [flows] [series]
 - [ ] `ux_mid_game` — Mid play sustains living-world pressure and party authorship (`pending`) [living_world] [series]
 - [ ] `ux_end_game` — Table can author campaign close and ending ownership (`pending`) [table] [series]
@@ -253,34 +253,34 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_game_start` — Table can start play under a chosen campaign-start structure
 
-- status: pending
-- walk_tier: series
-- series_id: lifecycle
-- series_order: 4
-- altitude: product_contract
+- status: dropped
+- walk_tier: coverage
+- altitude: experience_texture
 - seat: ["shared_table"]
 - time_scale: session
-- does_not_mandate: ["every campaign begins in captivity", "tavern opens must secretly be prisons"]
+- does_not_mandate: ["every campaign begins in captivity", "tavern opens must secretly be prisons", "session open is a separate series product noun from prep"]
 - alternatives_not_banned: []
 - catalog_face: table
 - experience_mode: game_start
-- mode_tier: series
+- mode_tier: coverage
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: session_bootstrap
-- summary: Session open supports a menu of legitimate starts; agency from the first moment unless a chosen structure deliberately constrains it.
+- summary: DEMOTE: opening situation / start structure / situational constraints fold into ux_dm_session_prep. Enter-live-play is shell (Play readiness), not a series peer. Do not mint as product_contract series parent.
 - conceptual_pin: needs pin
-- derived_from: series:lifecycle:game_start
+- derived_from: demoted_from:series:lifecycle:game_start
 - ux_family: lifecycle
-- supplement: False
-- coverage_slot: False
+- supplement: True
+- coverage_slot: True
+- maps_to: ux_dm_session_prep
+- notes: demoted:2026-07-30T19:10:59Z maps_to=ux_dm_session_prep; enter_play→shell/nav; reason=opening_is_prep_authorship
 
 ### `ux_early_game` — Early play establishes rhythm across combat social and explore
 
 - status: pending
 - walk_tier: series
 - series_id: lifecycle
-- series_order: 5
+- series_order: 4
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: session
@@ -304,7 +304,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - status: pending
 - walk_tier: series
 - series_id: lifecycle
-- series_order: 6
+- series_order: 5
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: campaign
@@ -328,7 +328,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - status: pending
 - walk_tier: series
 - series_id: lifecycle
-- series_order: 7
+- series_order: 6
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player"]
 - time_scale: campaign
@@ -352,7 +352,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - status: pending
 - walk_tier: series
 - series_id: lifecycle
-- series_order: 8
+- series_order: 7
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: moment
