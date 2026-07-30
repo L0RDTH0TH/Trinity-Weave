@@ -1,6 +1,6 @@
 # Trinity card index (auto-generated)
 
-Generated: `2026-07-30T07:41:07Z` — do not hand-edit; regenerated on each `weave_public_sync`.
+Generated: `2026-07-30T18:37:49Z` — do not hand-edit; regenerated on each `weave_public_sync`.
 
 Includes **locked** (`weave/components/`) and **provisional** (`weave/component-proposals/`).
 

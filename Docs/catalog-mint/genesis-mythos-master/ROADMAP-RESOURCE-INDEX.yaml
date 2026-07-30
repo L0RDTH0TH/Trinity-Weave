@@ -4578,6 +4578,7 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
   - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
   - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_world_generation/L5.md
   linked_resources: []

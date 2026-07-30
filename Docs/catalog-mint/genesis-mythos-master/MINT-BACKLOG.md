@@ -235,21 +235,21 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - altitude: product_contract
 - seat: ["dm_as_player", "privileged_access"]
 - time_scale: session
-- does_not_mandate: ["prep must be a separate offline app", "players never see any prep residue", "all prep material is public by default", "prep is a back door around DM gate/retcon on world changes", "session prep creates or replaces the world or campaign frame"]
-- alternatives_not_banned: ["Thin author notes vs rich structured beats (system still stages)", "Publish a public recap slice vs keep almost everything secret until play", "Prep mode distinct vs prep panels on the DM rail during downtime", "Batch applied immediately on complete vs batch held for DM confirm in world-gen"]
+- does_not_mandate: ["prep must be a separate offline app", "players never see any prep residue", "all prep material is public by default", "prep is a back door around DM gate/retcon on world changes", "session prep creates or replaces the world or campaign frame", "visibility is only a single whole-table tag with no per-player option"]
+- alternatives_not_banned: ["Thin author notes vs rich structured beats (system still stages)", "Mostly secret with selective reveals vs broader general tags", "Prep mode distinct vs prep panels on the DM rail during downtime", "Batch applied on complete vs batch held for DM confirm in world-gen"]
 - catalog_face: table
 - experience_mode: dm_session_prep
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: dm_player_rails
 - dimension: dm_rail
-- summary: DM authors the next shared session experience in-tool; the system auto-stages against the attached world and campaign. Player-facing material is opt-in tagged; default secret. World-hitting edits batch and hand off into world-gen on prep complete under the same DM gate and retcon rules. Privileged orchestrator seat — not offline admin or invisible infrastructure.
+- summary: DM authors the next shared session experience in-tool; the system auto-stages against the attached world and campaign. Visibility is opt-in: general (whole-table) and/or per-player tags; unmarked stays secret. World-hitting edits batch and hand off into world-gen on prep complete under the same DM gate and retcon rules. Privileged orchestrator seat — not offline admin or invisible infrastructure.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:dm_session_prep
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
-- notes: applied:2026-07-30T07:41:00Z receipt=Mint-Receipts/ux_dm_session_prep.receipt.yaml l5=scopes/ux_dm_session_prep/L5.md depends_on+=campaign
+- notes: applied:2026-07-30T07:41:00Z amended:2026-07-30T18:37:43Z visibility=general+per-player; no char-create exit refrain
 
 ### `ux_game_start` — Table can start play under a chosen campaign-start structure
 

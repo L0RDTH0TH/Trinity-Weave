@@ -59,3 +59,11 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T07:41:00Z'
+  meaning_rev: 2026-07-30-visibility-per-player
+  amendments:
+  - at: '2026-07-30T18:37:43Z'
+    patch_keys:
+    - depends_on
+    - meaning_rev
+    - mint_status
+last_amended_at: '2026-07-30T18:37:43Z'
