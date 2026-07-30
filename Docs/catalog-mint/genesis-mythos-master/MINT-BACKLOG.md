@@ -2,9 +2,10 @@
 title: MINT-BACKLOG — genesis-mythos-master
 project-id: genesis-mythos-master
 para-type: Project
-backlog_status: proposed
+backlog_status: frozen_for_mint
 waived_axes: []
 schema_version: 1
+frozen_at: 2026-07-30T04:16:06Z
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
 ---
@@ -20,7 +21,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 3. When ready: set frontmatter `backlog_status: frozen_for_mint` **or** run `UX_MINT_BACKLOG` `action: freeze`.
 4. Mint walk: Grok takes next `pending` only when frozen (or you name an id).
 
-**Current status:** `proposed`  
+**Current status:** `frozen_for_mint`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
 

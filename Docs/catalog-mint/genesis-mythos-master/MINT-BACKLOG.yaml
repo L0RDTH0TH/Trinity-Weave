@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-backlog_status: proposed
+backlog_status: frozen_for_mint
 waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 items:
@@ -2517,3 +2517,4 @@ items:
   maps_to: session0_bootstrap
   supplement: true
   coverage_slot: false
+frozen_at: '2026-07-30T04:16:06Z'
