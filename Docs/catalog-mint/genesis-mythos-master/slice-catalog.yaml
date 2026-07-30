@@ -91,4 +91,20 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T19:21:51Z'
+- id: ux_late_game
+  dimension: ui_surface
+  label: Late play is a power band for campaign crescendo, close, and character-to-world
+    persistence
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_mid_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  renamed_from: ux_end_game
+  minted_at: '2026-07-30T19:33:10Z'
 last_amended_at: '2026-07-30T18:37:43Z'

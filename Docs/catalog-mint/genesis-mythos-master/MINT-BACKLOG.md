@@ -34,7 +34,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [-] `ux_game_start` — Table can start play under a chosen campaign-start structure (`dropped`) [table] [coverage]
 - [x] `ux_early_game` — Early play is a power band that gates world and pillar response (`done`) [flows] [series]
 - [x] `ux_mid_game` — Mid play is a power band for lasting pressure and deeper world response (`done`) [living_world] [series]
-- [ ] `ux_end_game` — Table can author campaign close and ending ownership (`pending`) [table] [series]
+- [x] `ux_late_game` — Late play is a power band for campaign crescendo, close, and character-to-world persistence (`done`) [living_world] [series]
 - [ ] `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers (`pending`) [surfaces] [series]
 - [ ] `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator (`pending`) [table] [series]
 - [ ] `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore (`pending`) [table] [series]
@@ -325,30 +325,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - coverage_slot: False
 - notes: applied:2026-07-30T19:21:51Z depends_on=ux_early_game; receipt=Mint-Receipts/ux_mid_game.receipt.yaml
 
-### `ux_end_game` — Table can author campaign close and ending ownership
+### `ux_late_game` — Late play is a power band for campaign crescendo, close, and character-to-world persistence
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 6
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player"]
 - time_scale: campaign
-- does_not_mandate: ["the only correct ending is institutional seizure", "end game must erase player legacies"]
-- alternatives_not_banned: []
-- catalog_face: table
-- experience_mode: end_game
+- does_not_mandate: ["the only correct ending is institutional seizure", "end game must erase player legacies", "progression requires a separate series parent from stage bands", "session prep replaces the late power-band / close contract", "post-close must start in a different world by default", "late play is only the final session, not a high power band"]
+- alternatives_not_banned: ["Abrupt DM end vs long staged crescendo", "Heavy retirement planning vs light future-notes", "Same-world next campaign immediately vs gap time in world sim only", "Multi-world / multi-campaign setups via existing parents"]
+- catalog_face: living_world
+- experience_mode: late_game
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: End-game structures for who owns the ending and what persists — menu of closes, not one mandatory mythic finale.
+- summary: Late-game is the high power band: survivors are world-shapers. It covers build-up to close and the close itself. DM triggers campaign end through a story crescendo visible in play; players map retirement/future plans; those characters persist as powerful DM-controlled NPCs in the living world. Default continuation is a new campaign in the same world; other topologies remain via world/campaign parents. Not one mandatory finale skin; not session prep.
 - conceptual_pin: needs pin
-- derived_from: series:lifecycle:end_game
+- derived_from: series:lifecycle:late_game
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
-- notes: power_band_on_stage_rows:true
+- notes: applied:2026-07-30T19:33:10Z renamed_from=ux_end_game; default_same_world_next_campaign; receipt=Mint-Receipts/ux_late_game.receipt.yaml
 
 ### `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers
 
