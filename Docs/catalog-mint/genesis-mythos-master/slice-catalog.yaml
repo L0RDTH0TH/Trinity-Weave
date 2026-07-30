@@ -45,3 +45,17 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T07:29:30Z'
+- id: ux_dm_session_prep
+  dimension: dm_rail
+  label: DM can prep a session without leaving the collaborative table frame
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_dm_campaign_creation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T07:41:00Z'
