@@ -5,16 +5,16 @@ waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 items:
 - id: ux_world_generation
-  label: Table can generate or import a persistent living world
+  label: DM can create (table can shape) a persistent living world
   dimension: world_gen
   ux_axis: session0_identity_art
-  summary: World is the durable container — procedural gen, import, or collaborative
-    bootstrap — that outlives any single campaign. Multiple campaigns (and character
-    sets) can run in the same world with the same group over time.
+  summary: Durable world container — DM creates initial form via wizard+preview; table
+    can shape; players do not author the first world. Physical/settlement layers +
+    monster-region tags; import/attach; DM retcon on any world-hitting change.
   conceptual_pin: needs pin
   derived_from: series:lifecycle:world_generation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: world_generation
   mode_tier: series
@@ -30,10 +30,22 @@ items:
   does_not_mandate:
   - one world equals exactly one campaign forever
   - worldgen is only a Session 0 checkbox with no persistent container
-  alternatives_not_banned: []
+  - players author the first world
+  - world create forces unconstrained multi-knob fresh-noise every time
+  - world creation's default next step is player character creation
+  alternatives_not_banned:
+  - Nth campaign in a long-lived world vs first campaign in a newly wizard-created
+    world
+  - Thin shape+preview accept vs deeper multi-step wizard on first create
+  - Import vs in-tool wizard-create only
+  - World empty of campaigns vs world carrying prior scars/legacies
+  - Directional world-tone × campaign-tone combinations
+  - Adaptation heavy vs light (still always DM-gated and retconnable)
   series_order: 0
   supplement: false
   coverage_slot: false
+  notes: applied:2026-07-30T05:32:23Z receipt=Mint-Receipts/ux_world_generation.receipt.yaml
+    l5=scopes/ux_world_generation/L5.md
 - id: ux_dm_campaign_creation
   label: DM can bootstrap a campaign frame inside a world
   dimension: session_bootstrap
@@ -45,7 +57,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:dm_campaign_creation
   ux_family: lifecycle
-  status: in_dialogue
+  status: done
   catalog_face: table
   experience_mode: dm_campaign_creation
   mode_tier: series
@@ -71,8 +83,8 @@ items:
   series_order: 1
   supplement: false
   coverage_slot: false
-  notes: locked_draft:2026-07-30T04:15:08Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml
-    apply_after=ux_world_generation focal_remains=ux_world_generation
+  notes: applied:2026-07-30T05:32:23Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml
+    l5=scopes/ux_dm_campaign_creation/L5.md apply_after_met=ux_world_generation
 - id: ux_player_character_creation
   label: Players can author characters the table accepts into play
   dimension: session_bootstrap

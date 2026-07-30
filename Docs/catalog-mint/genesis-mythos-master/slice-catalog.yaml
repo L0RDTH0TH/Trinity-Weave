@@ -7,4 +7,29 @@ historical_mint_authority: cite_only_non_authoritative
 catalog_levels_unsigned_advisory: true
 execution_pins_advisory: empty execution_pins[] expected until Operator Loop 2 / execution
   track
-rows: []
+rows:
+- id: ux_world_generation
+  dimension: world_gen
+  label: DM can create (table can shape) a persistent living world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T05:32:23Z'
+- id: ux_dm_campaign_creation
+  dimension: session_bootstrap
+  label: DM can bootstrap a campaign frame inside a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T05:32:23Z'

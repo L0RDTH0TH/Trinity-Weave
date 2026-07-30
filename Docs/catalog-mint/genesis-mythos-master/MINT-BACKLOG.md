@@ -27,8 +27,8 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ## Quick status
 
-- [ ] `ux_world_generation` — Table can generate or import a persistent living world (`pending`) [living_world] [series]
-- [ ] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`in_dialogue`) [table] [series]
+- [x] `ux_world_generation` — DM can create (table can shape) a persistent living world (`done`) [living_world] [series]
+- [x] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`done`) [table] [series]
 - [ ] `ux_player_character_creation` — Players can author characters the table accepts into play (`pending`) [table] [series]
 - [ ] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`pending`) [table] [series]
 - [ ] `ux_game_start` — Table can start play under a chosen campaign-start structure (`pending`) [table] [series]
@@ -151,33 +151,34 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ## Items
 
-### `ux_world_generation` — Table can generate or import a persistent living world
+### `ux_world_generation` — DM can create (table can shape) a persistent living world
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 0
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player", "privileged_access"]
 - time_scale: world_era
-- does_not_mandate: ["one world equals exactly one campaign forever", "worldgen is only a Session 0 checkbox with no persistent container"]
-- alternatives_not_banned: []
+- does_not_mandate: ["one world equals exactly one campaign forever", "worldgen is only a Session 0 checkbox with no persistent container", "players author the first world", "world create forces unconstrained multi-knob fresh-noise every time", "world creation's default next step is player character creation"]
+- alternatives_not_banned: ["Nth campaign in a long-lived world vs first campaign in a newly wizard-created world", "Thin shape+preview accept vs deeper multi-step wizard on first create", "Import vs in-tool wizard-create only", "World empty of campaigns vs world carrying prior scars/legacies", "Directional world-tone × campaign-tone combinations", "Adaptation heavy vs light (still always DM-gated and retconnable)"]
 - catalog_face: living_world
 - experience_mode: world_generation
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: session0_identity_art
 - dimension: world_gen
-- summary: World is the durable container — procedural gen, import, or collaborative bootstrap — that outlives any single campaign. Multiple campaigns (and character sets) can run in the same world with the same group over time.
+- summary: Durable world container — DM creates initial form via wizard+preview; table can shape; players do not author the first world. Physical/settlement layers + monster-region tags; import/attach; DM retcon on any world-hitting change.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:world_generation
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-30T05:32:23Z receipt=Mint-Receipts/ux_world_generation.receipt.yaml l5=scopes/ux_world_generation/L5.md
 
 ### `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world
 
-- status: in_dialogue
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 1
@@ -198,7 +199,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
-- notes: locked_draft:2026-07-30T04:15:08Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml apply_after=ux_world_generation focal_remains=ux_world_generation
+- notes: applied:2026-07-30T05:32:23Z receipt=Mint-Receipts/ux_dm_campaign_creation.receipt.yaml l5=scopes/ux_dm_campaign_creation/L5.md apply_after_met=ux_world_generation
 
 ### `ux_player_character_creation` — Players can author characters the table accepts into play
 
