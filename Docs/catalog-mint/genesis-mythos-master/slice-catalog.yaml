@@ -33,3 +33,15 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T05:32:23Z'
+- id: ux_player_character_creation
+  dimension: session_bootstrap
+  label: Players can author characters and submit them for DM acceptance into a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T07:29:30Z'
