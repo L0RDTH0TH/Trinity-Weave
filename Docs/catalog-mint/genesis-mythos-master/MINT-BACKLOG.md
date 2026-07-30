@@ -33,7 +33,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`done`) [table] [series]
 - [-] `ux_game_start` — Table can start play under a chosen campaign-start structure (`dropped`) [table] [coverage]
 - [x] `ux_early_game` — Early play is a power band that gates world and pillar response (`done`) [flows] [series]
-- [ ] `ux_mid_game` — Mid play sustains living-world pressure and party authorship (`pending`) [living_world] [series]
+- [x] `ux_mid_game` — Mid play is a power band for lasting pressure and deeper world response (`done`) [living_world] [series]
 - [ ] `ux_end_game` — Table can author campaign close and ending ownership (`pending`) [table] [series]
 - [ ] `ux_mental_stat_interpretation` — Mental stats can surface as readable interpretation not only numbers (`pending`) [surfaces] [series]
 - [ ] `ux_collaborative_table_agency` — Every seat is a player including the DM orchestrator (`pending`) [table] [series]
@@ -300,30 +300,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - coverage_slot: False
 - notes: applied:2026-07-30T19:16:52Z power_band_on_stages; receipt=Mint-Receipts/ux_early_game.receipt.yaml
 
-### `ux_mid_game` — Mid play sustains living-world pressure and party authorship
+### `ux_mid_game` — Mid play is a power band for lasting pressure and deeper world response
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: lifecycle
 - series_order: 5
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: campaign
-- does_not_mandate: ["mid game requires a companion romance track", "mid game must center a single conspiracy reveal"]
-- alternatives_not_banned: []
+- does_not_mandate: ["mid game requires a companion romance track", "mid game must center a single conspiracy reveal", "progression requires a separate series parent from stage bands", "session prep replaces the mid power-band contract", "one CR/BG mid-arc skin is the product default"]
+- alternatives_not_banned: ["Soft vs strict band gates (DM override)", "Long mid band vs fast transit", "Consequence-heavy mid vs access-heavy mid", "Visible band indicator vs implicit through content"]
 - catalog_face: living_world
 - experience_mode: mid_game
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Mid-game contract for lasting costs, faction motion, and collaborative forks — without locking one CR/BG mid-arc skin.
+- summary: Mid-game is the middle power band: world access, social tier, explore stakes, and combat offer scale up with it — including who will engage and what costs can stick. Lasting pressure and party authorship are capabilities in this band, not one mandated conspiracy or romance skin. Pillar rhythm follows the band. Same ownership model as early: stages own the band; no parallel progression parent.
 - conceptual_pin: needs pin
 - derived_from: series:lifecycle:mid_game
 - ux_family: lifecycle
 - supplement: False
 - coverage_slot: False
-- notes: power_band_on_stage_rows:true
+- notes: applied:2026-07-30T19:21:51Z depends_on=ux_early_game; receipt=Mint-Receipts/ux_mid_game.receipt.yaml
 
 ### `ux_end_game` — Table can author campaign close and ending ownership
 

@@ -235,15 +235,18 @@ items:
   coverage_slot: false
   notes: applied:2026-07-30T19:16:52Z power_band_on_stages; receipt=Mint-Receipts/ux_early_game.receipt.yaml
 - id: ux_mid_game
-  label: Mid play sustains living-world pressure and party authorship
+  label: Mid play is a power band for lasting pressure and deeper world response
   dimension: ui_surface
   ux_axis: agency
-  summary: Mid-game contract for lasting costs, faction motion, and collaborative
-    forks — without locking one CR/BG mid-arc skin.
+  summary: 'Mid-game is the middle power band: world access, social tier, explore
+    stakes, and combat offer scale up with it — including who will engage and what
+    costs can stick. Lasting pressure and party authorship are capabilities in this
+    band, not one mandated conspiracy or romance skin. Pillar rhythm follows the band.
+    Same ownership model as early: stages own the band; no parallel progression parent.'
   conceptual_pin: needs pin
   derived_from: series:lifecycle:mid_game
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: mid_game
   mode_tier: series
@@ -257,11 +260,18 @@ items:
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
-  alternatives_not_banned: []
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  alternatives_not_banned:
+  - Soft vs strict band gates (DM override)
+  - Long mid band vs fast transit
+  - Consequence-heavy mid vs access-heavy mid
+  - Visible band indicator vs implicit through content
   series_order: 5
   supplement: false
   coverage_slot: false
-  notes: power_band_on_stage_rows:true
+  notes: applied:2026-07-30T19:21:51Z depends_on=ux_early_game; receipt=Mint-Receipts/ux_mid_game.receipt.yaml
 - id: ux_end_game
   label: Table can author campaign close and ending ownership
   dimension: ui_surface
