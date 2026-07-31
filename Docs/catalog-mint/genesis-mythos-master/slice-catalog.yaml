@@ -184,4 +184,19 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T04:38:21Z'
+- id: ux_backstory_legacy_integration
+  dimension: ui_surface
+  label: Backstory and legacies can hook into play and chronicle
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_player_character_creation
+  - ux_collaborative_table_agency
+  - ux_living_world_continuity
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T12:35:59Z'
 last_amended_at: '2026-07-30T18:37:43Z'

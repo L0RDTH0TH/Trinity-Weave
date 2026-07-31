@@ -12,14 +12,14 @@ thickeners:
   poll_index: ROADMAP-RESOURCE-INDEX.yaml
   friction_check: Docs/catalog-mint/_shared/FRICTION-CHECK.md
   rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
-focal_pending_id: ux_backstory_legacy_integration
+focal_pending_id: ux_world_authorship_modability
 completeness:
   ok: true
   thin: false
   flags: []
   detail:
     backlog_status: frozen_for_mint
-    focal_id: ux_backstory_legacy_integration
+    focal_id: ux_world_authorship_modability
   research_hint: ''
 research_enqueue_suggested: false
 note: Core is always present. neighbor_refs stay empty unless include_neighbors was
