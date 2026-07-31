@@ -170,4 +170,18 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T03:53:03Z'
+- id: ux_living_world_continuity
+  dimension: ui_surface
+  label: World can move off-screen and show lasting readable costs
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T04:38:21Z'
 last_amended_at: '2026-07-30T18:37:43Z'

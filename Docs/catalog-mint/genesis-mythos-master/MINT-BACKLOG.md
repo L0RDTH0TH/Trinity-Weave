@@ -40,7 +40,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore (`done`) [table] [series]
 - [x] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`done`) [inhabit] [series]
 - [x] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`done`) [inhabit] [series]
-- [ ] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`pending`) [living_world] [series]
+- [x] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`done`) [living_world] [series]
 - [ ] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`pending`) [table] [series]
 - [ ] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`pending`) [living_world] [series]
 - [ ] `ux_absent_proxy` — Absent-player proxy (`pending`) [inhabit] [coverage]
@@ -477,27 +477,28 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_living_world_continuity` — World can move off-screen and show lasting readable costs
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 4
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player"]
 - time_scale: campaign
-- does_not_mandate: ["world motion requires a scripted companion betrayal arc", "lasting costs are only cosmic death pacts"]
-- alternatives_not_banned: []
+- does_not_mandate: ["world motion requires a scripted companion betrayal arc", "lasting costs are only cosmic death pacts", "one conspiracy skin is the only continuity form", "this row owns in-adventure quiet-between road/camp/linger", "players get full sim-admin tools as the continuity surface"]
+- alternatives_not_banned: ["Sparse vs dense off-screen pulse", "Soft “the world noticed” texture vs hard mechanical scars that block options", "Mostly social/faction residue vs mostly geographic/physical/resource", "Fast-moving political worlds vs slow scar accumulation", "High-band existential threats that are planar/cosmic vs purely political-apocalyptic", "Thin vs richer downtime surfaces later"]
 - catalog_face: living_world
 - experience_mode: living_world_continuity
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Living-world continuity contract — factions, threads, visible lasting costs — without mandating one conspiracy skin.
+- summary: Living world continues while the party is elsewhere: factions, threads, calendar, minimal downtime, random pressure, and resource sites move off-screen. Costs are readable on return — DM sees machinery; players feel residue in first person (worried NPCs, rumors, tense streets, closed doors, resource interruptions). Lasting-cost amplitude is power-band gated (early local/regional; mid structural/campaign-scale; late existential). Distinct from in-adventure quiet-between. Not a single conspiracy skin.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:living_world_continuity
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-31T04:38:21Z min_downtime+resource_interrupt; band-scaled costs; receipt=Mint-Receipts/ux_living_world_continuity.receipt.yaml
 
 ### `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle
 
