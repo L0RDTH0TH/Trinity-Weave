@@ -42,7 +42,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`done`) [inhabit] [series]
 - [x] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`done`) [living_world] [series]
 - [x] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`done`) [table] [series]
-- [ ] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`pending`) [living_world] [series]
+- [x] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`done`) [living_world] [series]
 - [ ] `ux_absent_proxy` — Absent-player proxy (`pending`) [inhabit] [coverage]
 - [ ] `ux_agency_handoff_enter_exit` — Agency enter / exit handoff feel (`pending`) [inhabit] [coverage]
 - [ ] `ux_baseline_fp` — Baseline first-person embodiment (`pending`) [inhabit] [coverage]
@@ -527,27 +527,28 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 6
 - altitude: product_contract
 - seat: ["shared_table", "dm_as_player", "privileged_access"]
 - time_scale: world_era
-- does_not_mandate: ["mods are post-1.0 only", "timeline editing is player-lite default"]
-- alternatives_not_banned: []
+- does_not_mandate: ["mods are post-1.0 only", "timeline editing is player-lite default", "world mutation may bypass intentional re-gen and DM gate", "expensive re-gen dumps the table to menus", "physical and esoteric authorship use different cheat paths outside the mod contract"]
+- alternatives_not_banned: ["Thin collaborative seed vs deeper multi-step world authorship sessions", "Heavy Microscope-style era play vs light era tags only", "Curated-only packages vs open community mods later", "Re-gen of a region vs re-gen of a whole biome or faction graph", "Waiting activities other than pong (camp vignette, short challenge, etc.) under the same contract", "Physical-only vs esoteric-only emphasis at different tables"]
 - catalog_face: living_world
 - experience_mode: world_authorship_modability
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: session0_identity_art
 - dimension: session_bootstrap
-- summary: Session 0, timelines/eras, factions, intentional re-gen, and modability as first-class authorship — Microscope-informed non-linear history welcome.
+- summary: World change is first-class authorship across the physical container and the esoteric graph (terrain, settlements, eras, factions, populations, high-authority fiction such as Wish). Every structural change gets a computational cost estimate: cheap → in-place; expensive → intentional re-gen with a designed waiting activity (e.g. tournament-style pong or equivalent), then hard-restore — no menu dump. One mod contract covers table/DM and community packages; authority/trust differ, contract shape does not. Microscope-informed non-linear history welcome. Under DM gate; not silent mutation.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:world_authorship_modability
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-31T12:58:47Z cost+waiting+one_mod_contract; series_walk_complete; receipt=Mint-Receipts/ux_world_authorship_modability.receipt.yaml
 
 ### `ux_absent_proxy` — Absent-player proxy
 
