@@ -482,13 +482,17 @@ items:
   label: Perspective and control envelopes can change and cleanly return
   dimension: player_rail
   ux_axis: perspective_overrides
-  summary: FP baseline, rules-bound overrides, pilots, and DM WorldCam/MapCam/Sensorium
-    as experiential seats with enter/exit — privileged DM tools included, orchestrator
-    fun considered.
+  summary: 'Baseline player FP and a set of explicit temporary envelopes that change
+    perspective and/or control then hard-restore. Overrides (scry/divination, dominate,
+    liminal/unconscious, planar/gate, absent-proxy, etc.) always return to baseline
+    FP or the declared prior state. DM rail is first-class in the same parent: WorldCam
+    is the DM default; MapCam, Sensorium Attach, and DM pilot are explicit departures
+    with hard restore. Players never use WorldCam/MapCam. Every enter declares controller,
+    presentation, duration, and return target.'
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:camera_control_envelopes
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: camera_control_envelopes
   mode_tier: series
@@ -504,10 +508,21 @@ items:
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
-  alternatives_not_banned: []
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  alternatives_not_banned:
+  - Heavy vs light transition interpolation (comfort) as long as final state is hard-restored
+  - Sparse vs frequent override use
+  - DM who rarely leaves WorldCam vs frequent MapCam / Sensorium / pilot use
+  - Strict rules-only overrides vs session-policy additions (absent proxy, custom
+    visions)
+  - Minimal vs rich liminal/unconscious or dominate-victim presentation
+  - Thin vs fuller dominate pilot/victim in early builds
   series_order: 3
   supplement: false
   coverage_slot: false
+  notes: applied:2026-07-31T03:53:03Z DM_WorldCam=default; liminal=first-class; receipt=Mint-Receipts/ux_camera_control_envelopes.receipt.yaml
 - id: ux_living_world_continuity
   label: World can move off-screen and show lasting readable costs
   dimension: ui_surface

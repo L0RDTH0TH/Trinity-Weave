@@ -157,4 +157,17 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T03:34:21Z'
+- id: ux_camera_control_envelopes
+  dimension: player_rail
+  label: Perspective and control envelopes can change and cleanly return
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T03:53:03Z'
 last_amended_at: '2026-07-30T18:37:43Z'

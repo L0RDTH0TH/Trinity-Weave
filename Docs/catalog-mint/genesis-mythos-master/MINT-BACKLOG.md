@@ -39,7 +39,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration (`done`) [table] [series]
 - [x] `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore (`done`) [table] [series]
 - [x] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`done`) [inhabit] [series]
-- [ ] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`pending`) [inhabit] [series]
+- [x] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`done`) [inhabit] [series]
 - [ ] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`pending`) [living_world] [series]
 - [ ] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`pending`) [table] [series]
 - [ ] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`pending`) [living_world] [series]
@@ -452,27 +452,28 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 3
 - altitude: product_contract
 - seat: ["player", "dm_as_player", "privileged_access"]
 - time_scale: moment
-- does_not_mandate: ["players get free third-person orbit as default", "DM tools exist only as debug infrastructure"]
-- alternatives_not_banned: []
+- does_not_mandate: ["players get free third-person orbit as default", "DM tools exist only as debug infrastructure", "envelope exits leave soft residual control or wrong perspective", "camera modes can become permanent without a restore path", "players may use WorldCam or MapCam as free exploration seats"]
+- alternatives_not_banned: ["Heavy vs light transition interpolation (comfort) as long as final state is hard-restored", "Sparse vs frequent override use", "DM who rarely leaves WorldCam vs frequent MapCam / Sensorium / pilot use", "Strict rules-only overrides vs session-policy additions (absent proxy, custom visions)", "Minimal vs rich liminal/unconscious or dominate-victim presentation", "Thin vs fuller dominate pilot/victim in early builds"]
 - catalog_face: inhabit
 - experience_mode: camera_control_envelopes
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: perspective_overrides
 - dimension: player_rail
-- summary: FP baseline, rules-bound overrides, pilots, and DM WorldCam/MapCam/Sensorium as experiential seats with enter/exit — privileged DM tools included, orchestrator fun considered.
+- summary: Baseline player FP and a set of explicit temporary envelopes that change perspective and/or control then hard-restore. Overrides (scry/divination, dominate, liminal/unconscious, planar/gate, absent-proxy, etc.) always return to baseline FP or the declared prior state. DM rail is first-class in the same parent: WorldCam is the DM default; MapCam, Sensorium Attach, and DM pilot are explicit departures with hard restore. Players never use WorldCam/MapCam. Every enter declares controller, presentation, duration, and return target.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:camera_control_envelopes
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-31T03:53:03Z DM_WorldCam=default; liminal=first-class; receipt=Mint-Receipts/ux_camera_control_envelopes.receipt.yaml
 
 ### `ux_living_world_continuity` — World can move off-screen and show lasting readable costs
 
