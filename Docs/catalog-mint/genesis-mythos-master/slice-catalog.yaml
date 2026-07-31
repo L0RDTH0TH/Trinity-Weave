@@ -131,4 +131,16 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T22:42:32Z'
+- id: ux_quiet_between_pillars
+  dimension: ui_surface
+  label: In-adventure quiet keeps continuous fiction between combat social and explore
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T02:41:21Z'
 last_amended_at: '2026-07-30T18:37:43Z'

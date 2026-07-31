@@ -37,7 +37,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_late_game` — Late play is a power band for campaign crescendo, close, and character-to-world persistence (`done`) [living_world] [series]
 - [x] `ux_mental_stat_interpretation` — Mental stats surface available read paths not only sheet numbers (`done`) [surfaces] [series]
 - [x] `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration (`done`) [table] [series]
-- [ ] `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore (`pending`) [table] [series]
+- [x] `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore (`done`) [table] [series]
 - [ ] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`pending`) [inhabit] [series]
 - [ ] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`pending`) [inhabit] [series]
 - [ ] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`pending`) [living_world] [series]
@@ -400,29 +400,30 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - coverage_slot: False
 - notes: applied:2026-07-30T22:42:32Z DM owns NPC voice; assist≠auto-speak; receipt=Mint-Receipts/ux_collaborative_table_agency.receipt.yaml
 
-### `ux_quiet_between_pillars` — Downtime keeps continuous fiction between combat social and explore
+### `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 1
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: session
-- does_not_mandate: ["downtime equals BG3 campsite companion UI", "quiet is only a long-rest resource refill"]
-- alternatives_not_banned: []
+- does_not_mandate: ["downtime equals BG3 campsite companion UI", "quiet is only a long-rest resource refill", "quiet is a loading state between pillars", "this row owns between-adventures weeks/months calendar downtime", "system must force the next combat social or explore beat during quiet"]
+- alternatives_not_banned: ["Camp-centric vs road-centric vs both inside the adventure", "Quiet as distinct mode vs low-intensity state in the same world view", "Rest embedded in quiet vs separate rest verb usable during quiet", "Sparse linger vs frequent light authored beats on the road"]
 - catalog_face: table
 - experience_mode: quiet_between_pillars
 - mode_tier: series
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Quiet-between is designed product surface — linger, camp, road — not a rest button or loading state alone.
+- summary: In-adventure quiet is the product surface for time between pillar bursts — road, camp, linger, and other low-intensity presence — so fiction stays continuous while the table is not in a forced combat, social set-piece, or explore objective. Quiet is largely the system waiting for players and DM to move the story forward. Between-adventures weeks/months sit with living-world continuity, not this parent.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:quiet_between_pillars
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-31T02:41:21Z in-adventure only; between-adventures→living-world; receipt=Mint-Receipts/ux_quiet_between_pillars.receipt.yaml
 
 ### `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends
 
