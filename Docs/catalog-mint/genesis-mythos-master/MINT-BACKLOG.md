@@ -38,7 +38,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_mental_stat_interpretation` — Mental stats surface available read paths not only sheet numbers (`done`) [surfaces] [series]
 - [x] `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration (`done`) [table] [series]
 - [x] `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore (`done`) [table] [series]
-- [ ] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`pending`) [inhabit] [series]
+- [x] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`done`) [inhabit] [series]
 - [ ] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`pending`) [inhabit] [series]
 - [ ] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`pending`) [living_world] [series]
 - [ ] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`pending`) [table] [series]
@@ -427,27 +427,28 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends
 
-- status: pending
+- status: done
 - walk_tier: series
 - series_id: pmg_capabilities
 - series_order: 2
 - altitude: product_contract
 - seat: ["shared_table"]
 - time_scale: moment
-- does_not_mandate: ["flee is the only correct authored end", "combat always resolves to XP loot chrome"]
-- alternatives_not_banned: []
+- does_not_mandate: ["flee is the only correct authored end", "combat always resolves to XP loot chrome", "combat is a single win/lose elimination pipeline", "DM only adjudicates and never inhabits creature roles", "player and DM share identical combat control envelopes"]
+- alternatives_not_banned: ["Lethal-default tables vs non-lethal-friendly tables", "Flee with chase vs clean disengage", "Parley mid-fight vs only before blows land", "Sparse authored ends vs many stake levers", "XP/loot present vs progression mostly elsewhere", "Heavy vs light creature chrome in early builds", "System-default music only vs frequent DM-queued tracks"]
 - catalog_face: inhabit
 - experience_mode: combat_play_surface
 - mode_tier: series
 - dnd_pillar: combat
 - ux_axis: combat_cast_feedback
 - dimension: ui_surface
-- summary: Combat authorship menu (fight, flee, parley, stakes) as product contract — not one flee-or-die caption.
+- summary: Combat is a distinct play surface the whole table enters and exits: combat chrome and audio for both seats; authorship menu of ends (fight, disengage/flee, parley, stakes, surrender, escape-with-cost, and other legitimate paths); DM gates all actions, owns the encounter cast with creature chrome and voice tools, and can adjust live values. Movement is a readable terrain-aware envelope. Surface consumes pre-compiled rule math from an import/library path. Power band gates offer and lasting costs. Not one flee caption and not the full rules-math pack.
 - conceptual_pin: needs pin
 - derived_from: series:pmg_capabilities:combat_play_surface
 - ux_family: pmg_capabilities
 - supplement: False
 - coverage_slot: False
+- notes: applied:2026-07-31T03:34:21Z poc=fight+flee+parley; either opens non-win; receipt=Mint-Receipts/ux_combat_play_surface.receipt.yaml
 
 ### `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return
 

@@ -143,4 +143,18 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T02:41:21Z'
+- id: ux_combat_play_surface
+  dimension: ui_surface
+  label: Combat can resolve by authored paths including non-win ends
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T03:34:21Z'
 last_amended_at: '2026-07-30T18:37:43Z'
