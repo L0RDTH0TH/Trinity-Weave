@@ -2,6 +2,6 @@
 
 active_project_id: genesis-mythos-master
 
-synced_at: 2026-07-31T02:56:43Z
+synced_at: 2026-07-31T03:00:08Z
 card: weave/component-proposals/catalog_mint.yaml
 pack: Docs/catalog-mint/genesis-mythos-master/
