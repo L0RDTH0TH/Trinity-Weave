@@ -11,13 +11,8 @@ children_greenlit: true
 children_rewritten: true
 waived_axes: []
 schema_version: 1
-generated_at: 2026-08-01 22:49:10+00:00
-frozen_at: 2026-08-01 21:11:08+00:00
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 90a422dd977fde370ca2e157ab9952a84d944aa6
-archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
 quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
-quality_validation: children_rewrite + affinity relens (2026-08-01): DM WorldCam/MapCam/Sensorium/pilot under camera envelopes; living-world WA off mid-game vacuum. Grok+user still validate batches.
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
 ---
@@ -39,13 +34,10 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `90a422dd977fde370ca2e157ab9952a84d944aa6`  
+**Children Trinity ref:** `(none)`  
 **Quality validation:** `children_relensed_dual_rail_awaiting_grok_validate`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
-
-> [!warning] Quality caveat — structure first  
-> children_rewrite + affinity relens (2026-08-01): DM WorldCam/MapCam/Sensorium/pilot under camera envelopes; living-world WA off mid-game vacuum. Grok+user still validate batches.
 
 ## Quick status
 
