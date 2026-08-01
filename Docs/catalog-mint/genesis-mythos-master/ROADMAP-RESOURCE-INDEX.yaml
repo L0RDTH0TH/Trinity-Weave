@@ -4449,6 +4449,7 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
