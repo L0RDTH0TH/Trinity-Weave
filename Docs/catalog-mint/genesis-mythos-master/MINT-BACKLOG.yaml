@@ -1680,7 +1680,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1689,6 +1689,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_escape_as_first_authorship
   label: Escape as first authorship
   dimension: ui_surface
@@ -1697,7 +1699,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1706,6 +1708,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_flee_as_authorship_combat_end
   label: Flee-as-authorship combat end
   dimension: ui_surface
@@ -1714,7 +1718,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1723,6 +1727,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_incomplete_information_before_blood
   label: Incomplete information before blood
   dimension: ui_surface
@@ -1731,7 +1737,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1740,6 +1746,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_wake_in_violation_open
   label: Wake-in-violation open
   dimension: ui_surface
@@ -1748,7 +1756,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1757,6 +1765,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_who_to_sit_with_tonight
   label: Who to sit with tonight
   dimension: ui_surface
@@ -1765,7 +1775,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: inhabit
   mode_tier: thickener
   dnd_pillar: shared
@@ -1774,6 +1784,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_beautiful_rooms_in_a_cruel_place
   label: Beautiful rooms in a cruel place
   dimension: ui_surface
@@ -1782,7 +1794,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P11-stolen-agency-open.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1791,6 +1803,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_city_scale_panic_texture
   label: City-scale panic texture
   dimension: ui_surface
@@ -1799,7 +1813,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1808,6 +1822,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_costly_identity_pact_after_a_death
   label: Costly identity pact after a death
   dimension: ui_surface
@@ -1817,7 +1833,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1826,6 +1842,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_cure_that_harms
   label: Cure that harms
   dimension: ui_surface
@@ -1834,7 +1852,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1843,6 +1861,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_empty_chair_fracture
   label: Empty-chair fracture
   dimension: ui_surface
@@ -1851,7 +1871,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1860,6 +1880,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_estranged_home_social_ordeal
   label: Estranged-home social ordeal
   dimension: ui_surface
@@ -1868,7 +1890,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1877,6 +1899,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_faith_shatter_at_the_machine
   label: Faith shatter at the machine
   dimension: ui_surface
@@ -1885,7 +1909,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1894,6 +1918,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_fourth_option_social_agency
   label: Fourth-option social agency
   dimension: ui_surface
@@ -1902,7 +1928,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1911,6 +1937,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_guide_who_was_the_problem
   label: Guide who was the problem
   dimension: ui_surface
@@ -1919,7 +1947,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1928,6 +1956,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_joy_ritual_beside_betrayal_beat
   label: Joy ritual beside betrayal beat
   dimension: ui_surface
@@ -1936,7 +1966,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1945,6 +1975,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_linger_after_the_fight
   label: Linger after the fight
   dimension: ui_surface
@@ -1953,7 +1985,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1962,6 +1994,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_moral_fork_that_schedules_the_next_fight
   label: Moral fork that schedules the next fight
   dimension: ui_surface
@@ -1970,7 +2004,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1979,6 +2013,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_party_trust_under_ascension_pressure
   label: Party trust under ascension pressure
   dimension: ui_surface
@@ -1987,7 +2023,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -1996,6 +2032,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_personal_stakes_set_piece_combat
   label: Personal-stakes set-piece combat
   dimension: ui_surface
@@ -2004,7 +2042,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2013,6 +2051,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_post_coma_blame_texture
   label: Post-coma blame texture
   dimension: ui_surface
@@ -2021,7 +2061,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2030,6 +2070,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_post_kill_political_handoff
   label: Post-kill political handoff
   dimension: ui_surface
@@ -2038,7 +2080,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2047,6 +2089,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_power_object_that_demanded_a_person_not_a_check
   label: Power object that demanded a person, not a check
   dimension: ui_surface
@@ -2056,7 +2100,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2065,6 +2109,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_rehabilitation_bargain_after_betrayal
   label: Rehabilitation bargain after betrayal
   dimension: ui_surface
@@ -2073,7 +2119,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2082,6 +2128,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_rescue_as_social_contract
   label: Rescue as social contract
   dimension: ui_surface
@@ -2090,7 +2138,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2099,6 +2147,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_rest_as_presence_not_only_refill
   label: Rest as presence, not only refill
   dimension: ui_surface
@@ -2107,7 +2157,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2116,6 +2166,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_sibling_panic_in_the_quiet_after_the_roll
   label: Sibling panic in the quiet after the roll
   dimension: ui_surface
@@ -2124,7 +2176,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x44-progression-as-identity.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2133,6 +2185,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_side_deal_mischief_beside_sincere_pain
   label: Side-deal mischief beside sincere pain
   dimension: ui_surface
@@ -2141,7 +2195,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2150,6 +2204,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_soft_power_party_seizure
   label: Soft-power party seizure
   dimension: ui_surface
@@ -2158,7 +2214,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2167,6 +2223,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_spare_or_swear_companion_crisis
   label: Spare-or-swear companion crisis
   dimension: ui_surface
@@ -2175,7 +2233,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2184,6 +2242,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_triage_under_asymmetric_power
   label: Triage under asymmetric power
   dimension: ui_surface
@@ -2192,7 +2252,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2201,6 +2261,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_trial_dungeon_that_ends_in_loyalty
   label: Trial dungeon that ends in loyalty
   dimension: ui_surface
@@ -2209,7 +2271,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2218,6 +2280,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_who_owns_the_ending
   label: Who owns the ending
   dimension: ui_surface
@@ -2226,7 +2290,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: table
   mode_tier: thickener
   dnd_pillar: shared
@@ -2235,6 +2299,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_earned_conspiracy_payoff
   label: Earned conspiracy payoff
   dimension: ui_surface
@@ -2243,7 +2309,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: living_world
   mode_tier: thickener
   dnd_pillar: shared
@@ -2252,6 +2318,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_earned_spy_reveal
   label: Earned spy reveal
   dimension: ui_surface
@@ -2260,7 +2328,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: living_world
   mode_tier: thickener
   dnd_pillar: shared
@@ -2269,6 +2337,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_friend_who_was_the_conspiracy
   label: Friend who was the conspiracy
   dimension: ui_surface
@@ -2277,7 +2347,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: living_world
   mode_tier: thickener
   dnd_pillar: shared
@@ -2286,6 +2356,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_living_world_remembers_without_a_script
   label: Living-world remembers without a script
   dimension: ui_surface
@@ -2294,7 +2366,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-human-operated-story.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: living_world
   mode_tier: thickener
   dnd_pillar: shared
@@ -2303,6 +2375,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_quiet_level_acknowledgment
   label: Quiet level acknowledgment
   dimension: ui_surface
@@ -2311,7 +2385,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: living_world
   mode_tier: thickener
   dnd_pillar: shared
@@ -2320,6 +2394,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_campfire_identity_chrome
   label: Campfire identity chrome
   dimension: ui_surface
@@ -2328,7 +2404,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2337,6 +2413,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_chrome_that_grew_with_you
   label: Chrome that grew with you
   dimension: ui_surface
@@ -2345,7 +2423,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2354,6 +2432,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_diegetic_chrome_persistence
   label: Diegetic chrome persistence
   dimension: ui_surface
@@ -2362,7 +2442,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2371,6 +2451,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_feedback_anchored_to_the_body
   label: Feedback anchored to the body
   dimension: ui_surface
@@ -2380,7 +2462,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2389,6 +2471,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_logistics_of_a_missing_seat
   label: Logistics of a missing seat
   dimension: ui_surface
@@ -2397,7 +2481,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2406,6 +2490,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_new_toy_in_the_next_fight
   label: New toy in the next fight
   dimension: ui_surface
@@ -2414,7 +2500,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2423,6 +2509,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_power_trophy_that_the_table_can_feel
   label: Power trophy that the table can feel
   dimension: ui_surface
@@ -2431,7 +2519,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x52-personal-stakes-combat.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2440,6 +2528,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_region_map_for_a_social_beat
   label: Region map for a social beat
   dimension: ui_surface
@@ -2448,7 +2538,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2457,6 +2547,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_title_reclaim_as_identity_chrome
   label: Title reclaim as identity chrome
   dimension: ui_surface
@@ -2465,7 +2557,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2474,6 +2566,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_verb_first_soft_exit
   label: Verb-first soft exit
   dimension: ui_surface
@@ -2483,7 +2577,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: surfaces
   mode_tier: thickener
   dnd_pillar: shared
@@ -2492,6 +2586,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_class_chrome
   label: Class / subclass chrome
   dimension: ui_surface
@@ -2500,7 +2596,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2509,6 +2605,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_dm_player_rails
   label: DM / player rails
   dimension: dm_rail
@@ -2517,7 +2615,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2525,6 +2623,8 @@ items:
   maps_to: dm_pilot
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_dmpausegate_interaction
   label: DMPauseGate interaction
   dimension: ui_surface
@@ -2534,7 +2634,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2542,6 +2642,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_feedback_payload_composition_demo_truncated
   label: Feedback payload composition (demo-truncated)
   dimension: ui_surface
@@ -2551,7 +2653,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2559,6 +2661,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_launch_playregion_hud_flow
   label: Launch → PlayRegion → HUD flow
   dimension: ui_surface
@@ -2568,7 +2672,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2576,6 +2680,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_operator_dm_rail_hotkey_vs_scripted_cue
   label: Operator DM rail hotkey vs scripted cue
   dimension: ui_surface
@@ -2585,7 +2691,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2593,6 +2699,8 @@ items:
   maps_to: dm_pilot
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_perspectiveenvelope_player_fp_activation
   label: PerspectiveEnvelope `player_fp` activation
   dimension: ui_surface
@@ -2602,7 +2710,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2610,6 +2718,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_player_agency_loop
   label: Player agency loop
   dimension: player_rail
@@ -2618,7 +2728,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2627,6 +2737,8 @@ items:
   altitude: scene_exemplar
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_playerfprig_attachment
   label: PlayerFPRig attachment
   dimension: ui_surface
@@ -2636,7 +2748,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2644,6 +2756,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_presentation_shell
   label: Presentation shell
   dimension: ui_surface
@@ -2652,7 +2766,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2660,6 +2774,8 @@ items:
   maps_to: application_shell
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_rule_representation
   label: Rule representation
   dimension: ui_surface
@@ -2669,7 +2785,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
   derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2677,6 +2793,8 @@ items:
   maps_to: baseline_fp
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_scry_presentation
   label: Scry / Clairvoyance presentation
   dimension: ui_surface
@@ -2685,7 +2803,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2693,6 +2811,8 @@ items:
   maps_to: divination_override
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 - id: ux_session0_identity_art
   label: Session 0 / identity art
   dimension: session_bootstrap
@@ -2701,7 +2821,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: ''
-  status: pending
+  status: dropped
   catalog_face: supplement
   mode_tier: thickener
   dnd_pillar: shared
@@ -2709,4 +2829,6 @@ items:
   maps_to: session0_bootstrap
   supplement: true
   coverage_slot: false
+  notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series
+    parents; not product-contract walk
 frozen_at: '2026-07-30T04:16:06Z'

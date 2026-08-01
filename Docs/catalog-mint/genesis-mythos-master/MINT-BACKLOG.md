@@ -87,67 +87,67 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [ ] `ux_primary_navigation` — Primary navigation / wayfinding (`pending`) [flows] [coverage]
 - [ ] `ux_session_onboarding` — Session / onboarding bootstrap (`pending`) [flows] [coverage]
 - [ ] `ux_content_authoring_surface` — Content authoring surface (`pending`) [content] [coverage]
-- [ ] `ux_dm_soft_framing_tools` — DM soft framing tools (`pending`) [inhabit] [thickener]
-- [ ] `ux_escape_as_first_authorship` — Escape as first authorship (`pending`) [inhabit] [thickener]
-- [ ] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`pending`) [inhabit] [thickener]
-- [ ] `ux_incomplete_information_before_blood` — Incomplete information before blood (`pending`) [inhabit] [thickener]
-- [ ] `ux_wake_in_violation_open` — Wake-in-violation open (`pending`) [inhabit] [thickener]
-- [ ] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`pending`) [inhabit] [thickener]
-- [ ] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`pending`) [table] [thickener]
-- [ ] `ux_city_scale_panic_texture` — City-scale panic texture (`pending`) [table] [thickener]
-- [ ] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`pending`) [table] [thickener]
-- [ ] `ux_cure_that_harms` — Cure that harms (`pending`) [table] [thickener]
-- [ ] `ux_empty_chair_fracture` — Empty-chair fracture (`pending`) [table] [thickener]
-- [ ] `ux_estranged_home_social_ordeal` — Estranged-home social ordeal (`pending`) [table] [thickener]
-- [ ] `ux_faith_shatter_at_the_machine` — Faith shatter at the machine (`pending`) [table] [thickener]
-- [ ] `ux_fourth_option_social_agency` — Fourth-option social agency (`pending`) [table] [thickener]
-- [ ] `ux_guide_who_was_the_problem` — Guide who was the problem (`pending`) [table] [thickener]
-- [ ] `ux_joy_ritual_beside_betrayal_beat` — Joy ritual beside betrayal beat (`pending`) [table] [thickener]
-- [ ] `ux_linger_after_the_fight` — Linger after the fight (`pending`) [table] [thickener]
-- [ ] `ux_moral_fork_that_schedules_the_next_fight` — Moral fork that schedules the next fight (`pending`) [table] [thickener]
-- [ ] `ux_party_trust_under_ascension_pressure` — Party trust under ascension pressure (`pending`) [table] [thickener]
-- [ ] `ux_personal_stakes_set_piece_combat` — Personal-stakes set-piece combat (`pending`) [table] [thickener]
-- [ ] `ux_post_coma_blame_texture` — Post-coma blame texture (`pending`) [table] [thickener]
-- [ ] `ux_post_kill_political_handoff` — Post-kill political handoff (`pending`) [table] [thickener]
-- [ ] `ux_power_object_that_demanded_a_person_not_a_check` — Power object that demanded a person, not a check (`pending`) [table] [thickener]
-- [ ] `ux_rehabilitation_bargain_after_betrayal` — Rehabilitation bargain after betrayal (`pending`) [table] [thickener]
-- [ ] `ux_rescue_as_social_contract` — Rescue as social contract (`pending`) [table] [thickener]
-- [ ] `ux_rest_as_presence_not_only_refill` — Rest as presence, not only refill (`pending`) [table] [thickener]
-- [ ] `ux_sibling_panic_in_the_quiet_after_the_roll` — Sibling panic in the quiet after the roll (`pending`) [table] [thickener]
-- [ ] `ux_side_deal_mischief_beside_sincere_pain` — Side-deal mischief beside sincere pain (`pending`) [table] [thickener]
-- [ ] `ux_soft_power_party_seizure` — Soft-power party seizure (`pending`) [table] [thickener]
-- [ ] `ux_spare_or_swear_companion_crisis` — Spare-or-swear companion crisis (`pending`) [table] [thickener]
-- [ ] `ux_triage_under_asymmetric_power` — Triage under asymmetric power (`pending`) [table] [thickener]
-- [ ] `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty (`pending`) [table] [thickener]
-- [ ] `ux_who_owns_the_ending` — Who owns the ending (`pending`) [table] [thickener]
-- [ ] `ux_earned_conspiracy_payoff` — Earned conspiracy payoff (`pending`) [living_world] [thickener]
-- [ ] `ux_earned_spy_reveal` — Earned spy reveal (`pending`) [living_world] [thickener]
-- [ ] `ux_friend_who_was_the_conspiracy` — Friend who was the conspiracy (`pending`) [living_world] [thickener]
-- [ ] `ux_living_world_remembers_without_a_script` — Living-world remembers without a script (`pending`) [living_world] [thickener]
-- [ ] `ux_quiet_level_acknowledgment` — Quiet level acknowledgment (`pending`) [living_world] [thickener]
-- [ ] `ux_campfire_identity_chrome` — Campfire identity chrome (`pending`) [surfaces] [thickener]
-- [ ] `ux_chrome_that_grew_with_you` — Chrome that grew with you (`pending`) [surfaces] [thickener]
-- [ ] `ux_diegetic_chrome_persistence` — Diegetic chrome persistence (`pending`) [surfaces] [thickener]
-- [ ] `ux_feedback_anchored_to_the_body` — Feedback anchored to the body (`pending`) [surfaces] [thickener]
-- [ ] `ux_logistics_of_a_missing_seat` — Logistics of a missing seat (`pending`) [surfaces] [thickener]
-- [ ] `ux_new_toy_in_the_next_fight` — New toy in the next fight (`pending`) [surfaces] [thickener]
-- [ ] `ux_power_trophy_that_the_table_can_feel` — Power trophy that the table can feel (`pending`) [surfaces] [thickener]
-- [ ] `ux_region_map_for_a_social_beat` — Region map for a social beat (`pending`) [surfaces] [thickener]
-- [ ] `ux_title_reclaim_as_identity_chrome` — Title reclaim as identity chrome (`pending`) [surfaces] [thickener]
-- [ ] `ux_verb_first_soft_exit` — Verb-first soft exit (`pending`) [surfaces] [thickener]
-- [ ] `ux_class_chrome` — Class / subclass chrome (`pending`) [supplement] [thickener]
-- [ ] `ux_dm_player_rails` — DM / player rails (`pending`) [supplement] [thickener]
-- [ ] `ux_dmpausegate_interaction` — DMPauseGate interaction (`pending`) [supplement] [thickener]
-- [ ] `ux_feedback_payload_composition_demo_truncated` — Feedback payload composition (demo-truncated) (`pending`) [supplement] [thickener]
-- [ ] `ux_launch_playregion_hud_flow` — Launch → PlayRegion → HUD flow (`pending`) [supplement] [thickener]
-- [ ] `ux_operator_dm_rail_hotkey_vs_scripted_cue` — Operator DM rail hotkey vs scripted cue (`pending`) [supplement] [thickener]
-- [ ] `ux_perspectiveenvelope_player_fp_activation` — PerspectiveEnvelope `player_fp` activation (`pending`) [supplement] [thickener]
-- [ ] `ux_player_agency_loop` — Player agency loop (`pending`) [supplement] [thickener]
-- [ ] `ux_playerfprig_attachment` — PlayerFPRig attachment (`pending`) [supplement] [thickener]
-- [ ] `ux_presentation_shell` — Presentation shell (`pending`) [supplement] [thickener]
-- [ ] `ux_rule_representation` — Rule representation (`pending`) [supplement] [thickener]
-- [ ] `ux_scry_presentation` — Scry / Clairvoyance presentation (`pending`) [supplement] [thickener]
-- [ ] `ux_session0_identity_art` — Session 0 / identity art (`pending`) [supplement] [thickener]
+- [-] `ux_dm_soft_framing_tools` — DM soft framing tools (`dropped`) [inhabit] [thickener]
+- [-] `ux_escape_as_first_authorship` — Escape as first authorship (`dropped`) [inhabit] [thickener]
+- [-] `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end (`dropped`) [inhabit] [thickener]
+- [-] `ux_incomplete_information_before_blood` — Incomplete information before blood (`dropped`) [inhabit] [thickener]
+- [-] `ux_wake_in_violation_open` — Wake-in-violation open (`dropped`) [inhabit] [thickener]
+- [-] `ux_who_to_sit_with_tonight` — Who to sit with tonight (`dropped`) [inhabit] [thickener]
+- [-] `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place (`dropped`) [table] [thickener]
+- [-] `ux_city_scale_panic_texture` — City-scale panic texture (`dropped`) [table] [thickener]
+- [-] `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death (`dropped`) [table] [thickener]
+- [-] `ux_cure_that_harms` — Cure that harms (`dropped`) [table] [thickener]
+- [-] `ux_empty_chair_fracture` — Empty-chair fracture (`dropped`) [table] [thickener]
+- [-] `ux_estranged_home_social_ordeal` — Estranged-home social ordeal (`dropped`) [table] [thickener]
+- [-] `ux_faith_shatter_at_the_machine` — Faith shatter at the machine (`dropped`) [table] [thickener]
+- [-] `ux_fourth_option_social_agency` — Fourth-option social agency (`dropped`) [table] [thickener]
+- [-] `ux_guide_who_was_the_problem` — Guide who was the problem (`dropped`) [table] [thickener]
+- [-] `ux_joy_ritual_beside_betrayal_beat` — Joy ritual beside betrayal beat (`dropped`) [table] [thickener]
+- [-] `ux_linger_after_the_fight` — Linger after the fight (`dropped`) [table] [thickener]
+- [-] `ux_moral_fork_that_schedules_the_next_fight` — Moral fork that schedules the next fight (`dropped`) [table] [thickener]
+- [-] `ux_party_trust_under_ascension_pressure` — Party trust under ascension pressure (`dropped`) [table] [thickener]
+- [-] `ux_personal_stakes_set_piece_combat` — Personal-stakes set-piece combat (`dropped`) [table] [thickener]
+- [-] `ux_post_coma_blame_texture` — Post-coma blame texture (`dropped`) [table] [thickener]
+- [-] `ux_post_kill_political_handoff` — Post-kill political handoff (`dropped`) [table] [thickener]
+- [-] `ux_power_object_that_demanded_a_person_not_a_check` — Power object that demanded a person, not a check (`dropped`) [table] [thickener]
+- [-] `ux_rehabilitation_bargain_after_betrayal` — Rehabilitation bargain after betrayal (`dropped`) [table] [thickener]
+- [-] `ux_rescue_as_social_contract` — Rescue as social contract (`dropped`) [table] [thickener]
+- [-] `ux_rest_as_presence_not_only_refill` — Rest as presence, not only refill (`dropped`) [table] [thickener]
+- [-] `ux_sibling_panic_in_the_quiet_after_the_roll` — Sibling panic in the quiet after the roll (`dropped`) [table] [thickener]
+- [-] `ux_side_deal_mischief_beside_sincere_pain` — Side-deal mischief beside sincere pain (`dropped`) [table] [thickener]
+- [-] `ux_soft_power_party_seizure` — Soft-power party seizure (`dropped`) [table] [thickener]
+- [-] `ux_spare_or_swear_companion_crisis` — Spare-or-swear companion crisis (`dropped`) [table] [thickener]
+- [-] `ux_triage_under_asymmetric_power` — Triage under asymmetric power (`dropped`) [table] [thickener]
+- [-] `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty (`dropped`) [table] [thickener]
+- [-] `ux_who_owns_the_ending` — Who owns the ending (`dropped`) [table] [thickener]
+- [-] `ux_earned_conspiracy_payoff` — Earned conspiracy payoff (`dropped`) [living_world] [thickener]
+- [-] `ux_earned_spy_reveal` — Earned spy reveal (`dropped`) [living_world] [thickener]
+- [-] `ux_friend_who_was_the_conspiracy` — Friend who was the conspiracy (`dropped`) [living_world] [thickener]
+- [-] `ux_living_world_remembers_without_a_script` — Living-world remembers without a script (`dropped`) [living_world] [thickener]
+- [-] `ux_quiet_level_acknowledgment` — Quiet level acknowledgment (`dropped`) [living_world] [thickener]
+- [-] `ux_campfire_identity_chrome` — Campfire identity chrome (`dropped`) [surfaces] [thickener]
+- [-] `ux_chrome_that_grew_with_you` — Chrome that grew with you (`dropped`) [surfaces] [thickener]
+- [-] `ux_diegetic_chrome_persistence` — Diegetic chrome persistence (`dropped`) [surfaces] [thickener]
+- [-] `ux_feedback_anchored_to_the_body` — Feedback anchored to the body (`dropped`) [surfaces] [thickener]
+- [-] `ux_logistics_of_a_missing_seat` — Logistics of a missing seat (`dropped`) [surfaces] [thickener]
+- [-] `ux_new_toy_in_the_next_fight` — New toy in the next fight (`dropped`) [surfaces] [thickener]
+- [-] `ux_power_trophy_that_the_table_can_feel` — Power trophy that the table can feel (`dropped`) [surfaces] [thickener]
+- [-] `ux_region_map_for_a_social_beat` — Region map for a social beat (`dropped`) [surfaces] [thickener]
+- [-] `ux_title_reclaim_as_identity_chrome` — Title reclaim as identity chrome (`dropped`) [surfaces] [thickener]
+- [-] `ux_verb_first_soft_exit` — Verb-first soft exit (`dropped`) [surfaces] [thickener]
+- [-] `ux_class_chrome` — Class / subclass chrome (`dropped`) [supplement] [thickener]
+- [-] `ux_dm_player_rails` — DM / player rails (`dropped`) [supplement] [thickener]
+- [-] `ux_dmpausegate_interaction` — DMPauseGate interaction (`dropped`) [supplement] [thickener]
+- [-] `ux_feedback_payload_composition_demo_truncated` — Feedback payload composition (demo-truncated) (`dropped`) [supplement] [thickener]
+- [-] `ux_launch_playregion_hud_flow` — Launch → PlayRegion → HUD flow (`dropped`) [supplement] [thickener]
+- [-] `ux_operator_dm_rail_hotkey_vs_scripted_cue` — Operator DM rail hotkey vs scripted cue (`dropped`) [supplement] [thickener]
+- [-] `ux_perspectiveenvelope_player_fp_activation` — PerspectiveEnvelope `player_fp` activation (`dropped`) [supplement] [thickener]
+- [-] `ux_player_agency_loop` — Player agency loop (`dropped`) [supplement] [thickener]
+- [-] `ux_playerfprig_attachment` — PlayerFPRig attachment (`dropped`) [supplement] [thickener]
+- [-] `ux_presentation_shell` — Presentation shell (`dropped`) [supplement] [thickener]
+- [-] `ux_rule_representation` — Rule representation (`dropped`) [supplement] [thickener]
+- [-] `ux_scry_presentation` — Scry / Clairvoyance presentation (`dropped`) [supplement] [thickener]
+- [-] `ux_session0_identity_art` — Session 0 / identity art (`dropped`) [supplement] [thickener]
 
 ## Items
 
@@ -1337,7 +1337,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_dm_soft_framing_tools` — DM soft framing tools
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1351,10 +1351,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_escape_as_first_authorship` — Escape as first authorship
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1368,10 +1369,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_flee_as_authorship_combat_end` — Flee-as-authorship combat end
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1385,10 +1387,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_incomplete_information_before_blood` — Incomplete information before blood
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1402,10 +1405,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_wake_in_violation_open` — Wake-in-violation open
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1419,10 +1423,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_who_to_sit_with_tonight` — Who to sit with tonight
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: inhabit
@@ -1436,10 +1441,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_beautiful_rooms_in_a_cruel_place` — Beautiful rooms in a cruel place
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1453,10 +1459,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_city_scale_panic_texture` — City-scale panic texture
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1470,10 +1477,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_costly_identity_pact_after_a_death` — Costly identity pact after a death
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1487,10 +1495,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_cure_that_harms` — Cure that harms
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1504,10 +1513,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_empty_chair_fracture` — Empty-chair fracture
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1521,10 +1531,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_estranged_home_social_ordeal` — Estranged-home social ordeal
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1538,10 +1549,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_faith_shatter_at_the_machine` — Faith shatter at the machine
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1555,10 +1567,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_fourth_option_social_agency` — Fourth-option social agency
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1572,10 +1585,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_guide_who_was_the_problem` — Guide who was the problem
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1589,10 +1603,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_joy_ritual_beside_betrayal_beat` — Joy ritual beside betrayal beat
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1606,10 +1621,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_linger_after_the_fight` — Linger after the fight
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1623,10 +1639,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_moral_fork_that_schedules_the_next_fight` — Moral fork that schedules the next fight
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1640,10 +1657,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_party_trust_under_ascension_pressure` — Party trust under ascension pressure
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1657,10 +1675,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_personal_stakes_set_piece_combat` — Personal-stakes set-piece combat
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1674,10 +1693,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_post_coma_blame_texture` — Post-coma blame texture
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1691,10 +1711,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_post_kill_political_handoff` — Post-kill political handoff
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1708,10 +1729,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_power_object_that_demanded_a_person_not_a_check` — Power object that demanded a person, not a check
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1725,10 +1747,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_rehabilitation_bargain_after_betrayal` — Rehabilitation bargain after betrayal
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1742,10 +1765,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_rescue_as_social_contract` — Rescue as social contract
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1759,10 +1783,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_rest_as_presence_not_only_refill` — Rest as presence, not only refill
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1776,10 +1801,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_sibling_panic_in_the_quiet_after_the_roll` — Sibling panic in the quiet after the roll
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1793,10 +1819,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_side_deal_mischief_beside_sincere_pain` — Side-deal mischief beside sincere pain
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1810,10 +1837,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_soft_power_party_seizure` — Soft-power party seizure
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1827,10 +1855,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_spare_or_swear_companion_crisis` — Spare-or-swear companion crisis
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1844,10 +1873,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_triage_under_asymmetric_power` — Triage under asymmetric power
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1861,10 +1891,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_trial_dungeon_that_ends_in_loyalty` — Trial dungeon that ends in loyalty
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1878,10 +1909,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_who_owns_the_ending` — Who owns the ending
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: table
@@ -1895,10 +1927,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_earned_conspiracy_payoff` — Earned conspiracy payoff
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: living_world
@@ -1912,10 +1945,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_earned_spy_reveal` — Earned spy reveal
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: living_world
@@ -1929,10 +1963,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_friend_who_was_the_conspiracy` — Friend who was the conspiracy
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: living_world
@@ -1946,10 +1981,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_living_world_remembers_without_a_script` — Living-world remembers without a script
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: living_world
@@ -1963,10 +1999,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_quiet_level_acknowledgment` — Quiet level acknowledgment
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: living_world
@@ -1980,10 +2017,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_campfire_identity_chrome` — Campfire identity chrome
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -1997,10 +2035,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_chrome_that_grew_with_you` — Chrome that grew with you
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2014,10 +2053,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_diegetic_chrome_persistence` — Diegetic chrome persistence
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2031,10 +2071,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_feedback_anchored_to_the_body` — Feedback anchored to the body
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2048,10 +2089,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_logistics_of_a_missing_seat` — Logistics of a missing seat
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2065,10 +2107,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_new_toy_in_the_next_fight` — New toy in the next fight
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2082,10 +2125,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_power_trophy_that_the_table_can_feel` — Power trophy that the table can feel
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2099,10 +2143,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_region_map_for_a_social_beat` — Region map for a social beat
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2116,10 +2161,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_title_reclaim_as_identity_chrome` — Title reclaim as identity chrome
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2133,10 +2179,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_verb_first_soft_exit` — Verb-first soft exit
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: surfaces
@@ -2150,10 +2197,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_class_chrome` — Class / subclass chrome
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: supplement
@@ -2167,10 +2215,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: class_chrome_discovery
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_dm_player_rails` — DM / player rails
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2183,10 +2232,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: dm_pilot
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_dmpausegate_interaction` — DMPauseGate interaction
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2199,10 +2249,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_feedback_payload_composition_demo_truncated` — Feedback payload composition (demo-truncated)
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2215,10 +2266,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_launch_playregion_hud_flow` — Launch → PlayRegion → HUD flow
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2231,10 +2283,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_operator_dm_rail_hotkey_vs_scripted_cue` — Operator DM rail hotkey vs scripted cue
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2247,10 +2300,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: dm_pilot
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_perspectiveenvelope_player_fp_activation` — PerspectiveEnvelope `player_fp` activation
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2263,10 +2317,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_player_agency_loop` — Player agency loop
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - altitude: scene_exemplar
 - catalog_face: supplement
@@ -2280,10 +2335,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_playerfprig_attachment` — PlayerFPRig attachment
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2296,10 +2352,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_presentation_shell` — Presentation shell
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2312,10 +2369,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: application_shell
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_rule_representation` — Rule representation
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2328,10 +2386,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: baseline_fp
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_scry_presentation` — Scry / Clairvoyance presentation
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2344,10 +2403,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: divination_override
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ### `ux_session0_identity_art` — Session 0 / identity art
 
-- status: pending
+- status: dropped
 - walk_tier: thickener
 - catalog_face: supplement
 - mode_tier: thickener
@@ -2360,6 +2420,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - supplement: True
 - coverage_slot: False
 - maps_to: session0_bootstrap
+- notes: cut_pass:2026-08-01T17:58:37Z thickener/harness archive; informed series parents; not product-contract walk
 
 ## Coverage reminder
 
