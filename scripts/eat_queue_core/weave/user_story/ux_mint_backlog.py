@@ -137,6 +137,39 @@ _NOUN_CANDIDATE_RE = re.compile(
 )
 
 
+MINT_PHASES = (
+    "series_draft",
+    "series_walk",
+    "series_locked",
+    "hub_children",
+    "children_greenlit",
+    "children_batch",
+    "post_mint",
+)
+
+HARVEST_PASSES = frozenset({"series", "children", "full"})
+
+DOC_PHASE_KEYS = (
+    "mint_phase",
+    "series_draft_accepted",
+    "waive_series_draft",
+    "series_published_trinity_ref",
+    "children_published_trinity_ref",
+    "children_greenlit",
+    "archive_ref",
+    "harvest_pass",
+)
+
+ITEM_LANE_KEYS = (
+    "mint_lane",
+    "parent_id",
+    "depth_band",
+    "fanout",
+    "depends_on",
+    "historical_id",
+)
+
+
 @dataclass(frozen=True)
 class UxMintBacklogResult:
     ok: bool
@@ -149,6 +182,8 @@ class UxMintBacklogResult:
     coverage_ok: bool
     detail: str
     proposed_ids: tuple[str, ...]
+    mint_phase: str = "series_draft"
+    harvest_pass: str = "series"
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -162,6 +197,8 @@ class UxMintBacklogResult:
             "coverage_ok": self.coverage_ok,
             "detail": self.detail,
             "proposed_ids": list(self.proposed_ids),
+            "mint_phase": self.mint_phase,
+            "harvest_pass": self.harvest_pass,
         }
 
 
@@ -201,6 +238,8 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
     generated = str(doc.get("generated_at") or "")
     frozen = str(doc.get("frozen_at") or "")
     rubric = str(doc.get("rubric") or "Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md")
+    mint_phase = str(doc.get("mint_phase") or "series_draft")
+    harvest_pass = str(doc.get("harvest_pass") or "series")
     items = [i for i in (doc.get("items") or []) if isinstance(i, dict)]
 
     lines: list[str] = [
@@ -209,6 +248,11 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         f"project-id: {pid}",
         "para-type: Project",
         f"backlog_status: {status}",
+        f"mint_phase: {mint_phase}",
+        f"harvest_pass: {harvest_pass}",
+        f"series_draft_accepted: {str(bool(doc.get('series_draft_accepted'))).lower()}",
+        f"waive_series_draft: {str(bool(doc.get('waive_series_draft'))).lower()}",
+        f"children_greenlit: {str(bool(doc.get('children_greenlit'))).lower()}",
         f"waived_axes: {_yaml_list_fm(waived)}",
         "schema_version: 1",
     ]
@@ -216,6 +260,14 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         lines.append(f"generated_at: {generated}")
     if frozen:
         lines.append(f"frozen_at: {frozen}")
+    for key in (
+        "series_published_trinity_ref",
+        "children_published_trinity_ref",
+        "archive_ref",
+    ):
+        val = doc.get(key)
+        if val:
+            lines.append(f"{key}: {val}")
     lines.extend(
         [
             f"rubric: {rubric}",
@@ -228,15 +280,23 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             "(especially `status`), then harvest/freeze/sync will refresh "
             "`MINT-BACKLOG.yaml` (machine walk queue + Grok pack).",
             "",
-            "## Operator gate",
+            "## Operator gate (two-pass mint)",
             "",
-            "1. Prune: set `status` to `dropped`, or rewrite `label` / `summary` toward experience nouns.",
-            "2. Cover or waive required taxonomy slots (see rubric) — missing faces/facets block freeze.",
-            "3. When ready: set frontmatter `backlog_status: frozen_for_mint` **or** run "
-            "`UX_MINT_BACKLOG` `action: freeze`.",
-            "4. Mint walk: Grok takes next `pending` only when frozen (or you name an id).",
+            "1. **Series draft** (Cursor) → accept → series-only harvest.",
+            "2. Prune series; freeze (series anti-mandate gate). Taxonomy coverage waits for children pass.",
+            "3. Grok+user **series walk** until all series `done`.",
+            "4. Diff/fit vs `archive_ref` if remine. Then **Trinity/GitHub publish** "
+            "(`series_published_trinity_ref`) — Grok-facing gate, not Curator.",
+            "5. Only then children harvest (series lens) → greenlight → Cursor batches → "
+            "Trinity-publish children.",
+            "6. Actions: `UX_MINT_BACKLOG` `series_draft` | `generate` | `freeze` | "
+            "`publish_series` | `greenlight_children` | `publish_children`.",
             "",
             f"**Current status:** `{status}`  ",
+            f"**Mint phase:** `{mint_phase}`  ",
+            f"**Harvest pass:** `{harvest_pass}`  ",
+            f"**Series Trinity ref:** `{doc.get('series_published_trinity_ref') or '(none)'}`  ",
+            f"**Children Trinity ref:** `{doc.get('children_published_trinity_ref') or '(none)'}`  ",
             f"**Waived axes/slots:** `{', '.join(waived) if waived else '(none)'}`  ",
             f"**Rubric:** [[{rubric.replace('.md', '')}|UX mint rubric]]",
             "",
@@ -273,8 +333,15 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         for key in (
             "status",
             "walk_tier",
+            "mint_lane",
+            "parent_id",
+            "depth_band",
+            "fanout",
+            "depends_on",
+            "historical_id",
             "series_id",
             "series_order",
+            "series_walk_rank",
             "altitude",
             "seat",
             "time_scale",
@@ -316,9 +383,9 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
     lines.append("## Coverage reminder")
     lines.append("")
     lines.append(
-        "Primary walk: `UX-MINT-SERIES` packs (`walk_tier: series`). "
-        "Taxonomy slots are coverage supplements; Actual-Play nouns are thickeners/skins. "
-        "See rubric lenses + `SERIES-ALTITUDE-EXEMPLARS.md`. Prune before freeze."
+        "Two-pass: series cards first (`walk_tier: series`), locked + Trinity-published, "
+        "then children mined through those lenses. Taxonomy slots are children-pass coverage; "
+        "Actual-Play nouns are thickeners/skins. See rubric + `SERIES-ALTITUDE-EXEMPLARS.md`."
     )
     lines.append("")
     return "\n".join(lines)
@@ -389,6 +456,13 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
             "does_not_mandate",
             "alternatives_not_banned",
             "series_order",
+            "series_walk_rank",
+            "mint_lane",
+            "parent_id",
+            "fanout",
+            "historical_id",
+            "depends_on",
+            "depth_band",
         ):
             if fields.get(extra):
                 raw = fields[extra]
@@ -396,6 +470,7 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
                     "seat",
                     "does_not_mandate",
                     "alternatives_not_banned",
+                    "depends_on",
                 ) and raw.strip().startswith("["):
                     try:
                         import json
@@ -411,7 +486,7 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
                         continue
                     except Exception:
                         pass
-                if extra == "series_order":
+                if extra in ("series_order", "depth_band", "series_walk_rank"):
                     try:
                         item[extra] = int(raw)
                         continue
@@ -425,18 +500,36 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
             item[flag] = str(raw).strip().lower() in {"true", "1", "yes"}
         items.append(item)
 
+    def _fm_bool(key: str, default: bool = False) -> bool:
+        raw = fm.get(key)
+        if raw is None:
+            return default
+        if isinstance(raw, bool):
+            return raw
+        return str(raw).strip().lower() in {"true", "1", "yes"}
+
     doc: dict[str, Any] = {
         "schema_version": int(fm.get("schema_version") or 1),
         "project_id": pid,
         "backlog_status": status,
         "waived_axes": waived,
         "rubric": str(fm.get("rubric") or "Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md"),
+        "mint_phase": str(fm.get("mint_phase") or "series_draft"),
+        "harvest_pass": str(fm.get("harvest_pass") or "series"),
+        "series_draft_accepted": _fm_bool("series_draft_accepted"),
+        "waive_series_draft": _fm_bool("waive_series_draft"),
+        "children_greenlit": _fm_bool("children_greenlit"),
         "items": items,
     }
-    if fm.get("generated_at"):
-        doc["generated_at"] = str(fm["generated_at"])
-    if fm.get("frozen_at"):
-        doc["frozen_at"] = str(fm["frozen_at"])
+    for key in (
+        "generated_at",
+        "frozen_at",
+        "series_published_trinity_ref",
+        "children_published_trinity_ref",
+        "archive_ref",
+    ):
+        if fm.get(key):
+            doc[key] = str(fm[key])
     return doc
 
 
@@ -910,9 +1003,30 @@ def load_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
 
 
 def next_pending_item(backlog: dict[str, Any]) -> dict[str, Any] | None:
-    for it in backlog.get("items") or []:
-        if isinstance(it, dict) and str(it.get("status") or "") == "pending":
-            return it
+    """Next pending item respecting mint_phase / Trinity gates."""
+    phase = str(backlog.get("mint_phase") or "series_walk")
+    greenlit = bool(backlog.get("children_greenlit"))
+    series_pub = str(backlog.get("series_published_trinity_ref") or "").strip()
+    ranked = _rank_items([i for i in (backlog.get("items") or []) if isinstance(i, dict)])
+    for it in ranked:
+        if str(it.get("status") or "") != "pending":
+            continue
+        walk = str(it.get("walk_tier") or "")
+        if phase in {"series_draft", "series_walk", "series_locked"} or not series_pub:
+            if walk == "series":
+                return it
+            continue
+        if phase == "hub_children":
+            if walk == "series":
+                continue
+            if str(it.get("fanout") or "") == "high" or str(it.get("mint_lane") or "") == "human_grok":
+                return it
+            continue
+        if not greenlit:
+            continue
+        if walk == "series":
+            continue
+        return it
     return None
 
 
@@ -921,9 +1035,14 @@ def backlog_summary(vault_root: Path, project_id: str) -> dict[str, Any]:
     bl = load_mint_backlog(vault_root, project_id)
     items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
     pending = [i for i in items if str(i.get("status") or "") == "pending"]
-    nxt = pending[0] if pending else None
+    nxt = next_pending_item(bl)
     return {
         "backlog_status": str(bl.get("backlog_status") or "proposed"),
+        "mint_phase": str(bl.get("mint_phase") or "series_draft"),
+        "harvest_pass": str(bl.get("harvest_pass") or "series"),
+        "series_published_trinity_ref": str(bl.get("series_published_trinity_ref") or ""),
+        "children_published_trinity_ref": str(bl.get("children_published_trinity_ref") or ""),
+        "children_greenlit": bool(bl.get("children_greenlit")),
         "item_count": len(items),
         "pending_count": len(pending),
         "next_pending_id": str(nxt.get("id")) if nxt else None,
@@ -981,19 +1100,274 @@ def assert_series_freeze_gates(items: list[dict[str, Any]]) -> tuple[bool, list[
     return (len(gaps) == 0, gaps)
 
 
+def series_items_non_dropped(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for it in items:
+        if str(it.get("walk_tier") or "") != "series":
+            continue
+        if str(it.get("status") or "pending") == "dropped":
+            continue
+        out.append(it)
+    return out
+
+
+def assert_all_series_done(items: list[dict[str, Any]]) -> tuple[bool, list[str]]:
+    pending: list[str] = []
+    for it in series_items_non_dropped(items):
+        if str(it.get("status") or "") != "done":
+            pending.append(str(it.get("id") or "?"))
+    return (len(pending) == 0, pending)
+
+
+def assert_series_draft_for_freeze(bl: dict[str, Any]) -> tuple[bool, str]:
+    if bool(bl.get("series_draft_accepted")) or bool(bl.get("waive_series_draft")):
+        return True, ""
+    return False, "series_draft_not_accepted"
+
+
+def assert_series_published_for_children(bl: dict[str, Any]) -> tuple[bool, str]:
+    items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
+    done_ok, pending = assert_all_series_done(items)
+    if not done_ok:
+        return False, f"series_incomplete:{','.join(pending[:12])}"
+    ref = str(bl.get("series_published_trinity_ref") or "").strip()
+    if not ref:
+        return False, "series_published_trinity_ref_missing"
+    return True, ""
+
+
+def _lens_parent_for_child(
+    child: dict[str, Any],
+    series_parents: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Pick a locked series parent to lens a coverage/thickener child."""
+    c_axis = str(child.get("ux_axis") or "")
+    c_face = str(child.get("catalog_face") or "")
+    c_dim = str(child.get("dimension") or "")
+    best: dict[str, Any] | None = None
+    best_score = -1
+    for sp in series_parents:
+        score = 0
+        if c_axis and c_axis == str(sp.get("ux_axis") or ""):
+            score += 3
+        if c_face and c_face == str(sp.get("catalog_face") or ""):
+            score += 2
+        if c_dim and c_dim == str(sp.get("dimension") or ""):
+            score += 2
+        if score > best_score:
+            best_score = score
+            best = sp
+    return best if best_score > 0 else (series_parents[0] if series_parents else None)
+
+
+def _apply_series_lens(child: dict[str, Any], parent: dict[str, Any]) -> dict[str, Any]:
+    out = dict(child)
+    out["parent_id"] = str(parent.get("id") or "")
+    out["mint_lane"] = out.get("mint_lane") or "cursor_draft"
+    out["depth_band"] = out.get("depth_band") if out.get("depth_band") is not None else 1
+    # Inherit anti-mandate stubs when child lacks them
+    if _list_field_count(out.get("does_not_mandate")) < 2:
+        inherited = parent.get("does_not_mandate")
+        if inherited:
+            out["does_not_mandate"] = list(inherited) if isinstance(inherited, list) else inherited
+    notes = str(out.get("notes") or "").strip()
+    lens = f"lensed_by:{parent.get('id')}"
+    out["notes"] = f"{notes}; {lens}".strip("; ") if notes else lens
+    return out
+
+
+def series_draft_paths(vault_root: Path, project_id: str) -> tuple[Path, Path]:
+    us = user_story_paths(vault_root, project_id)["catalog"].parent
+    return us / "SERIES-DRAFT.yaml", us / "SERIES-DRAFT.md"
+
+
+def write_series_draft_stub(
+    vault_root: Path,
+    project_id: str,
+    *,
+    archive_ref: str = "",
+) -> dict[str, Any]:
+    """
+    Phase 0 stub: dump current series packs into SERIES-DRAFT for operator prune.
+    Cursor indexer may rewrite before accept.
+    """
+    from .ux_mint_series import load_ux_mint_series
+
+    vault_root = vault_root.resolve()
+    series_doc = load_ux_mint_series(vault_root, project_id)
+    ypath, mpath = series_draft_paths(vault_root, project_id)
+    ypath.parent.mkdir(parents=True, exist_ok=True)
+    draft = {
+        "schema_version": 1,
+        "project_id": project_id,
+        "status": "proposed",
+        "archive_ref": archive_ref or "",
+        "generated_at": _utc_now(),
+        "note": "Cursor proposes; operator accepts → UX-MINT-SERIES.project.yaml + series_draft_accepted",
+        "packs": series_doc.get("packs") or [],
+        "enabled_pack_ids": series_doc.get("enabled_pack_ids") or [],
+    }
+    save_yaml(ypath, draft)
+    lines = [
+        f"# SERIES-DRAFT — `{project_id}`",
+        "",
+        "Phase 0 series proposal. Accept → promote overlay / set `series_draft_accepted` on backlog.",
+        "",
+        f"- archive_ref: `{archive_ref or '(none)'}`",
+        f"- packs: `{len(draft['packs'])}`",
+        f"- machine: `SERIES-DRAFT.yaml`",
+        "",
+    ]
+    mpath.write_text("\n".join(lines), encoding="utf-8")
+    return {
+        "ok": True,
+        "detail": "series_draft_written",
+        "path": str(ypath.relative_to(vault_root)),
+        "md_path": str(mpath.relative_to(vault_root)),
+        "pack_count": len(draft["packs"]),
+    }
+
+
+def accept_series_draft(
+    vault_root: Path,
+    project_id: str,
+    *,
+    waive: bool = False,
+) -> dict[str, Any]:
+    """Mark series draft accepted on backlog (creates empty proposed backlog if missing)."""
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    if not bl.get("project_id"):
+        bl["project_id"] = project_id
+    bl["series_draft_accepted"] = True
+    if waive:
+        bl["waive_series_draft"] = True
+    bl["mint_phase"] = str(bl.get("mint_phase") or "series_draft")
+    if bl["mint_phase"] == "series_draft":
+        bl["mint_phase"] = "series_walk"
+    write_mint_backlog(vault_root, project_id, bl)
+    return {"ok": True, "detail": "series_draft_accepted", **backlog_summary(vault_root, project_id)}
+
+
+def publish_series_trinity(
+    vault_root: Path,
+    project_id: str,
+    *,
+    trinity_ref: str,
+    emit_pack: bool = True,
+) -> dict[str, Any]:
+    """
+    Gate: all series done + record Grok-facing Trinity/GitHub ref.
+    Caller runs weave_public_sync; pass resulting commit/ref as trinity_ref.
+    """
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
+    done_ok, pending = assert_all_series_done(items)
+    if not done_ok:
+        return {
+            "ok": False,
+            "detail": "series_incomplete",
+            "pending_series_ids": pending,
+        }
+    ref = str(trinity_ref or "").strip()
+    if not ref:
+        return {"ok": False, "detail": "trinity_ref_required"}
+    pack_out: dict[str, Any] = {}
+    if emit_pack:
+        from .catalog_mint_pack import emit_catalog_mint_pack
+
+        pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
+        pack_out = pack.to_dict()
+        if not pack.ok:
+            return {"ok": False, "detail": "pack_emit_failed", "pack": pack_out}
+    bl["series_published_trinity_ref"] = ref
+    bl["mint_phase"] = "series_locked"
+    write_mint_backlog(vault_root, project_id, bl)
+    return {
+        "ok": True,
+        "detail": "series_published_trinity",
+        "series_published_trinity_ref": ref,
+        "pack": pack_out,
+        **backlog_summary(vault_root, project_id),
+    }
+
+
+def greenlight_children(vault_root: Path, project_id: str) -> dict[str, Any]:
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    ok, reason = assert_series_published_for_children(bl)
+    if not ok:
+        return {"ok": False, "detail": reason}
+    bl["children_greenlit"] = True
+    bl["mint_phase"] = "children_batch"
+    write_mint_backlog(vault_root, project_id, bl)
+    return {"ok": True, "detail": "children_greenlit", **backlog_summary(vault_root, project_id)}
+
+
+def publish_children_trinity(
+    vault_root: Path,
+    project_id: str,
+    *,
+    trinity_ref: str,
+    emit_pack: bool = True,
+) -> dict[str, Any]:
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    if not bool(bl.get("children_greenlit")):
+        return {"ok": False, "detail": "children_not_greenlit"}
+    ref = str(trinity_ref or "").strip()
+    if not ref:
+        return {"ok": False, "detail": "trinity_ref_required"}
+    pack_out: dict[str, Any] = {}
+    if emit_pack:
+        from .catalog_mint_pack import emit_catalog_mint_pack
+
+        pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
+        pack_out = pack.to_dict()
+        if not pack.ok:
+            return {"ok": False, "detail": "pack_emit_failed", "pack": pack_out}
+    bl["children_published_trinity_ref"] = ref
+    write_mint_backlog(vault_root, project_id, bl)
+    return {
+        "ok": True,
+        "detail": "children_published_trinity",
+        "children_published_trinity_ref": ref,
+        "pack": pack_out,
+        **backlog_summary(vault_root, project_id),
+    }
+
+
 def freeze_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     bl = load_mint_backlog(vault_root, project_id)
     items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
-    waived = [str(a) for a in (bl.get("waived_axes") or [])]
-    cov_ok, missing = assert_backlog_coverage(vault_root, project_id, items, waived=waived)
-    if not cov_ok:
+    draft_ok, draft_reason = assert_series_draft_for_freeze(bl)
+    if not draft_ok:
         return {
             "ok": False,
-            "detail": "coverage_gap",
-            "missing_axes": list(missing),
+            "detail": draft_reason,
+            "hint": "Run UX_MINT_BACKLOG action: accept_series_draft (or set waive_series_draft).",
             "backlog_status": bl.get("backlog_status"),
         }
+    harvest_pass = str(bl.get("harvest_pass") or "series")
+    mint_phase = str(bl.get("mint_phase") or "series_walk")
+    # Series-first freeze: anti-mandate only. Full taxonomy coverage waits for children pass.
+    require_coverage = harvest_pass in {"children", "full"} or mint_phase in {
+        "children_greenlit",
+        "children_batch",
+        "post_mint",
+    }
+    waived = [str(a) for a in (bl.get("waived_axes") or [])]
+    if require_coverage:
+        cov_ok, missing = assert_backlog_coverage(vault_root, project_id, items, waived=waived)
+        if not cov_ok:
+            return {
+                "ok": False,
+                "detail": "coverage_gap",
+                "missing_axes": list(missing),
+                "backlog_status": bl.get("backlog_status"),
+            }
     alt_ok, alt_gaps = assert_series_freeze_gates(items)
     if not alt_ok:
         return {
@@ -1007,6 +1381,8 @@ def freeze_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     bl["frozen_at"] = _utc_now()
     if not bl.get("project_id"):
         bl["project_id"] = project_id
+    if not bl.get("mint_phase") or bl.get("mint_phase") == "series_draft":
+        bl["mint_phase"] = "series_walk"
     path, md_path = write_mint_backlog(vault_root, project_id, bl)
     return {
         "ok": True,
@@ -1014,6 +1390,7 @@ def freeze_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
         "path": str(path.relative_to(vault_root)),
         "md_path": str(md_path.relative_to(vault_root)),
         "backlog_status": "frozen_for_mint",
+        "coverage_required": require_coverage,
         **backlog_summary(vault_root, project_id),
     }
 
@@ -1024,12 +1401,17 @@ def generate_ux_mint_backlog(
     project_id: str,
     pmg_path: Path | None = None,
     merge: bool = True,
+    harvest_pass: str = "series",
+    series_draft_accepted: bool | None = None,
+    archive_ref: str | None = None,
 ) -> UxMintBacklogResult:
     """
-    Draft thick UX backlog from cross-project taxonomy × feedstock.
+    Draft UX backlog — two-pass by default.
 
-    Idempotent merge preserves done/dropped/in_dialogue and frozen_for_mint status.
-    Does not auto-write slice-catalog rows. Obsidian edits live in the .md surface.
+    harvest_pass:
+      - series: series parents only (Phase A)
+      - children: taxonomy/coverage lensed by locked series (requires Trinity series gate)
+      - full: legacy series ∪ coverage ∪ thickeners (tests / escape)
     """
     from .ux_mint_taxonomy import (
         collect_ux_mint_feedstock,
@@ -1045,7 +1427,14 @@ def generate_ux_mint_backlog(
     vault_root = vault_root.resolve()
     pid = str(project_id or "").strip()
     if not pid:
-        return UxMintBacklogResult(False, "", "proposed", 0, 0, None, (), False, "project_id_required", ())
+        return UxMintBacklogResult(
+            False, "", "proposed", 0, 0, None, (), False, "project_id_required", (),
+            mint_phase="series_draft", harvest_pass="series",
+        )
+
+    hp = str(harvest_pass or "series").strip().lower()
+    if hp not in HARVEST_PASSES:
+        hp = "series"
 
     path = backlog_path(vault_root, pid)
     md_path = backlog_md_path(vault_root, pid)
@@ -1057,6 +1446,25 @@ def generate_ux_mint_backlog(
         prior_items = [i for i in (existing.get("items") or []) if isinstance(i, dict)]
         prior_status = str(existing.get("backlog_status") or "proposed")
 
+    if hp == "children":
+        gate_bl = existing if existing else load_mint_backlog(vault_root, pid)
+        ok_gate, reason = assert_series_published_for_children(gate_bl)
+        if not ok_gate:
+            return UxMintBacklogResult(
+                False,
+                str(path.relative_to(vault_root)) if path.is_file() else "",
+                prior_status,
+                len(prior_items),
+                0,
+                None,
+                (),
+                False,
+                reason,
+                (),
+                mint_phase=str(gate_bl.get("mint_phase") or "series_walk"),
+                harvest_pass=hp,
+            )
+
     cat_path = user_story_paths(vault_root, pid)["catalog"]
     applied: set[str] = set()
     if cat_path.is_file():
@@ -1066,19 +1474,57 @@ def generate_ux_mint_backlog(
     chunks = collect_ux_mint_feedstock(vault_root, pid, pmg_path=pmg_path)
     series_doc = load_ux_mint_series(vault_root, pid)
     series_items = expand_series_to_items(series_doc)
-    harvested: list[dict[str, Any]] = list(series_items)
-    harvested.extend(expand_taxonomy_to_items(taxonomy, chunks))
-    supplements = collect_supplement_items(chunks)
-    existing_ids = {str(i.get("id") or "") for i in harvested}
-    for item in supplements:
-        iid = str(item.get("id") or "")
-        if str(item.get("derived_from") or "").startswith("actual_play:"):
-            item["walk_tier"] = "thickener"
-            item["supplement"] = True
-            item["altitude"] = item.get("altitude") or "scene_exemplar"
-        if iid and iid not in existing_ids:
+    for it in series_items:
+        it["mint_lane"] = "human_grok"
+        it.setdefault("fanout", "low")
+
+    harvested: list[dict[str, Any]] = []
+    if hp in {"series", "full"}:
+        harvested.extend(series_items)
+
+    if hp in {"children", "full"}:
+        tax_items = expand_taxonomy_to_items(taxonomy, chunks)
+        parents = [
+            i
+            for i in (series_items if hp == "full" else prior_items + series_items)
+            if str(i.get("walk_tier") or "") == "series"
+            and str(i.get("status") or "") != "dropped"
+        ]
+        # Prefer done parents from prior when children pass
+        if hp == "children":
+            parents = [
+                i
+                for i in prior_items
+                if str(i.get("walk_tier") or "") == "series"
+                and str(i.get("status") or "") == "done"
+            ] or parents
+        for item in tax_items:
+            parent = _lens_parent_for_child(item, parents)
+            if parent:
+                item = _apply_series_lens(item, parent)
+            else:
+                item["mint_lane"] = "human_grok"
             harvested.append(item)
-            existing_ids.add(iid)
+        if hp == "full":
+            supplements = collect_supplement_items(chunks)
+            existing_ids = {str(i.get("id") or "") for i in harvested}
+            for item in supplements:
+                iid = str(item.get("id") or "")
+                if str(item.get("derived_from") or "").startswith("actual_play:"):
+                    item["walk_tier"] = "thickener"
+                    item["supplement"] = True
+                    item["altitude"] = item.get("altitude") or "scene_exemplar"
+                    item["mint_lane"] = "cursor_draft"
+                if iid and iid not in existing_ids:
+                    parent = _lens_parent_for_child(item, parents)
+                    if parent:
+                        item = _apply_series_lens(item, parent)
+                    harvested.append(item)
+                    existing_ids.add(iid)
+        elif hp == "children":
+            # Keep prior series rows when merging children
+            pass
+
     for item in harvested:
         if item.get("id") in applied:
             item["status"] = "done"
@@ -1090,7 +1536,15 @@ def generate_ux_mint_backlog(
                 item["walk_tier"] = "thickener"
                 item["supplement"] = True
 
-    if merge:
+    if hp == "children" and merge:
+        # Preserve series + prior; merge new children
+        series_prior = [
+            i for i in prior_items if str(i.get("walk_tier") or "") == "series"
+        ]
+        merged = _merge_items(series_prior + [
+            i for i in prior_items if str(i.get("walk_tier") or "") != "series"
+        ], harvested)
+    elif merge:
         merged = _merge_items(prior_items, harvested)
     else:
         merged = list(harvested)
@@ -1103,15 +1557,50 @@ def generate_ux_mint_backlog(
             str(i.get("summary") or ""),
         )
     ]
+    if hp == "series" and not merge:
+        merged = [i for i in merged if str(i.get("walk_tier") or "") == "series"]
     merged = _rank_items(merged)
 
     waived = [str(a) for a in (existing.get("waived_axes") or [])]
-    cov_ok, missing = assert_backlog_coverage(vault_root, pid, merged, waived=waived)
+    if hp == "series":
+        cov_ok, missing = True, ()
+    else:
+        cov_ok, missing = assert_backlog_coverage(vault_root, pid, merged, waived=waived)
     pending = [i for i in merged if str(i.get("status") or "") == "pending"]
-    nxt = str(pending[0]["id"]) if pending else None
+    # Phase-aware next — full harvest still walks series first
+    if hp == "series":
+        tmp_phase, tmp_green, tmp_ref = "series_walk", False, ""
+    elif hp == "children":
+        tmp_phase, tmp_green, tmp_ref = (
+            "children_batch",
+            True,
+            str(existing.get("series_published_trinity_ref") or "x"),
+        )
+    else:
+        tmp_phase, tmp_green, tmp_ref = "series_walk", False, ""
+    tmp_doc = {
+        "items": merged,
+        "mint_phase": tmp_phase,
+        "children_greenlit": tmp_green,
+        "series_published_trinity_ref": tmp_ref,
+    }
+    nxt_item = next_pending_item(tmp_doc)
+    nxt = str(nxt_item["id"]) if nxt_item else (str(pending[0]["id"]) if pending else None)
 
     backlog_status = prior_status if (merge and prior_status == "frozen_for_mint") else "proposed"
     now = _utc_now()
+
+    accepted = existing.get("series_draft_accepted")
+    if series_draft_accepted is not None:
+        accepted = bool(series_draft_accepted)
+    elif accepted is None:
+        accepted = False
+
+    mint_phase = str(existing.get("mint_phase") or "series_draft")
+    if hp == "series":
+        mint_phase = "series_walk" if accepted or existing.get("waive_series_draft") else "series_draft"
+    elif hp == "children":
+        mint_phase = "children_batch" if existing.get("children_greenlit") else "series_locked"
 
     doc: dict[str, Any] = {
         "schema_version": 1,
@@ -1122,8 +1611,22 @@ def generate_ux_mint_backlog(
         "rubric": "Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md",
         "taxonomy": "Templates/Roadmap/User-Story/UX-MINT-TAXONOMY/manifest.yaml",
         "series": "Templates/Roadmap/User-Story/UX-MINT-SERIES/manifest.yaml",
+        "mint_phase": mint_phase,
+        "harvest_pass": hp,
+        "series_draft_accepted": bool(accepted),
+        "waive_series_draft": bool(existing.get("waive_series_draft")),
+        "children_greenlit": bool(existing.get("children_greenlit")),
         "items": merged,
     }
+    for key in (
+        "series_published_trinity_ref",
+        "children_published_trinity_ref",
+        "archive_ref",
+    ):
+        if archive_ref and key == "archive_ref":
+            doc[key] = archive_ref
+        elif existing.get(key):
+            doc[key] = existing[key]
     if existing.get("frozen_at") and backlog_status == "frozen_for_mint":
         doc["frozen_at"] = existing["frozen_at"]
 
@@ -1136,7 +1639,11 @@ def generate_ux_mint_backlog(
     )
 
     detail = "ux_mint_backlog_written"
-    if not cov_ok:
+    if hp == "series":
+        detail = "ux_mint_backlog_series_pass"
+    elif hp == "children":
+        detail = "ux_mint_backlog_children_pass"
+    if hp != "series" and not cov_ok:
         detail = "needs_operator_prune_coverage_gap"
     elif not merged:
         detail = "empty_harvest"
@@ -1153,4 +1660,6 @@ def generate_ux_mint_backlog(
         coverage_ok=cov_ok,
         detail=detail,
         proposed_ids=tuple(str(i.get("id")) for i in merged if i.get("id")),
+        mint_phase=mint_phase,
+        harvest_pass=hp,
     )

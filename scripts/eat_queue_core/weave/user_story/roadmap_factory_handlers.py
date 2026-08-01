@@ -14,7 +14,15 @@ from ..factory.factory_pq_stage import stage_factory_dispatch_to_pq
 from .beat_auto_generate import run_beat_auto_generate
 from .catalog_coverage import run_catalog_coverage, run_catalog_freeze_gate
 from .catalog_mint_propose import propose_catalog_from_pmg
-from .ux_mint_backlog import freeze_mint_backlog, generate_ux_mint_backlog
+from .ux_mint_backlog import (
+    accept_series_draft,
+    freeze_mint_backlog,
+    generate_ux_mint_backlog,
+    greenlight_children,
+    publish_children_trinity,
+    publish_series_trinity,
+    write_series_draft_stub,
+)
 from .rollout_slicer import run_rollout_slicer
 from .user_story_brief import write_user_story_brief
 
@@ -102,23 +110,70 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
         if action == "freeze":
             out = freeze_mint_backlog(vault_root, project_id)
             result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "series_draft":
+            out = write_series_draft_stub(
+                vault_root,
+                project_id,
+                archive_ref=str(params.get("archive_ref") or ""),
+            )
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "accept_series_draft":
+            out = accept_series_draft(
+                vault_root,
+                project_id,
+                waive=bool(params.get("waive")),
+            )
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "publish_series":
+            out = publish_series_trinity(
+                vault_root,
+                project_id,
+                trinity_ref=str(params.get("trinity_ref") or ""),
+                emit_pack=params.get("emit_pack", True) is not False,
+            )
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "greenlight_children":
+            out = greenlight_children(vault_root, project_id)
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "publish_children":
+            out = publish_children_trinity(
+                vault_root,
+                project_id,
+                trinity_ref=str(params.get("trinity_ref") or ""),
+                emit_pack=params.get("emit_pack", True) is not False,
+            )
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
         else:
+            harvest_pass = str(params.get("harvest_pass") or "series")
             gen = generate_ux_mint_backlog(
                 vault_root,
                 project_id=project_id,
                 pmg_path=vault_root / str(pmg) if pmg else None,
+                harvest_pass=harvest_pass,
+                series_draft_accepted=(
+                    bool(params["series_draft_accepted"])
+                    if params.get("series_draft_accepted") is not None
+                    else None
+                ),
+                archive_ref=str(params["archive_ref"]) if params.get("archive_ref") else None,
+                merge=params.get("merge", True) is not False,
             )
             result = {"ok": gen.ok, "id": eid, "mode": mode, "action": action, **gen.to_dict()}
-            if params.get("freeze_after") is True and gen.coverage_ok:
+            if params.get("freeze_after") is True and (
+                gen.coverage_ok or harvest_pass == "series"
+            ):
                 fr = freeze_mint_backlog(vault_root, project_id)
                 result["freeze"] = fr
                 result["ok"] = bool(fr.get("ok"))
         if result.get("ok"):
             from .catalog_mint_pack import emit_catalog_mint_pack
 
-            if action == "freeze" or params.get("emit_pack") is True:
-                pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
-                result["pack"] = pack.to_dict()
+            if action in {"freeze", "publish_series", "publish_children"} or params.get(
+                "emit_pack"
+            ) is True:
+                if action not in {"publish_series", "publish_children"}:
+                    pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
+                    result["pack"] = pack.to_dict()
             backlog_rel = f"1-Projects/{project_id}/Roadmap/User-Story/MINT-BACKLOG.yaml"
             att = synthetic_persona_attestation(
                 "half_a.catalog_ux_indexer",

@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 335
+roadmap_note_count: 356
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4449,7 +4449,6 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
-  - Ingest/Microscope PDF
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4473,6 +4472,14 @@ roadmap_notes:
 - title: ux_dm_campaign_creation.meaning
   wiki: '[[ux_dm_campaign_creation.meaning]]'
   rel_under_project: Roadmap/User-Story/Mint-Receipts/ux_dm_campaign_creation.meaning.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES-DRAFT
+  wiki: '[[SERIES-DRAFT]]'
+  rel_under_project: Roadmap/User-Story/SERIES-DRAFT.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4537,6 +4544,183 @@ roadmap_notes:
   wiki_links:
   - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
   - Ingest/Microscope PDF
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG
+  wiki: '[[MINT-BACKLOG]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/MINT-BACKLOG.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - Ingest/Microscope PDF
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-EPOCH
+  wiki: '[[MINT-EPOCH]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/MINT-EPOCH.md
+  kind: user_story
+  wiki_links:
+  - CATALOG-MINT-BLANK
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-LENS-AUDIT
+  wiki: '[[MINT-LENS-AUDIT]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/MINT-LENS-AUDIT.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: ux_dm_campaign_creation.meaning
+  wiki: '[[ux_dm_campaign_creation.meaning]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/Mint-Receipts/ux_dm_campaign_creation.meaning.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_backstory_legacy_integration/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_camera_control_envelopes/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_collaborative_table_agency/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_combat_play_surface/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_dm_campaign_creation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_dm_session_prep/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_early_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_late_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_living_world_continuity/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_mental_stat_interpretation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_mid_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_player_character_creation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_quiet_between_pillars/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_world_authorship_modability/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/scopes/ux_world_generation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: slice-catalog
+  wiki: '[[slice-catalog]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/slice-catalog.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_combat_play_surface/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_early_game/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_late_game/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_mid_game/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_world_generation/L5.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

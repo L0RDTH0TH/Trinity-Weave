@@ -234,3 +234,4 @@ contract:
   - catalog_mint_one_row
   - catalog_mint_pack_manifest
 status: provisional
+# two-pass MO (2026-08-01): series complete + Trinity GitHub publish before children; see UX-MINT-RUBRIC + catalog-mint skill

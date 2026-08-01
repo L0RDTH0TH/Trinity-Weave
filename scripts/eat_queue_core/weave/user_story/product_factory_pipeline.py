@@ -668,16 +668,23 @@ def tick(
             vault_root, project_id, gate_signature=gate_reason
         )
         steps.append({"step": "conceptual_freeze_stamp", **freeze_stamp})
-        # UX backlog replaces automatic PMG phase→slice-catalog flood.
+        # UX backlog — series-first harvest (children pass gated on Trinity publish).
         backlog = generate_ux_mint_backlog(
             vault_root,
             project_id=project_id,
             pmg_path=Path(vault_root / params["pmg_path"]) if params.get("pmg_path") else None,
+            harvest_pass=str(params.get("harvest_pass") or "series"),
+            series_draft_accepted=(
+                True
+                if params.get("series_draft_accepted", True) is not False
+                else False
+            ),
         )
         steps.append({"step": "ux_mint_backlog", **backlog.to_dict()})
         bl_doc = load_mint_backlog(vault_root, project_id)
         bl_status = str(bl_doc.get("backlog_status") or "proposed")
-        if not backlog.coverage_ok:
+        harvest_pass = str(bl_doc.get("harvest_pass") or backlog.harvest_pass or "series")
+        if harvest_pass != "series" and not backlog.coverage_ok:
             _persist(
                 "catalog_mint",
                 operator_loop=1,
@@ -690,6 +697,20 @@ def tick(
                 1,
                 steps,
                 "ux_axis_coverage_gap",
+            )
+        if not bl_doc.get("series_draft_accepted") and not bl_doc.get("waive_series_draft"):
+            _persist(
+                "catalog_mint",
+                operator_loop=1,
+                blocked_at="ux_mint_series_draft",
+            )
+            return TickResult(
+                True,
+                "ux_mint_series_draft",
+                "catalog_mint",
+                1,
+                steps,
+                "ux_mint_series_draft",
             )
         if bl_status != "frozen_for_mint":
             _persist(

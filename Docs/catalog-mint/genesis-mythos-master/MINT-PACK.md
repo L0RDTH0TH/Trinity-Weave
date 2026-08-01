@@ -31,17 +31,20 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` (Obsidian `.md` or YAML mirror; or bone pilot names an item id).
-2. Process **pending** items **sequentially** — prefer `walk_tier: series` first (series packs), then coverage, then thickeners. Bone pilot may reorder via manual edit.
+**Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
+
+1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` and `mint_phase` in series walk (or bone pilot names an item id).
+2. **Pass A — series only:** process pending `walk_tier: series` sequentially. Do **not** walk coverage/thickeners as peers.
 3. **Altitude:** series parents must be `product_contract`. AP / scene captions are thickeners only — never promote to series.
-4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban** (see `_shared/WHAT-GOOD-LOOKS-LIKE.md` + pack `does_not_mandate`).
+4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban**.
 5. **DM seat:** privileged DM tools OK; refuse DM-as-infrastructure; keep orchestrator fun (`dm_as_player`) visible.
-6. Follow card legs. **One pending UX noun per turn** — prefer `walk_tier: series` first; do not invent the list.
-7. **Ground Meaning in project goals/intent:** cite pack `CONCEPTUAL-EXCERPT` (PMG) and, when needed, poll `ROADMAP-RESOURCE-INDEX.yaml` for the owning roadmap/resource; request fulfill/`tert_id` or paste if the body is not in pack. Do not invent note titles/bodies; do not ground only on AP skins.
-8. Preflight every draft; never CARD-INDEX. After Cursor apply: friction check before `done`.
+6. When all series are `done`: bone pilot runs pack emit + **Trinity/GitHub sync** and records `series_published_trinity_ref`. Children mine is **blocked** until that ref exists (Curator backup is not the gate).
+7. **Pass B — children:** after `children_greenlit`, Cursor drafts children **lensed by** locked series (`parent_id`). Grok+user validate batches; each batch republishes to Trinity (`children_published_trinity_ref`).
+8. Follow card legs. **One pending UX noun per turn** during series walk; child batches may be same-width under one parent. Do not invent the list.
+9. **Ground Meaning in project goals/intent:** cite pack `CONCEPTUAL-EXCERPT` (PMG) and poll index as needed. After Cursor apply: friction check before `done`.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-01T17:58:39Z`
+synced_at: `2026-08-01T21:11:09Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

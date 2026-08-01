@@ -83,14 +83,15 @@ Companion: `MINT-LENS-AUDIT.md` (tutorial-shaped coverage checklist). **Catalog 
 
 Prefer verb/state contracts (“combat can resolve by authored non-win paths”) over chrome-first parents (“campfire identity chrome”).
 
-## Operator gate
+## Operator gate (two-pass)
 
-1. Harvest → backlog (`proposed`) + lens audit  
-2. Prune (altitude, anti-mandate, DM-fun) → freeze (coverage + alternatives gates)  
-3. Grok walks `pending` series first  
-4. Friction check before `done`  
-5. Later: same-width child batches under locked parents  
+1. **Series draft** (Cursor) → accept → series-only harvest → lens audit  
+2. Prune series → freeze (**series anti-mandate**; taxonomy coverage waits for children)  
+3. Grok+user walk **series only** until all `done`  
+4. Diff/fit vs archive when remine; friction before each `done`  
+5. **Trinity/GitHub publish** → `series_published_trinity_ref` (Grok-facing gate; not Curator)  
+6. Children harvest **lensed by** locked series → greenlight → Cursor batches → Trinity-publish children  
 
-## Remine prep (after mine redesign)
+## Remine prep
 
-See catalog-mint skill **Remine checklist**: snapshot → wipe poison → `generate(..., merge=False)` → pack emit → prune/freeze → walk. Wipe may run without remine in the same change set.
+See catalog-mint skill **Remine checklist**: archive historical run → series draft/mine → diff/fit → Trinity lock → children mine.

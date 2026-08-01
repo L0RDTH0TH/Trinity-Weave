@@ -25,7 +25,7 @@ Docs/catalog-mint/
     slice-catalog.yaml
 ```
 
-**Walk rule:** when `MINT-BACKLOG` is `frozen_for_mint`, process next `pending` UX noun sequentially (one receipt). Do not invent backlog entries. `neighbor_refs` stay empty unless pack emit uses `--include-neighbors`.
+**Walk rule (two-pass):** series cards first while `frozen_for_mint`; children only after `series_published_trinity_ref` (Trinity/GitHub) and `children_greenlit`. Do not invent backlog entries. `neighbor_refs` stay empty unless pack emit uses `--include-neighbors`.
 
 **Poll rule:** when minting and more context is needed, open `ROADMAP-RESOURCE-INDEX.yaml` first; follow `wiki_links` / `linked_resources`; request fulfill by `tert_id` (or paste) if bodies are not in `PIN-EXCERPTS/`.
 
