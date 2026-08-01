@@ -1,11 +1,8 @@
 schema_version: 1
 project_id: genesis-mythos-master
 backlog_status: frozen_for_mint
-generated_at: '2026-08-01T22:20:39Z'
 waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
-taxonomy: Templates/Roadmap/User-Story/UX-MINT-TAXONOMY/manifest.yaml
-series: Templates/Roadmap/User-Story/UX-MINT-SERIES/manifest.yaml
 mint_phase: children_batch
 harvest_pass: children
 series_draft_accepted: true
@@ -696,22 +693,21 @@ items:
   experience_mode: absent_proxy
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_agency_handoff_enter_exit
   label: Agency enter / exit handoff feel
   dimension: player_rail
@@ -729,21 +725,19 @@ items:
   experience_mode: agency_handoff_enter_exit
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_baseline_fp
   label: Baseline first-person embodiment
   dimension: player_rail
@@ -763,22 +757,21 @@ items:
   experience_mode: baseline_fp
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_baseline_fp_controls
   label: Baseline FP controls
   dimension: player_rail
@@ -797,21 +790,19 @@ items:
   experience_mode: baseline_fp_controls
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_class_chrome_discovery
   label: Class / identity chrome discovery
   dimension: ui_surface
@@ -830,22 +821,21 @@ items:
   experience_mode: class_chrome_discovery
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_backstory_legacy_integration
   walk_tier: coverage
-  parent_id: ux_backstory_legacy_integration
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - every backstory forces a mid-game reunion ordeal
   - legacies are DM-only lore with no player surface
   - system auto-weaves hooks without DM accept
   - one identity-pact skin is the product default for legacies
   - players may auto-write world canon from backstory without DM gate
-  notes: lensed_by:ux_backstory_legacy_integration
+  mint_lane: cursor_draft
+  parent_id: ux_backstory_legacy_integration
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_divination_override
   label: Divination / remote-sense override
   dimension: ui_surface
@@ -867,22 +857,21 @@ items:
   experience_mode: divination_override
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dm_mapcam
   label: DM MapCam
   dimension: dm_rail
@@ -903,15 +892,10 @@ items:
   experience_mode: dm_mapcam
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_session_prep
   walk_tier: coverage
-  parent_id: ux_dm_session_prep
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - prep must be a separate offline app
   - players never see any prep residue
@@ -921,7 +905,11 @@ items:
   - visibility is only a single whole-table tag with no per-player option
   - session open is a separate series product noun from prep
   - one captivity/tavern/jailbreak open is the product default start
-  notes: lensed_by:ux_dm_session_prep
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dm_pilot
   label: DM pilot (agency, not Sensorium)
   dimension: dm_rail
@@ -941,20 +929,19 @@ items:
   experience_mode: dm_pilot
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_early_game
   walk_tier: coverage
-  parent_id: ux_early_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   - progression requires a separate series parent from stage bands
-  notes: lensed_by:ux_early_game
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dm_sensorium
   label: DM Sensorium Attach
   dimension: dm_rail
@@ -973,15 +960,10 @@ items:
   experience_mode: dm_sensorium
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_session_prep
   walk_tier: coverage
-  parent_id: ux_dm_session_prep
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - prep must be a separate offline app
   - players never see any prep residue
@@ -991,7 +973,11 @@ items:
   - visibility is only a single whole-table tag with no per-player option
   - session open is a separate series product noun from prep
   - one captivity/tavern/jailbreak open is the product default start
-  notes: lensed_by:ux_dm_session_prep
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dm_worldcam
   label: DM WorldCam
   dimension: dm_rail
@@ -1010,15 +996,10 @@ items:
   experience_mode: dm_worldcam
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_session_prep
   walk_tier: coverage
-  parent_id: ux_dm_session_prep
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - prep must be a separate offline app
   - players never see any prep residue
@@ -1028,7 +1009,11 @@ items:
   - visibility is only a single whole-table tag with no per-player option
   - session open is a separate series product noun from prep
   - one captivity/tavern/jailbreak open is the product default start
-  notes: lensed_by:ux_dm_session_prep
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dominate_pilot
   label: Dominate / pilot (controller)
   dimension: player_rail
@@ -1048,22 +1033,21 @@ items:
   experience_mode: dominate_pilot
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dominate_victim
   label: Dominate victim / passenger overlay
   dimension: player_rail
@@ -1082,22 +1066,21 @@ items:
   experience_mode: dominate_victim
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_liminal_unconscious
   label: Liminal / unconscious presentation
   dimension: ui_surface
@@ -1115,22 +1098,21 @@ items:
   experience_mode: liminal_unconscious
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_planar_travel_override
   label: Planar / gate travel override
   dimension: ui_surface
@@ -1151,22 +1133,21 @@ items:
   experience_mode: planar_travel_override
   mode_tier: critical_matrix
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_camera_control_envelopes
   walk_tier: coverage
-  parent_id: ux_camera_control_envelopes
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - players get free third-person orbit as default
   - DM tools exist only as debug infrastructure
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  notes: lensed_by:ux_camera_control_envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_combat_cast_feedback
   label: Combat / cast sensory feedback
   dimension: ui_surface
@@ -1186,22 +1167,21 @@ items:
   experience_mode: combat_cast_feedback
   mode_tier: multi_pillar
   dnd_pillar: combat
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_combat_play_surface
   walk_tier: coverage
-  parent_id: ux_combat_play_surface
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - flee is the only correct authored end
   - combat always resolves to XP loot chrome
   - combat is a single win/lose elimination pipeline
   - DM only adjudicates and never inhabits creature roles
   - player and DM share identical combat control envelopes
-  notes: lensed_by:ux_combat_play_surface
+  mint_lane: cursor_draft
+  parent_id: ux_combat_play_surface
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_chronicle_buckets
   label: Chronicle data buckets
   dimension: ui_surface
@@ -1219,21 +1199,19 @@ items:
   experience_mode: chronicle_buckets
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_quiet_between_pillars
   walk_tier: coverage
-  parent_id: ux_quiet_between_pillars
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - downtime equals BG3 campsite companion UI
   - quiet is only a long-rest resource refill
   - quiet is a loading state between pillars
   - this row owns between-adventures weeks/months calendar downtime
   - system must force the next combat social or explore beat during quiet
-  notes: lensed_by:ux_quiet_between_pillars
+  mint_lane: cursor_draft
+  parent_id: ux_quiet_between_pillars
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_dm_workbench_lore_gui
   label: DM workbench lore GUI
   dimension: dm_rail
@@ -1253,15 +1231,10 @@ items:
   experience_mode: dm_workbench_lore_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_session_prep
   walk_tier: coverage
-  parent_id: ux_dm_session_prep
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - prep must be a separate offline app
   - players never see any prep residue
@@ -1271,7 +1244,11 @@ items:
   - visibility is only a single whole-table tag with no per-player option
   - session open is a separate series product noun from prep
   - one captivity/tavern/jailbreak open is the product default start
-  notes: lensed_by:ux_dm_session_prep
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_player_lite_lore_gui
   label: Player-lite lore GUI
   dimension: ui_surface
@@ -1291,22 +1268,21 @@ items:
   experience_mode: player_lite_lore_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_quiet_between_pillars
   walk_tier: coverage
-  parent_id: ux_quiet_between_pillars
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - downtime equals BG3 campsite companion UI
   - quiet is only a long-rest resource refill
   - quiet is a loading state between pillars
   - this row owns between-adventures weeks/months calendar downtime
   - system must force the next combat social or explore beat during quiet
-  notes: lensed_by:ux_quiet_between_pillars
+  mint_lane: cursor_draft
+  parent_id: ux_quiet_between_pillars
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_session0_bootstrap
   label: Session 0 bootstrap feel
   dimension: session_bootstrap
@@ -1326,21 +1302,19 @@ items:
   experience_mode: session0_bootstrap
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_campaign_creation
   walk_tier: coverage
-  parent_id: ux_dm_campaign_creation
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - every campaign begins in captivity
   - offline Microscope play is required before Session 0
   - starting a campaign must regenerate the whole world
   - campaign creation's default next step is player character creation
   - DM is the primary author of player characters after frame bootstrap
-  notes: lensed_by:ux_dm_campaign_creation
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_tone_profile_surface
   label: Campaign tone profile surface
   dimension: session_bootstrap
@@ -1360,22 +1334,21 @@ items:
   experience_mode: tone_profile_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_campaign_creation
   walk_tier: coverage
-  parent_id: ux_dm_campaign_creation
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - every campaign begins in captivity
   - offline Microscope play is required before Session 0
   - starting a campaign must regenerate the whole world
   - campaign creation's default next step is player character creation
   - DM is the primary author of player characters after frame bootstrap
-  notes: lensed_by:ux_dm_campaign_creation
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_canon_pipeline_feel
   label: Canon pipeline feel
   dimension: ui_surface
@@ -1395,22 +1368,21 @@ items:
   experience_mode: canon_pipeline_feel
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_economy_resources
   label: Resource distribution visibility
   dimension: ui_surface
@@ -1429,22 +1401,21 @@ items:
   experience_mode: economy_resources
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: mentioned in feedstock
     | roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_economy_trade
   label: Trade routes / market pressure
   dimension: ui_surface
@@ -1463,22 +1434,21 @@ items:
   experience_mode: economy_trade
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_quest_pressure_surface
   label: Quest pressure from canon
   dimension: ui_surface
@@ -1498,22 +1468,21 @@ items:
   experience_mode: quest_pressure_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_faction_goals
   label: Faction goals / agenda surface
   dimension: ui_surface
@@ -1533,22 +1502,21 @@ items:
   experience_mode: wa_faction_goals
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_faction_hierarchy
   label: Faction hierarchy surface
   dimension: ui_surface
@@ -1566,22 +1534,21 @@ items:
   experience_mode: wa_faction_hierarchy
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_faction_offscreen
   label: Off-screen faction activity
   dimension: ui_surface
@@ -1601,22 +1568,21 @@ items:
   experience_mode: wa_faction_offscreen
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_faction_reputation
   label: Reputation standing surface
   dimension: ui_surface
@@ -1633,22 +1599,21 @@ items:
   experience_mode: wa_faction_reputation
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_lore_articles
   label: Lore codex / articles
   dimension: ui_surface
@@ -1668,22 +1633,21 @@ items:
   experience_mode: wa_lore_articles
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_npc_agenda
   label: NPC agenda / schedule visibility
   dimension: ui_surface
@@ -1703,22 +1667,21 @@ items:
   experience_mode: wa_npc_agenda
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_npc_relations
   label: NPC relationship web
   dimension: ui_surface
@@ -1737,22 +1700,21 @@ items:
   experience_mode: wa_npc_relations
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_npc_secrets
   label: NPC secrets / knowledge gates
   dimension: ui_surface
@@ -1772,22 +1734,21 @@ items:
   experience_mode: wa_npc_secrets
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_npc_sheet
   label: NPC identity sheet feel
   dimension: ui_surface
@@ -1805,22 +1766,21 @@ items:
   experience_mode: wa_npc_sheet
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_timelines
   label: Timeline / era threads
   dimension: ui_surface
@@ -1840,22 +1800,21 @@ items:
   experience_mode: wa_timelines
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_worldgen_gui
   label: Worldgen GUI
   dimension: world_gen
@@ -1875,22 +1834,21 @@ items:
   experience_mode: worldgen_gui
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_world_generation
   walk_tier: coverage
-  parent_id: ux_world_generation
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - one world equals exactly one campaign forever
   - worldgen is only a Session 0 checkbox with no persistent container
   - players author the first world
   - world create forces unconstrained multi-knob fresh-noise every time
   - world creation's default next step is player character creation
-  notes: lensed_by:ux_world_generation
+  mint_lane: cursor_draft
+  parent_id: ux_world_generation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_sim_weather_pulse
   label: Weather / ambient sim pulse
   dimension: sim_system
@@ -1907,22 +1865,21 @@ items:
   experience_mode: sim_weather_pulse
   mode_tier: multi_pillar
   dnd_pillar: exploration
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_faction_territory
   label: Faction territory / influence
   dimension: ui_surface
@@ -1942,22 +1899,21 @@ items:
   experience_mode: wa_faction_territory
   mode_tier: multi_pillar
   dnd_pillar: exploration
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_locations
   label: Location surfaces
   dimension: world_gen
@@ -1977,22 +1933,21 @@ items:
   experience_mode: wa_locations
   mode_tier: multi_pillar
   dnd_pillar: exploration
-  feedstock_hit: true
   pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_maps_vs_embodied
   label: Maps vs embodied discovery
   dimension: ui_surface
@@ -2012,22 +1967,21 @@ items:
   experience_mode: wa_maps_vs_embodied
   mode_tier: multi_pillar
   dnd_pillar: exploration
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_wa_npc_dialogue_hooks
   label: NPC dialogue / roleplay hooks
   dimension: ui_surface
@@ -2047,22 +2001,21 @@ items:
   experience_mode: wa_npc_dialogue_hooks
   mode_tier: multi_pillar
   dnd_pillar: roleplay
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
     roleplay: (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mid_game
   walk_tier: coverage
-  parent_id: ux_mid_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mid game requires a companion romance track
   - mid game must center a single conspiracy reveal
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  notes: lensed_by:ux_mid_game
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_application_shell
   label: Application shell / layout chrome
   dimension: ui_surface
@@ -2080,21 +2033,19 @@ items:
   experience_mode: application_shell
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_mental_stat_interpretation
   walk_tier: coverage
-  parent_id: ux_mental_stat_interpretation
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - mental stats unlock a single romance dialogue tree
   - low mental stats hide all social information
   - cues auto-reveal facts without a check or roleplay
   - mental-stat cues are DM-only with no player-facing affordance
   - one insight beat is the only product presentation
-  notes: lensed_by:ux_mental_stat_interpretation
+  mint_lane: cursor_draft
+  parent_id: ux_mental_stat_interpretation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_primary_navigation
   label: Primary navigation / wayfinding
   dimension: ui_surface
@@ -2111,19 +2062,17 @@ items:
   experience_mode: primary_navigation
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_early_game
   walk_tier: coverage
-  parent_id: ux_early_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   - progression requires a separate series parent from stage bands
-  notes: lensed_by:ux_early_game
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_session_onboarding
   label: Session / onboarding bootstrap
   dimension: session_bootstrap
@@ -2141,21 +2090,19 @@ items:
   experience_mode: session_onboarding
   mode_tier: shared_chrome
   dnd_pillar: shared
-  feedstock_hit: true
-  pillar_notes: ''
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_dm_campaign_creation
   walk_tier: coverage
-  parent_id: ux_dm_campaign_creation
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - every campaign begins in captivity
   - offline Microscope play is required before Session 0
   - starting a campaign must regenerate the whole world
   - campaign creation's default next step is player character creation
   - DM is the primary author of player characters after frame bootstrap
-  notes: lensed_by:ux_dm_campaign_creation
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
 - id: ux_content_authoring_surface
   label: Content authoring surface
   dimension: ui_surface
@@ -2175,20 +2122,21 @@ items:
   experience_mode: content_authoring_surface
   mode_tier: multi_pillar
   dnd_pillar: shared
-  feedstock_hit: true
   pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
     (infer from mode)'
-  supplement: true
-  coverage_slot: true
+  notes: lensed_by:ux_early_game
   walk_tier: coverage
-  parent_id: ux_early_game
-  mint_lane: cursor_draft
-  depth_band: 1
   does_not_mandate:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   - progression requires a separate series parent from stage bands
-  notes: lensed_by:ux_early_game
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+generated_at: '2026-08-01 22:20:39+00:00'
+frozen_at: '2026-08-01 21:11:08+00:00'
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
 quality_validation: structure_only_pending_content_validation — 2026-08-01 remine
@@ -2197,4 +2145,4 @@ quality_validation: structure_only_pending_content_validation — 2026-08-01 rem
   independent series quality validation outside structure is FUTURE debt if issues
   appear.
 quality_validation_status: structure_validated_content_unproven_cold_mine
-frozen_at: '2026-08-01 21:11:08+00:00'
+children_published_trinity_ref: dbe9dc60ee9f2bd8404c5d34bb74992e985a43e3

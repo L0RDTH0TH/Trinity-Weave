@@ -208,6 +208,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 
 **Law:** open `weave/component-proposals/catalog_mint.yaml` first (Trinity card).
 
+**Grok custom instructions (paste):** [Docs/Grok-Second-Brain-Custom-Instructions.md](https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Second-Brain-Custom-Instructions.md) · start: [GROK-START-HERE.md](https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/GROK-START-HERE.md)
+
 **This folder** is feedstock for product `slice-catalog.yaml` rows — not CARD-INDEX.
 
 | File | Use |

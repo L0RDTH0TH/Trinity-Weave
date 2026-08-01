@@ -10,9 +10,10 @@ waive_series_draft: false
 children_greenlit: true
 waived_axes: []
 schema_version: 1
-generated_at: 2026-08-01T22:20:39Z
+generated_at: 2026-08-01 22:20:39+00:00
 frozen_at: 2026-08-01 21:11:08+00:00
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
+children_published_trinity_ref: dbe9dc60ee9f2bd8404c5d34bb74992e985a43e3
 archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
 quality_validation_status: structure_validated_content_unproven_cold_mine
 quality_validation: structure_only_pending_content_validation — 2026-08-01 remine expanded UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched archive 15/15; content restored from archive + selective live template drift. Full independent series quality validation outside structure is FUTURE debt if issues appear.
@@ -37,7 +38,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `(none)`  
+**Children Trinity ref:** `dbe9dc60ee9f2bd8404c5d34bb74992e985a43e3`  
 **Quality validation:** `structure_validated_content_unproven_cold_mine`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
