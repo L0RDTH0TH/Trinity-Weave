@@ -8,15 +8,16 @@ harvest_pass: children
 series_draft_accepted: true
 waive_series_draft: false
 children_greenlit: true
+children_rewritten: true
 waived_axes: []
 schema_version: 1
 generated_at: 2026-08-01 22:49:10+00:00
 frozen_at: 2026-08-01 21:11:08+00:00
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: dbe9dc60ee9f2bd8404c5d34bb74992e985a43e3
+children_published_trinity_ref: 784c1fbdbe9ddeb745e10e26173b81f3f65954a7
 archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
 quality_validation_status: children_rewritten_awaiting_grok_validate
-quality_validation: structure_only_pending_content_validation — 2026-08-01 remine expanded UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched archive 15/15; content restored from archive + selective live template drift. Full independent series quality validation outside structure is FUTURE debt if issues appear. | children_rewrite_applied — walk-facing child summaries distilled to product-contract language; feedstock kept in notes. Grok+user still validate batches.
+quality_validation: structure_validated; children_rewrite_applied — summaries are contract language; Grok+user batch validate still required before locked product law
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
 ---
@@ -38,13 +39,13 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `dbe9dc60ee9f2bd8404c5d34bb74992e985a43e3`  
+**Children Trinity ref:** `784c1fbdbe9ddeb745e10e26173b81f3f65954a7`  
 **Quality validation:** `children_rewritten_awaiting_grok_validate`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
 
 > [!warning] Quality caveat — structure first  
-> structure_only_pending_content_validation — 2026-08-01 remine expanded UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched archive 15/15; content restored from archive + selective live template drift. Full independent series quality validation outside structure is FUTURE debt if issues appear. | children_rewrite_applied — walk-facing child summaries distilled to product-contract language; feedstock kept in notes. Grok+user still validate batches.
+> structure_validated; children_rewrite_applied — summaries are contract language; Grok+user batch validate still required before locked product law
 
 ## Quick status
 
