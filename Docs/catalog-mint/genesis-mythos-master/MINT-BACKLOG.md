@@ -57,20 +57,20 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - [x] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`done`) [living_world] [series]
 - [x] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`done`) [table] [series]
 - [x] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`done`) [living_world] [series]
-- [ ] `ux_absent_proxy` — Absent-player proxy (`pending`) [inhabit] [coverage]
-- [ ] `ux_agency_handoff_enter_exit` — Agency enter / exit handoff feel (`pending`) [inhabit] [coverage]
-- [ ] `ux_baseline_fp` — Baseline first-person embodiment (`pending`) [inhabit] [coverage]
-- [ ] `ux_baseline_fp_controls` — Baseline FP controls (`pending`) [inhabit] [coverage]
+- [x] `ux_absent_proxy` — Absent-player proxy (`done`) [inhabit] [coverage]
+- [x] `ux_agency_handoff_enter_exit` — Agency enter / exit handoff feel (`done`) [inhabit] [coverage]
+- [x] `ux_baseline_fp` — Baseline first-person embodiment (`done`) [inhabit] [coverage]
+- [x] `ux_baseline_fp_controls` — Baseline FP controls (`done`) [inhabit] [coverage]
 - [ ] `ux_class_chrome_discovery` — Class / identity chrome discovery (`pending`) [inhabit] [coverage]
-- [ ] `ux_divination_override` — Divination / remote-sense override (`pending`) [inhabit] [coverage]
-- [ ] `ux_dm_mapcam` — DM MapCam (`pending`) [inhabit] [coverage]
-- [ ] `ux_dm_pilot` — DM pilot (agency, not Sensorium) (`pending`) [inhabit] [coverage]
-- [ ] `ux_dm_sensorium` — DM Sensorium Attach (`pending`) [inhabit] [coverage]
-- [ ] `ux_dm_worldcam` — DM WorldCam (`pending`) [inhabit] [coverage]
-- [ ] `ux_dominate_pilot` — Dominate / pilot (controller) (`pending`) [inhabit] [coverage]
-- [ ] `ux_dominate_victim` — Dominate victim / passenger overlay (`pending`) [inhabit] [coverage]
-- [ ] `ux_liminal_unconscious` — Liminal / unconscious presentation (`pending`) [inhabit] [coverage]
-- [ ] `ux_planar_travel_override` — Planar / gate travel override (`pending`) [inhabit] [coverage]
+- [x] `ux_divination_override` — Divination / remote-sense override (`done`) [inhabit] [coverage]
+- [x] `ux_dm_mapcam` — DM MapCam (`done`) [inhabit] [coverage]
+- [x] `ux_dm_pilot` — DM pilot (agency, not Sensorium) (`done`) [inhabit] [coverage]
+- [x] `ux_dm_sensorium` — DM Sensorium Attach (`done`) [inhabit] [coverage]
+- [x] `ux_dm_worldcam` — DM WorldCam (`done`) [inhabit] [coverage]
+- [x] `ux_dominate_pilot` — Dominate / pilot (controller) (`done`) [inhabit] [coverage]
+- [x] `ux_dominate_victim` — Dominate victim / passenger overlay (`done`) [inhabit] [coverage]
+- [x] `ux_liminal_unconscious` — Liminal / unconscious presentation (`done`) [inhabit] [coverage]
+- [x] `ux_planar_travel_override` — Planar / gate travel override (`done`) [inhabit] [coverage]
 - [ ] `ux_combat_cast_feedback` — Combat / cast sensory feedback (`pending`) [inhabit] [coverage]
 - [ ] `ux_chronicle_buckets` — Chronicle data buckets (`pending`) [table] [coverage]
 - [ ] `ux_dm_workbench_lore_gui` — DM workbench lore GUI (`pending`) [table] [coverage]
@@ -526,7 +526,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_absent_proxy` — Absent-player proxy
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -545,11 +545,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: absent_proxy
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …andidates - label: Soft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; operator:4pc_absent_delegate_vote_or_volunteer; grok:thin→session_policy_agency_envelope_not_sensorium
+- notes: feedstock_excerpt: …andidates - label: Soft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; operator:4pc_absent_delegate_vote_or_volunteer; grok:thin→session_policy_agency_envelope_not_sensorium; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_agency_handoff_enter_exit` — Agency enter / exit handoff feel
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -567,11 +567,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: agency_handoff_enter_exit
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …ft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; lensed_by:ux_camera_control_envelopes; grok:choreography_feel_not_parent_restore_law; operator:agree
+- notes: feedstock_excerpt: …ft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; lensed_by:ux_camera_control_envelopes; grok:choreography_feel_not_parent_restore_law; operator:agree; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_baseline_fp` — Baseline first-person embodiment
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -590,11 +590,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: baseline_embodiment
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable, aggressively modular first-person 3D VTT generator that procedurally creates living, collaborative open worlds from shared DM and player intents — mandatory in-tool session 0, visible world continuity, player-lite legacies and chronicle — players in fir…; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable, aggressively modular first-person 3D VTT generator that procedurally creates living, collaborative open worlds from shared DM and player intents — mandatory in-tool session 0, visible world continuity, player-lite legacies and chronicle — players in fir…; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_baseline_fp_controls` — Baseline FP controls
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -612,7 +612,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: baseline_fp_controls
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable, aggressively modular first-person 3D VTT generator that procedurally creates living, collaborative open worlds from shared DM and player intents — mandatory in-tool session 0, visible world continuity, player-lite legacies and chronicle — players in fir…; lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable, aggressively modular first-person 3D VTT generator that procedurally creates living, collaborative open worlds from shared DM and player intents — mandatory in-tool session 0, visible world continuity, player-lite legacies and chronicle — players in fir…; lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_class_chrome_discovery` — Class / identity chrome discovery
 
@@ -639,7 +639,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 
 ### `ux_divination_override` — Divination / remote-sense override
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -658,11 +658,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: divination_overrides
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …n for players and commanding mastery for the DM. - **Players default to first-person** — immediate, personal, experiential. No casual third-person orbit or free tactical camera for players. - **Perspective overrides** (Scry/Clairvoyance, divination, astral travel, DM-granted visions, unconscious/liminal states, etc.) are **explicit, temporary, rules-bound** departures from baseline FP — not a per; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …n for players and commanding mastery for the DM. - **Players default to first-person** — immediate, personal, experiential. No casual third-person orbit or free tactical camera for players. - **Perspective overrides** (Scry/Clairvoyance, divination, astral travel, DM-granted visions, unconscious/liminal states, etc.) are **explicit, temporary, rules-bound** departures from baseline FP — not a per; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dm_mapcam` — DM MapCam
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -681,11 +681,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: dm_observe_rails
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …tool session 0, visible world continuity, player-lite legacies and chronicle — players in first-person by default with rules-driven perspective and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam, read-only Sensorium Attach), player lore woven into systemic depth, major structural changes via intentional re-generation, every layer built for community remixing. ## Vi; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity
+- notes: feedstock_excerpt: …tool session 0, visible world continuity, player-lite legacies and chronicle — players in first-person by default with rules-driven perspective and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam, read-only Sensorium Attach), player lore woven into systemic depth, major structural changes via intentional re-generation, every layer built for community remixing. ## Vi; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dm_pilot` — DM pilot (agency, not Sensorium)
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -704,11 +704,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: dm_pilot
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …ey see?” — **no intent/control transfer** on the DM rail. Compare multiple viewpoints for ruling. Operator debug attach uses the same read-only contract. Always **exit back** to prior DM mode (WorldCam or MapCam). - **DM pilot** — when rules or session policy puts the DM in control of an entity (e.g. NPC dominate, absent PC), that uses the **agency delegation** system (pilot envelope), not Sensor; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity
+- notes: feedstock_excerpt: …ey see?” — **no intent/control transfer** on the DM rail. Compare multiple viewpoints for ruling. Operator debug attach uses the same read-only contract. Always **exit back** to prior DM mode (WorldCam or MapCam). - **DM pilot** — when rules or session policy puts the DM in control of an entity (e.g. NPC dominate, absent PC), that uses the **agency delegation** system (pilot envelope), not Sensor; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dm_sensorium` — DM Sensorium Attach
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -727,11 +727,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: dm_observe_rails
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …re that lands because the player assembled it. - label: Guide who was the problem summary: Narrator/ally trust collapse without removing player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium / divination_override; pillars: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity
+- notes: feedstock_excerpt: …re that lands because the player assembled it. - label: Guide who was the problem summary: Narrator/ally trust collapse without removing player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium / divination_override; pillars: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dm_worldcam` — DM WorldCam
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -750,11 +750,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: dm_observe_rails
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …texture summary: How inhabit/table feel when the map itself is the enemy. - label: Triage under asymmetric power summary: Choosing who to carry when you cannot save the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy / agency_handoff_enter_exit - quest_pressure_surface / sim_weather_pulse; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity
+- notes: feedstock_excerpt: …texture summary: How inhabit/table feel when the map itself is the enemy. - label: Triage under asymmetric power summary: Choosing who to carry when you cannot save the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy / agency_handoff_enter_exit - quest_pressure_surface / sim_weather_pulse; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; relens:affinity; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dominate_pilot` — Dominate / pilot (controller)
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -773,11 +773,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: dominate_pilot
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: # Felt moment (pattern language) Final hours ask **who owns the ending**: sacrifice, transform, free, dominate. Companions react; combat may resolve the social choice or follow it. Party trust under cosmic stakes. Digital D&D’s version of “the table decides what kind of story this was.” ## Spatial / temporal / control Climax a…; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: # Felt moment (pattern language) Final hours ask **who owns the ending**: sacrifice, transform, free, dominate. Companions react; combat may resolve the social choice or follow it. Party trust under cosmic stakes. Digital D&D’s version of “the table decides what kind of story this was.” ## Spatial / temporal / control Climax a…; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_dominate_victim` — Dominate victim / passenger overlay
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -796,11 +796,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: victim_overlay
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …where companions and combat hang on the choice. - label: Party trust under ascension pressure summary: Social contract tested when power offers an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim - planar_travel_override - canon_pipeline_feel; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …where companions and combat hang on the choice. - label: Party trust under ascension pressure summary: Social contract tested when power offers an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim - planar_travel_override - canon_pipeline_feel; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_liminal_unconscious` — Liminal / unconscious presentation
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -819,11 +819,11 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: liminal_states
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …un candidates - label: Cure that harms summary: Trusted procedure as betrayal of body and belief. - label: Faith shatter at the machine summary: Identity progression via institutional doubt. ## maps_to_taxonomy - liminal_unconscious / combat_cast_feedback - class_chrome_discovery - session0_bootstrap; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …un candidates - label: Cure that harms summary: Trusted procedure as betrayal of body and belief. - label: Faith shatter at the machine summary: Identity progression via institutional doubt. ## maps_to_taxonomy - liminal_unconscious / combat_cast_feedback - class_chrome_discovery - session0_bootstrap; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_planar_travel_override` — Planar / gate travel override
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
@@ -842,7 +842,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - ux_family: planar_travel_overrides
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …(victim)** — dominated PC: presentation policy is spell-bound (e.g. passenger FP with locked input, liminal UI); exact default locked at Phase 5 spell metadata. - **Absent-player proxy** — session policy allows a delegate (another player or DM) to **pilot** an absent PC with explicit handoff when the owner returns. - **Enter/exit** — every delegation declares controller, victim presentation, dura; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …(victim)** — dominated PC: presentation policy is spell-bound (e.g. passenger FP with locked input, liminal UI); exact default locked at Phase 5 spell metadata. - **Absent-player proxy** — session policy allows a delegate (another player or DM) to **pilot** an absent PC with explicit handoff when the owner returns. - **Enter/exit** — every delegation declares controller, victim presentation, dura; pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01
 
 ### `ux_combat_cast_feedback` — Combat / cast sensory feedback
 

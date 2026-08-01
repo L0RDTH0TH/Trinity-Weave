@@ -689,7 +689,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: absent_proxy
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: absent_proxy
   mode_tier: critical_matrix
@@ -702,7 +702,7 @@ items:
     / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; pillars:
     exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer
     from mode); lensed_by:ux_camera_control_envelopes; operator:4pc_absent_delegate_vote_or_volunteer;
-    grok:thin→session_policy_agency_envelope_not_sensorium'
+    grok:thin→session_policy_agency_envelope_not_sensorium; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -725,7 +725,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
   ux_family: agency_handoff_enter_exit
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: agency_handoff_enter_exit
   mode_tier: shared_chrome
@@ -734,7 +734,7 @@ items:
     by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms
     around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit
     - dm_workbench_lore_gui / wa_faction_hierarchy; lensed_by:ux_camera_control_envelopes;
-    grok:choreography_feel_not_parent_restore_law; operator:agree'
+    grok:choreography_feel_not_parent_restore_law; operator:agree; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -756,7 +756,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: baseline_embodiment
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: baseline_fp
   mode_tier: critical_matrix
@@ -768,7 +768,8 @@ items:
     creates living, collaborative open worlds from shared DM and player intents —
     mandatory in-tool session 0, visible world continuity, player-lite legacies and
     chronicle — players in fir…; pillars: exploration: mentioned in feedstock | combat:
-    (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes'
+    (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
+    batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -791,7 +792,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: baseline_fp_controls
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: baseline_fp_controls
   mode_tier: shared_chrome
@@ -800,7 +801,7 @@ items:
     monetizable, aggressively modular first-person 3D VTT generator that procedurally
     creates living, collaborative open worlds from shared DM and player intents —
     mandatory in-tool session 0, visible world continuity, player-lite legacies and
-    chronicle — players in fir…; lensed_by:ux_camera_control_envelopes'
+    chronicle — players in fir…; lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -858,7 +859,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: divination_overrides
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: divination_override
   mode_tier: critical_matrix
@@ -871,7 +872,7 @@ items:
     divination, astral travel, DM-granted visions, unconscious/liminal states, etc.)
     are **explicit, temporary, rules-bound** departures from baseline FP — not a per;
     pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay:
-    (infer from mode); lensed_by:ux_camera_control_envelopes'
+    (infer from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -893,7 +894,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: dm_observe_rails
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dm_mapcam
   mode_tier: critical_matrix
@@ -907,7 +908,7 @@ items:
     depth, major structural changes via intentional re-generation, every layer built
     for community remixing. ## Vi; pillars: exploration: mentioned in feedstock |
     combat: (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
-    relens:affinity'
+    relens:affinity; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -929,7 +930,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: dm_pilot
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dm_pilot
   mode_tier: multi_pillar
@@ -943,7 +944,7 @@ items:
     (e.g. NPC dominate, absent PC), that uses the **agency delegation** system (pilot
     envelope), not Sensor; pillars: exploration: mentioned in feedstock | combat:
     (infer from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
-    relens:affinity'
+    relens:affinity; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -965,7 +966,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
   ux_family: dm_observe_rails
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dm_sensorium
   mode_tier: critical_matrix
@@ -977,7 +978,7 @@ items:
     player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium
     / divination_override; pillars: exploration: (infer from mode) | combat: (infer
     from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
-    relens:affinity'
+    relens:affinity; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -999,7 +1000,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
   ux_family: dm_observe_rails
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dm_worldcam
   mode_tier: critical_matrix
@@ -1012,7 +1013,7 @@ items:
     dm_worldcam - absent_proxy / agency_handoff_enter_exit - quest_pressure_surface
     / sim_weather_pulse; pillars: exploration: (infer from mode) | combat: mentioned
     in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
-    relens:affinity'
+    relens:affinity; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -1034,7 +1035,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: dominate_pilot
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dominate_pilot
   mode_tier: critical_matrix
@@ -1046,7 +1047,8 @@ items:
     may resolve the social choice or follow it. Party trust under cosmic stakes. Digital
     D&D’s version of “the table decides what kind of story this was.” ## Spatial /
     temporal / control Climax a…; pillars: exploration: (infer from mode) | combat:
-    mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes'
+    mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
+    batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -1068,7 +1070,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
   ux_family: victim_overlay
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: dominate_victim
   mode_tier: critical_matrix
@@ -1079,7 +1081,8 @@ items:
     Party trust under ascension pressure summary: Social contract tested when power
     offers an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim
     - planar_travel_override - canon_pipeline_feel; pillars: exploration: (infer from
-    mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes'
+    mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
+    batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -1101,7 +1104,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
   ux_family: liminal_states
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: liminal_unconscious
   mode_tier: multi_pillar
@@ -1113,7 +1116,7 @@ items:
     summary: Identity progression via institutional doubt. ## maps_to_taxonomy - liminal_unconscious
     / combat_cast_feedback - class_chrome_discovery - session0_bootstrap; pillars:
     exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer
-    from mode); lensed_by:ux_camera_control_envelopes'
+    from mode); lensed_by:ux_camera_control_envelopes; batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -1135,7 +1138,7 @@ items:
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: planar_travel_overrides
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: planar_travel_override
   mode_tier: critical_matrix
@@ -1148,7 +1151,8 @@ items:
     (another player or DM) to **pilot** an absent PC with explicit handoff when the
     owner returns. - **Enter/exit** — every delegation declares controller, victim
     presentation, dura; pillars: exploration: mentioned in feedstock | combat: (infer
-    from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes'
+    from mode) | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes;
+    batch_locked:camera_control_envelopes:2026-08-01'
   walk_tier: coverage
   does_not_mandate:
   - players get free third-person orbit as default
@@ -2204,3 +2208,5 @@ items:
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: c5511d545ca344047c0b1e98ee1838130f1ec7dc
 quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
+locked_child_batches:
+- ux_camera_control_envelopes
