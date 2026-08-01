@@ -538,14 +538,14 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: player_rail
-- summary: Delegate pilots an absent PC with explicit handoff when the owner returns (under Perspective and control envelopes can change and cleanly return).
+- summary: When a player is absent, their PC stays in the shared fiction via a session-policy delegate (another player or the DM) who receives that character's controls so the DM is not forced to run monsters and the missing PC at once. Table may volunteer a delegate, or the DM may propose a vote and players choose who is stuck with it; policy is per-session and revocable when the owner returns. This is an agency / control envelope under camera-control — not Sensorium (read-only sight) and not permanent ownership transfer.
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
 - ux_family: absent_proxy
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …andidates - label: Soft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …andidates - label: Soft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode); lensed_by:ux_camera_control_envelopes; operator:4pc_absent_delegate_vote_or_volunteer; grok:thin→session_policy_agency_envelope_not_sensorium
 
 ### `ux_agency_handoff_enter_exit` — Agency enter / exit handoff feel
 
@@ -561,13 +561,13 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: player_rail
-- summary: Shared choreography when control or perspective transfers and cleanly returns (under Perspective and control envelopes can change and cleanly return).
+- summary: How enter and exit of a control or perspective handoff feel at the table — liminal timing, who sees the transfer, and the social beat of taking or releasing the stick — without restating the parent's declare-controller / hard-restore law.
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
 - ux_family: agency_handoff_enter_exit
 - supplement: True
 - coverage_slot: True
-- notes: feedstock_excerpt: …ft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; lensed_by:ux_camera_control_envelopes
+- notes: feedstock_excerpt: …ft-power party seizure summary: A living companion removed by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy; lensed_by:ux_camera_control_envelopes; grok:choreography_feel_not_parent_restore_law; operator:agree
 
 ### `ux_baseline_fp` — Baseline first-person embodiment
 
