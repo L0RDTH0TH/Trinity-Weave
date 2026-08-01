@@ -12,7 +12,7 @@ children_rewritten: true
 waived_axes: []
 schema_version: 1
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 57cac97603eec681c7ce6ce3397049b17d7d9847
+children_published_trinity_ref: c5511d545ca344047c0b1e98ee1838130f1ec7dc
 quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -35,7 +35,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `57cac97603eec681c7ce6ce3397049b17d7d9847`  
+**Children Trinity ref:** `c5511d545ca344047c0b1e98ee1838130f1ec7dc`  
 **Quality validation:** `children_relensed_dual_rail_awaiting_grok_validate`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]

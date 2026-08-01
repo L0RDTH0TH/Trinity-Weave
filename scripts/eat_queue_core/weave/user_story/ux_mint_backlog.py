@@ -1535,6 +1535,11 @@ def _contract_child_summary(
     label = str(item.get("label") or item.get("id") or "Capability").strip()
     raw = str(item.get("summary") or "")
     clean = _strip_summary_residue(raw)
+    # Drop stacked "(under …)" clauses from prior relens/rewrite before adding one
+    clean = re.sub(r"\s*\(under [^)]*\)\s*", " ", clean)
+    clean = re.sub(r"\s+", " ", clean).strip().rstrip(" .")
+    if clean:
+        clean = clean + "."
     parent_label = str((parent or {}).get("label") or (parent or {}).get("id") or "").strip()
     # If still empty/short/dirty, synthesize a contract from label + parent lens
     if len(clean) < 48 or _summary_has_residue(clean):
@@ -1548,8 +1553,8 @@ def _contract_child_summary(
                 f"{label.rstrip('.')} — table-facing capability contract; "
                 "structure menu, not a single AP scene default."
             )
-    # Ensure parent lens is implied without dumping parent essay
-    if parent_label and parent_label.lower() not in clean.lower() and len(clean) < 280:
+    # Single parent clause only
+    elif parent_label and f"(under {parent_label})" not in clean and len(clean) < 280:
         clean = f"{clean.rstrip('.')} (under {parent_label})."
     return clean[:520].strip()
 
