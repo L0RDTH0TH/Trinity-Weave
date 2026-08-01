@@ -264,10 +264,14 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         "series_published_trinity_ref",
         "children_published_trinity_ref",
         "archive_ref",
+        "quality_validation_status",
+        "quality_validation",
     ):
         val = doc.get(key)
         if val:
-            lines.append(f"{key}: {val}")
+            # keep long quality_validation readable in FM as one line
+            text = str(val).replace("\n", " ").strip()
+            lines.append(f"{key}: {text}")
     lines.extend(
         [
             f"rubric: {rubric}",
@@ -297,9 +301,23 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             f"**Harvest pass:** `{harvest_pass}`  ",
             f"**Series Trinity ref:** `{doc.get('series_published_trinity_ref') or '(none)'}`  ",
             f"**Children Trinity ref:** `{doc.get('children_published_trinity_ref') or '(none)'}`  ",
+            f"**Quality validation:** `{doc.get('quality_validation_status') or '(unset)'}`  ",
             f"**Waived axes/slots:** `{', '.join(waived) if waived else '(none)'}`  ",
             f"**Rubric:** [[{rubric.replace('.md', '')}|UX mint rubric]]",
             "",
+        ]
+    )
+    qv = str(doc.get("quality_validation") or "").strip()
+    if qv:
+        lines.extend(
+            [
+                f"> [!warning] Quality caveat — structure first  ",
+                f"> {qv}",
+                "",
+            ]
+        )
+    lines.extend(
+        [
             "## Quick status",
             "",
         ]
@@ -527,6 +545,8 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "series_published_trinity_ref",
         "children_published_trinity_ref",
         "archive_ref",
+        "quality_validation",
+        "quality_validation_status",
     ):
         if fm.get(key):
             doc[key] = str(fm[key])
@@ -1622,6 +1642,8 @@ def generate_ux_mint_backlog(
         "series_published_trinity_ref",
         "children_published_trinity_ref",
         "archive_ref",
+        "quality_validation",
+        "quality_validation_status",
     ):
         if archive_ref and key == "archive_ref":
             doc[key] = archive_ref

@@ -1,5 +1,5 @@
 schema_version: 1
-mint_epoch_id: twopass-series-remine-2026-08-01
+mint_epoch_id: series-mine-mint-2026-07-29
 mint_epoch_started_utc: '2026-07-29T04:42:13Z'
 mint_source_pmg: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 historical_mint_archive: 4-Archives/Projects/genesis-mythos-master/catalog-mint-historical-20260717T175504Z
@@ -7,5 +7,215 @@ historical_mint_authority: cite_only_non_authoritative
 catalog_levels_unsigned_advisory: true
 execution_pins_advisory: empty execution_pins[] expected until Operator Loop 2 / execution
   track
-rows: []
+rows:
+- id: ux_world_generation
+  dimension: world_gen
+  label: DM can create (table can shape) a persistent living world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T05:32:23Z'
+- id: ux_dm_campaign_creation
+  dimension: session_bootstrap
+  label: DM can bootstrap a campaign frame inside a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T05:32:23Z'
+- id: ux_player_character_creation
+  dimension: session_bootstrap
+  label: Players can author characters and submit them for DM acceptance into a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T07:29:30Z'
+- id: ux_dm_session_prep
+  dimension: dm_rail
+  label: DM can prep a session without leaving the collaborative table frame
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_dm_campaign_creation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T07:41:00Z'
+  meaning_rev: 2026-07-30-visibility-per-player
+  amendments:
+  - at: '2026-07-30T18:37:43Z'
+    patch_keys:
+    - depends_on
+    - meaning_rev
+    - mint_status
+- id: ux_early_game
+  dimension: ui_surface
+  label: Early play is a power band that gates world and pillar response
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T19:16:52Z'
+- id: ux_mid_game
+  dimension: ui_surface
+  label: Mid play is a power band for lasting pressure and deeper world response
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T19:21:51Z'
+- id: ux_late_game
+  dimension: ui_surface
+  label: Late play is a power band for campaign crescendo, close, and character-to-world
+    persistence
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_mid_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  renamed_from: ux_end_game
+  minted_at: '2026-07-30T19:33:10Z'
+- id: ux_mental_stat_interpretation
+  dimension: ui_surface
+  label: Mental stats surface available read paths not only sheet numbers
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T20:12:38Z'
+- id: ux_collaborative_table_agency
+  dimension: dm_rail
+  label: Shared virtual-tabletop loop with character agency and DM orchestration
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-30T22:42:32Z'
+- id: ux_quiet_between_pillars
+  dimension: ui_surface
+  label: In-adventure quiet keeps continuous fiction between combat social and explore
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T02:41:21Z'
+- id: ux_combat_play_surface
+  dimension: ui_surface
+  label: Combat can resolve by authored paths including non-win ends
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T03:34:21Z'
+- id: ux_camera_control_envelopes
+  dimension: player_rail
+  label: Perspective and control envelopes can change and cleanly return
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T03:53:03Z'
+- id: ux_living_world_continuity
+  dimension: ui_surface
+  label: World can move off-screen and show lasting readable costs
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T04:38:21Z'
+- id: ux_backstory_legacy_integration
+  dimension: ui_surface
+  label: Backstory and legacies can hook into play and chronicle
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_player_character_creation
+  - ux_collaborative_table_agency
+  - ux_living_world_continuity
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T12:35:59Z'
+- id: ux_world_authorship_modability
+  dimension: session_bootstrap
+  label: Table and community can author world change via curated and mod contracts
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_living_world_continuity
+  - ux_collaborative_table_agency
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  minted_at: '2026-07-31T12:58:47Z'
 last_amended_at: '2026-07-30T18:37:43Z'
+quality_note: structure_only_pending_content_validation — 2026-08-01 remine expanded
+  UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched archive
+  15/15; content restored from archive + selective live template drift. Full independent
+  series quality validation outside structure is FUTURE debt if issues appear.

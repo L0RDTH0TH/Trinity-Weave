@@ -3,7 +3,7 @@ project_id: genesis-mythos-master
 backlog_status: frozen_for_mint
 waived_axes: []
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
-mint_phase: series_walk
+mint_phase: series_locked
 harvest_pass: series
 series_draft_accepted: true
 waive_series_draft: false
@@ -21,7 +21,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:world_generation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: world_generation
   mode_tier: series
@@ -40,11 +40,19 @@ items:
   - players author the first world
   - world create forces unconstrained multi-knob fresh-noise every time
   - world creation's default next step is player character creation
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Nth campaign in a long-lived world vs first campaign in a newly wizard-created
+    world
+  - Thin shape+preview accept vs deeper multi-step wizard on first create
+  - Import vs in-tool wizard-create only
+  - World empty of campaigns vs world carrying prior scars/legacies
+  - Directional world-tone × campaign-tone combinations
+  - Adaptation heavy vs light (still always DM-gated and retconnable)
   series_order: 0
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_world_generation
   supplement: false
   coverage_slot: false
 - id: ux_dm_campaign_creation
@@ -58,7 +66,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:dm_campaign_creation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: dm_campaign_creation
   mode_tier: series
@@ -76,11 +84,16 @@ items:
   - starting a campaign must regenerate the whole world
   - campaign creation's default next step is player character creation
   - DM is the primary author of player characters after frame bootstrap
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Second campaign in a long-lived world vs first campaign in a new world
+  - Thin collaborative seed (table proposes; DM accepts) vs DM-solo then reveal public
+    slice
+  - Minimal quick-start frame vs deep Session 0 on top of an existing world
   series_order: 1
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_dm_campaign_creation
   supplement: false
   coverage_slot: false
 - id: ux_player_character_creation
@@ -95,7 +108,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:player_character_creation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: player_character_creation
   mode_tier: series
@@ -113,11 +126,17 @@ items:
   - ownership transfers to the DM on greenlight
   - character creation requires a separate draft object type
   - players may only build inside an open campaign invite
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Unbound build then later invite vs build only into an open invite
+  - Hard greenlight vs return-with-notes / overwrite negotiation
+  - One-campaign binding vs later invite into another campaign in the same world
+  - Minimal builder vs richer chrome after legality is solid
+  - Aligned vs divergent world/campaign option sets
   series_order: 2
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_player_character_creation
   supplement: false
   coverage_slot: false
 - id: ux_dm_session_prep
@@ -135,7 +154,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:dm_session_prep
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: dm_session_prep
   mode_tier: series
@@ -156,11 +175,16 @@ items:
   - visibility is only a single whole-table tag with no per-player option
   - session open is a separate series product noun from prep
   - one captivity/tavern/jailbreak open is the product default start
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Thin author notes vs rich structured beats (system still stages)
+  - Mostly secret with selective reveals vs broader general tags
+  - Prep mode distinct vs prep panels on the DM rail during downtime
+  - Batch applied on complete vs batch held for DM confirm in world-gen
   series_order: 3
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_dm_session_prep
   supplement: false
   coverage_slot: false
 - id: ux_early_game
@@ -175,7 +199,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:early_game
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: flows
   experience_mode: early_game
   mode_tier: series
@@ -190,11 +214,16 @@ items:
   - first session must teach stolen agency
   - early game is combat-only onboarding
   - progression requires a separate series parent from stage bands
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Implicit band (content only) vs visible band indicator
+  - Strict gates vs soft advice the DM can override
+  - Fast climb out of early vs long stay in band
+  - Prep-authored early situations vs mostly emergent within band limits
   series_order: 4
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_early_game
   supplement: false
   coverage_slot: false
 - id: ux_mid_game
@@ -209,7 +238,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:mid_game
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: mid_game
   mode_tier: series
@@ -226,11 +255,16 @@ items:
   - progression requires a separate series parent from stage bands
   - session prep replaces the mid power-band contract
   - one CR/BG mid-arc skin is the product default
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Soft vs strict band gates (DM override)
+  - Long mid band vs fast transit
+  - Consequence-heavy mid vs access-heavy mid
+  - Visible band indicator vs implicit through content
   series_order: 5
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_mid_game
   supplement: false
   coverage_slot: false
 - id: ux_late_game
@@ -247,7 +281,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:late_game
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: late_game
   mode_tier: series
@@ -266,11 +300,16 @@ items:
   - session prep replaces the late power-band / close contract
   - post-close must start in a different world by default
   - late play is only the final session, not a high power band
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Abrupt DM end vs long staged crescendo
+  - Heavy retirement planning vs light future-notes
+  - Same-world next campaign immediately vs gap time in world sim only
+  - Multi-world / multi-campaign setups via existing parents
   series_order: 6
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_late_game
   supplement: false
   coverage_slot: false
 - id: ux_mental_stat_interpretation
@@ -285,7 +324,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:lifecycle:mental_stat_interpretation
   ux_family: lifecycle
-  status: pending
+  status: done
   catalog_face: surfaces
   experience_mode: mental_stat_interpretation
   mode_tier: series
@@ -302,11 +341,16 @@ items:
   - cues auto-reveal facts without a check or roleplay
   - mental-stat cues are DM-only with no player-facing affordance
   - one insight beat is the only product presentation
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Subtle diegetic cue vs strong highlight
+  - Always-on stat aura vs cue only when DM or system arms it
+  - Shared party cues vs strictly per-player vision
+  - Sparse cues vs frequent mental-stat texture
   series_order: 7
   series_walk_rank: 0
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_mental_stat_interpretation
   supplement: false
   coverage_slot: false
 - id: ux_collaborative_table_agency
@@ -322,7 +366,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:collaborative_table_agency
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: collaborative_table_agency
   mode_tier: series
@@ -341,11 +385,17 @@ items:
   - system-owned NPC dialogue is the product default
   - player social play defaults to dialogue-option trees
   - play must be combat-primary / hack-and-slash
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Combat-heavy tables vs social/explore-primary tables
+  - Heavy transcription vs light note capture of player intent
+  - Rich NPC context assist vs minimal prompts
+  - DM who also runs a character vs DM seat only
+  - Optional later system-suggested NPC lines under DM accept (not default auto-speak)
   series_order: 0
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_collaborative_table_agency
   supplement: false
   coverage_slot: false
 - id: ux_quiet_between_pillars
@@ -360,7 +410,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:quiet_between_pillars
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: quiet_between_pillars
   mode_tier: series
@@ -377,11 +427,16 @@ items:
   - quiet is a loading state between pillars
   - this row owns between-adventures weeks/months calendar downtime
   - system must force the next combat social or explore beat during quiet
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Camp-centric vs road-centric vs both inside the adventure
+  - Quiet as distinct mode vs low-intensity state in the same world view
+  - Rest embedded in quiet vs separate rest verb usable during quiet
+  - Sparse linger vs frequent light authored beats on the road
   series_order: 1
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_quiet_between_pillars
   supplement: false
   coverage_slot: false
 - id: ux_combat_play_surface
@@ -398,7 +453,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:combat_play_surface
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: combat_play_surface
   mode_tier: series
@@ -415,11 +470,19 @@ items:
   - combat is a single win/lose elimination pipeline
   - DM only adjudicates and never inhabits creature roles
   - player and DM share identical combat control envelopes
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Lethal-default tables vs non-lethal-friendly tables
+  - Flee with chase vs clean disengage
+  - Parley mid-fight vs only before blows land
+  - Sparse authored ends vs many stake levers
+  - XP/loot present vs progression mostly elsewhere
+  - Heavy vs light creature chrome in early builds
+  - System-default music only vs frequent DM-queued tracks
   series_order: 2
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_combat_play_surface
   supplement: false
   coverage_slot: false
 - id: ux_camera_control_envelopes
@@ -436,7 +499,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:camera_control_envelopes
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: inhabit
   experience_mode: camera_control_envelopes
   mode_tier: series
@@ -455,11 +518,19 @@ items:
   - envelope exits leave soft residual control or wrong perspective
   - camera modes can become permanent without a restore path
   - players may use WorldCam or MapCam as free exploration seats
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Heavy vs light transition interpolation (comfort) as long as final state is hard-restored
+  - Sparse vs frequent override use
+  - DM who rarely leaves WorldCam vs frequent MapCam / Sensorium / pilot use
+  - Strict rules-only overrides vs session-policy additions (absent proxy, custom
+    visions)
+  - Minimal vs rich liminal/unconscious or dominate-victim presentation
+  - Thin vs fuller dominate pilot/victim in early builds
   series_order: 3
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_camera_control_envelopes
   supplement: false
   coverage_slot: false
 - id: ux_living_world_continuity
@@ -476,7 +547,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:living_world_continuity
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: living_world_continuity
   mode_tier: series
@@ -494,11 +565,18 @@ items:
   - one conspiracy skin is the only continuity form
   - this row owns in-adventure quiet-between road/camp/linger
   - players get full sim-admin tools as the continuity surface
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Sparse vs dense off-screen pulse
+  - Soft “the world noticed” texture vs hard mechanical scars that block options
+  - Mostly social/faction residue vs mostly geographic/physical/resource
+  - Fast-moving political worlds vs slow scar accumulation
+  - High-band existential threats that are planar/cosmic vs purely political-apocalyptic
+  - Thin vs richer downtime surfaces later
   series_order: 4
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_living_world_continuity
   supplement: false
   coverage_slot: false
 - id: ux_backstory_legacy_integration
@@ -514,7 +592,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:backstory_legacy_integration
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: table
   experience_mode: backstory_legacy_integration
   mode_tier: series
@@ -532,11 +610,19 @@ items:
   - system auto-weaves hooks without DM accept
   - one identity-pact skin is the product default for legacies
   - players may auto-write world canon from backstory without DM gate
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Sparse vs dense seeding
+  - Mostly social recognition vs mechanical claims (land, title, blood debt)
+  - Early-only seeding vs ongoing personal stakes added later
+  - Quiet chronicle-only persistence vs loud in-play callbacks
+  - One-campaign binding of a legacy vs legacies that can travel into a later campaign
+    in the same world
+  - Minimal vs richer player-lite chronicle chrome later
   series_order: 5
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_backstory_legacy_integration
   supplement: false
   coverage_slot: false
 - id: ux_world_authorship_modability
@@ -554,7 +640,7 @@ items:
   conceptual_pin: needs pin
   derived_from: series:pmg_capabilities:world_authorship_modability
   ux_family: pmg_capabilities
-  status: pending
+  status: done
   catalog_face: living_world
   experience_mode: world_authorship_modability
   mode_tier: series
@@ -573,13 +659,27 @@ items:
   - world mutation may bypass intentional re-gen and DM gate
   - expensive re-gen dumps the table to menus
   - physical and esoteric authorship use different cheat paths outside the mod contract
-  alternatives_not_banned: []
+  alternatives_not_banned:
+  - Thin collaborative seed vs deeper multi-step world authorship sessions
+  - Heavy Microscope-style era play vs light era tags only
+  - Curated-only packages vs open community mods later
+  - Re-gen of a region vs re-gen of a whole biome or faction graph
+  - Waiting activities other than pong (camp vignette, short challenge, etc.) under
+    the same contract
+  - Physical-only vs esoteric-only emphasis at different tables
   series_order: 6
   series_walk_rank: 1
   mint_lane: human_grok
   fanout: low
+  historical_id: ux_world_authorship_modability
   supplement: false
   coverage_slot: false
 generated_at: '2026-08-01 21:11:08+00:00'
+frozen_at: '2026-08-01 21:11:08+00:00'
 archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
-frozen_at: '2026-08-01T21:11:08Z'
+quality_validation: structure_only_pending_content_validation — 2026-08-01 remine
+  expanded UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched
+  archive 15/15; content restored from archive + selective live template drift. Full
+  independent series quality validation outside structure is FUTURE debt if issues
+  appear.
+quality_validation_status: structure_validated_content_unproven_cold_mine

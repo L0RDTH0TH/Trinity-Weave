@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 356
+roadmap_note_count: 358
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4469,6 +4469,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: MINT-QUALITY-CAVEAT
+  wiki: '[[MINT-QUALITY-CAVEAT]]'
+  rel_under_project: Roadmap/User-Story/MINT-QUALITY-CAVEAT.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: ux_dm_campaign_creation.meaning
   wiki: '[[ux_dm_campaign_creation.meaning]]'
   rel_under_project: Roadmap/User-Story/Mint-Receipts/ux_dm_campaign_creation.meaning.md
@@ -4577,6 +4585,14 @@ roadmap_notes:
 - title: ux_dm_campaign_creation.meaning
   wiki: '[[ux_dm_campaign_creation.meaning]]'
   rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/Mint-Receipts/ux_dm_campaign_creation.meaning.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: README
+  wiki: '[[README]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive/README.md
   kind: user_story
   wiki_links: []
   linked_resources: []
