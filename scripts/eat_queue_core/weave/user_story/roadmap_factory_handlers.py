@@ -21,6 +21,7 @@ from .ux_mint_backlog import (
     greenlight_children,
     publish_children_trinity,
     publish_series_trinity,
+    relens_mint_children,
     rewrite_mint_children,
     write_series_draft_stub,
 )
@@ -138,6 +139,9 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
             result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
         elif action == "rewrite_children":
             out = rewrite_mint_children(vault_root, project_id)
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "relens_children":
+            out = relens_mint_children(vault_root, project_id)
             result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
         elif action == "publish_children":
             out = publish_children_trinity(

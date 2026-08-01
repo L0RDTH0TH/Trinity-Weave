@@ -1159,17 +1159,109 @@ def assert_series_published_for_children(bl: dict[str, Any]) -> tuple[bool, str]
     return True, ""
 
 
+# Prefer series parents that own dual-rail / domain claims over axis/face coincidence.
+# Keys = child experience_mode (taxonomy slot id) or child id without ux_ prefix.
+CHILD_SERIES_AFFINITY: dict[str, str] = {
+    # Dual-rail camera / control envelopes (player FP + DM WorldCam and departures)
+    "baseline_fp": "ux_camera_control_envelopes",
+    "baseline_fp_controls": "ux_camera_control_envelopes",
+    "divination_override": "ux_camera_control_envelopes",
+    "planar_travel_override": "ux_camera_control_envelopes",
+    "liminal_unconscious": "ux_camera_control_envelopes",
+    "dominate_pilot": "ux_camera_control_envelopes",
+    "dominate_victim": "ux_camera_control_envelopes",
+    "absent_proxy": "ux_camera_control_envelopes",
+    "agency_handoff_enter_exit": "ux_camera_control_envelopes",
+    "dm_worldcam": "ux_camera_control_envelopes",
+    "dm_mapcam": "ux_camera_control_envelopes",
+    "dm_sensorium": "ux_camera_control_envelopes",
+    "dm_pilot": "ux_camera_control_envelopes",
+    # Living-world continuity (not mid-game power-band dump)
+    "canon_pipeline_feel": "ux_living_world_continuity",
+    "economy_resources": "ux_living_world_continuity",
+    "economy_trade": "ux_living_world_continuity",
+    "quest_pressure_surface": "ux_living_world_continuity",
+    "sim_weather_pulse": "ux_living_world_continuity",
+    "wa_faction_goals": "ux_living_world_continuity",
+    "wa_faction_hierarchy": "ux_living_world_continuity",
+    "wa_faction_offscreen": "ux_living_world_continuity",
+    "wa_faction_reputation": "ux_living_world_continuity",
+    "wa_faction_territory": "ux_living_world_continuity",
+    "wa_lore_articles": "ux_living_world_continuity",
+    "wa_npc_agenda": "ux_living_world_continuity",
+    "wa_npc_relations": "ux_living_world_continuity",
+    "wa_npc_secrets": "ux_living_world_continuity",
+    "wa_npc_sheet": "ux_living_world_continuity",
+    "wa_npc_dialogue_hooks": "ux_living_world_continuity",
+    "wa_timelines": "ux_living_world_continuity",
+    "wa_locations": "ux_living_world_continuity",
+    "wa_maps_vs_embodied": "ux_living_world_continuity",
+    # Authorship / world change
+    "worldgen_gui": "ux_world_generation",
+    "content_authoring_surface": "ux_world_authorship_modability",
+    # Table / chronicle / prep (non-camera)
+    "chronicle_buckets": "ux_backstory_legacy_integration",
+    "player_lite_lore_gui": "ux_backstory_legacy_integration",
+    "dm_workbench_lore_gui": "ux_dm_session_prep",
+    "session0_bootstrap": "ux_dm_campaign_creation",
+    "tone_profile_surface": "ux_dm_campaign_creation",
+    "session_onboarding": "ux_dm_campaign_creation",
+    "class_chrome_discovery": "ux_backstory_legacy_integration",
+    "combat_cast_feedback": "ux_combat_play_surface",
+    "application_shell": "ux_collaborative_table_agency",
+    "primary_navigation": "ux_collaborative_table_agency",
+}
+
+_VACUUM_PARENTS = frozenset(
+    {
+        "ux_mid_game",
+        "ux_early_game",
+        "ux_late_game",
+    }
+)
+
+
+def _child_affinity_key(child: dict[str, Any]) -> str:
+    mode = str(child.get("experience_mode") or "").strip()
+    if mode:
+        return mode
+    iid = str(child.get("id") or "").strip()
+    if iid.startswith("ux_"):
+        return iid[3:]
+    return iid
+
+
 def _lens_parent_for_child(
     child: dict[str, Any],
     series_parents: list[dict[str, Any]],
 ) -> dict[str, Any] | None:
-    """Pick a locked series parent to lens a coverage/thickener child."""
+    """
+    Pick a locked series parent to lens a coverage/thickener child.
+
+    Affinity map wins for dual-rail / domain ownership (e.g. DM WorldCam under
+    camera envelopes, not session-prep). Axis/face scores are secondary.
+    """
+    by_id = {str(sp.get("id") or ""): sp for sp in series_parents if sp.get("id")}
+    aff_key = _child_affinity_key(child)
+    preferred = CHILD_SERIES_AFFINITY.get(aff_key)
+    if preferred and preferred in by_id:
+        return by_id[preferred]
+
     c_axis = str(child.get("ux_axis") or "")
     c_face = str(child.get("catalog_face") or "")
     c_dim = str(child.get("dimension") or "")
+    c_blob = " ".join(
+        [
+            str(child.get("id") or ""),
+            str(child.get("label") or ""),
+            str(child.get("experience_mode") or ""),
+            c_axis,
+        ]
+    ).lower()
     best: dict[str, Any] | None = None
     best_score = -1
     for sp in series_parents:
+        sid = str(sp.get("id") or "")
         score = 0
         if c_axis and c_axis == str(sp.get("ux_axis") or ""):
             score += 3
@@ -1177,10 +1269,81 @@ def _lens_parent_for_child(
             score += 2
         if c_dim and c_dim == str(sp.get("dimension") or ""):
             score += 2
+        # Keyword overlap with parent summary (catches dual-rail claims)
+        p_blob = f"{sp.get('label') or ''} {sp.get('summary') or ''}".lower()
+        for token in (
+            "worldcam",
+            "mapcam",
+            "sensorium",
+            "pilot",
+            "scry",
+            "dominate",
+            "absent",
+            "quiet",
+            "combat",
+            "legacy",
+            "off-screen",
+            "offscreen",
+            "faction",
+            "mod",
+            "worldgen",
+        ):
+            if token in c_blob and token in p_blob:
+                score += 4
+        if sid in _VACUUM_PARENTS:
+            score -= 2  # prefer specific parents over power-band dumps
         if score > best_score:
             best_score = score
             best = sp
     return best if best_score > 0 else (series_parents[0] if series_parents else None)
+
+
+def relens_mint_children(
+    vault_root: Path,
+    project_id: str,
+    *,
+    rewrite_summaries: bool = True,
+) -> dict[str, Any]:
+    """Re-apply series lens (affinity-aware) to non-series backlog items."""
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
+    parents = [
+        i for i in items if str(i.get("walk_tier") or "") == "series" and str(i.get("status") or "") != "dropped"
+    ]
+    moved: list[dict[str, str]] = []
+    for it in items:
+        if str(it.get("walk_tier") or "") == "series":
+            continue
+        old = str(it.get("parent_id") or "")
+        parent = _lens_parent_for_child(it, parents)
+        if not parent:
+            continue
+        new = str(parent.get("id") or "")
+        if new and new != old:
+            moved.append({"id": str(it.get("id")), "from": old, "to": new})
+            it["parent_id"] = new
+            # Refresh inherited anti-mandate from the true parent
+            inherited = parent.get("does_not_mandate")
+            if inherited:
+                it["does_not_mandate"] = list(inherited) if isinstance(inherited, list) else inherited
+            notes = str(it.get("notes") or "")
+            notes = re.sub(r";?\s*lensed_by:[^\s;]+", "", notes).strip("; ").strip()
+            it["notes"] = f"{notes}; lensed_by:{new}; relens:affinity".strip("; ")
+            if rewrite_summaries:
+                it["summary"] = _contract_child_summary(it, parent)
+                it["mint_lane"] = "validate_batch"
+                it["content_rewrite"] = "contract_v1_relens"
+    bl["items"] = _rank_items(items)
+    bl["children_relensed"] = True
+    write_mint_backlog(vault_root, project_id, bl)
+    return {
+        "ok": True,
+        "detail": "children_relensed",
+        "moved_count": len(moved),
+        "moved": moved,
+        **backlog_summary(vault_root, project_id),
+    }
 
 
 def _apply_series_lens(child: dict[str, Any], parent: dict[str, Any]) -> dict[str, Any]:

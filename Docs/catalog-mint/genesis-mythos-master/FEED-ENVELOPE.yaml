@@ -12,15 +12,18 @@ thickeners:
   poll_index: ROADMAP-RESOURCE-INDEX.yaml
   friction_check: Docs/catalog-mint/_shared/FRICTION-CHECK.md
   rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
-focal_pending_id: ux_absent_proxy
+focal_pending_id: null
 completeness:
-  ok: true
-  thin: false
-  flags: []
+  ok: false
+  thin: true
+  flags:
+  - backlog_not_frozen
+  - no_focal_item
   detail:
-    backlog_status: frozen_for_mint
-    focal_id: ux_absent_proxy
-  research_hint: ''
+    backlog_status: proposed
+    focal_id: null
+  research_hint: Consider influence or gap research enqueue if pin/UX feel thin (set
+    enqueue_thin_feed_research=true to auto-hint).
 research_enqueue_suggested: false
 note: Core is always present. neighbor_refs stay empty unless include_neighbors was
   requested at pack emit — no auto-flood.
