@@ -579,38 +579,41 @@ def expand_taxonomy_to_items(
                     derived, chunk_text = match
                     break
         base_label = str(slot.get("label") or sid)
-        base_summary = str(slot.get("summary") or "")
+        # Walk-facing summary stays product-contract language only.
+        # Feedstock / pillar evidence goes to notes — never concatenated into summary.
+        base_summary = str(slot.get("summary") or "").strip()
         dim = str(slot.get("dimension") or "ui_surface")
         axis = str(slot.get("ux_axis") or "agency")
         pin = _pin_path_from_ref(derived) if hit else ("needs pin" if not hit else "")
         if hit and not pin:
             pin = _pin_path_from_ref(derived)
         excerpt = _excerpt_around(chunk_text, needle if hit else "", radius=220) if chunk_text else ""
-        if hit and excerpt:
-            base_summary = f"{base_summary} Feedstock: {excerpt}"
-        elif not hit:
-            base_summary = (
-                f"[gap] Required taxonomy slot `{sid}` — no strong feedstock hit yet. "
-                f"{base_summary}"
-            ).strip()
-            if excerpt:
-                base_summary = f"{base_summary} Nearest context: {excerpt}"
+        note_parts: list[str] = []
+        if not hit:
+            note_parts.append(f"coverage_gap: no strong feedstock hit for slot `{sid}`")
+            if not base_summary:
+                base_summary = (
+                    f"Capability contract for taxonomy slot `{sid}` — "
+                    "await feedstock grounding under its series parent."
+                )
+        if excerpt:
+            note_parts.append(f"feedstock_excerpt: {excerpt[:400]}")
 
         # Coverage rows are supplementary to Actual-Play phenomenology.
         # critical_matrix: one shared row (pillar notes carry explore/combat/roleplay cues)
         # instead of aggressive triplication that dilutes the mint walk.
         if tier == "critical_matrix" and pillars:
             pillar_notes = _pillar_notes_from_text(chunk_text, pillars, hit=hit)
-            summary = base_summary
             if pillar_notes:
-                summary = f"{summary} Pillars: {pillar_notes}."
+                note_parts.append(f"pillars: {pillar_notes}")
             items.append(
                 {
                     "id": f"ux_{_slug(sid)}",
                     "label": base_label,
                     "dimension": dim,
                     "ux_axis": axis,
-                    "summary": summary,
+                    "summary": base_summary,
+                    "notes": "; ".join(note_parts),
                     "conceptual_pin": pin if hit else "needs pin",
                     "derived_from": derived,
                     "ux_family": str(slot.get("mode_family") or sid),
@@ -631,6 +634,8 @@ def expand_taxonomy_to_items(
             pillar_notes = ""
             if tier == "multi_pillar" and pillars:
                 pillar_notes = _pillar_notes_from_text(chunk_text, pillars, hit=hit)
+            if pillar_notes:
+                note_parts.append(f"pillars: {pillar_notes}")
             items.append(
                 {
                     "id": f"ux_{_slug(sid)}",
@@ -638,6 +643,7 @@ def expand_taxonomy_to_items(
                     "dimension": dim,
                     "ux_axis": axis,
                     "summary": base_summary,
+                    "notes": "; ".join(note_parts),
                     "conceptual_pin": pin if hit else "needs pin",
                     "derived_from": derived,
                     "ux_family": str(slot.get("mode_family") or sid),

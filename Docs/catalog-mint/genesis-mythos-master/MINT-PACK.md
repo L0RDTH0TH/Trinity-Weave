@@ -39,12 +39,12 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban**.
 5. **DM seat:** privileged DM tools OK; refuse DM-as-infrastructure; keep orchestrator fun (`dm_as_player`) visible.
 6. When all series are `done`: bone pilot runs pack emit + **Trinity/GitHub sync** and records `series_published_trinity_ref`. Children mine is **blocked** until that ref exists (Curator backup is not the gate).
-7. **Pass B — children:** after `children_greenlit`, Cursor drafts children **lensed by** locked series (`parent_id`). Grok+user validate batches; each batch republishes to Trinity (`children_published_trinity_ref`).
-8. Follow card legs. **One pending UX noun per turn** during series walk; child batches may be same-width under one parent. Do not invent the list.
+7. **Pass B — children:** after series Trinity gate, children are mined + **rewritten** (walk-facing `summary` = product-contract language; feedstock in `notes` only). After `children_greenlit`, Grok+user **validate** batches (`parent_id` lens). Each batch republishes to Trinity (`children_published_trinity_ref`).
+8. Follow card legs. **One pending UX noun per turn** during series walk; child batches may be same-width under one parent. Do not invent the list. Reject summaries that still contain `Feedstock:` / AP label dumps / `Pillars: (infer…)` residue.
 9. **Ground Meaning in project goals/intent:** cite pack `CONCEPTUAL-EXCERPT` (PMG) and poll index as needed. After Cursor apply: friction check before `done`.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-01T22:20:40Z`
+synced_at: `2026-08-01T22:49:12Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

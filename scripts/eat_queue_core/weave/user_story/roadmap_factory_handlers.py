@@ -21,6 +21,7 @@ from .ux_mint_backlog import (
     greenlight_children,
     publish_children_trinity,
     publish_series_trinity,
+    rewrite_mint_children,
     write_series_draft_stub,
 )
 from .rollout_slicer import run_rollout_slicer
@@ -135,6 +136,9 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
         elif action == "greenlight_children":
             out = greenlight_children(vault_root, project_id)
             result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "rewrite_children":
+            out = rewrite_mint_children(vault_root, project_id)
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
         elif action == "publish_children":
             out = publish_children_trinity(
                 vault_root,
@@ -159,6 +163,14 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
                 merge=params.get("merge", True) is not False,
             )
             result = {"ok": gen.ok, "id": eid, "mode": mode, "action": action, **gen.to_dict()}
+            if (
+                gen.ok
+                and harvest_pass == "children"
+                and params.get("rewrite_after", True) is not False
+            ):
+                rw = rewrite_mint_children(vault_root, project_id)
+                result["rewrite"] = rw
+                result["ok"] = bool(rw.get("ok"))
             if params.get("freeze_after") is True and (
                 gen.coverage_ok or harvest_pass == "series"
             ):

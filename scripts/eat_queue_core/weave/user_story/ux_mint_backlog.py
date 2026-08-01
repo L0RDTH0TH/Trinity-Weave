@@ -156,6 +156,7 @@ DOC_PHASE_KEYS = (
     "series_published_trinity_ref",
     "children_published_trinity_ref",
     "children_greenlit",
+    "children_rewritten",
     "archive_ref",
     "harvest_pass",
 )
@@ -253,6 +254,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         f"series_draft_accepted: {str(bool(doc.get('series_draft_accepted'))).lower()}",
         f"waive_series_draft: {str(bool(doc.get('waive_series_draft'))).lower()}",
         f"children_greenlit: {str(bool(doc.get('children_greenlit'))).lower()}",
+        f"children_rewritten: {str(bool(doc.get('children_rewritten'))).lower()}",
         f"waived_axes: {_yaml_list_fm(waived)}",
         "schema_version: 1",
     ]
@@ -537,6 +539,7 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "series_draft_accepted": _fm_bool("series_draft_accepted"),
         "waive_series_draft": _fm_bool("waive_series_draft"),
         "children_greenlit": _fm_bool("children_greenlit"),
+        "children_rewritten": _fm_bool("children_rewritten"),
         "items": items,
     }
     for key in (
@@ -1313,12 +1316,167 @@ def publish_series_trinity(
     }
 
 
+_SUMMARY_RESIDUE_MARKERS = (
+    "Feedstock:",
+    "Nearest context:",
+    "## maps_to",
+    "maps_to_taxonomy",
+    "Pillars:",
+    "exploration: (infer",
+    "combat: mentioned in feedstock",
+    "roleplay: (infer",
+)
+
+
+def _summary_has_residue(text: str) -> bool:
+    s = str(text or "")
+    if any(m in s for m in _SUMMARY_RESIDUE_MARKERS):
+        return True
+    if "- label:" in s and "summary:" in s.lower():
+        return True
+    return False
+
+
+def _strip_summary_residue(text: str) -> str:
+    """Keep product-contract prose; drop harvest evidence glued onto summary."""
+    s = str(text or "").replace("\n", " ").strip()
+    if not s:
+        return ""
+    cut_at = len(s)
+    for marker in (
+        " Feedstock:",
+        "Feedstock:",
+        " Nearest context:",
+        "Nearest context:",
+        " ## maps_to",
+        "## maps_to",
+        " maps_to_taxonomy",
+        " Pillars:",
+        "Pillars:",
+    ):
+        idx = s.find(marker)
+        if idx != -1:
+            cut_at = min(cut_at, idx)
+    s = s[:cut_at].strip()
+    # Drop leading [gap] machine prefix from walk-facing text
+    s = re.sub(r"^\[gap\]\s*", "", s).strip()
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+def _contract_child_summary(
+    item: dict[str, Any],
+    parent: dict[str, Any] | None,
+) -> str:
+    """Rewrite child summary into clean capability-contract language under parent."""
+    label = str(item.get("label") or item.get("id") or "Capability").strip()
+    raw = str(item.get("summary") or "")
+    clean = _strip_summary_residue(raw)
+    parent_label = str((parent or {}).get("label") or (parent or {}).get("id") or "").strip()
+    # If still empty/short/dirty, synthesize a contract from label + parent lens
+    if len(clean) < 48 or _summary_has_residue(clean):
+        if parent_label:
+            clean = (
+                f"{label.rstrip('.')} — table-facing capability under "
+                f"{parent_label}; structure menu, not a single AP scene default."
+            )
+        else:
+            clean = (
+                f"{label.rstrip('.')} — table-facing capability contract; "
+                "structure menu, not a single AP scene default."
+            )
+    # Ensure parent lens is implied without dumping parent essay
+    if parent_label and parent_label.lower() not in clean.lower() and len(clean) < 280:
+        clean = f"{clean.rstrip('.')} (under {parent_label})."
+    return clean[:520].strip()
+
+
+def rewrite_mint_children(
+    vault_root: Path,
+    project_id: str,
+    *,
+    only_pending: bool = True,
+) -> dict[str, Any]:
+    """
+    Stage between children harvest and Grok validate: strip feedstock residue from
+    walk-facing summaries; move evidence into notes; mint_lane → validate_batch.
+    """
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    ok, reason = assert_series_published_for_children(bl)
+    if not ok:
+        return {"ok": False, "detail": reason}
+    items = [i for i in (bl.get("items") or []) if isinstance(i, dict)]
+    parents = {
+        str(i.get("id") or ""): i
+        for i in items
+        if str(i.get("walk_tier") or "") == "series"
+    }
+    rewritten = 0
+    skipped = 0
+    for it in items:
+        if str(it.get("walk_tier") or "") == "series":
+            continue
+        st = str(it.get("status") or "pending")
+        if only_pending and st not in {"pending", "in_dialogue", "validate_batch"}:
+            skipped += 1
+            continue
+        parent = parents.get(str(it.get("parent_id") or ""))
+        old_summary = str(it.get("summary") or "")
+        new_summary = _contract_child_summary(it, parent)
+        # Preserve residue into notes once
+        if _summary_has_residue(old_summary) or old_summary != new_summary:
+            notes = str(it.get("notes") or "").strip()
+            if _summary_has_residue(old_summary) and "feedstock_excerpt:" not in notes:
+                excerpt = old_summary
+                for marker in ("Feedstock:", "Nearest context:"):
+                    if marker in excerpt:
+                        excerpt = excerpt.split(marker, 1)[-1].strip()
+                        break
+                excerpt = excerpt[:400]
+                bit = f"pre_rewrite_summary_residue: {excerpt}"
+                it["notes"] = f"{notes}; {bit}".strip("; ") if notes else bit
+            it["summary"] = new_summary
+            rewritten += 1
+        else:
+            it["summary"] = new_summary
+            rewritten += 1
+        it["mint_lane"] = "validate_batch"
+        it["content_rewrite"] = "contract_v1"
+    bl["items"] = _rank_items(items)
+    bl["children_rewritten"] = True
+    bl["mint_phase"] = "children_batch"
+    bl["harvest_pass"] = "children"
+    qv = str(bl.get("quality_validation") or "")
+    note = (
+        "children_rewrite_applied — walk-facing child summaries distilled to "
+        "product-contract language; feedstock kept in notes. Grok+user still validate batches."
+    )
+    if "children_rewrite_applied" not in qv:
+        bl["quality_validation"] = f"{qv} | {note}".strip(" |")
+    bl["quality_validation_status"] = "children_rewritten_awaiting_grok_validate"
+    write_mint_backlog(vault_root, project_id, bl)
+    return {
+        "ok": True,
+        "detail": "children_rewritten",
+        "rewritten_count": rewritten,
+        "skipped_count": skipped,
+        **backlog_summary(vault_root, project_id),
+    }
+
+
 def greenlight_children(vault_root: Path, project_id: str) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     bl = load_mint_backlog(vault_root, project_id)
     ok, reason = assert_series_published_for_children(bl)
     if not ok:
         return {"ok": False, "detail": reason}
+    # Prefer rewrite before greenlight walk; auto-run if missing
+    if not bool(bl.get("children_rewritten")):
+        rw = rewrite_mint_children(vault_root, project_id)
+        if not rw.get("ok"):
+            return rw
+        bl = load_mint_backlog(vault_root, project_id)
     bl["children_greenlit"] = True
     bl["mint_phase"] = "children_batch"
     write_mint_backlog(vault_root, project_id, bl)
@@ -1671,6 +1829,34 @@ def generate_ux_mint_backlog(
         detail = "empty_harvest"
 
     ok = bool(merged)
+    # Children harvest is incomplete without rewrite — distill walk-facing summaries.
+    if ok and hp == "children" and str(doc.get("series_published_trinity_ref") or "").strip():
+        rw = rewrite_mint_children(vault_root, pid)
+        if rw.get("ok"):
+            detail = "ux_mint_backlog_children_pass_rewritten"
+            bl2 = load_mint_backlog(vault_root, pid)
+            pending = [i for i in (bl2.get("items") or []) if str(i.get("status") or "") == "pending"]
+            nxt_item = next_pending_item(bl2)
+            nxt = str(nxt_item["id"]) if nxt_item else None
+            mint_phase = str(bl2.get("mint_phase") or mint_phase)
+            item_count = len([i for i in (bl2.get("items") or []) if isinstance(i, dict)])
+            return UxMintBacklogResult(
+                ok=True,
+                path=str(path.relative_to(vault_root)),
+                backlog_status=str(bl2.get("backlog_status") or backlog_status),
+                item_count=item_count,
+                pending_count=len(pending),
+                next_pending_id=nxt,
+                missing_axes=missing,
+                coverage_ok=cov_ok,
+                detail=detail,
+                proposed_ids=tuple(
+                    str(i.get("id")) for i in (bl2.get("items") or []) if isinstance(i, dict) and i.get("id")
+                ),
+                mint_phase=mint_phase,
+                harvest_pass=hp,
+            )
+
     return UxMintBacklogResult(
         ok=ok,
         path=str(path.relative_to(vault_root)),
