@@ -12,6 +12,7 @@ children_rewritten: true
 waived_axes: []
 schema_version: 1
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
+children_published_trinity_ref: 57cac97603eec681c7ce6ce3397049b17d7d9847
 quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -34,7 +35,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `(none)`  
+**Children Trinity ref:** `57cac97603eec681c7ce6ce3397049b17d7d9847`  
 **Quality validation:** `children_relensed_dual_rail_awaiting_grok_validate`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -673,7 +674,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: dm_player_rails
 - dimension: dm_rail
-- summary: Map-fixed orthographic DM rail — tokens, measurements, fog, LOS adjudication feel (under DM can prep a session without leaving the collaborative table frame) (under Perspective and control envelopes can change and cleanly return).
+- summary: Map-fixed orthographic DM rail — tokens, measurements, fog, LOS adjudication feel (under Perspective and control envelopes can change and cleanly return).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -696,7 +697,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: dm_rail
-- summary: When session/rules put the DM in control of an entity via pilot envelope (under Early play is a power band that gates world and pillar response) (under Perspective and control envelopes can change and cleanly return).
+- summary: When session/rules put the DM in control of an entity via pilot envelope (under Perspective and control envelopes can change and cleanly return).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -719,7 +720,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: dm_player_rails
 - dimension: dm_rail
-- summary: Read-only sight bind to an entity — no intent transfer; adjudicate what they see (under DM can prep a session without leaving the collaborative table frame) (under Perspective and control envelopes can change and cleanly return).
+- summary: Read-only sight bind to an entity — no intent transfer; adjudicate what they see (under Perspective and control envelopes can change and cleanly return).
 - pillar_notes: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
@@ -742,7 +743,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: dm_player_rails
 - dimension: dm_rail
-- summary: Free-flight DM observation rail — how mastery feels in this pillar (under DM can prep a session without leaving the collaborative table frame) (under Perspective and control envelopes can change and cleanly return).
+- summary: Free-flight DM observation rail — how mastery feels in this pillar (under Perspective and control envelopes can change and cleanly return).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
@@ -880,7 +881,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Keep world ripples, session chronicle, and personal archive distinct in UX (under In-adventure quiet keeps continuous fiction between combat social and explore) (under Backstory and legacies can hook into play and chronicle).
+- summary: Keep world ripples, session chronicle, and personal archive distinct in UX (under Backstory and legacies can hook into play and chronicle).
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
 - ux_family: chronicle_buckets
@@ -925,7 +926,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Intent inbox, Legacies, last-session recap, personal chronicle — not sim admin (under In-adventure quiet keeps continuous fiction between combat social and explore) (under Backstory and legacies can hook into play and chronicle).
+- summary: Intent inbox, Legacies, last-session recap, personal chronicle — not sim admin (under Backstory and legacies can hook into play and chronicle).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -993,7 +994,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: proposed → accepted → hooked → sim-active as human-facing states (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: proposed → accepted → hooked → sim-active as human-facing states (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -1016,7 +1017,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: What player/DM can see vs must discover about resources — not spreadsheet admin by default (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: What player/DM can see vs must discover about resources — not spreadsheet admin by default (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
@@ -1039,7 +1040,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Trade and market pressure as world-continuity surfaces (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Trade and market pressure as world-continuity surfaces (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
@@ -1062,7 +1063,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How hooks appear in play and on the workbench — not fetch-only tables (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: How hooks appear in play and on the workbench — not fetch-only tables (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -1085,7 +1086,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Faction goals and pressure as felt by player and DM (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Faction goals and pressure as felt by player and DM (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
@@ -1108,7 +1109,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Faction structure and ranks as browsable/playable continuity (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Faction structure and ranks as browsable/playable continuity (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
@@ -1131,7 +1132,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Since-you-left deltas and off-screen faction pulse as human-facing continuity (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Since-you-left deltas and off-screen faction pulse as human-facing continuity (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
@@ -1154,7 +1155,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Reputation and consequence as surfaced to player vs DM (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Reputation and consequence as surfaced to player vs DM (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
@@ -1177,7 +1178,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: World lore articles as readable continuity distinct from personal chronicle (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: World lore articles as readable continuity distinct from personal chronicle (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
@@ -1200,7 +1201,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Agenda and schedule as human-facing continuity — not raw sim tables (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Agenda and schedule as human-facing continuity — not raw sim tables (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -1223,7 +1224,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How relationships among NPCs/factions are browsed and felt (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: How relationships among NPCs/factions are browsed and felt (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
@@ -1246,7 +1247,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How hidden knowledge is gated and revealed without spoiling authoring vs play (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: How hidden knowledge is gated and revealed without spoiling authoring vs play (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
@@ -1269,7 +1270,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: World Anvil–depth NPC identity surface — who they are at a glance in play/authoring (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: World Anvil–depth NPC identity surface — who they are at a glance in play/authoring (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
@@ -1292,7 +1293,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Eras and non-linear history threads as Microscope-informed continuity UX (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Eras and non-linear history threads as Microscope-informed continuity UX (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -1315,7 +1316,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: presentation_shells
 - dimension: world_gen
-- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate (under DM can create (table can shape) a persistent living world).
+- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -1338,7 +1339,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: exploration
 - ux_axis: agency
 - dimension: sim_system
-- summary: Tone-weighted weather and ambient world pulse as felt, not raw tick tables (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Tone-weighted weather and ambient world pulse as felt, not raw tick tables (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
@@ -1361,7 +1362,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: exploration
 - ux_axis: agency
 - dimension: ui_surface
-- summary: Territory and influence as map and embodied discovery (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: Territory and influence as map and embodied discovery (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
 - derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
@@ -1407,7 +1408,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: exploration
 - ux_axis: dm_player_rails
 - dimension: ui_surface
-- summary: When knowledge comes from map chrome vs first-person discovery (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: When knowledge comes from map chrome vs first-person discovery (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
@@ -1430,7 +1431,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: roleplay
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How dialogue and roleplay hooks surface in the moment of play (under Mid play is a power band for lasting pressure and deeper world response) (under World can move off-screen and show lasting readable costs).
+- summary: How dialogue and roleplay hooks surface in the moment of play (under World can move off-screen and show lasting readable costs).
 - pillar_notes: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
@@ -1453,7 +1454,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: presentation_shells
 - dimension: ui_surface
-- summary: Baseline shell — screen regions, chrome placement, layout mapping for any product (under Mental stats surface available read paths not only sheet numbers) (under Shared virtual-tabletop loop with character agency and DM orchestration).
+- summary: Baseline shell — screen regions, chrome placement, layout mapping for any product (under Shared virtual-tabletop loop with character agency and DM orchestration).
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
 - ux_family: application_shell
@@ -1475,7 +1476,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How users move between major areas — menus, routes, breadcrumbs, spatial wayfinding (under Early play is a power band that gates world and pillar response) (under Shared virtual-tabletop loop with character agency and DM orchestration).
+- summary: How users move between major areas — menus, routes, breadcrumbs, spatial wayfinding (under Shared virtual-tabletop loop with character agency and DM orchestration).
 - conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
 - derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
 - ux_family: primary_navigation
@@ -1519,7 +1520,7 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 - dnd_pillar: shared
 - ux_axis: agency
 - dimension: ui_surface
-- summary: How operators or users create, edit, and publish content — distinct from read-only consumption (under Early play is a power band that gates world and pillar response) (under Table and community can author world change via curated and mod contracts).
+- summary: How operators or users create, edit, and publish content — distinct from read-only consumption (under Table and community can author world change via curated and mod contracts).
 - pillar_notes: exploration: (infer from mode) | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
 - derived_from: research:Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
