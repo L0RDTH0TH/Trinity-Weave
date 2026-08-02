@@ -14,6 +14,14 @@ from typing import Any
 import yaml
 
 from .catalog_io import catalog_rows_by_id, load_yaml, save_yaml, user_story_paths
+from .ux_mint_walk_files import (
+    children_of_dirname,
+    load_items_from_walk_files,
+    split_backlog_doc_to_walk_dirs,
+    sync_all_walk_files,
+    sync_batch_digests,
+    walk_tree_present,
+)
 
 REQUIRED_UX_AXES = (
     "perspective_overrides",
@@ -399,6 +407,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
     mint_phase = str(doc.get("mint_phase") or "series_draft")
     harvest_pass = str(doc.get("harvest_pass") or "series")
     items = [i for i in (doc.get("items") or []) if isinstance(i, dict)]
+    walk_split = bool(doc.get("walk_defs_split"))
 
     lines: list[str] = [
         "---",
@@ -412,6 +421,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         f"waive_series_draft: {str(bool(doc.get('waive_series_draft'))).lower()}",
         f"children_greenlit: {str(bool(doc.get('children_greenlit'))).lower()}",
         f"children_rewritten: {str(bool(doc.get('children_rewritten'))).lower()}",
+        f"walk_defs_split: {str(walk_split).lower()}",
         f"waived_axes: {_yaml_list_fm(waived)}",
         "schema_version: 1",
     ]
@@ -431,10 +441,10 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         "archive_ref",
         "quality_validation_status",
         "quality_validation",
+        "walk_defs_layout",
     ):
         val = doc.get(key)
         if val:
-            # keep long quality_validation readable in FM as one line
             text = str(val).replace("\n", " ").strip()
             lines.append(f"{key}: {text}")
     lines.extend(
@@ -445,10 +455,31 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             "",
             f"# MINT-BACKLOG — `{pid}`",
             "",
-            "Obsidian **operator prune / critique** surface. Edit item fields below "
-            "(especially `status`), then harvest/freeze/sync will refresh "
-            "`MINT-BACKLOG.yaml` (machine walk queue + Grok pack).",
-            "",
+        ]
+    )
+    if walk_split:
+        lines.extend(
+            [
+                "Obsidian **list / prune** surface. Full Meaning defs live under "
+                "`scopes/<parent>/SERIES.md` and "
+                "`scopes/<parent>/children-of-<parent>/<child>/WALK.md` "
+                "(list **dirs** under `children-of-*` to see the batch). "
+                "Edit walk cards or status here; harvest/freeze/sync refreshes "
+                "`MINT-BACKLOG.yaml`.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "Obsidian **operator prune / critique** surface. Edit item fields below "
+                "(especially `status`), then harvest/freeze/sync will refresh "
+                "`MINT-BACKLOG.yaml` (machine walk queue + Grok pack).",
+                "",
+            ]
+        )
+    lines.extend(
+        [
             "## Operator gate (two-pass mint)",
             "",
             "1. **Series draft** (Cursor) → accept → series-only harvest.",
@@ -459,7 +490,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             "5. Only then children harvest (series lens) → greenlight → Cursor batches → "
             "Trinity-publish children.",
             "6. Actions: `UX_MINT_BACKLOG` `series_draft` | `generate` | `freeze` | "
-            "`publish_series` | `greenlight_children` | `publish_children`.",
+            "`publish_series` | `greenlight_children` | `lock_child_batch` | `publish_children`.",
             "",
             f"**Current status:** `{status}`  ",
             f"**Mint phase:** `{mint_phase}`  ",
@@ -470,6 +501,7 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             f"**Locked child batches:** `{', '.join(str(x) for x in (doc.get('locked_child_batches') or [])) or '(none)'}`  ",
             f"**Active / next child batch:** `{doc.get('active_child_batch') or doc.get('next_child_batch') or '(auto: largest pending)'}`  ",
             f"**Waived axes/slots:** `{', '.join(waived) if waived else '(none)'}`  ",
+            f"**Walk defs split:** `{walk_split}`  ",
             f"**Rubric:** [[{rubric.replace('.md', '')}|UX mint rubric]]",
             "",
         ]
@@ -496,7 +528,6 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
     active = str(doc.get("active_child_batch") or doc.get("next_child_batch") or "").strip()
     for parent, children in _items_by_series_parent(items):
         if parent is None:
-            # #### — must not use ### `id` (parser treats those as items)
             lines.append("#### Unparented children")
             lines.append("")
             for ch in children:
@@ -515,6 +546,11 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         )
         lines.append("")
         lines.append(_quick_status_line(parent, indent=""))
+        if walk_split:
+            lines.append(
+                f"  - *Walk dirs:* `scopes/{batch_id}/SERIES.md` · "
+                f"`scopes/{batch_id}/{children_of_dirname(batch_id)}/<child>/WALK.md`"
+            )
         if children:
             pend = sum(1 for c in children if str(c.get("status") or "") == "pending")
             done = sum(1 for c in children if str(c.get("status") or "") == "done")
@@ -527,23 +563,39 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             lines.append("  - *No children lensed under this series*")
         lines.append("")
 
-    lines.extend(["## Items", ""])
-    for parent, children in _items_by_series_parent(items):
-        if parent is None:
-            lines.append("#### Unparented children")
+    if walk_split:
+        lines.extend(
+            [
+                "## Items",
+                "",
+                "Full Meaning cards are **not** inlined here. Open:",
+                "",
+                "- Series: `scopes/<series_id>/SERIES.md`",
+                "- Children: list dirs under `scopes/<parent>/children-of-<parent>/` "
+                "then open `<child>/WALK.md`",
+                "",
+                "Factory L5 remains `scopes/<row_id>/L5.md` (separate from walk cards).",
+                "",
+            ]
+        )
+    else:
+        lines.extend(["## Items", ""])
+        for parent, children in _items_by_series_parent(items):
+            if parent is None:
+                lines.append("#### Unparented children")
+                lines.append("")
+                for ch in children:
+                    lines.extend(_render_item_block(ch))
+                continue
+            batch_id = str(parent.get("id") or "")
+            lines.append(f"#### Series parent `{batch_id}`")
             lines.append("")
-            for ch in children:
-                lines.extend(_render_item_block(ch))
-            continue
-        batch_id = str(parent.get("id") or "")
-        lines.append(f"#### Series parent `{batch_id}`")
-        lines.append("")
-        lines.extend(_render_item_block(parent))
-        if children:
-            lines.append(f"**Children of `{batch_id}`**")
-            lines.append("")
-            for ch in children:
-                lines.extend(_render_item_block(ch))
+            lines.extend(_render_item_block(parent))
+            if children:
+                lines.append(f"**Children of `{batch_id}`**")
+                lines.append("")
+                for ch in children:
+                    lines.extend(_render_item_block(ch))
 
     lines.append("## Coverage reminder")
     lines.append("")
@@ -695,6 +747,7 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "waive_series_draft": _fm_bool("waive_series_draft"),
         "children_greenlit": _fm_bool("children_greenlit"),
         "children_rewritten": _fm_bool("children_rewritten"),
+        "walk_defs_split": _fm_bool("walk_defs_split"),
         "items": items,
     }
     locked_raw = fm.get("locked_child_batches") or []
@@ -714,22 +767,55 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "quality_validation_status",
         "active_child_batch",
         "next_child_batch",
+        "walk_defs_layout",
     ):
         if fm.get(key):
             doc[key] = str(fm[key])
     return doc
 
 
+def _maybe_overlay_walk_items(vault_root: Path, project_id: str, data: dict[str, Any]) -> dict[str, Any]:
+    """When walk dirs exist, Meaning items come from SERIES.md / children-of-*/WALK.md."""
+    scopes = user_story_paths(vault_root, project_id)["scopes_dir"]
+    if not walk_tree_present(scopes):
+        return data
+    out = dict(data)
+    walk_items = load_items_from_walk_files(scopes)
+    if walk_items:
+        out["items"] = walk_items
+        out["walk_defs_split"] = True
+        out.setdefault(
+            "walk_defs_layout",
+            "scopes/<parent>/children-of-<parent>/<child>/WALK.md",
+        )
+    return out
+
+
+def migrate_mint_backlog_to_walk_dirs(vault_root: Path, project_id: str) -> dict[str, Any]:
+    """One-shot: split monolithic backlog Meaning into walk dirs; rewrite thin list."""
+    ypath = backlog_path(vault_root, project_id)
+    if not ypath.is_file():
+        raise FileNotFoundError(ypath)
+    doc = load_yaml(ypath)
+    if not isinstance(doc, dict):
+        raise ValueError("MINT-BACKLOG.yaml is not a mapping")
+    doc.setdefault("project_id", project_id)
+    doc = split_backlog_doc_to_walk_dirs(vault_root, project_id, doc)
+    write_mint_backlog(vault_root, project_id, doc)
+    return doc
+
+
 def write_mint_backlog(vault_root: Path, project_id: str, doc: dict[str, Any]) -> tuple[Path, Path]:
-    """Write YAML machine mirror + Obsidian markdown surface."""
+    """Write YAML machine mirror + Obsidian markdown surface (+ walk dirs when split)."""
     vault_root = vault_root.resolve()
     ypath = backlog_path(vault_root, project_id)
     mpath = backlog_md_path(vault_root, project_id)
     ypath.parent.mkdir(parents=True, exist_ok=True)
-    # YAML keeps machine fields only (notes optional)
     yaml_doc = dict(doc)
+    if bool(yaml_doc.get("walk_defs_split")):
+        sync_all_walk_files(vault_root, project_id, yaml_doc)
     save_yaml(ypath, yaml_doc)
-    mpath.write_text(render_mint_backlog_markdown(doc), encoding="utf-8")
+    mpath.write_text(render_mint_backlog_markdown(yaml_doc), encoding="utf-8")
     return ypath, mpath
 
 
@@ -1189,12 +1275,14 @@ def load_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
                     data["project_id"] = project_id
                 if y_doc is not None:
                     data = _merge_yaml_doc_gates(data, y_doc)
+                data = _maybe_overlay_walk_items(vault_root, project_id, data)
                 return data
         except Exception:
             pass
     if y_doc is not None:
-        return y_doc
-    return empty
+        return _maybe_overlay_walk_items(vault_root, project_id, y_doc)
+    empty2 = dict(empty)
+    return _maybe_overlay_walk_items(vault_root, project_id, empty2)
 
 
 def pending_child_batches(backlog: dict[str, Any]) -> list[tuple[str, list[dict[str, Any]]]]:
@@ -1887,6 +1975,204 @@ def publish_children_trinity(
         "ok": True,
         "detail": "children_published_trinity",
         "children_published_trinity_ref": ref,
+        "pack": pack_out,
+        **backlog_summary(vault_root, project_id),
+    }
+
+
+def child_batch_status_path(vault_root: Path, project_id: str) -> Path:
+    return user_story_paths(vault_root, project_id)["catalog"].parent / "CHILD-BATCH-STATUS.md"
+
+
+def _parent_child_counts(doc: dict[str, Any], parent_id: str) -> tuple[int, int, int]:
+    """Return (done, pendingish, total) for coverage children under parent."""
+    done = pendingish = total = 0
+    for it in doc.get("items") or []:
+        if not isinstance(it, dict):
+            continue
+        if str(it.get("walk_tier") or "") == "series":
+            continue
+        if str(it.get("parent_id") or "").strip() != parent_id:
+            continue
+        total += 1
+        st = str(it.get("status") or "")
+        if st == "done":
+            done += 1
+        elif st in {"pending", "in_dialogue"}:
+            pendingish += 1
+    return done, pendingish, total
+
+
+def render_child_batch_status_markdown(doc: dict[str, Any]) -> str:
+    """Harness-owned board for locked vs active same-width batches."""
+    pid = str(doc.get("project_id") or "").strip() or "project"
+    locked = [str(x) for x in (doc.get("locked_child_batches") or [])]
+    active = str(doc.get("active_child_batch") or doc.get("next_child_batch") or "").strip()
+    lines = [
+        "---",
+        f"title: Child batch status — {pid}",
+        f"project-id: {pid}",
+        "---",
+        "",
+        "# Child batch status",
+        "",
+        "**Source of truth for Grok:** this note + `MINT-BACKLOG` frontmatter "
+        "(`locked_child_batches`, `active_child_batch`). Ignore chat tables that still say a locked batch is in flight.",
+        "",
+        "**Walk layout:** Meaning cards under `scopes/`: `SERIES.md` + "
+        "`children-of-<parent>/<child>/WALK.md`. Pass B opens **`BATCH-DIGEST.md`** under the active parent first "
+        "(full `WALK.md` only for yellow/red/thin). Law: `Docs/catalog-mint/_shared/CHILD-BATCH-VALIDATION.md`.",
+        "",
+        "## Locked",
+        "",
+    ]
+    if locked:
+        for parent in locked:
+            done, _pend, total = _parent_child_counts(doc, parent)
+            lines.append(
+                f"- `{parent}` — **{done}/{total} done**  "
+                f"Dirs: `scopes/{parent}/children-of-{parent}/` · digest: `scopes/{parent}/BATCH-DIGEST.md`"
+            )
+    else:
+        lines.append("- _(none)_")
+    lines.extend(["", "## Open (same-width) — suggested order", ""])
+    lines.append("| # | Parent | Pending | Status |")
+    lines.append("|---|--------|---------|--------|")
+    # Ordered open parents: pending batches by size, then any active with zero pending
+    batches = pending_child_batches(doc)
+    seen: set[str] = set()
+    rows: list[tuple[str, int, str]] = []
+    for parent, kids in batches:
+        if parent in locked:
+            continue
+        status = "**ACTIVE**" if parent == active else "queued"
+        rows.append((parent, len(kids), status))
+        seen.add(parent)
+    if active and active not in seen and active not in locked:
+        _d, pend, _t = _parent_child_counts(doc, active)
+        rows.insert(0, (active, pend, "**ACTIVE**"))
+        seen.add(active)
+    if not rows:
+        lines.append("| — | _(none open)_ | 0 | — |")
+    else:
+        for i, (parent, pend, status) in enumerate(rows, start=1):
+            hint = f" — `scopes/{parent}/BATCH-DIGEST.md`" if "ACTIVE" in status else ""
+            lines.append(f"| {i} | `{parent}` | {pend} | {status}{hint} |")
+    nxt = next_pending_item(doc)
+    if nxt:
+        lines.extend(
+            [
+                "",
+                f"**Next pending noun (within active batch):** `{nxt.get('id')}` "
+                f"(parent `{nxt.get('parent_id') or ''}`)",
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "Early/mid-game are **not** separate child batches (DM pilot → camera; WA dump → living-world).",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def write_child_batch_status(vault_root: Path, project_id: str, doc: dict[str, Any]) -> Path:
+    path = child_batch_status_path(vault_root, project_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(render_child_batch_status_markdown(doc), encoding="utf-8")
+    return path
+
+
+def emit_child_batch_digest(vault_root: Path, project_id: str) -> dict[str, Any]:
+    """Refresh BATCH-DIGEST.md files + child batch board without locking."""
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    if not bool(bl.get("walk_defs_split")):
+        bl = split_backlog_doc_to_walk_dirs(vault_root, project_id, bl)
+    paths = sync_batch_digests(vault_root, project_id, bl)
+    board = write_child_batch_status(vault_root, project_id, bl)
+    write_mint_backlog(vault_root, project_id, bl)
+    return {
+        "ok": True,
+        "detail": "child_batch_digest_emitted",
+        "digest_count": len(paths),
+        "digest_paths": [str(p.relative_to(vault_root)) for p in paths],
+        "board": str(board.relative_to(vault_root)),
+        **backlog_summary(vault_root, project_id),
+    }
+
+
+def lock_child_batch(
+    vault_root: Path,
+    project_id: str,
+    *,
+    parent_id: str | None = None,
+    emit_pack: bool = True,
+) -> dict[str, Any]:
+    """Lock a same-width child batch after all children are done; advance active."""
+    vault_root = vault_root.resolve()
+    bl = load_mint_backlog(vault_root, project_id)
+    parent = str(parent_id or bl.get("active_child_batch") or bl.get("next_child_batch") or "").strip()
+    if not parent:
+        return {"ok": False, "detail": "parent_id_required"}
+    locked = [str(x) for x in (bl.get("locked_child_batches") or [])]
+    if parent in locked:
+        return {"ok": False, "detail": "batch_already_locked", "parent_id": parent}
+    children = [
+        it
+        for it in (bl.get("items") or [])
+        if isinstance(it, dict)
+        and str(it.get("walk_tier") or "") != "series"
+        and str(it.get("parent_id") or "").strip() == parent
+    ]
+    if not children:
+        return {"ok": False, "detail": "no_children_under_parent", "parent_id": parent}
+    not_done = [
+        str(it.get("id") or "")
+        for it in children
+        if str(it.get("status") or "") != "done"
+    ]
+    if not_done:
+        return {
+            "ok": False,
+            "detail": "children_not_all_done",
+            "parent_id": parent,
+            "not_done": not_done,
+            "hint": "Mark greens done after batch receipt; re-scope yellow/red first.",
+        }
+    locked.append(parent)
+    bl["locked_child_batches"] = locked
+    # Advance to next largest pending parent not locked
+    batches = pending_child_batches(bl)
+    next_parent = ""
+    for pid, _kids in batches:
+        if pid not in locked and pid != parent:
+            next_parent = pid
+            break
+    bl["active_child_batch"] = next_parent
+    bl["next_child_batch"] = next_parent
+    write_mint_backlog(vault_root, project_id, bl)
+    write_child_batch_status(vault_root, project_id, bl)
+    pack_out: dict[str, Any] = {}
+    if emit_pack:
+        from .catalog_mint_pack import emit_catalog_mint_pack
+
+        pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
+        pack_out = pack.to_dict()
+        if not pack.ok:
+            return {
+                "ok": False,
+                "detail": "pack_emit_failed",
+                "parent_id": parent,
+                "pack": pack_out,
+            }
+    return {
+        "ok": True,
+        "detail": "child_batch_locked",
+        "parent_id": parent,
+        "locked_child_batches": locked,
+        "active_child_batch": next_parent,
         "pack": pack_out,
         **backlog_summary(vault_root, project_id),
     }

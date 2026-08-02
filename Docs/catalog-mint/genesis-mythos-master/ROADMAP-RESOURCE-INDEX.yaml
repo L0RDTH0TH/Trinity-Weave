@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 360
+roadmap_note_count: 433
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -2590,6 +2590,19 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: reference-exemplar-dual-goal-2026-08-01
+  wiki: '[[reference-exemplar-dual-goal-2026-08-01]]'
+  rel_under_project: Roadmap/Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01.md
+  kind: cdr
+  wiki_links:
+  - Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914
+  - genesis-mythos-master-goal
+  - Roadmap/User-Story/REFERENCE-EXEMPLAR-CHARTER
+  - REFERENCE-EXEMPLAR-CHARTER
+  - MINT-QUALITY-CAVEAT
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: rules-base-srd-5-1-cc-by-2026-07-21
   wiki: '[[rules-base-srd-5-1-cc-by-2026-07-21]]'
   rel_under_project: Roadmap/Conceptual-Decision-Records/rules-base-srd-5-1-cc-by-2026-07-21.md
@@ -4248,16 +4261,49 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  wiki: '[[Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01]]'
+  rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-4-Reference-Exemplar/Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01.md
+  kind: phase
+  wiki_links:
+  - Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914
+  - Phase-6-1-Factory-Phase-0-Presentation-Shell-Roadmap-2026-06-26-1912
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+  - Phase-6-3-Factory-vs-Demo-Track-Boundary-Glue-Roadmap-2026-06-26-2031
+  - genesis-mythos-master-Roadmap-2026-06-26-0914
+  - genesis-mythos-master-goal
+  - REFERENCE-EXEMPLAR-CHARTER
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
+  wiki: '[[Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01]]'
+  rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-4-Reference-Exemplar/Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01.md
+  kind: rollup
+  wiki_links:
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  - REFERENCE-EXEMPLAR-CHARTER
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - genesis-mythos-master-goal
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914
   wiki: '[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914]]'
   rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914.md
   kind: phase
   wiki_links:
   - genesis-mythos-master-Roadmap-2026-06-26-0914
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - REFERENCE-EXEMPLAR-CHARTER
   - Phase-6-Prototype-Assembly-Testing-and-Iteration-Roll-up-2026-07-15
   - Phase-6-1-Factory-Phase-0-Presentation-Shell-Roadmap-2026-06-26-1912
   - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   - Phase-6-3-Factory-vs-Demo-Track-Boundary-Glue-Roadmap-2026-06-26-2031
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  - Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4267,6 +4313,7 @@ roadmap_notes:
   kind: rollup
   wiki_links:
   - Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914
+  - Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
   - Phase-6-1-Factory-Phase-0-Presentation-Shell-Roadmap-2026-06-26-1912
   - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   - Phase-6-3-Factory-vs-Demo-Track-Boundary-Glue-Roadmap-2026-06-26-2031
@@ -4457,7 +4504,6 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
-  - Ingest/Microscope PDF
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4482,7 +4528,10 @@ roadmap_notes:
   wiki: '[[MINT-QUALITY-CAVEAT]]'
   rel_under_project: Roadmap/User-Story/MINT-QUALITY-CAVEAT.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - genesis-mythos-master-goal
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - REFERENCE-EXEMPLAR-CHARTER
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4491,6 +4540,17 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Mint-Receipts/ux_dm_campaign_creation.meaning.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: REFERENCE-EXEMPLAR-CHARTER
+  wiki: '[[REFERENCE-EXEMPLAR-CHARTER]]'
+  rel_under_project: Roadmap/User-Story/REFERENCE-EXEMPLAR-CHARTER.md
+  kind: user_story
+  wiki_links:
+  - genesis-mythos-master-goal
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4569,6 +4629,19 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Versions/children-run--20260801-children-pre-rewrite/README.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: MINT-BACKLOG
+  wiki: '[[MINT-BACKLOG]]'
+  rel_under_project: Roadmap/User-Story/Versions/mint-backlog-pre-split-20260802T214923Z/MINT-BACKLOG.md
+  kind: user_story
+  wiki_links:
+  - Docs/catalog-mint/_shared/UX-MINT-RUBRIC
+  - MINT-QUALITY-CAVEAT
+  - REFERENCE-EXEMPLAR-CHARTER
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - Ingest/Microscope PDF
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4757,9 +4830,57 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4773,9 +4894,161 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_absent_proxy/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_agency_handoff_enter_exit/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp_controls/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_divination_override/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_mapcam/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_pilot/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_sensorium/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_worldcam/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_pilot/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_victim/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_liminal_unconscious/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_planar_travel_override/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/BATCH-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_application_shell/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_primary_navigation/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4789,9 +5062,73 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/ux_combat_cast_feedback/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/BATCH-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session0_bootstrap/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_tone_profile_surface/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4805,9 +5142,33 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/SERIES.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4821,9 +5182,186 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/BATCH-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/WALK.md
+  kind: user_story
+  wiki_links:
+  - Ingest/Microscope PDF
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_sim_weather_pulse/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_hierarchy/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_reputation/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_locations/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_maps_vs_embodied/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_dialogue_hooks/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_secrets/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4837,9 +5375,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/SERIES.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4853,9 +5407,33 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4869,9 +5447,49 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/WALK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: BATCH-DIGEST
+  wiki: '[[BATCH-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/BATCH-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SERIES
+  wiki: '[[SERIES]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/SERIES.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: WALK
+  wiki: '[[WALK]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -5074,6 +5692,8 @@ roadmap_notes:
   rel_under_project: Roadmap/decisions-log.md
   kind: roadmap
   wiki_links:
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - REFERENCE-EXEMPLAR-CHARTER
   - Conceptual-Decision-Records/deepen-phase-5-1-3-body-recompact-1200-2026-07-17-0139
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-5-1-2-20260717T042415Z-20260717T050512Z-l1-post-lv.md
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-5-1-2-20260717T042415Z-20260717T045947Z-second-pass.md
@@ -5112,8 +5732,6 @@ roadmap_notes:
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-2-1-20260716T222811Z-20260716T225832Z-second-pass.md
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-2-1-20260716T222811Z-20260716T230206Z-layer1-post-lv.md
   - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
-  - Conceptual-Decision-Records/deepen-phase-4-1-3-body-recompact-1200-2026-07-16-1814
-  - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-1-3-20260716T220407Z-20260716T221758Z.md
   linked_resources:
   - 3-Resources/Second-Brain/Docs/Decisions-Log-Operator-Pick-Convention
   tert_id: null
@@ -5128,6 +5746,9 @@ roadmap_notes:
   - workflow_state
   - decisions-log
   - genesis-mythos-master-Roadmap-2026-06-26-0914
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
+  - REFERENCE-EXEMPLAR-CHARTER
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
   - Phase-1-Conceptual-Foundation-and-Core-Architecture-Roadmap-2026-06-26-0914
   - Phase-1-Conceptual-Foundation-and-Core-Architecture-Roll-up-2026-06-29
   - Phase-1-1-Layer-Decoupling-and-Interface-Contracts-Roadmap-2026-06-26-1200
@@ -5160,9 +5781,6 @@ roadmap_notes:
   - .technical/Internal-Repair-Agent/roadmap/2026-06/genesis-mythos-master-ira-call-1-resume-deepen-gmm-121-compact-20260629T131500Z.md
   - Phase-1-2-1-Stage-DAG-Node-Contracts-Roadmap-2026-06-26-1105
   - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
-  - Conceptual-Decision-Records/deepen-phase-1-3-factory-feed-gate-2026-06-29-0830
-  - Phase-1-3-1-SeamRegistry-Canonical-Index-Roadmap-2026-06-29-1037
-  - Conceptual-Decision-Records/deepen-phase-1-3-1-seam-registry-canonical-index-2026-06-29-1037
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5181,6 +5799,7 @@ roadmap_notes:
   rel_under_project: Roadmap/roadmap-state.md
   kind: roadmap
   wiki_links:
+  - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
   - Conceptual-Decision-Records/deepen-phase-5-1-3-body-recompact-1200-2026-07-17-0139
   - Phase-5-1-3-RuleConflictArbiter-and-RuleEffectBus-Roll-up-2026-07-16
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-5-1-2-20260717T042415Z-20260717T050512Z-l1-post-lv.md
@@ -5220,7 +5839,6 @@ roadmap_notes:
   - .technical/Internal-Repair-Agent/roadmap/2026-07/genesis-mythos-master-ira-call-1-followup-deepen-gmm-4-2-1-20260716T222811Z.md
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-2-1-20260716T222811Z-20260716T225832Z-second-pass.md
   - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-2-1-20260716T222811Z-20260716T230206Z-layer1-post-lv.md
-  - .technical/parallel/godot/Validator/validator-roadmap_handoff_auto-followup-deepen-gmm-4-1-3-20260716T220407Z-20260716T223000Z-layer1-post-lv.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

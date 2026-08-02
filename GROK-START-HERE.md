@@ -6,7 +6,7 @@
 
 **Layout:** **`main`** = Trinity (**the system** — mint law + pack walk queue). **`project/<project_id>`** = **the project being served** (PMG + full `Roadmap/`). Mint uses both.
 
-**Two-pass mint:** **Pass A** = lock `walk_tier: series` only, then Trinity-publish series. **Pass B** = after `children_greenlit`, validate Cursor children lensed by series (`parent_id`). Read `MINT-PACK.md` Walk Order + backlog gates. **World ≠ campaign** — world is the durable container; campaigns (and casts) nest inside it.
+**Two-pass mint:** **Pass A** = lock `walk_tier: series` only, then Trinity-publish series (**one series noun per turn**). **Pass B** = after `children_greenlit`, validate the **active same-width child batch** via `CHILD-BATCH-STATUS` + `BATCH-DIGEST.md` → one receipt (`_shared/CHILD-BATCH-VALIDATION.md`). Full `WALK.md` only for flagged ids. **World ≠ campaign** — world is the durable container; campaigns (and casts) nest inside it.
 
 **Project navigation (mint):** bone pilot names **`project_id`** → open **`main` pack** `Docs/catalog-mint/<project_id>/` (walk queue) **and** branch **`project/<project_id>`** (PMG + full `Roadmap/` grounding). Both surfaces. Not “main only.”
 
@@ -26,7 +26,7 @@ When instructed:
 2. Open **`weave/component-proposals/catalog_mint.yaml`** (Trinity card — process / touch / rules).
 3. Open pack **`Docs/catalog-mint/<project_id>/`** — `MINT-PACK.md` Walk Order, backlog gates (`mint_phase`, Trinity refs, `children_greenlit`), conceptual, pins, index, stack excerpts. Poll the index; request fulfill by `tert_id` for missing bodies.
 4. **Series incomplete / no `series_published_trinity_ref`:** one pending **series** receipt per turn.
-5. **Children greenlit:** validate Cursor child drafts (batches OK); do not invent the list; ask republish if pack stale.
+5. **Children greenlit:** open `CHILD-BATCH-STATUS` + active `BATCH-DIGEST.md`; return **one** batch receipt (`CHILD-BATCH-VALIDATION.md`); do not invent the list; ask republish if pack stale.
 6. Preflight every draft; await `approve` / `edit` / `reject`.
 
 Ignore archived `gmm-catalog-mint` if old links surface it.

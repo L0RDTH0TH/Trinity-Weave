@@ -11,6 +11,9 @@
 | `MINT-BACKLOG.yaml` | **Walk queue** — machine mirror (Grok pack) |
 | `MINT-BACKLOG.md` | **Obsidian prune surface** — operator edits status / labels here |
 | `CHILD-BATCH-STATUS.md` | **Same-width child batches** — locked vs active parent (prefer over chat memory) |
+| `scopes/<parent>/BATCH-DIGEST.md` | **Pass B primary** — receipt-first summaries; open full `WALK.md` only for flagged ids |
+| `scopes/` walk tree | `SERIES.md` + `children-of-<parent>/<child>/WALK.md` |
+| `_shared/CHILD-BATCH-VALIDATION.md` | Pass B receipt shape + velocity rules |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
@@ -40,12 +43,12 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban**.
 5. **DM seat:** privileged DM tools OK; refuse DM-as-infrastructure; keep orchestrator fun (`dm_as_player`) visible.
 6. When all series are `done`: bone pilot runs pack emit + **Trinity/GitHub sync** and records `series_published_trinity_ref`. Children mine is **blocked** until that ref exists (Curator backup is not the gate).
-7. **Pass B — children:** after series Trinity gate, children are mined + **rewritten** (walk-facing `summary` = product-contract language; feedstock in `notes` only). After `children_greenlit`, Grok+user **validate** batches (`parent_id` lens). Read `CHILD-BATCH-STATUS.md` + backlog `locked_child_batches` / `active_child_batch` — do **not** trust chat tables that still list a locked batch as in flight. Stay inside the active same-width parent until bone pilot locks it. Each batch republishes to Trinity (`children_published_trinity_ref`).
-8. Follow card legs. **One pending UX noun per turn** during series walk; child batches are same-width under one parent. Do not invent the list. Reject summaries that still contain `Feedstock:` / AP label dumps / `Pillars: (infer…)` residue.
-9. **Ground Meaning in project goals/intent:** cite pack `CONCEPTUAL-EXCERPT` (PMG) and poll index as needed. After Cursor apply: friction check before `done`.
+7. **Pass B — children:** after series Trinity gate + `children_greenlit`, Grok+user validate **one same-width batch** under `active_child_batch`. Open `CHILD-BATCH-STATUS.md` + `scopes/<parent>/BATCH-DIGEST.md` first. Return **one** receipt per [`CHILD-BATCH-VALIDATION.md`](../_shared/CHILD-BATCH-VALIDATION.md). Open full `WALK.md` only for yellow/red/thin. Do **not** walk children one-by-one like series. After green: bone pilot `lock_child_batch` → Trinity sync → `publish_children`.
+8. Follow card legs. **One pending UX noun per turn** during **Pass A series only**. Pass B = **one batch receipt per turn**. Do not invent the list. Reject summaries that still contain `Feedstock:` / AP label dumps / `Pillars: (infer…)` residue.
+9. **Ground Meaning selectively:** cite pack `CONCEPTUAL-EXCERPT` (PMG); pull poll index / fulfill only for thin or contested ids. Friction check once per batch (or contested child).
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-02T00:32:21Z`
+synced_at: `2026-08-02T22:38:41Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

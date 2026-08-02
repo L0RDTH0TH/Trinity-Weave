@@ -16,9 +16,11 @@ from .catalog_coverage import run_catalog_coverage, run_catalog_freeze_gate
 from .catalog_mint_propose import propose_catalog_from_pmg
 from .ux_mint_backlog import (
     accept_series_draft,
+    emit_child_batch_digest,
     freeze_mint_backlog,
     generate_ux_mint_backlog,
     greenlight_children,
+    lock_child_batch,
     publish_children_trinity,
     publish_series_trinity,
     relens_mint_children,
@@ -151,6 +153,17 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
                 emit_pack=params.get("emit_pack", True) is not False,
             )
             result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "lock_child_batch":
+            out = lock_child_batch(
+                vault_root,
+                project_id,
+                parent_id=str(params.get("parent_id") or "") or None,
+                emit_pack=params.get("emit_pack", True) is not False,
+            )
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
+        elif action == "emit_child_batch_digest":
+            out = emit_child_batch_digest(vault_root, project_id)
+            result = {"ok": bool(out.get("ok")), "id": eid, "mode": mode, "action": action, **out}
         else:
             harvest_pass = str(params.get("harvest_pass") or "series")
             gen = generate_ux_mint_backlog(
@@ -184,10 +197,14 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
         if result.get("ok"):
             from .catalog_mint_pack import emit_catalog_mint_pack
 
-            if action in {"freeze", "publish_series", "publish_children"} or params.get(
-                "emit_pack"
-            ) is True:
-                if action not in {"publish_series", "publish_children"}:
+            if action in {
+                "freeze",
+                "publish_series",
+                "publish_children",
+                "lock_child_batch",
+                "emit_child_batch_digest",
+            } or params.get("emit_pack") is True:
+                if action not in {"publish_series", "publish_children", "lock_child_batch"}:
                     pack = emit_catalog_mint_pack(vault_root, project_id=project_id)
                     result["pack"] = pack.to_dict()
             backlog_rel = f"1-Projects/{project_id}/Roadmap/User-Story/MINT-BACKLOG.yaml"

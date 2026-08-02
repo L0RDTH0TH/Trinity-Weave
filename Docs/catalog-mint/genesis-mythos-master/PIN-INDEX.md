@@ -2,7 +2,7 @@
 
 Use ONLY these wiki-link titles (or say `needs pin`). Do not invent names.
 
-_Count: 128_
+_Count: 130_
 
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]`
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29]]`
@@ -129,6 +129,8 @@ _Count: 128_
 - `[[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16]]`
 - `[[Phase-6-3-Factory-vs-Demo-Track-Boundary-Glue-Roadmap-2026-06-26-2031]]`
 - `[[Phase-6-3-Factory-vs-Demo-Track-Boundary-Glue-Roll-up-2026-07-16]]`
+- `[[Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01]]`
+- `[[Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01]]`
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914]]`
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roll-up-2026-07-15]]`
 - `[[genesis-mythos-master-Roadmap-2026-06-26-0914]]`
