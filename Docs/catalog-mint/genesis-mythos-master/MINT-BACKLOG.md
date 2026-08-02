@@ -11,8 +11,11 @@ children_greenlit: true
 children_rewritten: true
 waived_axes: []
 schema_version: 1
+locked_child_batches: [ux_camera_control_envelopes]
+active_child_batch: ux_living_world_continuity
+next_child_batch: ux_living_world_continuity
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: c5511d545ca344047c0b1e98ee1838130f1ec7dc
+children_published_trinity_ref: eca9611792393c6d9b009892675ba93ff52bd7ea
 quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -35,8 +38,10 @@ Obsidian **operator prune / critique** surface. Edit item fields below (especial
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `c5511d545ca344047c0b1e98ee1838130f1ec7dc`  
+**Children Trinity ref:** `eca9611792393c6d9b009892675ba93ff52bd7ea`  
 **Quality validation:** `children_relensed_dual_rail_awaiting_grok_validate`  
+**Locked child batches:** `ux_camera_control_envelopes`  
+**Active / next child batch:** `ux_living_world_continuity`  
 **Waived axes/slots:** `(none)`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
 

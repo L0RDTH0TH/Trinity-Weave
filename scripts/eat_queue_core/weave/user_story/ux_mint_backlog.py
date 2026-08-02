@@ -258,6 +258,12 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         f"waived_axes: {_yaml_list_fm(waived)}",
         "schema_version: 1",
     ]
+    locked_batches = [str(x) for x in (doc.get("locked_child_batches") or [])]
+    if locked_batches:
+        lines.append(f"locked_child_batches: {_yaml_list_fm(locked_batches)}")
+    for key in ("active_child_batch", "next_child_batch"):
+        if doc.get(key):
+            lines.append(f"{key}: {doc.get(key)}")
     if generated:
         lines.append(f"generated_at: {generated}")
     if frozen:
@@ -304,6 +310,8 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
             f"**Series Trinity ref:** `{doc.get('series_published_trinity_ref') or '(none)'}`  ",
             f"**Children Trinity ref:** `{doc.get('children_published_trinity_ref') or '(none)'}`  ",
             f"**Quality validation:** `{doc.get('quality_validation_status') or '(unset)'}`  ",
+            f"**Locked child batches:** `{', '.join(str(x) for x in (doc.get('locked_child_batches') or [])) or '(none)'}`  ",
+            f"**Active / next child batch:** `{doc.get('active_child_batch') or doc.get('next_child_batch') or '(auto: largest pending)'}`  ",
             f"**Waived axes/slots:** `{', '.join(waived) if waived else '(none)'}`  ",
             f"**Rubric:** [[{rubric.replace('.md', '')}|UX mint rubric]]",
             "",
@@ -542,6 +550,13 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "children_rewritten": _fm_bool("children_rewritten"),
         "items": items,
     }
+    locked_raw = fm.get("locked_child_batches") or []
+    if isinstance(locked_raw, str):
+        doc["locked_child_batches"] = [
+            a.strip() for a in locked_raw.strip("[]").split(",") if a.strip()
+        ]
+    elif isinstance(locked_raw, list):
+        doc["locked_child_batches"] = [str(a) for a in locked_raw]
     for key in (
         "generated_at",
         "frozen_at",
@@ -550,6 +565,8 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
         "archive_ref",
         "quality_validation",
         "quality_validation_status",
+        "active_child_batch",
+        "next_child_batch",
     ):
         if fm.get(key):
             doc[key] = str(fm[key])
@@ -1025,8 +1042,24 @@ def load_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     return data
 
 
+def pending_child_batches(backlog: dict[str, Any]) -> list[tuple[str, list[dict[str, Any]]]]:
+    """Pending non-series items grouped by parent_id, largest batch first."""
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for it in backlog.get("items") or []:
+        if not isinstance(it, dict):
+            continue
+        if str(it.get("walk_tier") or "") == "series":
+            continue
+        if str(it.get("status") or "") != "pending":
+            continue
+        pid = str(it.get("parent_id") or "").strip() or "_unparented"
+        groups.setdefault(pid, []).append(it)
+    ordered = sorted(groups.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+    return ordered
+
+
 def next_pending_item(backlog: dict[str, Any]) -> dict[str, Any] | None:
-    """Next pending item respecting mint_phase / Trinity gates."""
+    """Next pending item respecting mint_phase / Trinity gates / same-width child batches."""
     phase = str(backlog.get("mint_phase") or "series_walk")
     greenlit = bool(backlog.get("children_greenlit"))
     series_pub = str(backlog.get("series_published_trinity_ref") or "").strip()
@@ -1049,7 +1082,27 @@ def next_pending_item(backlog: dict[str, Any]) -> dict[str, Any] | None:
             continue
         if walk == "series":
             continue
-        return it
+        # Children: stay inside active/same-width batch (not global rank across parents)
+        active = str(backlog.get("active_child_batch") or backlog.get("next_child_batch") or "").strip()
+        batches = pending_child_batches(backlog)
+        if not batches:
+            return None
+        if active:
+            for pid, items in batches:
+                if pid == active:
+                    # rank within batch only
+                    ids = {str(i.get("id")) for i in items}
+                    for cand in ranked:
+                        if str(cand.get("id") or "") in ids and str(cand.get("status") or "") == "pending":
+                            return cand
+                    return items[0]
+        # Default: largest pending parent batch
+        pid, items = batches[0]
+        ids = {str(i.get("id")) for i in items}
+        for cand in ranked:
+            if str(cand.get("id") or "") in ids and str(cand.get("status") or "") == "pending":
+                return cand
+        return items[0]
     return None
 
 

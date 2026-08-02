@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 359
+roadmap_note_count: 360
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4438,6 +4438,14 @@ roadmap_notes:
 - title: CATALOG-MINT-BLANK
   wiki: '[[CATALOG-MINT-BLANK]]'
   rel_under_project: Roadmap/User-Story/CATALOG-MINT-BLANK.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: CHILD-BATCH-STATUS
+  wiki: '[[CHILD-BATCH-STATUS]]'
+  rel_under_project: Roadmap/User-Story/CHILD-BATCH-STATUS.md
   kind: user_story
   wiki_links: []
   linked_resources: []

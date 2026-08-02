@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-01T23:57:49Z'
+synced_at: '2026-08-02T00:00:59Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -18,12 +18,13 @@ required_files:
 file_hashes:
   CONCEPTUAL-EXCERPT.md: 6f3505a5125f2025
   PIN-INDEX.md: 10d53a3a841a0a9c
-  ROADMAP-RESOURCE-INDEX.yaml: 6ba7a291c5af4f20
+  ROADMAP-RESOURCE-INDEX.yaml: 3797a89bb604beff
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: 4e7e68762d852431
-  MINT-BACKLOG.md: a74064c5899f301f
+  MINT-BACKLOG.yaml: b6fb631270d8d5d0
+  MINT-BACKLOG.md: 8897fc656904b2f3
+  CHILD-BATCH-STATUS.md: e3b04b806883d878
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -43,6 +44,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  FEED-ENVELOPE.yaml: 89a2649a2d7da294
-  MINT-PACK.md: ae6dd02ccd476726
+  FEED-ENVELOPE.yaml: 1fdcb32617f4f0de
+  MINT-PACK.md: e7347866baa00bbd
 warnings: []
