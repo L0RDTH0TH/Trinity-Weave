@@ -231,6 +231,163 @@ def _yaml_list_fm(values: list[str]) -> str:
     return "[" + ", ".join(str(v) for v in values) + "]"
 
 
+# Doc-level machine gates — never drop when MD is newer but FM incomplete.
+_DOC_GATE_KEYS = (
+    "series_published_trinity_ref",
+    "children_published_trinity_ref",
+    "locked_child_batches",
+    "active_child_batch",
+    "next_child_batch",
+    "children_greenlit",
+    "children_rewritten",
+    "mint_phase",
+    "harvest_pass",
+    "series_draft_accepted",
+    "waive_series_draft",
+    "archive_ref",
+    "quality_validation",
+    "quality_validation_status",
+    "frozen_at",
+    "backlog_status",
+)
+
+
+def _gate_empty(val: Any) -> bool:
+    if val is None:
+        return True
+    if isinstance(val, bool):
+        return False
+    if isinstance(val, (list, dict)):
+        return len(val) == 0
+    return str(val).strip() == ""
+
+
+def _merge_yaml_doc_gates(md_doc: dict[str, Any], y_doc: dict[str, Any]) -> dict[str, Any]:
+    """Keep operator item edits from MD; fill missing doc gates from YAML."""
+    out = dict(md_doc)
+    for key in _DOC_GATE_KEYS:
+        if key not in y_doc:
+            continue
+        if _gate_empty(out.get(key)) and not _gate_empty(y_doc.get(key)):
+            out[key] = y_doc[key]
+    return out
+
+
+def _items_by_series_parent(
+    items: list[dict[str, Any]],
+) -> list[tuple[dict[str, Any] | None, list[dict[str, Any]]]]:
+    """Group non-series children under their series parent (paternity order)."""
+    series: list[dict[str, Any]] = []
+    children: list[dict[str, Any]] = []
+    for it in items:
+        if str(it.get("walk_tier") or "") == "series":
+            series.append(it)
+        else:
+            children.append(it)
+
+    def _series_key(it: dict[str, Any]) -> tuple[int, str]:
+        try:
+            rank = int(it.get("series_walk_rank") or 999)
+        except (TypeError, ValueError):
+            rank = 999
+        return (rank, str(it.get("id") or ""))
+
+    series_sorted = sorted(series, key=_series_key)
+    series_ids = {str(s.get("id") or "") for s in series_sorted}
+    by_parent: dict[str, list[dict[str, Any]]] = {sid: [] for sid in series_ids}
+    orphans: list[dict[str, Any]] = []
+    for ch in children:
+        pid = str(ch.get("parent_id") or "").strip()
+        if pid and pid in by_parent:
+            by_parent[pid].append(ch)
+        else:
+            orphans.append(ch)
+
+    def _child_key(it: dict[str, Any]) -> str:
+        return str(it.get("id") or "")
+
+    out: list[tuple[dict[str, Any] | None, list[dict[str, Any]]]] = []
+    for parent in series_sorted:
+        pid = str(parent.get("id") or "")
+        kids = sorted(by_parent.get(pid, []), key=_child_key)
+        out.append((parent, kids))
+    if orphans:
+        out.append((None, sorted(orphans, key=_child_key)))
+    return out
+
+
+def _quick_status_line(it: dict[str, Any], indent: str = "") -> str:
+    iid = str(it.get("id") or "").strip()
+    st = str(it.get("status") or "pending").strip()
+    label = str(it.get("label") or iid).strip()
+    face = str(it.get("catalog_face") or "")
+    mark = "x" if st == "done" else "-" if st == "dropped" else " "
+    if st == "in_dialogue":
+        mark = " "
+    suffix = f" [{face}]" if face else ""
+    walk = str(it.get("walk_tier") or "")
+    if walk:
+        suffix += f" [{walk}]"
+    elif it.get("supplement"):
+        suffix += " [supplement]"
+    return f"{indent}- [{mark}] `{iid}` — {label} (`{st}`){suffix}"
+
+
+def _render_item_block(it: dict[str, Any]) -> list[str]:
+    import json
+
+    iid = str(it.get("id") or "").strip()
+    if not iid:
+        return []
+    label = str(it.get("label") or iid).strip()
+    lines = [f"### `{iid}` — {label}", ""]
+    for key in (
+        "status",
+        "walk_tier",
+        "mint_lane",
+        "parent_id",
+        "depth_band",
+        "fanout",
+        "depends_on",
+        "historical_id",
+        "series_id",
+        "series_order",
+        "series_walk_rank",
+        "altitude",
+        "seat",
+        "time_scale",
+        "does_not_mandate",
+        "alternatives_not_banned",
+        "catalog_face",
+        "experience_mode",
+        "mode_tier",
+        "dnd_pillar",
+        "ux_axis",
+        "dimension",
+        "summary",
+        "pillar_notes",
+        "conceptual_pin",
+        "derived_from",
+        "ux_family",
+        "supplement",
+        "coverage_slot",
+        "maps_to",
+        "notes",
+    ):
+        val = it.get(key)
+        if val is None:
+            val = ""
+        if isinstance(val, (list, dict)):
+            text = json.dumps(val, ensure_ascii=False)
+        else:
+            text = str(val).replace("\n", " ").strip()
+        if text == "" and not isinstance(val, (list, dict)):
+            continue
+        lines.append(f"- {key}: {text}")
+    lines.append("")
+    return lines
+
+
 def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
     """Render Obsidian-facing MINT-BACKLOG.md from a backlog document."""
     pid = str(doc.get("project_id") or "").strip() or "project"
@@ -328,91 +485,72 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         )
     lines.extend(
         [
-            "## Quick status",
+            "## Quick status (by series parent)",
+            "",
+            "Grouped by paternity — series parent, then its children. "
+            "Not a flat coverage list.",
             "",
         ]
     )
-    for it in items:
-        iid = str(it.get("id") or "").strip()
-        if not iid:
+    locked = {str(x) for x in (doc.get("locked_child_batches") or [])}
+    active = str(doc.get("active_child_batch") or doc.get("next_child_batch") or "").strip()
+    for parent, children in _items_by_series_parent(items):
+        if parent is None:
+            # #### — must not use ### `id` (parser treats those as items)
+            lines.append("#### Unparented children")
+            lines.append("")
+            for ch in children:
+                lines.append(_quick_status_line(ch, indent=""))
+            lines.append("")
             continue
-        st = str(it.get("status") or "pending").strip()
-        label = str(it.get("label") or iid).strip()
-        face = str(it.get("catalog_face") or "")
-        mark = "x" if st == "done" else "-" if st == "dropped" else " "
-        if st == "in_dialogue":
-            mark = " "
-        suffix = f" [{face}]" if face else ""
-        walk = str(it.get("walk_tier") or "")
-        if walk:
-            suffix += f" [{walk}]"
-        elif it.get("supplement"):
-            suffix += " [supplement]"
-        lines.append(f"- [{mark}] `{iid}` — {label} (`{st}`){suffix}")
-    lines.extend(["", "## Items", ""])
+        batch_id = str(parent.get("id") or "")
+        badge = ""
+        if batch_id in locked:
+            badge = " — **LOCKED batch**"
+        elif batch_id == active:
+            badge = " — **ACTIVE batch**"
+        lines.append(
+            f"#### Series `{batch_id}` — "
+            f"{str(parent.get('label') or batch_id).strip()}{badge}"
+        )
+        lines.append("")
+        lines.append(_quick_status_line(parent, indent=""))
+        if children:
+            pend = sum(1 for c in children if str(c.get("status") or "") == "pending")
+            done = sum(1 for c in children if str(c.get("status") or "") == "done")
+            lines.append(
+                f"  - *Children: {done} done / {pend} pending / {len(children)} total*"
+            )
+            for ch in children:
+                lines.append(_quick_status_line(ch, indent="  "))
+        else:
+            lines.append("  - *No children lensed under this series*")
+        lines.append("")
 
-    for it in items:
-        iid = str(it.get("id") or "").strip()
-        if not iid:
+    lines.extend(["## Items", ""])
+    for parent, children in _items_by_series_parent(items):
+        if parent is None:
+            lines.append("#### Unparented children")
+            lines.append("")
+            for ch in children:
+                lines.extend(_render_item_block(ch))
             continue
-        label = str(it.get("label") or iid).strip()
-        lines.append(f"### `{iid}` — {label}")
+        batch_id = str(parent.get("id") or "")
+        lines.append(f"#### Series parent `{batch_id}`")
         lines.append("")
-        for key in (
-            "status",
-            "walk_tier",
-            "mint_lane",
-            "parent_id",
-            "depth_band",
-            "fanout",
-            "depends_on",
-            "historical_id",
-            "series_id",
-            "series_order",
-            "series_walk_rank",
-            "altitude",
-            "seat",
-            "time_scale",
-            "does_not_mandate",
-            "alternatives_not_banned",
-            "catalog_face",
-            "experience_mode",
-            "mode_tier",
-            "dnd_pillar",
-            "ux_axis",
-            "dimension",
-            "summary",
-            "pillar_notes",
-            "conceptual_pin",
-            "derived_from",
-            "ux_family",
-            "supplement",
-            "coverage_slot",
-            "maps_to",
-            "notes",
-        ):
-            val = it.get(key)
-            if val is None:
-                val = ""
-            if isinstance(val, (list, dict)):
-                # JSON keeps lists on one line so MD field parser does not truncate wraps.
-                import json
-
-                text = json.dumps(val, ensure_ascii=False)
-            else:
-                text = str(val).replace("\n", " ").strip()
-            # Skip empty scalars so blank `- key: ` lines cannot confuse operators/Grok;
-            # parser still accepts them after the [ \\t]* (non-newline) fix above.
-            if text == "" and not isinstance(val, (list, dict)):
-                continue
-            lines.append(f"- {key}: {text}")
-        lines.append("")
+        lines.extend(_render_item_block(parent))
+        if children:
+            lines.append(f"**Children of `{batch_id}`**")
+            lines.append("")
+            for ch in children:
+                lines.extend(_render_item_block(ch))
 
     lines.append("## Coverage reminder")
     lines.append("")
     lines.append(
         "Two-pass: series cards first (`walk_tier: series`), locked + Trinity-published, "
-        "then children mined through those lenses. Taxonomy slots are children-pass coverage; "
+        "then children mined through those lenses. Display groups children under their "
+        "`parent_id` series. Taxonomy slots are children-pass coverage; "
         "Actual-Play nouns are thickeners/skins. See rubric + `SERIES-ALTITUDE-EXEMPLARS.md`."
     )
     lines.append("")
@@ -446,14 +584,23 @@ def parse_mint_backlog_markdown(text: str) -> dict[str, Any]:
     pid = str(fm.get("project-id") or fm.get("project_id") or "").strip()
     status = str(fm.get("backlog_status") or fm.get("status") or "proposed").strip()
 
+    # Only parse item cards under ## Items — Quick status #### batch headers are display-only.
+    items_body = body
+    items_match = re.search(r"^##\s+Items\b[^\n]*\n", body, re.MULTILINE)
+    if items_match:
+        start = items_match.end()
+        next_h2 = re.search(r"^##\s+\S", body[start:], re.MULTILINE)
+        end = start + next_h2.start() if next_h2 else len(body)
+        items_body = body[start:end]
+
     items: list[dict[str, Any]] = []
-    headers = list(_ITEM_HEADER_RE.finditer(body))
+    headers = list(_ITEM_HEADER_RE.finditer(items_body))
     for i, match in enumerate(headers):
         iid = match.group(1).strip()
         label_from_h = (match.group(2) or "").strip()
         start = match.end()
-        end_pos = headers[i + 1].start() if i + 1 < len(headers) else len(body)
-        block = body[start:end_pos]
+        end_pos = headers[i + 1].start() if i + 1 < len(headers) else len(items_body)
+        block = items_body[start:end_pos]
         fields: dict[str, str] = {}
         for fm_match in _ITEM_FIELD_RE.finditer(block):
             fields[fm_match.group(1)] = fm_match.group(2).strip()
@@ -1007,6 +1154,9 @@ def load_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     """
     Load backlog. Prefer newer of Obsidian `MINT-BACKLOG.md` vs YAML mirror
     (Obsidian edits bump MD mtime; harness-only YAML edits still load).
+
+    When MD wins on mtime, still fill empty doc-level gates from YAML so
+    Trinity refs / locked batches cannot vanish from an incomplete frontmatter.
     """
     empty = {
         "schema_version": 1,
@@ -1025,21 +1175,26 @@ def load_mint_backlog(vault_root: Path, project_id: str) -> dict[str, Any]:
     elif md_exists:
         use_md = True
 
+    y_doc: dict[str, Any] | None = None
+    if y_exists:
+        loaded = load_yaml(path)
+        if isinstance(loaded, dict):
+            y_doc = loaded
+
     if use_md:
         try:
             data = parse_mint_backlog_markdown(mpath.read_text(encoding="utf-8"))
             if isinstance(data, dict) and data.get("items") is not None:
                 if not data.get("project_id"):
                     data["project_id"] = project_id
+                if y_doc is not None:
+                    data = _merge_yaml_doc_gates(data, y_doc)
                 return data
         except Exception:
             pass
-    if not y_exists:
-        return empty
-    data = load_yaml(path)
-    if not isinstance(data, dict):
-        return empty
-    return data
+    if y_doc is not None:
+        return y_doc
+    return empty
 
 
 def pending_child_batches(backlog: dict[str, Any]) -> list[tuple[str, list[dict[str, Any]]]]:
