@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_dm_campaign_creation
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["Thin collaborative seed vs DM-solo then reveal", "Minimal bounds-only vs deep intent+canon pass"]
 - inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: session0_bootstrap

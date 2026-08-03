@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_dm_campaign_creation
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["First-run product onboarding vs returning-session warm start", "Preference-light vs identity-tone-heavy ritual"]
 - inherits_parent_anti_mandate: true
 - catalog_face: flows
 - experience_mode: session_onboarding

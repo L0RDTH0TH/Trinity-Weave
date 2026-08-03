@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_dm_campaign_creation
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["Four core profiles only vs profiles + optional modifiers", "Tone as soft bias vs stronger subsystem weighting (still not siloed presets)"]
 - inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: tone_profile_surface

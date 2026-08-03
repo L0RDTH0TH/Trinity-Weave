@@ -1324,8 +1324,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Short Session-0 vs expanded tone/onboarding wizard
-  - Preset tone packs vs fully custom profile
+  - Thin collaborative seed vs DM-solo then reveal
+  - Minimal bounds-only vs deep intent+canon pass
   inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: session0_bootstrap
@@ -1355,8 +1355,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Short Session-0 vs expanded tone/onboarding wizard
-  - Preset tone packs vs fully custom profile
+  - First-run product onboarding vs returning-session warm start
+  - Preference-light vs identity-tone-heavy ritual
   inherits_parent_anti_mandate: true
   catalog_face: flows
   experience_mode: session_onboarding
@@ -1384,8 +1384,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Short Session-0 vs expanded tone/onboarding wizard
-  - Preset tone packs vs fully custom profile
+  - Four core profiles only vs profiles + optional modifiers
+  - Tone as soft bias vs stronger subsystem weighting (still not siloed presets)
   inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: tone_profile_surface
@@ -2165,7 +2165,7 @@ locked_child_batches:
 - ux_backstory_legacy_integration
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: af5ec0d334b71c0a2cb65661d5abfb6bf7138de5
-quality_validation_status: camera_lw_backstory_locked; active_dm_campaign_creation
+quality_validation_status: dm_campaign_locals_polished_awaiting_grok_revalidate
 active_child_batch: ux_dm_campaign_creation
 next_child_batch: ux_dm_campaign_creation
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

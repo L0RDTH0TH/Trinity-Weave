@@ -1738,6 +1738,18 @@ def _draft_child_local_alternatives(
             "Minimal inbox+Legacies vs fuller recap/chronicle chrome",
             "Read-mostly vs light intent-propose without DM-write power",
         ],
+        "ux_session0_bootstrap": [
+            "Thin collaborative seed vs DM-solo then reveal",
+            "Minimal bounds-only vs deep intent+canon pass",
+        ],
+        "ux_session_onboarding": [
+            "First-run product onboarding vs returning-session warm start",
+            "Preference-light vs identity-tone-heavy ritual",
+        ],
+        "ux_tone_profile_surface": [
+            "Four core profiles only vs profiles + optional modifiers",
+            "Tone as soft bias vs stronger subsystem weighting (still not siloed presets)",
+        ],
     }
     if iid in keyed:
         return keyed[iid][:4]
@@ -1774,10 +1786,25 @@ def _draft_child_local_alternatives(
             "Sparse cast feedback vs richer combat telegraph chrome",
             "Rules-tight feedback vs cinematic optional skins",
         ]
-    elif "session" in blob or "tone" in blob or "onboard" in blob:
+    elif "session0" in blob or "session_0" in blob or "bootstrap" in blob:
         alts = [
-            "Short Session-0 vs expanded tone/onboarding wizard",
-            "Preset tone packs vs fully custom profile",
+            "Thin collaborative seed vs DM-solo then reveal",
+            "Minimal bounds-only vs deep intent+canon pass",
+        ]
+    elif "onboard" in blob:
+        alts = [
+            "First-run product onboarding vs returning-session warm start",
+            "Preference-light vs identity-tone-heavy ritual",
+        ]
+    elif "tone" in blob:
+        alts = [
+            "Four core profiles only vs profiles + optional modifiers",
+            "Tone as soft bias vs stronger subsystem weighting (still not siloed presets)",
+        ]
+    elif "session" in blob:
+        alts = [
+            "First-run product onboarding vs returning-session warm start",
+            "Thin collaborative seed vs DM-solo then reveal",
         ]
     elif "canon" in blob or "quest" in blob or "weather" in blob or "sim" in blob:
         alts = [
