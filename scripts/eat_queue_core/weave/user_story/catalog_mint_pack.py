@@ -208,6 +208,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 
 **Law:** open `weave/component-proposals/catalog_mint.yaml` first (Trinity card).
 
+**Catalog frame:** each planned row is a **mini-trinity** (Conceptual · UX Meaning/L5 · Execution) — see [`_shared/CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md).
+
 **This folder** is feedstock for product `slice-catalog.yaml` rows — not CARD-INDEX.
 
 | File | Use |
@@ -224,6 +226,7 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 | `scopes/<row>/L5.md` | Pass-B-aligned complete vision (Loop 2 MO) |
 | `_shared/CHILD-BATCH-VALIDATION.md` | Pass B receipt shape + velocity rules |
 | `_shared/L5-AFFIRM-VALIDATION.md` | Loop 2 L5 affirm receipt shape |
+| `_shared/CATALOG-MINI-TRINITY.md` | Per-row mini-trinity + **Grok validation ladder** |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
@@ -244,6 +247,8 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / completeness.
 
 ## Walk Order
+
+**Grok ladder (content):** series individually → children batched → planned-row L5s batched. Never series L5 before Pass B children. No mandatory child L5 batches. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
 
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 

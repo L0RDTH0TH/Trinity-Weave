@@ -6,6 +6,8 @@ title: UX mint rubric (cross-project)
 
 Law for post-conceptual-freeze backlog draft. Enforced via series packs + taxonomy + `ux_mint_taxonomy.py` / `ux_mint_series.py`.
 
+**Catalog frame:** planned rows form a [[CATALOG-MINI-TRINITY|mini-trinity]] (Conceptual · UX Meaning · Execution). This rubric governs **UX Meaning** mint only; L5 affirm is Loop 2 (see [[L5-AFFIRM-VALIDATION]]).
+
 ## Purpose (LLM-feed-first)
 
 Catalog mint drafts **experience nouns** as the primary feed for later L5 / pseudo-code. Later walks argue **content** (scope, agency, honest skins) — not repeatedly repair **entry shape**.

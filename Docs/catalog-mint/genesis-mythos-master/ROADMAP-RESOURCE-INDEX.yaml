@@ -6,7 +6,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
 roadmap_note_count: 464
-resource_count: 2
+resource_count: 3
 roadmap_notes:
 - title: decisions-log
   wiki: '[[decisions-log]]'
@@ -4540,7 +4540,9 @@ roadmap_notes:
   - genesis-mythos-master-goal
   - Conceptual-Decision-Records/reference-exemplar-dual-goal-2026-08-01
   - REFERENCE-EXEMPLAR-CHARTER
-  linked_resources: []
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/CATALOG-MINI-TRINITY
+  linked_resources:
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/CATALOG-MINI-TRINITY
   tert_id: null
   pin_excerpt_available: false
 - title: ux_dm_campaign_creation.meaning
@@ -6166,3 +6168,8 @@ resources:
   linked_from:
   - MINT-BACKLOG--20260727-pre-actualplay-remine
   - MINT-BACKLOG--20260727-pre-waveb-remine
+- title: CATALOG-MINI-TRINITY
+  ref: 3-Resources/Second-Brain/Docs/catalog-mint/_shared/CATALOG-MINI-TRINITY
+  tert_id: null
+  linked_from:
+  - MINT-QUALITY-CAVEAT

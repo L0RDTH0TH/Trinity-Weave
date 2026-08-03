@@ -2,6 +2,8 @@
 
 **Law:** open `weave/component-proposals/catalog_mint.yaml` first (Trinity card).
 
+**Catalog frame:** each planned row is a **mini-trinity** (Conceptual · UX Meaning/L5 · Execution) — see [`_shared/CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md).
+
 **This folder** is feedstock for product `slice-catalog.yaml` rows — not CARD-INDEX.
 
 | File | Use |
@@ -18,6 +20,7 @@
 | `scopes/<row>/L5.md` | Pass-B-aligned complete vision (Loop 2 MO) |
 | `_shared/CHILD-BATCH-VALIDATION.md` | Pass B receipt shape + velocity rules |
 | `_shared/L5-AFFIRM-VALIDATION.md` | Loop 2 L5 affirm receipt shape |
+| `_shared/CATALOG-MINI-TRINITY.md` | Per-row mini-trinity + **Grok validation ladder** |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
@@ -39,6 +42,8 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
+**Grok ladder (content):** series individually → children batched → planned-row L5s batched. Never series L5 before Pass B children. No mandatory child L5 batches. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
+
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 
 1. Confirm `MINT-BACKLOG` has `backlog_status: frozen_for_mint` and `mint_phase` in series walk (or bone pilot names an item id).
@@ -59,6 +64,6 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-03T20:13:58Z`
+synced_at: `2026-08-03T21:28:27Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

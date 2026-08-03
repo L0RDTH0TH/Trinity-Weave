@@ -8,6 +8,8 @@ updated: 2026-08-03
 
 **First-class Loop 2 MO** — Pass-B-aligned L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest and not a full L5 walk.
 
+**Frame:** [[CATALOG-MINI-TRINITY]] — Grok ladder step 3 (after Pass A series individual + Pass B children batched). Never affirm series L5 before Pass B children are locked. Child L5 affirm only if that child is a **planned** catalog row.
+
 ## Failure modes (catch quickly)
 
 1. **Pass-B drift** — L5 ignores locked SERIES / BATCH-DIGEST / WALK contract  

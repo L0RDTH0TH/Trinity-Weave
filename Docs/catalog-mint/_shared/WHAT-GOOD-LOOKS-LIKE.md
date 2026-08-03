@@ -1,11 +1,14 @@
 # What a “good” catalog mint looks like
 
+**First-class frame:** each planned catalog row is a **mini-trinity** (Conceptual · UX Meaning/L5 · Execution) with anti-mandates as rails — see [[CATALOG-MINI-TRINITY]].
+
 ## Two different artifacts
 
 | Artifact | When | Who writes | Purpose |
 |----------|------|------------|---------|
 | **Catalog row** (YAML in `slice-catalog.yaml`) | After you settle the dialogue | Cursor applies | Stable **id + pin + deps** handle for factory later |
-| **L5 scope** (`scopes/<id>/L5.md`) | After row exists + Loop 2 appetite | Mostly Grok prose with you, Cursor files it | Full vision / PoC cuts / REQ language — **not code** |
+| **UX Meaning** (`SERIES.md` / `WALK.md`) | Pass A / Pass B mint | Grok+user + Cursor harvest | Touch / feel contracts |
+| **L5 scope** (`scopes/<id>/L5.md`) | After Pass B lock + Loop 2 | Cursor Pass-B draft; Grok content affirm | Complete vision bar — **not** code; **not** a substitute for Meaning |
 
 Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the conversation.
 
@@ -23,7 +26,7 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 
 ### Loop 2 L5 (Pass-B MO)
 
-After Pass B lock, L5 is a **Pass-B projection** (SERIES + BATCH-DIGEST + WALK), not a PMG mine. Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors; thin parents meet data-driven moment floor. Grok validates digest-first via `L5-AFFIRM-VALIDATION.md`. Do not set `catalog_signed_at` until affirm + operator cross-row flags are green.
+After Pass B lock, L5 is a **Pass-B projection** (SERIES + BATCH-DIGEST + WALK), not a PMG mine. Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors; thin parents meet data-driven moment floor. Grok validates digest-first via `L5-AFFIRM-VALIDATION.md` under the [[CATALOG-MINI-TRINITY]] Grok ladder (series individual → children batched → L5 batched). Do not set `catalog_signed_at` until affirm + operator cross-row flags are green. **No mandatory child L5 batches** unless the child is a planned catalog row.
 
 ### Smell language (stop and re-scope)
 
