@@ -16,7 +16,7 @@ locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity]
 active_child_batch: ux_backstory_legacy_integration
 next_child_batch: ux_backstory_legacy_integration
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 81acb05487fee45dccb78aedd5863d8dcd3e6289
+children_published_trinity_ref: ac0014ac814c75789d70a9209ba7562a100fea58
 quality_validation_status: backstory_locals_polished_awaiting_grok_revalidate
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
@@ -40,7 +40,7 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Mint phase:** `children_batch`  
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
-**Children Trinity ref:** `81acb05487fee45dccb78aedd5863d8dcd3e6289`  
+**Children Trinity ref:** `ac0014ac814c75789d70a9209ba7562a100fea58`  
 **Quality validation:** `backstory_locals_polished_awaiting_grok_revalidate`  
 **Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity`  
 **Active / next child batch:** `ux_backstory_legacy_integration`  
