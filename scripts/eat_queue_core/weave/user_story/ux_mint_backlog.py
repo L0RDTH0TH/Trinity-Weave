@@ -1786,8 +1786,8 @@ def _draft_child_local_alternatives(
         ]
     elif "chronicle" in blob or "legacy" in blob or "lore_gui" in blob or "chrome" in blob:
         alts = [
-            "Player-lite lore GUI vs deeper chronicle buckets",
-            "Optional class chrome discovery vs always-on identity surfaces",
+            "Minimal player-lite inbox vs fuller recap/chronicle chrome",
+            "Thin personal archive vs richer searchable chronicle buckets",
         ]
     else:
         plabel = str((parent or {}).get("label") or "parent").strip()

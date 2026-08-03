@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T06:19:55Z'
+synced_at: '2026-08-03T06:23:13Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -22,9 +22,9 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: a353de4a6cfe5ea6
-  MINT-BACKLOG.md: f5596f7f94e53949
-  CHILD-BATCH-STATUS.md: 8e52d9010f02ddf7
+  MINT-BACKLOG.yaml: 06edb4d808244973
+  MINT-BACKLOG.md: bc5222d1244906a4
+  CHILD-BATCH-STATUS.md: 06a5cfcf372e0519
   scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
   scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
   scopes/ux_collaborative_table_agency/SERIES.md: 6c22c07fafbd9a37
@@ -40,9 +40,9 @@ file_hashes:
   scopes/ux_quiet_between_pillars/SERIES.md: 9a152604e0454784
   scopes/ux_world_authorship_modability/SERIES.md: d9bf578990dd5434
   scopes/ux_world_generation/SERIES.md: 4626513e748612eb
-  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/WALK.md: 55e340b544194ffd
-  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/WALK.md: 047b4c42b5afe4db
-  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/WALK.md: 7e4221fe27104361
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/WALK.md: 2c41643d0b639bfd
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/WALK.md: b4dd3d0af7d1b841
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/WALK.md: 169924c6213c5ccb
   scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_absent_proxy/WALK.md: b135c2f9fb8b4a0f
   scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_agency_handoff_enter_exit/WALK.md: 33717328ad91535f
   scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp/WALK.md: 84ab479fe39d42e3
@@ -84,7 +84,7 @@ file_hashes:
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md: a49033f72b60bbc0
   scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/WALK.md: b37c151b07a4ce94
   scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md: 5abc87cca6773cb8
-  scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md: cae0ba06b673b053
+  scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md: 80c16253c3309cf1
   scopes/ux_camera_control_envelopes/BATCH-DIGEST.md: 60c1002f252fb0ee
   scopes/ux_collaborative_table_agency/BATCH-DIGEST.md: b4c6982cdd260d2b
   scopes/ux_combat_play_surface/BATCH-DIGEST.md: 0f77327ef4a6f5a5
@@ -112,6 +112,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  FEED-ENVELOPE.yaml: 89a2649a2d7da294
-  MINT-PACK.md: 470e15cd1dbe3a1c
+  FEED-ENVELOPE.yaml: 35da722094a3e116
+  MINT-PACK.md: 8093eb50ca4372f1
 warnings: []

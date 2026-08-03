@@ -13,19 +13,19 @@ project-id: genesis-mythos-master
 
 - `ux_camera_control_envelopes` — **13/13 done**  Dirs: `scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/` · digest: `scopes/ux_camera_control_envelopes/BATCH-DIGEST.md`
 - `ux_living_world_continuity` — **19/19 done**  Dirs: `scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/` · digest: `scopes/ux_living_world_continuity/BATCH-DIGEST.md`
+- `ux_backstory_legacy_integration` — **3/3 done**  Dirs: `scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/` · digest: `scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md`
 
 ## Open (same-width) — suggested order
 
 | # | Parent | Pending | Status |
 |---|--------|---------|--------|
-| 1 | `ux_backstory_legacy_integration` | 3 | **ACTIVE** — `scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md` |
-| 2 | `ux_dm_campaign_creation` | 3 | queued |
-| 3 | `ux_collaborative_table_agency` | 2 | queued |
-| 4 | `ux_combat_play_surface` | 1 | queued |
-| 5 | `ux_dm_session_prep` | 1 | queued |
-| 6 | `ux_world_authorship_modability` | 1 | queued |
-| 7 | `ux_world_generation` | 1 | queued |
+| 1 | `ux_dm_campaign_creation` | 3 | **ACTIVE** — `scopes/ux_dm_campaign_creation/BATCH-DIGEST.md` |
+| 2 | `ux_collaborative_table_agency` | 2 | queued |
+| 3 | `ux_combat_play_surface` | 1 | queued |
+| 4 | `ux_dm_session_prep` | 1 | queued |
+| 5 | `ux_world_authorship_modability` | 1 | queued |
+| 6 | `ux_world_generation` | 1 | queued |
 
-**Next pending noun (within active batch):** `ux_class_chrome_discovery` (parent `ux_backstory_legacy_integration`)
+**Next pending noun (within active batch):** `ux_session0_bootstrap` (parent `ux_dm_campaign_creation`)
 
 Early/mid-game are **not** separate child batches (DM pilot → camera; WA dump → living-world).

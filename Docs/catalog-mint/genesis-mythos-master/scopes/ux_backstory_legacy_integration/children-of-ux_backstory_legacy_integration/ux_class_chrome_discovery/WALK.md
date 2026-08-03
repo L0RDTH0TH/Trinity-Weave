@@ -4,12 +4,12 @@ row_id: ux_class_chrome_discovery
 parent_id: ux_backstory_legacy_integration
 walk_tier: coverage
 label: Class / identity chrome discovery
-status: pending
+status: done
 ---
 
 # `ux_class_chrome_discovery` — Class / identity chrome discovery
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_backstory_legacy_integration

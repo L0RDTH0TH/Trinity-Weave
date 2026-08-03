@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity]
-active_child_batch: ux_backstory_legacy_integration
-next_child_batch: ux_backstory_legacy_integration
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration]
+active_child_batch: ux_dm_campaign_creation
+next_child_batch: ux_dm_campaign_creation
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: ac0014ac814c75789d70a9209ba7562a100fea58
-quality_validation_status: backstory_locals_polished_awaiting_grok_revalidate
+quality_validation_status: camera_lw_backstory_locked; active_dm_campaign_creation
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `ac0014ac814c75789d70a9209ba7562a100fea58`  
-**Quality validation:** `backstory_locals_polished_awaiting_grok_revalidate`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity`  
-**Active / next child batch:** `ux_backstory_legacy_integration`  
+**Quality validation:** `camera_lw_backstory_locked; active_dm_campaign_creation`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration`  
+**Active / next child batch:** `ux_dm_campaign_creation`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -52,14 +52,14 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 
 Grouped by paternity — series parent, then its children. Not a flat coverage list.
 
-#### Series `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle — **ACTIVE batch**
+#### Series `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle — **LOCKED batch**
 
 - [x] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_backstory_legacy_integration/SERIES.md` · `scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/<child>/WALK.md`
-  - *Children: 0 done / 3 pending / 3 total*
-  - [ ] `ux_chronicle_buckets` — Chronicle data buckets (`pending`) [table] [coverage]
-  - [ ] `ux_class_chrome_discovery` — Class / identity chrome discovery (`pending`) [inhabit] [coverage]
-  - [ ] `ux_player_lite_lore_gui` — Player-lite lore GUI (`pending`) [table] [coverage]
+  - *Children: 3 done / 0 pending / 3 total*
+  - [x] `ux_chronicle_buckets` — Chronicle data buckets (`done`) [table] [coverage]
+  - [x] `ux_class_chrome_discovery` — Class / identity chrome discovery (`done`) [inhabit] [coverage]
+  - [x] `ux_player_lite_lore_gui` — Player-lite lore GUI (`done`) [table] [coverage]
 
 #### Series `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return — **LOCKED batch**
 
@@ -133,7 +133,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Children: 0 done / 1 pending / 1 total*
   - [ ] `ux_content_authoring_surface` — Content authoring surface (`pending`) [content] [coverage]
 
-#### Series `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world
+#### Series `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world — **ACTIVE batch**
 
 - [x] `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_dm_campaign_creation/SERIES.md` · `scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/<child>/WALK.md`

@@ -678,7 +678,7 @@ items:
   coverage_slot: false
 - id: ux_chronicle_buckets
   label: Chronicle data buckets
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -707,7 +707,7 @@ items:
     - agency_handoff_enter_exit; lensed_by:ux_backstory_legacy_integration; relens:affinity'
 - id: ux_class_chrome_discovery
   label: Class / identity chrome discovery
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: class_chrome
@@ -741,7 +741,7 @@ items:
     (infer from mode); lensed_by:ux_backstory_legacy_integration'
 - id: ux_player_lite_lore_gui
   label: Player-lite lore GUI
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -2162,9 +2162,10 @@ items:
 locked_child_batches:
 - ux_camera_control_envelopes
 - ux_living_world_continuity
+- ux_backstory_legacy_integration
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: ac0014ac814c75789d70a9209ba7562a100fea58
-quality_validation_status: backstory_locals_polished_awaiting_grok_revalidate
-active_child_batch: ux_backstory_legacy_integration
-next_child_batch: ux_backstory_legacy_integration
+quality_validation_status: camera_lw_backstory_locked; active_dm_campaign_creation
+active_child_batch: ux_dm_campaign_creation
+next_child_batch: ux_dm_campaign_creation
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

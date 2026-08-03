@@ -4,12 +4,12 @@ row_id: ux_player_lite_lore_gui
 parent_id: ux_backstory_legacy_integration
 walk_tier: coverage
 label: Player-lite lore GUI
-status: pending
+status: done
 ---
 
 # `ux_player_lite_lore_gui` — Player-lite lore GUI
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_backstory_legacy_integration

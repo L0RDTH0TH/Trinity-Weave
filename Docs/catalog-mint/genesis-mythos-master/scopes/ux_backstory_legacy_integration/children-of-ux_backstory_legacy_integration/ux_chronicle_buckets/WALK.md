@@ -4,12 +4,12 @@ row_id: ux_chronicle_buckets
 parent_id: ux_backstory_legacy_integration
 walk_tier: coverage
 label: Chronicle data buckets
-status: pending
+status: done
 ---
 
 # `ux_chronicle_buckets` — Chronicle data buckets
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_backstory_legacy_integration
