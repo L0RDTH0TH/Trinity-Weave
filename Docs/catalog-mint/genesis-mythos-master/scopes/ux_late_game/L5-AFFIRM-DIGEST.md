@@ -17,7 +17,8 @@ Late-game is the high power band: survivors are world-shapers. It covers build-u
 - **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 2 · **Observable response:** It covers build-up to close and the close itself · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 - **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 3 · **Observable response:** DM triggers campaign end through a story crescendo visible in play · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 - **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 4 · **Observable response:** players map retirement/future plans · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 5 · **Observable response:** those characters persist as
+- **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 5 · **Observable response:** those characters persist as powerful DM-controlled NPCs in the living world · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
+- **Seat:** shared_table, dm_as_player · **Trigger:** contract clause 6 · **Observable response:** Default continuation is a new campaign in the same world · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 
 ## PoC cut
 

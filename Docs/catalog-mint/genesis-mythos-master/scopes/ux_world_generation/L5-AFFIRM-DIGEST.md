@@ -16,7 +16,9 @@ Durable world container — DM creates initial form via wizard+preview (tone-awa
 - **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** enter `ux_worldgen_gui` · **Observable response:** Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world (under DM can create (table can shape) a persistent living world). · **Refusal/guard:** out of contract / wrong seat · **Residue:** lasting readable state from this moment
 - **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 1 · **Observable response:** Durable world container — DM creates initial form via wizard+preview (tone-aware shape families, cached/pre-existing assets) · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 - **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 2 · **Observable response:** players do not author the first world · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 3 · **Observable response:** Physical/settlement layers + mon
+- **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 3 · **Observable response:** Physical/settlement layers + monster-region tags · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
+- **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 4 · **Observable response:** import/attach first-class · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
+- **Seat:** shared_table, dm_as_player, privileged_access · **Trigger:** contract clause 5 · **Observable response:** every world-hitting change is DM-retconnable · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 
 ## PoC cut
 

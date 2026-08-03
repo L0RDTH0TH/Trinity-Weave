@@ -21,6 +21,10 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 8. **Open questions** — 2–4 choices for you; Grok does not invent code or harness steps.
 9. **Draft YAML** — only after the above, as a candidate receipt.
 
+### Loop 2 L5 (Pass-B MO)
+
+After Pass B lock, L5 is a **Pass-B projection** (SERIES + BATCH-DIGEST + WALK), not a PMG mine. Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors; thin parents meet data-driven moment floor. Grok validates digest-first via `L5-AFFIRM-VALIDATION.md`. Do not set `catalog_signed_at` until affirm + operator cross-row flags are green.
+
 ### Smell language (stop and re-scope)
 
 Treat these as red flags that the draft is minting a **default story** instead of a product surface:

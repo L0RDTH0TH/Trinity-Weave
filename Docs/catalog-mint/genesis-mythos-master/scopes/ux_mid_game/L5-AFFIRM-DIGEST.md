@@ -17,7 +17,7 @@ Mid-game is the middle power band: world access, social tier, explore stakes, an
 - **Seat:** shared_table · **Trigger:** contract clause 2 · **Observable response:** Lasting pressure and party authorship are capabilities in this band, not one mandated conspiracy or romance skin · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 - **Seat:** shared_table · **Trigger:** contract clause 3 · **Observable response:** Pillar rhythm follows the band · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 - **Seat:** shared_table · **Trigger:** contract clause 4 · **Observable response:** Same ownership model as early: stages own the band · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** shared_table · **Trigger
+- **Seat:** shared_table · **Trigger:** contract clause 5 · **Observable response:** no parallel progression parent · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
 
 ## PoC cut
 

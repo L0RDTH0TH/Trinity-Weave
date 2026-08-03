@@ -13,15 +13,16 @@ Player authors and owns a character before and after DM greenlight. Builds may b
 
 ## Moments
 
-- **Seat:** player, shared_table · **Trigger:** contract clause 1 · **Observable response:** Player authors and owns a character before and after DM greenlight · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** player, shared_table · **Trigger:** contract clause 2 · **Observable response:** Builds may be unbound or against a campaign invite (entry into campaign and world) · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** player, shared_table · **Trigger:** contract clause 3 · **Observable response:** invited builds disable banned options from world and campaign configs with overwrite-request path · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** player, shared_table · **Trigger:** contract clause 4 · **Observable response:** Accept flow: invite → attach → greenlight · **Refusal/guard:** anti-mandate / wrong altitude · **Residue:** durable table-visible consequence when applicable
-- **Seat:** player, shared_table · **Trigger:** contract clause 5 · **Obse
+- **Seat:** player · **Trigger:** player opens/continues an unfinished character build (unbound or invite-bound) · **Observable response:** builder shows legal options; banned invite options disabled or overwrite-requestable · **Refusal/guard:** cannot invent a separate “draft object” type; incomplete stays unfinished character · **Residue:** character record owned by the player
+- **Seat:** player · **Trigger:** player submits character for DM acceptance (invite → attach → greenlight path) · **Observable response:** submission visible on DM review rail · **Refusal/guard:** no silent auto-accept; ownership does not transfer on submit · **Residue:** pending-greenlight state on the campaign/world attach
+- **Seat:** privileged_access (DM) · **Trigger:** DM greenlights, returns-with-notes, or negotiates overwrite · **Observable response:** player sees accept / notes / overwrite outcome · **Refusal/guard:** DM cannot seize ownership; player keeps authorship after greenlight · **Residue:** character bound into world/campaign package or returned unfinished
+- **Seat:** player · **Trigger:** player accepts campaign/world invite package while building or attaching · **Observable response:** bound rules/content/visual defaults install for that world/campaign · **Refusal/guard:** cosmetics cannot substitute for package authority · **Residue:** invite package attached to the character’s campaign seat
+- **Seat:** player · **Trigger:** background→world proposal from the build · **Observable response:** proposal queued for DM · **Refusal/guard:** never auto-writes world canon · **Residue:** DM-retconnable world suggestion only
+- **Seat:** shared_table · **Trigger:** table later invites the same character into another campaign in the same world · **Observable response:** re-attach / greenlight path without forcing rebuild-from-scratch · **Refusal/guard:** one-campaign forever not mandated · **Residue:** multi-campaign membership under world container
 
 ## PoC cut
 
-PoC names the play-verb moments in Moment inventory (intent / resolve / residue) with thin chrome; defer pack-content depth, multi-wave tooling, and non-essential polish. Full vision remains larger than this cut.
+PoC proves **build legality feedback → submit → DM greenlight or return-with-notes → player keeps ownership**, plus thin invite attach. Defer rich builder chrome, multi-campaign polish, and deep overwrite UX. Full vision keeps unbound-then-invite and divergent option sets.
 
 ## Gate
 
