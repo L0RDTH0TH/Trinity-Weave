@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T06:23:13Z'
+synced_at: '2026-08-03T06:23:26Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -22,8 +22,8 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: 06edb4d808244973
-  MINT-BACKLOG.md: bc5222d1244906a4
+  MINT-BACKLOG.yaml: 14e5cae507d381b4
+  MINT-BACKLOG.md: 8f9b829d202aa3c0
   CHILD-BATCH-STATUS.md: 06a5cfcf372e0519
   scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
   scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
@@ -113,5 +113,5 @@ file_hashes:
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   FEED-ENVELOPE.yaml: 35da722094a3e116
-  MINT-PACK.md: 8093eb50ca4372f1
+  MINT-PACK.md: 6fb389f1c0c49fec
 warnings: []
