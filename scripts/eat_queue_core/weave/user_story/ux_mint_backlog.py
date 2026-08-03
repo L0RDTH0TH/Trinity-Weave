@@ -1750,6 +1750,14 @@ def _draft_child_local_alternatives(
             "Four core profiles only vs profiles + optional modifiers",
             "Tone as soft bias vs stronger subsystem weighting (still not siloed presets)",
         ],
+        "ux_application_shell": [
+            "Sparse region map vs denser chrome stacking",
+            "Shared shell for both seats vs seat-aware region packs (still one product)",
+        ],
+        "ux_primary_navigation": [
+            "Menu/route-primary vs spatial/world wayfinding-primary",
+            "Flat top-level destinations vs deep hierarchical breadcrumbs",
+        ],
     }
     if iid in keyed:
         return keyed[iid][:4]
@@ -1776,10 +1784,17 @@ def _draft_child_local_alternatives(
             "Guided wizard vs power-user authoring surface",
             "Procedural-first vs hand-authored seed bias",
         ]
-    elif "shell" in blob or "navigation" in blob:
+    elif "application_shell" in blob or (
+        "shell" in blob and "navigation" not in blob and "nav" not in blob
+    ):
         alts = [
-            "Minimal app chrome vs denser navigation hierarchy",
-            "Single primary nav vs multi-rail shell",
+            "Sparse region map vs denser chrome stacking",
+            "Shared shell for both seats vs seat-aware region packs (still one product)",
+        ]
+    elif "primary_navigation" in blob or "navigation" in blob or "wayfinding" in blob:
+        alts = [
+            "Menu/route-primary vs spatial/world wayfinding-primary",
+            "Flat top-level destinations vs deep hierarchical breadcrumbs",
         ]
     elif "combat" in blob or "cast" in blob:
         alts = [

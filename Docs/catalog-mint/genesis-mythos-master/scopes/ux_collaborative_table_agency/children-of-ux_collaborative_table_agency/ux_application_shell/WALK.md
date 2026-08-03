@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_collaborative_table_agency
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Minimal app chrome vs denser navigation hierarchy", "Single primary nav vs multi-rail shell"]
+- alternatives_not_banned: ["Sparse region map vs denser chrome stacking", "Shared shell for both seats vs seat-aware region packs (still one product)"]
 - inherits_parent_anti_mandate: true
 - catalog_face: surfaces
 - experience_mode: application_shell

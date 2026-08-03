@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_collaborative_table_agency
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Minimal app chrome vs denser navigation hierarchy", "Single primary nav vs multi-rail shell"]
+- alternatives_not_banned: ["Menu/route-primary vs spatial/world wayfinding-primary", "Flat top-level destinations vs deep hierarchical breadcrumbs"]
 - inherits_parent_anti_mandate: true
 - catalog_face: flows
 - experience_mode: primary_navigation
