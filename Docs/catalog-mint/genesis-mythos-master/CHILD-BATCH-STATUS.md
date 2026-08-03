@@ -18,14 +18,14 @@ project-id: genesis-mythos-master
 - `ux_collaborative_table_agency` — **2/2 done**  Dirs: `scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/` · digest: `scopes/ux_collaborative_table_agency/BATCH-DIGEST.md`
 - `ux_combat_play_surface` — **1/1 done**  Dirs: `scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/` · digest: `scopes/ux_combat_play_surface/BATCH-DIGEST.md`
 - `ux_dm_session_prep` — **1/1 done**  Dirs: `scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/` · digest: `scopes/ux_dm_session_prep/BATCH-DIGEST.md`
+- `ux_world_authorship_modability` — **1/1 done**  Dirs: `scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/` · digest: `scopes/ux_world_authorship_modability/BATCH-DIGEST.md`
 
 ## Open (same-width) — suggested order
 
 | # | Parent | Pending | Status |
 |---|--------|---------|--------|
-| 1 | `ux_world_authorship_modability` | 1 | **ACTIVE** — `scopes/ux_world_authorship_modability/BATCH-DIGEST.md` |
-| 2 | `ux_world_generation` | 1 | queued |
+| 1 | `ux_world_generation` | 1 | **ACTIVE** — `scopes/ux_world_generation/BATCH-DIGEST.md` |
 
-**Next pending noun (within active batch):** `ux_content_authoring_surface` (parent `ux_world_authorship_modability`)
+**Next pending noun (within active batch):** `ux_worldgen_gui` (parent `ux_world_generation`)
 
 Early/mid-game are **not** separate child batches (DM pilot → camera; WA dump → living-world).

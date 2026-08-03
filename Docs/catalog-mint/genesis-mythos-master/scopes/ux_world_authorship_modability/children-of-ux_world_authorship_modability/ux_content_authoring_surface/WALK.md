@@ -4,12 +4,12 @@ row_id: ux_content_authoring_surface
 parent_id: ux_world_authorship_modability
 walk_tier: coverage
 label: Content authoring surface
-status: pending
+status: done
 ---
 
 # `ux_content_authoring_surface` — Content authoring surface
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_world_authorship_modability

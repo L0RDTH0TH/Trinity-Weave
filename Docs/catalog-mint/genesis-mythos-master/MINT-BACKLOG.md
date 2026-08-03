@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep]
-active_child_batch: ux_world_authorship_modability
-next_child_batch: ux_world_authorship_modability
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability]
+active_child_batch: ux_world_generation
+next_child_batch: ux_world_generation
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: 5748882e6f42f43d87e93c880ae367bbb5b2c994
-quality_validation_status: pass_b_through_session_prep_locked; active_world_authorship_modability
+quality_validation_status: pass_b_through_authorship_locked; active_world_generation
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `5748882e6f42f43d87e93c880ae367bbb5b2c994`  
-**Quality validation:** `pass_b_through_session_prep_locked; active_world_authorship_modability`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep`  
-**Active / next child batch:** `ux_world_authorship_modability`  
+**Quality validation:** `pass_b_through_authorship_locked; active_world_generation`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability`  
+**Active / next child batch:** `ux_world_generation`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -126,12 +126,12 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Walk dirs:* `scopes/ux_quiet_between_pillars/SERIES.md` · `scopes/ux_quiet_between_pillars/children-of-ux_quiet_between_pillars/<child>/WALK.md`
   - *No children lensed under this series*
 
-#### Series `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts — **ACTIVE batch**
+#### Series `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts — **LOCKED batch**
 
 - [x] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_world_authorship_modability/SERIES.md` · `scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/<child>/WALK.md`
-  - *Children: 0 done / 1 pending / 1 total*
-  - [ ] `ux_content_authoring_surface` — Content authoring surface (`pending`) [content] [coverage]
+  - *Children: 1 done / 0 pending / 1 total*
+  - [x] `ux_content_authoring_surface` — Content authoring surface (`done`) [content] [coverage]
 
 #### Series `ux_dm_campaign_creation` — DM can bootstrap a campaign frame inside a world — **LOCKED batch**
 
@@ -179,7 +179,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Walk dirs:* `scopes/ux_player_character_creation/SERIES.md` · `scopes/ux_player_character_creation/children-of-ux_player_character_creation/<child>/WALK.md`
   - *No children lensed under this series*
 
-#### Series `ux_world_generation` — DM can create (table can shape) a persistent living world
+#### Series `ux_world_generation` — DM can create (table can shape) a persistent living world — **ACTIVE batch**
 
 - [x] `ux_world_generation` — DM can create (table can shape) a persistent living world (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_world_generation/SERIES.md` · `scopes/ux_world_generation/children-of-ux_world_generation/<child>/WALK.md`
