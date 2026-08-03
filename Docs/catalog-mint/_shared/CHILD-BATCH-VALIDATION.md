@@ -17,12 +17,13 @@ Same-width **peer review under one parent** — not a second series walk and not
 ## Velocity rules
 
 - **Batch, not item-by-item.** One structured receipt per active parent.
-- **Receipt-first.** Primary artifacts: rewritten `summary` + `does_not_mandate` / `alternatives_not_banned`. Notes / feedstock stay secondary.
+- **Receipt-first.** Primary artifacts: rewritten `summary` + **local** `alternatives_not_banned` (and any true local `does_not_mandate` deltas). Parent anti-mandate is inherited via `inherits_parent_anti_mandate` — do not re-litigate it on the child. Notes / feedstock stay secondary.
 - **Digest-first.** Open `CHILD-BATCH-STATUS.md` + `scopes/<parent>/BATCH-DIGEST.md`. Open full `WALK.md` only for yellow / red / thin ids.
+- **Yellow vs red:** Missing local alternatives = **yellow** (polish). Altitude bleed / dual-rail drift / anti-mandate failure as product plot = **red** (re-scope).
 - **Selective grounding.** Pull `ROADMAP-RESOURCE-INDEX.yaml` or ask fulfill/`tert_id` only when a child is thin or contested.
 - **Friction once per batch** (or per contested child if flagged) — see [[FRICTION-CHECK]].
 - **Same-width only.** Stay on `active_child_batch` until lock. Do not jump to the next queued parent.
-- **Reuse locked parent language.** Children inherit parent altitude / anti-mandate; they must not re-litigate it.
+- **Reuse locked parent language.** Children inherit parent altitude / anti-mandate; they must not re-litigate it. Cursor drafts local alternatives; Grok polishes.
 
 ## Mandatory receipt shape
 
@@ -34,8 +35,9 @@ Parent series altitude / contract: [1–2 lines]
 
 ### Pass / Fail summary
 - N green
-- M needs re-scope (list ids + one-line reason)
+- M needs re-scope (**red** — list ids + one-line reason)
 - K thin / needs grounding (list ids)
+- P missing local alternatives (**yellow** — polish; not altitude failure)
 
 ### Dual-rail / lens check
 - All children still under parent contract? Y/N + any drift

@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_combat_play_surface
 - depth_band: 1
-- does_not_mandate: ["flee is the only correct authored end", "combat always resolves to XP loot chrome", "combat is a single win/lose elimination pipeline", "DM only adjudicates and never inhabits creature roles", "player and DM share identical combat control envelopes"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: combat_cast_feedback
 - mode_tier: multi_pillar

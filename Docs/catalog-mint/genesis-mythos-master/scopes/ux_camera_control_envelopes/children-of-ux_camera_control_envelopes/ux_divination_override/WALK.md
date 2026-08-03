@@ -14,7 +14,9 @@ status: done
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
 - depth_band: 1
-- does_not_mandate: ["players get free third-person orbit as default", "DM tools exist only as debug infrastructure", "envelope exits leave soft residual control or wrong perspective", "camera modes can become permanent without a restore path", "players may use WorldCam or MapCam as free exploration seats"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Sparse vs frequent rules-bound remote-sense use", "Thin scry pane vs fuller remote presentation that still hard-restores"]
+- inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: divination_override
 - mode_tier: critical_matrix

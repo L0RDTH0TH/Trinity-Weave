@@ -16,9 +16,10 @@ walk_surface: batch_digest
 - expensive re-gen dumps the table to menus
 - physical and esoteric authorship use different cheat paths outside the mod contract
 
-Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.
-Primary fields below: `summary` + `does_not_mandate`.
+Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.
+Missing local alternatives = **yellow** (polish), not red re-scope.
+Open full `WALK.md` only for yellow / red / thin ids.
 
-| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |
-|----|--------|-----------------|----------------|---------|------------------|
-| `ux_content_authoring_surface` | pending | no | 5 | How operators or users create, edit, and publish content — distinct from read-only consumption (under Table and community can author world change via curated and mod contracts). | mods are post-1.0 only; timeline editing is player-lite default; world mutation may bypass intentional re-gen and DM gate; expensive re-gen dumps the table to menus; physical and esoteric authorship use different cheat paths outside the mod contract |
+| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
+|----|--------|----------|-------|-------------------------|------------------------|---------|
+| `ux_content_authoring_surface` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | How operators or users create, edit, and publish content — distinct from read-only consumption (under Table and community can author world change via curated and mod contracts). |

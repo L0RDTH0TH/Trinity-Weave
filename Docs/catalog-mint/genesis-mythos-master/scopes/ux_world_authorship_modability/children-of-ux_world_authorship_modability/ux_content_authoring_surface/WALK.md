@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_world_authorship_modability
 - depth_band: 1
-- does_not_mandate: ["mods are post-1.0 only", "timeline editing is player-lite default", "world mutation may bypass intentional re-gen and DM gate", "expensive re-gen dumps the table to menus", "physical and esoteric authorship use different cheat paths outside the mod contract"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- inherits_parent_anti_mandate: true
 - catalog_face: content
 - experience_mode: content_authoring_surface
 - mode_tier: multi_pillar

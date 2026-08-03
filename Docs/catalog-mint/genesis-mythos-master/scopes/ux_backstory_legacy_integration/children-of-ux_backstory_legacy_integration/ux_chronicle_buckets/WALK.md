@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_backstory_legacy_integration
 - depth_band: 1
-- does_not_mandate: ["every backstory forces a mid-game reunion ordeal", "legacies are DM-only lore with no player surface", "system auto-weaves hooks without DM accept", "one identity-pact skin is the product default for legacies", "players may auto-write world canon from backstory without DM gate"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: chronicle_buckets
 - mode_tier: shared_chrome

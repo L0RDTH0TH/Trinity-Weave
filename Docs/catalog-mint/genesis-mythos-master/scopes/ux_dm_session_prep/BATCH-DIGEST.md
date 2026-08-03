@@ -19,9 +19,10 @@ walk_surface: batch_digest
 - session open is a separate series product noun from prep
 - one captivity/tavern/jailbreak open is the product default start
 
-Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.
-Primary fields below: `summary` + `does_not_mandate`.
+Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.
+Missing local alternatives = **yellow** (polish), not red re-scope.
+Open full `WALK.md` only for yellow / red / thin ids.
 
-| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |
-|----|--------|-----------------|----------------|---------|------------------|
-| `ux_dm_workbench_lore_gui` | pending | no | 8 | Canon graph, accept/revise intents, faction off-screen, quest-hook integration UI (under DM can prep a session without leaving the collaborative table frame). | prep must be a separate offline app; players never see any prep residue; all prep material is public by default; prep is a back door around DM gate/retcon on world changes; session prep creates or replaces the world or campaign frame; visibility is only a single whole-table tag with no per-player option; session open is a separate series product noun from prep; one captivity/tavern/jailbreak open is the product default start |
+| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
+|----|--------|----------|-------|-------------------------|------------------------|---------|
+| `ux_dm_workbench_lore_gui` | pending | yes | 2 | Off-screen faction tick sparse vs dense; Player-visible residue only vs DM machinery exposed |  | Canon graph, accept/revise intents, faction off-screen, quest-hook integration UI (under DM can prep a session without leaving the collaborative table frame). |

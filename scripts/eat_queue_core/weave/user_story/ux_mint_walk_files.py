@@ -29,6 +29,7 @@ _ITEM_KEYS = (
     "time_scale",
     "does_not_mandate",
     "alternatives_not_banned",
+    "inherits_parent_anti_mandate",
     "catalog_face",
     "experience_mode",
     "mode_tier",
@@ -167,7 +168,7 @@ def parse_walk_card(text: str, *, fallback_id: str = "") -> dict[str, Any]:
                 continue
             except (TypeError, ValueError):
                 pass
-        if extra in ("supplement", "coverage_slot", "feedstock_hit"):
+        if extra in ("supplement", "coverage_slot", "feedstock_hit", "inherits_parent_anti_mandate"):
             item[extra] = str(raw).strip().lower() in {"true", "1", "yes"}
             continue
         item[extra] = raw
@@ -302,11 +303,12 @@ def render_batch_digest(
     lines.extend(
         [
             "",
-            "Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.",
-            "Primary fields below: `summary` + `does_not_mandate`.",
+            "Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.",
+            "Missing local alternatives = **yellow** (polish), not red re-scope.",
+            "Open full `WALK.md` only for yellow / red / thin ids.",
             "",
-            "| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |",
-            "|----|--------|-----------------|----------------|---------|------------------|",
+            "| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |",
+            "|----|--------|----------|-------|-------------------------|------------------------|---------|",
         ]
     )
     for ch in sorted(children, key=lambda i: str(i.get("id") or "")):
@@ -317,11 +319,26 @@ def render_batch_digest(
             continue
         status = str(ch.get("status") or "pending")
         summary = str(ch.get("summary") or "").replace("\n", " ").replace("|", "\\|").strip()
-        anti = _anti_mandate_list(ch)
-        residue = "yes" if summary_has_residue(summary) else "no"
-        anti_s = "; ".join(anti).replace("|", "\\|") if anti else ""
+        inherits = ch.get("inherits_parent_anti_mandate")
+        if inherits is None:
+            # Heuristic: child list identical to parent → treat as inherit
+            child_anti = _anti_mandate_list(ch)
+            inherits = bool(p_anti) and child_anti == p_anti
+        inherits_s = "yes" if inherits else "no"
+        alts = ch.get("alternatives_not_banned")
+        if isinstance(alts, list):
+            alt_list = [str(x).strip() for x in alts if str(x).strip()]
+        elif isinstance(alts, str) and alts.strip():
+            alt_list = [alts.strip()]
+        else:
+            alt_list = []
+        alt_s = "; ".join(alt_list).replace("|", "\\|") if alt_list else "_(missing — yellow)_"
+        local_bans = _anti_mandate_list(ch)
+        if inherits and local_bans == p_anti:
+            local_bans = []
+        local_s = "; ".join(local_bans).replace("|", "\\|") if local_bans else ""
         lines.append(
-            f"| `{cid}` | {status} | {residue} | {len(anti)} | {summary} | {anti_s} |"
+            f"| `{cid}` | {status} | {inherits_s} | {len(alt_list)} | {alt_s} | {local_s} | {summary} |"
         )
     lines.append("")
     return "\n".join(lines)

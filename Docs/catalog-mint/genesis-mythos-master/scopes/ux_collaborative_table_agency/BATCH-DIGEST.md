@@ -16,10 +16,11 @@ walk_surface: batch_digest
 - player social play defaults to dialogue-option trees
 - play must be combat-primary / hack-and-slash
 
-Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.
-Primary fields below: `summary` + `does_not_mandate`.
+Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.
+Missing local alternatives = **yellow** (polish), not red re-scope.
+Open full `WALK.md` only for yellow / red / thin ids.
 
-| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |
-|----|--------|-----------------|----------------|---------|------------------|
-| `ux_application_shell` | pending | no | 5 | Baseline shell — screen regions, chrome placement, layout mapping for any product (under Shared virtual-tabletop loop with character agency and DM orchestration). | DM is only a cue issuer for other players; players and DM share identical control envelopes; system-owned NPC dialogue is the product default; player social play defaults to dialogue-option trees; play must be combat-primary / hack-and-slash |
-| `ux_primary_navigation` | pending | no | 5 | How users move between major areas — menus, routes, breadcrumbs, spatial wayfinding (under Shared virtual-tabletop loop with character agency and DM orchestration). | DM is only a cue issuer for other players; players and DM share identical control envelopes; system-owned NPC dialogue is the product default; player social play defaults to dialogue-option trees; play must be combat-primary / hack-and-slash |
+| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
+|----|--------|----------|-------|-------------------------|------------------------|---------|
+| `ux_application_shell` | pending | yes | 2 | Minimal app chrome vs denser navigation hierarchy; Single primary nav vs multi-rail shell |  | Baseline shell — screen regions, chrome placement, layout mapping for any product (under Shared virtual-tabletop loop with character agency and DM orchestration). |
+| `ux_primary_navigation` | pending | yes | 2 | Minimal app chrome vs denser navigation hierarchy; Single primary nav vs multi-rail shell |  | How users move between major areas — menus, routes, breadcrumbs, spatial wayfinding (under Shared virtual-tabletop loop with character agency and DM orchestration). |

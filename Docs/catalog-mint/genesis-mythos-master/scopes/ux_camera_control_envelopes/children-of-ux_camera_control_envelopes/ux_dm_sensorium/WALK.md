@@ -14,7 +14,9 @@ status: done
 - mint_lane: validate_batch
 - parent_id: ux_camera_control_envelopes
 - depth_band: 1
-- does_not_mandate: ["players get free third-person orbit as default", "DM tools exist only as debug infrastructure", "envelope exits leave soft residual control or wrong perspective", "camera modes can become permanent without a restore path", "players may use WorldCam or MapCam as free exploration seats"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Strict read-only bind vs annotated LOS helpers that never transfer intent", "Short Sensorium peeks vs sustained watch"]
+- inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: dm_sensorium
 - mode_tier: critical_matrix

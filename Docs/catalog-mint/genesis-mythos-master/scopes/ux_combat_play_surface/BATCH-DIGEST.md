@@ -16,9 +16,10 @@ walk_surface: batch_digest
 - DM only adjudicates and never inhabits creature roles
 - player and DM share identical combat control envelopes
 
-Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.
-Primary fields below: `summary` + `does_not_mandate`.
+Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.
+Missing local alternatives = **yellow** (polish), not red re-scope.
+Open full `WALK.md` only for yellow / red / thin ids.
 
-| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |
-|----|--------|-----------------|----------------|---------|------------------|
-| `ux_combat_cast_feedback` | pending | no | 5 | Cast and hit sensory response the player notices — not damage formulas (under Combat can resolve by authored paths including non-win ends). | flee is the only correct authored end; combat always resolves to XP loot chrome; combat is a single win/lose elimination pipeline; DM only adjudicates and never inhabits creature roles; player and DM share identical combat control envelopes |
+| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
+|----|--------|----------|-------|-------------------------|------------------------|---------|
+| `ux_combat_cast_feedback` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | Cast and hit sensory response the player notices — not damage formulas (under Combat can resolve by authored paths including non-win ends). |

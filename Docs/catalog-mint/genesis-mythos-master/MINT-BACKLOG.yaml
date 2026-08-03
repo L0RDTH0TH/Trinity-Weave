@@ -690,12 +690,11 @@ items:
   parent_id: ux_backstory_legacy_integration
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every backstory forces a mid-game reunion ordeal
-  - legacies are DM-only lore with no player surface
-  - system auto-weaves hooks without DM accept
-  - one identity-pact skin is the product default for legacies
-  - players may auto-write world canon from backstory without DM gate
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: chronicle_buckets
   mode_tier: shared_chrome
@@ -720,12 +719,11 @@ items:
   parent_id: ux_backstory_legacy_integration
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every backstory forces a mid-game reunion ordeal
-  - legacies are DM-only lore with no player surface
-  - system auto-weaves hooks without DM accept
-  - one identity-pact skin is the product default for legacies
-  - players may auto-write world canon from backstory without DM gate
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Player-lite lore GUI vs deeper chronicle buckets
+  - Optional class chrome discovery vs always-on identity surfaces
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: class_chrome_discovery
   mode_tier: multi_pillar
@@ -755,12 +753,11 @@ items:
   parent_id: ux_backstory_legacy_integration
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every backstory forces a mid-game reunion ordeal
-  - legacies are DM-only lore with no player surface
-  - system auto-weaves hooks without DM accept
-  - one identity-pact skin is the product default for legacies
-  - players may auto-write world canon from backstory without DM gate
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: player_lite_lore_gui
   mode_tier: multi_pillar
@@ -796,12 +793,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Volunteer delegate vs DM-proposed vote for who holds the stick
+  - Soft revoke on owner return vs hard cutover with table ack
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: absent_proxy
   mode_tier: critical_matrix
@@ -832,12 +828,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs rich transfer chrome at enter/exit
+  - Quiet stick-pass vs announced table beat
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: agency_handoff_enter_exit
   mode_tier: shared_chrome
@@ -863,12 +858,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Minimal HUD vs richer diegetic embodiment chrome
+  - Strict FP-only default vs rare comfort assists that still restore to FP
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: baseline_fp
   mode_tier: critical_matrix
@@ -899,12 +893,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Gesture-light vs denser intent surfaces in FP
+  - Look-then-act vs simultaneous look/move issuance
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: baseline_fp_controls
   mode_tier: shared_chrome
@@ -931,12 +924,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs frequent rules-bound remote-sense use
+  - Thin scry pane vs fuller remote presentation that still hard-restores
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: divination_override
   mode_tier: critical_matrix
@@ -966,12 +958,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Measurement-first MapCam vs token/fog-first layout
+  - Rare MapCam dips vs frequent grid adjudication
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dm_mapcam
   mode_tier: critical_matrix
@@ -1002,12 +993,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Session-policy DM pilot vs rules-triggered only
+  - Brief pilot envelopes vs longer possession-like duration (still restore)
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dm_pilot
   mode_tier: multi_pillar
@@ -1038,12 +1028,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Strict read-only bind vs annotated LOS helpers that never transfer intent
+  - Short Sensorium peeks vs sustained watch
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dm_sensorium
   mode_tier: critical_matrix
@@ -1072,12 +1061,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - DM who rarely leaves WorldCam vs frequent MapCam/Sensorium/pilot use
+  - Comfort-smooth WorldCam motion vs snappy cuts (final state still explicit)
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dm_worldcam
   mode_tier: critical_matrix
@@ -1107,12 +1095,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Thin vs fuller dominate-pilot embodiment in early builds
+  - Strict rules-duration vs session-extended pilot that still hard-restores
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dominate_pilot
   mode_tier: critical_matrix
@@ -1142,12 +1129,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs rich passenger / liminal chrome for the victim
+  - Locked-input only vs light passenger cues without restoring control early
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: dominate_victim
   mode_tier: critical_matrix
@@ -1176,12 +1162,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs rich liminal/unconscious presentation
+  - Hard blackout vs soft liminal that still returns to baseline
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: liminal_unconscious
   mode_tier: multi_pillar
@@ -1210,12 +1195,11 @@ items:
   parent_id: ux_camera_control_envelopes
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - players get free third-person orbit as default
-  - DM tools exist only as debug infrastructure
-  - envelope exits leave soft residual control or wrong perspective
-  - camera modes can become permanent without a restore path
-  - players may use WorldCam or MapCam as free exploration seats
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Brief gate flash vs longer planar transition presentation
+  - Rules-only planar departures vs session-flavored transitions (still restore)
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: planar_travel_override
   mode_tier: critical_matrix
@@ -1246,12 +1230,11 @@ items:
   parent_id: ux_collaborative_table_agency
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - DM is only a cue issuer for other players
-  - players and DM share identical control envelopes
-  - system-owned NPC dialogue is the product default
-  - player social play defaults to dialogue-option trees
-  - play must be combat-primary / hack-and-slash
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Minimal app chrome vs denser navigation hierarchy
+  - Single primary nav vs multi-rail shell
+  inherits_parent_anti_mandate: true
   catalog_face: surfaces
   experience_mode: application_shell
   mode_tier: shared_chrome
@@ -1276,12 +1259,11 @@ items:
   parent_id: ux_collaborative_table_agency
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - DM is only a cue issuer for other players
-  - players and DM share identical control envelopes
-  - system-owned NPC dialogue is the product default
-  - player social play defaults to dialogue-option trees
-  - play must be combat-primary / hack-and-slash
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Minimal app chrome vs denser navigation hierarchy
+  - Single primary nav vs multi-rail shell
+  inherits_parent_anti_mandate: true
   catalog_face: flows
   experience_mode: primary_navigation
   mode_tier: shared_chrome
@@ -1306,12 +1288,11 @@ items:
   parent_id: ux_combat_play_surface
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - flee is the only correct authored end
-  - combat always resolves to XP loot chrome
-  - combat is a single win/lose elimination pipeline
-  - DM only adjudicates and never inhabits creature roles
-  - player and DM share identical combat control envelopes
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Guided wizard vs power-user authoring surface
+  - Procedural-first vs hand-authored seed bias
+  inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: combat_cast_feedback
   mode_tier: multi_pillar
@@ -1341,12 +1322,11 @@ items:
   parent_id: ux_dm_campaign_creation
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every campaign begins in captivity
-  - offline Microscope play is required before Session 0
-  - starting a campaign must regenerate the whole world
-  - campaign creation's default next step is player character creation
-  - DM is the primary author of player characters after frame bootstrap
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: session0_bootstrap
   mode_tier: shared_chrome
@@ -1373,12 +1353,11 @@ items:
   parent_id: ux_dm_campaign_creation
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every campaign begins in captivity
-  - offline Microscope play is required before Session 0
-  - starting a campaign must regenerate the whole world
-  - campaign creation's default next step is player character creation
-  - DM is the primary author of player characters after frame bootstrap
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: flows
   experience_mode: session_onboarding
   mode_tier: shared_chrome
@@ -1403,12 +1382,11 @@ items:
   parent_id: ux_dm_campaign_creation
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - every campaign begins in captivity
-  - offline Microscope play is required before Session 0
-  - starting a campaign must regenerate the whole world
-  - campaign creation's default next step is player character creation
-  - DM is the primary author of player characters after frame bootstrap
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: tone_profile_surface
   mode_tier: multi_pillar
@@ -1438,15 +1416,11 @@ items:
   parent_id: ux_dm_session_prep
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - prep must be a separate offline app
-  - players never see any prep residue
-  - all prep material is public by default
-  - prep is a back door around DM gate/retcon on world changes
-  - session prep creates or replaces the world or campaign frame
-  - visibility is only a single whole-table tag with no per-player option
-  - session open is a separate series product noun from prep
-  - one captivity/tavern/jailbreak open is the product default start
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: dm_workbench_lore_gui
   mode_tier: multi_pillar
@@ -1476,12 +1450,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Quiet background sim vs more visible pressure ticks
+  - DM-only machinery vs player-readable residue on return
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: canon_pipeline_feel
   mode_tier: multi_pillar
@@ -1512,12 +1485,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Abstract resource pressure vs detailed trade routes
+  - Background economy vs player-facing market surfaces
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: economy_resources
   mode_tier: multi_pillar
@@ -1547,12 +1519,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Abstract resource pressure vs detailed trade routes
+  - Background economy vs player-facing market surfaces
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: economy_trade
   mode_tier: multi_pillar
@@ -1583,12 +1554,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Quiet background sim vs more visible pressure ticks
+  - DM-only machinery vs player-readable residue on return
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: quest_pressure_surface
   mode_tier: multi_pillar
@@ -1619,12 +1589,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Short Session-0 vs expanded tone/onboarding wizard
+  - Preset tone packs vs fully custom profile
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: sim_weather_pulse
   mode_tier: multi_pillar
@@ -1652,12 +1621,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_goals
   mode_tier: multi_pillar
@@ -1688,12 +1656,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_hierarchy
   mode_tier: multi_pillar
@@ -1722,12 +1689,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_offscreen
   mode_tier: multi_pillar
@@ -1757,12 +1723,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_reputation
   mode_tier: multi_pillar
@@ -1791,12 +1756,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_territory
   mode_tier: multi_pillar
@@ -1827,12 +1791,13 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs rich presentation under World can move off-screen and show lasting readable
+    costs
+  - Minimal vs fuller control surface under World can move off-screen and show lasting
+    readable costs (still not a single AP default)
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_locations
   mode_tier: multi_pillar
@@ -1863,12 +1828,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Player-lite lore GUI vs deeper chronicle buckets
+  - Optional class chrome discovery vs always-on identity surfaces
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_lore_articles
   mode_tier: multi_pillar
@@ -1899,12 +1863,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Player-lite lore GUI vs deeper chronicle buckets
+  - Optional class chrome discovery vs always-on identity surfaces
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_maps_vs_embodied
   mode_tier: multi_pillar
@@ -1935,12 +1898,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Thin NPC sheet vs richer agenda/secret surfaces
+  - Dialogue-hook light vs dense relationship graph
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_agenda
   mode_tier: multi_pillar
@@ -1971,12 +1933,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Thin NPC sheet vs richer agenda/secret surfaces
+  - Dialogue-hook light vs dense relationship graph
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_dialogue_hooks
   mode_tier: multi_pillar
@@ -2007,12 +1968,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Off-screen faction tick sparse vs dense
+  - Player-visible residue only vs DM machinery exposed
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_relations
   mode_tier: multi_pillar
@@ -2042,12 +2002,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Thin NPC sheet vs richer agenda/secret surfaces
+  - Dialogue-hook light vs dense relationship graph
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_secrets
   mode_tier: multi_pillar
@@ -2077,12 +2036,11 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Thin NPC sheet vs richer agenda/secret surfaces
+  - Dialogue-hook light vs dense relationship graph
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_sheet
   mode_tier: multi_pillar
@@ -2111,12 +2069,13 @@ items:
   parent_id: ux_living_world_continuity
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - world motion requires a scripted companion betrayal arc
-  - lasting costs are only cosmic death pacts
-  - one conspiracy skin is the only continuity form
-  - this row owns in-adventure quiet-between road/camp/linger
-  - players get full sim-admin tools as the continuity surface
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Sparse vs rich presentation under World can move off-screen and show lasting readable
+    costs
+  - Minimal vs fuller control surface under World can move off-screen and show lasting
+    readable costs (still not a single AP default)
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_timelines
   mode_tier: multi_pillar
@@ -2148,12 +2107,11 @@ items:
   parent_id: ux_world_authorship_modability
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - mods are post-1.0 only
-  - timeline editing is player-lite default
-  - world mutation may bypass intentional re-gen and DM gate
-  - expensive re-gen dumps the table to menus
-  - physical and esoteric authorship use different cheat paths outside the mod contract
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Guided wizard vs power-user authoring surface
+  - Procedural-first vs hand-authored seed bias
+  inherits_parent_anti_mandate: true
   catalog_face: content
   experience_mode: content_authoring_surface
   mode_tier: multi_pillar
@@ -2185,12 +2143,11 @@ items:
   parent_id: ux_world_generation
   mint_lane: validate_batch
   depth_band: 1
-  does_not_mandate:
-  - one world equals exactly one campaign forever
-  - worldgen is only a Session 0 checkbox with no persistent container
-  - players author the first world
-  - world create forces unconstrained multi-knob fresh-noise every time
-  - world creation's default next step is player character creation
+  does_not_mandate: []
+  alternatives_not_banned:
+  - Guided wizard vs power-user authoring surface
+  - Procedural-first vs hand-authored seed bias
+  inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: worldgen_gui
   mode_tier: multi_pillar
@@ -2206,10 +2163,11 @@ items:
     — not siloed presets per subsystem. - Profiles are **defaults**, not stereotypes;
     table Palet; pillars: exploration: mentioned in feedstock | combat: (infer from
     mode) | roleplay: (infer from mode); lensed_by:ux_world_generation'
-locked_child_batches: []
+locked_child_batches:
+- ux_camera_control_envelopes
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: ae8a439e4a1b0c164087d6a4134b5716acde1478
-quality_validation_status: camera_batch_unlocked_awaiting_grok_validate
-active_child_batch: ux_camera_control_envelopes
+quality_validation_status: camera_locked_child_locals_on_living_world_active
+active_child_batch: ux_living_world_continuity
 next_child_batch: ux_living_world_continuity
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

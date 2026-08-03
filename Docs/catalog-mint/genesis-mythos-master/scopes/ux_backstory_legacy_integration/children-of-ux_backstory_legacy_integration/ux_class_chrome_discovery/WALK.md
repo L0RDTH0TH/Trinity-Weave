@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_backstory_legacy_integration
 - depth_band: 1
-- does_not_mandate: ["every backstory forces a mid-game reunion ordeal", "legacies are DM-only lore with no player surface", "system auto-weaves hooks without DM accept", "one identity-pact skin is the product default for legacies", "players may auto-write world canon from backstory without DM gate"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Player-lite lore GUI vs deeper chronicle buckets", "Optional class chrome discovery vs always-on identity surfaces"]
+- inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: class_chrome_discovery
 - mode_tier: multi_pillar

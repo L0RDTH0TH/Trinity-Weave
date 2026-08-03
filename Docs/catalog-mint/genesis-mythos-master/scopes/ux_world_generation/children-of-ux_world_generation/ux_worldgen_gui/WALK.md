@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_world_generation
 - depth_band: 1
-- does_not_mandate: ["one world equals exactly one campaign forever", "worldgen is only a Session 0 checkbox with no persistent container", "players author the first world", "world create forces unconstrained multi-knob fresh-noise every time", "world creation's default next step is player character creation"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: worldgen_gui
 - mode_tier: multi_pillar

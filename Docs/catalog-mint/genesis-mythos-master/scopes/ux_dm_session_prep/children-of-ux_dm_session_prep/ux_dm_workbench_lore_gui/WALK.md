@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_dm_session_prep
 - depth_band: 1
-- does_not_mandate: ["prep must be a separate offline app", "players never see any prep residue", "all prep material is public by default", "prep is a back door around DM gate/retcon on world changes", "session prep creates or replaces the world or campaign frame", "visibility is only a single whole-table tag with no per-player option", "session open is a separate series product noun from prep", "one captivity/tavern/jailbreak open is the product default start"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Off-screen faction tick sparse vs dense", "Player-visible residue only vs DM machinery exposed"]
+- inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: dm_workbench_lore_gui
 - mode_tier: multi_pillar

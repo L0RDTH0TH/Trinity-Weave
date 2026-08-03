@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_dm_campaign_creation
 - depth_band: 1
-- does_not_mandate: ["every campaign begins in captivity", "offline Microscope play is required before Session 0", "starting a campaign must regenerate the whole world", "campaign creation's default next step is player character creation", "DM is the primary author of player characters after frame bootstrap"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: tone_profile_surface
 - mode_tier: multi_pillar

@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity
 - depth_band: 1
-- does_not_mandate: ["world motion requires a scripted companion betrayal arc", "lasting costs are only cosmic death pacts", "one conspiracy skin is the only continuity form", "this row owns in-adventure quiet-between road/camp/linger", "players get full sim-admin tools as the continuity surface"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Off-screen faction tick sparse vs dense", "Player-visible residue only vs DM machinery exposed"]
+- inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_faction_goals
 - mode_tier: multi_pillar

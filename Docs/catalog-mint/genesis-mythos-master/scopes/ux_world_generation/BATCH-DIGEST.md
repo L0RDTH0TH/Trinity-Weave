@@ -16,9 +16,10 @@ walk_surface: batch_digest
 - world create forces unconstrained multi-knob fresh-noise every time
 - world creation's default next step is player character creation
 
-Open full `children-of-*/<child>/WALK.md` **only** for yellow / red / thin ids.
-Primary fields below: `summary` + `does_not_mandate`.
+Child surface: `inherits_parent_anti_mandate` + **local** `alternatives_not_banned`.
+Missing local alternatives = **yellow** (polish), not red re-scope.
+Open full `WALK.md` only for yellow / red / thin ids.
 
-| id | status | summary_residue | anti_mandate_n | summary | does_not_mandate |
-|----|--------|-----------------|----------------|---------|------------------|
-| `ux_worldgen_gui` | pending | no | 5 | Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world). | one world equals exactly one campaign forever; worldgen is only a Session 0 checkbox with no persistent container; players author the first world; world create forces unconstrained multi-knob fresh-noise every time; world creation's default next step is player character creation |
+| id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
+|----|--------|----------|-------|-------------------------|------------------------|---------|
+| `ux_worldgen_gui` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world). |

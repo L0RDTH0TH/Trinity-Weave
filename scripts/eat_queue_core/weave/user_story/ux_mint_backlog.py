@@ -366,6 +366,7 @@ def _render_item_block(it: dict[str, Any]) -> list[str]:
         "time_scale",
         "does_not_mandate",
         "alternatives_not_banned",
+        "inherits_parent_anti_mandate",
         "catalog_face",
         "experience_mode",
         "mode_tier",
@@ -1619,10 +1620,8 @@ def relens_mint_children(
         if new and new != old:
             moved.append({"id": str(it.get("id")), "from": old, "to": new})
             it["parent_id"] = new
-            # Refresh inherited anti-mandate from the true parent
-            inherited = parent.get("does_not_mandate")
-            if inherited:
-                it["does_not_mandate"] = list(inherited) if isinstance(inherited, list) else inherited
+            # Dual-rail inherit flag — do NOT clone parent does_not_mandate onto the child
+            _normalize_child_anti_mandate_surface(it, parent)
             notes = str(it.get("notes") or "")
             notes = re.sub(r";?\s*lensed_by:[^\s;]+", "", notes).strip("; ").strip()
             it["notes"] = f"{notes}; lensed_by:{new}; relens:affinity".strip("; ")
@@ -1642,16 +1641,190 @@ def relens_mint_children(
     }
 
 
+def _list_field_as_strs(raw: Any) -> list[str]:
+    if isinstance(raw, list):
+        return [str(x).strip() for x in raw if str(x).strip()]
+    if isinstance(raw, str) and raw.strip():
+        try:
+            parsed = yaml.safe_load(raw)
+            if isinstance(parsed, list):
+                return [str(x).strip() for x in parsed if str(x).strip()]
+        except Exception:
+            pass
+        return [raw.strip()]
+    return []
+
+
+def _draft_child_local_alternatives(
+    item: dict[str, Any],
+    parent: dict[str, Any] | None = None,
+) -> list[str]:
+    """
+    First-pass local alternatives_not_banned from child identity.
+    Prefer structure menus; do not invent local bans.
+    """
+    iid = str(item.get("id") or "").strip()
+    mode = str(item.get("experience_mode") or item.get("ux_family") or "").strip().lower()
+    label = str(item.get("label") or iid).strip().lower()
+    summary = str(item.get("summary") or "").lower()
+    blob = f"{iid} {mode} {label} {summary}"
+
+    # Known camera / agency envelopes
+    keyed: dict[str, list[str]] = {
+        "ux_absent_proxy": [
+            "Volunteer delegate vs DM-proposed vote for who holds the stick",
+            "Soft revoke on owner return vs hard cutover with table ack",
+        ],
+        "ux_agency_handoff_enter_exit": [
+            "Sparse vs rich transfer chrome at enter/exit",
+            "Quiet stick-pass vs announced table beat",
+        ],
+        "ux_baseline_fp": [
+            "Minimal HUD vs richer diegetic embodiment chrome",
+            "Strict FP-only default vs rare comfort assists that still restore to FP",
+        ],
+        "ux_baseline_fp_controls": [
+            "Gesture-light vs denser intent surfaces in FP",
+            "Look-then-act vs simultaneous look/move issuance",
+        ],
+        "ux_divination_override": [
+            "Sparse vs frequent rules-bound remote-sense use",
+            "Thin scry pane vs fuller remote presentation that still hard-restores",
+        ],
+        "ux_dm_mapcam": [
+            "Measurement-first MapCam vs token/fog-first layout",
+            "Rare MapCam dips vs frequent grid adjudication",
+        ],
+        "ux_dm_pilot": [
+            "Session-policy DM pilot vs rules-triggered only",
+            "Brief pilot envelopes vs longer possession-like duration (still restore)",
+        ],
+        "ux_dm_sensorium": [
+            "Strict read-only bind vs annotated LOS helpers that never transfer intent",
+            "Short Sensorium peeks vs sustained watch",
+        ],
+        "ux_dm_worldcam": [
+            "DM who rarely leaves WorldCam vs frequent MapCam/Sensorium/pilot use",
+            "Comfort-smooth WorldCam motion vs snappy cuts (final state still explicit)",
+        ],
+        "ux_dominate_pilot": [
+            "Thin vs fuller dominate-pilot embodiment in early builds",
+            "Strict rules-duration vs session-extended pilot that still hard-restores",
+        ],
+        "ux_dominate_victim": [
+            "Sparse vs rich passenger / liminal chrome for the victim",
+            "Locked-input only vs light passenger cues without restoring control early",
+        ],
+        "ux_liminal_unconscious": [
+            "Sparse vs rich liminal/unconscious presentation",
+            "Hard blackout vs soft liminal that still returns to baseline",
+        ],
+        "ux_planar_travel_override": [
+            "Brief gate flash vs longer planar transition presentation",
+            "Rules-only planar departures vs session-flavored transitions (still restore)",
+        ],
+    }
+    if iid in keyed:
+        return keyed[iid][:4]
+
+    # Generic coverage draft from keywords
+    alts: list[str] = []
+    if "faction" in blob:
+        alts = [
+            "Off-screen faction tick sparse vs dense",
+            "Player-visible residue only vs DM machinery exposed",
+        ]
+    elif "npc" in blob:
+        alts = [
+            "Thin NPC sheet vs richer agenda/secret surfaces",
+            "Dialogue-hook light vs dense relationship graph",
+        ]
+    elif "economy" in blob or "trade" in blob:
+        alts = [
+            "Abstract resource pressure vs detailed trade routes",
+            "Background economy vs player-facing market surfaces",
+        ]
+    elif "worldgen" in blob or "author" in blob:
+        alts = [
+            "Guided wizard vs power-user authoring surface",
+            "Procedural-first vs hand-authored seed bias",
+        ]
+    elif "shell" in blob or "navigation" in blob:
+        alts = [
+            "Minimal app chrome vs denser navigation hierarchy",
+            "Single primary nav vs multi-rail shell",
+        ]
+    elif "combat" in blob or "cast" in blob:
+        alts = [
+            "Sparse cast feedback vs richer combat telegraph chrome",
+            "Rules-tight feedback vs cinematic optional skins",
+        ]
+    elif "session" in blob or "tone" in blob or "onboard" in blob:
+        alts = [
+            "Short Session-0 vs expanded tone/onboarding wizard",
+            "Preset tone packs vs fully custom profile",
+        ]
+    elif "canon" in blob or "quest" in blob or "weather" in blob or "sim" in blob:
+        alts = [
+            "Quiet background sim vs more visible pressure ticks",
+            "DM-only machinery vs player-readable residue on return",
+        ]
+    elif "chronicle" in blob or "legacy" in blob or "lore_gui" in blob or "chrome" in blob:
+        alts = [
+            "Player-lite lore GUI vs deeper chronicle buckets",
+            "Optional class chrome discovery vs always-on identity surfaces",
+        ]
+    else:
+        plabel = str((parent or {}).get("label") or "parent").strip()
+        alts = [
+            f"Sparse vs rich presentation under {plabel}",
+            f"Minimal vs fuller control surface under {plabel} (still not a single AP default)",
+        ]
+    return alts[:4]
+
+
+def _normalize_child_anti_mandate_surface(
+    item: dict[str, Any],
+    parent: dict[str, Any] | None,
+    *,
+    draft_alternatives_if_missing: bool = True,
+) -> dict[str, Any]:
+    """
+    Child card: inherits_parent_anti_mandate + local alternatives_not_banned.
+    Strip cloned parent does_not_mandate; keep only true local ban deltas.
+    """
+    parent_anti = _list_field_as_strs((parent or {}).get("does_not_mandate"))
+    child_anti = _list_field_as_strs(item.get("does_not_mandate"))
+    # Cloned parent list → clear and inherit
+    if parent_anti and child_anti == parent_anti:
+        item["does_not_mandate"] = []
+        item["inherits_parent_anti_mandate"] = True
+    elif parent_anti and child_anti:
+        # Keep only deltas not on parent
+        deltas = [x for x in child_anti if x not in parent_anti]
+        item["does_not_mandate"] = deltas
+        item["inherits_parent_anti_mandate"] = True
+    elif parent and str(item.get("parent_id") or "").strip():
+        item["inherits_parent_anti_mandate"] = True
+        if not child_anti:
+            item["does_not_mandate"] = []
+    else:
+        item.setdefault("inherits_parent_anti_mandate", False)
+
+    alts = _list_field_as_strs(item.get("alternatives_not_banned"))
+    if draft_alternatives_if_missing and len(alts) < 2:
+        item["alternatives_not_banned"] = _draft_child_local_alternatives(item, parent)
+    elif alts:
+        item["alternatives_not_banned"] = alts
+    return item
+
+
 def _apply_series_lens(child: dict[str, Any], parent: dict[str, Any]) -> dict[str, Any]:
     out = dict(child)
     out["parent_id"] = str(parent.get("id") or "")
     out["mint_lane"] = out.get("mint_lane") or "cursor_draft"
     out["depth_band"] = out.get("depth_band") if out.get("depth_band") is not None else 1
-    # Inherit anti-mandate stubs when child lacks them
-    if _list_field_count(out.get("does_not_mandate")) < 2:
-        inherited = parent.get("does_not_mandate")
-        if inherited:
-            out["does_not_mandate"] = list(inherited) if isinstance(inherited, list) else inherited
+    _normalize_child_anti_mandate_surface(out, parent, draft_alternatives_if_missing=True)
     notes = str(out.get("notes") or "").strip()
     lens = f"lensed_by:{parent.get('id')}"
     out["notes"] = f"{notes}; {lens}".strip("; ") if notes else lens
@@ -1907,6 +2080,7 @@ def rewrite_mint_children(
             rewritten += 1
         it["mint_lane"] = "validate_batch"
         it["content_rewrite"] = "contract_v1"
+        _normalize_child_anti_mandate_surface(it, parent, draft_alternatives_if_missing=True)
     bl["items"] = _rank_items(items)
     bl["children_rewritten"] = True
     bl["mint_phase"] = "children_batch"

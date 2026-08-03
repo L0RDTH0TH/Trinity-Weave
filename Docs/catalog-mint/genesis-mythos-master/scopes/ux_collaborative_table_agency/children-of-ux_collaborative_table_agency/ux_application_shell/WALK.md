@@ -14,7 +14,9 @@ status: pending
 - mint_lane: validate_batch
 - parent_id: ux_collaborative_table_agency
 - depth_band: 1
-- does_not_mandate: ["DM is only a cue issuer for other players", "players and DM share identical control envelopes", "system-owned NPC dialogue is the product default", "player social play defaults to dialogue-option trees", "play must be combat-primary / hack-and-slash"]
+- does_not_mandate: []
+- alternatives_not_banned: ["Minimal app chrome vs denser navigation hierarchy", "Single primary nav vs multi-rail shell"]
+- inherits_parent_anti_mandate: true
 - catalog_face: surfaces
 - experience_mode: application_shell
 - mode_tier: shared_chrome
