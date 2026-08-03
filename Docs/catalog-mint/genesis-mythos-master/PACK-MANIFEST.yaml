@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T17:20:27Z'
+synced_at: '2026-08-03T17:34:26Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -22,9 +22,9 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: 49db0c0db4859e29
-  MINT-BACKLOG.md: edabd0f2de8b004b
-  CHILD-BATCH-STATUS.md: 084ee34052628328
+  MINT-BACKLOG.yaml: d177aa0399662bbc
+  MINT-BACKLOG.md: c390b727ff70894e
+  CHILD-BATCH-STATUS.md: 680313f2fd1d90a0
   scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
   scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
   scopes/ux_collaborative_table_agency/SERIES.md: 6c22c07fafbd9a37
@@ -62,7 +62,7 @@ file_hashes:
   scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session0_bootstrap/WALK.md: 617e9e5da96c4a97
   scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/WALK.md: 1cfd3ccfda951353
   scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_tone_profile_surface/WALK.md: ea092c77a2cf84d1
-  scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/WALK.md: 8084fdb23fc4c4f4
+  scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/WALK.md: 29416b82007e8861
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/WALK.md: c719f7b666c68e68
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/WALK.md: 4b8e6867ec3d9f75
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/WALK.md: 8bac6ca2c6d83f2f
@@ -89,7 +89,7 @@ file_hashes:
   scopes/ux_collaborative_table_agency/BATCH-DIGEST.md: 8f0161793bd335a0
   scopes/ux_combat_play_surface/BATCH-DIGEST.md: ff6f3c20745b2b67
   scopes/ux_dm_campaign_creation/BATCH-DIGEST.md: dfefb7812b3ef7ca
-  scopes/ux_dm_session_prep/BATCH-DIGEST.md: 750fd0e071f3240a
+  scopes/ux_dm_session_prep/BATCH-DIGEST.md: 8951a50dcc4d80b7
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: e565a052b8539238
   scopes/ux_world_generation/BATCH-DIGEST.md: 09da58a4bfbbba4d
@@ -112,6 +112,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  FEED-ENVELOPE.yaml: 73ed09ebaf94b873
-  MINT-PACK.md: 2ad0bc1f87d91ea4
+  FEED-ENVELOPE.yaml: 38dc318227c70164
+  MINT-PACK.md: a321e6012dde75bb
 warnings: []

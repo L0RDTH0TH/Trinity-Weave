@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface]
-active_child_batch: ux_dm_session_prep
-next_child_batch: ux_dm_session_prep
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep]
+active_child_batch: ux_world_authorship_modability
+next_child_batch: ux_world_authorship_modability
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: b59677c3841df4e3ddeb03d40f754f0a09140f41
-quality_validation_status: dm_session_prep_locals_polished_awaiting_grok_revalidate
+quality_validation_status: pass_b_through_session_prep_locked; active_world_authorship_modability
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `b59677c3841df4e3ddeb03d40f754f0a09140f41`  
-**Quality validation:** `dm_session_prep_locals_polished_awaiting_grok_revalidate`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface`  
-**Active / next child batch:** `ux_dm_session_prep`  
+**Quality validation:** `pass_b_through_session_prep_locked; active_world_authorship_modability`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep`  
+**Active / next child batch:** `ux_world_authorship_modability`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -126,7 +126,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Walk dirs:* `scopes/ux_quiet_between_pillars/SERIES.md` · `scopes/ux_quiet_between_pillars/children-of-ux_quiet_between_pillars/<child>/WALK.md`
   - *No children lensed under this series*
 
-#### Series `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts
+#### Series `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts — **ACTIVE batch**
 
 - [x] `ux_world_authorship_modability` — Table and community can author world change via curated and mod contracts (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_world_authorship_modability/SERIES.md` · `scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/<child>/WALK.md`
@@ -142,12 +142,12 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - [x] `ux_session_onboarding` — Session / onboarding bootstrap (`done`) [flows] [coverage]
   - [x] `ux_tone_profile_surface` — Campaign tone profile surface (`done`) [table] [coverage]
 
-#### Series `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame — **ACTIVE batch**
+#### Series `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame — **LOCKED batch**
 
 - [x] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_dm_session_prep/SERIES.md` · `scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/<child>/WALK.md`
-  - *Children: 0 done / 1 pending / 1 total*
-  - [ ] `ux_dm_workbench_lore_gui` — DM workbench lore GUI (`pending`) [table] [coverage]
+  - *Children: 1 done / 0 pending / 1 total*
+  - [x] `ux_dm_workbench_lore_gui` — DM workbench lore GUI (`done`) [table] [coverage]
 
 #### Series `ux_early_game` — Early play is a power band that gates world and pillar response
 

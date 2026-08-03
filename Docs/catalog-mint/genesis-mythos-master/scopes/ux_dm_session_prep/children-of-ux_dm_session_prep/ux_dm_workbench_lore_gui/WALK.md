@@ -4,12 +4,12 @@ row_id: ux_dm_workbench_lore_gui
 parent_id: ux_dm_session_prep
 walk_tier: coverage
 label: DM workbench lore GUI
-status: pending
+status: done
 ---
 
 # `ux_dm_workbench_lore_gui` — DM workbench lore GUI
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_dm_session_prep

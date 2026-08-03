@@ -1405,7 +1405,7 @@ items:
     roleplay: (infer from mode); lensed_by:ux_dm_campaign_creation'
 - id: ux_dm_workbench_lore_gui
   label: DM workbench lore GUI
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: dm_rail
   ux_axis: dm_player_rails
@@ -2171,9 +2171,10 @@ locked_child_batches:
 - ux_dm_campaign_creation
 - ux_collaborative_table_agency
 - ux_combat_play_surface
+- ux_dm_session_prep
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: b59677c3841df4e3ddeb03d40f754f0a09140f41
-quality_validation_status: dm_session_prep_locals_polished_awaiting_grok_revalidate
-active_child_batch: ux_dm_session_prep
-next_child_batch: ux_dm_session_prep
+quality_validation_status: pass_b_through_session_prep_locked; active_world_authorship_modability
+active_child_batch: ux_world_authorship_modability
+next_child_batch: ux_world_authorship_modability
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
