@@ -2175,6 +2175,6 @@ locked_child_batches:
 - ux_world_authorship_modability
 - ux_world_generation
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 8b987ce7d5a5b20527eeb2c8dca44e9c889c1d6a
+children_published_trinity_ref: 3c257341abfa030bf728c5bf66465c92d2a05301
 quality_validation_status: pass_b_child_batches_complete
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
