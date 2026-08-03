@@ -12,12 +12,11 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes]
-active_child_batch: ux_living_world_continuity
+active_child_batch: ux_camera_control_envelopes
 next_child_batch: ux_living_world_continuity
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: 52545527d7775a4a2650e31212ecf97266c7f141
-quality_validation_status: camera_locked_child_locals_on_living_world_active
+quality_validation_status: camera_locals_awaiting_grok_validate_test
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +40,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `52545527d7775a4a2650e31212ecf97266c7f141`  
-**Quality validation:** `camera_locked_child_locals_on_living_world_active`  
-**Locked child batches:** `ux_camera_control_envelopes`  
-**Active / next child batch:** `ux_living_world_continuity`  
+**Quality validation:** `camera_locals_awaiting_grok_validate_test`  
+**Locked child batches:** `(none)`  
+**Active / next child batch:** `ux_camera_control_envelopes`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -61,7 +60,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - [ ] `ux_class_chrome_discovery` — Class / identity chrome discovery (`pending`) [inhabit] [coverage]
   - [ ] `ux_player_lite_lore_gui` — Player-lite lore GUI (`pending`) [table] [coverage]
 
-#### Series `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return — **LOCKED batch**
+#### Series `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return — **ACTIVE batch**
 
 - [x] `ux_camera_control_envelopes` — Perspective and control envelopes can change and cleanly return (`done`) [inhabit] [series]
   - *Walk dirs:* `scopes/ux_camera_control_envelopes/SERIES.md` · `scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/<child>/WALK.md`
@@ -95,7 +94,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Children: 0 done / 1 pending / 1 total*
   - [ ] `ux_combat_cast_feedback` — Combat / cast sensory feedback (`pending`) [inhabit] [coverage]
 
-#### Series `ux_living_world_continuity` — World can move off-screen and show lasting readable costs — **ACTIVE batch**
+#### Series `ux_living_world_continuity` — World can move off-screen and show lasting readable costs
 
 - [x] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_living_world_continuity/SERIES.md` · `scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/<child>/WALK.md`
