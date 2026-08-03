@@ -4,12 +4,12 @@ row_id: ux_quest_pressure_surface
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Quest pressure from canon
-status: pending
+status: done
 ---
 
 # `ux_quest_pressure_surface` — Quest pressure from canon
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity

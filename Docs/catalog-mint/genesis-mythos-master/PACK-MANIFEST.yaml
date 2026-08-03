@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T04:30:42Z'
+synced_at: '2026-08-03T04:51:37Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -22,9 +22,9 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: 0b4541a385324547
-  MINT-BACKLOG.md: 2376d23c29e4993d
-  CHILD-BATCH-STATUS.md: fe05574b4446762d
+  MINT-BACKLOG.yaml: e7e1af8c7f286b72
+  MINT-BACKLOG.md: f9db222f31af1024
+  CHILD-BATCH-STATUS.md: 8e52d9010f02ddf7
   scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
   scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
   scopes/ux_collaborative_table_agency/SERIES.md: 6c22c07fafbd9a37
@@ -63,25 +63,25 @@ file_hashes:
   scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/WALK.md: 05372dac7ed7d0bf
   scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_tone_profile_surface/WALK.md: 5808c129111de4df
   scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/WALK.md: 49014d5161847221
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/WALK.md: 47ef7fa0482930d2
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/WALK.md: 82a47cc290f69017
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/WALK.md: 6d6442c8827379f4
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/WALK.md: 6b055213cd07cdac
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_sim_weather_pulse/WALK.md: f04d0d12032af88d
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/WALK.md: 8c827785f0a88eab
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_hierarchy/WALK.md: d081190adc501ebd
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/WALK.md: 117b4b52e72240d7
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_reputation/WALK.md: ed5db7b96d32b4de
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/WALK.md: ea5b66bf5f68c115
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_locations/WALK.md: 5d64f5e6f8cae906
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/WALK.md: d3b8a8089fae1d18
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_maps_vs_embodied/WALK.md: 5df7cd3a9e5ffeac
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/WALK.md: 07aaf3b08264603d
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_dialogue_hooks/WALK.md: bf19bb5b4ce7a022
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/WALK.md: 462523d327196fef
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_secrets/WALK.md: 78716403e349f82d
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/WALK.md: 6213c9f195a6b10a
-  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md: b1135585a05aba29
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/WALK.md: c719f7b666c68e68
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/WALK.md: 4b8e6867ec3d9f75
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/WALK.md: 8bac6ca2c6d83f2f
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/WALK.md: 466d837e9d919a8f
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_sim_weather_pulse/WALK.md: 8c5cd599f84e0252
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/WALK.md: e027538aae5c6baf
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_hierarchy/WALK.md: f553e2e31f6c1732
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/WALK.md: 9e67e069c7e87279
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_reputation/WALK.md: 52f4adb36597a810
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/WALK.md: 07c2f0706e6f64a6
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_locations/WALK.md: 33229b09d599eba6
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/WALK.md: d2c7941fcc028d24
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_maps_vs_embodied/WALK.md: 62714ecee7f00757
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/WALK.md: 0d5ff1f3ebc41e6d
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_dialogue_hooks/WALK.md: 11186af65e1b5812
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/WALK.md: a7f014c2ee6cd98a
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_secrets/WALK.md: 1284d97fb5fa7101
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/WALK.md: 92da6f6ad468fc75
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md: a49033f72b60bbc0
   scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/WALK.md: b37c151b07a4ce94
   scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md: 5abc87cca6773cb8
   scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md: 0c8bbc66250eaf19
@@ -90,7 +90,7 @@ file_hashes:
   scopes/ux_combat_play_surface/BATCH-DIGEST.md: 0f77327ef4a6f5a5
   scopes/ux_dm_campaign_creation/BATCH-DIGEST.md: 41ce401f4691f150
   scopes/ux_dm_session_prep/BATCH-DIGEST.md: 1b500bd76f7389c9
-  scopes/ux_living_world_continuity/BATCH-DIGEST.md: cf3363c3ea04a4f1
+  scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: d44b8e074204a1ce
   scopes/ux_world_generation/BATCH-DIGEST.md: e48bda2a73e7fca9
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
@@ -112,6 +112,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  FEED-ENVELOPE.yaml: 1fdcb32617f4f0de
-  MINT-PACK.md: 7d80880e7304a9ec
+  FEED-ENVELOPE.yaml: 89a2649a2d7da294
+  MINT-PACK.md: 9aeaafb864aed7ed
 warnings: []

@@ -4,12 +4,12 @@ row_id: ux_canon_pipeline_feel
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Canon pipeline feel
-status: pending
+status: done
 ---
 
 # `ux_canon_pipeline_feel` — Canon pipeline feel
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity

@@ -4,12 +4,12 @@ row_id: ux_wa_faction_offscreen
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Off-screen faction activity
-status: pending
+status: done
 ---
 
 # `ux_wa_faction_offscreen` — Off-screen faction activity
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity

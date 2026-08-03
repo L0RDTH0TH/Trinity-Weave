@@ -1438,7 +1438,7 @@ items:
     | roleplay: (infer from mode); lensed_by:ux_dm_session_prep'
 - id: ux_canon_pipeline_feel
   label: Canon pipeline feel
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1473,7 +1473,7 @@ items:
     relens:affinity'
 - id: ux_economy_resources
   label: Resource distribution visibility
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1507,7 +1507,7 @@ items:
     mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_economy_trade
   label: Trade routes / market pressure
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1542,7 +1542,7 @@ items:
     relens:affinity'
 - id: ux_quest_pressure_surface
   label: Quest pressure from canon
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1577,7 +1577,7 @@ items:
     relens:affinity'
 - id: ux_sim_weather_pulse
   label: Weather / ambient sim pulse
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: sim_system
   ux_axis: agency
@@ -1609,7 +1609,7 @@ items:
     (infer from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_faction_goals
   label: Faction goals / agenda surface
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1644,7 +1644,7 @@ items:
     relens:affinity'
 - id: ux_wa_faction_hierarchy
   label: Faction hierarchy surface
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1677,7 +1677,7 @@ items:
     from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_faction_offscreen
   label: Off-screen faction activity
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1711,7 +1711,7 @@ items:
     | roleplay: (infer from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_faction_reputation
   label: Reputation standing surface
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1744,7 +1744,7 @@ items:
     relens:affinity'
 - id: ux_wa_faction_territory
   label: Faction territory / influence
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1778,13 +1778,13 @@ items:
     roleplay: (infer from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_locations
   label: Location surfaces
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: world_gen
   ux_axis: agency
-  summary: Location surfaces — table-facing capability under Mid play is a power band
-    for lasting pressure and deeper world response; structure menu, not a single AP
-    scene default (under World can move off-screen and show lasting readable costs).
+  summary: Location surfaces as continuity discovery — sparse tags vs dossiers, map-primary
+    vs embodied arrival — under World can move off-screen and show lasting readable
+    costs; structure menu, not a single AP scene default.
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   ux_family: wa_locations
@@ -1814,7 +1814,7 @@ items:
     relens:affinity'
 - id: ux_wa_lore_articles
   label: Lore codex / articles
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1849,7 +1849,7 @@ items:
     relens:affinity'
 - id: ux_wa_maps_vs_embodied
   label: Maps vs embodied discovery
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: dm_player_rails
@@ -1884,7 +1884,7 @@ items:
     relens:affinity'
 - id: ux_wa_npc_agenda
   label: NPC agenda / schedule visibility
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1919,7 +1919,7 @@ items:
     relens:affinity'
 - id: ux_wa_npc_dialogue_hooks
   label: NPC dialogue / roleplay hooks
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1954,7 +1954,7 @@ items:
     relens:affinity'
 - id: ux_wa_npc_relations
   label: NPC relationship web
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -1988,7 +1988,7 @@ items:
     relens:affinity'
 - id: ux_wa_npc_secrets
   label: NPC secrets / knowledge gates
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -2022,7 +2022,7 @@ items:
     mode) | roleplay: (infer from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_npc_sheet
   label: NPC identity sheet feel
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -2055,7 +2055,7 @@ items:
     (infer from mode); lensed_by:ux_living_world_continuity; relens:affinity'
 - id: ux_wa_timelines
   label: Timeline / era threads
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: agency
@@ -2161,9 +2161,10 @@ items:
     mode) | roleplay: (infer from mode); lensed_by:ux_world_generation'
 locked_child_batches:
 - ux_camera_control_envelopes
+- ux_living_world_continuity
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: a28c24906f517f7d0bd3be8e22eb301d0b78ced1
-quality_validation_status: camera_locked; living_world_locals_polished_awaiting_grok_revalidate
-active_child_batch: ux_living_world_continuity
-next_child_batch: ux_living_world_continuity
+quality_validation_status: camera_locked; living_world_locked_pass_b; active_backstory_legacy
+active_child_batch: ux_backstory_legacy_integration
+next_child_batch: ux_backstory_legacy_integration
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

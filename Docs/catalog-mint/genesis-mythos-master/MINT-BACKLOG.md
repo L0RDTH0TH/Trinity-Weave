@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes]
-active_child_batch: ux_living_world_continuity
-next_child_batch: ux_living_world_continuity
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity]
+active_child_batch: ux_backstory_legacy_integration
+next_child_batch: ux_backstory_legacy_integration
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: a28c24906f517f7d0bd3be8e22eb301d0b78ced1
-quality_validation_status: camera_locked; living_world_locals_polished_awaiting_grok_revalidate
+quality_validation_status: camera_locked; living_world_locked_pass_b; active_backstory_legacy
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `a28c24906f517f7d0bd3be8e22eb301d0b78ced1`  
-**Quality validation:** `camera_locked; living_world_locals_polished_awaiting_grok_revalidate`  
-**Locked child batches:** `ux_camera_control_envelopes`  
-**Active / next child batch:** `ux_living_world_continuity`  
+**Quality validation:** `camera_locked; living_world_locked_pass_b; active_backstory_legacy`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity`  
+**Active / next child batch:** `ux_backstory_legacy_integration`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -52,7 +52,7 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 
 Grouped by paternity — series parent, then its children. Not a flat coverage list.
 
-#### Series `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle
+#### Series `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle — **ACTIVE batch**
 
 - [x] `ux_backstory_legacy_integration` — Backstory and legacies can hook into play and chronicle (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_backstory_legacy_integration/SERIES.md` · `scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/<child>/WALK.md`
@@ -95,30 +95,30 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Children: 0 done / 1 pending / 1 total*
   - [ ] `ux_combat_cast_feedback` — Combat / cast sensory feedback (`pending`) [inhabit] [coverage]
 
-#### Series `ux_living_world_continuity` — World can move off-screen and show lasting readable costs — **ACTIVE batch**
+#### Series `ux_living_world_continuity` — World can move off-screen and show lasting readable costs — **LOCKED batch**
 
 - [x] `ux_living_world_continuity` — World can move off-screen and show lasting readable costs (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_living_world_continuity/SERIES.md` · `scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/<child>/WALK.md`
-  - *Children: 0 done / 19 pending / 19 total*
-  - [ ] `ux_canon_pipeline_feel` — Canon pipeline feel (`pending`) [living_world] [coverage]
-  - [ ] `ux_economy_resources` — Resource distribution visibility (`pending`) [living_world] [coverage]
-  - [ ] `ux_economy_trade` — Trade routes / market pressure (`pending`) [living_world] [coverage]
-  - [ ] `ux_quest_pressure_surface` — Quest pressure from canon (`pending`) [living_world] [coverage]
-  - [ ] `ux_sim_weather_pulse` — Weather / ambient sim pulse (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_faction_goals` — Faction goals / agenda surface (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_faction_hierarchy` — Faction hierarchy surface (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_faction_offscreen` — Off-screen faction activity (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_faction_reputation` — Reputation standing surface (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_faction_territory` — Faction territory / influence (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_locations` — Location surfaces (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_lore_articles` — Lore codex / articles (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_maps_vs_embodied` — Maps vs embodied discovery (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_npc_agenda` — NPC agenda / schedule visibility (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_npc_dialogue_hooks` — NPC dialogue / roleplay hooks (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_npc_relations` — NPC relationship web (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_npc_secrets` — NPC secrets / knowledge gates (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_npc_sheet` — NPC identity sheet feel (`pending`) [living_world] [coverage]
-  - [ ] `ux_wa_timelines` — Timeline / era threads (`pending`) [living_world] [coverage]
+  - *Children: 19 done / 0 pending / 19 total*
+  - [x] `ux_canon_pipeline_feel` — Canon pipeline feel (`done`) [living_world] [coverage]
+  - [x] `ux_economy_resources` — Resource distribution visibility (`done`) [living_world] [coverage]
+  - [x] `ux_economy_trade` — Trade routes / market pressure (`done`) [living_world] [coverage]
+  - [x] `ux_quest_pressure_surface` — Quest pressure from canon (`done`) [living_world] [coverage]
+  - [x] `ux_sim_weather_pulse` — Weather / ambient sim pulse (`done`) [living_world] [coverage]
+  - [x] `ux_wa_faction_goals` — Faction goals / agenda surface (`done`) [living_world] [coverage]
+  - [x] `ux_wa_faction_hierarchy` — Faction hierarchy surface (`done`) [living_world] [coverage]
+  - [x] `ux_wa_faction_offscreen` — Off-screen faction activity (`done`) [living_world] [coverage]
+  - [x] `ux_wa_faction_reputation` — Reputation standing surface (`done`) [living_world] [coverage]
+  - [x] `ux_wa_faction_territory` — Faction territory / influence (`done`) [living_world] [coverage]
+  - [x] `ux_wa_locations` — Location surfaces (`done`) [living_world] [coverage]
+  - [x] `ux_wa_lore_articles` — Lore codex / articles (`done`) [living_world] [coverage]
+  - [x] `ux_wa_maps_vs_embodied` — Maps vs embodied discovery (`done`) [living_world] [coverage]
+  - [x] `ux_wa_npc_agenda` — NPC agenda / schedule visibility (`done`) [living_world] [coverage]
+  - [x] `ux_wa_npc_dialogue_hooks` — NPC dialogue / roleplay hooks (`done`) [living_world] [coverage]
+  - [x] `ux_wa_npc_relations` — NPC relationship web (`done`) [living_world] [coverage]
+  - [x] `ux_wa_npc_secrets` — NPC secrets / knowledge gates (`done`) [living_world] [coverage]
+  - [x] `ux_wa_npc_sheet` — NPC identity sheet feel (`done`) [living_world] [coverage]
+  - [x] `ux_wa_timelines` — Timeline / era threads (`done`) [living_world] [coverage]
 
 #### Series `ux_quiet_between_pillars` — In-adventure quiet keeps continuous fiction between combat social and explore
 

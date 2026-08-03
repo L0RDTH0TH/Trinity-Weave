@@ -4,12 +4,12 @@ row_id: ux_sim_weather_pulse
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Weather / ambient sim pulse
-status: pending
+status: done
 ---
 
 # `ux_sim_weather_pulse` — Weather / ambient sim pulse
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity

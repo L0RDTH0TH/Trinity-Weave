@@ -4,12 +4,12 @@ row_id: ux_wa_locations
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Location surfaces
-status: pending
+status: done
 ---
 
 # `ux_wa_locations` — Location surfaces
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity
@@ -23,7 +23,7 @@ status: pending
 - dnd_pillar: exploration
 - ux_axis: agency
 - dimension: world_gen
-- summary: Location surfaces — table-facing capability under Mid play is a power band for lasting pressure and deeper world response; structure menu, not a single AP scene default (under World can move off-screen and show lasting readable costs).
+- summary: Location surfaces as continuity discovery — sparse tags vs dossiers, map-primary vs embodied arrival — under World can move off-screen and show lasting readable costs; structure menu, not a single AP scene default.
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md

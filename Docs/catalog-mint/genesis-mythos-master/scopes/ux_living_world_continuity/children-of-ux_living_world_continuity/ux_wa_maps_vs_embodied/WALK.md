@@ -4,12 +4,12 @@ row_id: ux_wa_maps_vs_embodied
 parent_id: ux_living_world_continuity
 walk_tier: coverage
 label: Maps vs embodied discovery
-status: pending
+status: done
 ---
 
 # `ux_wa_maps_vs_embodied` — Maps vs embodied discovery
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_living_world_continuity
