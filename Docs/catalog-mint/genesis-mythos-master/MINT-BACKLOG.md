@@ -12,12 +12,10 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability]
-active_child_batch: ux_world_generation
-next_child_batch: ux_world_generation
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability, ux_world_generation]
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: 8b987ce7d5a5b20527eeb2c8dca44e9c889c1d6a
-quality_validation_status: pass_b_through_authorship_locked; active_world_generation
+quality_validation_status: pass_b_child_batches_complete
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +39,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `8b987ce7d5a5b20527eeb2c8dca44e9c889c1d6a`  
-**Quality validation:** `pass_b_through_authorship_locked; active_world_generation`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability`  
-**Active / next child batch:** `ux_world_generation`  
+**Quality validation:** `pass_b_child_batches_complete`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface, ux_dm_session_prep, ux_world_authorship_modability, ux_world_generation`  
+**Active / next child batch:** `(auto: largest pending)`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -179,12 +177,12 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - *Walk dirs:* `scopes/ux_player_character_creation/SERIES.md` · `scopes/ux_player_character_creation/children-of-ux_player_character_creation/<child>/WALK.md`
   - *No children lensed under this series*
 
-#### Series `ux_world_generation` — DM can create (table can shape) a persistent living world — **ACTIVE batch**
+#### Series `ux_world_generation` — DM can create (table can shape) a persistent living world — **LOCKED batch**
 
 - [x] `ux_world_generation` — DM can create (table can shape) a persistent living world (`done`) [living_world] [series]
   - *Walk dirs:* `scopes/ux_world_generation/SERIES.md` · `scopes/ux_world_generation/children-of-ux_world_generation/<child>/WALK.md`
-  - *Children: 0 done / 1 pending / 1 total*
-  - [ ] `ux_worldgen_gui` — Worldgen GUI (`pending`) [living_world] [coverage]
+  - *Children: 1 done / 0 pending / 1 total*
+  - [x] `ux_worldgen_gui` — Worldgen GUI (`done`) [living_world] [coverage]
 
 ## Items
 

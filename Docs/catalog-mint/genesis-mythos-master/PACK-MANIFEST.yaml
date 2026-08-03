@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T17:41:29Z'
+synced_at: '2026-08-03T17:43:03Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -22,9 +22,9 @@ file_hashes:
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
-  MINT-BACKLOG.yaml: 1a05319fe7bcb94e
-  MINT-BACKLOG.md: e5c66c90f9ba54ea
-  CHILD-BATCH-STATUS.md: ec9307f9a100faa9
+  MINT-BACKLOG.yaml: 96f5e21a02c8fd1a
+  MINT-BACKLOG.md: e6bf2567d38ca475
+  CHILD-BATCH-STATUS.md: 88c23532e0f5ba1a
   scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
   scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
   scopes/ux_collaborative_table_agency/SERIES.md: 6c22c07fafbd9a37
@@ -83,7 +83,7 @@ file_hashes:
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/WALK.md: 92da6f6ad468fc75
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md: a49033f72b60bbc0
   scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/WALK.md: d1dbcb97e9f4fe6f
-  scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md: 921ad93457dac71a
+  scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md: ef567dd63c75acfb
   scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md: 80c16253c3309cf1
   scopes/ux_camera_control_envelopes/BATCH-DIGEST.md: 60c1002f252fb0ee
   scopes/ux_collaborative_table_agency/BATCH-DIGEST.md: 8f0161793bd335a0
@@ -92,7 +92,7 @@ file_hashes:
   scopes/ux_dm_session_prep/BATCH-DIGEST.md: 8951a50dcc4d80b7
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
-  scopes/ux_world_generation/BATCH-DIGEST.md: 09da58a4bfbbba4d
+  scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -112,6 +112,7 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  FEED-ENVELOPE.yaml: efa6154bdf619b86
-  MINT-PACK.md: b97785f06f91a2ca
-warnings: []
+  FEED-ENVELOPE.yaml: 26158520e347a400
+  MINT-PACK.md: 4feefdd6c4575550
+warnings:
+- feed_completeness:no_focal_item

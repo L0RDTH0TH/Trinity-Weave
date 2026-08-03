@@ -2130,12 +2130,12 @@ items:
     relens:affinity'
 - id: ux_worldgen_gui
   label: Worldgen GUI
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: world_gen
   ux_axis: presentation_shells
   summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview,
-    accept/regenerate a persistent living world) (under DM can create (table can shape)
+    accept/regenerate a persistent living world (under DM can create (table can shape)
     a persistent living world).
   conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
@@ -2173,9 +2173,8 @@ locked_child_batches:
 - ux_combat_play_surface
 - ux_dm_session_prep
 - ux_world_authorship_modability
+- ux_world_generation
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: 8b987ce7d5a5b20527eeb2c8dca44e9c889c1d6a
-quality_validation_status: pass_b_through_authorship_locked; active_world_generation
-active_child_batch: ux_world_generation
-next_child_batch: ux_world_generation
+quality_validation_status: pass_b_child_batches_complete
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

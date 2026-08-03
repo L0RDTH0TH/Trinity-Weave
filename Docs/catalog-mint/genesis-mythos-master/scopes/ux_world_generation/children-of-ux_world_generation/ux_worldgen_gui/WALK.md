@@ -4,12 +4,12 @@ row_id: ux_worldgen_gui
 parent_id: ux_world_generation
 walk_tier: coverage
 label: Worldgen GUI
-status: pending
+status: done
 ---
 
 # `ux_worldgen_gui` — Worldgen GUI
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_world_generation
@@ -23,7 +23,7 @@ status: pending
 - dnd_pillar: shared
 - ux_axis: presentation_shells
 - dimension: world_gen
-- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world).
+- summary: Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world (under DM can create (table can shape) a persistent living world).
 - pillar_notes: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay: (infer from mode)
 - conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 - derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
