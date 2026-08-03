@@ -2206,11 +2206,10 @@ items:
     — not siloed presets per subsystem. - Profiles are **defaults**, not stereotypes;
     table Palet; pillars: exploration: mentioned in feedstock | combat: (infer from
     mode) | roleplay: (infer from mode); lensed_by:ux_world_generation'
-locked_child_batches:
-- ux_camera_control_envelopes
+locked_child_batches: []
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 0f0ce8a8de8e909070318126df9dd38d0dab276d
-quality_validation_status: children_relensed_dual_rail_awaiting_grok_validate
-active_child_batch: ux_living_world_continuity
+children_published_trinity_ref: 685170075f86e39337f8f0e922938d26122e11e4
+quality_validation_status: camera_batch_unlocked_awaiting_grok_validate
+active_child_batch: ux_camera_control_envelopes
 next_child_batch: ux_living_world_continuity
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
