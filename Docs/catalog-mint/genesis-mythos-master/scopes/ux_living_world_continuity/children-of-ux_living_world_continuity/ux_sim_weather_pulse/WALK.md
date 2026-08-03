@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["Sparse ambient weather ticks vs denser seasonal pressure", "Cosmetic weather chrome vs lasting travel/site interruption residue"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: sim_weather_pulse

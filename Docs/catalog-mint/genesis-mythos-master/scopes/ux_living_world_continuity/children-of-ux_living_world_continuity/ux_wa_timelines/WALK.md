@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Sparse vs rich presentation under World can move off-screen and show lasting readable costs", "Minimal vs fuller control surface under World can move off-screen and show lasting readable costs (still not a single AP default)"]
+- alternatives_not_banned: ["Sparse era tags vs deep Microscope-like thread continuity", "DM timeline only vs player-readable chronicle residue of off-screen time"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_timelines

@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Abstract resource pressure vs detailed trade routes", "Background economy vs player-facing market surfaces"]
+- alternatives_not_banned: ["Abstract scarcity pressure vs named resource-site interruption", "Background stock ticks vs player-facing shortage residue"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: economy_resources

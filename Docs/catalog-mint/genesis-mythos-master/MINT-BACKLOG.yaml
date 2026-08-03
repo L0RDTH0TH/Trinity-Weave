@@ -1452,8 +1452,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Quiet background sim vs more visible pressure ticks
-  - DM-only machinery vs player-readable residue on return
+  - Quiet proposed→accepted chain vs more visible hook/sim-active residue
+  - DM-only pipeline machinery vs player-readable state labels on return
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: canon_pipeline_feel
@@ -1487,8 +1487,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Abstract resource pressure vs detailed trade routes
-  - Background economy vs player-facing market surfaces
+  - Abstract scarcity pressure vs named resource-site interruption
+  - Background stock ticks vs player-facing shortage residue
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: economy_resources
@@ -1521,8 +1521,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Abstract resource pressure vs detailed trade routes
-  - Background economy vs player-facing market surfaces
+  - Route-light trade pressure vs explicit route disruption on return
+  - Off-screen price drift vs table-visible market tension
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: economy_trade
@@ -1556,8 +1556,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Quiet background sim vs more visible pressure ticks
-  - DM-only machinery vs player-readable residue on return
+  - Soft rumor pressure vs hard deadline/quest board ticks
+  - DM-only quest machinery vs player-readable obligation residue
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: quest_pressure_surface
@@ -1591,8 +1591,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Short Session-0 vs expanded tone/onboarding wizard
-  - Preset tone packs vs fully custom profile
+  - Sparse ambient weather ticks vs denser seasonal pressure
+  - Cosmetic weather chrome vs lasting travel/site interruption residue
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: sim_weather_pulse
@@ -1623,8 +1623,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Opaque faction aims vs partially leaked goal residue on return
+  - Single active faction agenda vs multi-faction competing goals
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_goals
@@ -1658,8 +1658,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Flat faction presence vs visible rank/chain-of-command shifts
+  - Quiet leadership change vs table-readable succession residue
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_hierarchy
@@ -1691,8 +1691,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Sparse off-screen faction ticks vs denser between-session deltas
+  - DM-only offscreen log vs player rumor/residue of those ticks
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_offscreen
@@ -1725,8 +1725,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Slow reputation drift vs sharp standing breaks on return
+  - Faction-facing rep only vs personal PC standing residue
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_reputation
@@ -1758,8 +1758,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Soft border tension vs hard territory loss/gain on the map
+  - Abstract control vs site-level occupation residue players can feel
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_faction_territory
@@ -1793,10 +1793,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Sparse vs rich presentation under World can move off-screen and show lasting readable
-    costs
-  - Minimal vs fuller control surface under World can move off-screen and show lasting
-    readable costs (still not a single AP default)
+  - Sparse place tags vs deep location dossiers
+  - Map-primary discovery vs embodied arrival-first discovery
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_locations
@@ -1830,8 +1828,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Player-lite lore GUI vs deeper chronicle buckets
-  - Optional class chrome discovery vs always-on identity surfaces
+  - Short continuity articles vs deeper living-world codex entries
+  - DM-authored lore drip vs player-found article residue after off-screen change
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_lore_articles
@@ -1865,8 +1863,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Player-lite lore GUI vs deeper chronicle buckets
-  - Optional class chrome discovery vs always-on identity surfaces
+  - Map-primary world reading vs embodied-primary exploration
+  - Thin map chrome vs rich map that never replaces FP return
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_maps_vs_embodied
@@ -1900,8 +1898,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Thin NPC sheet vs richer agenda/secret surfaces
-  - Dialogue-hook light vs dense relationship graph
+  - Sparse NPC agenda ticks vs denser off-screen pursuit of aims
+  - Hidden agendas only vs partial agenda leakage on return
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_agenda
@@ -1935,8 +1933,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Thin NPC sheet vs richer agenda/secret surfaces
-  - Dialogue-hook light vs dense relationship graph
+  - Few return-dialogue hooks vs denser hook surface after absence
+  - Generic worry lines vs hook tied to specific off-screen events
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_dialogue_hooks
@@ -1970,8 +1968,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Slow relationship drift vs sharp alliance/break residue
+  - Pairwise only vs small web of relation shifts players notice
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_relations
@@ -2004,8 +2002,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Thin NPC sheet vs richer agenda/secret surfaces
-  - Dialogue-hook light vs dense relationship graph
+  - Secrets stay sealed vs partial reveal after off-screen pressure
+  - DM-only secret log vs playable discovery hooks on return
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_secrets
@@ -2038,8 +2036,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Thin NPC sheet vs richer agenda/secret surfaces
-  - Dialogue-hook light vs dense relationship graph
+  - Thin continuity sheet vs richer off-screen status block
+  - Combat/stat sheet bias vs social/continuity fields on return
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_npc_sheet
@@ -2071,10 +2069,8 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Sparse vs rich presentation under World can move off-screen and show lasting readable
-    costs
-  - Minimal vs fuller control surface under World can move off-screen and show lasting
-    readable costs (still not a single AP default)
+  - Sparse era tags vs deep Microscope-like thread continuity
+  - DM timeline only vs player-readable chronicle residue of off-screen time
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: wa_timelines
@@ -2166,8 +2162,8 @@ items:
 locked_child_batches:
 - ux_camera_control_envelopes
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 918eed44b80e1a463e4642ee9267b437a78eceb2
-quality_validation_status: camera_locked_pass_b_locals_validated; living_world_active
+children_published_trinity_ref: ac9349e8a992285b21c44d9423ed99c780018840
+quality_validation_status: camera_locked; living_world_locals_polished_awaiting_grok_revalidate
 active_child_batch: ux_living_world_continuity
 next_child_batch: ux_living_world_continuity
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

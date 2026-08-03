@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Quiet background sim vs more visible pressure ticks", "DM-only machinery vs player-readable residue on return"]
+- alternatives_not_banned: ["Soft rumor pressure vs hard deadline/quest board ticks", "DM-only quest machinery vs player-readable obligation residue"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: quest_pressure_surface

@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Abstract resource pressure vs detailed trade routes", "Background economy vs player-facing market surfaces"]
+- alternatives_not_banned: ["Route-light trade pressure vs explicit route disruption on return", "Off-screen price drift vs table-visible market tension"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: economy_trade

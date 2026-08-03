@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Player-lite lore GUI vs deeper chronicle buckets", "Optional class chrome discovery vs always-on identity surfaces"]
+- alternatives_not_banned: ["Map-primary world reading vs embodied-primary exploration", "Thin map chrome vs rich map that never replaces FP return"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_maps_vs_embodied

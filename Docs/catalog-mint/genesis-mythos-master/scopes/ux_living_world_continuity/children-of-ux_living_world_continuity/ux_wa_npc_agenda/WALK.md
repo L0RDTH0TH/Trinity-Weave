@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Thin NPC sheet vs richer agenda/secret surfaces", "Dialogue-hook light vs dense relationship graph"]
+- alternatives_not_banned: ["Sparse NPC agenda ticks vs denser off-screen pursuit of aims", "Hidden agendas only vs partial agenda leakage on return"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_npc_agenda

@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Off-screen faction tick sparse vs dense", "Player-visible residue only vs DM machinery exposed"]
+- alternatives_not_banned: ["Slow relationship drift vs sharp alliance/break residue", "Pairwise only vs small web of relation shifts players notice"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_npc_relations

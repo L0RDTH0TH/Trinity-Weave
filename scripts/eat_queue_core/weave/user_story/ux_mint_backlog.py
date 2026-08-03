@@ -276,6 +276,9 @@ def _merge_yaml_doc_gates(md_doc: dict[str, Any], y_doc: dict[str, Any]) -> dict
     for key in _DOC_GATE_KEYS:
         if key not in y_doc:
             continue
+        # Explicit empty locked list on MD is intentional (unlock) — do not revive from YAML
+        if key == "locked_child_batches" and "locked_child_batches" in md_doc:
+            continue
         if _gate_empty(out.get(key)) and not _gate_empty(y_doc.get(key)):
             out[key] = y_doc[key]
     return out
@@ -427,8 +430,8 @@ def render_mint_backlog_markdown(doc: dict[str, Any]) -> str:
         "schema_version: 1",
     ]
     locked_batches = [str(x) for x in (doc.get("locked_child_batches") or [])]
-    if locked_batches:
-        lines.append(f"locked_child_batches: {_yaml_list_fm(locked_batches)}")
+    # Always emit (including []) so unlock cannot be undone by YAML gate-merge
+    lines.append(f"locked_child_batches: {_yaml_list_fm(locked_batches)}")
     for key in ("active_child_batch", "next_child_batch"):
         if doc.get(key):
             lines.append(f"{key}: {doc.get(key)}")

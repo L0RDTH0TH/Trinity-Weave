@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_living_world_continuity
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Player-lite lore GUI vs deeper chronicle buckets", "Optional class chrome discovery vs always-on identity surfaces"]
+- alternatives_not_banned: ["Short continuity articles vs deeper living-world codex entries", "DM-authored lore drip vs player-found article residue after off-screen change"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: wa_lore_articles
