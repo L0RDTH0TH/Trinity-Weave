@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_backstory_legacy_integration
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Player-lite lore GUI vs deeper chronicle buckets", "Optional class chrome discovery vs always-on identity surfaces"]
+- alternatives_not_banned: ["Optional vs always-on identity chrome in the embodied moment", "Sparse diegetic notice vs explicit class/identity recognition surface"]
 - inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: class_chrome_discovery

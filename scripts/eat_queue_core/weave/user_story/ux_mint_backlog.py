@@ -1726,6 +1726,18 @@ def _draft_child_local_alternatives(
             "Brief gate flash vs longer planar transition presentation",
             "Rules-only planar departures vs session-flavored transitions (still restore)",
         ],
+        "ux_chronicle_buckets": [
+            "Strict three-bucket separation vs soft merged chronicle views",
+            "Thin personal archive vs richer searchable chronicle",
+        ],
+        "ux_class_chrome_discovery": [
+            "Optional vs always-on identity chrome in the embodied moment",
+            "Sparse diegetic notice vs explicit class/identity recognition surface",
+        ],
+        "ux_player_lite_lore_gui": [
+            "Minimal inbox+Legacies vs fuller recap/chronicle chrome",
+            "Read-mostly vs light intent-propose without DM-write power",
+        ],
     }
     if iid in keyed:
         return keyed[iid][:4]

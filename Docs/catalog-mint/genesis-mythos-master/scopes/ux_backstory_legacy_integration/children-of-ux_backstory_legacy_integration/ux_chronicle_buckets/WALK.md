@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_backstory_legacy_integration
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["Strict three-bucket separation vs soft merged chronicle views", "Thin personal archive vs richer searchable chronicle"]
 - inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: chronicle_buckets

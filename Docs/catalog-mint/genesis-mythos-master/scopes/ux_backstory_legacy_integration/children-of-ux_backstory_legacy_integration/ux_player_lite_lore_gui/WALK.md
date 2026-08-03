@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_backstory_legacy_integration
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Short Session-0 vs expanded tone/onboarding wizard", "Preset tone packs vs fully custom profile"]
+- alternatives_not_banned: ["Minimal inbox+Legacies vs fuller recap/chronicle chrome", "Read-mostly vs light intent-propose without DM-write power"]
 - inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: player_lite_lore_gui
