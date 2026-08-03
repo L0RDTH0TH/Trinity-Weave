@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation]
-active_child_batch: ux_collaborative_table_agency
-next_child_batch: ux_collaborative_table_agency
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency]
+active_child_batch: ux_combat_play_surface
+next_child_batch: ux_combat_play_surface
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: ed92c70269511a3530c7a688542292ee72835371
-quality_validation_status: collaborative_table_locals_polished_awaiting_grok_revalidate
+quality_validation_status: camera_lw_backstory_campaign_collab_locked; active_combat_play_surface
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `ed92c70269511a3530c7a688542292ee72835371`  
-**Quality validation:** `collaborative_table_locals_polished_awaiting_grok_revalidate`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation`  
-**Active / next child batch:** `ux_collaborative_table_agency`  
+**Quality validation:** `camera_lw_backstory_campaign_collab_locked; active_combat_play_surface`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency`  
+**Active / next child batch:** `ux_combat_play_surface`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -80,15 +80,15 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - [x] `ux_liminal_unconscious` — Liminal / unconscious presentation (`done`) [inhabit] [coverage]
   - [x] `ux_planar_travel_override` — Planar / gate travel override (`done`) [inhabit] [coverage]
 
-#### Series `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration — **ACTIVE batch**
+#### Series `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration — **LOCKED batch**
 
 - [x] `ux_collaborative_table_agency` — Shared virtual-tabletop loop with character agency and DM orchestration (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_collaborative_table_agency/SERIES.md` · `scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/<child>/WALK.md`
-  - *Children: 0 done / 2 pending / 2 total*
-  - [ ] `ux_application_shell` — Application shell / layout chrome (`pending`) [surfaces] [coverage]
-  - [ ] `ux_primary_navigation` — Primary navigation / wayfinding (`pending`) [flows] [coverage]
+  - *Children: 2 done / 0 pending / 2 total*
+  - [x] `ux_application_shell` — Application shell / layout chrome (`done`) [surfaces] [coverage]
+  - [x] `ux_primary_navigation` — Primary navigation / wayfinding (`done`) [flows] [coverage]
 
-#### Series `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends
+#### Series `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends — **ACTIVE batch**
 
 - [x] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`done`) [inhabit] [series]
   - *Walk dirs:* `scopes/ux_combat_play_surface/SERIES.md` · `scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/<child>/WALK.md`

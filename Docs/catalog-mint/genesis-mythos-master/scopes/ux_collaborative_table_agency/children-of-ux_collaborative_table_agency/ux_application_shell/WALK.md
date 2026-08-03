@@ -4,12 +4,12 @@ row_id: ux_application_shell
 parent_id: ux_collaborative_table_agency
 walk_tier: coverage
 label: Application shell / layout chrome
-status: pending
+status: done
 ---
 
 # `ux_application_shell` — Application shell / layout chrome
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_collaborative_table_agency

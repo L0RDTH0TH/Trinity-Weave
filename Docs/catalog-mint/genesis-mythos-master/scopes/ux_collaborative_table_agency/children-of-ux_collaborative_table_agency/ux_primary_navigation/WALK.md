@@ -4,12 +4,12 @@ row_id: ux_primary_navigation
 parent_id: ux_collaborative_table_agency
 walk_tier: coverage
 label: Primary navigation / wayfinding
-status: pending
+status: done
 ---
 
 # `ux_primary_navigation` — Primary navigation / wayfinding
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_collaborative_table_agency
