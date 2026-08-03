@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 433
+roadmap_note_count: 464
 resource_count: 2
 roadmap_notes:
 - title: decisions-log
@@ -4498,6 +4498,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-STATUS
+  wiki: '[[L5-AFFIRM-STATUS]]'
+  rel_under_project: Roadmap/User-Story/L5-AFFIRM-STATUS.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: MINT-BACKLOG
   wiki: '[[MINT-BACKLOG]]'
   rel_under_project: Roadmap/User-Story/MINT-BACKLOG.md
@@ -4627,6 +4635,126 @@ roadmap_notes:
 - title: README
   wiki: '[[README]]'
   rel_under_project: Roadmap/User-Story/Versions/children-run--20260801-children-pre-rewrite/README.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_backstory_legacy_integration/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_camera_control_envelopes/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_collaborative_table_agency/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_combat_play_surface/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_dm_campaign_creation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_dm_session_prep/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_early_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_late_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_living_world_continuity/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_mental_stat_interpretation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_mid_game/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_player_character_creation/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_quiet_between_pillars/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_world_authorship_modability/L5.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-passb-align-20260803T194010Z/ux_world_generation/L5.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4838,11 +4966,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4886,11 +5023,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5014,11 +5160,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5054,11 +5209,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5086,11 +5250,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5134,11 +5307,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5158,11 +5340,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5174,11 +5365,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5198,11 +5398,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5367,11 +5576,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5383,11 +5601,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5399,11 +5626,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5415,11 +5651,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5439,11 +5684,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5471,11 +5725,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5
   wiki: '[[L5]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

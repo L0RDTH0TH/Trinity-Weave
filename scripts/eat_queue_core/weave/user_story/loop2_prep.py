@@ -153,31 +153,148 @@ def _infer_scaffold_minimum(label: str, summary: str, bullets: list[str]) -> str
     )
 
 
+def _load_series_and_children(
+    vault_root: Path,
+    project_id: str,
+    row_id: str,
+) -> tuple[dict[str, Any] | None, list[dict[str, Any]], Path | None, Path | None]:
+    """Return (series_item, child_items, series_path, digest_path)."""
+    from .ux_mint_walk_files import parse_walk_card
+
+    scopes = user_story_paths(vault_root, project_id)["scopes_dir"]
+    series_path = scopes / row_id / "SERIES.md"
+    digest_path = scopes / row_id / "BATCH-DIGEST.md"
+    series: dict[str, Any] | None = None
+    if series_path.is_file():
+        series = parse_walk_card(
+            series_path.read_text(encoding="utf-8", errors="replace"),
+            fallback_id=row_id,
+        )
+    children: list[dict[str, Any]] = []
+    for walk in sorted((scopes / row_id).glob("children-of-*/*/WALK.md")):
+        children.append(
+            parse_walk_card(
+                walk.read_text(encoding="utf-8", errors="replace"),
+                fallback_id=walk.parent.name,
+            )
+        )
+    return (
+        series,
+        children,
+        series_path if series_path.is_file() else None,
+        digest_path if digest_path.is_file() else None,
+    )
+
+
+def _moment_bullets_from_feedstock(
+    *,
+    label: str,
+    series: dict[str, Any] | None,
+    children: list[dict[str, Any]],
+    min_moments: int,
+) -> list[str]:
+    """Build seat/trigger/response/refusal/residue bullets from Pass B feedstock."""
+    seats = []
+    if series and isinstance(series.get("seat"), list):
+        seats = [str(s) for s in series["seat"]]
+    seat = ", ".join(seats) if seats else "shared_table"
+    bullets: list[str] = []
+
+    for ch in children:
+        cid = str(ch.get("id") or "child")
+        summary = str(ch.get("summary") or ch.get("label") or cid).strip()
+        bullets.append(
+            f"- **Seat:** {seat} · **Trigger:** enter `{cid}` · "
+            f"**Observable response:** {summary[:220]} · "
+            f"**Refusal/guard:** out of contract / wrong seat · "
+            f"**Residue:** lasting readable state from this moment"
+        )
+
+    summary = str((series or {}).get("summary") or label)
+    # Split summary into clause-sized moments when children are thin
+    clauses = [c.strip() for c in re.split(r"[.;]", summary) if len(c.strip()) > 24]
+    for i, clause in enumerate(clauses):
+        if len(bullets) >= max(min_moments, 6):
+            break
+        bullets.append(
+            f"- **Seat:** {seat} · **Trigger:** contract clause {i + 1} · "
+            f"**Observable response:** {clause[:220]} · "
+            f"**Refusal/guard:** anti-mandate / wrong altitude · "
+            f"**Residue:** durable table-visible consequence when applicable"
+        )
+
+    # Thin expansion from alternatives (play-verb coverage, not chrome)
+    alts = (series or {}).get("alternatives_not_banned") or []
+    if isinstance(alts, list):
+        for alt in alts:
+            if len(bullets) >= min_moments:
+                break
+            bullets.append(
+                f"- **Seat:** {seat} · **Trigger:** structure-menu choice · "
+                f"**Observable response:** {str(alt)[:200]} remains first-class · "
+                f"**Refusal/guard:** must not mandate the opposite as sole law · "
+                f"**Residue:** chosen path leaves readable stakes/cost when relevant"
+            )
+
+    while len(bullets) < min_moments:
+        n = len(bullets) + 1
+        bullets.append(
+            f"- **Seat:** {seat} · **Trigger:** open play-verb moment {n} for **{label}** · "
+            f"**Observable response:** player/DM-visible contract step (expand from SERIES) · "
+            f"**Refusal/guard:** out of scope / deferred exclusion · "
+            f"**Residue:** lasting cost or handoff back to prior surface"
+        )
+    return bullets
+
+
+def _format_list_block(values: Any, *, empty: str) -> str:
+    if isinstance(values, list) and values:
+        return "\n".join(f"- {v}" for v in values)
+    if isinstance(values, str) and values.strip():
+        return values.strip()
+    return empty
+
+
 def draft_l5_user_story(
     vault_root: Path,
     *,
     project_id: str,
     row_id: str,
     overwrite_placeholder: bool = True,
+    force_overwrite: bool = False,
 ) -> dict[str, Any]:
     """
-    Factory L5 draft — substantive mutatable user story from PMG + roadmap context.
+    Pass-B-aligned L5 draft (first-class Loop 2 MO).
 
-    Not empty form fields: a first-pass experiential definition the operator edits until
-    parity with their actual goal.
+    Primary feedstock: SERIES + BATCH-DIGEST + child WALK summaries.
+    PMG only for hard-dep / integration seams — never primary vision prose.
     """
+    from datetime import datetime, timezone
+
+    from .l5_thin_config import thin_min_moments
+
     vault_root = vault_root.resolve()
     l5_path = scope_path(vault_root, project_id, row_id, 5)
-    if l5_path.is_file():
+    if l5_path.is_file() and not force_overwrite:
         existing = l5_path.read_text(encoding="utf-8", errors="replace")
         if not overwrite_placeholder or not _is_placeholder_l5(existing):
-            return {
-                "ok": True,
-                "row_id": row_id,
-                "path": str(l5_path.relative_to(vault_root)),
-                "detail": "l5_exists",
-                "skipped": True,
-            }
+            # Allow refresh when still factory_draft under overwrite_placeholder
+            if "l5_origin: pass_b_aligned" in existing or not overwrite_placeholder:
+                return {
+                    "ok": True,
+                    "row_id": row_id,
+                    "path": str(l5_path.relative_to(vault_root)),
+                    "detail": "l5_exists",
+                    "skipped": True,
+                }
+            if "l5_origin: factory_draft" not in existing and not _is_placeholder_l5(existing):
+                return {
+                    "ok": True,
+                    "row_id": row_id,
+                    "path": str(l5_path.relative_to(vault_root)),
+                    "detail": "l5_exists",
+                    "skipped": True,
+                }
 
     paths = user_story_paths(vault_root, project_id)
     catalog = load_yaml(paths["catalog"])
@@ -185,77 +302,142 @@ def draft_l5_user_story(
     if not row:
         return {"ok": False, "row_id": row_id, "detail": "catalog_row_missing"}
 
-    label = str(row.get("label") or row_id)
+    series, children, series_path, digest_path = _load_series_and_children(
+        vault_root, project_id, row_id
+    )
+    label = str(
+        (series or {}).get("label") or row.get("label") or row_id
+    )
+    summary = str((series or {}).get("summary") or row.get("label") or label)
+    pin_raw = str(
+        (series or {}).get("conceptual_pin")
+        or row.get("conceptual_pin")
+        or "needs pin"
+    )
+    needs_pin = "needs pin" in pin_raw.lower() or pin_raw.strip() in ("", "needs_pin")
+
+    min_m = thin_min_moments(vault_root, project_id, row_id)
+    # Non-thin still get at least 2 moments from feedstock
+    moment_floor = max(min_m, 2 if (series or children) else 1)
+    moments = _moment_bullets_from_feedstock(
+        label=label,
+        series=series,
+        children=children,
+        min_moments=moment_floor,
+    )
+
+    full_vision_lines = [summary]
+    if children:
+        full_vision_lines.append("")
+        full_vision_lines.append("Child surfaces under this contract:")
+        for ch in children[:12]:
+            full_vision_lines.append(
+                f"- `{ch.get('id')}` — {str(ch.get('summary') or ch.get('label') or '')[:160]}"
+            )
+
+    # PoC cut: omit later children / polish; keep first honest verbs
+    child_ids = [str(c.get("id")) for c in children]
+    if len(child_ids) > 2:
+        poc = (
+            f"First cut proves the parent contract with a small surface set "
+            f"({', '.join(f'`{c}`' for c in child_ids[:2])}); defer "
+            f"{', '.join(f'`{c}`' for c in child_ids[2:6])} and deeper chrome. "
+            f"Keep anti-mandate and authored structure menus honest."
+        )
+    elif min_m:
+        poc = (
+            f"PoC names the play-verb moments in Moment inventory (intent / resolve / "
+            f"residue) with thin chrome; defer pack-content depth, multi-wave tooling, "
+            f"and non-essential polish. Full vision remains larger than this cut."
+        )
+    else:
+        poc = (
+            f"PoC delivers the series contract for **{label}** with one honest path and "
+            f"explicit deferred exclusions; omit L4+ polish and optional thickeners."
+        )
+
+    deps = row.get("depends_on") if isinstance(row.get("depends_on"), list) else []
+    dep_ids = []
+    for d in deps:
+        if isinstance(d, dict) and d.get("row_id"):
+            dep_ids.append(str(d["row_id"]))
+        elif isinstance(d, str):
+            dep_ids.append(d)
+    # Soft PMG seam only for hard-deps language
     pmg = _find_pmg_path(vault_root, project_id)
-    pmg_text = pmg.read_text(encoding="utf-8", errors="replace") if pmg and pmg.is_file() else ""
-
-    phase_num = _phase_num_from_row_id(row_id)
-    pmg_title, pmg_summary, pmg_bullets = ("", "", [])
-    phase_roadmap_excerpt = ""
-    conceptual_excerpts: list[str] = []
-    if phase_num:
-        pmg_title, pmg_summary, pmg_bullets = extract_pmg_phase_section(pmg_text, phase_num)
-        phase_path = find_phase_roadmap_path(vault_root, project_id, phase_num)
-        if phase_path and phase_path.is_file():
-            phase_roadmap_excerpt = phase_path.read_text(encoding="utf-8", errors="replace")[:2000].strip()
-        for cpath, cbody in find_conceptual_context_for_phase(vault_root, project_id, phase_num):
-            rel = cpath.relative_to(vault_root)
-            conceptual_excerpts.append(f"### [[{rel}]]\n\n{cbody[:1600]}")
-
-    pin_excerpt = _read_pin_excerpt(vault_root, row)
-    vision_parts = [
-        p
-        for p in [
-            pmg_summary,
-            "\n\n".join(conceptual_excerpts[:3]) if conceptual_excerpts else "",
-            pin_excerpt[:800] if pin_excerpt and pin_excerpt not in pmg_summary else "",
-        ]
-        if p
-    ]
-    complete_vision = vision_parts[0] if vision_parts else (
-        f"At ship tier, **{label}** delivers the experiential bar described in the project master goal "
-        f"for catalog row `{row_id}`."
+    hard_deps = (
+        "\n".join(f"- `{d}`" for d in dep_ids)
+        if dep_ids
+        else (
+            f"- Collaborative table / adjacent rails as named in SERIES hard seams "
+            f"(see PMG only for integration names: "
+            f"`{pmg.relative_to(vault_root) if pmg else 'PMG'}`)."
+        )
     )
 
-    core_loop = _infer_core_loop(label, pmg_summary, pmg_bullets)
-    integration = (
-        f"At ship tier, **{label}** integrates with adjacent phases through explicit modularity seams, "
-        f"canon/intent hooks where applicable, and factory-verifiable contracts — not one-off UI glue. "
+    dnm = _format_list_block(
+        (series or {}).get("does_not_mandate"),
+        empty="- _(none recorded on SERIES — add if product law risks appear)_",
     )
-    if pmg_bullets:
-        integration += f"Key integration anchors: {'; '.join(pmg_bullets[:3])}."
-    scaffold = _infer_scaffold_minimum(label, pmg_summary, pmg_bullets)
+    alts = _format_list_block(
+        (series or {}).get("alternatives_not_banned"),
+        empty="- _(none recorded on SERIES)_",
+    )
 
     anchors: list[str] = []
+    if series_path:
+        anchors.append(f"- SERIES: `scopes/{row_id}/SERIES.md`")
+    if digest_path or children:
+        anchors.append(f"- BATCH-DIGEST: `scopes/{row_id}/BATCH-DIGEST.md`")
+    for ch in children[:8]:
+        cid = ch.get("id")
+        anchors.append(
+            f"- WALK: `scopes/{row_id}/children-of-{row_id}/{cid}/WALK.md`"
+        )
+    if not needs_pin and pin_raw:
+        anchors.append(f"- Conceptual pin: `{pin_raw}`")
+    else:
+        anchors.append("- Conceptual pin: `needs pin` (soft — resolve before catalog sign)")
     if pmg:
-        anchors.append(f"- PMG: `[[{pmg.relative_to(vault_root)}]]`")
-    if phase_num and (phase_roadmap_excerpt or conceptual_excerpts):
-        pr = find_phase_roadmap_path(vault_root, project_id, phase_num)
-        if pr:
-            anchors.append(f"- Phase roadmap: `[[{pr.relative_to(vault_root)}]]`")
-        for cpath, _ in find_conceptual_context_for_phase(vault_root, project_id, phase_num)[:4]:
-            anchors.append(f"- Conceptual: `[[{cpath.relative_to(vault_root)}]]`")
+        anchors.append(f"- PMG seam only: `[[{pmg.relative_to(vault_root)}]]`")
 
+    scaffold = (
+        f"Smallest honest vertical slice for **{label}**: one end-to-end path that proves "
+        f"the series contract without L4+ polish — "
+        f"{(moments[0][2:80] if moments else summary[:120])}."
+    )
+
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     body = (
         f"---\n"
         f"level: 5\n"
         f"row_id: {row_id}\n"
         f"label: {label}\n"
-        f"l5_origin: factory_draft\n"
+        f"l5_origin: pass_b_aligned\n"
+        f"pass_b_aligned_at: {now}\n"
+        f"affirm_status: drafted\n"
+        f"conceptual_pin: {pin_raw}\n"
         f"operator_action: mutate_until_parity\n"
         f"---\n\n"
         f"# {label} — complete vision (L5)\n\n"
-        f"> [!note] Factory draft — mutate until parity\n"
-        f"> This is the factory's read of your goal from PMG + roadmap context. "
-        f"Edit until it matches what you actually want at ship tier.\n\n"
-        f"## Complete vision\n\n{complete_vision}\n\n"
-        f"## Core loop\n\n{core_loop}\n\n"
-        f"## Integration & polish\n\n{integration}\n\n"
+        f"> [!note] Pass-B-aligned Loop 2 MO\n"
+        f"> Primary feedstock is locked SERIES / BATCH-DIGEST / WALK — not PMG mine. "
+        f"Edit until parity; Grok validates via digest-first affirm.\n\n"
+        f"## What it is\n\n{summary}\n\n"
+        f"## Moment inventory\n\n" + "\n".join(moments) + "\n\n"
+        f"## Full vision\n\n" + "\n".join(full_vision_lines) + "\n\n"
+        f"## Early / PoC cut\n\n{poc}\n\n"
+        f"## Hard dependencies\n\n{hard_deps}\n\n"
+        f"## Out of scope\n\n"
+        f"- Pack content dumps (class/spell/monster/merchant lists) — rules/content packs own those\n"
+        f"- Mandating a single AP skin as product law\n"
+        f"- Deferred exclusions for first slice: anything not named in Moment inventory / PoC cut\n\n"
+        f"## Alternatives not banned\n\n{alts}\n\n"
+        f"## does_not_mandate\n\n{dnm}\n\n"
+        f"## Source anchors\n\n" + "\n".join(anchors) + "\n\n"
         f"## Scaffold minimum\n\n{scaffold}\n\n"
+        f"<!-- pass-b-l5-draft: v1 -->\n"
     )
-    if anchors:
-        body += "## Source anchors\n\n" + "\n".join(anchors) + "\n\n"
-    body += "<!-- factory-l5-draft: v1 -->\n<!-- operator-mutate-until-parity -->\n"
 
     l5_path.parent.mkdir(parents=True, exist_ok=True)
     l5_path.write_text(body, encoding="utf-8")
@@ -263,8 +445,10 @@ def draft_l5_user_story(
         "ok": True,
         "row_id": row_id,
         "path": str(l5_path.relative_to(vault_root)),
-        "detail": "l5_factory_drafted",
+        "detail": "l5_pass_b_drafted",
         "chars": len(body),
+        "needs_pin": needs_pin,
+        "moment_count": len(moments),
     }
 
 

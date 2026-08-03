@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-03T17:43:17Z'
+synced_at: '2026-08-03T19:41:15Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -18,7 +18,7 @@ required_files:
 file_hashes:
   CONCEPTUAL-EXCERPT.md: 6f3505a5125f2025
   PIN-INDEX.md: 7aa7f79d4fb6d7dd
-  ROADMAP-RESOURCE-INDEX.yaml: b0ae247ff7ebbef3
+  ROADMAP-RESOURCE-INDEX.yaml: fd985e4db20b4586
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
@@ -93,6 +93,37 @@ file_hashes:
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
   scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
+  scopes/ux_backstory_legacy_integration/L5.md: 15d30e4129896aa8
+  scopes/ux_camera_control_envelopes/L5.md: 5437574babc422db
+  scopes/ux_collaborative_table_agency/L5.md: 1ffc934b784f5fcb
+  scopes/ux_combat_play_surface/L5.md: 0e67220ac566ec84
+  scopes/ux_dm_campaign_creation/L5.md: f726b422dd6dbf61
+  scopes/ux_dm_session_prep/L5.md: 95870fcc75811159
+  scopes/ux_early_game/L5.md: cd689159b0ffad15
+  scopes/ux_late_game/L5.md: 18cdd9e56e7ed9ff
+  scopes/ux_living_world_continuity/L5.md: bc76cac8d7770d93
+  scopes/ux_mental_stat_interpretation/L5.md: a3255eb7af242a9e
+  scopes/ux_mid_game/L5.md: e12e08a19d97866f
+  scopes/ux_player_character_creation/L5.md: c4aa727270f3751b
+  scopes/ux_quiet_between_pillars/L5.md: fe546885caab1f3d
+  scopes/ux_world_authorship_modability/L5.md: be2590eb61c02657
+  scopes/ux_world_generation/L5.md: f3a451a786c730f9
+  scopes/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md: 7fd849457fe768b5
+  scopes/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md: f8727b1cda6194c7
+  scopes/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md: e21669e971ffa147
+  scopes/ux_combat_play_surface/L5-AFFIRM-DIGEST.md: cd410e7d5b789af5
+  scopes/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md: 53eb6639877a5308
+  scopes/ux_dm_session_prep/L5-AFFIRM-DIGEST.md: 95040b2cf05fac7c
+  scopes/ux_early_game/L5-AFFIRM-DIGEST.md: 47703155560fdf2d
+  scopes/ux_late_game/L5-AFFIRM-DIGEST.md: a3a934f70f49d68b
+  scopes/ux_living_world_continuity/L5-AFFIRM-DIGEST.md: 5cc09ff5fdbff1ff
+  scopes/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md: aea39041740f69b5
+  scopes/ux_mid_game/L5-AFFIRM-DIGEST.md: 2f8ff535125d0634
+  scopes/ux_player_character_creation/L5-AFFIRM-DIGEST.md: 3f4c8e006510c8db
+  scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md: 25a175073ae16dfd
+  scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: 7b24067f4daa7640
+  scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: 176541b68470bd02
+  L5-AFFIRM-STATUS.md: 2ce67c3fca1f9e63
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -113,6 +144,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 2b93b80e49a53865
+  MINT-PACK.md: 029b05f066fe24f8
 warnings:
 - feed_completeness:no_focal_item

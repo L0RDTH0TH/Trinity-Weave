@@ -18,7 +18,12 @@ _COMPLIANCE_PATTERNS = (
     re.compile(r"evidence\s+pack", re.I),
 )
 
-_REQUIRED_SECTIONS = (
+# Pass-B MO (preferred) or legacy factory draft headings
+_PASS_B_SECTIONS = (
+    re.compile(r"^##\s+What it is\s*$", re.MULTILINE | re.I),
+    re.compile(r"^##\s+Moment inventory\s*$", re.MULTILINE | re.I),
+)
+_LEGACY_SECTIONS = (
     re.compile(r"^##\s+Complete vision\s*$", re.MULTILINE | re.I),
     re.compile(r"^##\s+Core loop\s*$", re.MULTILINE | re.I),
 )
@@ -47,16 +52,18 @@ def validate_l5_voice(text: str, *, max_compliance_hits: int = 4) -> L5VoiceResu
     """
     Reject L5 bodies dominated by REQ/gate/horizon_demo compliance boilerplate.
 
-    Requires Complete vision + Core loop sections (template shape).
+    Accepts Pass-B schema (What it is + Moment inventory) or legacy Complete vision + Core loop.
     """
     body = _strip_frontmatter(text.strip())
     if len(body) < 200:
         return L5VoiceResult(False, ("l5_too_short",))
 
     violations: list[str] = []
-    for pat in _REQUIRED_SECTIONS:
-        if not pat.search(body):
-            violations.append(f"missing_section:{pat.pattern}")
+    pass_b_ok = all(p.search(body) for p in _PASS_B_SECTIONS)
+    legacy_ok = all(p.search(body) for p in _LEGACY_SECTIONS)
+    if not pass_b_ok and not legacy_ok:
+        violations.append("missing_section:What it is|Complete vision")
+        violations.append("missing_section:Moment inventory|Core loop")
 
     compliance_hits = 0
     for pat in _COMPLIANCE_PATTERNS:
@@ -71,7 +78,7 @@ def validate_l5_voice(text: str, *, max_compliance_hits: int = 4) -> L5VoiceResu
 
     experiential = len(
         re.findall(
-            r"(?i)\b(player|when complete|core loop|ship tier|experien|mutate until parity)\b",
+            r"(?i)\b(player|dm|when complete|core loop|ship tier|experien|moment|seat|trigger)\b",
             body,
         )
     )

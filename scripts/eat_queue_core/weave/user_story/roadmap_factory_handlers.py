@@ -266,12 +266,14 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
         row_id = params.get("row_id")
         row_ids = params.get("row_ids")
         overwrite = params.get("overwrite_placeholder", True) is not False
+        force = params.get("force_overwrite", False) is True
         if row_id:
             out = run_l5_scope_author(
                 vault_root,
                 project_id=project_id,
                 row_id=str(row_id),
                 overwrite_placeholder=overwrite,
+                force_overwrite=force,
             )
         else:
             if isinstance(row_ids, str):
@@ -281,6 +283,7 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
                 project_id=project_id,
                 row_ids=row_ids if isinstance(row_ids, list) else None,
                 overwrite_placeholder=overwrite,
+                force_overwrite=force,
             )
         return {"ok": out.get("ok", False), "id": eid, "mode": mode, **out}
 

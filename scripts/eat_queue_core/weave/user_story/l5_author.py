@@ -57,8 +57,11 @@ def run_l5_scope_author(
     project_id: str,
     row_id: str,
     overwrite_placeholder: bool = True,
+    force_overwrite: bool = False,
 ) -> dict[str, Any]:
-    """Draft or refresh L5 via loop2_prep + voice guard."""
+    """Draft or refresh L5 via Pass-B loop2_prep + affirm gate (first-class Loop 2 MO)."""
+    from .l5_affirm import validate_l5_affirm
+
     vault_root = vault_root.resolve()
     pid = str(project_id or "").strip()
     rid = str(row_id or "").strip()
@@ -70,6 +73,7 @@ def run_l5_scope_author(
         project_id=pid,
         row_id=rid,
         overwrite_placeholder=overwrite_placeholder,
+        force_overwrite=force_overwrite,
     )
     if not draft.get("ok"):
         return draft
@@ -80,9 +84,10 @@ def run_l5_scope_author(
 
     body = l5_path.read_text(encoding="utf-8", errors="replace")
     voice = validate_l5_voice(body)
+    affirm = validate_l5_affirm(vault_root, project_id=pid, row_id=rid, text=body)
     l5_rel = str(l5_path.relative_to(vault_root))
 
-    if draft.get("detail") in ("l5_factory_drafted", "l5_exists") or overwrite_placeholder:
+    if draft.get("detail") in ("l5_pass_b_drafted", "l5_factory_drafted", "l5_exists") or overwrite_placeholder:
         append_l5_author_log(
             vault_root,
             project_id=pid,
@@ -100,14 +105,16 @@ def run_l5_scope_author(
         artifacts={"l5": l5_rel},
     )
 
+    ok = voice.ok and affirm.ok
     return {
-        "ok": voice.ok,
+        "ok": ok,
         "row_id": rid,
         "path": l5_rel,
         "draft": draft,
         "voice": voice.to_dict(),
+        "affirm": affirm.to_dict(),
         "persona_attestation": att,
-        "detail": "l5_scope_authored" if voice.ok else "l5_voice_violations",
+        "detail": "l5_scope_authored" if ok else "l5_affirm_violations",
     }
 
 
@@ -117,13 +124,17 @@ def run_l5_scope_author_batch(
     project_id: str,
     row_ids: list[str] | None = None,
     overwrite_placeholder: bool = True,
+    force_overwrite: bool = False,
 ) -> dict[str, Any]:
     from .catalog_io import catalog_rows_by_id, load_yaml
+    from .l5_affirm import emit_l5_affirm_digests
 
     paths = user_story_paths(vault_root, project_id)
     catalog = load_yaml(paths["catalog"])
     by_id = catalog_rows_by_id(catalog)
-    ids = row_ids or [rid for rid, r in by_id.items() if r.get("planned") is not False]
+    ids = row_ids or [rid for rid, r in by_id.items() if r.get("planned") is True]
+    if not ids:
+        ids = [rid for rid, r in by_id.items() if r.get("planned") is not False]
     if not ids:
         ids = list(by_id.keys())
 
@@ -133,12 +144,15 @@ def run_l5_scope_author_batch(
             project_id=project_id,
             row_id=rid,
             overwrite_placeholder=overwrite_placeholder,
+            force_overwrite=force_overwrite,
         )
         for rid in ids
     ]
+    digests = emit_l5_affirm_digests(vault_root, project_id=project_id, row_ids=ids)
     return {
         "ok": all(r.get("ok") for r in results),
         "row_count": len(results),
         "results": results,
+        "digests": digests,
         "detail": "l5_scope_author_batch",
     }
