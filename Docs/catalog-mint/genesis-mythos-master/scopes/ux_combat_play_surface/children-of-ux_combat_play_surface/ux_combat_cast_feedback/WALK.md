@@ -4,12 +4,12 @@ row_id: ux_combat_cast_feedback
 parent_id: ux_combat_play_surface
 walk_tier: coverage
 label: Combat / cast sensory feedback
-status: pending
+status: done
 ---
 
 # `ux_combat_cast_feedback` — Combat / cast sensory feedback
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_combat_play_surface

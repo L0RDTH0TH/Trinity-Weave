@@ -1276,7 +1276,7 @@ items:
     lensed_by:ux_collaborative_table_agency; relens:affinity'
 - id: ux_combat_cast_feedback
   label: Combat / cast sensory feedback
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: ui_surface
   ux_axis: combat_cast_feedback
@@ -2166,9 +2166,10 @@ locked_child_batches:
 - ux_backstory_legacy_integration
 - ux_dm_campaign_creation
 - ux_collaborative_table_agency
+- ux_combat_play_surface
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: f310870e80fb4a8cec7fa6119348dd0566d0430f
-quality_validation_status: combat_cast_feedback_locals_polished_awaiting_grok_revalidate
-active_child_batch: ux_combat_play_surface
-next_child_batch: ux_combat_play_surface
+quality_validation_status: camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep
+active_child_batch: ux_dm_session_prep
+next_child_batch: ux_dm_session_prep
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

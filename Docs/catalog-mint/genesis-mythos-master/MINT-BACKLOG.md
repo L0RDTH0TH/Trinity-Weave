@@ -12,12 +12,12 @@ children_rewritten: true
 walk_defs_split: true
 waived_axes: []
 schema_version: 1
-locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency]
-active_child_batch: ux_combat_play_surface
-next_child_batch: ux_combat_play_surface
+locked_child_batches: [ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface]
+active_child_batch: ux_dm_session_prep
+next_child_batch: ux_dm_session_prep
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: f310870e80fb4a8cec7fa6119348dd0566d0430f
-quality_validation_status: combat_cast_feedback_locals_polished_awaiting_grok_revalidate
+quality_validation_status: camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,9 +41,9 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `f310870e80fb4a8cec7fa6119348dd0566d0430f`  
-**Quality validation:** `combat_cast_feedback_locals_polished_awaiting_grok_revalidate`  
-**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency`  
-**Active / next child batch:** `ux_combat_play_surface`  
+**Quality validation:** `camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep`  
+**Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface`  
+**Active / next child batch:** `ux_dm_session_prep`  
 **Waived axes/slots:** `(none)`  
 **Walk defs split:** `True`  
 **Rubric:** [[Docs/catalog-mint/_shared/UX-MINT-RUBRIC|UX mint rubric]]
@@ -88,12 +88,12 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - [x] `ux_application_shell` — Application shell / layout chrome (`done`) [surfaces] [coverage]
   - [x] `ux_primary_navigation` — Primary navigation / wayfinding (`done`) [flows] [coverage]
 
-#### Series `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends — **ACTIVE batch**
+#### Series `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends — **LOCKED batch**
 
 - [x] `ux_combat_play_surface` — Combat can resolve by authored paths including non-win ends (`done`) [inhabit] [series]
   - *Walk dirs:* `scopes/ux_combat_play_surface/SERIES.md` · `scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/<child>/WALK.md`
-  - *Children: 0 done / 1 pending / 1 total*
-  - [ ] `ux_combat_cast_feedback` — Combat / cast sensory feedback (`pending`) [inhabit] [coverage]
+  - *Children: 1 done / 0 pending / 1 total*
+  - [x] `ux_combat_cast_feedback` — Combat / cast sensory feedback (`done`) [inhabit] [coverage]
 
 #### Series `ux_living_world_continuity` — World can move off-screen and show lasting readable costs — **LOCKED batch**
 
@@ -142,7 +142,7 @@ Grouped by paternity — series parent, then its children. Not a flat coverage l
   - [x] `ux_session_onboarding` — Session / onboarding bootstrap (`done`) [flows] [coverage]
   - [x] `ux_tone_profile_surface` — Campaign tone profile surface (`done`) [table] [coverage]
 
-#### Series `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame
+#### Series `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame — **ACTIVE batch**
 
 - [x] `ux_dm_session_prep` — DM can prep a session without leaving the collaborative table frame (`done`) [table] [series]
   - *Walk dirs:* `scopes/ux_dm_session_prep/SERIES.md` · `scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/<child>/WALK.md`
