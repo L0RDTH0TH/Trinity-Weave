@@ -1290,8 +1290,9 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Guided wizard vs power-user authoring surface
-  - Procedural-first vs hand-authored seed bias
+  - Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)
+  - Diegetic-only feedback vs explicit combat chrome callouts
+  - Shared party feedback vs strictly per-caster presentation
   inherits_parent_anti_mandate: true
   catalog_face: inhabit
   experience_mode: combat_cast_feedback
@@ -2167,7 +2168,7 @@ locked_child_batches:
 - ux_collaborative_table_agency
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: d583d2e0b6436dca0849fffe0cc2ef6e267e15f6
-quality_validation_status: camera_lw_backstory_campaign_collab_locked; active_combat_play_surface
+quality_validation_status: combat_cast_feedback_locals_polished_awaiting_grok_revalidate
 active_child_batch: ux_combat_play_surface
 next_child_batch: ux_combat_play_surface
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

@@ -1758,6 +1758,11 @@ def _draft_child_local_alternatives(
             "Menu/route-primary vs spatial/world wayfinding-primary",
             "Flat top-level destinations vs deep hierarchical breadcrumbs",
         ],
+        "ux_combat_cast_feedback": [
+            "Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)",
+            "Diegetic-only feedback vs explicit combat chrome callouts",
+            "Shared party feedback vs strictly per-caster presentation",
+        ],
     }
     if iid in keyed:
         return keyed[iid][:4]
@@ -1779,6 +1784,14 @@ def _draft_child_local_alternatives(
             "Abstract resource pressure vs detailed trade routes",
             "Background economy vs player-facing market surfaces",
         ]
+    elif "combat" in blob or "cast_feedback" in blob or (
+        "cast" in blob and "broadcast" not in blob
+    ):
+        alts = [
+            "Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)",
+            "Diegetic-only feedback vs explicit combat chrome callouts",
+            "Shared party feedback vs strictly per-caster presentation",
+        ]
     elif "worldgen" in blob or "author" in blob:
         alts = [
             "Guided wizard vs power-user authoring surface",
@@ -1795,11 +1808,6 @@ def _draft_child_local_alternatives(
         alts = [
             "Menu/route-primary vs spatial/world wayfinding-primary",
             "Flat top-level destinations vs deep hierarchical breadcrumbs",
-        ]
-    elif "combat" in blob or "cast" in blob:
-        alts = [
-            "Sparse cast feedback vs richer combat telegraph chrome",
-            "Rules-tight feedback vs cinematic optional skins",
         ]
     elif "session0" in blob or "session_0" in blob or "bootstrap" in blob:
         alts = [

@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_combat_play_surface
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- alternatives_not_banned: ["Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)", "Diegetic-only feedback vs explicit combat chrome callouts", "Shared party feedback vs strictly per-caster presentation"]
 - inherits_parent_anti_mandate: true
 - catalog_face: inhabit
 - experience_mode: combat_cast_feedback

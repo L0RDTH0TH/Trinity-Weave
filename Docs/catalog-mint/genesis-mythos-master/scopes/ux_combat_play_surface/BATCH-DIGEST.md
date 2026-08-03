@@ -22,4 +22,4 @@ Open full `WALK.md` only for yellow / red / thin ids.
 
 | id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
 |----|--------|----------|-------|-------------------------|------------------------|---------|
-| `ux_combat_cast_feedback` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | Cast and hit sensory response the player notices — not damage formulas (under Combat can resolve by authored paths including non-win ends). |
+| `ux_combat_cast_feedback` | pending | yes | 3 | Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller); Diegetic-only feedback vs explicit combat chrome callouts; Shared party feedback vs strictly per-caster presentation |  | Cast and hit sensory response the player notices — not damage formulas (under Combat can resolve by authored paths including non-win ends). |
