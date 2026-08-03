@@ -27,6 +27,6 @@ project-id: genesis-mythos-master
 | 8 | `ux_world_authorship_modability` | 1 | queued |
 | 9 | `ux_world_generation` | 1 | queued |
 
-**Next pending noun (within active batch):** `ux_canon_pipeline_feel` (parent `ux_living_world_continuity`)
+**Active batch `ux_camera_control_envelopes`:** 13/13 done — re-validate via `scopes/ux_camera_control_envelopes/BATCH-DIGEST.md` (no pending nouns; open digest for Pass B receipt).
 
 Early/mid-game are **not** separate child batches (DM pilot → camera; WA dump → living-world).

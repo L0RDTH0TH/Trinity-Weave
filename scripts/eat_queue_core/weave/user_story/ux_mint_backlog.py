@@ -2058,13 +2058,35 @@ def render_child_batch_status_markdown(doc: dict[str, Any]) -> str:
         for i, (parent, pend, status) in enumerate(rows, start=1):
             hint = f" — `scopes/{parent}/BATCH-DIGEST.md`" if "ACTIVE" in status else ""
             lines.append(f"| {i} | `{parent}` | {pend} | {status}{hint} |")
-    nxt = next_pending_item(doc)
+    nxt = None
+    active = str(doc.get("active_child_batch") or doc.get("next_child_batch") or "").strip()
+    if active:
+        for it in _rank_items([i for i in (doc.get("items") or []) if isinstance(i, dict)]):
+            if str(it.get("walk_tier") or "") == "series":
+                continue
+            if str(it.get("parent_id") or "").strip() != active:
+                continue
+            if str(it.get("status") or "") in {"pending", "in_dialogue"}:
+                nxt = it
+                break
+    if nxt is None and not active:
+        nxt = next_pending_item(doc)
     if nxt:
         lines.extend(
             [
                 "",
                 f"**Next pending noun (within active batch):** `{nxt.get('id')}` "
                 f"(parent `{nxt.get('parent_id') or ''}`)",
+            ]
+        )
+    elif active:
+        _d, pend, total = _parent_child_counts(doc, active)
+        lines.extend(
+            [
+                "",
+                f"**Active batch `{active}`:** {total - pend}/{total} done — "
+                f"re-validate via `scopes/{active}/BATCH-DIGEST.md` "
+                f"(no pending nouns; open digest for Pass B receipt).",
             ]
         )
     lines.extend(

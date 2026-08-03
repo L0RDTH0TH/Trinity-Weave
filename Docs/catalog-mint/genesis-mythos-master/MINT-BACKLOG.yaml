@@ -2208,7 +2208,7 @@ items:
     mode) | roleplay: (infer from mode); lensed_by:ux_world_generation'
 locked_child_batches: []
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
-children_published_trinity_ref: 685170075f86e39337f8f0e922938d26122e11e4
+children_published_trinity_ref: 433ae6c7302fe6e39bd7488168ca00c928cf2938
 quality_validation_status: camera_batch_unlocked_awaiting_grok_validate
 active_child_batch: ux_camera_control_envelopes
 next_child_batch: ux_living_world_continuity
