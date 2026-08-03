@@ -4,12 +4,12 @@ row_id: ux_session0_bootstrap
 parent_id: ux_dm_campaign_creation
 walk_tier: coverage
 label: Session 0 bootstrap feel
-status: pending
+status: done
 ---
 
 # `ux_session0_bootstrap` — Session 0 bootstrap feel
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_dm_campaign_creation

@@ -1310,7 +1310,7 @@ items:
     in feedstock | roleplay: (infer from mode); lensed_by:ux_combat_play_surface'
 - id: ux_session0_bootstrap
   label: Session 0 bootstrap feel
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: session_bootstrap
   ux_axis: session0_identity_art
@@ -1341,7 +1341,7 @@ items:
     DMs on a dedicated ra; lensed_by:ux_dm_campaign_creation'
 - id: ux_session_onboarding
   label: Session / onboarding bootstrap
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: session_bootstrap
   ux_axis: session0_identity_art
@@ -1370,7 +1370,7 @@ items:
     / primary_navigation - chronicle_buckets; lensed_by:ux_dm_campaign_creation'
 - id: ux_tone_profile_surface
   label: Campaign tone profile surface
-  status: pending
+  status: done
   walk_tier: coverage
   dimension: session_bootstrap
   ux_axis: session0_identity_art
@@ -2163,9 +2163,10 @@ locked_child_batches:
 - ux_camera_control_envelopes
 - ux_living_world_continuity
 - ux_backstory_legacy_integration
+- ux_dm_campaign_creation
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: 56ac51e0d58b5d1988bd768a546c7b940d3dc7ae
-quality_validation_status: dm_campaign_locals_polished_awaiting_grok_revalidate
-active_child_batch: ux_dm_campaign_creation
-next_child_batch: ux_dm_campaign_creation
+quality_validation_status: camera_lw_backstory_campaign_locked; active_collaborative_table_agency
+active_child_batch: ux_collaborative_table_agency
+next_child_batch: ux_collaborative_table_agency
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

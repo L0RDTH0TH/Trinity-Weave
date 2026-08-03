@@ -4,12 +4,12 @@ row_id: ux_tone_profile_surface
 parent_id: ux_dm_campaign_creation
 walk_tier: coverage
 label: Campaign tone profile surface
-status: pending
+status: done
 ---
 
 # `ux_tone_profile_surface` — Campaign tone profile surface
 
-- status: pending
+- status: done
 - walk_tier: coverage
 - mint_lane: validate_batch
 - parent_id: ux_dm_campaign_creation
