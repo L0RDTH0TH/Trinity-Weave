@@ -1763,13 +1763,61 @@ def _draft_child_local_alternatives(
             "Diegetic-only feedback vs explicit combat chrome callouts",
             "Shared party feedback vs strictly per-caster presentation",
         ],
+        "ux_dm_workbench_lore_gui": [
+            "Thin prep notes vs rich structured beats on the workbench",
+            "Canon graph always expanded vs progressive disclosure",
+            "Prep-only workbench mode vs workbench panels on DM rail during downtime",
+            "Quest-hook integration heavy vs light alongside canon accept/revise",
+        ],
+        "ux_content_authoring_surface": [
+            "Guided wizard vs power-user authoring surface",
+            "In-tool edit vs external import-first pipeline",
+            "Operator/community publish gates vs open table write",
+        ],
+        "ux_worldgen_gui": [
+            "Propose/refine dialogue vs one-shot generate-and-accept",
+            "Preview scaffold before persist vs write-through generation",
+            "Thin prompt vs deep scaffold menu before first world commit",
+        ],
     }
     if iid in keyed:
         return keyed[iid][:4]
 
     # Generic coverage draft from keywords
     alts: list[str] = []
-    if "faction" in blob:
+    # Child-id / job keywords first — summary text often mentions adjacent domains
+    # (e.g. "faction" in a prep workbench summary) and must not steal the lens.
+    if "workbench" in blob or "dm_workbench" in blob or (
+        "prep" in blob and "lore" in blob
+    ):
+        alts = [
+            "Thin prep notes vs rich structured beats on the workbench",
+            "Canon graph always expanded vs progressive disclosure",
+            "Prep-only workbench mode vs workbench panels on DM rail during downtime",
+        ]
+    elif "worldgen" in blob or ("generat" in blob and "content" not in blob):
+        alts = [
+            "Propose/refine dialogue vs one-shot generate-and-accept",
+            "Preview scaffold before persist vs write-through generation",
+            "Thin prompt vs deep scaffold menu before first world commit",
+        ]
+    elif "content_author" in blob or (
+        "author" in blob and "worldgen" not in blob and "combat" not in blob
+    ):
+        alts = [
+            "Guided wizard vs power-user authoring surface",
+            "In-tool edit vs external import-first pipeline",
+            "Operator/community publish gates vs open table write",
+        ]
+    elif "combat" in blob or "cast_feedback" in blob or (
+        "cast" in blob and "broadcast" not in blob
+    ):
+        alts = [
+            "Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)",
+            "Diegetic-only feedback vs explicit combat chrome callouts",
+            "Shared party feedback vs strictly per-caster presentation",
+        ]
+    elif "faction" in blob:
         alts = [
             "Off-screen faction tick sparse vs dense",
             "Player-visible residue only vs DM machinery exposed",
@@ -1783,19 +1831,6 @@ def _draft_child_local_alternatives(
         alts = [
             "Abstract resource pressure vs detailed trade routes",
             "Background economy vs player-facing market surfaces",
-        ]
-    elif "combat" in blob or "cast_feedback" in blob or (
-        "cast" in blob and "broadcast" not in blob
-    ):
-        alts = [
-            "Sparse hit/cast cues vs denser multi-channel feedback (VFX/SFX/controller)",
-            "Diegetic-only feedback vs explicit combat chrome callouts",
-            "Shared party feedback vs strictly per-caster presentation",
-        ]
-    elif "worldgen" in blob or "author" in blob:
-        alts = [
-            "Guided wizard vs power-user authoring surface",
-            "Procedural-first vs hand-authored seed bias",
         ]
     elif "application_shell" in blob or (
         "shell" in blob and "navigation" not in blob and "nav" not in blob

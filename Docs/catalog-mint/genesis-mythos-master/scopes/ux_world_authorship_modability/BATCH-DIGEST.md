@@ -22,4 +22,4 @@ Open full `WALK.md` only for yellow / red / thin ids.
 
 | id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
 |----|--------|----------|-------|-------------------------|------------------------|---------|
-| `ux_content_authoring_surface` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | How operators or users create, edit, and publish content — distinct from read-only consumption (under Table and community can author world change via curated and mod contracts). |
+| `ux_content_authoring_surface` | pending | yes | 3 | Guided wizard vs power-user authoring surface; In-tool edit vs external import-first pipeline; Operator/community publish gates vs open table write |  | How operators or users create, edit, and publish content — distinct from read-only consumption (under Table and community can author world change via curated and mod contracts). |

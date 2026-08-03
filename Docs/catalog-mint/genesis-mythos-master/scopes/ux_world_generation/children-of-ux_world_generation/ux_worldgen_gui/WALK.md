@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_world_generation
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- alternatives_not_banned: ["Propose/refine dialogue vs one-shot generate-and-accept", "Preview scaffold before persist vs write-through generation", "Thin prompt vs deep scaffold menu before first world commit"]
 - inherits_parent_anti_mandate: true
 - catalog_face: living_world
 - experience_mode: worldgen_gui

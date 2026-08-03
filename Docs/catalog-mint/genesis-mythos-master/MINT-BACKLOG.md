@@ -17,7 +17,7 @@ active_child_batch: ux_dm_session_prep
 next_child_batch: ux_dm_session_prep
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: c409c9a8bee947904c24ffcccb0b28ce7e31d579
-quality_validation_status: camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep
+quality_validation_status: dm_session_prep_locals_polished_awaiting_grok_revalidate
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md
 rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
 machine_mirror: MINT-BACKLOG.yaml
@@ -41,7 +41,7 @@ Obsidian **list / prune** surface. Full Meaning defs live under `scopes/<parent>
 **Harvest pass:** `children`  
 **Series Trinity ref:** `d480f3dade1ff5f19301c2aadaebcfc86eeabb8e`  
 **Children Trinity ref:** `c409c9a8bee947904c24ffcccb0b28ce7e31d579`  
-**Quality validation:** `camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep`  
+**Quality validation:** `dm_session_prep_locals_polished_awaiting_grok_revalidate`  
 **Locked child batches:** `ux_camera_control_envelopes, ux_living_world_continuity, ux_backstory_legacy_integration, ux_dm_campaign_creation, ux_collaborative_table_agency, ux_combat_play_surface`  
 **Active / next child batch:** `ux_dm_session_prep`  
 **Waived axes/slots:** `(none)`  

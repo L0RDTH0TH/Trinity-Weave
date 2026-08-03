@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_dm_session_prep
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Off-screen faction tick sparse vs dense", "Player-visible residue only vs DM machinery exposed"]
+- alternatives_not_banned: ["Thin prep notes vs rich structured beats on the workbench", "Canon graph always expanded vs progressive disclosure", "Prep-only workbench mode vs workbench panels on DM rail during downtime", "Quest-hook integration heavy vs light alongside canon accept/revise"]
 - inherits_parent_anti_mandate: true
 - catalog_face: table
 - experience_mode: dm_workbench_lore_gui

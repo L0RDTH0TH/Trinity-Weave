@@ -1419,8 +1419,10 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Off-screen faction tick sparse vs dense
-  - Player-visible residue only vs DM machinery exposed
+  - Thin prep notes vs rich structured beats on the workbench
+  - Canon graph always expanded vs progressive disclosure
+  - Prep-only workbench mode vs workbench panels on DM rail during downtime
+  - Quest-hook integration heavy vs light alongside canon accept/revise
   inherits_parent_anti_mandate: true
   catalog_face: table
   experience_mode: dm_workbench_lore_gui
@@ -2107,7 +2109,8 @@ items:
   does_not_mandate: []
   alternatives_not_banned:
   - Guided wizard vs power-user authoring surface
-  - Procedural-first vs hand-authored seed bias
+  - In-tool edit vs external import-first pipeline
+  - Operator/community publish gates vs open table write
   inherits_parent_anti_mandate: true
   catalog_face: content
   experience_mode: content_authoring_surface
@@ -2142,8 +2145,9 @@ items:
   depth_band: 1
   does_not_mandate: []
   alternatives_not_banned:
-  - Guided wizard vs power-user authoring surface
-  - Procedural-first vs hand-authored seed bias
+  - Propose/refine dialogue vs one-shot generate-and-accept
+  - Preview scaffold before persist vs write-through generation
+  - Thin prompt vs deep scaffold menu before first world commit
   inherits_parent_anti_mandate: true
   catalog_face: living_world
   experience_mode: worldgen_gui
@@ -2169,7 +2173,7 @@ locked_child_batches:
 - ux_combat_play_surface
 series_published_trinity_ref: d480f3dade1ff5f19301c2aadaebcfc86eeabb8e
 children_published_trinity_ref: c409c9a8bee947904c24ffcccb0b28ce7e31d579
-quality_validation_status: camera_lw_backstory_campaign_collab_combat_locked; active_dm_session_prep
+quality_validation_status: dm_session_prep_locals_polished_awaiting_grok_revalidate
 active_child_batch: ux_dm_session_prep
 next_child_batch: ux_dm_session_prep
 walk_defs_layout: scopes/<parent>/children-of-<parent>/<child>/WALK.md

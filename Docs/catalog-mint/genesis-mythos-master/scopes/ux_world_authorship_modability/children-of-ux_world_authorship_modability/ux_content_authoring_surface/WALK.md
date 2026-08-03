@@ -15,7 +15,7 @@ status: pending
 - parent_id: ux_world_authorship_modability
 - depth_band: 1
 - does_not_mandate: []
-- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "Procedural-first vs hand-authored seed bias"]
+- alternatives_not_banned: ["Guided wizard vs power-user authoring surface", "In-tool edit vs external import-first pipeline", "Operator/community publish gates vs open table write"]
 - inherits_parent_anti_mandate: true
 - catalog_face: content
 - experience_mode: content_authoring_surface

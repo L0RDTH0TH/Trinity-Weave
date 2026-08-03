@@ -22,4 +22,4 @@ Open full `WALK.md` only for yellow / red / thin ids.
 
 | id | status | inherits | alt_n | alternatives_not_banned | local_does_not_mandate | summary |
 |----|--------|----------|-------|-------------------------|------------------------|---------|
-| `ux_worldgen_gui` | pending | yes | 2 | Guided wizard vs power-user authoring surface; Procedural-first vs hand-authored seed bias |  | Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world). |
+| `ux_worldgen_gui` | pending | yes | 3 | Propose/refine dialogue vs one-shot generate-and-accept; Preview scaffold before persist vs write-through generation; Thin prompt vs deep scaffold menu before first world commit |  | Collaborative generation dialogue — propose scaffolds, choose/refine, preview, accept/regenerate a persistent living world) (under DM can create (table can shape) a persistent living world). |
