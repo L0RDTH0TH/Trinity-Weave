@@ -17,10 +17,10 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 **Two surfaces — both in play for catalog mint (not “main only”):**
 
 
-| **Surface**                  | **Branch / path**                                                     | **Role in mint / walk**                                                                                                          |
-| ---------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Surface**                  | **Branch / path**                                                     | **Role in mint / walk**                                                                                                                 |
+| ---------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **Mint pack (walk queue)**   | `main` **→** `Docs/catalog-mint/<project_id>/`                        | **Backlog, FEED-ENVELOPE, BATCH-DIGEST, PIN-DERIVE, PIN-EXCERPTS, L5 affirm digests, PACK-MANIFEST, shared rubric — what to walk next** |
-| **Project tree (grounding)** | `project/<project_id>` **(e.g.** `project/genesis-mythos-master`**)** | **PMG, full** `Roadmap/`**, MOC,** `GROK-PROJECT-START.md`**, observability / tertiary indexes — goals, intent, roadmap bodies** |
+| **Project tree (grounding)** | `project/<project_id>` **(e.g.** `project/genesis-mythos-master`**)** | **PMG, full** `Roadmap/`**, MOC,** `GROK-PROJECT-START.md`**, observability / tertiary indexes — goals, intent, roadmap bodies**        |
 
 
 **When the bone pilot names** `project_id`**, you do open that project branch for grounding. Do not refuse** `project/<id>` **as “not attached for mint.” Vault paths stay impossible; Trinity project branch is the published project.**
@@ -48,7 +48,7 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 **Pin derive (first-class; when bone pilot says pin derive / Conceptual weld):**
 
-1. **Digest-first only.** Open `PIN-DERIVE-STATUS.md` + per-row `scopes/<row>/PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Return one receipt per `PIN-DERIVE-VALIDATION.md`. Titles only from `PIN-INDEX.md` — do not invent names. Prefer `*Roadmap*` over `*Roll-up*`; ignore `.pre-*` hygiene copies. Do **not** lean on live or archived Pass-B-only L5 prose.
+1. **Digest-first only.** Open `PIN-DERIVE-STATUS.md` + per-row `scopes/<row>/PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Return one receipt per `PIN-DERIVE-VALIDATION.md`. Titles only from `PIN-INDEX.md` — do not invent names. Prefer `*Roadmap`* over `*Roll-up*`; ignore `.pre-*` hygiene copies. Do **not** lean on live or archived Pass-B-only L5 prose.
 2. **Schema v2:** require ≥1 `role: primary` in `conceptual_pin_refs`. Supporting/contrast optional. `pin_focus` is display only. **Excerpt = weld; heading = locator.** Same-span pack excerpt required — empty excerpt when heading claimed = **red**. Soft warn if excerpt is chapter-length.
 3. **Structure vs consequence:** pin enabling Conceptual machinery; band/role/prep deltas via headings/amendments — do not invent parallel Phase parents.
 4. **Checks:** invented title; wrong seat; world≠campaign collapse; overclaim; duplicate primaries without distinct `excerpt_note`; missing primary; visibility fail; forced proxy green.
@@ -65,3 +65,4 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 
 # END PASTE
+

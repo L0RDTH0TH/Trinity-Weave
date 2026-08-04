@@ -3,17 +3,17 @@
 - label: Late play is a power band for campaign crescendo, close, and character-to-world persistence
 - status: proposed
 - schema: pin_v2
-- recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: High band + campaign close + PC→world NPC persistence under session-prep
-- alternate: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
+- recommended: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
+- pin_focus: High band + close + lasting off-screen costs; persistence supporting for PC→world handoff
+- alternate: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Session-prep authority for high-band close and next-campaign handoff prep | color_key: Orange
-- title: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]] | heading: ## Behavior | role: supporting | excerpt_note: Late-band off-screen continuity costs | color_key: Blue
-- title: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]] | heading: ## Behavior | role: supporting | excerpt_note: PC→world persistence / rail state after close | color_key: Purple
+- title: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]] | heading: ## Behavior | role: primary | excerpt_note: Late-band off-screen continuity / since-you-left lasting costs | color_key: Blue
+- title: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]] | heading: ## Behavior | role: supporting | excerpt_note: PC→world / rail persistence after close | color_key: Purple
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: supporting | excerpt_note: Shared session-prep machinery (not the band weld) | color_key: Orange
 
 ## mint_target
 
@@ -25,13 +25,13 @@ Late-game is the high power band: survivors are world-shapers. It covers build-u
 
 ## Candidates (PIN-INDEX only)
 
-1. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-2. [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-3. [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
+1. [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
+2. [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
+3. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 
 ## Rationale
 
-Session-prep primary; off-screen + persistence supporting for late-band close/persistence consequences.
+Pass-to-Cursor: promote Off-Screen Faction Behavior as primary (distinct crescendo/continuity weld). Persistence supporting for close handoff; session-authority supporting only.
 
 ## Operator
 

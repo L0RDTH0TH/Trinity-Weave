@@ -5916,8 +5916,8 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_early_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
@@ -5935,9 +5935,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_late_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6153,9 +6153,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6191,8 +6191,8 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null

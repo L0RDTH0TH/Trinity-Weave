@@ -1,8 +1,8 @@
 # PIN-EXCERPT — `ux_mid_game` → [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
 
 - heading: ## Behavior
-- role: supporting
-- excerpt_note: Mid-band deeper world/agency response
+- role: primary
+- excerpt_note: Mid-band living-sim tick spine before delta surfacing / lasting world response
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 

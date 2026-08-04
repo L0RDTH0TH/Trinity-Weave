@@ -4,15 +4,15 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: Campaign frame bootstrap inside an existing world (structure = session authority)
+- pin_focus: Campaign frame bootstrap inside an existing world (session authority proxy + amend target)
 - alternate: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: DM session authority / transition guards for campaign frame in-table | color_key: Orange
-- title: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]] | heading: ## Behavior | role: supporting | excerpt_note: Launch/bootstrap seam into session | color_key: Yellow
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Best available session-authority structure for in-table campaign frame (proxy until amendment) | color_key: Orange
+- title: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]] | heading: ## Behavior | role: supporting | excerpt_note: Session bootstrap/launch only — not campaign-frame prose | color_key: Yellow
 - title: [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]] | heading: ## Behavior | role: contrast | excerpt_note: Demo loop ≠ product campaign parent — do not overclaim | color_key: Red
 
 ## mint_target
@@ -31,7 +31,7 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Rationale
 
-Structure-first — DM session authority owns campaign-inside-world frame. Horizon Demo is contrast (demo≠campaign parent). Sparse mint_target if Grok still wants a dedicated campaign parent amendment.
+Pass-to-Cursor: Launch-Flow Behavior is app boot/DevLeakageGuard — not campaign frame. Keep session-authority primary as best available structure; confirm mint_target amendment for campaign-frame-inside-world. Horizon stays contrast.
 
 ## Operator
 

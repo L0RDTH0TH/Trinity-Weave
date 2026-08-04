@@ -2,7 +2,7 @@
 
 - heading: ## Behavior
 - role: primary
-- excerpt_note: DM session authority / transition guards for campaign frame in-table
+- excerpt_note: Best available session-authority structure for in-table campaign frame (proxy until amendment)
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 

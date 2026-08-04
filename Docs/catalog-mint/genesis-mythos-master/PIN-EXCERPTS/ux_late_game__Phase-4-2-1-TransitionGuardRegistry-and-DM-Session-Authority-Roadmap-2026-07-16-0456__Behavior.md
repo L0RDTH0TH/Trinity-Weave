@@ -1,8 +1,8 @@
 # PIN-EXCERPT — `ux_late_game` → [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 
 - heading: ## Behavior
-- role: primary
-- excerpt_note: Session-prep authority for high-band close and next-campaign handoff prep
+- role: supporting
+- excerpt_note: Shared session-prep machinery (not the band weld)
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 

@@ -3,17 +3,17 @@
 - label: Mid play is a power band for lasting pressure and deeper world response
 - status: proposed
 - schema: pin_v2
-- recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: Mid power band — lasting pressure + deeper world response under session-prep
-- alternate: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
+- recommended: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
+- pin_focus: Mid power band — lasting pressure + deeper world response (living-sim primary)
+- alternate: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Session-prep authority scaling mid-band lasting pressure | color_key: Orange
-- title: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: supporting | excerpt_note: Mid-band deeper world/agency response | color_key: Blue
+- title: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: primary | excerpt_note: Mid-band living-sim tick spine before delta surfacing / lasting world response | color_key: Blue
 - title: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]] | heading: ## Behavior | role: supporting | excerpt_note: Mid-band offer/pressure consequences | color_key: Yellow
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: supporting | excerpt_note: Shared session-prep machinery (not the band weld) | color_key: Orange
 
 ## mint_target
 
@@ -25,13 +25,13 @@ Mid-game is the middle power band: world access, social tier, explore stakes, an
 
 ## Candidates (PIN-INDEX only)
 
-1. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-2. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
-3. [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
+1. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
+2. [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
+3. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 
 ## Rationale
 
-Same session-prep primary as early/late; living sim + quest-pressure supporting with mid-band excerpt_note so bands do not collapse.
+Pass-to-Cursor: distinct primary weld = Living-Simulation Behavior. Quest-pressure + session-authority supporting; mid-stakes world response not identical to early offer signals.
 
 ## Operator
 
