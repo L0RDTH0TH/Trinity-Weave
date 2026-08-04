@@ -2,7 +2,7 @@
 
 Use ONLY these wiki-link titles (or say `needs pin`). Do not invent names.
 
-_Count: 165_
+_Count: 167_
 
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]`
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29]]`
@@ -133,6 +133,7 @@ _Count: 165_
 - `[[Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01]]`
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914]]`
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roll-up-2026-07-15]]`
+- `[[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]`
 - `[[genesis-mythos-master-Roadmap-2026-06-26-0914]]`
 - `[[ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior]]`
 - `[[ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior]]`
@@ -146,6 +147,7 @@ _Count: 165_
 - `[[ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
 - `[[ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior]]`
 - `[[ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior]]`
+- `[[ux_dm_campaign_creation__amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04__Behavior-amendment-weld]]`
 - `[[ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior]]`
 - `[[ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
 - `[[ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`

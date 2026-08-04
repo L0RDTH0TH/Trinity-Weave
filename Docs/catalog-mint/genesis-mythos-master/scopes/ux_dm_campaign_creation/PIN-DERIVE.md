@@ -3,21 +3,21 @@
 - label: DM can bootstrap a campaign frame inside a world
 - status: proposed
 - schema: pin_v2
-- recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: Campaign frame bootstrap inside an existing world (session authority proxy + amend target)
-- alternate: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
+- recommended: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
+- pin_focus: Campaign frame bootstrap inside world — amendment primary weld
+- alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Best available session-authority structure for in-table campaign frame (proxy until amendment) | color_key: Orange
-- title: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]] | heading: ## Behavior | role: supporting | excerpt_note: Session bootstrap/launch only — not campaign-frame prose | color_key: Yellow
-- title: [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]] | heading: ## Behavior | role: contrast | excerpt_note: Demo loop ≠ product campaign parent — do not overclaim | color_key: Red
+- title: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]] | heading: ## Behavior (amendment weld) | role: primary | excerpt_note: Campaign frame bootstrap inside existing world | color_key: Orange
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: supporting | excerpt_note: Session-authority / transition-guard machinery | color_key: Orange
+- title: [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]] | heading: ## Behavior | role: contrast | excerpt_note: Demo ≠ campaign parent | color_key: Red
 
 ## mint_target
 
-- parent: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456 | proposed_title: amend-campaign-frame-bootstrap-inside-world | path_class: amendment
+- parent: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456 | proposed_title: amend-campaign-frame-bootstrap-inside-world | path_class: amendment | minted: true | path: 1-Projects/genesis-mythos-master/Roadmap/Conceptual-Amendments/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04.md
 
 ## Series contract (Pass B locked)
 
@@ -25,13 +25,13 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Candidates (PIN-INDEX only)
 
-1. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-2. [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
+1. [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
+2. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 3. [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]
 
 ## Rationale
 
-Pass-to-Cursor: Launch-Flow Behavior is app boot/DevLeakageGuard — not campaign frame. Keep session-authority primary as best available structure; confirm mint_target amendment for campaign-frame-inside-world. Horizon stays contrast.
+v3 mint: dual-approved mint_target written. Primary = campaign-frame amendment; session-authority supporting; Horizon contrast.
 
 ## Operator
 

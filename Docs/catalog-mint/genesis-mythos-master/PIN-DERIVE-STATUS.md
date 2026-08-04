@@ -1,6 +1,6 @@
 # PIN-DERIVE-STATUS — `genesis-mythos-master`
 
-emitted_at: 2026-08-04T17:36:47.111315Z
+emitted_at: 2026-08-04T19:00:11.117852Z
 
 _Pin-before-L5 v2. Live L5 must be absent/archived. Grok: PIN-DERIVE-VALIDATION (same-span PIN-EXCERPTS; mint gate; ≥1 primary)._
 
@@ -9,7 +9,7 @@ _Pin-before-L5 v2. Live L5 must be absent/archived. Grok: PIN-DERIVE-VALIDATION 
 | row_id | recommended | primary_heading | pin_focus | status |
 |--------|-------------|-----------------|-----------|--------|
 | `ux_world_generation` | `Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914` | ## Behavior | Durable living-world gen graph — not cam | proposed |
-| `ux_dm_campaign_creation` | `Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456` | ## Behavior | Campaign frame bootstrap inside an exist | proposed |
+| `ux_dm_campaign_creation` | `amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04` | ## Behavior (amendment weld) | Campaign frame bootstrap inside world —  | proposed |
 | `ux_player_character_creation` | `Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600` | ## Behavior | Player authors PC + DM acceptance into w | proposed |
 | `ux_dm_session_prep` | `Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456` | ## Behavior | DM prep/session authority without leavin | proposed |
 | `ux_early_game` | `Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142` | ## Behavior | Low power band — quest/offer pressure sc | proposed |

@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 516
+roadmap_note_count: 518
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -780,6 +780,16 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  wiki: '[[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]'
+  rel_under_project: Roadmap/Conceptual-Amendments/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04.md
+  kind: roadmap
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - genesis-mythos-master-goal
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
 - title: deepen-agency-envelope-pilot-machinery-glue-2026-06-26-1945
   wiki: '[[deepen-agency-envelope-pilot-machinery-glue-2026-06-26-1945]]'
   rel_under_project: Roadmap/Conceptual-Decision-Records/deepen-agency-envelope-pilot-machinery-glue-2026-06-26-1945.md
@@ -4678,6 +4688,15 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: true
+- title: ux_dm_campaign_creation__amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04__Behavior-amendment-weld
+  wiki: '[[ux_dm_campaign_creation__amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04__Behavior-amendment-weld]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_campaign_creation__amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04__Behavior-amendment-weld.md
+  kind: user_story
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
 - title: ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior
   wiki: '[[ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior]]'
   rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior.md
@@ -5838,8 +5857,8 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
   - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
-  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
   - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null

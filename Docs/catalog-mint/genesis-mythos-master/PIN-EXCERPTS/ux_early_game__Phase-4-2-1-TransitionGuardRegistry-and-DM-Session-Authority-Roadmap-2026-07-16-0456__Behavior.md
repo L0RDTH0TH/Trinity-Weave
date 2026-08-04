@@ -8,4 +8,4 @@
 
 ---
 
-Intent → **TransitionGuardRegistry** → allow (`presentation.mode_changed`) or block (first `guard_id`). FP→DM: authority+freeze; inter-DM OK under freeze (RO); DM→FP: veto/overwrite clear. Detail → [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16]].
+<mark data-highlight-source="agent" style="background: #FFD9A3A6;">Intent → **TransitionGuardRegistry** → allow (`presentation.mode_changed`) or block (first `guard_id`). FP→DM: authority+freeze; inter-DM OK under freeze (RO); DM→FP: veto/overwrite clear. Detail → [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16]].</mark>

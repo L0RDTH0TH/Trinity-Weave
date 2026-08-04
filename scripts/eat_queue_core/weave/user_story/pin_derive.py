@@ -175,6 +175,27 @@ def validate_refs(refs: list[dict[str, str]], legal: set[str]) -> list[str]:
     return violations
 
 
+def first_emit_shared_primary_violations(proposals: list[dict[str, Any]]) -> list[str]:
+    """If ≥2 planned series recommend the same PIN-INDEX title as primary → violation."""
+    primary_owners: dict[str, list[str]] = {}
+    for prop in proposals:
+        rid = str(prop.get("row_id") or "").strip()
+        refs = normalize_refs(
+            prop.get("conceptual_pin_refs") or prop.get("refs"),
+            recommended=str(prop.get("recommended") or ""),
+        )
+        primary = next((r for r in refs if r.get("role") == "primary"), None)
+        if not primary:
+            continue
+        title = primary["title"]
+        primary_owners.setdefault(title, []).append(rid)
+    return [
+        f"shared_primary_first_emit:{title}:{','.join(ids)}"
+        for title, ids in primary_owners.items()
+        if len(ids) >= 2
+    ]
+
+
 def render_pin_derive_card(
     *,
     row_id: str,
@@ -222,11 +243,18 @@ def render_pin_derive_card(
             )
     lines.extend(["", "## mint_target", ""])
     if mint_target:
+        minted = bool(mint_target.get("minted"))
+        path = str(mint_target.get("path") or "").strip()
+        reject = str(mint_target.get("reject_reason") or "").strip()
         lines.append(
             f"- parent: {mint_target.get('parent') or '—'} | "
             f"proposed_title: {mint_target.get('proposed_title') or '—'} | "
-            f"path_class: {mint_target.get('path_class') or 'amendment'}"
+            f"path_class: {mint_target.get('path_class') or 'amendment'} | "
+            f"minted: {'true' if minted else 'false'} | "
+            f"path: {path or '—'}"
         )
+        if reject:
+            lines.append(f"- reject_reason: {reject}")
     else:
         lines.append("_(none — Grok mint gate owns volume)_")
     lines.extend(
@@ -437,6 +465,7 @@ def emit_pin_derive_batch(
     catalog = load_yaml(paths["catalog"])
     by_id = catalog_rows_by_id(catalog)
     results: list[dict[str, Any]] = []
+    shared = first_emit_shared_primary_violations(proposals)
     for prop in proposals:
         rid = str(prop.get("row_id") or "").strip()
         if not rid:
@@ -479,6 +508,7 @@ def emit_pin_derive_batch(
         "row_count": len(results),
         "status_path": str(status.relative_to(vault_root)),
         "results": results,
+        "first_emit_shared_primary_violations": shared,
         "detail": "pin_derive_emitted_v2",
     }
 

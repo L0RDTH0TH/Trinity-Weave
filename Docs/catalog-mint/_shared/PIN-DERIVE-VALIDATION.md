@@ -6,81 +6,61 @@ updated: 2026-08-04
 
 # Pin derive validation
 
-**First-class pin-before-L5 MO** — after Pass B lock, before L5. Same receipt discipline as Pass B / L5 affirm. **Not** inventing Conceptual notes and **not** L5 authoring.
+**First-class pin-before-L5 MO (v3)** — after Pass B lock, before L5. Same receipt discipline as Pass B / L5 affirm.
 
-**Frame:** [[CATALOG-MINI-TRINITY]] — Grok ladder step 3 (after Pass A + Pass B). Live premature `L5.md` must be archived; pin derive must not lean on Pass-B-only L5 prose.
-
-**Join:** Catalog row = `conceptual_pin_refs[]` (why this shape) → `execution_pins[]` (how it builds) → L5 (vision bar).
+**Frame:** [[CATALOG-MINI-TRINITY]]. **Join:** `conceptual_pin_refs[]` → `execution_pins[]` → L5.
 
 ## Weld contracts
 
-1. **Excerpt = weld; heading = locator.** Pack `PIN-EXCERPTS` text is what licensed the UX claim for this derive. Heading locates the span in the vault; renames later are drift signals, not silent rewrites of the weld.
-2. **Same-span visibility.** Cursor and Grok must see the **same** excerpt text. Missing/empty excerpt when a heading is claimed = **red** (process bug). Soft warn (not hard-fail v1) when excerpt ≳ ~1200 chars — prefer paragraph / short subsection.
-3. **Grok ≠ highlight UI.** Highlightr marks live in the vault parent for operator nav/drift. Grok grounds on **pack plain excerpts** + project branch — do **not** expect Grok to parse `<mark>` markup.
-4. **≥1 `role: primary` ref** per row. Supporting/contrast optional. “All supporting” = yellow/red.
-5. **Structure vs consequence.** Pin enabling Conceptual **machinery**; band/role/prep deltas as headings or amendments — do not invent parallel Phase parents that fight the frozen map.
-6. **Freeze.** Write-block on frozen parent prose. Amendments = create path under `Conceptual-Amendments/<relative-parent-path>/`. Highlightr wrap-only marks = annotation carve-out (no wording rewrite).
+1. **Excerpt = weld; heading = locator.**  
+2. **Same-span visibility** — empty excerpt when heading claimed = **red**. Soft warn ≳ ~1200 chars.  
+3. **Grok ≠ highlight UI** — pack plain excerpts only.  
+4. **≥1 `role: primary`.**  
+5. **Structure vs consequence** — no invented Phase parents; amendments under `Conceptual-Amendments/<relative-parent-path>/`.  
+6. **Freeze** write-block; Highlightr wrap-only carve-out.  
+7. **First-emit heuristic:** If **≥2** planned series recommend the **same PIN-INDEX title as primary** on first emit, force either **distinct primary spans** or **demote** the shared title to supporting and pick consequence primaries.  
+8. **Post-mint Grok subset** defaults to **that row only** (not the whole yellow set).
 
-## Failure modes (catch quickly)
+## Mint funnel (before L5)
 
-1. **Invented title** — recommended pin / ref title not in `PIN-INDEX.md`  
-2. **Wrong altitude / seat** — pin owns Execution chrome or a sibling UX series, not this Conceptual prose  
-3. **World ≠ campaign collapse** — worldgen pin used for campaign bootstrap (or reverse)  
-4. **Overclaim** — whole Phase claimed when only a slice licenses the contract (`pin_focus` / `excerpt_note` dishonest)  
-5. **Cross-row collision** — identical primary span without distinct `excerpt_note` / supporting refs  
-6. **Missing primary** — no `role: primary`  
-7. **Visibility fail** — heading set but PIN-EXCERPT missing/empty  
-8. **Proxy green** — forced fit when honest span missing (should be yellow + Grok mint gate)
+1. Grok sparse `mint_target` when no honest span (volume gate — few, high-signal).  
+2. **Cursor gate:** accept / refine / reject. Reject requires one-line **`reject_reason`** on the card so the same `proposed_title` is not re-proposed.  
+3. **Operator gate:** approve mint. **No waive-as-proxy** after dual approval — write the file.  
+4. Write amendment → Highlightr on parent → PIN-INDEX → re-pin → PIN-EXCERPTS → Trinity → Grok **single-row** subset.  
+5. On write: set `mint_target.minted: true` and `mint_target.path` (propose must not look still-open). Clear `mint_target` at **`apply_pins`**.
+
+## Failure modes
+
+Invented title · wrong seat · world≠campaign · overclaim · identical primary weld without distinct spans · missing primary · empty excerpt · proxy green when mint_target should fire · re-proposing a rejected title without new reason.
 
 ## Grok mint_target gate (volume)
 
-Cursor may leave **sparse** `mint_target` hints. **Grok owns volume:**
-
-- If yellow because pins are weak: read roadmap (project branch + PIN-EXCERPTS / PIN-INDEX) and output **pass-this-to-Cursor** pin locations (title + heading + role + why).
-- If no honest location: propose **few** high-signal where-targets (parent + section intent / `path_class: child|amendment`) — not a parallel missing-note map.
-- Cursor updates → republish pack → Grok revalidates with User.
-- **Loop cap:** at most **one** Cursor re-derive pass after Grok’s first pass-to-Cursor / propose; then operator **confirm / waive / mint_target**.
+- Yellow + locations exist → **pass-to-Cursor** (loop cap **one**).  
+- Yellow + no honest span → sparse `mint_target`.  
+- After amendment mint → subset reval **that row only**.
 
 ## Velocity rules
 
-- **Digest-first.** Open `PIN-DERIVE-STATUS.md` + per-row `scopes/<row>/PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Open full Conceptual bodies only for yellow/red/contested ids (project branch or fulfill).
-- **One receipt per pin-derive turn.**
-- **Max ~5 highest-signal issues.**
-- **Yellow vs red:** Prefer alternate / sharpen refs / Grok gate = **yellow**. Invented title / world≠campaign / wrong seat / empty excerpt with heading / no primary = **red**.
-- **Legal pins only** from `PIN-INDEX.md` (prefer `*Roadmap*` over `*Roll-up*`; ignore `.pre-*` hygiene copies).
+Digest-first · one receipt per turn · max ~5 issues · legal titles from PIN-INDEX only.
 
 ## Mandatory receipt shape
 
 ```text
 ## Pin derive validation — <project_id>
-Batch scope: [all planned / listed row ids]
-Schema: pin v2 (conceptual_pin_refs + PIN-EXCERPTS)
+Batch scope: [all planned | subset: <row_id>]
+Schema: pin v3 (refs + PIN-EXCERPTS + mint funnel)
 
 ### Pass / Fail summary
-- N green (primary span licenses UX)
-- M needs re-derive (**red** — list ids + one-line reason)
-- K thin / needs grounding (list ids)
-- P yellow (prefer alt / sharpen refs / mint gate — list ids)
+…
 
-### Cross-row check
-- World ≠ campaign pins distinct? Y/N
-- Dual-rail seats (camera / table agency) not collapsed? Y/N
-- Shared parents have distinct excerpt_note / supporting refs? Y/N
-- Same-span excerpts present for claimed headings? Y/N
-
-### Highest-signal issues (max 5)
-1. …
-
-### Pass-to-Cursor (if yellow weak pins)
-- row_id → title + heading + role + why
-- or mint_target propose (few): parent + section intent + path_class
+### Pass-to-Cursor / mint_target
+…
 
 ### Recommended next action
-- Operator confirm/waive → apply_pins (outside derive) / one re-derive / etc.
+- Dual-approve mint → write amendment → single-row reval / board confirm → apply_pins → L5
 ```
 
 ## Operator close
 
-- **Green / yellow polish** → operator confirms or waives per row → `apply_pins` (follow-on) → only then L5 mint  
-- **Red** → Cursor re-derive flagged rows (within loop cap) → re-emit STATUS + excerpts → re-validate subset  
-- **Do not** draft L5 while pins remain unresolved without an explicit waive
+- Board confirm → `apply_pins` (clears minted `mint_target`) → L5  
+- Do **not** draft L5 while approved mint_targets remain unminted

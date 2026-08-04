@@ -2,7 +2,7 @@
 
 - heading: ## Behavior
 - role: contrast
-- excerpt_note: Demo loop ≠ product campaign parent — do not overclaim
+- excerpt_note: Demo ≠ campaign parent
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 
