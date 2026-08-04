@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-04T00:31:21Z'
+synced_at: '2026-08-04T00:31:48Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -123,7 +123,7 @@ file_hashes:
   scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md: 1dd378bb71680fc0
   scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: d54311af8e540895
   scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: 3d7068dc056dea6f
-  L5-AFFIRM-STATUS.md: b416742594848601
+  L5-AFFIRM-STATUS.md: f01f2383a51b00fa
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -144,6 +144,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 37c9a78cab44fb40
+  MINT-PACK.md: eb6d1ce9697c9ce8
 warnings:
 - feed_completeness:no_focal_item
