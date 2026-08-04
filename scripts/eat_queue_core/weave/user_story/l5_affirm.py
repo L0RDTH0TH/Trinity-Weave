@@ -190,9 +190,14 @@ def validate_l5_affirm(
 
     needs_pin = False
     pin = str(fm.get("conceptual_pin") or "")
+    pin_waived = str(fm.get("pin_waived") or "").lower() in {"true", "1", "yes"}
     if "needs pin" in pin.lower() or pin.strip() in ("", "needs_pin"):
         needs_pin = True
-        warnings.append("needs_pin")
+        if pin_waived:
+            warnings.append("needs_pin_waived")
+        else:
+            # Pin-before-L5: unresolved placeholder without waive is hard fail
+            violations.append("needs_pin_unresolved")
 
     # Anti-mandate when SERIES has them
     if series_path.is_file():

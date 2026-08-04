@@ -314,6 +314,17 @@ def draft_l5_user_story(
         or row.get("conceptual_pin")
         or "needs pin"
     )
+    from .pin_derive import pin_gate_ok
+
+    gate_ok, gate_detail = pin_gate_ok(row, series_pin=pin_raw)
+    if not gate_ok:
+        return {
+            "ok": False,
+            "row_id": row_id,
+            "detail": "pin_gate_blocked",
+            "gate": gate_detail,
+            "hint": "Confirm conceptual_pin from PIN-INDEX or set pin_waived before L5 draft.",
+        }
     needs_pin = "needs pin" in pin_raw.lower() or pin_raw.strip() in ("", "needs_pin")
 
     min_m = thin_min_moments(vault_root, project_id, row_id)

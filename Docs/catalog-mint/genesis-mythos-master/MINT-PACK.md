@@ -15,11 +15,14 @@
 | `CHILD-BATCH-STATUS.md` | **Same-width child batches** — locked vs active parent (prefer over chat memory) |
 | `scopes/<parent>/BATCH-DIGEST.md` | **Pass B primary** — receipt-first summaries; open full `WALK.md` only for flagged ids |
 | `scopes/` walk tree | `SERIES.md` + `children-of-<parent>/<child>/WALK.md` |
-| `L5-AFFIRM-STATUS.md` | **Loop 2 L5 affirm board** — digest-first; cross-row flags before attest |
+| `PIN-DERIVE-STATUS.md` | **Pin-before-L5 board** — digest-first Conceptual weld proposals |
+| `scopes/<row>/PIN-DERIVE.md` | Pin derive primary — open full Conceptual note only when contested |
+| `L5-AFFIRM-STATUS.md` | **L5 affirm board** (after pins) — digest-first; cross-row flags before attest |
 | `scopes/<row>/L5-AFFIRM-DIGEST.md` | L5 affirm primary — open full `L5.md` only for yellow/red/thin |
-| `scopes/<row>/L5.md` | Pass-B-aligned complete vision (Loop 2 MO) |
+| `scopes/<row>/L5.md` | Pass-B **+ pin** complete vision (after pin confirm) |
 | `_shared/CHILD-BATCH-VALIDATION.md` | Pass B receipt shape + velocity rules |
-| `_shared/L5-AFFIRM-VALIDATION.md` | Loop 2 L5 affirm receipt shape |
+| `_shared/PIN-DERIVE-VALIDATION.md` | Pin derive receipt shape |
+| `_shared/L5-AFFIRM-VALIDATION.md` | L5 affirm receipt shape |
 | `_shared/CATALOG-MINI-TRINITY.md` | Per-row mini-trinity + **Grok validation ladder** |
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
@@ -42,7 +45,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-**Grok ladder (content):** series individually → children batched → planned-row L5s batched. Never series L5 before Pass B children. No mandatory child L5 batches. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
+**Grok ladder (content):** series individually → children batched → **pin derive batched** → planned-row L5s batched. Never series L5 before Pass B children. Never L5 before pin confirm/waive. No mandatory child L5 batches. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
 
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 
@@ -56,14 +59,20 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 8. Follow card legs. **One pending UX noun per turn** during **Pass A series only**. Pass B = **one batch receipt per turn**. Do not invent the list. Reject summaries that still contain `Feedstock:` / AP label dumps / `Pillars: (infer…)` residue.
 9. **Ground Meaning selectively:** cite pack `CONCEPTUAL-EXCERPT` (PMG); pull poll index / fulfill only for thin or contested ids. Friction check once per batch (or contested child).
 
-### Loop 2 — L5 affirm (first-class MO; after Pass B lock)
+### Pin derive (first-class; after Pass B lock; before L5)
 
-10. **L5 affirm (digest-first):** open `L5-AFFIRM-STATUS.md` + per-row `L5-AFFIRM-DIGEST.md`. Return **one** receipt per [`L5-AFFIRM-VALIDATION.md`](../_shared/L5-AFFIRM-VALIDATION.md). Open full `scopes/<row>/L5.md` **only** for yellow / red / thin. Do **not** walk all full L5s.
-11. Operator fills **Cross-row flags (max 3)** on STATUS after digests are green.
-12. Operator attest — **only then** depth-slice / `catalog_signed_at`. L5 files existing ≠ Loop 2 ready.
+10. **Archive premature L5** if any exist (fresh path has no L5 at pin time).
+11. **Pin derive (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Titles only from `PIN-INDEX.md`. Do not invent names. Do not lean on archived Pass-B-only L5 prose.
+12. Operator confirm/waive → apply pins (follow-on) — **only then** L5 mint.
+
+### L5 affirm (after pins; not Operator Loop 2 / slicer)
+
+13. **L5 affirm (digest-first):** open `L5-AFFIRM-STATUS.md` + per-row `L5-AFFIRM-DIGEST.md`. Return **one** receipt per [`L5-AFFIRM-VALIDATION.md`](../_shared/L5-AFFIRM-VALIDATION.md). Open full `scopes/<row>/L5.md` **only** for yellow / red / thin. Do **not** walk all full L5s.
+14. Operator fills **Cross-row flags (max 3)** on STATUS after digests are green.
+15. Operator attest — **only then** depth-slice / `catalog_signed_at` (**Operator Loop 2** = slicer/levels). L5 files existing ≠ signed.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-04T00:31:48Z`
+synced_at: `2026-08-04T02:59:29Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 464
+roadmap_note_count: 481
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4553,6 +4553,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: PIN-DERIVE-STATUS
+  wiki: '[[PIN-DERIVE-STATUS]]'
+  rel_under_project: Roadmap/User-Story/PIN-DERIVE-STATUS.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: REFERENCE-EXEMPLAR-CHARTER
   wiki: '[[REFERENCE-EXEMPLAR-CHARTER]]'
   rel_under_project: Roadmap/User-Story/REFERENCE-EXEMPLAR-CHARTER.md
@@ -4762,6 +4770,269 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-STATUS
+  wiki: '[[L5-AFFIRM-STATUS]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/L5-AFFIRM-STATUS.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_backstory_legacy_integration/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_camera_control_envelopes/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_collaborative_table_agency/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_combat_play_surface/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_combat_play_surface/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_dm_campaign_creation/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_dm_session_prep/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_dm_session_prep/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_early_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_early_game/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_late_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_late_game/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_living_world_continuity/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_living_world_continuity/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_mental_stat_interpretation/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_mid_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_mid_game/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_player_character_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_player_character_creation/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_quiet_between_pillars/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_world_authorship_modability/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_world_generation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/Versions/l5-pre-pin-lens-20260804T025924Z/ux_world_generation/L5.md
+  kind: user_story
+  wiki_links:
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: MINT-BACKLOG
   wiki: '[[MINT-BACKLOG]]'
   rel_under_project: Roadmap/User-Story/Versions/mint-backlog-pre-split-20260802T214923Z/MINT-BACKLOG.md
@@ -4968,20 +5239,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5025,20 +5290,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+  - Phase-4-1-2-UnifiedSceneGraph-CameraInterpolatorRegistry-and-PlayerFPRig-Roadmap-2026-07-16-0828
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5162,20 +5421,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  - Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+  - Phase-4-Perspective-Split-and-Control-Systems-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5211,20 +5464,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  - Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5252,20 +5499,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5309,20 +5550,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+  - Phase-4-2-DM-Rigs-and-Mode-Transition-Graph-Roadmap-2026-06-26-1730
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5342,20 +5577,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5367,20 +5596,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5400,20 +5623,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5578,20 +5795,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5603,20 +5814,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5628,20 +5833,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  - Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5653,20 +5852,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5686,20 +5879,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  - Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5727,20 +5914,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
-- title: L5-AFFIRM-DIGEST
-  wiki: '[[L5-AFFIRM-DIGEST]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5-AFFIRM-DIGEST.md
-  kind: user_story
-  wiki_links: []
-  linked_resources: []
-  tert_id: null
-  pin_excerpt_available: false
-- title: L5
-  wiki: '[[L5]]'
-  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5.md
+- title: PIN-DERIVE
+  wiki: '[[PIN-DERIVE]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  - Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

@@ -4961,6 +4961,34 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     )
     cmpe.set_defaults(func=cmd_catalog_mint_pack_emit)
 
+    def cmd_pin_derive_emit(vault_root: Path, args: argparse.Namespace) -> int:
+        from .weave.user_story.pin_derive import emit_pin_derive_batch
+        import json as _json
+        import yaml as _yaml
+
+        proposals_path = getattr(args, "proposals_file", None)
+        if not proposals_path:
+            print(_json.dumps({"ok": False, "error": "need --proposals-file"}))
+            return 2
+        raw = _yaml.safe_load(Path(proposals_path).read_text(encoding="utf-8"))
+        proposals = raw if isinstance(raw, list) else (raw or {}).get("proposals") or []
+        out = emit_pin_derive_batch(
+            vault_root,
+            str(getattr(args, "project_id", "genesis-mythos-master")),
+            list(proposals),
+        )
+        print(_json.dumps(out, indent=2))
+        return 0 if out.get("ok") else 1
+
+    pde = sub.add_parser(
+        "pin_derive_emit",
+        help="Emit PIN-DERIVE cards + STATUS from a proposals YAML file",
+        parents=[common],
+    )
+    pde.add_argument("--project-id", default="genesis-mythos-master")
+    pde.add_argument("--proposals-file", required=True)
+    pde.set_defaults(func=cmd_pin_derive_emit)
+
     cmrv = sub.add_parser(
         "catalog_mint_receipt_validate",
         help="Fail-closed validate one catalog mint YAML receipt against pack",

@@ -8,7 +8,7 @@
 |----------|------|------------|---------|
 | **Catalog row** (YAML in `slice-catalog.yaml`) | After you settle the dialogue | Cursor applies | Stable **id + pin + deps** handle for factory later |
 | **UX Meaning** (`SERIES.md` / `WALK.md`) | Pass A / Pass B mint | Grok+user + Cursor harvest | Touch / feel contracts |
-| **L5 scope** (`scopes/<id>/L5.md`) | After Pass B lock + Loop 2 | Cursor Pass-B draft; Grok content affirm | Complete vision bar — **not** code; **not** a substitute for Meaning |
+| **L5 scope** (`scopes/<id>/L5.md`) | After Pass B lock **+ pin confirm/waive** | Cursor Pass-B+pin draft; Grok content affirm | Complete vision bar — **not** code; **not** a substitute for Meaning |
 
 Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the conversation.
 
@@ -24,9 +24,9 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 8. **Open questions** — 2–4 choices for you; Grok does not invent code or harness steps.
 9. **Draft YAML** — only after the above, as a candidate receipt.
 
-### Loop 2 L5 (Pass-B MO)
+### Pin-before-L5 then L5 (Pass-B + Conceptual)
 
-After Pass B lock, L5 is a **Pass-B projection** (SERIES + BATCH-DIGEST + WALK), not a PMG mine. Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors; thin parents meet data-driven moment floor. Grok validates digest-first via `L5-AFFIRM-VALIDATION.md` under the [[CATALOG-MINI-TRINITY]] Grok ladder (series individual → children batched → L5 batched). Do not set `catalog_signed_at` until affirm + operator cross-row flags are green. **No mandatory child L5 batches** unless the child is a planned catalog row.
+After Pass B lock, **archive any premature L5**, then **pin derive** (PIN-INDEX only) → Grok → operator confirm/waive. Only then draft L5 as Pass-B **+ pin** projection (SERIES + BATCH-DIGEST + WALK + Conceptual excerpt). Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors including pin; thin parents meet data-driven moment floor. Grok validates digests under the [[CATALOG-MINI-TRINITY]] ladder (series → children → **pins** → L5). Do not set `catalog_signed_at` until affirm + operator cross-row flags are green. **Operator Loop 2** = depth slicer / levels — not the L5 definition step. **No mandatory child L5 batches** unless the child is a planned catalog row.
 
 ### Smell language (stop and re-scope)
 
