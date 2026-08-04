@@ -2,9 +2,21 @@
 
 - label: DM can prep a session without leaving the collaborative table frame
 - status: proposed
+- schema: pin_v2
 - recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - pin_focus: DM prep/session authority without leaving collaborative table frame
 - alternate: [[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Prep/session authority + transition guards | color_key: Orange
+- title: [[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]] | heading: ## Behavior | role: supporting | excerpt_note: Layer/composer bootstrap chrome | color_key: Purple
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -18,7 +30,7 @@ DM authors the next shared session experience in-tool; the system auto-stages ag
 
 ## Rationale
 
-DM session authority + transition guards match prep-in-table; session composer is alternate for layer bootstrap chrome.
+Session authority is the enabling machinery for prep-in-table.
 
 ## Operator
 
@@ -27,3 +39,5 @@ DM session authority + transition guards match prep-in-table; session composer i
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

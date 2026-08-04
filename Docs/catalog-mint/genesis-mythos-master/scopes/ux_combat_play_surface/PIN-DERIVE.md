@@ -2,9 +2,21 @@
 
 - label: Combat can resolve by authored paths including non-win ends
 - status: proposed
+- schema: pin_v2
 - recommended: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]
-- pin_focus: Combat surface consumes pre-compiled rule math; authored ends including non-win (rules not owned by UX)
+- pin_focus: Combat surface consumes pre-compiled rule math; authored ends including non-win
 - alternate: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]] | heading: ## Behavior | role: primary | excerpt_note: Rule-math consume path for combat surface | color_key: Red
+- title: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: supporting | excerpt_note: Rule system integration envelope | color_key: Orange
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -18,7 +30,7 @@ Combat is a distinct play surface the whole table enters and exits: combat chrom
 
 ## Rationale
 
-Rule engine primitives are Conceptual for “consumes rule math”; UX series still owns play surface / ends menu. Challenge if pin over-owns UX.
+Rule engine primitives license “consumes rule math”; UX still owns play surface.
 
 ## Operator
 
@@ -27,3 +39,5 @@ Rule engine primitives are Conceptual for “consumes rule math”; UX series st
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

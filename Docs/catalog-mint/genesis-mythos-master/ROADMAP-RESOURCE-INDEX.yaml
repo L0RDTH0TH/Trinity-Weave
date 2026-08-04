@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 481
+roadmap_note_count: 516
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -2628,7 +2628,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29
   wiki: '[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-1-Conceptual-Foundation-and-Core-Architecture/Phase-1-1-Layer-Decoupling-and-Interface-Contracts/Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29.md
@@ -2807,7 +2807,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-1-3-2-SeedSnapshotAuthority-Contract-Roll-up-2026-06-29
   wiki: '[[Phase-1-3-2-SeedSnapshotAuthority-Contract-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-1-Conceptual-Foundation-and-Core-Architecture/Phase-1-3-Modularity-Seams-and-Safety-Invariants/Phase-1-3-2-SeedSnapshotAuthority-Contract-Roll-up-2026-06-29.md
@@ -2864,7 +2864,7 @@ roadmap_notes:
   - Conceptual-Decision-Records/deepen-modularity-seams-safety-invariants-2026-06-26-1437
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-1-Conceptual-Foundation-and-Core-Architecture-Roadmap-2026-06-26-0914
   wiki: '[[Phase-1-Conceptual-Foundation-and-Core-Architecture-Roadmap-2026-06-26-0914]]'
   rel_under_project: Roadmap/Phase-1-Conceptual-Foundation-and-Core-Architecture/Phase-1-Conceptual-Foundation-and-Core-Architecture-Roadmap-2026-06-26-0914.md
@@ -2967,7 +2967,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
   wiki: '[[Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115]]'
   rel_under_project: Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed/Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115.md
@@ -2982,7 +2982,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roll-up-2026-06-29
   wiki: '[[Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed/Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roll-up-2026-06-29.md
@@ -3020,7 +3020,7 @@ roadmap_notes:
   - Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed-Roadmap-2026-06-26-1535
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-2-Procedural-Generation-and-World-Building-Roll-up-2026-06-29
   wiki: '[[Phase-2-Procedural-Generation-and-World-Building-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-Procedural-Generation-and-World-Building-Roll-up-2026-06-29.md
@@ -3098,7 +3098,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-1-3-NPC-Agendas-Subsystem-Roll-up-2026-06-29
   wiki: '[[Phase-3-1-3-NPC-Agendas-Subsystem-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-1-Tick-Based-Simulation-Core/Phase-3-1-3-NPC-Agendas-Subsystem-Roll-up-2026-06-29.md
@@ -3149,7 +3149,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-1-Tick-Based-Simulation-Core-Roll-up-2026-07-15
   wiki: '[[Phase-3-1-Tick-Based-Simulation-Core-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-1-Tick-Based-Simulation-Core/Phase-3-1-Tick-Based-Simulation-Core-Roll-up-2026-07-15.md
@@ -3178,7 +3178,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roll-up-2026-07-15
   wiki: '[[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-2-Off-Screen-Faction-Tribe-Activity/Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roll-up-2026-07-15.md
@@ -3203,7 +3203,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roll-up-2026-07-15
   wiki: '[[Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy/Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roll-up-2026-07-15.md
@@ -3225,7 +3225,7 @@ roadmap_notes:
   - Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-Living-Simulation-and-Dynamic-Agency-Roll-up-2026-06-29
   wiki: '[[Phase-3-Living-Simulation-and-Dynamic-Agency-Roll-up-2026-06-29]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-Living-Simulation-and-Dynamic-Agency-Roll-up-2026-06-29.md
@@ -3308,7 +3308,7 @@ roadmap_notes:
   - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roll-up-2026-07-16
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roll-up-2026-07-16
   wiki: '[[Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roll-up-2026-07-16]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-1-Player-FP-and-Perspective-Envelope/Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roll-up-2026-07-16.md
@@ -3350,7 +3350,7 @@ roadmap_notes:
   - Phase-4-2-DM-Rigs-and-Mode-Transition-Graph-Roadmap-2026-06-26-1730
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: true
+  pin_excerpt_available: false
 - title: Phase-4-1-1-PerspectiveEnvelope-ModeTransitionGraph-and-PilotGraph-Roll-up-2026-07-16.pre-hygiene-scrub-513-20260717-050949
   wiki: '[[Phase-4-1-1-PerspectiveEnvelope-ModeTransitionGraph-and-PilotGraph-Roll-up-2026-07-16.pre-hygiene-scrub-513-20260717-050949]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-1-Player-FP-and-Perspective-Envelope/Versions/Phase-4-1-1-PerspectiveEnvelope-ModeTransitionGraph-and-PilotGraph-Roll-up-2026-07-16.pre-hygiene-scrub-513-20260717-050949.md
@@ -3376,7 +3376,7 @@ roadmap_notes:
   - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
   wiki: '[[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16.md
@@ -3483,7 +3483,7 @@ roadmap_notes:
   - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roll-up-2026-07-16
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roll-up-2026-07-16
   wiki: '[[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roll-up-2026-07-16]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue/Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roll-up-2026-07-16.md
@@ -3537,7 +3537,7 @@ roadmap_notes:
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roll-up-2026-07-16
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roll-up-2026-07-16
   wiki: '[[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roll-up-2026-07-16]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue/Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roll-up-2026-07-16.md
@@ -3566,7 +3566,7 @@ roadmap_notes:
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roll-up-2026-07-15
   wiki: '[[Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue/Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roll-up-2026-07-15.md
@@ -3769,7 +3769,7 @@ roadmap_notes:
   - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15
   wiki: '[[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
@@ -3836,7 +3836,7 @@ roadmap_notes:
   - Phase-5-2-Spell-Agency-Perspective-Metadata-Roll-up-2026-07-15
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-5-2-Spell-Agency-Perspective-Metadata-Roll-up-2026-07-15
   wiki: '[[Phase-5-2-Spell-Agency-Perspective-Metadata-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-2-Spell-Agency-Perspective-Metadata/Phase-5-2-Spell-Agency-Perspective-Metadata-Roll-up-2026-07-15.md
@@ -3862,7 +3862,7 @@ roadmap_notes:
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15
   wiki: '[[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-3-Quest-Pressure-from-Canon-Graph/Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15.md
@@ -3887,7 +3887,7 @@ roadmap_notes:
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-5-Rule-System-Integration-and-Extensibility-Roll-up-2026-07-15
   wiki: '[[Phase-5-Rule-System-Integration-and-Extensibility-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-Rule-System-Integration-and-Extensibility-Roll-up-2026-07-15.md
@@ -3914,7 +3914,7 @@ roadmap_notes:
   - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15
   wiki: '[[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
@@ -4012,7 +4012,7 @@ roadmap_notes:
   - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15
   wiki: '[[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15]]'
   rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
@@ -4219,7 +4219,7 @@ roadmap_notes:
   - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16
   wiki: '[[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16]]'
   rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16.md
@@ -4277,7 +4277,7 @@ roadmap_notes:
   - Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01
   wiki: '[[Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01]]'
   rel_under_project: Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-4-Reference-Exemplar/Phase-6-4-Reference-Exemplar-Roll-up-2026-08-01.md
@@ -4561,6 +4561,340 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior
+  wiki: '[[ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior
+  wiki: '[[ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_backstory_legacy_integration__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior
+  wiki: '[[ux_backstory_legacy_integration__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_camera_control_envelopes__Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845__Behavior
+  wiki: '[[ux_camera_control_envelopes__Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_camera_control_envelopes__Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+  - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_camera_control_envelopes__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior
+  wiki: '[[ux_camera_control_envelopes__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_camera_control_envelopes__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_collaborative_table_agency__Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709__Behavior
+  wiki: '[[ux_collaborative_table_agency__Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_collaborative_table_agency__Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_collaborative_table_agency__Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945__Behavior
+  wiki: '[[ux_collaborative_table_agency__Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_collaborative_table_agency__Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+  - Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_combat_play_surface__Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045__Behavior
+  wiki: '[[ux_combat_play_surface__Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_combat_play_surface__Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_combat_play_surface__Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914__Behavior
+  wiki: '[[ux_combat_play_surface__Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_combat_play_surface__Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior
+  wiki: '[[ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior
+  wiki: '[[ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
+  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior
+  wiki: '[[ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior
+  wiki: '[[ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior
+  wiki: '[[ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior
+  wiki: '[[ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_early_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior
+  wiki: '[[ux_early_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_early_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior
+  wiki: '[[ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior
+  wiki: '[[ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior
+  wiki: '[[ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior
+  wiki: '[[ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior
+  wiki: '[[ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior
+  wiki: '[[ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_mental_stat_interpretation__Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115__Behavior
+  wiki: '[[ux_mental_stat_interpretation__Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_mid_game__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior
+  wiki: '[[ux_mid_game__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_mid_game__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_mid_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior
+  wiki: '[[ux_mid_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_mid_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roll-up-2026-07-16
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_mid_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior
+  wiki: '[[ux_mid_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_mid_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_player_character_creation__Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115__Behavior
+  wiki: '[[ux_player_character_creation__Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_player_character_creation__Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_player_character_creation__Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600__Behavior
+  wiki: '[[ux_player_character_creation__Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_player_character_creation__Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_quiet_between_pillars__Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600__Behavior
+  wiki: '[[ux_quiet_between_pillars__Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_quiet_between_pillars__Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_quiet_between_pillars__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior
+  wiki: '[[ux_quiet_between_pillars__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_quiet_between_pillars__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_world_authorship_modability__Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437__Behavior
+  wiki: '[[ux_world_authorship_modability__Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_world_authorship_modability__Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  - Phase-1-2-1-Stage-DAG-Node-Contracts-Roadmap-2026-06-26-1105
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_world_authorship_modability__Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630__Behavior
+  wiki: '[[ux_world_authorship_modability__Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_world_authorship_modability__Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_world_authorship_modability__Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01__Behavior
+  wiki: '[[ux_world_authorship_modability__Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_world_authorship_modability__Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_world_generation__Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110__Behavior
+  wiki: '[[ux_world_generation__Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_world_generation__Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_world_generation__Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914__Behavior
+  wiki: '[[ux_world_generation__Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_world_generation__Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
 - title: REFERENCE-EXEMPLAR-CHARTER
   wiki: '[[REFERENCE-EXEMPLAR-CHARTER]]'
   rel_under_project: Roadmap/User-Story/REFERENCE-EXEMPLAR-CHARTER.md
@@ -5244,9 +5578,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/PIN-DERIVE.md
   kind: user_story
   wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
   - Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
-  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5504,9 +5838,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/PIN-DERIVE.md
   kind: user_story
   wiki_links:
-  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5582,9 +5916,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_early_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
-  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5601,8 +5935,8 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_late_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
-  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   linked_resources: []
   tert_id: null
@@ -5819,9 +6153,9 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/PIN-DERIVE.md
   kind: user_story
   wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
-  - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5885,8 +6219,8 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
-  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
   - Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

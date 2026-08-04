@@ -2,7 +2,7 @@
 
 Use ONLY these wiki-link titles (or say `needs pin`). Do not invent names.
 
-_Count: 130_
+_Count: 165_
 
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]`
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29]]`
@@ -134,3 +134,38 @@ _Count: 130_
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roadmap-2026-06-26-0914]]`
 - `[[Phase-6-Prototype-Assembly-Testing-and-Iteration-Roll-up-2026-07-15]]`
 - `[[genesis-mythos-master-Roadmap-2026-06-26-0914]]`
+- `[[ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior]]`
+- `[[ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior]]`
+- `[[ux_backstory_legacy_integration__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]`
+- `[[ux_camera_control_envelopes__Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845__Behavior]]`
+- `[[ux_camera_control_envelopes__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior]]`
+- `[[ux_collaborative_table_agency__Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709__Behavior]]`
+- `[[ux_collaborative_table_agency__Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945__Behavior]]`
+- `[[ux_combat_play_surface__Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045__Behavior]]`
+- `[[ux_combat_play_surface__Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914__Behavior]]`
+- `[[ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
+- `[[ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior]]`
+- `[[ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior]]`
+- `[[ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior]]`
+- `[[ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
+- `[[ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
+- `[[ux_early_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]`
+- `[[ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]`
+- `[[ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
+- `[[ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior]]`
+- `[[ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]`
+- `[[ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior]]`
+- `[[ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior]]`
+- `[[ux_mental_stat_interpretation__Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115__Behavior]]`
+- `[[ux_mid_game__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior]]`
+- `[[ux_mid_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
+- `[[ux_mid_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior]]`
+- `[[ux_player_character_creation__Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115__Behavior]]`
+- `[[ux_player_character_creation__Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600__Behavior]]`
+- `[[ux_quiet_between_pillars__Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600__Behavior]]`
+- `[[ux_quiet_between_pillars__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior]]`
+- `[[ux_world_authorship_modability__Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437__Behavior]]`
+- `[[ux_world_authorship_modability__Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630__Behavior]]`
+- `[[ux_world_authorship_modability__Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01__Behavior]]`
+- `[[ux_world_generation__Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110__Behavior]]`
+- `[[ux_world_generation__Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914__Behavior]]`

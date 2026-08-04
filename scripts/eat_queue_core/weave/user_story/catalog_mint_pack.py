@@ -233,7 +233,7 @@ def _mint_pack_md(project_id: str, synced_at: str) -> str:
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
-| `PIN-EXCERPTS/` | Optional pin body mirrors |
+| `PIN-EXCERPTS/` | **Mandatory for pin derive** — plain same-span weld text (Grok ≠ highlight UI) |
 | `Actual-Play-Feedstock/` | **Human phenomenology cards** (feel-pattern paraphrases) — Grok-readable on `main` |
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
@@ -268,7 +268,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 ### Pin derive (first-class; after Pass B lock; before L5)
 
 10. **Archive premature L5** if any exist (fresh path has no L5 at pin time).
-11. **Pin derive (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Titles only from `PIN-INDEX.md`. Do not invent names. Do not lean on archived Pass-B-only L5 prose.
+11. **Pin derive v2 (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Require ≥1 `role: primary`. Excerpt = weld; heading = locator. Titles only from `PIN-INDEX.md`. Yellow weak pins → Grok mint gate (pass-to-Cursor / few targets; loop cap one re-derive). Do not lean on archived Pass-B-only L5 prose. Do not parse vault Highlightr markup.
 12. Operator confirm/waive → apply pins (follow-on) — **only then** L5 mint.
 
 ### L5 affirm (after pins; not Operator Loop 2 / slicer)
@@ -574,12 +574,22 @@ def emit_catalog_mint_pack(
     rri, rri_warn = _build_roadmap_resource_index(vault_root, pid)
     warnings.extend(rri_warn)
 
-    # Pin excerpts
+    # Pin excerpts (prefer User-Story/PIN-EXCERPTS from pin_derive v2; optional override dir)
     excerpts_dir = out_dir / "PIN-EXCERPTS"
+    if excerpts_dir.exists():
+        shutil.rmtree(excerpts_dir)
     excerpts_dir.mkdir(exist_ok=True)
-    if copy_pin_excerpts_from and copy_pin_excerpts_from.is_dir():
-        for p in copy_pin_excerpts_from.glob("*.md"):
+    src_excerpts = copy_pin_excerpts_from
+    if src_excerpts is None:
+        us_ex = user_story_paths(vault_root, pid)["scopes_dir"].parent / "PIN-EXCERPTS"
+        if us_ex.is_dir():
+            src_excerpts = us_ex
+    if src_excerpts and src_excerpts.is_dir():
+        for p in src_excerpts.glob("*.md"):
             shutil.copy2(p, excerpts_dir / p.name)
+            hashes[f"PIN-EXCERPTS/{p.name}"] = _sha256_text(p.read_text(encoding="utf-8"))
+    if not any(excerpts_dir.glob("*.md")):
+        warnings.append("pin_excerpts_empty")
 
     excerpts_names = {p.stem for p in excerpts_dir.glob("*.md")}
     for note in rri.get("roadmap_notes") or []:

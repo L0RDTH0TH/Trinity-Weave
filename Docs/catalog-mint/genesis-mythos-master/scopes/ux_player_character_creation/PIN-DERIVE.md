@@ -2,9 +2,21 @@
 
 - label: Players can author characters and submit them for DM acceptance into a world
 - status: proposed
+- schema: pin_v2
 - recommended: [[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]]
 - pin_focus: Player authors PC + DM acceptance into world (spawn/bootstrap seam)
 - alternate: [[Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]] | heading: ## Behavior | role: primary | excerpt_note: Spawn/bootstrap cast entry into world | color_key: Green
+- title: [[Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115]] | heading: ## Behavior | role: supporting | excerpt_note: Archetype/profile weight tables only | color_key: Lime
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -18,7 +30,7 @@ Player authors and owns a character before and after DM greenlight. Builds may b
 
 ## Rationale
 
-Spawn bootstrap is the closest Conceptual handle for cast entry; archetype tables are alternate for profile/cast weight only.
+Spawn bootstrap is structure for cast entry; archetype tables supporting for profile weight.
 
 ## Operator
 
@@ -27,3 +39,5 @@ Spawn bootstrap is the closest Conceptual handle for cast entry; archetype table
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

@@ -2,9 +2,21 @@
 
 - label: Mental stats surface available read paths not only sheet numbers
 - status: proposed
+- schema: pin_v2
 - recommended: [[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]
 - pin_focus: Mental-stat cues / available read paths (not sheet numbers; not auto-solve)
 - alternate: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]] | heading: ## Behavior | role: primary | excerpt_note: Cue/read-path metadata for mental-stat interpretation | color_key: Magenta
+- title: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]] | heading: ## Behavior | role: supporting | excerpt_note: Visibility envelope only | color_key: Cyan
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -18,7 +30,7 @@ INT, WIS, and CHA can drive visual cues on people, places, and objects that hold
 
 ## Rationale
 
-Perspective/agency metadata is the best PIN-INDEX fit for cue presentation; FP envelope is alternate for visibility.
+Perspective/agency metadata is structure for cue presentation.
 
 ## Operator
 
@@ -27,3 +39,5 @@ Perspective/agency metadata is the best PIN-INDEX fit for cue presentation; FP e
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

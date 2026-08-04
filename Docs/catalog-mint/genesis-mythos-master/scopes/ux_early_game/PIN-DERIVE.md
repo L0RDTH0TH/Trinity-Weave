@@ -2,9 +2,21 @@
 
 - label: Early play is a power band that gates world and pillar response
 - status: proposed
-- recommended: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
-- pin_focus: Low power band — what world/pillar offers scale to early (not tutorial plot)
-- alternate: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
+- schema: pin_v2
+- recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
+- pin_focus: Low power band — session-prep scales early offers (L1≠L15); not tutorial plot
+- alternate: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: Session-prep authority that scales early-band prep/offers | color_key: Orange
+- title: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]] | heading: ## Behavior | role: supporting | excerpt_note: Early-band quest/offer pressure consequences only | color_key: Yellow
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -12,13 +24,13 @@ Early-game is the low power band for the cast: world access, social audience, ex
 
 ## Candidates (PIN-INDEX only)
 
-1. [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
-2. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
-3. [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]
+1. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
+2. [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
+3. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
 
 ## Rationale
 
-Quest pressure / offer scaling is the best available Conceptual proxy for early band gating; living sim is alternate for world response.
+Structure = session-prep machinery; quest-pressure supporting for early-band offer consequences.
 
 ## Operator
 
@@ -27,3 +39,5 @@ Quest pressure / offer scaling is the best available Conceptual proxy for early 
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

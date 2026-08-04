@@ -2,9 +2,21 @@
 
 - label: Perspective and control envelopes can change and cleanly return
 - status: proposed
+- schema: pin_v2
 - recommended: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
-- pin_focus: Perspective/control envelopes change and cleanly return (player FP vs DM WorldCam/MapCam/Sensorium)
+- pin_focus: Perspective/control envelopes change and cleanly return (player FP vs DM cams)
 - alternate: [[Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]] | heading: ## Behavior | role: primary | excerpt_note: Player FP / perspective envelope machinery | color_key: Cyan
+- title: [[Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845]] | heading: ## Behavior | role: supporting | excerpt_note: DM WorldCam/MapCam/Sensorium envelopes | color_key: Blue
+
+## mint_target
+
+_(none — Grok mint gate owns volume)_
 
 ## Series contract (Pass B locked)
 
@@ -18,7 +30,7 @@ Baseline player FP and a set of explicit temporary envelopes that change perspec
 
 ## Rationale
 
-FP + WorldCam notes cover dual-rail camera envelopes; interpolator is tertiary for transition craft.
+FP envelope is structure; WorldCam/MapCam supporting for dual-rail cams.
 
 ## Operator
 
@@ -27,3 +39,5 @@ FP + WorldCam notes cover dual-rail camera envelopes; interpolator is tertiary f
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

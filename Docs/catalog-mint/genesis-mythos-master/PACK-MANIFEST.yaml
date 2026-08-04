@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-04T02:59:29Z'
+synced_at: '2026-08-04T07:35:03Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -17,8 +17,66 @@ required_files:
 - FEED-ENVELOPE.yaml
 file_hashes:
   CONCEPTUAL-EXCERPT.md: 6f3505a5125f2025
-  PIN-INDEX.md: 7aa7f79d4fb6d7dd
-  ROADMAP-RESOURCE-INDEX.yaml: a121ffec05c9e977
+  PIN-INDEX.md: 6c0e1c7251b5bbee
+  ? PIN-EXCERPTS/ux_dm_campaign_creation__Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406__Behavior.md
+  : 7cd3ccb7b8161fd3
+  PIN-EXCERPTS/ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior.md: 57548feba3f37922
+  PIN-EXCERPTS/ux_world_generation__Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110__Behavior.md: 803af9abb9efd30f
+  PIN-EXCERPTS/ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior.md: eea73161626f5914
+  PIN-EXCERPTS/ux_quiet_between_pillars__Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600__Behavior.md: 5dc0998d9df5ca2f
+  ? PIN-EXCERPTS/ux_world_authorship_modability__Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437__Behavior.md
+  : a8a8f1831c07eae6
+  ? PIN-EXCERPTS/ux_dm_campaign_creation__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  : f3e1a70bcf01b5d8
+  ? PIN-EXCERPTS/ux_camera_control_envelopes__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
+  : 36a8eb721186e4a4
+  ? PIN-EXCERPTS/ux_camera_control_envelopes__Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845__Behavior.md
+  : d939991411a4c0c9
+  ? PIN-EXCERPTS/ux_dm_session_prep__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  : 55ab70f26391c1c7
+  ? PIN-EXCERPTS/ux_early_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  : 8d532b523db31bf7
+  PIN-EXCERPTS/ux_dm_campaign_creation__Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951__Behavior.md: 5a3d2640512a818b
+  PIN-EXCERPTS/ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior.md: 61409c91e0a50802
+  ? PIN-EXCERPTS/ux_dm_session_prep__Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847__Behavior.md
+  : 74ba045824751e47
+  ? PIN-EXCERPTS/ux_quiet_between_pillars__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior.md
+  : 4f5da74eae39354d
+  ? PIN-EXCERPTS/ux_collaborative_table_agency__Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945__Behavior.md
+  : 931f7a79461808fc
+  PIN-EXCERPTS/ux_world_generation__Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914__Behavior.md: e85deba745f7e359
+  ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115__Behavior.md
+  : 0d7db7f4d1623582
+  PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330__Behavior.md: 0e793bfdcc2de38c
+  ? PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md
+  : 0dfb8a80079ae268
+  ? PIN-EXCERPTS/ux_combat_play_surface__Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045__Behavior.md
+  : dda19e6123be3039
+  PIN-EXCERPTS/ux_mid_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md: ef1f5a8c06b3b86f
+  ? PIN-EXCERPTS/ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior.md
+  : 0d59396e8409be19
+  PIN-EXCERPTS/ux_world_authorship_modability__Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01__Behavior.md: 42bde8ac07bfd1cf
+  ? PIN-EXCERPTS/ux_combat_play_surface__Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914__Behavior.md
+  : c32e045824c932ef
+  PIN-EXCERPTS/ux_early_game__Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142__Behavior.md: e364d1f219688626
+  ? PIN-EXCERPTS/ux_player_character_creation__Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115__Behavior.md
+  : 57686b2d0a356823
+  ? PIN-EXCERPTS/ux_mid_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  : edac7f97b4ef7f87
+  ? PIN-EXCERPTS/ux_collaborative_table_agency__Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709__Behavior.md
+  : 14a962b9b329cc96
+  ? PIN-EXCERPTS/ux_player_character_creation__Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600__Behavior.md
+  : 7c345c7dd5a613de
+  PIN-EXCERPTS/ux_mid_game__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior.md: 09df2a27faab04c0
+  ? PIN-EXCERPTS/ux_backstory_legacy_integration__Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530__Behavior.md
+  : 22a0bdb619951c45
+  ? PIN-EXCERPTS/ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior.md
+  : 947b890461c82987
+  ? PIN-EXCERPTS/ux_world_authorship_modability__Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630__Behavior.md
+  : 234c5a7b985ba264
+  ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
+  : 81f9cc69add5a006
+  ROADMAP-RESOURCE-INDEX.yaml: c2a071d29ea96f09
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: 7ceaf29a4d3e9131
@@ -93,23 +151,23 @@ file_hashes:
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
   scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
-  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: 86d60649d679eb26
-  scopes/ux_camera_control_envelopes/PIN-DERIVE.md: 90c2a01c4849e643
-  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: 9e3a2e9f1db2d3ca
-  scopes/ux_combat_play_surface/PIN-DERIVE.md: 976f793d468973a9
-  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: f0f160e62afdd913
-  scopes/ux_dm_session_prep/PIN-DERIVE.md: 494cf2cf85b2e60c
-  scopes/ux_early_game/PIN-DERIVE.md: acf0f3c0adbcb9ea
-  scopes/ux_late_game/PIN-DERIVE.md: d519cd49fd5d1aae
-  scopes/ux_living_world_continuity/PIN-DERIVE.md: d25ed274b651c3bc
-  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 56d1b023908e5a87
-  scopes/ux_mid_game/PIN-DERIVE.md: c0a79aab6f7e1269
-  scopes/ux_player_character_creation/PIN-DERIVE.md: 0145f7b56a80e810
-  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 2bf1f88754644e04
-  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 65d52ddbd678c321
-  scopes/ux_world_generation/PIN-DERIVE.md: 6ca0e74ec62a8d85
+  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: 62cb5aea1dabb92b
+  scopes/ux_camera_control_envelopes/PIN-DERIVE.md: 6ff2a54c4cae9981
+  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: 67f9de9f82e5e5a9
+  scopes/ux_combat_play_surface/PIN-DERIVE.md: 84e99e4a5e629c78
+  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: b18386e6f7efa888
+  scopes/ux_dm_session_prep/PIN-DERIVE.md: 996eb05eda244ce4
+  scopes/ux_early_game/PIN-DERIVE.md: cd8a853b2a290f91
+  scopes/ux_late_game/PIN-DERIVE.md: ddc4a8cfac528919
+  scopes/ux_living_world_continuity/PIN-DERIVE.md: 408b8cc70663c4e8
+  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 57399f40c425a0e4
+  scopes/ux_mid_game/PIN-DERIVE.md: e625dc1ba7f4da4a
+  scopes/ux_player_character_creation/PIN-DERIVE.md: 7d373764ce0b62c5
+  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 5af17964bc2aa070
+  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 5906f528c2424800
+  scopes/ux_world_generation/PIN-DERIVE.md: de41262436af5ddb
   L5-AFFIRM-STATUS.md: 3768bdcae012bd3c
-  PIN-DERIVE-STATUS.md: 753f20acb595cd21
+  PIN-DERIVE-STATUS.md: bd66f913e742ee41
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -130,6 +188,6 @@ file_hashes:
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 5f96484992b7d2c7
+  MINT-PACK.md: 9aca28399e0af645
 warnings:
 - feed_completeness:no_focal_item

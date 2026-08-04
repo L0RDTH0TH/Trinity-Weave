@@ -2,9 +2,22 @@
 
 - label: DM can bootstrap a campaign frame inside a world
 - status: proposed
-- recommended: [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]
-- pin_focus: Campaign frame bootstrap inside an existing world (not worldgen)
-- alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
+- schema: pin_v2
+- recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
+- pin_focus: Campaign frame bootstrap inside an existing world (structure = session authority)
+- alternate: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
+- vision_drift: false
+- vision_drift_cite: _(none)_
+
+## conceptual_pin_refs
+
+- title: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]] | heading: ## Behavior | role: primary | excerpt_note: DM session authority / transition guards for campaign frame in-table | color_key: Orange
+- title: [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]] | heading: ## Behavior | role: supporting | excerpt_note: Launch/bootstrap seam into session | color_key: Yellow
+- title: [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]] | heading: ## Behavior | role: contrast | excerpt_note: Demo loop ≠ product campaign parent — do not overclaim | color_key: Red
+
+## mint_target
+
+- parent: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456 | proposed_title: amend-campaign-frame-bootstrap-inside-world | path_class: amendment
 
 ## Series contract (Pass B locked)
 
@@ -12,13 +25,13 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Candidates (PIN-INDEX only)
 
-1. [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]
-2. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-3. [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
+1. [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
+2. [[Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406]]
+3. [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]
 
 ## Rationale
 
-No dedicated campaign-parent Phase note; Horizon demo + session authority are best PIN-INDEX fits for campaign-inside-world bootstrap. Challenge if overclaims demo as product law.
+Structure-first — DM session authority owns campaign-inside-world frame. Horizon Demo is contrast (demo≠campaign parent). Sparse mint_target if Grok still wants a dedicated campaign parent amendment.
 
 ## Operator
 
@@ -27,3 +40,5 @@ No dedicated campaign-parent Phase note; Horizon demo + session authority are be
 - [ ] waive (reason below)
 
 waive_reason:
+
+_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._

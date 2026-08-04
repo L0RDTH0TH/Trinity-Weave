@@ -8,11 +8,13 @@ updated: 2026-08-04
 
 Each **planned** catalog row is a **mini project trinity**: flood the LLM from three angles, keep collisions traceable. This is **catalog law** — not a side mode and not a second mint for L5 children.
 
+**Join key:** Catalog row = `conceptual_pin_refs[]` (why this shape) → `execution_pins[]` (how it builds) → L5 (vision bar). Agents must not invent “why X over Y” outside cited refs + CDR alternatives.
+
 ## Seats (per planned row)
 
 | Seat | Artifact | Question |
 |------|----------|----------|
-| **Conceptual** | `conceptual_pin` → roadmap / CDR | What is this in plain prose? |
+| **Conceptual** | `conceptual_pin` + `conceptual_pin_refs[]` → roadmap / CDR / amendments | What is this in plain prose (which span)? |
 | **UX (touch)** | Pass A `SERIES.md` + Pass B `WALK.md` / `BATCH-DIGEST.md` | How does it feel in player/DM hands? |
 | **Execution** | `execution_pins[]` → Execution roadmap notes | How is that touch built (pseudo-code / interfaces / ACs)? |
 
@@ -26,7 +28,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 2. **Pass A** — series Meaning  
 3. Trinity publish series → **Pass B** — children Meaning (batches)  
 4. **Archive any premature L5** (fresh path has no L5 yet at pin time; live Pass-B-only L5s poison pin-before-L5)  
-5. **Pin derive** — Cursor proposes PIN-INDEX titles → Grok validate → operator confirm/waive  
+5. **Pin derive v2** — Cursor proposes PIN-INDEX titles + `conceptual_pin_refs` + pack **PIN-EXCERPTS** → Grok validate (judgment on same text) → Grok mint gate if yellow → operator confirm/waive  
 6. **L5 draft** — Pass-B + resolved pin (or recorded waive); structure gate → Grok content affirm → cross-row flags → attest  
 7. `catalog_signed_at` only when board attest allows  
 8. **Operator Loop 2** — depth-slice / budget / scope levels (L5 → L4…L1) — **not** the L5 definition step  
@@ -43,7 +45,7 @@ Grok validates the **published Trinity pack**. Cursor drafts **ahead** of Grok t
 ```text
 1. Pass A — series individually (one SERIES / turn; full Meaning receipt)
 2. Pass B — children summaries batched (one parent / turn; BATCH-DIGEST first; full WALK only yellow/red/thin)
-3. Pin derive — planned-row pin proposals batched (PIN-DERIVE-STATUS + per-row PIN-DERIVE; digest-first)
+3. Pin derive — planned-row pin proposals batched (PIN-DERIVE-STATUS + per-row PIN-DERIVE + PIN-EXCERPTS; digest-first)
 4. L5 affirm — planned-row L5s batched (only after pins confirmed/waived; L5-AFFIRM-STATUS + digests)
 ```
 
@@ -54,6 +56,7 @@ Grok validates the **published Trinity pack**. Cursor drafts **ahead** of Grok t
 | Mandatory **child L5** affirm batches | Only if that child is a planned row with an L5 |
 | Walking all full L5s / pin notes every turn | Digest-first; one receipt per turn |
 | Calling L5 affirm “Operator Loop 2” | Loop 2 = depth slicer / catalog levels |
+| Forcing a green proxy when no honest span exists | Use Grok mint gate / `mint_target` — not invented parents |
 
 Receipt shapes: series Meaning (Pass A) · [`CHILD-BATCH-VALIDATION`](CHILD-BATCH-VALIDATION.md) · [`PIN-DERIVE-VALIDATION`](PIN-DERIVE-VALIDATION.md) · [`L5-AFFIRM-VALIDATION`](L5-AFFIRM-VALIDATION.md).
 
@@ -61,9 +64,9 @@ Receipt shapes: series Meaning (Pass A) · [`CHILD-BATCH-VALIDATION`](CHILD-BATC
 
 | Who | Job |
 |-----|-----|
-| Cursor (`l5_affirm` / pin derive emit) | Structure — pin legality, L5 sections, origin, moment *count*, pack-smell, anchors |
-| Grok (this ladder) | Content — pin fit, altitude, anti-mandate, play-verbs, dual-rail, Pass-B drift |
-| Operator | Confirm/waive pins; cross-row symphony flags + sign |
+| Cursor (`l5_affirm` / pin derive emit) | Structure — pin legality, refs (≥1 primary), L5 sections, origin, moment *count*, pack-smell, anchors, PIN-EXCERPTS emit |
+| Grok (this ladder) | Content — pin fit, altitude, anti-mandate, play-verbs, dual-rail, Pass-B drift; **mint_target volume gate** |
+| Operator | Confirm/waive pins; cross-row symphony flags + sign; terminate re-derive loop |
 
 ## Anti-patterns
 
@@ -72,8 +75,10 @@ Receipt shapes: series Meaning (Pass A) · [`CHILD-BATCH-VALIDATION`](CHILD-BATC
 - Treating anti-mandates as Execution  
 - Keeping live L5s while deriving pins (poison for pin-before-L5)  
 - Signing because “L5 files exist” without pin gate + Grok content affirm + attest  
+- Coarse whole-note pins that force later rails to **guess** which prose licensed the UX  
+- Cursor flooding speculative `mint_target` walls (Grok owns volume)  
 
 ## Cross-links
 
 - [[WHAT-GOOD-LOOKS-LIKE]] · [[UX-MINT-RUBRIC]] · [[PIN-DERIVE-VALIDATION]] · [[L5-AFFIRM-VALIDATION]] · [[CHILD-BATCH-VALIDATION]]  
-- [[3-Resources/Second-Brain/Docs/Slice-Catalog-and-Slicer]] · [[3-Resources/Second-Brain/Docs/Roadmap-Factory-Pipeline]]
+- [[3-Resources/Second-Brain/Docs/Slice-Catalog-and-Slicer]] · [[3-Resources/Second-Brain/Docs/Roadmap-Factory-Pipeline]] · [[3-Resources/Second-Brain/Docs/Dual-Roadmap-Track]]

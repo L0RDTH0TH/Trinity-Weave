@@ -27,7 +27,7 @@
 | `CONCEPTUAL-EXCERPT.md` | PMG / conceptual roll-up |
 | `PIN-INDEX.md` | Legal conceptual_pin titles |
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
-| `PIN-EXCERPTS/` | Optional pin body mirrors |
+| `PIN-EXCERPTS/` | **Mandatory for pin derive** — plain same-span weld text (Grok ≠ highlight UI) |
 | `Actual-Play-Feedstock/` | **Human phenomenology cards** (feel-pattern paraphrases) — Grok-readable on `main` |
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
@@ -62,7 +62,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 ### Pin derive (first-class; after Pass B lock; before L5)
 
 10. **Archive premature L5** if any exist (fresh path has no L5 at pin time).
-11. **Pin derive (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Titles only from `PIN-INDEX.md`. Do not invent names. Do not lean on archived Pass-B-only L5 prose.
+11. **Pin derive v2 (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Require ≥1 `role: primary`. Excerpt = weld; heading = locator. Titles only from `PIN-INDEX.md`. Yellow weak pins → Grok mint gate (pass-to-Cursor / few targets; loop cap one re-derive). Do not lean on archived Pass-B-only L5 prose. Do not parse vault Highlightr markup.
 12. Operator confirm/waive → apply pins (follow-on) — **only then** L5 mint.
 
 ### L5 affirm (after pins; not Operator Loop 2 / slicer)
@@ -73,6 +73,6 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-04T02:59:29Z`
+synced_at: `2026-08-04T07:35:03Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.
