@@ -52,9 +52,10 @@ Stellaris / Dwarf Fortress / **Civilization** / Anno — background resource/pol
 ## World shape / midband base
 
 - Midband power often has a **base** (druid tree, abandoned castle to fix/staff). Need systems for players shaping place.
-- **Doctrine:** players **design**; NPCs **work in background**; wait **calendar** time. Not build-place-build-place.
-- **Rust / ARK:** light “base systems” examples only — foil for the loop we refuse.
-- **Townscaper:** model for world-building authorship — click-and-add when user places a world/grid element; 2D map intent → 3D world (or equivalent). Pair with calendar/NPC labor for realization.
+- **Locked split:** intent ≈ Townscaper/light blueprint · realization ≈ NPC labor on calendar · refuse ≈ Rust/ARK/Minecraft place-build.
+- **Labor exemplar cluster (primary OPEN):** Majesty / Stronghold (sovereign/fort) · Overlord (minion tone, thin calendar) · Going Medieval / Foundation (modern blueprint + persistence) · RimWorld (calendar clarity) · Banished/Farthest Frontier (lighter) · Settlers classic (pure flag→labor).
+- **Rust / ARK:** light “base systems” foils only.
+- **Townscaper:** intent UX for world/grid click-add.
 
 ## Other
 

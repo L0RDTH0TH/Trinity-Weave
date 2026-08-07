@@ -37,7 +37,15 @@ Grand-strategy / colony sims (Stellaris, Dwarf Fortress, Civilization, Anno, …
 
 ## World shaping / midband base
 
-Tables at midband power often expect a **base** or claimable place. Authorship should feel **Townscaper-class click-add** for placing world/grid elements (intent). Realization should be **player design → NPC background labor → calendar wait** — refuse survival-builder place-build loops (Rust/ARK as light foils only).
+Tables at midband power often expect a **base** or claimable place.
+
+| Layer | Job | Pattern exemplars |
+|-------|-----|-------------------|
+| Intent | Click-add / light blueprint of what place should become | Townscaper-class |
+| Realization | NPC labor on a **calendar**; place persists while party is away | Majesty / Stronghold / Foundation / Going Medieval / RimWorld–DF calendar; Overlord = labor tone only (thin calendar) |
+| Refuse | Player in place-build loop | Rust / ARK / Minecraft default |
+
+**Primary labor exemplar** may stay open in dialogue until operator picks one; complementary pins remain.
 
 ## Ladder
 

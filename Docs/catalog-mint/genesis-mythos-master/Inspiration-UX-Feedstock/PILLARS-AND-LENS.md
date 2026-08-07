@@ -36,8 +36,20 @@ Background living pressure from Stellaris / DF / Civ / Anno-class systems; **DM 
 
 Mid-tier power bands often include a **base** (growing special tree, ruined castle to staff, etc.). Systems must let players **shape the world**.
 
-- **Authorship UX:** Townscaper-class click-add when placing a world/grid element (intent feels instant and joyful).
-- **Realization:** players design → **NPCs work in background** → **calendar time** elapses. Not Rust/ARK build-place-build-place.
-- Survival-builder titles are **light foils** for “base exists,” not loop models.
+Locked split:
+
+| Layer | Job | Exemplars |
+|-------|-----|-----------|
+| **Intent** | What it should become | Townscaper click-add / light blueprint |
+| **Realization** | Who builds · when | NPC labor **on a calendar** |
+| **Refuse** | Player place-build loop | Rust / ARK / Minecraft default |
+
+**Primary labor exemplar — still open** (pick one; rest complementary):
+
+- Majesty or Stronghold → cleanest sovereign / fort realization
+- Overlord → minion/horde + darker tone (weak calendar + “place while away”)
+- Going Medieval or Foundation → modern blueprint → settlers, persistence
+
+Calendar thickener already covered by DF / RimWorld-class pressure.
 
 See `INDEX.md`, `LIKED-SNIPPETS.md`, `cards/`, vault law `Docs/catalog-mint/_shared/INSPIRATION-UX-FEEDSTOCK.md`.

@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 626
+roadmap_note_count: 634
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4568,6 +4568,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: banished-frontier-blueprint-settlement
+  wiki: '[[banished-frontier-blueprint-settlement]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/banished-frontier-blueprint-settlement.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: bannerlord-offscreen-faction-military
   wiki: '[[bannerlord-offscreen-faction-military]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md
@@ -4616,6 +4624,22 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: foundation-district-organic-build
+  wiki: '[[foundation-district-organic-build]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/foundation-district-organic-build.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: going-medieval-blueprint-pawns
+  wiki: '[[going-medieval-blueprint-pawns]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/going-medieval-blueprint-pawns.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: habitat-wilderness-exemplar
   wiki: '[[habitat-wilderness-exemplar]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md
@@ -4648,6 +4672,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: majesty-goal-heroes-realize
+  wiki: '[[majesty-goal-heroes-realize]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/majesty-goal-heroes-realize.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: medieval-dynasty-light-life-sim
   wiki: '[[medieval-dynasty-light-life-sim]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md
@@ -4659,6 +4691,14 @@ roadmap_notes:
 - title: mod-community-weak-spot-augments
   wiki: '[[mod-community-weak-spot-augments]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: overlord-minion-labor-partial
+  wiki: '[[overlord-minion-labor-partial]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/overlord-minion-labor-partial.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4680,6 +4720,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: rimworld-designate-calendar-labor
+  wiki: '[[rimworld-designate-calendar-labor]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rimworld-designate-calendar-labor.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: rust-ark-base-systems-light
   wiki: '[[rust-ark-base-systems-light]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md
@@ -4688,9 +4736,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: settlers-flag-serfs-build
+  wiki: '[[settlers-flag-serfs-build]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/settlers-flag-serfs-build.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: situational-overlay-lenses
   wiki: '[[situational-overlay-lenses]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stronghold-plan-engineers-time
+  wiki: '[[stronghold-plan-engineers-time]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stronghold-plan-engineers-time.md
   kind: user_story
   wiki_links: []
   linked_resources: []

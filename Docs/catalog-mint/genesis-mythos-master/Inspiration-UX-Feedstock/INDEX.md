@@ -52,9 +52,17 @@ Pillar map: see [[PILLARS-AND-LENS]].
 
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
-| Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Players **design**; NPCs labor; **calendar wait** — not place-build loop |
-| Townscaper | strong | townscaper-click-add-world-element | Click-add UX for world/grid elements; 2D intent → 3D realization |
-| Rust / ARK | weak | rust-ark-base-systems-light | Light “base exists” foil only; **refuse** their construction loop |
+| Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Intent · NPC labor · calendar; **refuse** place-build. **Primary labor exemplar OPEN** |
+| Townscaper | strong | townscaper-click-add-world-element | Intent UX — click-add world/grid |
+| Majesty / Majesty 2 | strong | majesty-goal-heroes-realize | Sovereign goals → heroes/peasants realize (primary candidate) |
+| Stronghold (series) | strong | stronghold-plan-engineers-time | Castle plan → engineers over time (primary candidate) |
+| Foundation | strong | foundation-district-organic-build | District designate → organic build (modern persistence) |
+| Going Medieval | strong | going-medieval-blueprint-pawns | Blueprint → pawns on clock; fantasy midband |
+| RimWorld | strong | rimworld-designate-calendar-labor | Clearest calendar+labor(+consequence); sci-fi skin refuse |
+| Overlord | medium | overlord-minion-labor-partial | Minion labor tone; **thin** calendar / living-place-while-away |
+| Banished / Farthest Frontier | medium | banished-frontier-blueprint-settlement | Lighter settlement-as-place |
+| The Settlers (classic) | medium | settlers-flag-serfs-build | Pure flag → serf labor chain |
+| Rust / ARK | weak | rust-ark-base-systems-light | “Base exists” foil only; **refuse** loop |
 
 ## Research surfaces
 

@@ -44,3 +44,12 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-07 | false | rust-ark-base-systems-light | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Base foil; refuse loop |
 | 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock doctrine | Design → NPC labor → calendar |
 | 2026-08-07 | false | townscaper-click-add-world-element | ux_world_authorship_modability, ux_camera_control_envelopes | feedstock seed | Click-add world/grid UX |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock refresh | Split + primary labor OPEN |
+| 2026-08-07 | false | overlord-minion-labor-partial | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Labor tone; thin calendar |
+| 2026-08-07 | false | majesty-goal-heroes-realize | (multi) | feedstock seed | Sovereign → subjects |
+| 2026-08-07 | false | stronghold-plan-engineers-time | (multi) | feedstock seed | Castle plan → time |
+| 2026-08-07 | false | foundation-district-organic-build | (multi) | feedstock seed | Organic settlement |
+| 2026-08-07 | false | rimworld-designate-calendar-labor | (multi) | feedstock seed | Calendar labor clarity |
+| 2026-08-07 | false | going-medieval-blueprint-pawns | (multi) | feedstock seed | Fantasy blueprint clock |
+| 2026-08-07 | false | banished-frontier-blueprint-settlement | (multi) | feedstock seed | Light settlement |
+| 2026-08-07 | false | settlers-flag-serfs-build | (multi) | feedstock seed | Classic flag→labor |
