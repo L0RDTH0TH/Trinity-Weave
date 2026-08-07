@@ -1,7 +1,7 @@
 ---
 title: Catalog Mini-Trinity (first-class MO)
 audience: cursor_grok_operator
-updated: 2026-08-04
+updated: 2026-08-07
 ---
 
 # Catalog Mini-Trinity (first-class MO)
@@ -27,7 +27,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 1. Conceptual feed ready → freeze  
 2. **Pass A** — series Meaning (what-is)  
 3. Trinity publish series  
-4. **Inspiration UX dialogue** (first-class) — Grok+user: pinable game/tool list + liked snippets → **pattern** derived move-pins until satisfied → write `INSPIRATION-DIALOGUE-RECEIPT.md` → Cursor may auto-elevate into children/L5 **seasoning only** with assumption trace (see [[INSPIRATION-UX-FEEDSTOCK]])  
+4. **Inspiration UX feedstock** (first-class, **not** a hard gate) — **User + Cursor** build INDEX / snippets / derived move-pins + keep `INSPIRATION-DIALOGUE-RECEIPT.md` as the share doc; **Grok optional polish** when invited. Cursor may auto-elevate into children/L5 **seasoning only** with assumption trace (see [[INSPIRATION-UX-FEEDSTOCK]]). Soft checklist only — does not unlock Pass B/L5 the way Trinity / pin board / L5 affirm do.  
 5. **Pass B** — children Meaning (batches), seasoned by inspiration + Actual-Play derived pins  
 6. **Archive any premature L5** (conditional — only if live L5 exists before Conceptual pins)  
 7. **Pin derive v2** — Cursor first emit (shared-primary heuristic) + PIN-EXCERPTS → Grok validate → pass-to-Cursor (loop cap 1) if needed → sparse `mint_target` if no honest span  
@@ -46,7 +46,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 
 ```text
 1. Pass A — series individually
-2. Inspiration dialogue — patterns from pinable sources (until user satisfied + receipt)
+2. (Optional) Inspiration polish — Grok helps jobs/refuse when invited; receipt is User+Cursor share, not a Grok gate
 3. Pass B — children summaries batched
 4. Pin derive — batched; after amendment mint → subset = that row only
 5. Series L5 affirm — only after pins confirmed (and approved mints written)

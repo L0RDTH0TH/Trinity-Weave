@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-07T06:22:54Z'
+synced_at: '2026-08-07T06:48:52Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -265,10 +265,10 @@ file_hashes:
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 4870b10f2e59ceeb
   Inspiration-UX-Feedstock/INDEX.md: a7246ff0d50b5c4d
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: cb6c5b8043fd40d0
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 84dd3f07968580de
   Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: a9b73a75ce910028
   Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: d4af1eea00113839
-  Inspiration-UX-Feedstock/README.md: 3b792077bdae3f1c
+  Inspiration-UX-Feedstock/README.md: d488b788625ca18a
   Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
   Inspiration-UX-Feedstock/cards/banished-frontier-blueprint-settlement.md: e615e94ab11c2e88
   Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md: a1de4f217d55435b
@@ -306,6 +306,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: a6f431663a2c260c
+  MINT-PACK.md: fd27d225c0c7ffa3
 warnings:
 - feed_completeness:no_focal_item

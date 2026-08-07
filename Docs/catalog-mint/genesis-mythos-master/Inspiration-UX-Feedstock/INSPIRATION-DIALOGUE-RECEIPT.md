@@ -1,7 +1,7 @@
 ---
 title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
-status: day-one-seed-pending-full-dialogue
+status: feedstock-share-open
 inspiration_dialogue_satisfied: false
 updated: 2026-08-07
 
@@ -11,28 +11,24 @@ updated: 2026-08-07
 
 See also [[PILLARS-AND-LENS]].
 
-**Satisfied:** false (day-one seed from ramble; full Grok+user dialogue still owed on next mint / when operator resumes).
+**Role:** share document for User+Cursor feedstock — **not** a Grok ladder gate. Grok polish (optional) feeds this receipt; User declares share-ready.
 
-## Accepted derived move-pins (seed)
+**Share-ready:** false (operator polishing with Grok; list already substantial — close when “good enough to season this cycle”).
 
-_Seeded for seasoning; treat as provisional until a formal dialogue marks satisfied._
+## Accepted derived move-pins (live feedstock)
 
-- `bg3-dnd-feel-refuse-authored-spine`
-- `destiny-shared-world-refuse-fireteam-shooter`
-- `mod-community-weak-spot-augments`
-- `forge-glow-dm-placement`
-- `live-grid-correspondence`
-- `turn-gated-movement-circle`
-- `low-fantasy-tone-exemplar`
-- `habitat-wilderness-exemplar`
-- `bounded-dm-resource-politics`
-- stubs: `stub-df-living-detail`, `stub-skyrim-living-fp-share`, `stub-talespire-dm-tooling`, `stub-seasonal-location-rewrite`, `stub-rdr-mount-feel`, `stub-fable-world-memory`, `stub-world-anvil-lore-surface`, `stub-adventure-pdf-dependency-graph`
+_Provisional until operator share sentence; seasoning elevate waits on share-ready._
+
+See `INDEX.md` + `cards/` for full set (open-world cluster, DM resource, midband base doctrine + labor exemplars, Townscaper intent, Rust/ARK foil, etc.).
+
+Seed / strong set includes (non-exhaustive): `bg3-dnd-feel-refuse-authored-spine`, `destiny-shared-world-refuse-fireteam-shooter`, `mod-community-weak-spot-augments`, `forge-glow-dm-placement`, `live-grid-correspondence`, `turn-gated-movement-circle`, `situational-overlay-lenses`, `relationship-shaped-economy`, `low-fantasy-tone-exemplar`, `habitat-wilderness-exemplar`, `bounded-dm-resource-politics`, `bannerlord-offscreen-faction-military`, `kenshi-harsh-ai-permanent-consequence`, `rain-world-creature-territory-habitat`, `calendar-npc-labor-world-shape`, `townscaper-click-add-world-element`, midband labor cluster (`majesty-…`, `stronghold-…`, `foundation-…`, `going-medieval-…`, `rimworld-…`, `overlord-…` partial), plus stubs as listed in INDEX.
 
 ## Rejected or deferred
 
-- **Deferred/corrected:** treating Cities: Skylines as “combat movement circle” (explicit hyperfocus) — replaced by `situational-overlay-lenses`; circle kept as operator invent.
-- _(more during formal dialogue)_
+- **Deferred/corrected:** Cities as “combat movement circle” → `situational-overlay-lenses`; circle = operator invent.
+- **Primary labor exemplar:** open (Majesty / Stronghold / Going Medieval / Foundation / Overlord-tone) — cluster kept.
+- _(more from Grok polish)_
 
-## Operator satisfied statement
+## Operator share statement
 
-_Pending._ One sentence when dialogue closes, e.g. “Patterns from the listed sources are good enough to season children/L5; no further inspiration turns this cycle.”
+_Pending._ One sentence when ready to season, e.g. “Patterns from the listed sources are good enough to season children/L5; no further inspiration turns this cycle.”
