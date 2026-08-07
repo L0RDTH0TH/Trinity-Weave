@@ -28,7 +28,7 @@ status: done
 - ux_axis: session0_identity_art
 - dimension: session_bootstrap
 - summary: Orchestrator creates or revises a campaign frame (tone, bounds, public facts, cast expectations, logging seam) as a player-facing authorship act inside an existing or newly attached world — not the world container itself. Exit to world or session prep; not player character creation.
-- conceptual_pin: needs pin
+- conceptual_pin: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
 - derived_from: series:lifecycle:dm_campaign_creation
 - ux_family: lifecycle
 - supplement: false

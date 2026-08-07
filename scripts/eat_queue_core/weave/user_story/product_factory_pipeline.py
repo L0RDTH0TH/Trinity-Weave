@@ -811,7 +811,15 @@ def tick(
             park = park_loop2_machine_ready(vault_root, project_id)
             steps.append({"step": "loop2_machine_park", **park})
 
-    # Loop 2
+    # Loop 2 = depth slicer → Grok+user validate levels (not L5).
+    # Run slicer before the full Loop 2 exit check — depth_sliced (L1..) is
+    # slicer *output*, not a start precondition (chicken-egg fix).
+    if "depth_slice" not in completed:
+        ds = run_depth_slicer(vault_root, project_id=project_id)
+        steps.append({"step": "depth_slice", **ds})
+        if ds.get("ok"):
+            completed.append("depth_slice")
+
     l2 = check_operator_loop_2(vault_root, project_id)
     if not l2.ok:
         from .done_when_eval import LOOP_2_PENDING_SIGN_OFF, park_loop2_machine_ready
@@ -820,11 +828,6 @@ def tick(
         blocked = LOOP_2_PENDING_SIGN_OFF if park.get("ok") else l2.loop_id
         _persist("catalog_and_levels", operator_loop=2, blocked_at=blocked)
         return TickResult(True, blocked, "catalog_and_levels", 2, steps, blocked)
-
-    if "depth_slice" not in completed:
-        ds = run_depth_slicer(vault_root, project_id=project_id)
-        steps.append({"step": "depth_slice", **ds})
-        completed.append("depth_slice")
 
     # Execution engineering (machine)
     if profile == "greenfield" and not execution_track_exists(vault_root, project_id):

@@ -28,7 +28,7 @@ status: done
 - ux_axis: perspective_overrides
 - dimension: player_rail
 - summary: Baseline player FP and a set of explicit temporary envelopes that change perspective and/or control then hard-restore. Overrides (scry/divination, dominate, liminal/unconscious, planar/gate, absent-proxy, etc.) always return to baseline FP or the declared prior state. DM rail is first-class in the same parent: WorldCam is the DM default; MapCam, Sensorium Attach, and DM pilot are explicit departures with hard restore. Players never use WorldCam/MapCam. Every enter declares controller, presentation, duration, and return target.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
 - derived_from: series:pmg_capabilities:camera_control_envelopes
 - ux_family: pmg_capabilities
 - supplement: false

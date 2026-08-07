@@ -6,9 +6,9 @@ updated: 2026-08-04
 
 # L5 affirm validation
 
-**After pin confirm/waive** — Pass-B **+ Conceptual pin** L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (depth slicer).
+**After pin confirm/waive** — Pass-B **+ Conceptual pin** L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (depth slicer → level validate).
 
-**Frame:** [[CATALOG-MINI-TRINITY]] — Grok ladder step 4 (after Pass A, Pass B, pin derive). Never affirm series L5 before Pass B children are locked. Never draft/affirm L5 before pin confirm/waive. Child L5 affirm only if that child is a **planned** catalog row.
+**Frame:** [[CATALOG-MINI-TRINITY]] — Grok ladder steps 4–5 (after Pass A, Pass B, pin derive). Never draft/affirm L5 before pin confirm/waive. **Series L5 before children L5** for that parent. **Children L5 = all Pass B children**, batched under parent; inherit series pins + series L5 (promote-to-planned skipped for now — child need not be a planned catalog row).
 
 ## Failure modes (catch quickly)
 
@@ -59,6 +59,7 @@ Batch scope: [all planned / listed row ids]
 
 ## Operator close
 
-- **Green** → fill cross-row flags → attest → only then depth-slice / `catalog_signed_at` (Operator Loop 2)  
+- **Green (series + children family)** → fill cross-row flags → family attest → **Operator Loop 2** (depth slice → Grok+user validate levels) → then `catalog_signed_at`  
+
 - **Yellow / red** → Cursor re-draft flagged rows (`force_overwrite`) → re-emit digests → re-validate subset  
 - **Do not** treat “L5 files exist” as ready

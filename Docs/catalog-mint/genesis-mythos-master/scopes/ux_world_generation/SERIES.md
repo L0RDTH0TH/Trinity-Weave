@@ -28,7 +28,7 @@ status: done
 - ux_axis: session0_identity_art
 - dimension: world_gen
 - summary: Durable world container — DM creates initial form via wizard+preview (tone-aware shape families, cached/pre-existing assets); table can shape; players do not author the first world. Physical/settlement layers + monster-region tags; import/attach first-class; every world-hitting change is DM-retconnable. Multiple campaigns/casts attach to the same world.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]
 - derived_from: series:lifecycle:world_generation
 - ux_family: lifecycle
 - supplement: false

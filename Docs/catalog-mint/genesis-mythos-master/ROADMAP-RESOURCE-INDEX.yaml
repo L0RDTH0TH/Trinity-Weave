@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 518
+roadmap_note_count: 618
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4508,6 +4508,218 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: ASSUMPTION-LOG
+  wiki: '[[ASSUMPTION-LOG]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/ASSUMPTION-LOG.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: INDEX
+  wiki: '[[INDEX]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INDEX.md
+  kind: user_story
+  wiki_links:
+  - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: INSPIRATION-DIALOGUE-RECEIPT
+  wiki: '[[INSPIRATION-DIALOGUE-RECEIPT]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md
+  kind: user_story
+  wiki_links:
+  - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: LIKED-SNIPPETS
+  wiki: '[[LIKED-SNIPPETS]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/LIKED-SNIPPETS.md
+  kind: user_story
+  wiki_links:
+  - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: PILLARS-AND-LENS
+  wiki: '[[PILLARS-AND-LENS]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/PILLARS-AND-LENS.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: README
+  wiki: '[[README]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/README.md
+  kind: user_story
+  wiki_links:
+  - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: _TEMPLATE
+  wiki: '[[_TEMPLATE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/_TEMPLATE.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: bg3-dnd-feel-refuse-authored-spine
+  wiki: '[[bg3-dnd-feel-refuse-authored-spine]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: bounded-dm-resource-politics
+  wiki: '[[bounded-dm-resource-politics]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: destiny-shared-world-refuse-fireteam-shooter
+  wiki: '[[destiny-shared-world-refuse-fireteam-shooter]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: forge-glow-dm-placement
+  wiki: '[[forge-glow-dm-placement]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: habitat-wilderness-exemplar
+  wiki: '[[habitat-wilderness-exemplar]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: live-grid-correspondence
+  wiki: '[[live-grid-correspondence]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/live-grid-correspondence.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: low-fantasy-tone-exemplar
+  wiki: '[[low-fantasy-tone-exemplar]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/low-fantasy-tone-exemplar.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: mod-community-weak-spot-augments
+  wiki: '[[mod-community-weak-spot-augments]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: relationship-shaped-economy
+  wiki: '[[relationship-shaped-economy]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: situational-overlay-lenses
+  wiki: '[[situational-overlay-lenses]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-adventure-pdf-dependency-graph
+  wiki: '[[stub-adventure-pdf-dependency-graph]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-adventure-pdf-dependency-graph.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-df-living-detail
+  wiki: '[[stub-df-living-detail]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-df-living-detail.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-oblivion-open-world
+  wiki: '[[stub-oblivion-open-world]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-oblivion-open-world.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-rdr-mount-feel
+  wiki: '[[stub-rdr-mount-feel]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-rdr-mount-feel.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-seasonal-location-rewrite
+  wiki: '[[stub-seasonal-location-rewrite]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-seasonal-location-rewrite.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-skyrim-living-fp-share
+  wiki: '[[stub-skyrim-living-fp-share]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-skyrim-living-fp-share.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-talespire-dm-tooling
+  wiki: '[[stub-talespire-dm-tooling]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-talespire-dm-tooling.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: stub-world-anvil-lore-surface
+  wiki: '[[stub-world-anvil-lore-surface]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-world-anvil-lore-surface.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: turn-gated-movement-circle
+  wiki: '[[turn-gated-movement-circle]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: L5-AFFIRM-STATUS
   wiki: '[[L5-AFFIRM-STATUS]]'
   rel_under_project: Roadmap/User-Story/L5-AFFIRM-STATUS.md
@@ -5592,6 +5804,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/PIN-DERIVE.md
@@ -5607,7 +5837,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5619,11 +5859,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5643,6 +5901,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/PIN-DERIVE.md
@@ -5658,7 +5934,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_absent_proxy/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5670,11 +5956,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_agency_handoff_enter_exit/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_agency_handoff_enter_exit/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5686,11 +5990,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp_controls/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp_controls/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_divination_override/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5702,11 +6024,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_mapcam/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_mapcam/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_pilot/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5718,11 +6058,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_sensorium/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_sensorium/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_worldcam/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5734,11 +6092,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_pilot/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_pilot/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_victim/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5750,11 +6126,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_liminal_unconscious/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_liminal_unconscious/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_planar_travel_override/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5774,6 +6168,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/PIN-DERIVE.md
@@ -5789,7 +6201,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_application_shell/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5798,6 +6220,15 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_application_shell/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_primary_navigation/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5817,6 +6248,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/PIN-DERIVE.md
@@ -5832,7 +6281,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/ux_combat_cast_feedback/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5852,6 +6311,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md
+  kind: user_story
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/PIN-DERIVE.md
@@ -5867,7 +6344,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session0_bootstrap/L5.md
+  kind: user_story
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5879,11 +6366,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/L5.md
+  kind: user_story
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_tone_profile_surface/L5.md
+  kind: user_story
+  wiki_links:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5903,6 +6408,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/PIN-DERIVE.md
@@ -5918,7 +6441,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5927,6 +6460,24 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_early_game/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5945,7 +6496,26 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_early_game/SERIES.md
   kind: user_story
+  wiki_links:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_late_game/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5964,7 +6534,8 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_late_game/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5973,6 +6544,24 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5991,7 +6580,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6004,11 +6603,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6020,11 +6637,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_sim_weather_pulse/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6036,11 +6671,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_hierarchy/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6052,11 +6705,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_reputation/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6068,11 +6739,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_locations/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6084,11 +6773,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_maps_vs_embodied/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6100,11 +6807,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_dialogue_hooks/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6116,11 +6841,29 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_secrets/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6132,6 +6875,15 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/WALK.md
@@ -6140,11 +6892,38 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: WALK
   wiki: '[[WALK]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6163,7 +6942,26 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_mental_stat_interpretation/SERIES.md
   kind: user_story
+  wiki_links:
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5-AFFIRM-DIGEST.md
+  kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6182,7 +6980,26 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_mid_game/SERIES.md
   kind: user_story
+  wiki_links:
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5-AFFIRM-DIGEST.md
+  kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6201,7 +7018,26 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_player_character_creation/SERIES.md
   kind: user_story
+  wiki_links:
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md
+  kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6220,7 +7056,8 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_quiet_between_pillars/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6229,6 +7066,24 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/BATCH-DIGEST.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6247,7 +7102,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6267,6 +7132,24 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: L5-AFFIRM-DIGEST
+  wiki: '[[L5-AFFIRM-DIGEST]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5-AFFIRM-DIGEST.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  - 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: PIN-DERIVE
   wiki: '[[PIN-DERIVE]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/PIN-DERIVE.md
@@ -6282,7 +7165,17 @@ roadmap_notes:
   wiki: '[[SERIES]]'
   rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/SERIES.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: L5
+  wiki: '[[L5]]'
+  rel_under_project: Roadmap/User-Story/scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/L5.md
+  kind: user_story
+  wiki_links:
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

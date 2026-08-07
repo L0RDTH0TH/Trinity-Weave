@@ -59,7 +59,7 @@ def run_l5_scope_author(
     overwrite_placeholder: bool = True,
     force_overwrite: bool = False,
 ) -> dict[str, Any]:
-    """Draft or refresh L5 via Pass-B loop2_prep + affirm gate (first-class Loop 2 MO)."""
+    """Draft or refresh series L5 via Pass-B feedstock + affirm gate (not Operator Loop 2)."""
     from .l5_affirm import validate_l5_affirm
 
     vault_root = vault_root.resolve()

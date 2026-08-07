@@ -28,7 +28,7 @@ status: done
 - ux_axis: class_chrome
 - dimension: ui_surface
 - summary: Backstory and legacies are a first-class player seeding system: players seed personal history, relationships, debts, places, and claims; the system floats those hooks to the DM; the DM weaves timing, intensity, and form under the world/campaign gate (accept, revise, retcon). Players do not auto-write canon. Seeds appear in play and player-lite chronicle as structure menu — not a mandated reunion ordeal and not DM-only lore with no player surface.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530]]
 - derived_from: series:pmg_capabilities:backstory_legacy_integration
 - ux_family: pmg_capabilities
 - supplement: false

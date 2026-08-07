@@ -6,7 +6,7 @@ title: UX mint rubric (cross-project)
 
 Law for post-conceptual-freeze backlog draft. Enforced via series packs + taxonomy + `ux_mint_taxonomy.py` / `ux_mint_series.py`.
 
-**Catalog frame:** planned rows form a [[CATALOG-MINI-TRINITY|mini-trinity]] (Conceptual · UX Meaning · Execution). This rubric governs **UX Meaning** mint only; L5 affirm is Loop 2 (see [[L5-AFFIRM-VALIDATION]]).
+**Catalog frame:** planned rows form a [[CATALOG-MINI-TRINITY|mini-trinity]] (Conceptual · UX Meaning · Execution). This rubric governs **UX Meaning** mint only. L5 affirm is **not** Operator Loop 2 — see [[L5-AFFIRM-VALIDATION]]; Loop 2 = depth slicer → level validate.
 
 ## Purpose (LLM-feed-first)
 

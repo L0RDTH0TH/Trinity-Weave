@@ -28,7 +28,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: INT, WIS, and CHA can drive visual cues on people, places, and objects that hold relevant information. The cue signals that a mental-stat path is available — it does not spill the content. Cues are stat-gated per player where appropriate; the DM can place or fire cues. Structure menu for presentation, not auto-solving the interaction and not one social-scene skin.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]
 - derived_from: series:lifecycle:mental_stat_interpretation
 - ux_family: lifecycle
 - supplement: false

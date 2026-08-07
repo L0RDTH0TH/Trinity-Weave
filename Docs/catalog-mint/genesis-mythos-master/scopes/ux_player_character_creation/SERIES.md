@@ -28,7 +28,7 @@ status: done
 - ux_axis: session0_identity_art
 - dimension: session_bootstrap
 - summary: Player authors and owns a character before and after DM greenlight. Builds may be unbound or against a campaign invite (entry into campaign and world); invited builds disable banned options from world and campaign configs with overwrite-request path. Accept flow: invite → attach → greenlight. Incomplete builds are unfinished characters, not a draft type. Background→world proposals stay DM-gated and retconnable.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]]
 - derived_from: series:lifecycle:player_character_creation
 - ux_family: lifecycle
 - supplement: false

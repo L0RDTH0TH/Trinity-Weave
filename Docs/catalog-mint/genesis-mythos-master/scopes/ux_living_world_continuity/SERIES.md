@@ -28,7 +28,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: Living world continues while the party is elsewhere: factions, threads, calendar, minimal downtime, random pressure, and resource sites move off-screen. Costs are readable on return — DM sees machinery; players feel residue in first person (worried NPCs, rumors, tense streets, closed doors, resource interruptions). Lasting-cost amplitude is power-band gated (early local/regional; mid structural/campaign-scale; late existential). Distinct from in-adventure quiet-between. Not a single conspiracy skin.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
 - derived_from: series:pmg_capabilities:living_world_continuity
 - ux_family: pmg_capabilities
 - supplement: false

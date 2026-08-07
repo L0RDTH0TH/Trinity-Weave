@@ -28,7 +28,7 @@ status: done
 - ux_axis: dm_player_rails
 - dimension: dm_rail
 - summary: Virtual tabletop for collaborative storytelling: players act through character tools in an open 3D world; the DM is the privileged orchestrator in the same product loop. Loop is player agency → system and DM resolution → world reacts → roleplay inside that structure. Motives/stakes are table-defined and recorded; player speech can be transcribed. NPC dialogue is the DM’s responsibility — assist tools surface context, they do not replace the DM as speaker by default.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709]]
 - derived_from: series:pmg_capabilities:collaborative_table_agency
 - ux_family: pmg_capabilities
 - supplement: false

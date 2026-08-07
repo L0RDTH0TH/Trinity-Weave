@@ -1,4 +1,7 @@
-"""Loop 2 operator surface — budget, substantive L5 drafts, L4..L1 slice."""
+"""Pre–Loop-2 operator surface — budget + L5 drafts; optional L4..L1 when slice_derived.
+
+Operator Loop 2 itself is depth slicer → Grok+user validate levels (see product_factory_pipeline).
+"""
 
 from __future__ import annotations
 
@@ -264,7 +267,7 @@ def draft_l5_user_story(
     force_overwrite: bool = False,
 ) -> dict[str, Any]:
     """
-    Pass-B-aligned L5 draft (first-class Loop 2 MO).
+    Pass-B-aligned series L5 draft (pin-before-L5; not Operator Loop 2).
 
     Primary feedstock: SERIES + BATCH-DIGEST + child WALK summaries.
     PMG only for hard-dep / integration seams — never primary vision prose.
@@ -518,9 +521,10 @@ def prepare_loop2_operator_surface(
     slice_derived: bool = False,
 ) -> dict[str, Any]:
     """
-    After catalog_mint: budget + substantive L5 drafts; L4..L1 only when slice_derived=True.
+    After catalog_mint / pin apply: budget + substantive L5 drafts.
+    L4..L1 only when slice_derived=True (normally the pipeline runs depth_slice separately).
 
-    Operator loop 2 then blocks for read/attest/sign — depth slicer runs after sign-off.
+    L5 authoring is *not* Operator Loop 2 — Loop 2 = slicer then level validate.
     """
     vault_root = vault_root.resolve()
     paths = user_story_paths(vault_root, project_id)
@@ -559,4 +563,182 @@ def prepare_loop2_operator_surface(
         "depth_slice": slice_out,
         "feedback_rows_synced": len(feedback_rows),
         "detail": "loop2_operator_surface_prepared",
+    }
+
+
+def _parse_walk_summary(walk_text: str) -> tuple[str, str]:
+    """Return (label, summary) from a child WALK.md card."""
+    from .ux_mint_walk_files import parse_walk_card
+
+    card = parse_walk_card(walk_text)
+    label = str(card.get("label") or card.get("row_id") or "").strip()
+    summary = str(card.get("summary") or label).strip()
+    return label, summary
+
+
+def draft_child_l5_user_story(
+    vault_root: Path,
+    *,
+    project_id: str,
+    parent_id: str,
+    child_id: str,
+    force_overwrite: bool = False,
+) -> dict[str, Any]:
+    """
+    Child L5 under scopes/<parent>/children-of-<parent>/<child>/L5.md.
+
+    Inherits parent series pin + series L5; feedstock = WALK + parent L5.
+    Not a planned catalog row; promote-to-planned skipped for now.
+    """
+    from datetime import datetime, timezone
+
+    vault_root = vault_root.resolve()
+    paths = user_story_paths(vault_root, project_id)
+    scopes = paths["scopes_dir"]
+    walk_path = scopes / parent_id / f"children-of-{parent_id}" / child_id / "WALK.md"
+    l5_path = walk_path.parent / "L5.md"
+    if not walk_path.is_file():
+        return {"ok": False, "parent_id": parent_id, "child_id": child_id, "detail": "walk_missing"}
+
+    if l5_path.is_file() and not force_overwrite:
+        existing = l5_path.read_text(encoding="utf-8", errors="replace")
+        if len(existing.strip()) >= 80 and "l5_origin: child_pass_b_aligned" in existing:
+            return {
+                "ok": True,
+                "parent_id": parent_id,
+                "child_id": child_id,
+                "path": str(l5_path.relative_to(vault_root)),
+                "detail": "l5_exists",
+                "skipped": True,
+            }
+
+    catalog = load_yaml(paths["catalog"])
+    parent_row = catalog_rows_by_id(catalog).get(parent_id) or {}
+    parent_l5 = scope_path(vault_root, project_id, parent_id, 5)
+    if not parent_l5.is_file():
+        return {
+            "ok": False,
+            "parent_id": parent_id,
+            "child_id": child_id,
+            "detail": "parent_series_l5_missing",
+            "hint": "Draft series L5 for parent before children L5.",
+        }
+
+    pin_raw = str(parent_row.get("conceptual_pin") or "needs pin")
+    from .pin_derive import pin_gate_ok
+
+    gate_ok, gate_detail = pin_gate_ok(parent_row, series_pin=pin_raw)
+    if not gate_ok:
+        return {
+            "ok": False,
+            "parent_id": parent_id,
+            "child_id": child_id,
+            "detail": "parent_pin_gate_blocked",
+            "gate": gate_detail,
+        }
+
+    walk_text = walk_path.read_text(encoding="utf-8", errors="replace")
+    label, summary = _parse_walk_summary(walk_text)
+    if not label:
+        label = child_id
+    parent_l5_text = parent_l5.read_text(encoding="utf-8", errors="replace")
+    # Pull first Moment inventory bullets from parent if present
+    moments: list[str] = []
+    in_moments = False
+    for line in parent_l5_text.splitlines():
+        if line.strip().lower().startswith("## moment"):
+            in_moments = True
+            continue
+        if in_moments and line.startswith("## "):
+            break
+        if in_moments and line.strip().startswith("- "):
+            moments.append(line.strip())
+        if len(moments) >= 3:
+            break
+    if len(moments) < 2:
+        moments = [
+            f"- Seat: player/DM touches `{child_id}` under parent `{parent_id}`",
+            f"- Trigger: enter the surface described in WALK for **{label}**",
+            f"- Residue: table state reflects the child contract without swallowing the series",
+        ]
+
+    refs = parent_row.get("conceptual_pin_refs") if isinstance(parent_row.get("conceptual_pin_refs"), list) else []
+    ref_line = ""
+    if refs:
+        titles = [str(r.get("title") or "") for r in refs if isinstance(r, dict) and r.get("title")]
+        if titles:
+            ref_line = f"inherits_conceptual_pin_refs: {', '.join(titles[:4])}\n"
+
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    body = (
+        f"---\n"
+        f"level: 5\n"
+        f"row_id: {child_id}\n"
+        f"parent_id: {parent_id}\n"
+        f"label: {label}\n"
+        f"l5_origin: child_pass_b_aligned\n"
+        f"conceptual_pin: {pin_raw}\n"
+        f"{ref_line}"
+        f"drafted_at: {now}\n"
+        f"---\n\n"
+        f"# L5 — `{child_id}` (child of `{parent_id}`)\n\n"
+        f"**What it is:** {summary}\n\n"
+        f"## Full vision\n\n"
+        f"{summary}\n\n"
+        f"Shapes under parent series L5 (`scopes/{parent_id}/L5.md`) — do not invent "
+        f"a parallel product default.\n\n"
+        f"## Moment inventory\n\n"
+        + "\n".join(moments)
+        + "\n\n"
+        f"## PoC / early depth cut\n\n"
+        f"First cut proves this child surface under the parent contract; defer sibling "
+        f"children chrome and L4+ polish. Full vision stays larger than PoC.\n\n"
+        f"## Out of scope\n\n"
+        f"- Pack-content lists (classes/spells/monsters) as product law\n"
+        f"- Replacing parent series Meaning / pin weld\n\n"
+        f"## Source anchors\n\n"
+        f"- WALK: `scopes/{parent_id}/children-of-{parent_id}/{child_id}/WALK.md`\n"
+        f"- Parent SERIES L5: `scopes/{parent_id}/L5.md`\n"
+        f"- Inherited Conceptual pin: `{pin_raw}`\n"
+    )
+    l5_path.parent.mkdir(parents=True, exist_ok=True)
+    l5_path.write_text(body, encoding="utf-8")
+    return {
+        "ok": True,
+        "parent_id": parent_id,
+        "child_id": child_id,
+        "path": str(l5_path.relative_to(vault_root)),
+        "detail": "child_l5_drafted",
+    }
+
+
+def draft_all_child_l5_for_project(
+    vault_root: Path,
+    *,
+    project_id: str,
+    force_overwrite: bool = False,
+) -> dict[str, Any]:
+    """Draft L5.md beside every Pass B WALK under children-of-* (after series L5)."""
+    vault_root = vault_root.resolve()
+    scopes = user_story_paths(vault_root, project_id)["scopes_dir"]
+    results: list[dict[str, Any]] = []
+    for walk in sorted(scopes.glob("*/children-of-*/*/WALK.md")):
+        parent_id = walk.parents[2].name
+        child_id = walk.parent.name
+        results.append(
+            draft_child_l5_user_story(
+                vault_root,
+                project_id=project_id,
+                parent_id=parent_id,
+                child_id=child_id,
+                force_overwrite=force_overwrite,
+            )
+        )
+    ok = all(r.get("ok") for r in results) if results else True
+    return {
+        "ok": ok,
+        "row_count": len(results),
+        "ok_count": sum(1 for r in results if r.get("ok")),
+        "results": results,
+        "detail": "child_l5_batch",
     }

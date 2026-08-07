@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-04T19:00:19Z'
+synced_at: '2026-08-07T05:55:22Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -78,28 +78,28 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 4986b0d060e741a7
+  ROADMAP-RESOURCE-INDEX.yaml: b87ff376ec9177a1
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
-  slice-catalog.yaml: 7ceaf29a4d3e9131
+  slice-catalog.yaml: e2e09c9252e48a95
   MINT-BACKLOG.yaml: 0c75b241d452e30a
   MINT-BACKLOG.md: 17c9b4e97f20d46b
   CHILD-BATCH-STATUS.md: 88c23532e0f5ba1a
-  scopes/ux_backstory_legacy_integration/SERIES.md: 7b9e70c017f61a96
-  scopes/ux_camera_control_envelopes/SERIES.md: 71f2b5358b0ec53a
-  scopes/ux_collaborative_table_agency/SERIES.md: 6c22c07fafbd9a37
-  scopes/ux_combat_play_surface/SERIES.md: b2d35aa73c285348
-  scopes/ux_dm_campaign_creation/SERIES.md: 92dad98c80203040
-  scopes/ux_dm_session_prep/SERIES.md: 7b8fdb3cb10be9c9
-  scopes/ux_early_game/SERIES.md: 9ac299c86318ba79
-  scopes/ux_late_game/SERIES.md: b96351a588eaf56f
-  scopes/ux_living_world_continuity/SERIES.md: 764c5e4cd0c33c6d
-  scopes/ux_mental_stat_interpretation/SERIES.md: f9e29c66acbae187
-  scopes/ux_mid_game/SERIES.md: 3beb2c9d82f1c2f7
-  scopes/ux_player_character_creation/SERIES.md: 8fe8f1cb72619d6f
-  scopes/ux_quiet_between_pillars/SERIES.md: 9a152604e0454784
-  scopes/ux_world_authorship_modability/SERIES.md: d9bf578990dd5434
-  scopes/ux_world_generation/SERIES.md: 4626513e748612eb
+  scopes/ux_backstory_legacy_integration/SERIES.md: 97e8973f1ed1735e
+  scopes/ux_camera_control_envelopes/SERIES.md: e41b5eaa98182c2f
+  scopes/ux_collaborative_table_agency/SERIES.md: 2644073b92993c09
+  scopes/ux_combat_play_surface/SERIES.md: 90f9992195af1948
+  scopes/ux_dm_campaign_creation/SERIES.md: 20366ecb0879ae6c
+  scopes/ux_dm_session_prep/SERIES.md: 3246b0ca63c8ccf5
+  scopes/ux_early_game/SERIES.md: 1ce372387f7babf3
+  scopes/ux_late_game/SERIES.md: ad576bfba22fa0f9
+  scopes/ux_living_world_continuity/SERIES.md: 5ae8e9c645cfbf53
+  scopes/ux_mental_stat_interpretation/SERIES.md: a52f4b32de623d80
+  scopes/ux_mid_game/SERIES.md: c38cee0cdeb89e26
+  scopes/ux_player_character_creation/SERIES.md: c7dac8afe9dfdc27
+  scopes/ux_quiet_between_pillars/SERIES.md: fff8dddafb787c40
+  scopes/ux_world_authorship_modability/SERIES.md: 14ffe70ca79b1a8b
+  scopes/ux_world_generation/SERIES.md: 79a62c842100b1c1
   scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/WALK.md: 2c41643d0b639bfd
   scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/WALK.md: b4dd3d0af7d1b841
   scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/WALK.md: 169924c6213c5ccb
@@ -144,6 +144,50 @@ file_hashes:
   scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/WALK.md: a49033f72b60bbc0
   scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/WALK.md: d1dbcb97e9f4fe6f
   scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/WALK.md: ef567dd63c75acfb
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_chronicle_buckets/L5.md: d54f5abb256ec00e
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_class_chrome_discovery/L5.md: 1021d37a33e74d33
+  scopes/ux_backstory_legacy_integration/children-of-ux_backstory_legacy_integration/ux_player_lite_lore_gui/L5.md: 006c8d6ca6c8003c
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_absent_proxy/L5.md: 5b09250a3b9c5289
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_agency_handoff_enter_exit/L5.md: 25384dcb8e818f6f
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp/L5.md: defc3885d1e14824
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_baseline_fp_controls/L5.md: 8f08842fb370cb93
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_divination_override/L5.md: c954a5c914b30d09
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_mapcam/L5.md: 7715142c90d722d2
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_pilot/L5.md: 62d4ca41cad49bbd
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_sensorium/L5.md: 061bb4b631e1cd60
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dm_worldcam/L5.md: f5d1ef74032c4469
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_pilot/L5.md: 419b2447c97217d5
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_dominate_victim/L5.md: 76f329585ff2cc15
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_liminal_unconscious/L5.md: d013014807f91002
+  scopes/ux_camera_control_envelopes/children-of-ux_camera_control_envelopes/ux_planar_travel_override/L5.md: 41d12a2c34047d7f
+  scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_application_shell/L5.md: 0bfa066d5d2d736c
+  scopes/ux_collaborative_table_agency/children-of-ux_collaborative_table_agency/ux_primary_navigation/L5.md: edf85a3f9ef4f56e
+  scopes/ux_combat_play_surface/children-of-ux_combat_play_surface/ux_combat_cast_feedback/L5.md: 80122e339cf0b592
+  scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session0_bootstrap/L5.md: 5c011345e2687ee1
+  scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_session_onboarding/L5.md: 54a0dcafac61b0a3
+  scopes/ux_dm_campaign_creation/children-of-ux_dm_campaign_creation/ux_tone_profile_surface/L5.md: ceccd4d543f6f2dd
+  scopes/ux_dm_session_prep/children-of-ux_dm_session_prep/ux_dm_workbench_lore_gui/L5.md: 3b6c940f53be20f4
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_canon_pipeline_feel/L5.md: 3c7aaed387e3da09
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_resources/L5.md: b8c197433ed92d82
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_economy_trade/L5.md: 408dacfaedbeed4a
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_quest_pressure_surface/L5.md: 542b76869db52ef6
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_sim_weather_pulse/L5.md: af753600afe825f6
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_goals/L5.md: b8ba03cbba438400
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_hierarchy/L5.md: c6f96b0e6e66cc4c
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_offscreen/L5.md: 9ad625f0fe69f67d
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_reputation/L5.md: 4821395294e3fa73
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_faction_territory/L5.md: 8073a687e7478b79
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_locations/L5.md: 4e68d579132367f7
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_lore_articles/L5.md: b64f60fe9fd64b97
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_maps_vs_embodied/L5.md: ee24539aba9cf7be
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_agenda/L5.md: 2bf0610fdb4e6dcb
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_dialogue_hooks/L5.md: e61b30b53677524f
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_relations/L5.md: 97dc3232a7a245eb
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_secrets/L5.md: 0fd4fcc933c27ab8
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_npc_sheet/L5.md: a00c740342fe56ff
+  scopes/ux_living_world_continuity/children-of-ux_living_world_continuity/ux_wa_timelines/L5.md: 9f3f8a93440b6260
+  scopes/ux_world_authorship_modability/children-of-ux_world_authorship_modability/ux_content_authoring_surface/L5.md: 3eeb34edfb2ca838
+  scopes/ux_world_generation/children-of-ux_world_generation/ux_worldgen_gui/L5.md: 983fa02bf765cc20
   scopes/ux_backstory_legacy_integration/BATCH-DIGEST.md: 80c16253c3309cf1
   scopes/ux_camera_control_envelopes/BATCH-DIGEST.md: 60c1002f252fb0ee
   scopes/ux_collaborative_table_agency/BATCH-DIGEST.md: 8f0161793bd335a0
@@ -168,7 +212,37 @@ file_hashes:
   scopes/ux_quiet_between_pillars/PIN-DERIVE.md: e8e4eb8b7cd992f1
   scopes/ux_world_authorship_modability/PIN-DERIVE.md: 5906f528c2424800
   scopes/ux_world_generation/PIN-DERIVE.md: de41262436af5ddb
-  L5-AFFIRM-STATUS.md: 3768bdcae012bd3c
+  scopes/ux_backstory_legacy_integration/L5.md: 31ad2ef870a2a3cb
+  scopes/ux_camera_control_envelopes/L5.md: 8844ee60d639b561
+  scopes/ux_collaborative_table_agency/L5.md: af4d365cffdc7ff8
+  scopes/ux_combat_play_surface/L5.md: aa1c83edcdc2e289
+  scopes/ux_dm_campaign_creation/L5.md: 617354ae2cf03c40
+  scopes/ux_dm_session_prep/L5.md: a168d80b129df161
+  scopes/ux_early_game/L5.md: 745e30367211fa35
+  scopes/ux_late_game/L5.md: f826f5c8afb76547
+  scopes/ux_living_world_continuity/L5.md: d7dcd9a32874a897
+  scopes/ux_mental_stat_interpretation/L5.md: e284e282062927fe
+  scopes/ux_mid_game/L5.md: db92d1a94d5cd4ae
+  scopes/ux_player_character_creation/L5.md: 42b9d3d4a9525bf9
+  scopes/ux_quiet_between_pillars/L5.md: 4cf39e285c0ce05c
+  scopes/ux_world_authorship_modability/L5.md: d9892e3f216d946b
+  scopes/ux_world_generation/L5.md: 5862d2cca2737a09
+  scopes/ux_backstory_legacy_integration/L5-AFFIRM-DIGEST.md: 516022328edfe1ed
+  scopes/ux_camera_control_envelopes/L5-AFFIRM-DIGEST.md: de805ef57522d44b
+  scopes/ux_collaborative_table_agency/L5-AFFIRM-DIGEST.md: 93643274a309582a
+  scopes/ux_combat_play_surface/L5-AFFIRM-DIGEST.md: d96490dbd89561c5
+  scopes/ux_dm_campaign_creation/L5-AFFIRM-DIGEST.md: 72c8a317762d1f64
+  scopes/ux_dm_session_prep/L5-AFFIRM-DIGEST.md: fd2376b79a3d2d52
+  scopes/ux_early_game/L5-AFFIRM-DIGEST.md: 8435f7000893984f
+  scopes/ux_late_game/L5-AFFIRM-DIGEST.md: e15234eb4852c8a1
+  scopes/ux_living_world_continuity/L5-AFFIRM-DIGEST.md: eaf391f9cf633ad6
+  scopes/ux_mental_stat_interpretation/L5-AFFIRM-DIGEST.md: bce542393768e159
+  scopes/ux_mid_game/L5-AFFIRM-DIGEST.md: 4591f4759b017027
+  scopes/ux_player_character_creation/L5-AFFIRM-DIGEST.md: c6d4c360a1924f3a
+  scopes/ux_quiet_between_pillars/L5-AFFIRM-DIGEST.md: c97f9103dd4b969a
+  scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: ab6df804fa832adc
+  scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: c06cb6b1fda269b9
+  L5-AFFIRM-STATUS.md: 68bdefc892f8a197
   PIN-DERIVE-STATUS.md: 983d347fd6c0a72a
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
@@ -189,7 +263,33 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 6facab8789f6358e
+  Inspiration-UX-Feedstock/INDEX.md: f772cde1d9da2bc3
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: cb6c5b8043fd40d0
+  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 342aa596d9ee9c59
+  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: f1f58bdc09c1f415
+  Inspiration-UX-Feedstock/README.md: 3b792077bdae3f1c
+  Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
+  Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md: 71d693b0560973b4
+  Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: 39bd4c1bf525bed3
+  Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 6e0bc26e8337b031
+  Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md: 05b10274ddbc005f
+  Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md: c11be630519d40d0
+  Inspiration-UX-Feedstock/cards/live-grid-correspondence.md: f9049518c3c03842
+  Inspiration-UX-Feedstock/cards/low-fantasy-tone-exemplar.md: 39a89225086427a5
+  Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md: e1f1dd2f1dd0b099
+  Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md: ed4d69eb71d5b348
+  Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md: 3ce1c313bfc549b5
+  Inspiration-UX-Feedstock/cards/stub-adventure-pdf-dependency-graph.md: 4923eb0e220f5102
+  Inspiration-UX-Feedstock/cards/stub-df-living-detail.md: 440e54b064b5e5ec
+  Inspiration-UX-Feedstock/cards/stub-oblivion-open-world.md: b75b0595a993823c
+  Inspiration-UX-Feedstock/cards/stub-rdr-mount-feel.md: f4bb7897f085caf0
+  Inspiration-UX-Feedstock/cards/stub-seasonal-location-rewrite.md: e71abec1655b936b
+  Inspiration-UX-Feedstock/cards/stub-skyrim-living-fp-share.md: b35c667dbe147c9a
+  Inspiration-UX-Feedstock/cards/stub-talespire-dm-tooling.md: a83fdea2f9fc073c
+  Inspiration-UX-Feedstock/cards/stub-world-anvil-lore-surface.md: 52136cead7153260
+  Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: eabdb2fc67a53fe1
+  MINT-PACK.md: 6d6229ff91d15a1f
 warnings:
 - feed_completeness:no_focal_item

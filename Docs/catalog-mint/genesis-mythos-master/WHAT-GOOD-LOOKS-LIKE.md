@@ -24,9 +24,13 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 8. **Open questions** — 2–4 choices for you; Grok does not invent code or harness steps.
 9. **Draft YAML** — only after the above, as a candidate receipt.
 
+### Inspiration UX (after series, before children)
+
+Pinable games/tools → Grok+user dialogue → **pattern** derived move-pins → `INSPIRATION-DIALOGUE-RECEIPT` → season children/L5. See [[INSPIRATION-UX-FEEDSTOCK]]. Parallel to Actual-Play: sources are not Conceptual pins.
+
 ### Pin-before-L5 then L5 (Pass-B + Conceptual)
 
-After Pass B lock, **archive any premature L5**, then **pin derive** (PIN-INDEX only) → Grok → operator confirm/waive. Only then draft L5 as Pass-B **+ pin** projection (SERIES + BATCH-DIGEST + WALK + Conceptual excerpt). Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors including pin; thin parents meet data-driven moment floor. Grok validates digests under the [[CATALOG-MINI-TRINITY]] ladder (series → children → **pins** → L5). Do not set `catalog_signed_at` until affirm + operator cross-row flags are green. **Operator Loop 2** = depth slicer / levels — not the L5 definition step. **No mandatory child L5 batches** unless the child is a planned catalog row.
+After Pass B lock, **archive any premature L5** (if present), then **pin derive** (PIN-INDEX only) → Grok → operator board confirm → `apply_pins`. Then **series L5** as Pass-B **+ pin** projection (plus inspiration/AP seasoning); then **children L5** for **all** Pass B children (batched under parent; inherit series pins + series L5). Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors including pin; thin parents meet data-driven moment floor. Grok ladder: series → **inspiration** → children Meaning → **Conceptual pins** → **series L5** → **children L5**. Family attest → **Operator Loop 2** = depth slicer → Grok+user validate levels (not L5). Then `catalog_signed_at`. `execution_pins[]` stay empty through mint; fill as execution deepen references/mints notes.
 
 ### Smell language (stop and re-scope)
 

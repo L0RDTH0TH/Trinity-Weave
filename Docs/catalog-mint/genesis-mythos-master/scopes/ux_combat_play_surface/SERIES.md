@@ -28,7 +28,7 @@ status: done
 - ux_axis: combat_cast_feedback
 - dimension: ui_surface
 - summary: Combat is a distinct play surface the whole table enters and exits: combat chrome and audio for both seats; authorship menu of ends (fight, disengage/flee, parley, stakes, surrender, escape-with-cost, and other legitimate paths); DM gates all actions, owns the encounter cast with creature chrome and voice tools, and can adjust live values. Movement is a readable terrain-aware envelope. Surface consumes pre-compiled rule math from an import/library path. Power band gates offer and lasting costs. Not one flee caption and not the full rules-math pack.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]
 - derived_from: series:pmg_capabilities:combat_play_surface
 - ux_family: pmg_capabilities
 - supplement: false

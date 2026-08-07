@@ -28,7 +28,7 @@ status: done
 - ux_axis: session0_identity_art
 - dimension: session_bootstrap
 - summary: World change is first-class authorship across the physical container and the esoteric graph (terrain, settlements, eras, factions, populations, high-authority fiction such as Wish). Every structural change gets a computational cost estimate: cheap → in-place; expensive → intentional re-gen with a designed waiting activity (e.g. tournament-style pong or equivalent), then hard-restore — no menu dump. One mod contract covers table/DM and community packages; authority/trust differ, contract shape does not. Microscope-informed non-linear history welcome. Under DM gate; not silent mutation.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]
 - derived_from: series:pmg_capabilities:world_authorship_modability
 - ux_family: pmg_capabilities
 - supplement: false

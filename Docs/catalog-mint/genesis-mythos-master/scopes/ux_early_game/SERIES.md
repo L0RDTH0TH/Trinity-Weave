@@ -28,7 +28,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: Early-game is the low power band for the cast: world access, social audience, explore pressure, and combat offer scale to that band. Pillar rhythm follows the band rather than a second axis. Not a tutorial plot, not session prep, and not a mandatory onboarding fantasy. Mid/end stages own their bands the same way — no parallel progression parent.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
 - derived_from: series:lifecycle:early_game
 - ux_family: lifecycle
 - supplement: false

@@ -29,7 +29,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: Late-game is the high power band: survivors are world-shapers. It covers build-up to close and the close itself. DM triggers campaign end through a story crescendo visible in play; players map retirement/future plans; those characters persist as powerful DM-controlled NPCs in the living world. Default continuation is a new campaign in the same world; other topologies remain via world/campaign parents. Not one mandatory finale skin; not session prep.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
 - derived_from: series:lifecycle:late_game
 - ux_family: lifecycle
 - supplement: false

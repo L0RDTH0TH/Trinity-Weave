@@ -5,27 +5,39 @@ mint_source_pmg: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
 historical_mint_archive: 4-Archives/Projects/genesis-mythos-master/catalog-mint-historical-20260717T175504Z
 historical_mint_authority: cite_only_non_authoritative
 catalog_levels_unsigned_advisory: true
-execution_pins_advisory: empty execution_pins[] expected until Operator Loop 2 / execution
-  track
+execution_pins_advisory: empty execution_pins[] expected until execution deepen references/mints notes
 rows:
 - id: ux_world_generation
   dimension: world_gen
   label: DM can create (table can shape) a persistent living world
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T05:32:23Z'
+  conceptual_pin_refs:
+  - title: Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: World creation as durable container / gen graph
+    color_key: Blue
+  - title: Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Seed/snapshot seam only — not campaign frame
+    color_key: Cyan
+  pin_focus: Durable living-world gen graph — not campaign bootstrap
+  vision_drift: false
 - id: ux_dm_campaign_creation
   dimension: session_bootstrap
   label: DM can bootstrap a campaign frame inside a world
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]'
   execution_pins: []
   depends_on:
   - ux_world_generation
@@ -33,24 +45,55 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T05:32:23Z'
+  conceptual_pin_refs:
+  - title: amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+    heading: '## Behavior (amendment weld)'
+    role: primary
+    excerpt_note: Campaign frame bootstrap inside existing world
+    color_key: Orange
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Session-authority / transition-guard machinery
+    color_key: Orange
+  - title: Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+    heading: '## Behavior'
+    role: contrast
+    excerpt_note: Demo ≠ campaign parent
+    color_key: Red
+  pin_focus: Campaign frame bootstrap inside world — amendment primary weld
+  vision_drift: false
 - id: ux_player_character_creation
   dimension: session_bootstrap
   label: Players can author characters and submit them for DM acceptance into a world
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T07:29:30Z'
+  conceptual_pin_refs:
+  - title: Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Spawn/bootstrap cast entry into world
+    color_key: Green
+  - title: Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Archetype/profile weight tables only
+    color_key: Lime
+  pin_focus: Player authors PC + DM acceptance into world (spawn/bootstrap seam)
+  vision_drift: false
 - id: ux_dm_session_prep
   dimension: dm_rail
   label: DM can prep a session without leaving the collaborative table frame
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]'
   execution_pins: []
   depends_on:
   - ux_world_generation
@@ -66,24 +109,51 @@ rows:
     - depends_on
     - meaning_rev
     - mint_status
+  conceptual_pin_refs:
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Prep/session authority + transition guards
+    color_key: Orange
+  - title: Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Layer/composer bootstrap chrome
+    color_key: Purple
+  pin_focus: DM prep/session authority without leaving collaborative table frame
+  vision_drift: false
 - id: ux_early_game
   dimension: ui_surface
   label: Early play is a power band that gates world and pillar response
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T19:16:52Z'
+  conceptual_pin_refs:
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Early-band offer/quest pressure signals and priority bands
+    color_key: Yellow
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+  pin_focus: Low power band — quest/offer pressure scales early (L1≠L15); session-authority
+    supporting
+  vision_drift: false
 - id: ux_mid_game
   dimension: ui_surface
   label: Mid play is a power band for lasting pressure and deeper world response
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]'
   execution_pins: []
   depends_on:
   - ux_early_game
@@ -91,13 +161,33 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T19:21:51Z'
+  conceptual_pin_refs:
+  - title: Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Mid-band living-sim tick spine before delta surfacing / lasting
+      world response
+    color_key: Blue
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Mid-band offer/pressure consequences
+    color_key: Yellow
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+  pin_focus: Mid power band — lasting pressure + deeper world response (living-sim
+    primary)
+  vision_drift: false
 - id: ux_late_game
   dimension: ui_surface
   label: Late play is a power band for campaign crescendo, close, and character-to-world
     persistence
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]'
   execution_pins: []
   depends_on:
   - ux_world_generation
@@ -107,48 +197,108 @@ rows:
   spine_interfaces: []
   renamed_from: ux_end_game
   minted_at: '2026-07-30T19:33:10Z'
+  conceptual_pin_refs:
+  - title: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Late-band off-screen continuity / since-you-left lasting costs
+    color_key: Blue
+  - title: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: PC→world / rail persistence after close
+    color_key: Purple
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+  pin_focus: High band + close + lasting off-screen costs; persistence supporting
+    for PC→world handoff
+  vision_drift: false
 - id: ux_mental_stat_interpretation
   dimension: ui_surface
   label: Mental stats surface available read paths not only sheet numbers
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T20:12:38Z'
+  conceptual_pin_refs:
+  - title: Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Cue/read-path metadata for mental-stat interpretation
+    color_key: Magenta
+  - title: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Visibility envelope only
+    color_key: Cyan
+  pin_focus: Mental-stat cues / available read paths (not sheet numbers; not auto-solve)
+  vision_drift: false
 - id: ux_collaborative_table_agency
   dimension: dm_rail
   label: Shared virtual-tabletop loop with character agency and DM orchestration
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-30T22:42:32Z'
+  conceptual_pin_refs:
+  - title: Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Active agency modes for dual-rail table seats
+    color_key: Green
+  - title: Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Pilot machinery glue around envelope
+    color_key: Lime
+  pin_focus: Shared VTT loop — player agency + DM orchestration (dual-rail seats)
+  vision_drift: false
 - id: ux_quiet_between_pillars
   dimension: ui_surface
   label: In-adventure quiet keeps continuous fiction between combat social and explore
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600]]'
   execution_pins: []
   depends_on: []
   touchstone_refs: []
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T02:41:21Z'
+  conceptual_pin_refs:
+  - title: Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: In-adventure quiet via tick pipeline / continuous low-intensity
+      sim
+    color_key: Blue
+  - title: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Rail/ledger persistence only — not the quiet-between-pillars weld
+    color_key: Purple
+  pin_focus: In-adventure quiet continuity between pillars via tick spine (not absent-proxy
+    handoff)
+  vision_drift: false
 - id: ux_combat_play_surface
   dimension: ui_surface
   label: Combat can resolve by authored paths including non-win ends
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]'
   execution_pins: []
   depends_on:
   - ux_collaborative_table_agency
@@ -157,12 +307,26 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T03:34:21Z'
+  conceptual_pin_refs:
+  - title: Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Rule-math consume path for combat surface
+    color_key: Red
+  - title: Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Rule system integration envelope
+    color_key: Orange
+  pin_focus: Combat surface consumes pre-compiled rule math; authored ends including
+    non-win
+  vision_drift: false
 - id: ux_camera_control_envelopes
   dimension: player_rail
   label: Perspective and control envelopes can change and cleanly return
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]'
   execution_pins: []
   depends_on:
   - ux_collaborative_table_agency
@@ -170,12 +334,26 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T03:53:03Z'
+  conceptual_pin_refs:
+  - title: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Player FP / perspective envelope machinery
+    color_key: Cyan
+  - title: Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: DM WorldCam/MapCam/Sensorium envelopes
+    color_key: Blue
+  pin_focus: Perspective/control envelopes change and cleanly return (player FP vs
+    DM cams)
+  vision_drift: false
 - id: ux_living_world_continuity
   dimension: ui_surface
   label: World can move off-screen and show lasting readable costs
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]'
   execution_pins: []
   depends_on:
   - ux_world_generation
@@ -184,12 +362,26 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T04:38:21Z'
+  conceptual_pin_refs:
+  - title: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Off-screen continuity with lasting costs
+    color_key: Blue
+  - title: Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Living sim envelope around off-screen activity
+    color_key: Cyan
+  pin_focus: World moves off-screen with lasting readable costs (between-adventures
+    residue)
+  vision_drift: false
 - id: ux_backstory_legacy_integration
   dimension: ui_surface
   label: Backstory and legacies can hook into play and chronicle
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530]]'
   execution_pins: []
   depends_on:
   - ux_player_character_creation
@@ -199,12 +391,30 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T12:35:59Z'
+  conceptual_pin_refs:
+  - title: Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Canon registry / intent resolver for legacy hooks
+    color_key: Magenta
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Canon→quest pressure into play
+    color_key: Yellow
+  - title: Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: NPC agenda hooks for legacy people
+    color_key: Green
+  pin_focus: Backstory/legacy hooks into play and chronicle (canon registry structure)
+  vision_drift: false
 - id: ux_world_authorship_modability
   dimension: session_bootstrap
   label: Table and community can author world change via curated and mod contracts
   planned: true
   mint_status: proposed
-  conceptual_pin: needs pin
+  conceptual_pin: '[[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]'
   execution_pins: []
   depends_on:
   - ux_world_generation
@@ -214,6 +424,25 @@ rows:
   stack_domain_ids: []
   spine_interfaces: []
   minted_at: '2026-07-31T12:58:47Z'
+  conceptual_pin_refs:
+  - title: Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Modularity/safety seams for authorship contracts
+    color_key: Green
+  - title: Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Overwrite vs deliberate regen policy
+    color_key: Yellow
+  - title: Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+    heading: '## Behavior'
+    role: contrast
+    excerpt_note: Exemplar ≠ product default
+    color_key: Red
+  pin_focus: Curated + mod contracts for table/community world authorship (safety
+    seams)
+  vision_drift: false
 - id: ux_absent_proxy
   label: Absent-player proxy
   summary: When a player is absent, their PC stays in the shared fiction via a session-policy

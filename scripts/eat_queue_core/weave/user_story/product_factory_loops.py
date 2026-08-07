@@ -52,6 +52,12 @@ def check_operator_loop_1(vault_root: Path, project_id: str) -> LoopCheck:
 
 
 def check_operator_loop_2(vault_root: Path, project_id: str) -> LoopCheck:
+    """Exit criteria for Operator Loop 2 (depth slice + level validate + sign).
+
+    ``depth_sliced`` (L1 present) is an *exit* check. The pipeline must run
+    ``run_depth_slicer`` before requiring this check to pass — do not treat
+    missing L1 as a reason to refuse starting the slicer.
+    """
     paths = user_story_paths(vault_root, project_id)
     state = parse_state_frontmatter(paths["state"])
     row_ids = _budget_row_ids(vault_root, project_id)

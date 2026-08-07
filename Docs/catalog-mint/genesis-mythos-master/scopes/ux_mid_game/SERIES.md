@@ -28,7 +28,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: Mid-game is the middle power band: world access, social tier, explore stakes, and combat offer scale up with it — including who will engage and what costs can stick. Lasting pressure and party authorship are capabilities in this band, not one mandated conspiracy or romance skin. Pillar rhythm follows the band. Same ownership model as early: stages own the band; no parallel progression parent.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
 - derived_from: series:lifecycle:mid_game
 - ux_family: lifecycle
 - supplement: false

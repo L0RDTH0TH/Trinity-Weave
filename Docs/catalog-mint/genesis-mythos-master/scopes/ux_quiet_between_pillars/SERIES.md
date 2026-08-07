@@ -28,7 +28,7 @@ status: done
 - ux_axis: agency
 - dimension: ui_surface
 - summary: In-adventure quiet is the product surface for time between pillar bursts — road, camp, linger, and other low-intensity presence — so fiction stays continuous while the table is not in a forced combat, social set-piece, or explore objective. Quiet is largely the system waiting for players and DM to move the story forward. Between-adventures weeks/months sit with living-world continuity, not this parent.
-- conceptual_pin: needs pin
+- conceptual_pin: [[Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600]]
 - derived_from: series:pmg_capabilities:quiet_between_pillars
 - ux_family: pmg_capabilities
 - supplement: false
