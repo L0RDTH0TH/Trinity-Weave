@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-07T20:01:49Z'
+synced_at: '2026-08-07T20:02:55Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -243,7 +243,7 @@ file_hashes:
   scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: ab6df804fa832adc
   scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: c06cb6b1fda269b9
   L5-AFFIRM-STATUS.md: 68bdefc892f8a197
-  PIN-DERIVE-STATUS.md: 26eef20ced582ab9
+  PIN-DERIVE-STATUS.md: 69502c08af219215
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -308,6 +308,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: d570d69f23fed14e
+  MINT-PACK.md: 5a2b44c6434d682c
 warnings:
 - feed_completeness:no_focal_item

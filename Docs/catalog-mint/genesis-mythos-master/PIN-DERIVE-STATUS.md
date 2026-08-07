@@ -28,4 +28,6 @@ _Pin-before-L5. Shared Conceptual pin gate: pins + inspiration seasoning (RECEIP
 
 **Remine 2026-08-07:** PIN-DERIVE re-emitted from proposals; catalog Conceptual pins already applied; inspiration seasoning maps applied (RECEIPT disposition `applied`). Shared pin gate **closed**.
 
-Grok may content-affirm same excerpts + seasoning STATUS on published pack. Yellow weak pins → pass-to-Cursor (loop cap one). Next: spot-touch L5 only if seasoning bites → cross-row flags → family attest → Loop 2.
+Grok may content-affirm same excerpts + seasoning STATUS on published pack. First-emit note: shared primary `Phase-3-2-Off-Screen-Faction-Tribe-Activity` on `ux_late_game` + `ux_living_world_continuity` (pre-existing heuristic flag — not blocking remine close).
+
+Next: optional Grok affirm → spot-touch L5 only if seasoning bites → cross-row flags → family attest → Loop 2.
