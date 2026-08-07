@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Player authors and owns a character before and after DM greenlight. Builds may be unbound or against a campaign invite (entry into campaign and world); invited builds disable banned options from world and campaign configs with overwrite-request path. Accept flow: invite → attach → greenlight. Incomplete builds are unfinished characters, not a draft type. Background→world proposals stay DM-gated and retconnable.
 
@@ -41,3 +41,5 @@ Spawn bootstrap is structure for cast entry; archetype tables supporting for pro
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

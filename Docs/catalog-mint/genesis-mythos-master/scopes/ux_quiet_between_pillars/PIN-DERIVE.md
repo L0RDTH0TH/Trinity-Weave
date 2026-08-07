@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 In-adventure quiet is the product surface for time between pillar bursts — road, camp, linger, and other low-intensity presence — so fiction stays continuous while the table is not in a forced combat, social set-piece, or explore objective. Quiet is largely the system waiting for players and DM to move the story forward. Between-adventures weeks/months sit with living-world continuity, not this parent.
 
@@ -41,3 +41,5 @@ Pass-to-Cursor: Persistence Behavior is handoff/ledger/proxy — not in-adventur
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

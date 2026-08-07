@@ -19,7 +19,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Backstory and legacies are a first-class player seeding system: players seed personal history, relationships, debts, places, and claims; the system floats those hooks to the DM; the DM weaves timing, intensity, and form under the world/campaign gate (accept, revise, retcon). Players do not auto-write canon. Seeds appear in play and player-lite chronicle as structure menu — not a mandated reunion ordeal and not DM-only lore with no player surface.
 
@@ -42,3 +42,5 @@ Structure-first canon registry; quest-pressure + NPC agendas supporting for hook
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

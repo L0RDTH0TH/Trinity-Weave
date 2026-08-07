@@ -19,7 +19,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 World change is first-class authorship across the physical container and the esoteric graph (terrain, settlements, eras, factions, populations, high-authority fiction such as Wish). Every structural change gets a computational cost estimate: cheap → in-place; expensive → intentional re-gen with a designed waiting activity (e.g. tournament-style pong or equivalent), then hard-restore — no menu dump. One mod contract covers table/DM and community packages; authority/trust differ, contract shape does not. Microscope-informed non-linear history welcome. Under DM gate; not silent mutation.
 
@@ -42,3 +42,5 @@ Modularity seams are structure; overwrite/regen supporting; exemplar contrast (�
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

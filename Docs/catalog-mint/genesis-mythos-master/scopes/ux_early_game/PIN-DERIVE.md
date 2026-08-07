@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Early-game is the low power band for the cast: world access, social audience, explore pressure, and combat offer scale to that band. Pillar rhythm follows the band rather than a second axis. Not a tutorial plot, not session prep, and not a mandatory onboarding fantasy. Mid/end stages own their bands the same way — no parallel progression parent.
 
@@ -41,3 +41,5 @@ Pass-to-Cursor: distinct primary weld = Quest-Pressure Behavior (signals/bands).
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

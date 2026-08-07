@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Living world continues while the party is elsewhere: factions, threads, calendar, minimal downtime, random pressure, and resource sites move off-screen. Costs are readable on return — DM sees machinery; players feel residue in first person (worried NPCs, rumors, tense streets, closed doors, resource interruptions). Lasting-cost amplitude is power-band gated (early local/regional; mid structural/campaign-scale; late existential). Distinct from in-adventure quiet-between. Not a single conspiracy skin.
 
@@ -41,3 +41,5 @@ Off-screen faction/tribe activity is structure for living-world continuity costs
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

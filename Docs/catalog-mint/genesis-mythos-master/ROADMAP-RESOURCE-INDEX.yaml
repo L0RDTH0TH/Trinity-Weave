@@ -4538,7 +4538,8 @@ roadmap_notes:
   wiki: '[[INSPIRATION-SEASONING-RECEIPT]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - INSPIRATION-SEASONING-STATUS
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

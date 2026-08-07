@@ -1,8 +1,8 @@
 # PIN-DERIVE-STATUS — `genesis-mythos-master`
 
-emitted_at: 2026-08-04T19:00:11.117852Z
+emitted_at: 2026-08-07T20:01:10.008329Z
 
-_Pin-before-L5 v2. Live L5 must be absent/archived. Grok: PIN-DERIVE-VALIDATION (same-span PIN-EXCERPTS; mint gate; ≥1 primary)._
+_Pin-before-L5. Shared Conceptual pin gate: pins + inspiration seasoning (RECEIPT disposition applied|waived). Grok: PIN-DERIVE-VALIDATION + INSPIRATION-SEASONING-VALIDATION._
 
 ## Per-row
 
@@ -26,4 +26,6 @@ _Pin-before-L5 v2. Live L5 must be absent/archived. Grok: PIN-DERIVE-VALIDATION 
 
 ## Operator close
 
-After Grok receipt (judgment on same excerpts): confirm/waive → `apply_pins` (follow-on) → L5 mint (follow-on). Yellow weak pins → Grok pass-to-Cursor (loop cap: one re-derive).
+**Remine 2026-08-07:** PIN-DERIVE re-emitted from proposals; catalog Conceptual pins already applied; inspiration seasoning maps applied (RECEIPT disposition `applied`). Shared pin gate **closed**.
+
+Grok may content-affirm same excerpts + seasoning STATUS on published pack. Yellow weak pins → pass-to-Cursor (loop cap one). Next: spot-touch L5 only if seasoning bites → cross-row flags → family attest → Loop 2.

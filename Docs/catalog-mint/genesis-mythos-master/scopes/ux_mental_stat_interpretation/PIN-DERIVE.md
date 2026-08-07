@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 INT, WIS, and CHA can drive visual cues on people, places, and objects that hold relevant information. The cue signals that a mental-stat path is available — it does not spill the content. Cues are stat-gated per player where appropriate; the DM can place or fire cues. Structure menu for presentation, not auto-solving the interaction and not one social-scene skin.
 
@@ -41,3 +41,5 @@ Perspective/agency metadata is structure for cue presentation.
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

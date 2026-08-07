@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Combat is a distinct play surface the whole table enters and exits: combat chrome and audio for both seats; authorship menu of ends (fight, disengage/flee, parley, stakes, surrender, escape-with-cost, and other legitimate paths); DM gates all actions, owns the encounter cast with creature chrome and voice tools, and can adjust live values. Movement is a readable terrain-aware envelope. Surface consumes pre-compiled rule math from an import/library path. Power band gates offer and lasting costs. Not one flee caption and not the full rules-math pack.
 
@@ -41,3 +41,5 @@ Rule engine primitives license “consumes rule math”; UX still owns play surf
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

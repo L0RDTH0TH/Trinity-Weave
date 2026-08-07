@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Virtual tabletop for collaborative storytelling: players act through character tools in an open 3D world; the DM is the privileged orchestrator in the same product loop. Loop is player agency → system and DM resolution → world reacts → roleplay inside that structure. Motives/stakes are table-defined and recorded; player speech can be transcribed. NPC dialogue is the DM’s responsibility — assist tools surface context, they do not replace the DM as speaker by default.
 
@@ -41,3 +41,5 @@ Agency envelope modes are Conceptual home for collaborative table agency.
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

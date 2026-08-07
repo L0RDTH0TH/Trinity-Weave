@@ -19,7 +19,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Mid-game is the middle power band: world access, social tier, explore stakes, and combat offer scale up with it — including who will engage and what costs can stick. Lasting pressure and party authorship are capabilities in this band, not one mandated conspiracy or romance skin. Pillar rhythm follows the band. Same ownership model as early: stages own the band; no parallel progression parent.
 
@@ -42,3 +42,5 @@ Pass-to-Cursor: distinct primary weld = Living-Simulation Behavior. Quest-pressu
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

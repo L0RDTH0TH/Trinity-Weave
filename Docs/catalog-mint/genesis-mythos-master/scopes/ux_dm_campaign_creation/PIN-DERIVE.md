@@ -19,7 +19,7 @@
 
 - parent: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456 | proposed_title: amend-campaign-frame-bootstrap-inside-world | path_class: amendment | minted: true | path: 1-Projects/genesis-mythos-master/Roadmap/Conceptual-Amendments/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04.md
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Orchestrator creates or revises a campaign frame (tone, bounds, public facts, cast expectations, logging seam) as a player-facing authorship act inside an existing or newly attached world — not the world container itself. Exit to world or session prep; not player character creation.
 
@@ -42,3 +42,5 @@ v3 mint: dual-approved mint_target written. Primary = campaign-frame amendment; 
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

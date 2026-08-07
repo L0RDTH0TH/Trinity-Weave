@@ -19,7 +19,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 Late-game is the high power band: survivors are world-shapers. It covers build-up to close and the close itself. DM triggers campaign end through a story crescendo visible in play; players map retirement/future plans; those characters persist as powerful DM-controlled NPCs in the living world. Default continuation is a new campaign in the same world; other topologies remain via world/campaign parents. Not one mandatory finale skin; not session prep.
 
@@ -42,3 +42,5 @@ Pass-to-Cursor: promote Off-Screen Faction Behavior as primary (distinct crescen
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._

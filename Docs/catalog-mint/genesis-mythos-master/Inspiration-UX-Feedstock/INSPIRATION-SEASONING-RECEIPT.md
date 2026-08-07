@@ -1,39 +1,37 @@
 ---
 title: Inspiration seasoning RECEIPT — genesis-mythos-master
 project-id: genesis-mythos-master
-inspiration_seasoning_disposition: open
+inspiration_seasoning_disposition: applied
 inspiration_seasoning_waive_reason: ""
-status: open
+status: closed
 updated: 2026-08-07
 ---
 
 # INSPIRATION-SEASONING-RECEIPT
 
-**Required close field for shared Conceptual pin gate.** Gate does **not** pass until:
+**Shared Conceptual pin gate** — seasoning maps applied (slaved to Conceptual via series).
 
 ```yaml
-inspiration_seasoning_disposition: applied   # or waived
-inspiration_seasoning_waive_reason: "…"        # required when waived
+inspiration_seasoning_disposition: applied
 ```
-
-Not a separate ladder gate — structural demand on the pin gate (harness fail-closed on greenlight / lock_child_batch / L5 draft).
 
 ## Batch scope
 
-_all feedstock cards (pending shared pin-gate remine)_
+all feedstock cards (35 derived move-pins; 35 mapped)
 
 ## Maps accepted
 
-_Pending._
+See [[INSPIRATION-SEASONING-STATUS]] — each mapped card anchored to series row `conceptual_pin`.
 
 ## Deferred / refused
 
-_Pending._
+- Unmapped stubs/cards: none
+- Primary labor exemplar still open (cluster complementary)
 
 ## Waive
 
-_None — disposition remains `open` until applied or operator waive with reason._
+_None._
 
 ## Recommended next action
 
-Remine Conceptual pins + seasoning maps → set disposition `applied` (or `waived` + reason) → then Pass B / further L5 only if needed.
+Grok may content-affirm pin+seasoning pack; Pass B/L5 = order non-issue unless seasoning bites.

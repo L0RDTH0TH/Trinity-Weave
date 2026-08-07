@@ -18,7 +18,7 @@
 
 _(none — Grok mint gate owns volume)_
 
-## Series contract (Pass B locked)
+## Series contract (Pass A / Trinity published)
 
 DM authors the next shared session experience in-tool; the system auto-stages against the attached world and campaign. Visibility is opt-in: general (whole-table) and/or per-player tags; unmarked stays secret. World-hitting edits batch and hand off into world-gen on prep complete under the same DM gate and retcon rules. Privileged orchestrator seat — not offline admin or invisible infrastructure. Opening situation (session 1 or session N), temporary constraints, and multi-path goals into an authored beat are prep authorship — not a separate series parent. Enter-live-play is a thin shell verb w
 
@@ -41,3 +41,5 @@ Session authority is the enabling machinery for prep-in-table.
 waive_reason:
 
 _Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._
+
+_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT `inspiration_seasoning_disposition: applied|waived` (waive needs reason)._
