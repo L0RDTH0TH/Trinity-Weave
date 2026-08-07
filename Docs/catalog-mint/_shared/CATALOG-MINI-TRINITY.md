@@ -34,7 +34,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 6. **Pin derive** — Cursor first emit + PIN-EXCERPTS → Grok validate → pass-to-Cursor (loop cap 1) if needed → sparse `mint_target` if no honest span. Gate on **series Trinity published** — **not** Pass B lock.  
 7. **Mint funnel:** dual-approved `mint_target` → Conceptual-Amendment → Highlightr → PIN-INDEX → re-pin → excerpts → Trinity → **Grok subset that row only** — **no waive-as-proxy**  
 8. Operator **board confirm** → **`apply_pins`** (clears `mint_target`) — board may include seasoning maps in the **same** pin-gate turn/receipt  
-9. **Inspiration seasoning maps** (same Conceptual pin gate) — map feedstock cards → matched Conceptual/series; receipt section or [[INSPIRATION-SEASONING-VALIDATION]] companion; board → apply seasoning (ASSUMPTION-LOG + L5 cites). Explicit **waive** if no feedstock. May close in one shared pin-gate conversation with step 6–8.  
+9. **Inspiration seasoning maps** (same Conceptual pin gate — **required**) — map feedstock cards → Conceptual/series; set RECEIPT `inspiration_seasoning_disposition: applied` **or** `waived` with reason. Harness blocks greenlight / child lock / L5 while disposition is `open`. May close in one shared pin-gate conversation with steps 6–8.  
 10. **Pass B** — children Meaning (batches), lensed by series + Conceptual + inspiration seasoning (+ AP)  
 11. **Series L5** draft/affirm — Pass-B + resolved pin + inspiration/AP seasoning (shapes children)  
 12. **Children L5** — **all** Pass B children under each parent after series L5; inherit series `conceptual_pin_refs` + series L5 (promote-to-planned skipped for now)  
@@ -43,7 +43,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 15. Operator sets `catalog_signed_at`  
 16. Loop 3 / Execution deepen — `execution_pins[]` fill as deepen references/mints; do not invent outside L5  
 
-**Forbidden:** Pass B lock **before** Conceptual lens pack (`apply_pins` + inspiration seasoning apply/waive).
+**Forbidden:** Pass B lock **before** Conceptual lens pack closes. Shared pin gate is **fail-closed**: every planned row must have resolved Conceptual pin (or pin waive) **and** `INSPIRATION-SEASONING-RECEIPT` must set `inspiration_seasoning_disposition: applied|waived` (`waived` requires `inspiration_seasoning_waive_reason`). Soft feedstock share ≠ this demand.
 
 **Confirmed mint_targets mint before L5** because Conceptual feedstock serves **L5 and Execution**.
 

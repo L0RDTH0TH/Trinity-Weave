@@ -6,7 +6,7 @@ updated: 2026-08-07
 tags: [second-brain, grok, custom-instructions, trinity-weave]
 title: Grok — Trinity-Weave custom instructions (paste)
 source: "Paste ALL of the body below into Grok Chat → Custom instructions."
-version: 2026-08-07c
+version: 2026-08-07d
 vault_path: 3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md
 trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Second-Brain-Custom-Instructions.md](https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Second-Brain-Custom-Instructions.md)
 
@@ -57,11 +57,11 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 6. Grok ≠ highlight UI — pack plain excerpts only.
 7. Prefer one **shared Conceptual pin-gate** conversation covering pins + seasoning maps. Board → apply_pins + apply seasoning → Pass B. Do not draft L5 in this turn.
 
-**Inspiration seasoning (shared pin gate):**
+**Inspiration seasoning (shared pin gate — required):**
 
-1. Digest-first: INSPIRATION-SEASONING-STATUS + feedstock cards. May be a section of the pin-gate receipt (INSPIRATION-SEASONING-VALIDATION).
+1. Digest-first: INSPIRATION-SEASONING-STATUS + feedstock cards. May be a section of the pin-gate receipt.
 2. Map derived_pin_id → series / Conceptual. ≥1 refuse. Challenge hyper-fit. Never propose game titles as conceptual_pin.
-3. Close with pin board → apply seasoning (or waive) → **then** Pass B. Not a separate ladder gate.
+3. Close only when RECEIPT has `inspiration_seasoning_disposition: applied` **or** `waived` with `inspiration_seasoning_waive_reason`. Soft share ≠ close. Then Pass B.
 
 **L5 affirm (after Pass B + lens pack):**
 

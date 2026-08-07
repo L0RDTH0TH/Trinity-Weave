@@ -75,6 +75,102 @@ def pin_gate_ok(
     return True, "pinned"
 
 
+_SEASONING_DISPOSITIONS = frozenset({"open", "applied", "waived"})
+
+
+def inspiration_ux_feedstock_dir(vault_root: Path, project_id: str) -> Path:
+    return project_root(vault_root, project_id) / "Roadmap" / "User-Story" / "Inspiration-UX-Feedstock"
+
+
+def inspiration_seasoning_receipt_path(vault_root: Path, project_id: str) -> Path:
+    return inspiration_ux_feedstock_dir(vault_root, project_id) / "INSPIRATION-SEASONING-RECEIPT.md"
+
+
+def _parse_simple_frontmatter(text: str) -> dict[str, str]:
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end < 0:
+        return {}
+    block = text[3:end].strip()
+    out: dict[str, str] = {}
+    for line in block.splitlines():
+        if ":" not in line:
+            continue
+        k, v = line.split(":", 1)
+        out[k.strip()] = v.strip().strip('"').strip("'")
+    return out
+
+
+def feedstock_has_derived_cards(vault_root: Path, project_id: str) -> bool:
+    cards = inspiration_ux_feedstock_dir(vault_root, project_id) / "cards"
+    if not cards.is_dir():
+        return False
+    return any(
+        p.is_file() and p.name != "_TEMPLATE.md" and p.suffix == ".md"
+        for p in cards.iterdir()
+    )
+
+
+def read_inspiration_seasoning_disposition(
+    vault_root: Path, project_id: str
+) -> tuple[str, str]:
+    """Return (disposition, detail). disposition in open|applied|waived."""
+    path = inspiration_seasoning_receipt_path(vault_root, project_id)
+    if not path.is_file():
+        if feedstock_has_derived_cards(vault_root, project_id):
+            return "open", "seasoning_receipt_missing_with_feedstock"
+        return "open", "seasoning_receipt_missing"
+    fm = _parse_simple_frontmatter(path.read_text(encoding="utf-8"))
+    raw = str(fm.get("inspiration_seasoning_disposition") or "open").strip().lower()
+    if raw not in _SEASONING_DISPOSITIONS:
+        return "open", f"invalid_disposition:{raw}"
+    if raw == "waived":
+        reason = str(fm.get("inspiration_seasoning_waive_reason") or "").strip()
+        if not reason:
+            return "open", "waive_missing_reason"
+        return "waived", reason
+    if raw == "applied":
+        return "applied", "seasoning_applied"
+    return "open", "seasoning_disposition_open"
+
+
+def inspiration_seasoning_gate_ok(
+    vault_root: Path, project_id: str
+) -> tuple[bool, str]:
+    """Shared pin gate requires seasoning applied or explicit user waive (with reason)."""
+    disp, detail = read_inspiration_seasoning_disposition(vault_root, project_id)
+    if disp in {"applied", "waived"}:
+        return True, f"{disp}:{detail}"
+    return False, detail
+
+
+def shared_pin_gate_ok(
+    vault_root: Path,
+    project_id: str,
+    *,
+    rows: list[dict[str, Any]] | None = None,
+) -> tuple[bool, str]:
+    """Conceptual pins on planned rows + inspiration seasoning disposition (applied|waived)."""
+    seas_ok, seas_detail = inspiration_seasoning_gate_ok(vault_root, project_id)
+    if not seas_ok:
+        return False, f"inspiration_seasoning:{seas_detail}"
+    if rows is None:
+        paths = user_story_paths(vault_root, project_id)
+        catalog = load_yaml(paths["catalog"])
+        by_id = catalog_rows_by_id(catalog)
+        rows = [
+            r
+            for r in by_id.values()
+            if isinstance(r, dict) and r.get("planned") is True
+        ]
+    for row in rows:
+        ok, detail = pin_gate_ok(row)
+        if not ok:
+            return False, f"conceptual_pin:{row.get('id')}:{detail}"
+    return True, "shared_pin_gate_closed"
+
+
 def find_roadmap_note_by_title(vault_root: Path, project_id: str, title: str) -> Path | None:
     title = normalize_pin_title(title)
     if not title:
@@ -287,6 +383,9 @@ def render_pin_derive_card(
             "",
             "_Excerpt = weld; heading = locator. Pack PIN-EXCERPTS must match cited spans._",
             "",
+            "_Shared pin gate also requires INSPIRATION-SEASONING-RECEIPT "
+            "`inspiration_seasoning_disposition: applied|waived` (waive needs reason)._",
+            "",
         ]
     )
     return "\n".join(lines)
@@ -304,8 +403,9 @@ def emit_pin_derive_status(
         "",
         f"emitted_at: {_utc_iso()}",
         "",
-        "_Pin-before-L5 v2. Live L5 must be absent/archived. Grok: PIN-DERIVE-VALIDATION "
-        "(same-span PIN-EXCERPTS; mint gate; ≥1 primary)._",
+        "_Pin-before-L5. Shared Conceptual pin gate: pins + inspiration seasoning "
+        "(RECEIPT disposition applied|waived). Grok: PIN-DERIVE-VALIDATION + "
+        "INSPIRATION-SEASONING-VALIDATION._",
         "",
         "## Per-row",
         "",

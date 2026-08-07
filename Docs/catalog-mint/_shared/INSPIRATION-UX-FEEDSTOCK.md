@@ -13,7 +13,7 @@ updated: 2026-08-07
 | Phase | When | Who | Gate? |
 |-------|------|-----|-------|
 | **1. Feedstock mint** | After Pass A + series Trinity | **User + Cursor** (Grok polish optional) | Soft share via `INSPIRATION-DIALOGUE-RECEIPT.md` |
-| **2. Seasoning maps** | With / right after Conceptual pin derive | Cursor proposes maps → **same Grok+user Conceptual pin gate** → board → apply | Shared pin gate — [[INSPIRATION-SEASONING-VALIDATION]]; or **waive** if no feedstock |
+| **2. Seasoning maps** | With Conceptual pin derive | Cursor maps → **same pin gate** → set RECEIPT disposition `applied` **or** `waived`+reason | **Required** to close pin gate — [[INSPIRATION-SEASONING-VALIDATION]]; harness fail-closed while `open` |
 
 Seasoning is **slaved** to matched Conceptual/series. Not a form variable. Not a peer of `conceptual_pin_refs[]` in join math.
 

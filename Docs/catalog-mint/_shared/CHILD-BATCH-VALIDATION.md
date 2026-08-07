@@ -8,7 +8,7 @@ updated: 2026-08-07
 
 Same-width **peer review under one parent** — not a second series walk and not ad-hoc “does this look ok?” chat.
 
-**Ladder v4 precondition:** Conceptual `apply_pins` done **and** inspiration seasoning apply **or** explicit waive ([[INSPIRATION-SEASONING-VALIDATION]]). Children Meaning is lensed by series + Conceptual + seasoning (+ AP).
+**Ladder v4 precondition:** Shared Conceptual pin gate closed — planned-row pins resolved **and** `INSPIRATION-SEASONING-RECEIPT` disposition `applied|waived` (waive needs reason). Soft feedstock share does not satisfy this.
 
 ## Failure modes (catch quickly)
 

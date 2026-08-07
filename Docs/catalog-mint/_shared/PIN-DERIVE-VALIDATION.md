@@ -64,6 +64,6 @@ Schema: pin v4 (refs + PIN-EXCERPTS + mint funnel; pre-Pass-B)
 
 ## Operator close
 
-- Board confirm → `apply_pins` → **inspiration seasoning mine** (not Pass B yet)  
-- Do **not** draft L5 while approved mint_targets remain unminted  
-- Do **not** lock Pass B before seasoning apply/waive
+- Board confirm → `apply_pins` → **inspiration seasoning disposition applied|waived** (same shared pin gate; not optional) → Pass B  
+- Do **not** draft L5 or lock Pass B while seasoning disposition is `open`  
+- Do **not** treat Pass B lock as a precondition for pin derive

@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-07T19:37:47Z'
+synced_at: '2026-08-07T19:50:38Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -266,7 +266,7 @@ file_hashes:
   Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 4870b10f2e59ceeb
   Inspiration-UX-Feedstock/INDEX.md: a7246ff0d50b5c4d
   Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 84dd3f07968580de
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 57e3bcbfca787aae
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 2547db3055b782f9
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: cb083cf5c9cb45a2
   Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: a9b73a75ce910028
   Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: d4af1eea00113839
@@ -308,6 +308,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: f77b56f7e057e2b1
+  MINT-PACK.md: 747117aec82e1f95
 warnings:
 - feed_completeness:no_focal_item

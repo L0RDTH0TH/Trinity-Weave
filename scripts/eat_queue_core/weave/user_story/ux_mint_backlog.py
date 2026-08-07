@@ -2205,6 +2205,20 @@ def rewrite_mint_children(
 
 def greenlight_children(vault_root: Path, project_id: str) -> dict[str, Any]:
     vault_root = vault_root.resolve()
+    from .pin_derive import shared_pin_gate_ok
+
+    gate_ok, gate_detail = shared_pin_gate_ok(vault_root, project_id)
+    if not gate_ok:
+        return {
+            "ok": False,
+            "detail": "shared_pin_gate_blocked",
+            "gate": gate_detail,
+            "hint": (
+                "Close Conceptual pin gate: resolve pins and set "
+                "INSPIRATION-SEASONING-RECEIPT inspiration_seasoning_disposition "
+                "to applied or waived (waive requires inspiration_seasoning_waive_reason)."
+            ),
+        }
     bl = load_mint_backlog(vault_root, project_id)
     ok, reason = assert_series_published_for_children(bl)
     if not ok:
@@ -2408,6 +2422,19 @@ def lock_child_batch(
 ) -> dict[str, Any]:
     """Lock a same-width child batch after all children are done; advance active."""
     vault_root = vault_root.resolve()
+    from .pin_derive import shared_pin_gate_ok
+
+    gate_ok, gate_detail = shared_pin_gate_ok(vault_root, project_id)
+    if not gate_ok:
+        return {
+            "ok": False,
+            "detail": "shared_pin_gate_blocked",
+            "gate": gate_detail,
+            "hint": (
+                "Close Conceptual pin gate including inspiration seasoning "
+                "(applied|waived with reason) before locking Pass B batches."
+            ),
+        }
     bl = load_mint_backlog(vault_root, project_id)
     parent = str(parent_id or bl.get("active_child_batch") or bl.get("next_child_batch") or "").strip()
     if not parent:

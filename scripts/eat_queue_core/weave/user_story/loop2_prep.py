@@ -317,7 +317,7 @@ def draft_l5_user_story(
         or row.get("conceptual_pin")
         or "needs pin"
     )
-    from .pin_derive import pin_gate_ok
+    from .pin_derive import inspiration_seasoning_gate_ok, pin_gate_ok
 
     gate_ok, gate_detail = pin_gate_ok(row, series_pin=pin_raw)
     if not gate_ok:
@@ -327,6 +327,19 @@ def draft_l5_user_story(
             "detail": "pin_gate_blocked",
             "gate": gate_detail,
             "hint": "Confirm conceptual_pin from PIN-INDEX or set pin_waived before L5 draft.",
+        }
+    seas_ok, seas_detail = inspiration_seasoning_gate_ok(vault_root, project_id)
+    if not seas_ok:
+        return {
+            "ok": False,
+            "row_id": row_id,
+            "detail": "shared_pin_gate_blocked",
+            "gate": seas_detail,
+            "hint": (
+                "INSPIRATION-SEASONING-RECEIPT must set "
+                "inspiration_seasoning_disposition: applied|waived "
+                "(waive requires inspiration_seasoning_waive_reason)."
+            ),
         }
     needs_pin = "needs pin" in pin_raw.lower() or pin_raw.strip() in ("", "needs_pin")
 
@@ -625,7 +638,7 @@ def draft_child_l5_user_story(
         }
 
     pin_raw = str(parent_row.get("conceptual_pin") or "needs pin")
-    from .pin_derive import pin_gate_ok
+    from .pin_derive import inspiration_seasoning_gate_ok, pin_gate_ok
 
     gate_ok, gate_detail = pin_gate_ok(parent_row, series_pin=pin_raw)
     if not gate_ok:
@@ -635,6 +648,15 @@ def draft_child_l5_user_story(
             "child_id": child_id,
             "detail": "parent_pin_gate_blocked",
             "gate": gate_detail,
+        }
+    seas_ok, seas_detail = inspiration_seasoning_gate_ok(vault_root, project_id)
+    if not seas_ok:
+        return {
+            "ok": False,
+            "parent_id": parent_id,
+            "child_id": child_id,
+            "detail": "shared_pin_gate_blocked",
+            "gate": seas_detail,
         }
 
     walk_text = walk_path.read_text(encoding="utf-8", errors="replace")
