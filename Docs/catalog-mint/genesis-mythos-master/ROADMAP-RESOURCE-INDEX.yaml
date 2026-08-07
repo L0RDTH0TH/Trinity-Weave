@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 634
+roadmap_note_count: 636
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4531,6 +4531,23 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: INSPIRATION-SEASONING-RECEIPT
+  wiki: '[[INSPIRATION-SEASONING-RECEIPT]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md
+  kind: user_story
+  wiki_links:
+  - INSPIRATION-SEASONING-VALIDATION
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: INSPIRATION-SEASONING-STATUS
+  wiki: '[[INSPIRATION-SEASONING-STATUS]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md
+  kind: user_story
+  wiki_links: []
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

@@ -30,8 +30,10 @@
 | `ROADMAP-RESOURCE-INDEX.yaml` | **Poll index** — roadmap notes + connected resources + tert_ids |
 | `PIN-EXCERPTS/` | **Mandatory for pin derive** — plain same-span weld text (Grok ≠ highlight UI) |
 | `Actual-Play-Feedstock/` | **Human phenomenology cards** (feel-pattern paraphrases) — Grok-readable on `main` |
-| `Inspiration-UX-Feedstock/` | **Pinable games/tools + derived move-pins** — dialogue after series; season children/L5 |
-| `_shared/INSPIRATION-UX-FEEDSTOCK.md` | Inspiration MO law (receipt, elevate surface, trace) |
+| `Inspiration-UX-Feedstock/` | **Pinable games/tools + derived move-pins** — feedstock after series; seasoning mine after pins |
+| `_shared/INSPIRATION-UX-FEEDSTOCK.md` | Inspiration MO law (feedstock + seasoning phases) |
+| `_shared/INSPIRATION-SEASONING-VALIDATION.md` | Post-`apply_pins` seasoning gate receipt shape |
+| `Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md` | Seasoning mine board (maps → Conceptual) |
 | `Tech-Stack-Excerpt.yaml` | Locked/trialing/integrated stack rows |
 | `Stack-Domain-Registry-Excerpt.yaml` | Domain ids + spine_interface |
 | `slice-catalog.yaml` | Applied rows mirror |
@@ -48,7 +50,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-**Grok ladder (content):** series individually → **inspiration dialogue** (patterns) → children batched → **pin derive** → **series L5** → **children L5**. Never L5 before pin confirm. Never children L5 before series L5. **Operator Loop 2** = depth slice → validate levels (after family attest) — not L5. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
+**Grok ladder (content) v4:** series individually → (optional feedstock polish) → **pin derive** → **inspiration seasoning gate** → **Pass B** children batched → **series L5** → **children L5**. Never L5 before pin confirm. Never Pass B before `apply_pins` + seasoning apply/waive. Never children L5 before series L5. **Operator Loop 2** = depth slice → validate levels (after family attest) — not L5. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
 
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 
@@ -58,25 +60,21 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 4. **Anti-mandate:** Actual-Play exemplars ≠ product default. Prefer structure menus / capability contracts. Name **≥2 alternatives this row does not ban**.
 5. **DM seat:** privileged DM tools OK; refuse DM-as-infrastructure; keep orchestrator fun (`dm_as_player`) visible.
 6. When all series are `done`: bone pilot runs pack emit + **Trinity/GitHub sync** and records `series_published_trinity_ref`. Children mine is **blocked** until that ref exists (Curator backup is not the gate).
-7. **Inspiration UX (after series Trinity):** open `Inspiration-UX-Feedstock/` — INDEX, LIKED-SNIPPETS, cards, ASSUMPTION-LOG, receipt. Dialogue: argue **jobs/patterns**, not game clones; ≥1 refuse per derived pin; challenge hyper-fit; **user** declares satisfied. Bone pilot writes `INSPIRATION-DIALOGUE-RECEIPT.md`. Law: [`_shared/INSPIRATION-UX-FEEDSTOCK.md`](../_shared/INSPIRATION-UX-FEEDSTOCK.md).
-8. **Pass B — children:** after inspiration receipt (or day-one seed catch-up) + `children_greenlit`, Grok+user validate **one same-width batch** under `active_child_batch`. Season with mapped inspiration/AP derived pins. Open `CHILD-BATCH-STATUS.md` + `scopes/<parent>/BATCH-DIGEST.md` first. Return **one** receipt per [`CHILD-BATCH-VALIDATION.md`](../_shared/CHILD-BATCH-VALIDATION.md). Open full `WALK.md` only for yellow/red/thin. After green: bone pilot `lock_child_batch` → Trinity sync → `publish_children`.
-9. Follow card legs. **One pending UX noun per turn** during **Pass A series only**. Pass B = **one batch receipt per turn**. Do not invent the list. Reject summaries that still contain `Feedstock:` / AP label dumps / `Pillars: (infer…)` residue.
-10. **Ground Meaning selectively:** cite pack `CONCEPTUAL-EXCERPT` (PMG); pull poll index / fulfill only for thin or contested ids. Friction check once per batch (or contested child).
+7. **Inspiration feedstock (after series Trinity):** User+Cursor build `Inspiration-UX-Feedstock/` — INDEX, LIKED-SNIPPETS, cards, share receipt. Grok polish optional (jobs/patterns, ≥1 refuse, challenge hyper-fit). Law: [`_shared/INSPIRATION-UX-FEEDSTOCK.md`](../_shared/INSPIRATION-UX-FEEDSTOCK.md).
+8. **Archive premature L5** if any exist before Conceptual pins.
+9. **Pin derive (digest-first; after Trinity; before Pass B):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + `PIN-EXCERPTS/`. One receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). ≥1 `role: primary`. Titles only from `PIN-INDEX.md`. Yellow → Grok mint gate (loop cap one). Operator confirm/waive → **`apply_pins`**.
+10. **Inspiration seasoning mine (after apply_pins; before Pass B):** open `INSPIRATION-SEASONING-STATUS.md` + feedstock cards. Map derived pins → Conceptual/series. One receipt per [`INSPIRATION-SEASONING-VALIDATION.md`](../_shared/INSPIRATION-SEASONING-VALIDATION.md). Board → apply seasoning (or waive). Not a form pin.
+11. **Pass B — children:** after lens pack + `children_greenlit`, Grok+user validate **one same-width batch** under `active_child_batch`. Open `CHILD-BATCH-STATUS.md` + `BATCH-DIGEST.md` first. One receipt per [`CHILD-BATCH-VALIDATION.md`](../_shared/CHILD-BATCH-VALIDATION.md). After green: `lock_child_batch` → Trinity → `publish_children`.
+12. Follow card legs. **One pending UX noun per turn** during Pass A. Pass B = **one batch receipt per turn**. Ground Meaning selectively via `CONCEPTUAL-EXCERPT` / poll index.
 
-### Pin derive (first-class; after Pass B lock; before L5)
+### L5 affirm (after Pass B + lens pack; not Operator Loop 2)
 
-10. **Archive premature L5** if any exist (fresh path has no L5 at pin time).
-11. **Pin derive v2 (digest-first):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + matching `PIN-EXCERPTS/`. Return **one** receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). Require ≥1 `role: primary`. Excerpt = weld; heading = locator. Titles only from `PIN-INDEX.md`. Yellow weak pins → Grok mint gate (pass-to-Cursor / few targets; loop cap one re-derive). Do not lean on archived Pass-B-only L5 prose. Do not parse vault Highlightr markup.
-12. Operator confirm/waive → apply pins (follow-on) — **only then** L5 mint.
-
-### L5 affirm (after pins; not Operator Loop 2 / slicer)
-
-13. **Series L5 affirm (digest-first):** open `L5-AFFIRM-STATUS.md` + per-row digests. One receipt per [`L5-AFFIRM-VALIDATION.md`](../_shared/L5-AFFIRM-VALIDATION.md). Full `L5.md` only yellow/red/thin.
+13. **Series L5 affirm (digest-first):** open `L5-AFFIRM-STATUS.md` + digests. One receipt per [`L5-AFFIRM-VALIDATION.md`](../_shared/L5-AFFIRM-VALIDATION.md). Full `L5.md` only yellow/red/thin.
 14. **Children L5** — all Pass B children under each parent after that series L5; inherit series pins. Digest-first batches.
-15. Operator fills **Cross-row flags (max 3)** → family attest → **Operator Loop 2** (depth slice → Grok+user validate levels) → then `catalog_signed_at`. L5 files existing ≠ signed.
+15. Operator fills **Cross-row flags (max 3)** → family attest → **Operator Loop 2** → then `catalog_signed_at`. L5 files existing ≠ signed.
 
 **When you need more info during mint:** open `ROADMAP-RESOURCE-INDEX.yaml`, find the roadmap entry, follow `wiki_links` / `linked_resources`. Bodies not in pack → ask bone pilot for fulfill (`tert_id`) or paste. Do not invent notes.
 
-synced_at: `2026-08-07T06:48:52Z`
+synced_at: `2026-08-07T19:32:48Z`
 
 Connector = Trinity-Weave published pack for the named `project_id` (`Docs/catalog-mint/<project_id>/`). Vault is inaccessible to Grok. Ask bone pilot to re-run `catalog_mint_pack_emit` + Trinity sync if files are missing or stale.

@@ -260,7 +260,7 @@ def render_pin_derive_card(
     lines.extend(
         [
             "",
-            "## Series contract (Pass B locked)",
+            "## Series contract (Pass A / Trinity published)",
             "",
             (series_summary or label).strip()[:800],
             "",

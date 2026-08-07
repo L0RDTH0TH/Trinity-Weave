@@ -1,14 +1,14 @@
 ---
 title: L5 affirm validation (receipt)
 audience: grok_github_integration
-updated: 2026-08-04
+updated: 2026-08-07
 ---
 
 # L5 affirm validation
 
-**After pin confirm/waive** — Pass-B **+ Conceptual pin** L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (depth slicer → level validate).
+**After Pass B lock + pin confirm/waive + inspiration seasoning apply/waive** — Pass-B **+ Conceptual pin** (+ seasoning) L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (depth slicer → level validate).
 
-**Frame:** [[CATALOG-MINI-TRINITY]] — Grok ladder steps 4–5 (after Pass A, Pass B, pin derive). Never draft/affirm L5 before pin confirm/waive. **Series L5 before children L5** for that parent. **Children L5 = all Pass B children**, batched under parent; inherit series pins + series L5 (promote-to-planned skipped for now — child need not be a planned catalog row).
+**Frame:** [[CATALOG-MINI-TRINITY]] ladder v4. Never draft/affirm L5 before pin confirm/waive. **Series L5 before children L5** for that parent. **Children L5 = all Pass B children**, batched under parent; inherit series pins + series L5 (promote-to-planned skipped for now). Seasoning may cite inspiration/AP move-pins — never treat game titles as Conceptual pins.
 
 ## Failure modes (catch quickly)
 

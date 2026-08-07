@@ -1,12 +1,14 @@
 ---
 title: Child batch validation (Pass B receipt)
 audience: grok_github_integration
-updated: 2026-08-02
+updated: 2026-08-07
 ---
 
 # Child batch validation (Pass B)
 
 Same-width **peer review under one parent** — not a second series walk and not ad-hoc “does this look ok?” chat.
+
+**Ladder v4 precondition:** Conceptual `apply_pins` done **and** inspiration seasoning apply **or** explicit waive ([[INSPIRATION-SEASONING-VALIDATION]]). Children Meaning is lensed by series + Conceptual + seasoning (+ AP).
 
 ## Failure modes (catch quickly)
 
