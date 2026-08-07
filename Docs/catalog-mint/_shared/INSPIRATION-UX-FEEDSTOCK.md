@@ -13,7 +13,7 @@ updated: 2026-08-07
 | Phase | When | Who | Gate? |
 |-------|------|-----|-------|
 | **1. Feedstock mint** | After Pass A + series Trinity | **User + Cursor** (Grok polish optional) | Soft share via `INSPIRATION-DIALOGUE-RECEIPT.md` |
-| **2. Seasoning mine** | After Conceptual `apply_pins` | Cursor proposes maps → **Grok + user** pin-gate shape → board → apply | **Yes** — [[INSPIRATION-SEASONING-VALIDATION]]; or explicit **waive** if no feedstock |
+| **2. Seasoning maps** | With / right after Conceptual pin derive | Cursor proposes maps → **same Grok+user Conceptual pin gate** → board → apply | Shared pin gate — [[INSPIRATION-SEASONING-VALIDATION]]; or **waive** if no feedstock |
 
 Seasoning is **slaved** to matched Conceptual/series. Not a form variable. Not a peer of `conceptual_pin_refs[]` in join math.
 
@@ -52,8 +52,8 @@ Mods = weak-spot + augmentation; DM resource + override first-class; midband bas
 
 ## Ladder placement
 
-Ideal: Pass A → Trinity → feedstock → Conceptual pin derive/`apply_pins` → **seasoning mine/gate/apply** → Pass B → L5.  
-**Retrofit OK** when out of order: run ladder-gate audit; remine pins + seasoning receipt if shapes hold.
+Ideal: Pass A → Trinity → feedstock → **Conceptual pin gate** (pin derive + seasoning maps) → Pass B → L5.  
+**Retrofit OK:** ladder-gate audit; remine shared pin gate if shapes hold.
 
 ## Feedstock receipt (share)
 

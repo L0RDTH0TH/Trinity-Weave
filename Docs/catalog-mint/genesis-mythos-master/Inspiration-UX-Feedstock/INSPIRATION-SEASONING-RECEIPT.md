@@ -7,28 +7,20 @@ updated: 2026-08-07
 
 # INSPIRATION-SEASONING-RECEIPT
 
-Gate close for [[INSPIRATION-SEASONING-VALIDATION]]. **Not** closed — awaiting pin remine + Grok+user conversation.
+Companion / section of the **shared Conceptual pin gate** — not a separate gate close.
 
 ## Batch scope
 
 _all feedstock cards (pending)_
 
-## Pass / Fail summary
-
-_Pending._
-
 ## Maps accepted
 
+_Pending shared pin-gate remine._
+
+## Deferred / refused / Waive
+
 _Pending._
-
-## Deferred / refused
-
-_Pending._
-
-## Waive
-
-_None._
 
 ## Recommended next action
 
-After ladder-gate audit: remine Conceptual pins → fill SEASONING-STATUS → Grok+user receipt → apply seasoning.
+Complete **Conceptual pin gate** (remine pins + seasoning maps) with Grok+User → apply.

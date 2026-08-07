@@ -256,7 +256,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-**Grok ladder (content) v4:** series individually → (optional feedstock polish) → **pin derive** → **inspiration seasoning gate** → **Pass B** children batched → **series L5** → **children L5**. Never L5 before pin confirm. Never Pass B before `apply_pins` + seasoning apply/waive. Never children L5 before series L5. **Operator Loop 2** = depth slice → validate levels (after family attest) — not L5. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
+**Grok ladder (content) v4:** series individually → (optional feedstock polish) → **Conceptual pin gate** (pin derive + seasoning maps, shared board) → **Pass B** → **series L5** → **children L5**. Never L5 before pin confirm. Never Pass B before shared pin gate closes. Never children L5 before series L5. Seasoning is **not** a separate ladder gate. **Operator Loop 2** = depth slice → validate levels — not L5. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
 
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 
@@ -268,9 +268,9 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 6. When all series are `done`: bone pilot runs pack emit + **Trinity/GitHub sync** and records `series_published_trinity_ref`. Children mine is **blocked** until that ref exists (Curator backup is not the gate).
 7. **Inspiration feedstock (after series Trinity):** User+Cursor build `Inspiration-UX-Feedstock/` — INDEX, LIKED-SNIPPETS, cards, share receipt. Grok polish optional (jobs/patterns, ≥1 refuse, challenge hyper-fit). Law: [`_shared/INSPIRATION-UX-FEEDSTOCK.md`](../_shared/INSPIRATION-UX-FEEDSTOCK.md).
 8. **Archive premature L5** if any exist before Conceptual pins.
-9. **Pin derive (digest-first; after Trinity; before Pass B):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + `PIN-EXCERPTS/`. One receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). ≥1 `role: primary`. Titles only from `PIN-INDEX.md`. Yellow → Grok mint gate (loop cap one). Operator confirm/waive → **`apply_pins`**.
-10. **Inspiration seasoning mine (after apply_pins; before Pass B):** open `INSPIRATION-SEASONING-STATUS.md` + feedstock cards. Map derived pins → Conceptual/series. One receipt per [`INSPIRATION-SEASONING-VALIDATION.md`](../_shared/INSPIRATION-SEASONING-VALIDATION.md). Board → apply seasoning (or waive). Not a form pin.
-11. **Pass B — children:** after lens pack + `children_greenlit`, Grok+user validate **one same-width batch** under `active_child_batch`. Open `CHILD-BATCH-STATUS.md` + `BATCH-DIGEST.md` first. One receipt per [`CHILD-BATCH-VALIDATION.md`](../_shared/CHILD-BATCH-VALIDATION.md). After green: `lock_child_batch` → Trinity → `publish_children`.
+9. **Pin derive (digest-first; after Trinity; before Pass B):** open `PIN-DERIVE-STATUS.md` + per-row `PIN-DERIVE.md` + `PIN-EXCERPTS/`. One receipt per [`PIN-DERIVE-VALIDATION.md`](../_shared/PIN-DERIVE-VALIDATION.md). ≥1 `role: primary`. Titles only from `PIN-INDEX.md`. Yellow → Grok mint gate (loop cap one).
+10. **Inspiration seasoning maps (same Conceptual pin gate):** open `INSPIRATION-SEASONING-STATUS.md` + feedstock cards. Map derived pins → Conceptual/series. Prefer one shared pin-gate receipt ([`INSPIRATION-SEASONING-VALIDATION.md`](../_shared/INSPIRATION-SEASONING-VALIDATION.md)). Board → `apply_pins` + apply seasoning (or waive). Not a separate ladder unlock.
+11. **Pass B — children:** after shared pin gate + `children_greenlit`, Grok+user validate **one same-width batch** under `active_child_batch`. Open `CHILD-BATCH-STATUS.md` + `BATCH-DIGEST.md` first. One receipt per [`CHILD-BATCH-VALIDATION.md`](../_shared/CHILD-BATCH-VALIDATION.md). After green: `lock_child_batch` → Trinity → `publish_children`.
 12. Follow card legs. **One pending UX noun per turn** during Pass A. Pass B = **one batch receipt per turn**. Ground Meaning selectively via `CONCEPTUAL-EXCERPT` / poll index.
 
 ### L5 affirm (after Pass B + lens pack; not Operator Loop 2)

@@ -27,11 +27,11 @@ Mint chat is for **negotiating meaning**. The YAML is a **receipt**, not the con
 ### Inspiration UX (ladder v4)
 
 **Phase 1 (after series Trinity):** User + Cursor feedstock + share receipt; Grok polish optional. See [[INSPIRATION-UX-FEEDSTOCK]].  
-**Phase 2 (after `apply_pins`):** seasoning mine → pin-gate ([[INSPIRATION-SEASONING-VALIDATION]]) → apply seasoning slaved to Conceptual — **before Pass B**. Sources are never Conceptual pins.
+**Phase 2 (shared Conceptual pin gate):** seasoning maps validated with pin derive (same board) → apply seasoning slaved to Conceptual — **before Pass B**. See [[INSPIRATION-SEASONING-VALIDATION]]. Sources are never Conceptual pins.
 
 ### Lens pack then Pass B then L5
 
-After series Trinity: feedstock → **pin derive** → `apply_pins` → **inspiration seasoning** apply/waive → **Pass B** → **series L5** → **children L5**. Required: Moment inventory; PoC ≠ Full vision; path-exact Source anchors including pin; thin parents meet data-driven moment floor. Grok ladder: series → pin derive → inspiration seasoning gate → Pass B → series L5 → children L5. Family attest → **Operator Loop 2** = depth slicer → validate levels (not L5). Then `catalog_signed_at`. `execution_pins[]` stay empty through mint; fill as execution deepen references/mints notes.
+After series Trinity: feedstock → **Conceptual pin gate** (pins + seasoning maps) → **Pass B** → **series L5** → **children L5**. Grok ladder: series → shared pin gate → Pass B → series L5 → children L5. Family attest → **Operator Loop 2**. Then `catalog_signed_at`.
 
 ### Smell language (stop and re-scope)
 

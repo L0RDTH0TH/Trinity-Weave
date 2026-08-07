@@ -1,62 +1,55 @@
 ---
-title: Inspiration seasoning validation (pin-gate shape)
+title: Inspiration seasoning validation (shared Conceptual pin gate)
 audience: grok_github_integration
 updated: 2026-08-07
 ---
 
 # Inspiration seasoning validation
 
-**First-class post-Conceptual MO (ladder v4)** — after `apply_pins`, **before Pass B**. Same receipt discipline as pin derive. **Not** PIN-INDEX Conceptual welds. **Not** a catalog form pin.
+**Same Conceptual pin gate** — second mine pass / receipt section after (or with) PIN-DERIVE, **before Pass B**. Not a separate ladder unlock. **Not** PIN-INDEX Conceptual welds. **Not** a catalog form pin.
 
-**Frame:** [[CATALOG-MINI-TRINITY]] · [[INSPIRATION-UX-FEEDSTOCK]]. Output = seasoning **slaved** to matched Conceptual/series.
+**Frame:** [[CATALOG-MINI-TRINITY]] · [[INSPIRATION-UX-FEEDSTOCK]] · [[PIN-DERIVE-VALIDATION]]. Output = seasoning **slaved** to matched Conceptual/series.
 
 ## Preconditions
 
 1. Series Trinity published.  
-2. Conceptual pins applied (`apply_pins`) or lawful waive on planned rows.  
-3. Inspiration feedstock present **or** operator **waives** seasoning mine (record waive on receipt).
+2. Conceptual pin derive in flight or applied — seasoning maps close under the **same** Grok+User pin-gate board.  
+3. Inspiration feedstock present **or** operator **waives** seasoning maps (record on shared receipt).
 
 ## Weld / map contracts
 
-1. Candidate ids come from feedstock `cards/` (derived move-pins) — not invented game-title Conceptual pins.  
+1. Candidate ids from feedstock `cards/` — never game-title Conceptual pins.  
 2. Each accepted map: `derived_pin_id` → `maps_to_series[]` and/or Conceptual pin title/id.  
-3. ≥1 **refuse** remains on the card / map.  
-4. Hyper-fit (“this is basically Forge”) demoted to pattern language.  
-5. Grok ≠ invent feedstock cards; propose maps and gate judgment only.
+3. ≥1 **refuse** on the card / map.  
+4. Hyper-fit demoted to pattern language.  
+5. May share one conversation/receipt with pin derive (“Conceptual pin gate — pins + seasoning”).
 
 ## Failure modes
 
-Unmapped strong cards left silent · game title proposed as `conceptual_pin` · seasoning without Conceptual anchor when pins exist · Pass B started before board close · treating seasoning as join-key peer of Conceptual.
+Unmapped strong cards · game title as `conceptual_pin` · treating seasoning as a second join-key gate · Pass B before shared pin-gate board closes.
 
 ## Velocity rules
 
-Digest-first · one receipt per turn · max ~5 highest-signal issues · open STATUS first; full cards only for yellow/red.
+Digest-first · preferably one shared pin-gate receipt per turn · max ~5 issues · STATUS + PIN-DERIVE-STATUS first.
 
-## Mandatory receipt shape
+## Mandatory receipt shape (standalone or pin-gate section)
 
 ```text
-## Inspiration seasoning validation — <project_id>
-Batch scope: [all feedstock cards | subset: <ids>]
-Schema: seasoning v1 (slaved to Conceptual; not form pin)
-
-### Pass / Fail summary
-…
+## Inspiration seasoning (shared pin gate) — <project_id>
+Batch scope: [all feedstock cards | subset]
+Schema: seasoning v1 (slaved; not form pin; not separate ladder gate)
 
 ### Maps accepted (derived_pin_id → series / conceptual)
 …
 
-### Deferred / refused
+### Deferred / refused / Waive
 …
 
-### Waive (if any)
-- reason: …
-
 ### Recommended next action
-- Board confirm → apply seasoning (ASSUMPTION-LOG + L5 cites) → Pass B
+- Close shared pin gate → apply_pins + apply seasoning → Pass B
 ```
 
 ## Operator close
 
-- Board confirm → apply seasoning → **Pass B**  
-- Or waive → Pass B with waive on receipt  
-- Do **not** start Pass B while seasoning board is open and feedstock exists without waive
+- Shared pin-gate board → `apply_pins` + apply seasoning (or waive) → **Pass B**  
+- Do **not** start Pass B while the shared pin gate still has open seasoning maps and feedstock exists without waive
