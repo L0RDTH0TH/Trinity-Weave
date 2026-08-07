@@ -40,8 +40,21 @@ Pillar map: see [[PILLARS-AND-LENS]].
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | Stellaris / DF / Civilization / Anno | strong | bounded-dm-resource-politics | Background resource→politics; **DM override first-class** |
+| Mount & Blade II: Bannerlord | strong | bannerlord-offscreen-faction-military | Off-screen faction/military keeps moving — politics/war continuity |
+| Kenshi | strong | kenshi-harsh-ai-permanent-consequence | Independent AI agendas + lasting consequence |
+| Rain World | strong | rain-world-creature-territory-habitat | High-fidelity creature territory; thicker ecosystem than Primal alone |
+| Valheim | medium | valheim-progressive-map-biome | Progressive map + biome atmosphere — “how much world when” |
+| Medieval Dynasty | medium | medieval-dynasty-light-life-sim | Light life-sim / seasons / settlement-as-place |
 | Dwarf Fortress (detail) | medium | stub-df-living-detail | Detail / bookkeeping relief |
 | Far Cry Primal | strong | habitat-wilderness-exemplar | Habitat / wilderness pressure |
+
+## World shape / midband base
+
+| Source | Signal | Derived pins | Notes |
+|--------|--------|--------------|-------|
+| Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Players **design**; NPCs labor; **calendar wait** — not place-build loop |
+| Townscaper | strong | townscaper-click-add-world-element | Click-add UX for world/grid elements; 2D intent → 3D realization |
+| Rust / ARK | weak | rust-ark-base-systems-light | Light “base exists” foil only; **refuse** their construction loop |
 
 ## Research surfaces
 

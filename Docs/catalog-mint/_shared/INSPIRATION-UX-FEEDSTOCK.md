@@ -33,7 +33,11 @@ Mods mark **community-diagnosed weak spots** in a base game and show **how playe
 
 ## DM resource layer
 
-Grand-strategy / colony sims (Stellaris, Dwarf Fortress, Civilization, Anno, …) inform a **background resource/politics engine** that helps the world feel alive. **DM override is first-class and intentional** on top of that engine — not “DM must play a 4X,” and not a sim the table cannot privilege-override.
+Grand-strategy / colony sims (Stellaris, Dwarf Fortress, Civilization, Anno, …) inform a **background resource/politics engine** that helps the world feel alive. **DM override is first-class and intentional** on top of that engine — not “DM must play a 4X,” and not a sim the table cannot privilege-override. Off-screen faction/military continuity (Bannerlord-class) and indifferent permanent consequence (Kenshi-class) thicken the same “world moves without you” job.
+
+## World shaping / midband base
+
+Tables at midband power often expect a **base** or claimable place. Authorship should feel **Townscaper-class click-add** for placing world/grid elements (intent). Realization should be **player design → NPC background labor → calendar wait** — refuse survival-builder place-build loops (Rust/ARK as light foils only).
 
 ## Ladder
 

@@ -43,6 +43,19 @@ Players wanted better exploration/survival in Skyrim → Campfire (+ Frostfall, 
 
 Stellaris / Dwarf Fortress / **Civilization** / Anno — background resource/politics so the world feels alive; **DM overrides first-class and intentional**. Sliding investment (~3–5×), not full 4X homework.
 
+- **Bannerlord:** Off-screen faction/military keeps moving — stronger politics/war “continues without you” than pure DF-as-war.
+- **Kenshi:** Harsh independent AI agendas + permanent consequence — world does not care about the PCs.
+- **Rain World:** High-fidelity creature territory/habitat — stronger pure-ecosystem reference than Primal alone.
+- **Valheim:** Progressive map opening + biome atmosphere — contrast for how much world is available when.
+- **Medieval Dynasty:** Light life-sim + seasons + settlement-as-place — lower-investment resource/politics feel.
+
+## World shape / midband base
+
+- Midband power often has a **base** (druid tree, abandoned castle to fix/staff). Need systems for players shaping place.
+- **Doctrine:** players **design**; NPCs **work in background**; wait **calendar** time. Not build-place-build-place.
+- **Rust / ARK:** light “base systems” examples only — foil for the loop we refuse.
+- **Townscaper:** model for world-building authorship — click-and-add when user places a world/grid element; 2D map intent → 3D world (or equivalent). Pair with calendar/NPC labor for realization.
+
 ## Other
 
 - **Primal:** Habitat / wilderness pressure.

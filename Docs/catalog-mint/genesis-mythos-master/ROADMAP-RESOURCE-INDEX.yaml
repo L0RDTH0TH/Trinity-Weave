@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 618
+roadmap_note_count: 626
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4568,6 +4568,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: bannerlord-offscreen-faction-military
+  wiki: '[[bannerlord-offscreen-faction-military]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: bg3-dnd-feel-refuse-authored-spine
   wiki: '[[bg3-dnd-feel-refuse-authored-spine]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md
@@ -4579,6 +4587,14 @@ roadmap_notes:
 - title: bounded-dm-resource-politics
   wiki: '[[bounded-dm-resource-politics]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: calendar-npc-labor-world-shape
+  wiki: '[[calendar-npc-labor-world-shape]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4608,6 +4624,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: kenshi-harsh-ai-permanent-consequence
+  wiki: '[[kenshi-harsh-ai-permanent-consequence]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/kenshi-harsh-ai-permanent-consequence.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: live-grid-correspondence
   wiki: '[[live-grid-correspondence]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/live-grid-correspondence.md
@@ -4624,6 +4648,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: medieval-dynasty-light-life-sim
+  wiki: '[[medieval-dynasty-light-life-sim]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: mod-community-weak-spot-augments
   wiki: '[[mod-community-weak-spot-augments]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md
@@ -4632,9 +4664,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: rain-world-creature-territory-habitat
+  wiki: '[[rain-world-creature-territory-habitat]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rain-world-creature-territory-habitat.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: relationship-shaped-economy
   wiki: '[[relationship-shaped-economy]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: rust-ark-base-systems-light
+  wiki: '[[rust-ark-base-systems-light]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4712,9 +4760,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: townscaper-click-add-world-element
+  wiki: '[[townscaper-click-add-world-element]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/townscaper-click-add-world-element.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: turn-gated-movement-circle
   wiki: '[[turn-gated-movement-circle]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: valheim-progressive-map-biome
+  wiki: '[[valheim-progressive-map-biome]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md
   kind: user_story
   wiki_links: []
   linked_resources: []

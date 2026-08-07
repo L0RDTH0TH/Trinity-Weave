@@ -30,6 +30,14 @@ Campfire-class stacks = community saying Skyrim exploration/survival was weak �
 
 ## DM resource mini-game
 
-Background living pressure from Stellaris / DF / Civ / Anno-class systems; **DM overrides first-class and intentional**.
+Background living pressure from Stellaris / DF / Civ / Anno-class systems; **DM overrides first-class and intentional**. Bannerlord-class off-screen war/politics and Kenshi-class indifference thicken “world continues / does not care.”
+
+## World shaping (midband base)
+
+Mid-tier power bands often include a **base** (growing special tree, ruined castle to staff, etc.). Systems must let players **shape the world**.
+
+- **Authorship UX:** Townscaper-class click-add when placing a world/grid element (intent feels instant and joyful).
+- **Realization:** players design → **NPCs work in background** → **calendar time** elapses. Not Rust/ARK build-place-build-place.
+- Survival-builder titles are **light foils** for “base exists,” not loop models.
 
 See `INDEX.md`, `LIKED-SNIPPETS.md`, `cards/`, vault law `Docs/catalog-mint/_shared/INSPIRATION-UX-FEEDSTOCK.md`.

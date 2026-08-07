@@ -36,3 +36,11 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-07 | false | mod-community-weak-spot-augments | (multi) | feedstock replace mod-player-pressure-surfaces | Weak-spot + augmentation framing |
 | 2026-08-07 | false | bounded-dm-resource-politics | ux_living_world_continuity, ux_dm_session_prep | feedstock refresh | +Civ; DM override first-class |
 | 2026-08-07 | false | PILLARS-AND-LENS | — | feedstock doctrine | Pillars + lens note |
+| 2026-08-07 | false | bannerlord-offscreen-faction-military | ux_living_world_continuity, ux_dm_session_prep | feedstock seed | Off-screen faction/military |
+| 2026-08-07 | false | kenshi-harsh-ai-permanent-consequence | ux_living_world_continuity, ux_quiet_between_pillars | feedstock seed | AI agendas + permanent consequence |
+| 2026-08-07 | false | rain-world-creature-territory-habitat | ux_world_generation, ux_living_world_continuity | feedstock seed | Creature territory / habitat |
+| 2026-08-07 | false | valheim-progressive-map-biome | ux_world_generation, ux_living_world_continuity | feedstock seed | Progressive map + biome |
+| 2026-08-07 | false | medieval-dynasty-light-life-sim | ux_living_world_continuity, ux_dm_session_prep | feedstock seed | Light life-sim settlement |
+| 2026-08-07 | false | rust-ark-base-systems-light | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Base foil; refuse loop |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock doctrine | Design → NPC labor → calendar |
+| 2026-08-07 | false | townscaper-click-add-world-element | ux_world_authorship_modability, ux_camera_control_envelopes | feedstock seed | Click-add world/grid UX |

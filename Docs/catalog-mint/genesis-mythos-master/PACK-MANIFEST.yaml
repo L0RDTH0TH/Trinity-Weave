@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-07T05:55:22Z'
+synced_at: '2026-08-07T06:13:29Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -78,7 +78,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: b87ff376ec9177a1
+  ROADMAP-RESOURCE-INDEX.yaml: 9897fb94a6211a45
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -263,22 +263,28 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 6facab8789f6358e
-  Inspiration-UX-Feedstock/INDEX.md: f772cde1d9da2bc3
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: fc18d82e7f3ecb9d
+  Inspiration-UX-Feedstock/INDEX.md: 751bc46ed5f23217
   Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: cb6c5b8043fd40d0
-  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 342aa596d9ee9c59
-  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: f1f58bdc09c1f415
+  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: e14c135023b1f2e2
+  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: c708e1272f45eef9
   Inspiration-UX-Feedstock/README.md: 3b792077bdae3f1c
   Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
+  Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md: a1de4f217d55435b
   Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md: 71d693b0560973b4
   Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: 39bd4c1bf525bed3
+  Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: 94ae8604c2384b92
   Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 6e0bc26e8337b031
   Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md: 05b10274ddbc005f
   Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md: c11be630519d40d0
+  Inspiration-UX-Feedstock/cards/kenshi-harsh-ai-permanent-consequence.md: b08d615dc7cceac1
   Inspiration-UX-Feedstock/cards/live-grid-correspondence.md: f9049518c3c03842
   Inspiration-UX-Feedstock/cards/low-fantasy-tone-exemplar.md: 39a89225086427a5
+  Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md: 8f77af6db8010f40
   Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md: e1f1dd2f1dd0b099
+  Inspiration-UX-Feedstock/cards/rain-world-creature-territory-habitat.md: c369d0b05c63349b
   Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md: ed4d69eb71d5b348
+  Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md: 34a84d3208a20eaf
   Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md: 3ce1c313bfc549b5
   Inspiration-UX-Feedstock/cards/stub-adventure-pdf-dependency-graph.md: 4923eb0e220f5102
   Inspiration-UX-Feedstock/cards/stub-df-living-detail.md: 440e54b064b5e5ec
@@ -288,8 +294,10 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/stub-skyrim-living-fp-share.md: b35c667dbe147c9a
   Inspiration-UX-Feedstock/cards/stub-talespire-dm-tooling.md: a83fdea2f9fc073c
   Inspiration-UX-Feedstock/cards/stub-world-anvil-lore-surface.md: 52136cead7153260
+  Inspiration-UX-Feedstock/cards/townscaper-click-add-world-element.md: 5720ceddc1bd1590
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
+  Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 6d6229ff91d15a1f
+  MINT-PACK.md: 6714301de01e5091
 warnings:
 - feed_completeness:no_focal_item
