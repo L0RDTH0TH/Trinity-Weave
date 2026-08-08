@@ -1,12 +1,12 @@
 ---
 title: UX pillars and inspiration lens — GMM
 project-id: genesis-mythos-master
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # UX pillars and inspiration lens (GMM)
 
-Operator-locked framing (2026-08-07 dialogue).
+Operator-locked framing (2026-08-07 dialogue; **altitude remine 2026-08-08**).
 
 ## Three pillars
 
@@ -17,6 +17,20 @@ Operator-locked framing (2026-08-07 dialogue).
 | **Combat** | Orchestrate the fight | Turns, range, threat, resolution |
 
 **Tools** (DM Forge-cam, situational lenses, mod seams) cross-cut pillars.
+
+## Altitude nest (cross-pillar)
+
+**High** = broader continuity that keeps running. **Mid / pocket / low** = denser local grain inside that frame — not mere zoom.
+
+| Pillar | High | Mid / pocket |
+|--------|------|----------------|
+| Roleplay | Manor Lords-class regional place heartbeat | Clanfolk-class faction/household grain |
+| Combat | Push pieces on the map | Siege participation → village raid |
+| Exploration | Region / biome continuity | Site / habitat grain |
+
+## Semi-permeable membrane
+
+Power bands = **default gate / porosity**. Roleplay and agency create **bleed-through** (managed NPCs, reputation, labor, faction work). Refuse: “if not level X you never see Y.”
 
 ## Inspiration translation
 
@@ -31,6 +45,10 @@ Campfire-class stacks = community saying Skyrim exploration/survival was weak �
 ## DM resource mini-game
 
 Background living pressure from Stellaris / DF / Civ / Anno-class systems; **DM overrides first-class and intentional**. Bannerlord-class off-screen war/politics and Kenshi-class indifference thicken “world continues / does not care.”
+
+## Adventure import
+
+Common ruleset + packs / handcrafted modules. Native when rulesets align; else **DM migration workflow** (switch / overwrite / skip) with audit. See `adventure-module-ruleset-migration`.
 
 ## World shaping (midband base)
 

@@ -2,7 +2,7 @@
 
 - heading: ## Behavior
 - role: primary
-- excerpt_note: Rule-math consume path for combat surface
+- excerpt_note: Rule-math consume path for nested combat altitudes
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 

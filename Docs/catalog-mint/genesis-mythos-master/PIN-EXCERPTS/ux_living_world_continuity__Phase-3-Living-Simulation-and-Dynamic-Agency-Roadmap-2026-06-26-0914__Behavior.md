@@ -2,7 +2,7 @@
 
 - heading: ## Behavior
 - role: supporting
-- excerpt_note: Living sim envelope around off-screen activity
+- excerpt_note: Mid nest living-sim envelope around continuity
 - source: `1-Projects/genesis-mythos-master/Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914.md`
 - weld_rule: excerpt text is the weld; heading is the locator
 

@@ -1,12 +1,23 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # INDEX — pinable sources
 
 Pillar map: see [[PILLARS-AND-LENS]].
+
+## Cross-pillar altitude (2026-08-08 remine)
+
+| Source | Signal | Derived pins | Notes |
+|--------|--------|--------------|-------|
+| Operator altitude doctrine | strong | cross-pillar-altitude-nest | High continuity nests mid/pocket grain — Roleplay / Exploration / Combat |
+| Manor Lords | strong | manor-lords-high-altitude-region | Roleplay **high** — regional agricultural/place heartbeat |
+| Clanfolk | strong | clanfolk-faction-pocket-grain | Roleplay **pocket** — faction/household grain under high |
+| Operator combat altitude | strong | combat-altitude-map-siege-raid | Combat high=map pieces · mid=siege · low=village raid |
+| Operator membrane doctrine | strong | power-band-semipermeable-membrane | Bands = default porosity; agency bleed-through |
+| Adventure import doctrine | strong | adventure-module-ruleset-migration | Native if rulesets align; else DM migration + audit |
 
 ## Shared-world / digital D&D cousins
 
@@ -75,4 +86,4 @@ Pillar map: see [[PILLARS-AND-LENS]].
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | World Anvil | weak | stub-world-anvil-lore-surface | Lore surface |
-| Adventure PDF import | weak | stub-adventure-pdf-dependency-graph | Stub only |
+| Adventure PDF import (thin stub) | weak | stub-adventure-pdf-dependency-graph | Superseded for seasoning by `adventure-module-ruleset-migration` |

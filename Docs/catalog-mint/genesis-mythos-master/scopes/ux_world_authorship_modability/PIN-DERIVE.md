@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]
-- pin_focus: Curated + mod contracts for table/community world authorship (safety seams)
+- pin_focus: Curated + mod contracts + adventure import migration audit (safety seams)
 - alternate: [[Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ World change is first-class authorship across the physical container and the eso
 
 ## Rationale
 
-Modularity seams are structure; overwrite/regen supporting; exemplar contrast (≠default).
+Altitude remine 2026-08-08: Modularity seams remain primary; overwrite/regen supporting; exemplar contrast. Season with adventure-module-ruleset-migration (DM migration when table ≠ module).
 
 ## Operator
 

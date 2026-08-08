@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 637
+roadmap_note_count: 644
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -3134,7 +3134,7 @@ roadmap_notes:
   - genesis-mythos-master-goal
   linked_resources: []
   tert_id: null
-  pin_excerpt_available: false
+  pin_excerpt_available: true
 - title: Phase-3-1-4-FactionGraph-Subsystem-Roll-up-2026-06-30
   wiki: '[[Phase-3-1-4-FactionGraph-Subsystem-Roll-up-2026-06-30]]'
   rel_under_project: Roadmap/Phase-3-Living-Simulation-and-Dynamic-Agency/Phase-3-1-Tick-Based-Simulation-Core/Phase-3-1-4-FactionGraph-Subsystem-Roll-up-2026-06-30.md
@@ -4585,6 +4585,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: adventure-module-ruleset-migration
+  wiki: '[[adventure-module-ruleset-migration]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: banished-frontier-blueprint-settlement
   wiki: '[[banished-frontier-blueprint-settlement]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/banished-frontier-blueprint-settlement.md
@@ -4620,6 +4628,30 @@ roadmap_notes:
 - title: calendar-npc-labor-world-shape
   wiki: '[[calendar-npc-labor-world-shape]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: clanfolk-faction-pocket-grain
+  wiki: '[[clanfolk-faction-pocket-grain]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: combat-altitude-map-siege-raid
+  wiki: '[[combat-altitude-map-siege-raid]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: cross-pillar-altitude-nest
+  wiki: '[[cross-pillar-altitude-nest]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/cross-pillar-altitude-nest.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4697,6 +4729,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: manor-lords-high-altitude-region
+  wiki: '[[manor-lords-high-altitude-region]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/manor-lords-high-altitude-region.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: medieval-dynasty-light-life-sim
   wiki: '[[medieval-dynasty-light-life-sim]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md
@@ -4716,6 +4756,14 @@ roadmap_notes:
 - title: overlord-minion-labor-partial
   wiki: '[[overlord-minion-labor-partial]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/overlord-minion-labor-partial.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: power-band-semipermeable-membrane
+  wiki: '[[power-band-semipermeable-membrane]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -5127,6 +5175,15 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: true
+- title: ux_living_world_continuity__Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015__Behavior
+  wiki: '[[ux_living_world_continuity__Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015__Behavior]]'
+  rel_under_project: Roadmap/User-Story/PIN-EXCERPTS/ux_living_world_continuity__Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015__Behavior.md
+  kind: user_story
+  wiki_links:
+  - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
   linked_resources: []
   tert_id: null
   pin_excerpt_available: true
@@ -6725,8 +6782,8 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
-  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

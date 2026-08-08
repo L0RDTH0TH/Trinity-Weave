@@ -4,14 +4,14 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]
-- pin_focus: Combat surface consumes pre-compiled rule math; authored ends including non-win
+- pin_focus: Combat altitudes (map pieces / siege / raid) consume pre-compiled rule math; authored ends
 - alternate: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]] | heading: ## Behavior | role: primary | excerpt_note: Rule-math consume path for combat surface | color_key: Red
+- title: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]] | heading: ## Behavior | role: primary | excerpt_note: Rule-math consume path for nested combat altitudes | color_key: Red
 - title: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: supporting | excerpt_note: Rule system integration envelope | color_key: Orange
 
 ## mint_target
@@ -30,7 +30,7 @@ Combat is a distinct play surface the whole table enters and exits: combat chrom
 
 ## Rationale
 
-Rule engine primitives license “consumes rule math”; UX still owns play surface.
+Altitude remine 2026-08-08: Rule-engine primitives remain primary weld for “consumes rule math.” UX owns nested desks: high=map posture, mid=siege participation, low=village raid. Background faction combat residue (Bannerlord-class) — do not hyper-focus 3D battle sim.
 
 ## Operator
 

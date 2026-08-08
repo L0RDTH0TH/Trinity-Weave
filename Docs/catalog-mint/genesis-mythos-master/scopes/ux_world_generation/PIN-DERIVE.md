@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]
-- pin_focus: Durable living-world gen graph — not campaign bootstrap
+- pin_focus: Durable living-world gen graph with nested altitudes (region continuity vs site/habitat grain) — not campaign bootstrap
 - alternate: [[Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Durable world container — DM creates initial form via wizard+preview (tone-awa
 
 ## Rationale
 
-Structure pin is Phase-2 world-building machinery; seed authority supporting for snapshot/seed seam only.
+Altitude remine 2026-08-08: Phase-2 world-building remains primary structure. Seed authority supporting for snapshot/seed seam. Season with cross-pillar altitude nest + Rain World/Primal habitat grain under region continuity.
 
 ## Operator
 

@@ -2,7 +2,7 @@
 
 Use ONLY these wiki-link titles (or say `needs pin`). Do not invent names.
 
-_Count: 167_
+_Count: 168_
 
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]`
 - `[[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roll-up-2026-06-29]]`
@@ -155,6 +155,7 @@ _Count: 167_
 - `[[ux_late_game__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]`
 - `[[ux_late_game__Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456__Behavior]]`
 - `[[ux_late_game__Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749__Behavior]]`
+- `[[ux_living_world_continuity__Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015__Behavior]]`
 - `[[ux_living_world_continuity__Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615__Behavior]]`
 - `[[ux_living_world_continuity__Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914__Behavior]]`
 - `[[ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior]]`

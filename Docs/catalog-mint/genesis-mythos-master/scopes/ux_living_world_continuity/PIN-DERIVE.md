@@ -4,15 +4,16 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-- pin_focus: World moves off-screen with lasting readable costs (between-adventures residue)
-- alternate: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
+- pin_focus: High-altitude off-screen continuity nesting mid/pocket grain; lasting readable costs
+- alternate: [[Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
 
 ## conceptual_pin_refs
 
-- title: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]] | heading: ## Behavior | role: primary | excerpt_note: Off-screen continuity with lasting costs | color_key: Blue
-- title: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: supporting | excerpt_note: Living sim envelope around off-screen activity | color_key: Cyan
+- title: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]] | heading: ## Behavior | role: primary | excerpt_note: High-altitude off-screen continuity with lasting costs | color_key: Blue
+- title: [[Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015]] | heading: ## Behavior | role: supporting | excerpt_note: Pocket faction/household graph grain under high continuity | color_key: Cyan
+- title: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]] | heading: ## Behavior | role: supporting | excerpt_note: Mid nest living-sim envelope around continuity | color_key: Lime
 
 ## mint_target
 
@@ -25,12 +26,12 @@ Living world continues while the party is elsewhere: factions, threads, calendar
 ## Candidates (PIN-INDEX only)
 
 1. [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-2. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
-3. [[Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015]]
+2. [[Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015]]
+3. [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
 
 ## Rationale
 
-Off-screen faction/tribe activity is structure for living-world continuity costs.
+Altitude remine 2026-08-08: Off-Screen Faction/Tribe Activity remains primary (Manor Lords-class high continuity). Promote FactionGraph supporting for Clanfolk-class pocket grain; Living-Sim supporting for mid nest. Season with altitude nest + membrane; midband labor still complementary.
 
 ## Operator
 

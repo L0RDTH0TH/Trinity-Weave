@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
-- pin_focus: Campaign frame bootstrap inside world — amendment primary weld
+- pin_focus: Campaign frame bootstrap inside world + adventure module native/migration path
 - alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Rationale
 
-v3 mint: dual-approved mint_target written. Primary = campaign-frame amendment; session-authority supporting; Horizon contrast.
+Altitude remine 2026-08-08: keep dual-approved campaign-frame amendment as primary; session-authority supporting; Horizon contrast. Season with adventure-module-ruleset-migration (native when rulesets align; else DM switch/overwrite/skip + audit).
 
 ## Operator
 

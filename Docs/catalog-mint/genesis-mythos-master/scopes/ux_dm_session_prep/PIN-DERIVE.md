@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: DM prep/session authority without leaving collaborative table frame
+- pin_focus: DM prep/session authority in-table; import migration choices surface here when needed
 - alternate: [[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ DM authors the next shared session experience in-tool; the system auto-stages ag
 
 ## Rationale
 
-Session authority is the enabling machinery for prep-in-table.
+Altitude remine 2026-08-08: Session authority remains enabling machinery. Adventure native/migration decisions are prep-time DM jobs when modules land.
 
 ## Operator
 

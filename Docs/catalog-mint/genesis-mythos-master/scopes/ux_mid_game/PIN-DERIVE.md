@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
-- pin_focus: Mid power band — lasting pressure + deeper world response (living-sim primary)
+- pin_focus: Mid power band — living-sim nest between high continuity and pocket grain; membrane bleed
 - alternate: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Mid-game is the middle power band: world access, social tier, explore stakes, an
 
 ## Rationale
 
-Pass-to-Cursor: distinct primary weld = Living-Simulation Behavior. Quest-pressure + session-authority supporting; mid-stakes world response not identical to early offer signals.
+Altitude remine 2026-08-08: Living-Simulation Behavior remains mid primary. Quest-pressure + session-authority supporting. Nest: mid stakes sit under high off-screen continuity and above Clanfolk-class pocket grain; membrane allows agency-driven bleed.
 
 ## Operator
 

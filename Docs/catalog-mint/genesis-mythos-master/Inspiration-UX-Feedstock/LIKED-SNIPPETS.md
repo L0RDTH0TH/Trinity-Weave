@@ -1,7 +1,7 @@
 ---
 title: Liked snippets — operator taste (Grok dialogue feedstock)
 project-id: genesis-mythos-master
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # Liked snippets (operator)
@@ -11,6 +11,14 @@ Pattern extraction only. Pillars: Exploration · Roleplay (incl. factions/guilds
 ## Product lens
 
 Multiplayer living-world fantasy + real DM/player agency in 3D. When players imagine system A / action X through game G → pattern → our systems → refuse.
+
+## Altitude nest + membrane (2026-08-08)
+
+- **Altitude:** high = continuity frame that keeps running; mid/pocket/low = denser grain inside — not zoom levels.
+- **Roleplay instance:** Manor Lords (high regional heartbeat) + Clanfolk (faction/household pocket).
+- **Combat instance:** map pieces → siege participation → village raid.
+- **Membrane:** power bands = general porosity; agency bleed-through is consequence — not hard “never see Y until level X.”
+- **Adventure import:** native if rulesets align; else DM migration (switch / overwrite / skip) with audit.
 
 ## Shared-world / digital D&D
 
@@ -62,5 +70,5 @@ Stellaris / Dwarf Fortress / **Civilization** / Anno — background resource/pol
 - **Primal:** Habitat / wilderness pressure.
 - **World Anvil:** Lore surface.
 - **Worldgen:** Mountains → climate → flora/fauna.
-- **Adventure PDF:** Must/can/skip graph (stub).
+- **Adventure modules:** ruleset-aligned native import; else DM migration workflow (supersedes thin PDF stub for seasoning).
 - **TTRPG-in-3D:** If DM allows burning the orphanage, torch → consequence must be possible.

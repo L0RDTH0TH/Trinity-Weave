@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-- pin_focus: High band + close + lasting off-screen costs; persistence supporting for PC→world handoff
+- pin_focus: High band + close — off-screen lasting costs; membrane + combat/map altitude access
 - alternate: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Late-game is the high power band: survivors are world-shapers. It covers build-u
 
 ## Rationale
 
-Pass-to-Cursor: promote Off-Screen Faction Behavior as primary (distinct crescendo/continuity weld). Persistence supporting for close handoff; session-authority supporting only.
+Altitude remine 2026-08-08: Off-Screen Faction Behavior remains late primary crescendo. Persistence supporting for close handoff. High altitude continuity + optional map-desk combat posture; bleed-through still consequence of agency, not auto-unlock of every desk.
 
 ## Operator
 
