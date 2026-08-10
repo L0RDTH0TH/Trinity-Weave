@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]]
-- pin_focus: Player authors PC + DM acceptance; class-unique expression surfaces (soft-teaching; combat wins over loops)
+- pin_focus: Player authors PC + DM acceptance; class-expression board draft v1 (validate — not locked)
 - alternate: [[Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Player authors and owns a character before and after DM greenlight. Builds may b
 
 ## Rationale
 
-Closure #2 light remine: Spawn bootstrap remains primary. Season with class-unique-expression-surfaces interrupt rule vs combat.
+Class-expression draft v1: full major-class board under Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md. Spawn bootstrap remains primary weld. Season only after Grok+User validation — do not treat draft rows as contracts.
 
 ## Operator
 

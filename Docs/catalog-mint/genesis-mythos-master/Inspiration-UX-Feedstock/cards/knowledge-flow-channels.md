@@ -5,12 +5,13 @@ source_title: Operator knowledge-flow doctrine
 signal: strong
 research_status: operator_seed
 assumption: false
-liked: "Information moves on realistic channels and time frames — letters, heralds, criers, rumor, spies, academic correspondence, divine omen, etc."
-why_it_worked: "News and secrets feel world-timed; sending implies a full suite, not a single chat pipe"
-fits_our_game: "If sending exists, the full channel suite is in scope. Feeds critical nodes (who knows what when), membrane bleed (reputation/spy paths), soft-teaching / mental-stat visuals (how cues arrive), and living-world continuity. Channels run on realistic delays; planar distortion may warp cadence without changing grammar."
+liked: "Baseline = slow/lossy physical medieval channels; accelerators = power-gated magic that compresses time/distance; different actors have different information surfaces"
+why_it_worked: "News and secrets feel world-timed; speed is infrastructure/power, not free universal chat"
+fits_our_game: "Baseline physics: letters, heralds, rumor, caravans, criers, spies, academic correspondence — slow and lossy. Accelerators (Sending, magic mirrors, linked books, kingdom networks, divine omens, etc.) compress time/distance but access is power/infrastructure, not free universal. Different actors have different information surfaces. Feeds critical nodes, membrane, soft-teaching / mental-stat cue arrival. Planar distortion may warp cadence without replacing grammar. If sending/accelerators exist in the ruleset, the full channel suite stays in scope."
 refuse_to_copy:
   - "Instant omniscient party chat as the only information model"
-  - "A single channel (e.g. letter only) when sending is first-class"
+  - "Universal free access to magical accelerators for all actors"
+  - "A single channel when a full suite is in scope"
   - "Knowledge that ignores distance, politics, or time"
 maps_to_series:
   - ux_living_world_continuity
@@ -30,7 +31,15 @@ ip_posture: pattern_only_no_clone
 
 # Knowledge / information flow channels
 
-Realistic channel suite on world time. Sending exists → full suite in scope.
+**Baseline physics + power-gated acceleration** — not “everything is Sending.”
+
+## Baseline (slow / lossy)
+
+Letters · heralds · town criers · rumor · caravans · spy networks · academic correspondence — medieval physical time and loss.
+
+## Accelerators (power / infrastructure)
+
+Sending · magic mirrors · linked books · kingdom networks · divine omens · etc. Compress time/distance. Access is gated by power band and infrastructure — not free universal. Different actors see different surfaces.
 
 ## Feeds
 
@@ -39,5 +48,6 @@ Critical nodes · membrane · soft-teaching / mental-stat cue arrival · quiet b
 ## Refuse (required)
 
 - Instant omniscient party chat as the only model
-- Truncated suite when sending is first-class
+- Free universal accelerator access
+- Truncated suite when accelerators are in-scope
 - Knowledge that ignores distance, politics, or time

@@ -9,17 +9,15 @@ updated: 2026-08-10
 
 # INSPIRATION-SEASONING-RECEIPT
 
-**Shared Conceptual pin gate — OPEN** (altitude + cycle pass 1 + **closure pass #2**). Prior `applied` is **not** current.
+**Shared Conceptual pin gate — OPEN** (progressive distillation; quality pass 2026-08-10). Prior `applied` / L5 are **not** current relative to this remine.
 
 ```yaml
 inspiration_seasoning_disposition: open
 ```
 
-Harness: `shared_pin_gate_ok` is **false** until disposition is `applied|waived` after Grok+User re-evaluation.
-
 ## Batch scope
 
-All prior feedstock + altitude + pass-1 cycle cards + closure #2 (`knowledge-flow-channels`, `planar-grammar-with-local-distortion`, intent/class/seed/labor refinements).
+Prior feedstock + altitude + cycle + closure #2 + **quality pass** strengthenings + `voice-table-signaling`. Class expression direction locked; player-facing texture deferred.
 
 ## Maps accepted
 
@@ -27,9 +25,8 @@ _Pending Grok+User re-evaluation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]
 
 ## Deferred / refused
 
-- Labor A/B/C locked as textures; exemplar skins complementary
-- Do not close gate on dialogue-satisfied alone
-- One party per campaign / no multi-party seed
+- Class player-facing texture → focused distillation loop
+- Do not close gate on partial quality pass alone
 
 ## Waive
 
@@ -37,4 +34,4 @@ _None._
 
 ## Recommended next action
 
-Grok+User re-eval PIN-DERIVE focuses + seasoning maps → lock → set disposition `applied` (or `waived` + reason).
+Optional Trinity push for Grok re-eval of quality-pass feedstock → or focused class-expression distillation first → then disposition `applied|waived`.

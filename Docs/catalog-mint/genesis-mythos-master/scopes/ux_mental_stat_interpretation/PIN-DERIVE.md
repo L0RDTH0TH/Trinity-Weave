@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]
-- pin_focus: Mental-stat cues / read paths; soft-teaching surfaces; knowledge-channel cue arrival
+- pin_focus: Mental-stat cues / read paths; soft-teaching; knowledge surfaces differ by actor (baseline vs accelerator)
 - alternate: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ INT, WIS, and CHA can drive visual cues on people, places, and objects that hold
 
 ## Rationale
 
-Closure #2 light remine: Spell/agency perspective metadata remains primary. Season with class-unique-expression-surfaces soft-teaching + knowledge-flow-channels (how/when cues arrive on realistic delay).
+Quality pass light remine: Spell/agency metadata primary. Season with knowledge-flow power-gated accelerators vs slow baseline cue arrival.
 
 ## Operator
 

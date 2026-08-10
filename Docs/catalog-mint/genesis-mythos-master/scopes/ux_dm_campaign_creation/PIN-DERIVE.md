@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
-- pin_focus: Campaign frame bootstrap; one-party seed; planar framing; adventure native/migration
+- pin_focus: Campaign frame bootstrap; one-party seed; planar late-bound when table has power + DM rules
 - alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Rationale
 
-Closure #2 light remine: campaign-frame amendment remains primary. Season with one party per campaign + planar-grammar-with-local-distortion + seed-region density + adventure migration.
+Quality pass light remine: campaign-frame primary. Season with planar availability rules (not launch atlas) + one party per campaign.
 
 ## Operator
 

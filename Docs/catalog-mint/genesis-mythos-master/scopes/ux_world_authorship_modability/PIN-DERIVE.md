@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]
-- pin_focus: Curated + mod contracts + intent-shape A/B/C realization + failure/recovery choice + adventure import + planar authorship
+- pin_focus: Curated + mod + intent-shape A/B/C with witnessable calendar labor + failure choice + planar late-bound
 - alternate: [[Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ World change is first-class authorship across the physical container and the eso
 
 ## Rationale
 
-Closure #2 light remine: Modularity seams remain primary. Season with intent-shape-to-realization (A manorial / B specialist / C bounty-autonomous sprinkled; readable failure options — wait / stabilize / pay more) + planar-grammar-with-local-distortion + adventure migration.
+Quality pass light remine: Modularity primary. Season with intent-shape labor visibility (camp/watch bricks/seeds/trees) + planar late-bound availability + adventure migration.
 
 ## Operator
 

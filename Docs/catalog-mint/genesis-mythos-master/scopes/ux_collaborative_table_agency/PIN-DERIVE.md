@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709]]
-- pin_focus: Shared VTT loop — one party per campaign; dual-rail seats; membrane bleed
+- pin_focus: Shared VTT — one party; dual-rail seats; voice/IC signaling; membrane bleed
 - alternate: [[Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Virtual tabletop for collaborative storytelling: players act through character t
 
 ## Rationale
 
-Closure #2 light remine: Agency envelope remains primary. Season with one-party-per-campaign (seed-region) — negotiation inside party+DM only; no multi-party quest/caravan contention. Destiny refuse = fireteam size only.
+Quality pass light remine: Agency envelope primary. Season with voice-table-signaling (DM+voice changer for NPC; players optional IC voice) + one-party-per-campaign.
 
 ## Operator
 

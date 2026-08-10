@@ -5,14 +5,15 @@ source_title: Operator intent-shape-to-realization doctrine
 signal: strong
 research_status: operator_seed
 assumption: false
-liked: "Outer shape/massing by DM or player; system generates floor plans; design-time free tweak; post-ownership changes cost gold + logistics under world law → calendar labor; failure/recovery is table choice"
-why_it_worked: "Authorship stays intent-first; realization stays world-time labor; ownership and repair follow living law; turmoil has readable options not a mandated script"
-fits_our_game: "Thickens midband world-shape split. Intent ≈ Townscaper / Tiny Glade-style outer shape. System generates floor plans from shape; players tweak freely at design time. Post-ownership edits = gold + logistics under world law → calendar NPC labor. DM can edit + re-gen and fix mistakes where fair. Existing structures = repair degraded + expand. Ownership follows world rules/laws. Primary labor = A/B/C texture split (C both background mode and sprinkled in A/B)."
+liked: "Outer shape → floor plans → calendar labor; players can camp and watch labor unfold in real time (each brick, seed, tree); failure/recovery is table choice"
+why_it_worked: "Authorship stays intent-first; realization is visible world-time labor; witnessing system work reinforces that builds are not instant and players are not the construction workers"
+fits_our_game: "Thickens midband world-shape split. Intent ≈ Townscaper / Tiny Glade-style outer shape. System generates floor plans from shape; players tweak freely at design time. Post-ownership edits = gold + logistics under world law → calendar NPC labor. **Labor visibility:** players may camp and witness calendar labor in real time (brick by brick, seed by seed, tree by tree) — desired consequence of the pipeline + A/B/C textures. DM can edit + re-gen and fix mistakes where fair. Existing structures = repair degraded + expand. Ownership follows world rules/laws. Primary labor = A/B/C (C both background and sprinkled in A/B)."
 refuse_to_copy:
   - "Player as primary construction worker"
   - "Instant build completion"
   - "Classic place-build click loop as authorship default"
   - "Single mandated system response when labor/ownership fails"
+  - "Labor that only advances as unread off-screen ledger with no witnessable presence"
 maps_to_series:
   - ux_world_authorship_modability
   - ux_living_world_continuity
@@ -28,7 +29,7 @@ ip_posture: pattern_only_no_clone
 
 # Intent shape → realization
 
-Complements `calendar-npc-labor-world-shape` and Townscaper intent cards — adds shape→floor-plan generation, design-time freedom, post-ownership cost/law, A/B/C labor textures, and failure/recovery choice.
+Complements `calendar-npc-labor-world-shape` and Townscaper intent cards — shape→floor-plan generation, design-time freedom, post-ownership cost/law, A/B/C textures, failure/recovery choice, **visible real-time labor witness**.
 
 ## Pipeline
 
@@ -39,15 +40,19 @@ Complements `calendar-npc-labor-world-shape` and Townscaper intent cards — add
 5. Post-ownership change → gold + logistics → calendar labor
 6. Existing stock → repair degraded + expand; DM edit/re-gen where fair
 
+## Labor visibility (liked consequence)
+
+Players can camp and watch calendar labor unfold in real time — each brick laid, each seed planted, each tree chopped. Visible witness of system labor is desired. Reinforces refuse of instant-build and player-as-primary-construction-worker. Applies across A/B/C textures.
+
 ## Primary labor textures (A / B / C)
 
 | Texture | Job | Typical targets |
 |---------|-----|-----------------|
 | **A** | Manorial / seasonal agricultural cycle | Land, estates, working landscape |
 | **B** | Specialist crew / blueprint | Personal buildings, keeps, workshops, infrastructure |
-| **C** | Goal / bounty → autonomous agents | “Set it and let the system handle it” — **and** sprinkled inside A and B (e.g. set grow → auto growth; set clear forest → crews on calendar) |
+| **C** | Goal / bounty → autonomous agents | “Set it and let the system handle it” — **and** sprinkled inside A and B |
 
-C is both a standalone background mode and seasoning inside A/B. Exemplar skins (Majesty / Stronghold / Going Medieval / Foundation / Overlord tone) remain complementary references — not game-title conceptual pins.
+C is both a standalone background mode and seasoning inside A/B. Exemplar skins remain complementary references — not game-title conceptual pins.
 
 ## Labor / ownership failure & recovery
 
@@ -64,3 +69,4 @@ Not a single mandated system response. System makes costs and consequences **rea
 - Instant build
 - Classic place-build loop
 - Single mandated failure script
+- Labor that is only an unread ledger with no witnessable presence

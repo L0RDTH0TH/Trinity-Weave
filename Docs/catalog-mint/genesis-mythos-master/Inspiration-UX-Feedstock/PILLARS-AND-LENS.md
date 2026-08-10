@@ -6,7 +6,11 @@ updated: 2026-08-10
 
 # UX pillars and inspiration lens (GMM)
 
-Operator-locked framing (2026-08-07 dialogue; altitude remine 2026-08-08; cycle patterns + **closure pass #2** 2026-08-10).
+Operator-locked framing (2026-08-07 dialogue; altitude remine 2026-08-08; cycle + closure #2; **quality pass 2026-08-10** — progressive distillation).
+
+## Process — progressive distillation
+
+Multiple dialogue loops by design. Pass updates → Cursor feedstock → fresh Grok evaluation as needed. Not a single-gate final. Pin gate stays open until seasoning disposition re-applied. Do not treat prior `applied` / L5 as current relative to remine.
 
 ## Three pillars
 
@@ -42,7 +46,7 @@ Altitude-aware load-bearing nodes (people, bottleneck resources, weighted places
 
 ## Knowledge / information flow
 
-Channels on realistic time frames (letters, heralds, town criers, rumor, spy networks, academic correspondence, divine omen, …). Sending exists → full suite in scope. Feeds nodes, membrane, soft-teaching, mental-stat cue arrival. See `knowledge-flow-channels`.
+**Baseline physics + power-gated acceleration.** Baseline = slow/lossy physical medieval channels (letters, heralds, rumor, caravans, criers, spies, academia). Accelerators (Sending, mirrors, linked books, kingdom networks, divine omens, …) compress time/distance — access is power/infrastructure, not free universal. Different actors have different information surfaces. Feeds nodes, membrane, soft-teaching, mental-stat cue arrival. See `knowledge-flow-channels`.
 
 ## Seed travel / density
 
@@ -50,11 +54,19 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 
 ## Soft-teaching / class expression
 
-Identity-defining class/subclass actions get dedicated mini-games or continuous loops; distinct even on shared verbs; optional skip at gold/time/quality/difficulty cost. Soft-teaching explicit. **Combat interrupts mini-game; mini-game does not interrupt combat.** See `class-unique-expression-surfaces`.
+**Method locked; player-facing texture = Cursor draft v1.** Full board: [[CLASS-EXPRESSION-BOARD]] (Barbarian → Wizard + Artificer; key subclasses). Stereotype lens · hyper-fit refuse · short skippable loops · class pattern / subclass expression. **Combat interrupts mini-game; mini-game does not interrupt combat.** Awaiting Grok+User validation (distinctness, lazy stereotype, hyper-fit, skip-as-gate, subclass fidelity).
 
 ## Planar
 
-Distinct planes (Astral ≠ Feywild ≠ Material ≠ elemental, …). Same grammar (altitude, membrane, nodes, labor, knowledge flow) with **local distortion** allowed. See `planar-grammar-with-local-distortion`.
+Planes **not** defined at launch — world grows via players + DM; available when table has power + DM local rules. Same grammar with local distortion. Primary new-plane feel = disorientation uniquely hard per plane; reusable orientation tools; content late-bound. See `planar-grammar-with-local-distortion`.
+
+## Exploration ecology / settlement pressure
+
+Playable-race settlements radiate threat-level pressure that pushes stronger monsters outward; pressure bleeds into weaker settlements → readable gradient / safe-ish seed zones without nerfing ecology. See `exploration-altitude-ecology`.
+
+## Voice / table signaling
+
+NPC dialogue = DM + voice changer for immersion. Players may use voice changers as explicit IC signal. DM remains primary NPC voice author. See `voice-table-signaling`.
 
 ## Inspiration translation
 
@@ -83,8 +95,8 @@ Locked split (thickened by `intent-shape-to-realization`):
 | Layer | Job | Pattern |
 |-------|-----|---------|
 | **Intent** | Outer shape / massing | Townscaper / Tiny Glade-class; system may gen floor plans; free design-time tweak |
-| **Realization** | Who builds · when | NPC labor **on a calendar**; post-ownership = gold + logistics under world law |
-| **Refuse** | Player place-build loop | Instant build; player as primary construction worker; classic place-build |
+| **Realization** | Who builds · when | NPC labor **on a calendar**; post-ownership = gold + logistics; **visible real-time witness** (camp and watch bricks/seeds/trees) |
+| **Refuse** | Player place-build loop | Instant build; player as primary construction worker; classic place-build; unread-only labor ledger |
 
 ### Primary labor textures (final)
 

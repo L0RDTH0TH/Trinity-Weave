@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
-- pin_focus: Perspective/control envelopes change and cleanly return (player FP vs DM cams)
+- pin_focus: Perspective/control envelopes; reusable orientation tools for planar disorientation
 - alternate: [[Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Baseline player FP and a set of explicit temporary envelopes that change perspec
 
 ## Rationale
 
-FP envelope is structure; WorldCam/MapCam supporting for dual-rail cams.
+Quality pass light remine: FP envelope primary. Season lightly with planar-grammar orientation-difficulty tools (reusable; content late-bound).
 
 ## Operator
 

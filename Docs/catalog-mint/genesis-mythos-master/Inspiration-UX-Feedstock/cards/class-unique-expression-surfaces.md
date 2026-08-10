@@ -2,17 +2,19 @@
 title: Class-unique expression surfaces (soft-teaching loops)
 schema_version: 1
 source_title: Operator class-expression doctrine
-signal: strong
-research_status: operator_seed
+signal: medium
+research_status: focused_distillation_draft
 assumption: false
-liked: "Identity-defining class/subclass actions get dedicated mini-games or continuous loops — distinct even on 'same' verb; soft-teaching; optional skip at cost; combat interrupts mini-game, not reverse"
+liked: "Identity-defining class/subclass actions get dedicated mini-games or continuous loops; combat interrupts mini-game, not reverse; stereotype lens + short skippable loops"
 why_it_worked: "Class fantasy stays legible in the hands; skip keeps agency; combat urgency wins over expression desks"
-fits_our_game: "Major / identity-defining actions → mini-games or continuous loops (animal care, etc.). Class and subclass remain distinct on shared action names (e.g. wizard vs sorcerer spell-copy). Tools, languages, and other ruleset-called-out surfaces included. Soft-teaching explicit (e.g. spells as fields to balance; mini potion-maker). Skip = gold / time / quality / difficulty, modulated by subclass. Optional; low skill can skip at higher cost. Moddable exemplars. **Continuous loops vs combat:** mini-game does not interrupt combat; combat does interrupt mini-game."
+fits_our_game: "Direction locked. **Cursor draft v1** of player-facing texture lives in [[CLASS-EXPRESSION-BOARD]] (all major SRD classes + Artificer; key subclasses). Method: stereotype lens (productive exaggeration), hyper-fit refuse, short optional skip (gold/time/quality/difficulty), class owns pattern / subclass expresses same pattern differently. Combat interrupts mini-game (not reverse). Awaiting Grok+User validation — not locked."
 refuse_to_copy:
   - "Mandatory walls that block play without the mini-game"
   - "One-size generic loops that erase class/subclass difference"
   - "Chore loops with no agency or skip path"
   - "Mini-game pausing or overriding an active combat desk"
+  - "Treating draft board rows as finished contracts before validation"
+  - "Wholesale hyper-fit of any reference craft/sim loop"
 maps_to_series:
   - ux_player_character_creation
   - ux_combat_play_surface
@@ -30,11 +32,19 @@ ip_posture: pattern_only_no_clone
 
 # Class-unique expression surfaces
 
-Dedicated expression desks for identity-defining actions — continuous loops first-class; soft-teaching; optional skip at modulated cost.
+Dedicated expression desks for identity-defining actions.
 
-## Soft-teaching
+## Distillation status
 
-Exemplars teach the fiction (fields to balance, potion craft, care loops) without mandating a wall. Moddable so tables can swap depth. Knowledge-flow channels may deliver cues that feed these surfaces.
+| Layer | Status |
+|-------|--------|
+| Combat vs mini-game interrupt | Locked |
+| Soft-teaching + optional skip (intent) | Locked as intent |
+| Method (stereotype / hyper-fit / class→subclass) | Locked 2026-08-10 |
+| Hands/attention player texture | **Draft v1 on CLASS-EXPRESSION-BOARD — validate** |
+| Skip-cost clarity by class/subclass | **Draft v1 — validate** |
+
+See [[CLASS-EXPRESSION-BOARD]].
 
 ## Continuous loops vs combat
 
@@ -49,3 +59,5 @@ Exemplars teach the fiction (fields to balance, potion craft, care loops) withou
 - Generic one-size loops erasing class difference
 - Chore loops with no agency
 - Mini-game overriding combat
+- Hyper-fit wholesale reference loops
+- Treating unvalidated draft as contract

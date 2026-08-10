@@ -24,17 +24,18 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | Operator critical-node doctrine | strong | critical-node-hierarchy | Nested load-bearing people / resources / places / apex ecology — fallout degrees; **not** a hitlist |
-| Operator exploration-ecology doctrine | strong | exploration-altitude-ecology | Exploration high vs pocket; seasonal migrations; apex as event; locate→read→confront |
+| Operator exploration-ecology doctrine | strong | exploration-altitude-ecology | High vs pocket; **settlement threat-pressure gradient**; apex as event; locate→read→confront |
 | Operator seed-region / travel doctrine | strong | seed-region-density-and-travel | Hard density on seed town+hinterland; unforgiving low-power travel; **one party per campaign**; no multi-party seed |
-| Operator knowledge-flow doctrine | strong | knowledge-flow-channels | Realistic channels + time frames; sending → full suite; feeds nodes/membrane/soft-teaching |
-| Operator planar doctrine | strong | planar-grammar-with-local-distortion | Distinct planes; shared grammar + local distortion |
+| Operator knowledge-flow doctrine | strong | knowledge-flow-channels | **Baseline slow/lossy + power-gated accelerators**; different actor surfaces |
+| Operator planar doctrine | strong | planar-grammar-with-local-distortion | Late-bound planes; disorientation-first; reusable orientation tools; local distortion |
 
-## World shape / class expression (2026-08-10 dialogue + closure #2)
+## World shape / class expression (2026-08-10 dialogue + closure #2 + quality pass)
 
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
-| Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; **A/B/C** textures; failure/recovery = table choice |
-| Operator class-expression doctrine | strong | class-unique-expression-surfaces | Identity loops; soft-teaching; **combat interrupts mini-game, not reverse** |
+| Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; **real-time labor visibility** |
+| Operator class-expression doctrine | medium | class-unique-expression-surfaces | Direction locked; **CLASS-EXPRESSION-BOARD draft v1** (all majors + Artificer) awaiting Grok+User validation |
+| Operator voice-table signaling | medium | voice-table-signaling | DM+voice changer for NPC; players optional IC voice signal |
 
 ## Shared-world / digital D&D cousins
 

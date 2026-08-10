@@ -37,6 +37,21 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Labor A/B/C:** A manorial/seasonal · B specialist crew/blueprint · C goal/bounty autonomous (also sprinkled in A/B).
 - **Planar:** distinct planes; same grammar with local distortion.
 
+## Quality pass (2026-08-10) — progressive distillation
+
+- **Labor visibility:** camp and watch calendar labor in real time (brick / seed / tree) — liked consequence of intent→realization.
+- **Knowledge:** baseline slow/lossy physical + power-gated magical accelerators; different actor surfaces.
+- **Planar:** not at launch; grow with players+DM; disorientation-first; reusable orientation tools; content late-bound.
+- **Exploration:** playable-race settlements radiate threat pressure → outward gradient / safe-ish seed zones.
+- **Class expression:** still thin on hands/attention texture — deferred to focused distillation loop.
+- **Voice signaling:** DM+voice changer for NPC; players optional IC voice changers.
+
+## Class-expression draft v1 (2026-08-10)
+
+- Full major-class board drafted: [[CLASS-EXPRESSION-BOARD]] (SRD majors + Artificer).
+- Method: stereotype lens · hyper-fit · short skip · class→subclass same pattern.
+- Status: **validate with Grok+User** — not locked.
+
 ## Shared-world / digital D&D
 
 - **BG3:** Best digital D&D feel (roleplay + combat). **Refuse:** single-player crafted story spine — we want multiplayer open-world chaos.

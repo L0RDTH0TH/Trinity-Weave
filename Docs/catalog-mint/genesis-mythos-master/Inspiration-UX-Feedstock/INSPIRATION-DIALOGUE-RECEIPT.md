@@ -1,46 +1,40 @@
 ---
 title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
-status: feedstock-dialogue-satisfied
-inspiration_dialogue_satisfied: true
+status: feedstock-progressive-distillation
+inspiration_dialogue_satisfied: false
 updated: 2026-08-10
 
 ---
 
 # INSPIRATION-DIALOGUE-RECEIPT
 
-See also [[PILLARS-AND-LENS]].
+See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]].
 
-**Role:** share document for User+Cursor feedstock — **not** a Grok ladder gate. Grok polish (optional) feeds this receipt; User declares share-ready.
+**Role:** share document for User+Cursor feedstock — **not** a Grok ladder gate.
 
-**Dialogue satisfied (this cycle):** true — Inspiration dialogue with Grok complete (pass 1 patterns + **closure pass #2**).
+**Process:** progressive conversational distillation — multiple dialogue loops by design.
 
-**Share-ready:** false pending operator final share sentence (optional). Soft share ≠ pin-gate close.
+**Dialogue satisfied (overall cycle):** false. Class-expression **draft v1** on [[CLASS-EXPRESSION-BOARD]] awaits Grok+User validation.
+
+**Share-ready:** false.
 
 ## Passes this cycle
 
-1. **2026-08-10 pass 1:** critical nodes, intent→realization, class expression, seed travel, exploration ecology.
-2. **2026-08-10 closure #2:** knowledge-flow channels; labor failure/recovery; one party per campaign; loops vs combat; labor A/B/C; planar grammar + local distortion.
+1. **Pass 1:** critical nodes, intent→realization, class expression (direction), seed travel, exploration ecology.
+2. **Closure #2:** knowledge-flow; labor failure/recovery; one party; loops vs combat; A/B/C; planar grammar.
+3. **Quality pass:** labor visibility; knowledge baseline+accelerators; planar late-bound; settlement threat pressure; voice signaling; class texture called thin.
+4. **Class-expression draft v1:** Cursor board — all major SRD classes + Artificer + key subclasses. Validate: stereotype / hyper-fit / skip / subclass fidelity / niche collapse.
 
 ## Accepted derived move-pins (live feedstock)
 
-See `INDEX.md` + `cards/`.
-
-**Closure #2 set:** `knowledge-flow-channels`, `planar-grammar-with-local-distortion` (+ updates to `intent-shape-to-realization`, `class-unique-expression-surfaces`, `seed-region-density-and-travel`, `calendar-npc-labor-world-shape`, Destiny refuse note).
-
-**Pass 1 set:** `critical-node-hierarchy`, `intent-shape-to-realization`, `class-unique-expression-surfaces`, `seed-region-density-and-travel`, `exploration-altitude-ecology`.
-
-**Altitude set:** `cross-pillar-altitude-nest`, `manor-lords-high-altitude-region`, `clanfolk-faction-pocket-grain`, `combat-altitude-map-siege-raid`, `power-band-semipermeable-membrane`, `adventure-module-ruleset-migration`.
-
-Prior strong set still live.
+See `INDEX.md` + `cards/` + [[CLASS-EXPRESSION-BOARD]].
 
 ## Rejected or deferred
 
-- **Deferred/corrected:** Cities as “combat movement circle” → `situational-overlay-lenses`; circle = operator invent.
-- **Primary labor:** A/B/C texture split locked (C both background and sprinkled); exemplar skins complementary only.
-- **Adventure PDF thin stub:** demoted for seasoning vs migration workflow card.
-- **Pin gate:** remains **open** — do not treat prior `applied` as current.
+- **Class-unique expression surfaces:** draft ready for validation — **not** locked contracts.
+- **Pin gate:** remains **open**.
 
 ## Operator share statement
 
-_Pending optional one-liner._ e.g. “Patterns from the listed sources are good enough to season this cycle.”
+_Pending._ After class board validation (or explicit waive of class depth this cycle).
