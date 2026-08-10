@@ -2,38 +2,42 @@
 title: Inspiration seasoning STATUS — genesis-mythos-master
 project-id: genesis-mythos-master
 status: remine_open_for_grok
-updated: 2026-08-08
+updated: 2026-08-10
 ---
 
 # INSPIRATION-SEASONING-STATUS
 
-**Shared Conceptual pin gate reopened** — altitude-lens remine. Draft maps below; disposition stays **open** until Grok+User re-evaluation.
+**Shared Conceptual pin gate open** — disposition stays **open**. Dialogue satisfied (pass 1 + closure #2); soft share ≠ close.
 
-## New altitude maps (draft 2026-08-08)
+## Closure #2 maps (draft 2026-08-10)
 
-| derived_pin_id | maps_to_series | conceptual_anchor | signal | notes |
-|----------------|----------------|-------------------|--------|-------|
-| `cross-pillar-altitude-nest` | `ux_living_world_continuity`, `ux_early_game`, `ux_mid_game`, `ux_late_game`, `ux_combat_play_surface`, `ux_world_generation` | Phase-3-2-Off-Screen…; Phase-5-3-Quest-Pressure…; Phase-3-Living-Simulation…; Phase-3-2-Off-Screen…; Phase-5-1-Rule-Engine…; Phase-2-Procedural… | strong | Pattern card — seasons nested desks across pillars |
-| `manor-lords-high-altitude-region` | `ux_living_world_continuity`, `ux_mid_game`, `ux_dm_campaign_creation`, `ux_world_authorship_modability` | Phase-3-2-Off-Screen…; Phase-3-Living-Simulation…; amend-campaign-frame…; Phase-1-3-Modularity… | strong | Roleplay high altitude exemplar |
-| `clanfolk-faction-pocket-grain` | `ux_living_world_continuity`, `ux_early_game`, `ux_mid_game`, `ux_backstory_legacy_integration` | Phase-3-2-Off-Screen… (+ FactionGraph supporting); Phase-5-3-Quest-Pressure…; Phase-3-Living-Simulation…; Phase-2-2-Canon-Registry… | strong | Roleplay pocket altitude; FactionGraph weld on living-world remine |
-| `combat-altitude-map-siege-raid` | `ux_combat_play_surface`, `ux_living_world_continuity`, `ux_mid_game`, `ux_late_game` | Phase-5-1-Rule-Engine…; Phase-3-2-Off-Screen…; Phase-3-Living-Simulation…; Phase-3-2-Off-Screen… | strong | Combat nest; pairs Bannerlord residue |
-| `power-band-semipermeable-membrane` | `ux_early_game`, `ux_mid_game`, `ux_late_game`, `ux_living_world_continuity`, `ux_combat_play_surface`, `ux_collaborative_table_agency` | Phase-5-3…; Phase-3-Living-Sim…; Phase-3-2…; Phase-3-2…; Phase-5-1…; Phase-4-3-1-AgencyEnvelope… | strong | Bands = porosity; agency bleed |
-| `adventure-module-ruleset-migration` | `ux_dm_campaign_creation`, `ux_dm_session_prep`, `ux_world_authorship_modability`, `ux_combat_play_surface` | amend-campaign-frame…; Phase-4-2-1-TransitionGuard…; Phase-1-3-Modularity…; Phase-5-1-Rule-Engine… | strong | Supersedes thin adventure-PDF stub for seasoning weight |
+| derived_pin_id | maps_to_series | conceptual_anchor (from current PIN-DERIVE) | signal | notes |
+|----------------|----------------|-----------------------------------------------|--------|-------|
+| `knowledge-flow-channels` | `ux_living_world_continuity`, `ux_mental_stat_interpretation`, `ux_early_game`, `ux_mid_game`, `ux_late_game`, `ux_quiet_between_pillars`, `ux_collaborative_table_agency`, `ux_backstory_legacy_integration` | Phase-3-2…; Phase-5-2-Spell-Agency…; Phase-5-3…; Phase-3-Living-Sim…; Phase-3-2…; Phase-3-1-Tick…; Phase-4-3-1…; Phase-2-2-Canon… | strong | Sending → full suite; feeds nodes/membrane/soft-teaching |
+| `planar-grammar-with-local-distortion` | `ux_world_generation`, `ux_living_world_continuity`, `ux_dm_campaign_creation`, `ux_world_authorship_modability`, `ux_early_game`, `ux_mid_game`, `ux_late_game` | Phase-2-Procedural…; Phase-3-2…; amend-campaign-frame…; Phase-1-3…; Phase-5-3…; Phase-3-Living-Sim…; Phase-3-2… | strong | Same grammar; local distortion |
+| `intent-shape-to-realization` *(refined)* | authorship, living-world, quiet, campaign, session prep | Phase-1-3…; Phase-3-2…; Phase-3-1-Tick…; amend…; Phase-4-2-1… | strong | A/B/C textures; failure/recovery = table choice |
+| `class-unique-expression-surfaces` *(refined)* | PC creation, combat, mental-stat, table agency, quiet, authorship | Spawn…; Rule-Engine…; Spell-Agency…; AgencyEnvelope…; Tick…; Modularity… | strong | Combat interrupts mini-game; not reverse |
+| `seed-region-density-and-travel` *(refined)* | worldgen, early, living-world, campaign, quiet, **table agency** | Phase-2…; Quest-Pressure…; Phase-3-2…; amend…; Tick…; AgencyEnvelope… | strong | One party / campaign; no multi-party seed |
 
-## Prior maps (still in play — reaffirm under altitude)
+## Pass-1 cycle maps (draft 2026-08-10 — still in play)
 
-Prior 2026-08-07 maps remain proposed; Grok should re-read with altitude/membrane lens. Notable touchpoints:
+| derived_pin_id | maps_to_series | signal |
+|----------------|----------------|--------|
+| `critical-node-hierarchy` | living-world, early/mid/late, worldgen, backstory, combat | strong |
+| `exploration-altitude-ecology` | worldgen, living-world, early/mid, quiet, combat | strong |
 
-- `bannerlord-offscreen-faction-military` → living-world / combat altitude residue (not 3D battle hyperfocus)
-- `calendar-npc-labor-world-shape` + midband labor cluster → mid nest under high continuity
-- `stub-adventure-pdf-dependency-graph` → demote vs `adventure-module-ruleset-migration` (keep as thin stub)
+## Prior altitude maps (still in play)
 
-Full prior table archived in git history / prior RECEIPT applied batch; re-list only if Grok yellows specific rows.
+`cross-pillar-altitude-nest`, `manor-lords-…`, `clanfolk-…`, `combat-altitude-…`, `power-band-…`, `adventure-module-…`
+
+## Prior maps (still in play)
+
+2026-08-07 midband/labor/shared-world maps remain proposed. Destiny refuse = fireteam cap only (not multi-party seed).
 
 ## Unmapped / deferred
 
-- Primary labor exemplar still open
-- Exploration-specific altitude exemplars beyond habitat/region nest — thicken if Grok asks
+- No invent of PIN-INDEX titles
+- Exemplar labor skins complementary under A/B/C
 
 ## Waive
 
@@ -41,8 +45,8 @@ _None — disposition = open on RECEIPT._
 
 ## Operator
 
-- [x] Altitude feedstock cards + INDEX
-- [x] PIN-DERIVE proposals remine + emit
-- [x] Draft seasoning maps for new cards
+- [x] Closure #2 feedstock + INDEX / PILLARS
+- [x] Draft seasoning maps
+- [x] Light PIN-DERIVE focus remine where series focuses shift
 - [ ] Grok+User re-evaluation
 - [ ] Disposition applied|waived

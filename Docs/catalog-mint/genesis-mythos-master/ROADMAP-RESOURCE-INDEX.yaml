@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 644
+roadmap_note_count: 651
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4641,9 +4641,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: class-unique-expression-surfaces
+  wiki: '[[class-unique-expression-surfaces]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/class-unique-expression-surfaces.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: combat-altitude-map-siege-raid
   wiki: '[[combat-altitude-map-siege-raid]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: critical-node-hierarchy
+  wiki: '[[critical-node-hierarchy]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/critical-node-hierarchy.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4660,6 +4676,14 @@ roadmap_notes:
 - title: destiny-shared-world-refuse-fireteam-shooter
   wiki: '[[destiny-shared-world-refuse-fireteam-shooter]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: exploration-altitude-ecology
+  wiki: '[[exploration-altitude-ecology]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/exploration-altitude-ecology.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4697,9 +4721,25 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: intent-shape-to-realization
+  wiki: '[[intent-shape-to-realization]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/intent-shape-to-realization.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: kenshi-harsh-ai-permanent-consequence
   wiki: '[[kenshi-harsh-ai-permanent-consequence]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/kenshi-harsh-ai-permanent-consequence.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: knowledge-flow-channels
+  wiki: '[[knowledge-flow-channels]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/knowledge-flow-channels.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4761,6 +4801,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: planar-grammar-with-local-distortion
+  wiki: '[[planar-grammar-with-local-distortion]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/planar-grammar-with-local-distortion.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: power-band-semipermeable-membrane
   wiki: '[[power-band-semipermeable-membrane]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md
@@ -4796,6 +4844,14 @@ roadmap_notes:
 - title: rust-ark-base-systems-light
   wiki: '[[rust-ark-base-systems-light]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: seed-region-density-and-travel
+  wiki: '[[seed-region-density-and-travel]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/seed-region-density-and-travel.md
   kind: user_story
   wiki_links: []
   linked_resources: []

@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]
-- pin_focus: Mental-stat cues / available read paths (not sheet numbers; not auto-solve)
+- pin_focus: Mental-stat cues / read paths; soft-teaching surfaces; knowledge-channel cue arrival
 - alternate: [[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ INT, WIS, and CHA can drive visual cues on people, places, and objects that hold
 
 ## Rationale
 
-Perspective/agency metadata is structure for cue presentation.
+Closure #2 light remine: Spell/agency perspective metadata remains primary. Season with class-unique-expression-surfaces soft-teaching + knowledge-flow-channels (how/when cues arrive on realistic delay).
 
 ## Operator
 

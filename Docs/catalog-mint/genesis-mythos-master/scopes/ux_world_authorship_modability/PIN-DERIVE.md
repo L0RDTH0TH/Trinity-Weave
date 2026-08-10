@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]
-- pin_focus: Curated + mod contracts + adventure import migration audit (safety seams)
+- pin_focus: Curated + mod contracts + intent-shape A/B/C realization + failure/recovery choice + adventure import + planar authorship
 - alternate: [[Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ World change is first-class authorship across the physical container and the eso
 
 ## Rationale
 
-Altitude remine 2026-08-08: Modularity seams remain primary; overwrite/regen supporting; exemplar contrast. Season with adventure-module-ruleset-migration (DM migration when table ≠ module).
+Closure #2 light remine: Modularity seams remain primary. Season with intent-shape-to-realization (A manorial / B specialist / C bounty-autonomous sprinkled; readable failure options — wait / stabilize / pay more) + planar-grammar-with-local-distortion + adventure migration.
 
 ## Operator
 

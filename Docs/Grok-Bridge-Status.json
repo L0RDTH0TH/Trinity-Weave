@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-08-07T20:03:21Z",
+  "generated_utc": "2026-08-08T21:08:31Z",
   "remote_ok": true,
   "remote_identity": "L0RDTH0TH/Trinity-Weave",
   "active_branches": [
@@ -12,12 +12,12 @@
     "project/genesis-mythos-master": 0
   },
   "local_fingerprint": {
-    "weave": "cf1ccfe97f510c03",
-    "project": "0f1983bea884682b"
+    "weave": "a8683ff7603aaead",
+    "project": "a756a19f3f8872ae"
   },
   "awaiting_push": false,
-  "last_successful_push_utc": "2026-08-07T20:03:20Z",
-  "next_eligible_push_utc": "2026-08-08T20:03:20Z",
+  "last_successful_push_utc": "2026-08-08T21:08:30Z",
+  "next_eligible_push_utc": "2026-08-09T21:08:30Z",
   "push_skipped_reason": "cooldown",
   "recommendation": "awaiting_push_window"
 }

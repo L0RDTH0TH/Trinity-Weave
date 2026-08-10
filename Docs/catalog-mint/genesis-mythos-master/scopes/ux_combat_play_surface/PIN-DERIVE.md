@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]
-- pin_focus: Combat altitudes (map pieces / siege / raid) consume pre-compiled rule math; authored ends
+- pin_focus: Combat altitudes consume rule math; combat interrupts expression mini-games; apex as event
 - alternate: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Combat is a distinct play surface the whole table enters and exits: combat chrom
 
 ## Rationale
 
-Altitude remine 2026-08-08: Rule-engine primitives remain primary weld for “consumes rule math.” UX owns nested desks: high=map posture, mid=siege participation, low=village raid. Background faction combat residue (Bannerlord-class) — do not hyper-focus 3D battle sim.
+Closure #2 light remine: Rule-engine primitives remain primary. Lock: mini-game does not interrupt combat; combat interrupts mini-game. Season with class-unique-expression-surfaces + combat altitudes.
 
 ## Operator
 

@@ -9,10 +9,11 @@ pillars:
   - exploration
 liked: "Dropping into a shared world with other players — multiplayer presence in a persistent fantasy space"
 why_it_worked: "The fantasy of co-inhabiting a world, not only a lobby"
-fits_our_game: "Shared-world multiplayer without Destiny's party-size or combat model — we drop the 3-player limit; combat is turn-based"
+fits_our_game: "Shared-world multiplayer presence without Destiny's fireteam size or shooter combat. Refuse is **only** the hard 3-player fireteam cap (+ shooter combat skin) — not a multi-party MMO seed. Product remains **one party per campaign** (see seed-region / PILLARS)."
 refuse_to_copy:
   - "Hard 3-player fireteam as product law"
   - "Real-time shooter combat as the combat pillar default"
+  - "Reading Destiny refuse as permission for multi-party quest/caravan contention"
 maps_to_series:
   - ux_collaborative_table_agency
   - ux_living_world_continuity

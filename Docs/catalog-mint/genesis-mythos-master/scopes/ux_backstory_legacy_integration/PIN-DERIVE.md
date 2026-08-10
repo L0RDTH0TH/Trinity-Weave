@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530]]
-- pin_focus: Backstory/legacy hooks into play and chronicle (canon registry structure)
+- pin_focus: Backstory/legacy hooks into play; succession + critical-node people as chronicle pressure
 - alternate: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Backstory and legacies are a first-class player seeding system: players seed per
 
 ## Rationale
 
-Structure-first canon registry; quest-pressure + NPC agendas supporting for hooks into play.
+2026-08-10 light remine: Canon registry remains primary. Season with critical-node-hierarchy (family/apprenticeship succession; irreplaceable people) + Clanfolk pocket grain.
 
 ## Operator
 

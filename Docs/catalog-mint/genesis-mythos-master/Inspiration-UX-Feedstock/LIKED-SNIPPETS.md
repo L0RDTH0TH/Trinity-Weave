@@ -1,7 +1,7 @@
 ---
 title: Liked snippets — operator taste (Grok dialogue feedstock)
 project-id: genesis-mythos-master
-updated: 2026-08-08
+updated: 2026-08-10
 ---
 
 # Liked snippets (operator)
@@ -19,6 +19,23 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Combat instance:** map pieces → siege participation → village raid.
 - **Membrane:** power bands = general porosity; agency bleed-through is consequence — not hard “never see Y until level X.”
 - **Adventure import:** native if rulesets align; else DM migration (switch / overwrite / skip) with audit.
+
+## Cycle patterns (2026-08-10)
+
+- **Critical nodes:** nested load-bearing people / resources / places / apex ecology; fallout degrees; succession; not a hitlist.
+- **Intent→realization:** shape/massing → floor plans → design-time tweak → post-ownership gold+logistics→calendar labor.
+- **Class expression:** identity mini-games / continuous loops; soft-teaching; optional skip at cost; class/subclass stay distinct.
+- **Seed travel:** hard density on seed town+hinterland; unforgiving low-power travel; no mundane fast travel; play-driven expansion.
+- **Exploration ecology:** high region continuity vs pocket site grain; seasonal migrations; apex as event; locate→read→confront.
+
+## Closure pass #2 (2026-08-10)
+
+- **Knowledge flow:** letters/heralds/criers/rumor/spies/academia/omen… on realistic time; sending → full suite.
+- **Labor failure/recovery:** readable costs; table chooses (wait / stabilize / pay more / …) — no single mandated script.
+- **One party per campaign:** not MMO; no multi-party quest/caravan contention; Destiny refuse = fireteam cap only.
+- **Loops vs combat:** mini-game does not interrupt combat; combat interrupts mini-game.
+- **Labor A/B/C:** A manorial/seasonal · B specialist crew/blueprint · C goal/bounty autonomous (also sprinkled in A/B).
+- **Planar:** distinct planes; same grammar with local distortion.
 
 ## Shared-world / digital D&D
 

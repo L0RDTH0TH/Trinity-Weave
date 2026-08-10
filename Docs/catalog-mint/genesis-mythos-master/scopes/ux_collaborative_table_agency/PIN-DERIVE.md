@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709]]
-- pin_focus: Shared VTT loop — dual-rail seats; agency bleed through power-band membrane
+- pin_focus: Shared VTT loop — one party per campaign; dual-rail seats; membrane bleed
 - alternate: [[Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Virtual tabletop for collaborative storytelling: players act through character t
 
 ## Rationale
 
-Altitude remine 2026-08-08: Agency envelope modes remain Conceptual home. Season with membrane doctrine — table agency can place cast before higher figures/desks without erasing bands.
+Closure #2 light remine: Agency envelope remains primary. Season with one-party-per-campaign (seed-region) — negotiation inside party+DM only; no multi-party quest/caravan contention. Destiny refuse = fireteam size only.
 
 ## Operator
 

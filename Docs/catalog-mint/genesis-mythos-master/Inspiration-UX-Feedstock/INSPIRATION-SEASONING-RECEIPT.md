@@ -4,12 +4,12 @@ project-id: genesis-mythos-master
 inspiration_seasoning_disposition: open
 inspiration_seasoning_waive_reason: ""
 status: open
-updated: 2026-08-08
+updated: 2026-08-10
 ---
 
 # INSPIRATION-SEASONING-RECEIPT
 
-**Shared Conceptual pin gate — REOPENED** for altitude-lens remine (2026-08-08).
+**Shared Conceptual pin gate — OPEN** (altitude + cycle pass 1 + **closure pass #2**). Prior `applied` is **not** current.
 
 ```yaml
 inspiration_seasoning_disposition: open
@@ -19,7 +19,7 @@ Harness: `shared_pin_gate_ok` is **false** until disposition is `applied|waived`
 
 ## Batch scope
 
-Altitude remine — all prior feedstock + new altitude/membrane/Manor/Clanfolk/combat/adventure-migration cards; PIN-DERIVE proposals re-emitted under altitude lens.
+All prior feedstock + altitude + pass-1 cycle cards + closure #2 (`knowledge-flow-channels`, `planar-grammar-with-local-distortion`, intent/class/seed/labor refinements).
 
 ## Maps accepted
 
@@ -27,8 +27,9 @@ _Pending Grok+User re-evaluation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]
 
 ## Deferred / refused
 
-- Primary labor exemplar still open (cluster complementary)
-- Do not close gate on soft feedstock share alone
+- Labor A/B/C locked as textures; exemplar skins complementary
+- Do not close gate on dialogue-satisfied alone
+- One party per campaign / no multi-party seed
 
 ## Waive
 
@@ -36,4 +37,4 @@ _None._
 
 ## Recommended next action
 
-Grok re-evaluate PIN-DERIVE + seasoning maps under altitude/membrane lens → User+Cursor lock → set disposition `applied` (or `waived` + reason).
+Grok+User re-eval PIN-DERIVE focuses + seasoning maps → lock → set disposition `applied` (or `waived` + reason).

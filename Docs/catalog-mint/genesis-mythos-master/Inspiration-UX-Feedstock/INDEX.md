@@ -1,12 +1,12 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-08
+updated: 2026-08-10
 ---
 
 # INDEX — pinable sources
 
-Pillar map: see [[PILLARS-AND-LENS]].
+Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 
 ## Cross-pillar altitude (2026-08-08 remine)
 
@@ -19,12 +19,29 @@ Pillar map: see [[PILLARS-AND-LENS]].
 | Operator membrane doctrine | strong | power-band-semipermeable-membrane | Bands = default porosity; agency bleed-through |
 | Adventure import doctrine | strong | adventure-module-ruleset-migration | Native if rulesets align; else DM migration + audit |
 
+## Living-world structure / ecology / travel (2026-08-10 dialogue)
+
+| Source | Signal | Derived pins | Notes |
+|--------|--------|--------------|-------|
+| Operator critical-node doctrine | strong | critical-node-hierarchy | Nested load-bearing people / resources / places / apex ecology — fallout degrees; **not** a hitlist |
+| Operator exploration-ecology doctrine | strong | exploration-altitude-ecology | Exploration high vs pocket; seasonal migrations; apex as event; locate→read→confront |
+| Operator seed-region / travel doctrine | strong | seed-region-density-and-travel | Hard density on seed town+hinterland; unforgiving low-power travel; **one party per campaign**; no multi-party seed |
+| Operator knowledge-flow doctrine | strong | knowledge-flow-channels | Realistic channels + time frames; sending → full suite; feeds nodes/membrane/soft-teaching |
+| Operator planar doctrine | strong | planar-grammar-with-local-distortion | Distinct planes; shared grammar + local distortion |
+
+## World shape / class expression (2026-08-10 dialogue + closure #2)
+
+| Source | Signal | Derived pins | Notes |
+|--------|--------|--------------|-------|
+| Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; **A/B/C** textures; failure/recovery = table choice |
+| Operator class-expression doctrine | strong | class-unique-expression-surfaces | Identity loops; soft-teaching; **combat interrupts mini-game, not reverse** |
+
 ## Shared-world / digital D&D cousins
 
 | Source | Signal | Derived pins | Pillars / notes |
 |--------|--------|--------------|-----------------|
 | Baldur’s Gate 3 | strong | bg3-dnd-feel-refuse-authored-spine | Roleplay + Combat feel; **refuse** SP crafted campaign spine → we want multiplayer open-world chaos |
-| Destiny | strong | destiny-shared-world-refuse-fireteam-shooter | Shared-world multiplayer presence; **refuse** 3-player cap + real-time shooter combat (we’re turn-based, uncapped table) |
+| Destiny | strong | destiny-shared-world-refuse-fireteam-shooter | Shared-world multiplayer presence; **refuse only** 3-player fireteam cap + shooter combat — not multi-party MMO seed |
 
 ## Cluster: open-world living cast
 

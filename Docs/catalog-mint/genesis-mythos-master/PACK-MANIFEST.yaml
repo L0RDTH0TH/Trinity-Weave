@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-08T21:07:27Z'
+synced_at: '2026-08-10T05:52:54Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 76f83e63f8393d22
+  ROADMAP-RESOURCE-INDEX.yaml: e1439a3020ec3769
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -198,21 +198,21 @@ file_hashes:
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
   scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
-  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: 7829b7eec12c3a73
+  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: 0ea65de30dc1d1c9
   scopes/ux_camera_control_envelopes/PIN-DERIVE.md: eddfdf499c7fb3d2
-  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: 2cb1482c1c235355
-  scopes/ux_combat_play_surface/PIN-DERIVE.md: e950bf39ce9b672c
-  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: f9a8838827d88f59
-  scopes/ux_dm_session_prep/PIN-DERIVE.md: 27c69704e1aac9f7
-  scopes/ux_early_game/PIN-DERIVE.md: 74cd46a01ab8458d
-  scopes/ux_late_game/PIN-DERIVE.md: 630745b24755768a
-  scopes/ux_living_world_continuity/PIN-DERIVE.md: 05c9cd1d53942945
-  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 3aac68d00dd5006b
-  scopes/ux_mid_game/PIN-DERIVE.md: 7568f6c8582c1636
-  scopes/ux_player_character_creation/PIN-DERIVE.md: b8a9d9c18d6b8028
-  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: dc6b40c49199cc0b
-  scopes/ux_world_authorship_modability/PIN-DERIVE.md: beb7ed161958abe2
-  scopes/ux_world_generation/PIN-DERIVE.md: eeadf79e1051ba27
+  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: 8774bb8d12db7d87
+  scopes/ux_combat_play_surface/PIN-DERIVE.md: 1dca5feafcc7912d
+  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: c06f6a55489d689f
+  scopes/ux_dm_session_prep/PIN-DERIVE.md: fdb3893a6efda351
+  scopes/ux_early_game/PIN-DERIVE.md: 074bc4d8ac0785d1
+  scopes/ux_late_game/PIN-DERIVE.md: 90321ffcdbfd3e01
+  scopes/ux_living_world_continuity/PIN-DERIVE.md: 557d194a07406298
+  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: d1738b125d2cb165
+  scopes/ux_mid_game/PIN-DERIVE.md: 0e5f5a9fe4acdcec
+  scopes/ux_player_character_creation/PIN-DERIVE.md: c9e5ea8ab9e76b45
+  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 9d2bf5736cfc01ba
+  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 984d211879dfe395
+  scopes/ux_world_generation/PIN-DERIVE.md: cf6254fbdee8d6fa
   scopes/ux_backstory_legacy_integration/L5.md: 31ad2ef870a2a3cb
   scopes/ux_camera_control_envelopes/L5.md: 8844ee60d639b561
   scopes/ux_collaborative_table_agency/L5.md: af4d365cffdc7ff8
@@ -244,7 +244,7 @@ file_hashes:
   scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: ab6df804fa832adc
   scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: c06cb6b1fda269b9
   L5-AFFIRM-STATUS.md: 68bdefc892f8a197
-  PIN-DERIVE-STATUS.md: 7705447bc8ecbb44
+  PIN-DERIVE-STATUS.md: a438c42b84c5b973
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -265,12 +265,12 @@ file_hashes:
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
   Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 7a13bb7a4a20fb1c
-  Inspiration-UX-Feedstock/INDEX.md: 101c3b9358a29701
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 75c2a3145d433287
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: eab7fc15626073ee
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 1380cb96d675579a
-  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 47706eb3d0b42ccd
-  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: 8f2de65cf5fa7444
+  Inspiration-UX-Feedstock/INDEX.md: e8986e7617921705
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: fb20c91e3e88f108
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 557a800fb095a831
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 05ea213f6acc7133
+  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 74ca2c1c2d7192b1
+  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: 3ac47b1e6f80108a
   Inspiration-UX-Feedstock/README.md: d488b788625ca18a
   Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
   Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md: 69c1f2a7e371e247
@@ -278,16 +278,21 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md: a1de4f217d55435b
   Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md: 71d693b0560973b4
   Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: 39bd4c1bf525bed3
-  Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: c1eba99f8ef2ee62
+  Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: f91d169bbd0e41c7
   Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md: 83dea980f8840368
+  Inspiration-UX-Feedstock/cards/class-unique-expression-surfaces.md: 5c87f64691db6ac8
   Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md: f3fcd2bdbfd0fc32
+  Inspiration-UX-Feedstock/cards/critical-node-hierarchy.md: 55ea82b81d451c08
   Inspiration-UX-Feedstock/cards/cross-pillar-altitude-nest.md: f49825e8fbe4ba37
-  Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 6e0bc26e8337b031
+  Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 44f0ec4534635377
+  Inspiration-UX-Feedstock/cards/exploration-altitude-ecology.md: ea0121bc71c0967d
   Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md: 05b10274ddbc005f
   Inspiration-UX-Feedstock/cards/foundation-district-organic-build.md: f69f05712e24c8a5
   Inspiration-UX-Feedstock/cards/going-medieval-blueprint-pawns.md: eea0a4dcd366e2a9
   Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md: c11be630519d40d0
+  Inspiration-UX-Feedstock/cards/intent-shape-to-realization.md: 18bf938c49cf2dfd
   Inspiration-UX-Feedstock/cards/kenshi-harsh-ai-permanent-consequence.md: b08d615dc7cceac1
+  Inspiration-UX-Feedstock/cards/knowledge-flow-channels.md: 199fffca944d160d
   Inspiration-UX-Feedstock/cards/live-grid-correspondence.md: f9049518c3c03842
   Inspiration-UX-Feedstock/cards/low-fantasy-tone-exemplar.md: 39a89225086427a5
   Inspiration-UX-Feedstock/cards/majesty-goal-heroes-realize.md: 28ed5fbff3c9a321
@@ -295,11 +300,13 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md: 8f77af6db8010f40
   Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md: e1f1dd2f1dd0b099
   Inspiration-UX-Feedstock/cards/overlord-minion-labor-partial.md: 41fbf5c1ea62363a
+  Inspiration-UX-Feedstock/cards/planar-grammar-with-local-distortion.md: 9221c2b7fb0f0de6
   Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md: ed32c05ad19c1dbf
   Inspiration-UX-Feedstock/cards/rain-world-creature-territory-habitat.md: c369d0b05c63349b
   Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md: ed4d69eb71d5b348
   Inspiration-UX-Feedstock/cards/rimworld-designate-calendar-labor.md: a4e205ec8089ba4b
   Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md: 34a84d3208a20eaf
+  Inspiration-UX-Feedstock/cards/seed-region-density-and-travel.md: ea13c6b66512b486
   Inspiration-UX-Feedstock/cards/settlers-flag-serfs-build.md: 891da3ecbb0eae04
   Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md: 3ce1c313bfc549b5
   Inspiration-UX-Feedstock/cards/stronghold-plan-engineers-time.md: dc5f73a517ab9357
@@ -315,6 +322,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: f5e0d48dd91b4d3e
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: a6b279969b6136ac
+  MINT-PACK.md: 86ed061ce9d5a33a
 warnings:
 - feed_completeness:no_focal_item
