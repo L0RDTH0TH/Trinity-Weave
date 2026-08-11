@@ -17,10 +17,10 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 **Two surfaces — both in play for catalog mint (not “main only”):**
 
 
-| **Surface**                  | **Branch / path**                                                     | **Role in mint / walk**                                                                                                          |
-| ---------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Surface**                  | **Branch / path**                                                     | **Role in mint / walk**                                                                                                                |
+| ---------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Mint pack (walk queue)**   | `main` **→** `Docs/catalog-mint/<project_id>/`                        | **Backlog, FEED-ENVELOPE, BATCH-DIGEST, Inspiration-UX, PIN-DERIVE, seasoning STATUS, PIN-EXCERPTS, L5 affirm digests, shared rubric** |
-| **Project tree (grounding)** | `project/<project_id>` **(e.g.** `project/genesis-mythos-master`**)** | **PMG, full** `Roadmap/`**, MOC,** `GROK-PROJECT-START.md`**, observability / tertiary indexes** |
+| **Project tree (grounding)** | `project/<project_id>` **(e.g.** `project/genesis-mythos-master`**)** | **PMG, full** `Roadmap/`**, MOC,** `GROK-PROJECT-START.md`**, observability / tertiary indexes**                                       |
 
 
 **When the bone pilot names** `project_id`**, open that project branch for grounding.**
@@ -40,11 +40,11 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 7. Read backlog gates before walking.
 8. Pass A — series only until series Trinity ref set.
 9. **Inspiration feedstock polish (optional):** open `Inspiration-UX-Feedstock/`. Argue **job/pattern**, not game skin. ≥1 refuse. Challenge hyper-fit. Propose card edits — User+Cursor own vault/receipt. Do **not** declare share-ready yourself.
-10. **Pin derive** (after Trinity; before Pass B) — see Pin derive section.  
-11. **Inspiration seasoning maps** (same Conceptual pin gate — not a separate unlock) — see Seasoning section.  
-12. **Pass B** — same-width batch; BATCH-DIGEST first; lensed by Conceptual + seasoning + AP; one receipt; full WALK only yellow/red/thin.  
-13. Ground Meaning in PMG + roadmap — AP / Inspiration = thickeners only.  
-14. World ≠ campaign.  
+10. **Pin derive** (after Trinity; before Pass B) — see Pin derive section.
+11. **Inspiration seasoning maps** (same Conceptual pin gate — not a separate unlock) — see Seasoning section.
+12. **Pass B** — same-width batch; BATCH-DIGEST first; lensed by Conceptual + seasoning + AP; one receipt; full WALK only yellow/red/thin.
+13. Ground Meaning in PMG + roadmap — AP / Inspiration = thickeners only.
+14. World ≠ campaign.
 15. Stale pack → ask Trinity republish — do not invent feedstock.
 
 **Pin derive:**
@@ -70,4 +70,7 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 3. Checks: Pass-B drift; missing Conceptual lens; thin moments; pack-smell; PoC ≠ full vision; backend-only; hyper-fit to one inspiration source.
 4. ≤3 cross-row flags; operator family-attests. **Operator Loop 2** = depth slicer → validate levels — **after** L5 family green — not this turn.
 
+
+
 # END PASTE
+

@@ -46,10 +46,11 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Class expression:** still thin on hands/attention texture — deferred to focused distillation loop.
 - **Voice signaling:** DM+voice changer for NPC; players optional IC voice changers.
 
-## Class-expression draft v1 (2026-08-10)
+## Class-expression draft v2 (2026-08-11)
 
-- Full major-class board drafted: [[CLASS-EXPRESSION-BOARD]] (SRD majors + Artificer).
-- Method: stereotype lens · hyper-fit · short skip · class→subclass same pattern.
+- Board: [[CLASS-EXPRESSION-BOARD]] — method locks + Sorcerer weave-atelier upgrade.
+- Skip: system plays for you, near-average; rare real-bad; manual better; never a gate.
+- Wizard / Artificer / Sorcerer = weave family with different desks (map · object · live current).
 - Status: **validate with Grok+User** — not locked.
 
 ## Shared-world / digital D&D

@@ -54,7 +54,7 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 
 ## Soft-teaching / class expression
 
-**Method locked; player-facing texture = Cursor draft v1.** Full board: [[CLASS-EXPRESSION-BOARD]] (Barbarian → Wizard + Artificer; key subclasses). Stereotype lens · hyper-fit refuse · short skippable loops · class pattern / subclass expression. **Combat interrupts mini-game; mini-game does not interrupt combat.** Awaiting Grok+User validation (distinctness, lazy stereotype, hyper-fit, skip-as-gate, subclass fidelity).
+**Method locked (v2); board = [[CLASS-EXPRESSION-BOARD]] draft v2.** Pattern-learning north star (downtime + mechanical world; soft-teaching ≈ the loop). Universal skip = system acts as if you played (near-average; rare real-bad; manual better; never a gate). Loops may lean Roleplay / Exploration / Combat. **Combat interrupts mini-game; mini-game does not interrupt combat.** Wizard–Artificer = same weave family (map vs object). Cleric serves the channel; Paladin tends sworn word. Fighter = craft of violence; Monk = craft of the self. Sorcerer = weave-atelier (move *with* current; vessel limit). Awaiting Grok+User validation.
 
 ## Planar
 

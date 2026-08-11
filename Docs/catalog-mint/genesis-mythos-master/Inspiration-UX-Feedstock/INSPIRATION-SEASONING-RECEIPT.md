@@ -4,7 +4,7 @@ project-id: genesis-mythos-master
 inspiration_seasoning_disposition: open
 inspiration_seasoning_waive_reason: ""
 status: open
-updated: 2026-08-10
+updated: 2026-08-11
 ---
 
 # INSPIRATION-SEASONING-RECEIPT
@@ -17,7 +17,7 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + altitude + cycle + closure #2 + **quality pass** strengthenings + `voice-table-signaling`. Class expression direction locked; player-facing texture deferred.
+Prior feedstock + quality pass + class-expression **board draft v2** (method locks + Sorcerer atelier). Disposition stays **open**.
 
 ## Maps accepted
 
