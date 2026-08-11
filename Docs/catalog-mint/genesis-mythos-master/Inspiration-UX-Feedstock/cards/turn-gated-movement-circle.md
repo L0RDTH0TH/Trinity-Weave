@@ -22,3 +22,5 @@ divergence_from_user: "2026-08-07 — prior seed wrongly attributed this to Citi
 # Turn-gated FPOV movement circle with range glow
 
 Operator invent for the combat desk. May rhyme with “lens” thinking; **not** the Cities pin.
+
+Flank / blind-spot overlay (2026-08-11) uses the **same visual family** — short acting-player cone, combat-surface only. See `combat-flank-blind-spot-arc`.

@@ -1,7 +1,7 @@
 ---
 title: UX pillars and inspiration lens — GMM
 project-id: genesis-mythos-master
-updated: 2026-08-10
+updated: 2026-08-11
 ---
 
 # UX pillars and inspiration lens (GMM)
@@ -18,7 +18,7 @@ Multiple dialogue loops by design. Pass updates → Cursor feedstock → fresh G
 |--------|-------------|-------------|
 | **Roleplay** | Talk / decide / perform | Factions, guilds, NPC sheets, reputation, relationship→economy |
 | **Exploration** | Travel / notice / live in place | Habitat, seasons, travel, environment-as-adversary, continuity |
-| **Combat** | Orchestrate the fight | Turns, range, threat, resolution |
+| **Combat** | Orchestrate the fight | Turns, range, threat, resolution. **Surface texture (draft):** posture readability + optional Nature outline + acting-player flank arc + DM enter/exit with fade residue. See [[COMBAT-SURFACE-TEXTURE]]. |
 
 **Tools** (DM Forge-cam, situational lenses, mod seams, class expression desks, knowledge channels) cross-cut pillars.
 
@@ -55,6 +55,10 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 ## Soft-teaching / class expression
 
 **Board = [[CLASS-EXPRESSION-BOARD]] draft v5.** v4 class/Inventory density retained. Economy = background sim (no player desk; presence = render). Claim = network-routed recovery; item knowledge on existing D&D tools. Intended to close with class-expression after Grok+User validation.
+
+## Combat play-surface texture (draft 2026-08-11)
+
+Shared combat window only — **not** a second combat desk. Above-table talk is primary. Posture = common humanoid default (swingy/shooty). Nature may add green/yellow/red outline. Flank = 180° from the back; acting-player overlay in the turn-gated movement-circle family (~5 ft). DM calls initiative to open and last turn to close; residue into quiet-between is a fade (border, heartbeat, breathing), not a hard cut. See [[COMBAT-SURFACE-TEXTURE]]. Disposition **open**.
 
 ## Planar
 

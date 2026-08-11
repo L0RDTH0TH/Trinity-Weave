@@ -1,7 +1,7 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-10
+updated: 2026-08-11
 ---
 
 # INDEX — pinable sources
@@ -63,6 +63,9 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Cities: Skylines | strong | situational-overlay-lenses | Implicit situational lenses — not combat circle |
 | TaleSpire | medium | stub-talespire-dm-tooling | DM tools for FP players |
 | Operator combat invent | medium | turn-gated-movement-circle | Combat affordance; not Cities |
+| Operator combat-surface doctrine (2026-08-11) | strong | combat-threat-readability | Posture default (swingy/shooty); Nature green/yellow/red outline; **not** a taxonomy HUD |
+| Operator combat-surface doctrine (2026-08-11) | strong | combat-flank-blind-spot-arc | 180° from back; acting-player ~5 ft cone in movement-circle family |
+| Operator combat-surface doctrine (2026-08-11) | strong | combat-enter-exit-residue | DM opens/closes; residue fade into quiet-between — not a hard cut |
 
 ## Living sim / DM resource
 

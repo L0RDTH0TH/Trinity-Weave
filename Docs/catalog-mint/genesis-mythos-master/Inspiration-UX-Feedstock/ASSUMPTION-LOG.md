@@ -1,7 +1,7 @@
 ---
 title: Inspiration elevation assumption log
 project-id: genesis-mythos-master
-updated: 2026-08-05
+updated: 2026-08-11
 ---
 
 # ASSUMPTION-LOG
@@ -129,3 +129,6 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-07 | false | valheim-progressive-map-biome | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
 | 2026-08-07 | false | valheim-progressive-map-biome | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
 | 2026-08-07 | false | valheim-progressive-map-biome | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-11 | false | combat-threat-readability | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock draft (not elevated) | Posture default + Nature outline; not taxonomy HUD |
+| 2026-08-11 | false | combat-flank-blind-spot-arc | ux_combat_play_surface, ux_collaborative_table_agency | feedstock draft (not elevated) | 180° from back; acting-player ~5 ft overlay |
+| 2026-08-11 | false | combat-enter-exit-residue | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock draft (not elevated) | DM open/close; fade residue into quiet-between |

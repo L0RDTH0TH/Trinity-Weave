@@ -1,7 +1,7 @@
 ---
 title: Liked snippets — operator taste (Grok dialogue feedstock)
 project-id: genesis-mythos-master
-updated: 2026-08-10
+updated: 2026-08-11
 ---
 
 # Liked snippets (operator)
@@ -76,6 +76,10 @@ Players wanted better exploration/survival in Skyrim → Campfire (+ Frostfall, 
 - **Halo Forge:** DM place glow valid/invalid, menus, hide; live grid correspondence; review playback.
 - **Cities (implicit):** Situational overlays/lenses on a living place — not “combat circle = Cities.”
 - **Combat circle:** Operator invent for combat desk.
+- **Combat threat posture:** Common humanoid default — weapon in hands or on back = melee (“swingy”); free hands or obvious ranged posture = ranged/other (“shooty”). Continuous, low-chrome, before combat. Not a complete taxonomy.
+- **Nature outline:** Green / yellow / red (friendly-indifferent / can be agitated / actively predatory). Low-chrome assist only.
+- **Flank arc:** 180° from the enemy’s back; tighter to center = higher bonus (illustrative +1 / +3, numbers rules-side). Acting-player overlay ~5 ft, same visual family as the movement circle. Combat-surface only.
+- **Combat exit residue:** Red border fades; heartbeat slows and softens; heavy breathing fades; chrome recedes without a hard cut. The breath when they realize they are still alive.
 - **TaleSpire:** DM tooling re-expressed for FP players.
 
 ## DM resource layer

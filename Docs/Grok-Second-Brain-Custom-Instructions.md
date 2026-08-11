@@ -74,3 +74,29 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 # END PASTE
 
+Draft **v5** is in. Pin gate still **open**. Dialogue still `satisfied: false`.
+
+**Retained:** all v4 class rows + Inventory density.
+
+**Added — Economy + Claim family (no new desks)**
+
+- Background 3–4X-class sim; presence = render; optional material-chain never a gate
+
+- Shopping-episode / DM-RP surface
+
+- Item knowledge ladder: ambient → skill → *Identify* → *Legend Lore*
+
+- Claim: taken vs found; network-routed; secrecy contests; no global flag
+
+- Consistency join with Inventory + knowledge flow
+
+- Murderhobo: sim still runs; no hunted-item UI
+
+Receipt notes class-expression + economy/claim are meant to **close together** after your Grok pass.
+
+**Grok:** pack `2026-08-11T08:32:19Z` · Trinity `main` + project branch pushed. Same board path.
+
+# END CURSOR OUTPUT
+
+How does that look?  
+[https://grok.com/share/c2hhcmQtMg_eecf4bbc-92b9-464e-ade5-24cfb084319f](https://grok.com/share/c2hhcmQtMg_eecf4bbc-92b9-464e-ade5-24cfb084319f)

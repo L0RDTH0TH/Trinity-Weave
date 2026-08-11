@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 653
+roadmap_note_count: 657
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4524,6 +4524,20 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: COMBAT-SURFACE-TEXTURE
+  wiki: '[[COMBAT-SURFACE-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - combat-altitude-map-siege-raid
+  - turn-gated-movement-circle
+  - combat-threat-readability
+  - combat-flank-blind-spot-arc
+  - combat-enter-exit-residue
+  - CLASS-EXPRESSION-BOARD
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: INDEX
   wiki: '[[INDEX]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INDEX.md
@@ -4540,6 +4554,7 @@ roadmap_notes:
   wiki_links:
   - PILLARS-AND-LENS
   - CLASS-EXPRESSION-BOARD
+  - COMBAT-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4575,6 +4590,7 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/PILLARS-AND-LENS.md
   kind: user_story
   wiki_links:
+  - COMBAT-SURFACE-TEXTURE
   - CLASS-EXPRESSION-BOARD
   linked_resources: []
   tert_id: null
@@ -4665,6 +4681,30 @@ roadmap_notes:
 - title: combat-altitude-map-siege-raid
   wiki: '[[combat-altitude-map-siege-raid]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: combat-enter-exit-residue
+  wiki: '[[combat-enter-exit-residue]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-enter-exit-residue.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: combat-flank-blind-spot-arc
+  wiki: '[[combat-flank-blind-spot-arc]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-flank-blind-spot-arc.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: combat-threat-readability
+  wiki: '[[combat-threat-readability]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-threat-readability.md
   kind: user_story
   wiki_links: []
   linked_resources: []

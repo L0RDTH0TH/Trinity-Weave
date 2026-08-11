@@ -17,7 +17,7 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + class-expression **board draft v5** (v4 density + economy/claim family). Disposition stays **open**.
+Prior feedstock + class-expression **board draft v5** (v4 density + economy/claim family) + combat play-surface texture draft (2026-08-11). Disposition stays **open**.
 
 ## Maps accepted
 
@@ -25,7 +25,8 @@ _Pending Grok+User re-evaluation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]
 
 ## Deferred / refused
 
-- Class player-facing texture → focused distillation loop
+- Class player-facing texture → focused distillation loop (board v5 still validating)
+- Combat play-surface texture drafted; quality still open; no seasoning apply
 - Do not close gate on partial quality pass alone
 
 ## Waive
@@ -34,4 +35,4 @@ _None._
 
 ## Recommended next action
 
-Optional Trinity push for Grok re-eval of quality-pass feedstock → or focused class-expression distillation first → then disposition `applied|waived`.
+Combat texture + class-expression v5 remain **open** for Grok+User. No disposition `applied|waived` from this pass.
