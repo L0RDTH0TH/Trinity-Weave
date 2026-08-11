@@ -17,7 +17,7 @@ Multiple dialogue loops by design. Pass updates → Cursor feedstock → fresh G
 | Pillar | Player face | System face |
 |--------|-------------|-------------|
 | **Roleplay** | Talk / decide / perform | Factions, guilds, NPC sheets, reputation, relationship→economy. **Surface texture (draft):** factions as persons — fingers + ripples + reputation weather + goal-pressure residue. See [[ROLEPLAY-SURFACE-TEXTURE]]. |
-| **Exploration** | Travel / notice / live in place | Habitat, seasons, travel, environment-as-adversary, continuity |
+| **Exploration** | Travel / notice / live in place | Habitat, seasons, travel, environment-as-adversary, continuity. **Quiet texture (draft):** travel/camp loop is the ordinary exploration surface. See [[QUIET-BETWEEN-TEXTURE]]. |
 | **Combat** | Orchestrate the fight | Turns, range, threat, resolution. **Surface texture (draft):** posture readability + optional Nature outline + acting-player flank arc + DM enter/exit with fade residue. See [[COMBAT-SURFACE-TEXTURE]]. |
 
 **Tools** (DM Forge-cam, situational lenses, mod seams, class expression desks, knowledge channels) cross-cut pillars.
@@ -59,6 +59,10 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 ## Roleplay institutional weather (draft 2026-08-11)
 
 Shared Roleplay surface **outside** class-expression desks. Factions as persons: needs, places, fingers, ripples. Reputation is weather (felt, not announced). Local power-center goals leave residue (scarcity, hiring, watchfulness, hospitality — war settling takes time). High = regional heartbeat; pocket = household/guild/village currently touched. Opacity + agency to ignore. Relationship → economy remains the coupling. See [[ROLEPLAY-SURFACE-TEXTURE]]. Disposition **open**.
+
+## Quiet-between texture (draft 2026-08-11)
+
+In-adventure quiet = classic open-world travel and camping loop. Exploration happens as continuous presence, not a separate explore mode. Leave → day travel (lunch, animals/mounts) → camp / watch / sleep → wake. Soft pressure (rumor, weather, distant sign, patrol) because the world kept moving. System waits; no forced pillar beat. Class desks and institutional weather stay available. Does **not** own between-adventures weeks/months. Combat exit residue already locked (hands in). See [[QUIET-BETWEEN-TEXTURE]]. Disposition **open**.
 
 ## Combat play-surface texture (draft 2026-08-11)
 

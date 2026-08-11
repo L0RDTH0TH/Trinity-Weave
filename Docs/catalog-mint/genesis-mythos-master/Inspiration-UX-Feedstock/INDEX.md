@@ -39,6 +39,9 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator roleplay-surface doctrine (2026-08-11) | strong | factions-as-persons-fingers-ripples | Factions as persons; fingers + ripples; players can become fingers/stones |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | reputation-weather | Felt treatment; no meter; no “they are mad because of X” as primary |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | faction-goal-pressure-residue | Local residue of current goal/crisis; no faction sheet; no forced turn |
+| Operator quiet-between doctrine (2026-08-11) | strong | quiet-travel-camp-loop | Leave → day travel → camp/watch/sleep → repeat; exploration as presence |
+| Operator quiet-between doctrine (2026-08-11) | strong | quiet-soft-world-pressure | Rumor / weather / distant sign / patrol; system waits; no forced beat |
+| Operator quiet-between doctrine (2026-08-11) | strong | quiet-surface-boundaries | In-adventure only; weeks/months stay with living-world; combat residue hands in |
 
 ## Shared-world / digital D&D cousins
 

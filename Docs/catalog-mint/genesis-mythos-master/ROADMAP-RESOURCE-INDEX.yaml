@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 661
+roadmap_note_count: 665
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4536,6 +4536,7 @@ roadmap_notes:
   - combat-enter-exit-residue
   - CLASS-EXPRESSION-BOARD
   - ROLEPLAY-SURFACE-TEXTURE
+  - QUIET-BETWEEN-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4557,6 +4558,7 @@ roadmap_notes:
   - CLASS-EXPRESSION-BOARD
   - COMBAT-SURFACE-TEXTURE
   - ROLEPLAY-SURFACE-TEXTURE
+  - QUIET-BETWEEN-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4593,8 +4595,28 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - ROLEPLAY-SURFACE-TEXTURE
+  - QUIET-BETWEEN-TEXTURE
   - COMBAT-SURFACE-TEXTURE
   - CLASS-EXPRESSION-BOARD
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: QUIET-BETWEEN-TEXTURE
+  wiki: '[[QUIET-BETWEEN-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/QUIET-BETWEEN-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - WB-quiet-between-pillars
+  - seed-region-density-and-travel
+  - exploration-altitude-ecology
+  - combat-enter-exit-residue
+  - ROLEPLAY-SURFACE-TEXTURE
+  - CLASS-EXPRESSION-BOARD
+  - quiet-travel-camp-loop
+  - quiet-soft-world-pressure
+  - quiet-surface-boundaries
+  - COMBAT-SURFACE-TEXTURE
+  - combat-flank-blind-spot-arc
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4626,6 +4648,7 @@ roadmap_notes:
   - CLASS-EXPRESSION-BOARD
   - combat-flank-blind-spot-arc
   - COMBAT-SURFACE-TEXTURE
+  - QUIET-BETWEEN-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4716,7 +4739,8 @@ roadmap_notes:
   wiki: '[[combat-enter-exit-residue]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-enter-exit-residue.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - QUIET-BETWEEN-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4913,6 +4937,30 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: quiet-soft-world-pressure
+  wiki: '[[quiet-soft-world-pressure]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/quiet-soft-world-pressure.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: quiet-surface-boundaries
+  wiki: '[[quiet-surface-boundaries]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/quiet-surface-boundaries.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: quiet-travel-camp-loop
+  wiki: '[[quiet-travel-camp-loop]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/quiet-travel-camp-loop.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: rain-world-creature-territory-habitat
   wiki: '[[rain-world-creature-territory-habitat]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/rain-world-creature-territory-habitat.md
@@ -4958,7 +5006,8 @@ roadmap_notes:
   wiki: '[[seed-region-density-and-travel]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/seed-region-density-and-travel.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - QUIET-BETWEEN-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

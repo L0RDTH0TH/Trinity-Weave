@@ -31,6 +31,8 @@ ip_posture: pattern_only_no_clone
 
 Hard funnel on seed town/city + hinterland; soft openness beyond. Logistics continuous; magic (not mundane) for speed; DM frame-jump allowed when fair.
 
+In-adventure travel **texture** (2026-08-11) sits on this logistics: leave → day travel → camp / watch / sleep. See `quiet-travel-camp-loop` / [[QUIET-BETWEEN-TEXTURE]]. Weeks/months between adventures stay with living-world continuity, not quiet.
+
 ## One party per campaign
 
 Not an MMO. Negotiation about where to go / what to do next stays inside the party (+ DM). No multi-party contention over the same quest or caravan slot. Destiny refuse = fireteam size cap only.

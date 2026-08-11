@@ -58,6 +58,12 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Goal pressure:** local residue (scarcity, hiring, watchfulness, hospitality); war settling takes time; no faction sheet; no forced turn.
 - **Carry-forward (Combat):** 180° blind-spot is the humanoid default, not a universal monster law. Lock when Combat surface closes.
 
+## Quiet-between texture (2026-08-11)
+
+- **Travel / camp loop:** leave → day travel (lunch, animals/mounts) → camp / watch / sleep → wake. The rhythm *is* the texture. Exploration as presence, not a separate explore mode.
+- **Soft pressure:** rumor, weather shift, distant sign, patrol because the world kept moving. System waits; no forced next beat.
+- **Boundaries:** class desks and institutional weather stay available; weeks/months downtime stays with living-world. Combat exit residue **already locked** (hands in).
+
 ## Shared-world / digital D&D
 
 - **BG3:** Best digital D&D feel (roleplay + combat). **Refuse:** single-player crafted story spine — we want multiplayer open-world chaos.

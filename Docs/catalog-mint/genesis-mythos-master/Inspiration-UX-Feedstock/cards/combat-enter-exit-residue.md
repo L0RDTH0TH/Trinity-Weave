@@ -44,6 +44,8 @@ DM designates the last turn / official end. System assists only.
 
 Fiction stays continuous. No mode-swap slap.
 
+**Texture lock (2026-08-11):** this residue is **already locked**. Hands into [[QUIET-BETWEEN-TEXTURE]]. DM still owns the official end call. Does **not** close the Combat surface gate or the shared pin gate (180° humanoid-default carry-forward remains open).
+
 ## Class contribution
 
 Already owned by class-expression desks. Shared surface stays readable when those desks are present. No second parallel combat desk.

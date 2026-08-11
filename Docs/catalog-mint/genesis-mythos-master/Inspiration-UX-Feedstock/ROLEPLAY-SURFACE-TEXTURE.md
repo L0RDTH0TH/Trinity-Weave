@@ -59,7 +59,9 @@ Class desks only thicken *how* a particular character performs inside the intera
 
 > 180° blind-spot arc is the **humanoid default**, not a universal monster law. Good default for bipedal humanoid-shaped threats; other anatomies / senses get their own readability language (or none) later.
 
-Parked here so it is not lost. Also noted on [[combat-flank-blind-spot-arc]] and [[COMBAT-SURFACE-TEXTURE]]. **Do not lock from this Roleplay pass.**
+Parked here so it is not lost. Also noted on [[combat-flank-blind-spot-arc]], [[COMBAT-SURFACE-TEXTURE]], and [[QUIET-BETWEEN-TEXTURE]]. **Do not lock from this Roleplay pass.**
+
+**Combat exit residue** is now a **texture lock** (hands into quiet). Still not a Combat-surface or pin-gate close.
 
 ---
 

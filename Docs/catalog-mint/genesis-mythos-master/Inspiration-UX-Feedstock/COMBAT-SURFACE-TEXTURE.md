@@ -81,6 +81,8 @@ Above-table player talk is primary. Surface supports precision; it does not repl
 
 Authored ends (fight, disengage/flee, parley, stakes, surrender, escape-with-cost, …) stay on the **existing series contract**. Residue is sensory texture into quiet-between — not a new end menu.
 
+**Texture lock (2026-08-11):** exit residue is **already locked**. Hands into [[QUIET-BETWEEN-TEXTURE]]. Does **not** close this Combat surface or the shared pin gate (180° humanoid-default carry-forward remains open).
+
 ---
 
 ## Explicit refuse list
