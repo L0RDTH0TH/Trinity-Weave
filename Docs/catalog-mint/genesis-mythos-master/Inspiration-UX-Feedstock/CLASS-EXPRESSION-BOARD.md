@@ -1,5 +1,5 @@
 ---
-title: Class-expression board — Cursor draft v4 (validation feedstock)
+title: Class-expression board — Cursor draft v5 (validation feedstock)
 project-id: genesis-mythos-master
 schema_version: 1
 status: draft_for_grok_user_validation
@@ -7,18 +7,18 @@ updated: 2026-08-11
 signal: medium
 research_status: focused_distillation_draft
 batch: all_major_classes_srds_plus_artificer
-revision: v4_density_pass
+revision: v5_economy_claim_family
 ---
 
-# Class-expression board — Cursor draft v4
+# Class-expression board — Cursor draft v5
 
-**Role:** Player-facing texture for `class-unique-expression-surfaces`. Pattern language only. **Not locked** — Grok+User validate. Pin gate remains **open**. Not applied seasoning.
+**Role:** Player-facing texture for `class-unique-expression-surfaces` **plus** the linked economy + claim family. Pattern language only. **Not locked** — Grok+User validate. Pin gate remains **open**. Not applied seasoning.
 
-**Scope:** SRD 5.1 major classes + Artificer. Shared surfaces: Tools, Languages, Inventory (unchanged stubs/desk).
+**Scope:** SRD 5.1 major classes + Artificer. Shared surfaces: Tools, Languages, Inventory. **v5 add:** Economy + Claim family (background sim + knowledge ladder + network-routed recovery — **no new player desks**).
 
-**This pass (v4):** density — every subclass-primary desk at Sense → Play → Outcome grain; thin base precursors flavored (still secondary, one sentence). Structure from v3 stands.
+**v4 retained:** full class density + Inventory full grain. Do not thin.
 
-**Leave untouched:** Tools / Languages stubs, economy, full magic-item desk.
+**This pass (v5):** economy + claim family section. Tools / Languages remain stubs. Full item desk still deferred beyond provenance + claim rules.
 
 ---
 
@@ -34,7 +34,7 @@ revision: v4_density_pass
 | **Combat interrupt** | Desks yield to initiative. Never the reverse. |
 | **Stereotype / class→subclass / hyper-fit** | Productive exaggeration; subclass = same pattern, different material; no wholesale reference loops. |
 
-**Out of scope:** economy; full item desk. Legendary distinction noted under Inventory only.
+**Out of scope:** Tools / Languages expansion; full item-creation desk. Economy + claim are **in scope as background/rules** (see family section) — not as Sense → Play → Outcome desks. Legendary distinction kept under Inventory.
 
 ---
 
@@ -475,7 +475,74 @@ The **map** is the object; the **book** is the permanent record. External, delib
 
 ---
 
-## Cross-class distinctness (v4)
+## Economy + Claim family (v5 — no player desks)
+
+Linked to class-expression because they share **Inventory provenance**, **knowledge flow**, and **relationship weather**. Intended to **close together** with class-expression after Grok+User validation. Inventory remains the only full player-facing surface in this family.
+
+### Economy — background sim, not a desk
+
+**Job:** expansive 3–4X-class resource / production / route / scarcity simulation for fleshed-out worlds. Extract the job only (Civ / Anno / similar) — **no hyper-fit**, no named UI clone.
+
+| Rule | Lock |
+|------|------|
+| Runs without players | Caravans, production, mining, growth, deliveries, scarcity continue whether the party is present or not. |
+| Presence = render | Player presence necessitates a **render** of the process (empty shelf, late caravan, stockpile). It does not create the process. |
+| Deep material-chain | Optional depth for tables that want base-building realism (where every plank / ingot / reagent is produced and how it moves). **Never required. Never a gate.** |
+| No player desk | There is **no** player-facing economy mini-game. Weather reaches the table through DM/RP and the rendered state of places. |
+| Shopping-episode pattern | Dragon raided the caravan → the shop has nothing to sell, prices change, someone is hiring. That is the surface. |
+| Relationship asks | Relationship-shaped asks stay (`relationship-shaped-economy`). Provenance on an item can modify what a given buyer will pay or whether they will deal at all. |
+| Murderhobo / skip | Players never see any optional surface; the world still runs the sim. Near-average exchange outcomes when a trade happens without desk engagement. |
+
+**Refuse:** mandatory trading desk · spreadsheet-as-fun · player-as-primary logistics officer · cloning any specific 4X UI.
+
+### Item knowledge — no new desk
+
+Stay inside existing D&D rule tools. Do not invent an item-lore mini-game.
+
+| Depth | Tool | Result |
+|-------|------|--------|
+| Ambient | Inventory provenance tells (wear, node-hum, stolen-seal warmth, late-crate marks, …) | Free, always on |
+| Short read | Arcana / History / Religion / Investigation (or tool proficiency) | Rough identity + any claim the character would know |
+| Focused | *Identify* or equivalent | Precise properties + one clear claim/maker if magic can see it |
+| Deep | *Legend Lore* or equivalent high-cost knowledge magic | Named history, singularity status, prior holders, which node still wants it |
+
+Same **semi-permeable membrane** as knowledge flow: skill, magic, relationship, and access determine depth. Failure = common version / partial / wrong claim — not permanent blindness. Murderhobo does **not** remove checks or spells; it only removes any optional packaged desk.
+
+### Claim / recovery pressure — mechanical, network-routed
+
+- **Taken** singularity or high-claim item → parties who consider it important **and have reach** will try to recover it. Mechanical, analogous to “rob banks → get arrested.”
+- **Found** in the wild → finders keepers **until** knowledge of the find reaches someone with motive and reach.
+- Pressure is routed through the **offended party’s actual networks**, not a global flag:
+  - Town guards → inter-town communication schedules
+  - Crime families → smuggling / information nets
+  - Wizards → their circles
+  - Institutions, temples, factions → their own channels
+- Players can keep secrets and hide from divination; that contests knowledge flow and can prevent or delay the rumor.
+- **Murderhobo:** mostly pure off-screen + DM/world consequence. Light ambient tells allowed when diegetic (rumor, changed welcome, bounty appearing in the world). Do **not** force “this item is hunted” UI on a table that turned desks off.
+
+### Consistency notes (the only join)
+
+Short consistency statements — **not** a new system:
+
+1. A singularity’s provenance tell on Inventory is the **same underlying fact** a relevant network might eventually gossip about.
+2. If the background sim says a caravan never arrived, the shop’s empty shelves and any “this crate is late” provenance are the **same event**.
+3. If players successfully suppress knowledge (secrecy + anti-divination), the offended party’s network does **not** receive the rumor and recovery pressure does **not** start from that channel.
+4. Inventory remains the only full player-facing surface in this family. Economy and claim do **not** grow their own Sense → Play → Outcome desks.
+
+### Legendary distinction (unchanged)
+
+| Kind | Meaning |
+|------|---------|
+| Legendary-by-rarity / singularity | One-of or extremely limited; usually bound to an **essential node**. Heavier provenance and **claim** weight. |
+| Legendary-by-power | High impact, not unique in principle (Staff-of-the-Magi class). |
+
+Both are magic items. Full item desk remains deferred beyond provenance + claim rules above.
+
+**World ≠ campaign:** the sim and the networks exist in the world. A campaign’s murderhobo config does not stop them.
+
+---
+
+## Cross-class distinctness (v4 retained)
 
 | Pair | Still distinct because |
 |------|------------------------|
@@ -491,15 +558,21 @@ The **map** is the object; the **book** is the permanent record. External, delib
 
 ## Validation prompts (Grok + User)
 
-1. Density even across the full subclass list (Bard / Warlock / Wizard as bar)?
-2. Thin-base lines flavored but still clearly secondary?
-3. Any desk hyper-fit, mandatory wall, or culturally lazy?
-4. Cleric “serve” vs Paladin “sworn word” still holding at full grain?
-5. Fighter kit vs Monk body still distinct at subclass material?
-6. Ranger remaining rows same hunt-board, not new products?
-7. Murderhobo / skip still honest on every thickened desk?
+**Class-expression (v4 retained)**
+
+1. Density still intact across the full subclass list?
+2. Any desk hyper-fit, mandatory wall, or culturally lazy?
+
+**Economy + claim (v5)**
+
+3. Economy correctly background-only with RP/DM surface (no desk creep)?
+4. Claim pressure correctly network-routed and contestable by secrecy/anti-divination?
+5. Item knowledge correctly left on existing D&D tools + Inventory ambient tells?
+6. Consistency notes sufficient so Inventory / sim / claim cannot invent three contradictory facts for one event?
+7. Ready to soft-close class-expression + economy/claim **together**, or still thin somewhere?
 
 ## Status
 
-- Cursor **draft v4** — density pass. Structure + priority desks + full subclass grain await final Grok+User validation.
+- Cursor **draft v5** — v4 class/Inventory density retained; economy + claim family added (no new desks).
+- Class-expression + economy/claim intended to close **together** after Grok+User validation.
 - Pin gate **open**. Dialogue **not** satisfied. Not applied seasoning.

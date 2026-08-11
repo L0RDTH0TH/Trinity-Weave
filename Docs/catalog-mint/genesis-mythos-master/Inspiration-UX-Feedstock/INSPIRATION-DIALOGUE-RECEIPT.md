@@ -15,26 +15,35 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]].
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **draft v4** (density pass) awaits final Grok+User validation. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5** (economy + claim family added). Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
+**Close intent:** class-expression + economy/claim are intended to close **together** after Grok+User validation of this pass.
+
 ## Passes this cycle
 
-1. Pass 1 / closure #2 / quality pass — prior locked patterns.
-2. Class-expression **draft v1** — full major-class board.
-3. **Draft v2:** method locks; universal skip; weave family; Cleric/Paladin; Fighter/Monk; Sorcerer atelier.
-4. **Draft v3:** capacity split; inventory; murderhobo; fixed primary direction; five priority full-grain desks.
-5. **Draft v4 (density pass):** remaining subclass rows to full Sense → Play → Outcome (Bard, Warlock, Wizard exemplars ported; Cleric domains; Paladin oaths; Rogue scores; Barbarian Ancestral/Zealot; Ranger remaining; Fighter/Monk subclass material). Thin base precursors flavored, still secondary.
+1–4. Prior passes through draft v3 (capacity, inventory, murderhobo, fixed direction).
+5. **Draft v4 (density pass):** all listed subclass desks at full Sense → Play → Outcome. **Retained in v5 — do not thin.**
+6. **Draft v5 (economy + claim family):** background 3–4X-class sim (no player desk); item knowledge on existing D&D tools + Inventory ambient; claim/recovery network-routed (taken vs found; secrecy contests); consistency notes with Inventory / knowledge flow / sim. Full item desk still deferred beyond provenance + claim.
 
 ## Locked this cycle (still in force)
 
-Murderhobo · inventory shared surface · thin base / subclass-primary capacity · fixed primary direction · no fluid lean · v2 method (pattern-learning, universal skip, combat interrupt, hyper-fit refuse).
+Murderhobo · inventory shared surface · thin base / subclass-primary capacity · fixed primary direction · no fluid lean · v2 method.
+
+**v5 locks:**
+
+| Lock | Statement |
+|------|-----------|
+| **Economy** | Background sim; presence = render; optional deep material-chain (never a gate); no player-facing economy desk; shopping-episode / DM-RP surface; relationship-shaped asks stay. |
+| **Item knowledge** | Ambient Inventory tells → skill check → *Identify* → *Legend Lore*. Membrane applies. No item-lore mini-game. Murderhobo does not strip checks/spells. |
+| **Claim / recovery** | Taken → networks with motive+reach try recovery. Found → keepers until knowledge reaches motive+reach. Routed through the offended party’s actual channels. Secrecy + anti-divination can block a channel. No global item flag. |
+| **Join** | One event = one fact across Inventory provenance, sim render, and claim rumor. Inventory is the only full player-facing surface in this family. |
 
 ## Deferred
 
-Economy · full magic-item desk · Tools/Languages expansion · pin-gate close · seasoning apply.
+Full item-creation desk · Tools/Languages expansion · pin-gate close · seasoning apply.
 
 ## Operator share statement
 
-_Pending._ After v4 validation (or explicit waive).
+_Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.

@@ -4632,7 +4632,8 @@ roadmap_notes:
   wiki: '[[bounded-dm-resource-politics]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - CLASS-EXPRESSION-BOARD
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4753,7 +4754,8 @@ roadmap_notes:
   wiki: '[[knowledge-flow-channels]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/knowledge-flow-channels.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - CLASS-EXPRESSION-BOARD
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

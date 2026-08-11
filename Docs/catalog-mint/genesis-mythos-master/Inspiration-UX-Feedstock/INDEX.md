@@ -34,7 +34,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; **real-time labor visibility** |
-| Operator class-expression doctrine | medium | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD draft v4** — density pass; validate with Grok+User |
+| Operator class-expression doctrine | medium | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD draft v5** — v4 density + economy/claim family; validate with Grok+User |
 | Operator voice-table signaling | medium | voice-table-signaling | DM+voice changer for NPC; players optional IC voice signal |
 
 ## Shared-world / digital D&D cousins

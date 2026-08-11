@@ -7,7 +7,7 @@ research_status: operator_seed
 assumption: false
 liked: "Baseline = slow/lossy physical medieval channels; accelerators = power-gated magic that compresses time/distance; different actors have different information surfaces"
 why_it_worked: "News and secrets feel world-timed; speed is infrastructure/power, not free universal chat"
-fits_our_game: "Baseline physics: letters, heralds, rumor, caravans, criers, spies, academic correspondence — slow and lossy. Accelerators (Sending, magic mirrors, linked books, kingdom networks, divine omens, etc.) compress time/distance but access is power/infrastructure, not free universal. Different actors have different information surfaces. Feeds critical nodes, membrane, soft-teaching / mental-stat cue arrival. Planar distortion may warp cadence without replacing grammar. If sending/accelerators exist in the ruleset, the full channel suite stays in scope."
+fits_our_game: "Baseline physics: letters, heralds, rumor, caravans, criers, spies, academic correspondence — slow and lossy. Accelerators compress time/distance; access is power/infrastructure. **v5 join:** claim/recovery rumor rides these same channels (offended party's actual networks). Secrecy + anti-divination can block a channel. Item knowledge stays on D&D tools + Inventory ambient — no item-lore desk. See [[CLASS-EXPRESSION-BOARD]] Economy + Claim family."
 refuse_to_copy:
   - "Instant omniscient party chat as the only information model"
   - "Universal free access to magical accelerators for all actors"

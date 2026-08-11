@@ -46,10 +46,10 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Class expression:** still thin on hands/attention texture — deferred to focused distillation loop.
 - **Voice signaling:** DM+voice changer for NPC; players optional IC voice changers.
 
-## Class-expression draft v4 (2026-08-11)
+## Class-expression draft v5 (2026-08-11)
 
-- Board: [[CLASS-EXPRESSION-BOARD]] — density pass; all listed subclass desks at full grain; thin base flavored.
-- Status: **validate with Grok+User** — not locked.
+- Board: [[CLASS-EXPRESSION-BOARD]] — v4 density retained; economy + claim family (background sim, no new desks).
+- Status: **validate with Grok+User** — not locked. Intended to close with class-expression together.
 
 ## Shared-world / digital D&D
 

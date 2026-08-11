@@ -54,7 +54,7 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 
 ## Soft-teaching / class expression
 
-**Board = [[CLASS-EXPRESSION-BOARD]] draft v4** (density pass — subclass desks at full Sense→Play→Outcome). v3 structure stands: thin base + subclass-primary; inventory shared; murderhobo; fixed primary direction. Awaiting Grok+User validation.
+**Board = [[CLASS-EXPRESSION-BOARD]] draft v5.** v4 class/Inventory density retained. Economy = background sim (no player desk; presence = render). Claim = network-routed recovery; item knowledge on existing D&D tools. Intended to close with class-expression after Grok+User validation.
 
 ## Planar
 
