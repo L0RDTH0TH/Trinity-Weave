@@ -22,3 +22,5 @@ ip_posture: pattern_only_no_clone
 Open-world cluster contrast: prefer **relationship → economy/social options** over shallow unlock items.
 
 Coupling rule for shared Roleplay weather (2026-08-11): treatment rewrites ordinary transactions. See `reputation-weather` / [[ROLEPLAY-SURFACE-TEXTURE]].
+
+Commission conversations (2026-08-11) use the same coupling: independent vs faction store, relationship and membership change price / access / priority. See [[ITEM-COMMISSION-TEXTURE]].

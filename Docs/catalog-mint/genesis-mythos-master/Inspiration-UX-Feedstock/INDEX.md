@@ -45,6 +45,8 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator tools-languages-skill doctrine (2026-08-11) | strong | skill-active-passive-assist | Active check + passive floor = same surface; not a taxonomy HUD |
 | Operator tools-languages-skill doctrine (2026-08-11) | strong | tool-use-as-presence | Attempt leaves noise/time/traces/altered object — not only a number |
 | Operator tools-languages-skill doctrine (2026-08-11) | strong | language-barrier-and-bridge | Barriers real; work-arounds have cost; not a scene lock |
+| Operator commission-surface doctrine (2026-08-11) | strong | magic-item-commission-conversation | Ordinary path = talk to smith / merchant / temple / faction store; not a crafting desk |
+| Operator commission-surface doctrine (2026-08-11) | strong | commission-formula-and-stock-eval | Base + reagents + bind time vs current stock / caravans / scarcity |
 
 ## Shared-world / digital D&D cousins
 

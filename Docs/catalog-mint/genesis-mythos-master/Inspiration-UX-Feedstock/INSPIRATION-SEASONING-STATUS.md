@@ -7,7 +7,7 @@ updated: 2026-08-11
 
 # INSPIRATION-SEASONING-STATUS
 
-**Pin gate open.** Progressive distillation. Class-expression **board draft v5** still validating. Combat / Roleplay / Quiet / Skill-readability surface textures drafted 2026-08-11 — **not** maps-applied.
+**Pin gate open.** Progressive distillation. Class-expression **board draft v5** still validating. Combat / Roleplay / Quiet / Skill-readability / Commission surface textures drafted 2026-08-11 — **not** maps-applied.
 
 ## Quality pass maps / refinements (draft 2026-08-10)
 
@@ -31,6 +31,8 @@ updated: 2026-08-11
 | `skill-active-passive-assist` *(new draft)* | mental-stat, table agency, quiet, combat | strong | Active check + passive floor = same surface; not a HUD |
 | `tool-use-as-presence` *(new draft)* | mental-stat, quiet, table agency, living-world | strong | Attempt leaves noise/time/traces — not only a number |
 | `language-barrier-and-bridge` *(new draft)* | mental-stat, table agency, living-world, quiet | strong | Barriers real; work-arounds have cost; not a scene lock |
+| `magic-item-commission-conversation` *(new draft)* | living-world, table agency, quiet, backstory | strong | Ordinary path = talk to local finger; not a crafting desk |
+| `commission-formula-and-stock-eval` *(new draft)* | living-world, quiet, table agency, early/mid | strong | Base + reagents + bind time vs current stock / caravans |
 
 ## Class-expression board (draft v5 — 2026-08-11)
 
@@ -69,13 +71,22 @@ Grounded in Nature outline lock, mental-stat series, knowledge-flow, class-board
 Carry-forwards: 180° flank = humanoid default (lock when Combat closes); combat exit residue **already locked**; Nature outline **texture lock** as active-assist example.  
 Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
 
+## Magic-item commission (draft 2026-08-11)
+
+Note path: `Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md`  
+Cards: `magic-item-commission-conversation`, `commission-formula-and-stock-eval`.  
+Grounded in CLASS-EXPRESSION-BOARD economy/claim + Artificer boundary, Roleplay weather, relationship-shaped-economy, Inventory provenance, knowledge ladder.  
+Full player crafting desk remains deferred.  
+Carry-forwards: 180° flank = humanoid default (lock when Combat closes); combat exit residue **already locked**.  
+Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
+
 ## Prior maps (still in play)
 
 Closure #2, pass 1, altitude, and 2026-08-07 midband maps remain proposed. See prior STATUS sections / git history for full tables.
 
 ## Unmapped / deferred
 
-- **Focused distillation next:** class-unique expression (v5 still open) · combat / roleplay / quiet / skill-readability surfaces (drafted, quality open)
+- **Focused distillation next:** class-unique expression (v5 still open) · combat / roleplay / quiet / skill-readability / commission surfaces (drafted, quality open) · full crafting desk deferred
 - No invent of PIN-INDEX titles
 
 ## Waive
@@ -92,10 +103,12 @@ _None — disposition = open._
 - [x] Roleplay institutional-weather draft (2026-08-11)
 - [x] Quiet-between texture draft (2026-08-11)
 - [x] Tools / languages / skill-readability draft (2026-08-11)
+- [x] Magic-item commission draft (2026-08-11)
 - [ ] Grok+User validation of CLASS-EXPRESSION-BOARD v5
 - [ ] Grok+User validation of COMBAT-SURFACE-TEXTURE
 - [ ] Grok+User validation of ROLEPLAY-SURFACE-TEXTURE
 - [ ] Grok+User validation of QUIET-BETWEEN-TEXTURE
 - [ ] Grok+User validation of SKILL-READABILITY-TEXTURE
+- [ ] Grok+User validation of ITEM-COMMISSION-TEXTURE
 - [ ] Optional Trinity push for Grok re-eval
 - [ ] Disposition applied|waived

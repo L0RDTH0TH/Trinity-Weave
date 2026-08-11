@@ -17,7 +17,7 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + class-expression **board draft v5** + combat / roleplay / quiet / skill-readability surface texture drafts (2026-08-11). Disposition stays **open**.
+Prior feedstock + class-expression **board draft v5** + combat / roleplay / quiet / skill-readability / commission surface texture drafts (2026-08-11). Disposition stays **open**.
 
 ## Maps accepted
 
@@ -30,6 +30,7 @@ _Pending Grok+User re-evaluation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]
 - Roleplay institutional weather drafted; quality still open; no seasoning apply
 - Quiet-between texture drafted; quality still open; no seasoning apply
 - Tools / languages / skill readability drafted; quality still open; no seasoning apply
+- Magic-item commission drafted; full crafting desk remains deferred; no seasoning apply
 - Do not close gate on partial quality pass alone
 
 ## Waive
@@ -38,4 +39,4 @@ _None._
 
 ## Recommended next action
 
-Combat / Roleplay / Quiet / Skill-readability textures + class-expression v5 remain **open** for Grok+User. No disposition `applied|waived` from this pass.
+Combat / Roleplay / Quiet / Skill-readability / Commission textures + class-expression v5 remain **open** for Grok+User. No disposition `applied|waived` from this pass.

@@ -60,6 +60,10 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 
 Shared Roleplay surface **outside** class-expression desks. Factions as persons: needs, places, fingers, ripples. Reputation is weather (felt, not announced). Local power-center goals leave residue (scarcity, hiring, watchfulness, hospitality — war settling takes time). High = regional heartbeat; pocket = household/guild/village currently touched. Opacity + agency to ignore. Relationship → economy remains the coupling. See [[ROLEPLAY-SURFACE-TEXTURE]]. Disposition **open**.
 
+## Magic-item commission (draft 2026-08-11)
+
+Ordinary path = NPC / world process accessed by conversation (smith, merchant, temple, dealer, faction store). Formula = base + magical reagents + bind time, evaluated against **current** local state. Presence renders the background sim. Artificer desk owns personal / field-test; everyone else commissions. Full crafting desk remains deferred. See [[ITEM-COMMISSION-TEXTURE]]. Disposition **open**.
+
 ## Tools / languages / skill readability (draft 2026-08-11)
 
 Shared surface **outside** class desks. Active check and passive floor are the same surface — deliberate action vs continuous radar. Nature outline already locked as an active-assist example. Tool use leaves residue (noise, time, traces). Language is a real barrier with costly work-arounds, not a scene lock. Soft teaching; agency to ignore; opacity for those without the skill. See [[SKILL-READABILITY-TEXTURE]]. Disposition **open**.

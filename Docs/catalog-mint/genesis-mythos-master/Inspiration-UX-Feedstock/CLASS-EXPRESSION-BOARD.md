@@ -115,6 +115,8 @@ The **base piece** is the object. Same chain, different material.
 5. **Skip / murderhobo:** Universal. World/NPC artificers still make things.
 6. **Soft-teaching:** The bench test *is* the lesson.
 
+Everyone else commissions via conversation — see [[ITEM-COMMISSION-TEXTURE]]. This desk is **not** the shared crafting path.
+
 ---
 
 ## Barbarian
@@ -495,6 +497,8 @@ Linked to class-expression because they share **Inventory provenance**, **knowle
 
 **Refuse:** mandatory trading desk · spreadsheet-as-fun · player-as-primary logistics officer · cloning any specific 4X UI.
 
+**Commission access (2026-08-11):** player-facing path to magic-item work is the **conversation** with a local finger — not a shared crafting desk. Formula + current-state stock eval drafted on [[ITEM-COMMISSION-TEXTURE]]. Full player crafting desk remains deferred. Artificer desk boundary unchanged.
+
 ### Item knowledge — no new desk
 
 Stay inside existing D&D rule tools. Do not invent an item-lore mini-game.
@@ -536,7 +540,7 @@ Short consistency statements — **not** a new system:
 | Legendary-by-rarity / singularity | One-of or extremely limited; usually bound to an **essential node**. Heavier provenance and **claim** weight. |
 | Legendary-by-power | High impact, not unique in principle (Staff-of-the-Magi class). |
 
-Both are magic items. Full item desk remains deferred beyond provenance + claim rules above.
+Both are magic items. Full item desk remains deferred beyond provenance + claim rules above. Commission conversation (2026-08-11) is the ordinary **access path**, not the deferred desk. See [[ITEM-COMMISSION-TEXTURE]].
 
 **World ≠ campaign:** the sim and the networks exist in the world. A campaign’s murderhobo config does not stop them.
 

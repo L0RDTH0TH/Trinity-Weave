@@ -71,6 +71,13 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Language:** barriers real; work-arounds (gesture, intermediary, magic, time) have cost. Not a scene lock.
 - **Nature outline:** texture lock as active-assist example (not Combat-surface close).
 
+## Magic-item commission (2026-08-11)
+
+- **Ordinary path:** talk to the smith / merchant / temple / dealer / faction store. Not a shared crafting desk.
+- **Formula:** base + magical reagents + bind time, evaluated against **current** local stock / caravans / scarcity.
+- **Realism:** presence renders the sim (empty shelf, late shipment, inflated reagent). Do not sim mundane ink. Care about reagents and binding.
+- **Residue:** provenance into Inventory; claim follows existing network rules. Full crafting desk remains deferred.
+
 ## Shared-world / digital D&D
 
 - **BG3:** Best digital D&D feel (roleplay + combat). **Refuse:** single-player crafted story spine — we want multiplayer open-world chaos.

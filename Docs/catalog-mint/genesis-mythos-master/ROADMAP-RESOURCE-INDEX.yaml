@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 669
+roadmap_note_count: 672
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4522,6 +4522,7 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - SKILL-READABILITY-TEXTURE
+  - ITEM-COMMISSION-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4562,6 +4563,7 @@ roadmap_notes:
   - ROLEPLAY-SURFACE-TEXTURE
   - QUIET-BETWEEN-TEXTURE
   - SKILL-READABILITY-TEXTURE
+  - ITEM-COMMISSION-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4579,6 +4581,20 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: ITEM-COMMISSION-TEXTURE
+  wiki: '[[ITEM-COMMISSION-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - CLASS-EXPRESSION-BOARD
+  - ROLEPLAY-SURFACE-TEXTURE
+  - relationship-shaped-economy
+  - knowledge-flow-channels
+  - magic-item-commission-conversation
+  - commission-formula-and-stock-eval
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4602,6 +4618,7 @@ roadmap_notes:
   - COMBAT-SURFACE-TEXTURE
   - SKILL-READABILITY-TEXTURE
   - CLASS-EXPRESSION-BOARD
+  - ITEM-COMMISSION-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4782,6 +4799,14 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: commission-formula-and-stock-eval
+  wiki: '[[commission-formula-and-stock-eval]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/commission-formula-and-stock-eval.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: critical-node-hierarchy
   wiki: '[[critical-node-hierarchy]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/critical-node-hierarchy.md
@@ -4911,6 +4936,15 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: magic-item-commission-conversation
+  wiki: '[[magic-item-commission-conversation]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/magic-item-commission-conversation.md
+  kind: user_story
+  wiki_links:
+  - ROLEPLAY-SURFACE-TEXTURE
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: majesty-goal-heroes-realize
   wiki: '[[majesty-goal-heroes-realize]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/majesty-goal-heroes-realize.md
@@ -5005,6 +5039,7 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - ROLEPLAY-SURFACE-TEXTURE
+  - ITEM-COMMISSION-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
