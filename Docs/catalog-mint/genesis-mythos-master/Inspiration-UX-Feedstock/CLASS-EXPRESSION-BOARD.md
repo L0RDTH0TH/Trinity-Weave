@@ -34,7 +34,7 @@ revision: v5_economy_claim_family
 | **Combat interrupt** | Desks yield to initiative. Never the reverse. |
 | **Stereotype / class→subclass / hyper-fit** | Productive exaggeration; subclass = same pattern, different material; no wholesale reference loops. |
 
-**Out of scope:** Tools / Languages expansion; full item-creation desk. Economy + claim are **in scope as background/rules** (see family section) — not as Sense → Play → Outcome desks. Legendary distinction kept under Inventory.
+**Out of scope:** Tools / Languages as Sense → Play → Outcome desks; full item-creation desk. Shared Tools / Languages / skill-assist texture is drafted separately on [[SKILL-READABILITY-TEXTURE]] (2026-08-11) — not a class desk. Economy + claim remain **in scope as background/rules** (see family section). Legendary distinction kept under Inventory.
 
 ---
 
@@ -68,11 +68,11 @@ DM-set; prefer campaign scope. When on: players never see expression desks, inve
 
 ### Tools
 
-Short proficiency loops. Classes may specialize. Skip + murderhobo. Not class-owned. *(No expansion this pass.)*
+Short proficiency loops. Classes may specialize. Skip + murderhobo. Not class-owned. Shared texture drafted on [[SKILL-READABILITY-TEXTURE]] (`tool-use-as-presence`) — still **not** a Sense → Play → Outcome desk.
 
 ### Languages
 
-Learn / decipher / short exchange. Never hard-blocks quests. *(No expansion this pass.)*
+Learn / decipher / short exchange. Never hard-blocks quests. Shared texture drafted on [[SKILL-READABILITY-TEXTURE]] (`language-barrier-and-bridge`) — still **not** a Sense → Play → Outcome desk.
 
 ### Inventory — full grain (unchanged from v3)
 

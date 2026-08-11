@@ -20,7 +20,7 @@ Multiple dialogue loops by design. Pass updates → Cursor feedstock → fresh G
 | **Exploration** | Travel / notice / live in place | Habitat, seasons, travel, environment-as-adversary, continuity. **Quiet texture (draft):** travel/camp loop is the ordinary exploration surface. See [[QUIET-BETWEEN-TEXTURE]]. |
 | **Combat** | Orchestrate the fight | Turns, range, threat, resolution. **Surface texture (draft):** posture readability + optional Nature outline + acting-player flank arc + DM enter/exit with fade residue. See [[COMBAT-SURFACE-TEXTURE]]. |
 
-**Tools** (DM Forge-cam, situational lenses, mod seams, class expression desks, knowledge channels) cross-cut pillars.
+**Tools** (DM Forge-cam, situational lenses, mod seams, class expression desks, knowledge channels, **skill/tool/language readability**) cross-cut pillars. See [[SKILL-READABILITY-TEXTURE]].
 
 ## Product shape — one party per campaign
 
@@ -59,6 +59,10 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 ## Roleplay institutional weather (draft 2026-08-11)
 
 Shared Roleplay surface **outside** class-expression desks. Factions as persons: needs, places, fingers, ripples. Reputation is weather (felt, not announced). Local power-center goals leave residue (scarcity, hiring, watchfulness, hospitality — war settling takes time). High = regional heartbeat; pocket = household/guild/village currently touched. Opacity + agency to ignore. Relationship → economy remains the coupling. See [[ROLEPLAY-SURFACE-TEXTURE]]. Disposition **open**.
+
+## Tools / languages / skill readability (draft 2026-08-11)
+
+Shared surface **outside** class desks. Active check and passive floor are the same surface — deliberate action vs continuous radar. Nature outline already locked as an active-assist example. Tool use leaves residue (noise, time, traces). Language is a real barrier with costly work-arounds, not a scene lock. Soft teaching; agency to ignore; opacity for those without the skill. See [[SKILL-READABILITY-TEXTURE]]. Disposition **open**.
 
 ## Quiet-between texture (draft 2026-08-11)
 

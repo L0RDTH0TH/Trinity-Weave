@@ -42,6 +42,9 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator quiet-between doctrine (2026-08-11) | strong | quiet-travel-camp-loop | Leave → day travel → camp/watch/sleep → repeat; exploration as presence |
 | Operator quiet-between doctrine (2026-08-11) | strong | quiet-soft-world-pressure | Rumor / weather / distant sign / patrol; system waits; no forced beat |
 | Operator quiet-between doctrine (2026-08-11) | strong | quiet-surface-boundaries | In-adventure only; weeks/months stay with living-world; combat residue hands in |
+| Operator tools-languages-skill doctrine (2026-08-11) | strong | skill-active-passive-assist | Active check + passive floor = same surface; not a taxonomy HUD |
+| Operator tools-languages-skill doctrine (2026-08-11) | strong | tool-use-as-presence | Attempt leaves noise/time/traces/altered object — not only a number |
+| Operator tools-languages-skill doctrine (2026-08-11) | strong | language-barrier-and-bridge | Barriers real; work-arounds have cost; not a scene lock |
 
 ## Shared-world / digital D&D cousins
 

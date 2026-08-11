@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 665
+roadmap_note_count: 669
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4520,7 +4520,8 @@ roadmap_notes:
   wiki: '[[CLASS-EXPRESSION-BOARD]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - SKILL-READABILITY-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4535,6 +4536,7 @@ roadmap_notes:
   - combat-flank-blind-spot-arc
   - combat-enter-exit-residue
   - CLASS-EXPRESSION-BOARD
+  - SKILL-READABILITY-TEXTURE
   - ROLEPLAY-SURFACE-TEXTURE
   - QUIET-BETWEEN-TEXTURE
   linked_resources: []
@@ -4559,6 +4561,7 @@ roadmap_notes:
   - COMBAT-SURFACE-TEXTURE
   - ROLEPLAY-SURFACE-TEXTURE
   - QUIET-BETWEEN-TEXTURE
+  - SKILL-READABILITY-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4597,6 +4600,7 @@ roadmap_notes:
   - ROLEPLAY-SURFACE-TEXTURE
   - QUIET-BETWEEN-TEXTURE
   - COMBAT-SURFACE-TEXTURE
+  - SKILL-READABILITY-TEXTURE
   - CLASS-EXPRESSION-BOARD
   linked_resources: []
   tert_id: null
@@ -4649,6 +4653,23 @@ roadmap_notes:
   - combat-flank-blind-spot-arc
   - COMBAT-SURFACE-TEXTURE
   - QUIET-BETWEEN-TEXTURE
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: SKILL-READABILITY-TEXTURE
+  wiki: '[[SKILL-READABILITY-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/SKILL-READABILITY-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - combat-threat-readability
+  - knowledge-flow-channels
+  - CLASS-EXPRESSION-BOARD
+  - situational-overlay-lenses
+  - seed-region-density-and-travel
+  - exploration-altitude-ecology
+  - skill-active-passive-assist
+  - tool-use-as-presence
+  - language-barrier-and-bridge
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4756,7 +4777,8 @@ roadmap_notes:
   wiki: '[[combat-threat-readability]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/combat-threat-readability.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - SKILL-READABILITY-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4862,6 +4884,14 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - CLASS-EXPRESSION-BOARD
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: language-barrier-and-bridge
+  wiki: '[[language-barrier-and-bridge]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/language-barrier-and-bridge.md
+  kind: user_story
+  wiki_links: []
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5023,6 +5053,15 @@ roadmap_notes:
   wiki: '[[situational-overlay-lenses]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md
   kind: user_story
+  wiki_links:
+  - SKILL-READABILITY-TEXTURE
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: skill-active-passive-assist
+  wiki: '[[skill-active-passive-assist]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/skill-active-passive-assist.md
+  kind: user_story
   wiki_links: []
   linked_resources: []
   tert_id: null
@@ -5094,6 +5133,14 @@ roadmap_notes:
 - title: stub-world-anvil-lore-surface
   wiki: '[[stub-world-anvil-lore-surface]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/stub-world-anvil-lore-surface.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: tool-use-as-presence
+  wiki: '[[tool-use-as-presence]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/tool-use-as-presence.md
   kind: user_story
   wiki_links: []
   linked_resources: []

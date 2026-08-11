@@ -53,6 +53,8 @@ Nature check (or equivalent) **may** surface simple outline language:
 
 Low-chrome assist only. Optional. Failure / skip = no outline, not blindness.
 
+**Texture lock (2026-08-11):** Nature outline is a locked **active-assist example** on the shared skill-readability surface. See [[SKILL-READABILITY-TEXTURE]]. Does **not** close the Combat surface or the pin gate.
+
 ## Orchestration
 
 Above-table player talk is the primary channel. This surface supports precision; it does not replace the conversation.

@@ -24,3 +24,5 @@ ip_posture: pattern_only_no_clone
 **Implicit job:** layered situational views on one coherent world.
 
 **Not this pin:** turn-gated combat movement circle (separate operator invent — see `turn-gated-movement-circle`).
+
+Skill / tool / language readability (2026-08-11) may use **layered low-chrome views** in this family — not a permanent planning HUD. See `skill-active-passive-assist` / [[SKILL-READABILITY-TEXTURE]].

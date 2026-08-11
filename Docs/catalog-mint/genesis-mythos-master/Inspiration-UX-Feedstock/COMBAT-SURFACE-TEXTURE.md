@@ -54,6 +54,8 @@ Nature check (or equivalent) **may** surface simple outline language:
 
 Low-chrome assist only. Failure / skip = no outline, not blindness.
 
+**Texture lock (2026-08-11):** Nature outline is a locked **active-assist example** on [[SKILL-READABILITY-TEXTURE]]. Does **not** close this Combat surface or the pin gate.
+
 ### 3. Flank / blind-spot
 
 - **Arc:** 180° measured from the enemy’s **back**.

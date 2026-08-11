@@ -27,6 +27,7 @@ Pinable sources → derived move-pins → season children + L5. Not Conceptual `
 | `COMBAT-SURFACE-TEXTURE.md` | Combat shared-surface texture (draft 2026-08-11) |
 | `ROLEPLAY-SURFACE-TEXTURE.md` | Roleplay institutional weather (draft 2026-08-11) |
 | `QUIET-BETWEEN-TEXTURE.md` | Quiet-between travel/camp texture (draft 2026-08-11) |
+| `SKILL-READABILITY-TEXTURE.md` | Tools / languages / skill assists (draft 2026-08-11) |
 | `INDEX.md` | Pinable sources |
 | `LIKED-SNIPPETS.md` | Operator taste |
 | `cards/` | Derived move-pins |

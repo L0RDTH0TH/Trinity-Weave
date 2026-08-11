@@ -64,6 +64,13 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Soft pressure:** rumor, weather shift, distant sign, patrol because the world kept moving. System waits; no forced next beat.
 - **Boundaries:** class desks and institutional weather stay available; weeks/months downtime stays with living-world. Combat exit residue **already locked** (hands in).
 
+## Tools / languages / skill readability (2026-08-11)
+
+- **Same surface:** active check = deliberate action; passive score = continuous radar. Legible to the character who has the proficiency or floor.
+- **Tool presence:** attempt leaves noise, time, traces, altered object — not only a number.
+- **Language:** barriers real; work-arounds (gesture, intermediary, magic, time) have cost. Not a scene lock.
+- **Nature outline:** texture lock as active-assist example (not Combat-surface close).
+
 ## Shared-world / digital D&D
 
 - **BG3:** Best digital D&D feel (roleplay + combat). **Refuse:** single-player crafted story spine — we want multiplayer open-world chaos.
