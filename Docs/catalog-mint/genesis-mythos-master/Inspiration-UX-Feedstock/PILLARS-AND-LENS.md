@@ -84,9 +84,9 @@ Planes **not** defined at launch — world grows via players + DM; available whe
 
 Playable-race settlements radiate threat-level pressure that pushes stronger monsters outward; pressure bleeds into weaker settlements → readable gradient / safe-ish seed zones without nerfing ecology. See `exploration-altitude-ecology`.
 
-## Voice / table signaling
+## Voice / table signaling (thickened 2026-08-11)
 
-NPC dialogue = DM + voice changer for immersion. Players may use voice changers as explicit IC signal. DM remains primary NPC voice author. See `voice-table-signaling`.
+Light collaborative-table surface — not a desk, not a combat pin. Free waveform manipulation; default for one-offs; save a tuned voice on a recurring NPC. Players optional IC button. World-cam possession auto-applies or is one click away. DM authors speech; system only transforms. See [[VOICE-TABLE-TEXTURE]] / `voice-table-signaling`. Disposition **open**.
 
 ## Inspiration translation
 

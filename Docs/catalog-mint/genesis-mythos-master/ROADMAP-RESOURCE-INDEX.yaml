@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 672
+roadmap_note_count: 673
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4549,6 +4549,7 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - PILLARS-AND-LENS
+  - VOICE-TABLE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4564,6 +4565,7 @@ roadmap_notes:
   - QUIET-BETWEEN-TEXTURE
   - SKILL-READABILITY-TEXTURE
   - ITEM-COMMISSION-TEXTURE
+  - VOICE-TABLE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4619,6 +4621,7 @@ roadmap_notes:
   - SKILL-READABILITY-TEXTURE
   - CLASS-EXPRESSION-BOARD
   - ITEM-COMMISSION-TEXTURE
+  - VOICE-TABLE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4687,6 +4690,17 @@ roadmap_notes:
   - skill-active-passive-assist
   - tool-use-as-presence
   - language-barrier-and-bridge
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: VOICE-TABLE-TEXTURE
+  wiki: '[[VOICE-TABLE-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/VOICE-TABLE-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - voice-table-signaling
+  - CLASS-EXPRESSION-BOARD
+  - ROLEPLAY-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4859,7 +4873,8 @@ roadmap_notes:
   wiki: '[[forge-glow-dm-placement]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - VOICE-TABLE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false

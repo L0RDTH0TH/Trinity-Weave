@@ -21,6 +21,8 @@ ip_posture: pattern_only_no_clone
 
 **Job:** privileged placer sees a live preview of what they are putting down and whether it is legal/hidden.
 
+World-cam possession (2026-08-11) should pick up a saved NPC voice profile — auto-apply or one click. See `voice-table-signaling` / [[VOICE-TABLE-TEXTURE]].
+
 ## Refuse
 
 - Product must clone Halo Forge chrome

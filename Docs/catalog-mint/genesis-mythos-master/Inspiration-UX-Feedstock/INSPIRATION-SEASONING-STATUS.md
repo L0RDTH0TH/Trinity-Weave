@@ -7,7 +7,7 @@ updated: 2026-08-11
 
 # INSPIRATION-SEASONING-STATUS
 
-**Pin gate open.** Progressive distillation. Class-expression **board draft v5** still validating. Combat / Roleplay / Quiet / Skill-readability / Commission surface textures drafted 2026-08-11 — **not** maps-applied.
+**Pin gate open.** Progressive distillation. Class-expression **board draft v5** still validating. Shared surface textures drafted 2026-08-11 (incl. voice thicken) — **not** maps-applied.
 
 ## Quality pass maps / refinements (draft 2026-08-10)
 
@@ -17,7 +17,7 @@ updated: 2026-08-11
 | `knowledge-flow-channels` *(refined)* | living-world, mental-stat, early/mid/late, quiet, table agency, backstory | strong | baseline slow/lossy + power-gated accelerators |
 | `planar-grammar-with-local-distortion` *(refined)* | worldgen, living-world, campaign, authorship, early/mid/late, **camera** | strong | late-bound; disorientation-first; reusable orientation tools |
 | `exploration-altitude-ecology` *(refined)* | worldgen, living-world, early/mid, quiet, combat | strong | settlement threat-pressure gradient |
-| `voice-table-signaling` *(new)* | `ux_collaborative_table_agency`, `ux_dm_session_prep` | medium | DM+voice changer; player IC optional |
+| `voice-table-signaling` *(thickened 2026-08-11)* | `ux_collaborative_table_agency`, `ux_dm_session_prep`, `ux_camera_control_envelopes` | medium | Free waveforms; save on NPC; optional IC; World-cam possession |
 | `class-unique-expression-surfaces` *(draft board v5)* | PC creation, combat, mental-stat, table, quiet, authorship | medium | CLASS-EXPRESSION-BOARD.md v5 — v4 density + economy/claim family; validate before seasoning |
 | `combat-threat-readability` *(new draft)* | combat, quiet, table agency | strong | Posture default + Nature outline; not a taxonomy HUD |
 | `combat-flank-blind-spot-arc` *(new draft)* | combat, table agency | strong | 180° from back; acting-player ~5 ft overlay; numbers rules-side |
@@ -80,13 +80,21 @@ Full player crafting desk remains deferred.
 Carry-forwards: 180° flank = humanoid default (lock when Combat closes); combat exit residue **already locked**.  
 Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
 
+## Voice / table signaling (thickened 2026-08-11)
+
+Note path: `Inspiration-UX-Feedstock/VOICE-TABLE-TEXTURE.md`  
+Card: existing `voice-table-signaling` thickened — **no new derived-pin title**. Density low.  
+Grounded in collaborative table agency, DM session prep, World-cam / Forge possession. Class-expression and Roleplay weather are boundary only.  
+Carry-forwards: 180° flank = humanoid default (lock when Combat closes); combat exit residue **already locked**.  
+Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
+
 ## Prior maps (still in play)
 
 Closure #2, pass 1, altitude, and 2026-08-07 midband maps remain proposed. See prior STATUS sections / git history for full tables.
 
 ## Unmapped / deferred
 
-- **Focused distillation next:** class-unique expression (v5 still open) · combat / roleplay / quiet / skill-readability / commission surfaces (drafted, quality open) · full crafting desk deferred
+- **Focused distillation next:** class-unique expression (v5 still open) · shared surfaces drafted (quality open) · full crafting desk deferred
 - No invent of PIN-INDEX titles
 
 ## Waive
@@ -104,11 +112,13 @@ _None — disposition = open._
 - [x] Quiet-between texture draft (2026-08-11)
 - [x] Tools / languages / skill-readability draft (2026-08-11)
 - [x] Magic-item commission draft (2026-08-11)
+- [x] Voice / table signaling thicken (2026-08-11)
 - [ ] Grok+User validation of CLASS-EXPRESSION-BOARD v5
 - [ ] Grok+User validation of COMBAT-SURFACE-TEXTURE
 - [ ] Grok+User validation of ROLEPLAY-SURFACE-TEXTURE
 - [ ] Grok+User validation of QUIET-BETWEEN-TEXTURE
 - [ ] Grok+User validation of SKILL-READABILITY-TEXTURE
 - [ ] Grok+User validation of ITEM-COMMISSION-TEXTURE
+- [ ] Grok+User validation of VOICE-TABLE-TEXTURE
 - [ ] Optional Trinity push for Grok re-eval
 - [ ] Disposition applied|waived

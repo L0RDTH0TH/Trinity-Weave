@@ -29,6 +29,7 @@ Pinable sources → derived move-pins → season children + L5. Not Conceptual `
 | `QUIET-BETWEEN-TEXTURE.md` | Quiet-between travel/camp texture (draft 2026-08-11) |
 | `SKILL-READABILITY-TEXTURE.md` | Tools / languages / skill assists (draft 2026-08-11) |
 | `ITEM-COMMISSION-TEXTURE.md` | Magic-item commission conversation (draft 2026-08-11) |
+| `VOICE-TABLE-TEXTURE.md` | Voice / table signaling (thickened 2026-08-11; low density) |
 | `INDEX.md` | Pinable sources |
 | `LIKED-SNIPPETS.md` | Operator taste |
 | `cards/` | Derived move-pins |

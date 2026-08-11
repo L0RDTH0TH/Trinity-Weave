@@ -46,6 +46,13 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Class expression:** still thin on hands/attention texture — deferred to focused distillation loop.
 - **Voice signaling:** DM+voice changer for NPC; players optional IC voice changers.
 
+## Voice / table signaling (thickened 2026-08-11)
+
+- **Free waveforms**, not a preset-only picker. Default for throwaways. Save a tuned voice on a recurring NPC.
+- **Players:** optional “speak in character” button. Never mandatory.
+- **World-cam possession:** saved actor voice auto-applies or is one click away.
+- Density low. Not a desk. Not a combat pin.
+
 ## Class-expression draft v5 (2026-08-11)
 
 - Board: [[CLASS-EXPRESSION-BOARD]] — v4 density retained; economy + claim family (background sim, no new desks).
