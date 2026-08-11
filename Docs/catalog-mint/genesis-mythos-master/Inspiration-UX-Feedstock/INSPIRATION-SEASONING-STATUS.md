@@ -7,7 +7,7 @@ updated: 2026-08-10
 
 # INSPIRATION-SEASONING-STATUS
 
-**Pin gate open.** Progressive distillation. Class-expression **board draft v3** ready for Grok+User validation.
+**Pin gate open.** Progressive distillation. Class-expression **board draft v4** (density pass) ready for Grok+User validation.
 
 ## Quality pass maps / refinements (draft 2026-08-10)
 

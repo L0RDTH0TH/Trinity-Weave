@@ -46,10 +46,9 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - **Class expression:** still thin on hands/attention texture — deferred to focused distillation loop.
 - **Voice signaling:** DM+voice changer for NPC; players optional IC voice changers.
 
-## Class-expression draft v3 (2026-08-11)
+## Class-expression draft v4 (2026-08-11)
 
-- Board: [[CLASS-EXPRESSION-BOARD]] — thin base precursor + subclass-primary desks; inventory shared surface; murderhobo config; fixed primary direction.
-- Skip / murderhobo: never a gate; desks hidden in murderhobo; world still simulates.
+- Board: [[CLASS-EXPRESSION-BOARD]] — density pass; all listed subclass desks at full grain; thin base flavored.
 - Status: **validate with Grok+User** — not locked.
 
 ## Shared-world / digital D&D

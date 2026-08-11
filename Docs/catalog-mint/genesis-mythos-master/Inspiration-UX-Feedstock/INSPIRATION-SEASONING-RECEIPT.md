@@ -17,7 +17,7 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + class-expression **board draft v3** (capacity + inventory + murderhobo). Disposition stays **open**.
+Prior feedstock + class-expression **board draft v4** (density pass). Disposition stays **open**.
 
 ## Maps accepted
 
