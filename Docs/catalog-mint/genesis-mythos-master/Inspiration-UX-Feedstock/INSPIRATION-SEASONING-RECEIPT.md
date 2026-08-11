@@ -17,7 +17,7 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + quality pass + class-expression **board draft v2** (method locks + Sorcerer atelier). Disposition stays **open**.
+Prior feedstock + class-expression **board draft v3** (capacity + inventory + murderhobo). Disposition stays **open**.
 
 ## Maps accepted
 

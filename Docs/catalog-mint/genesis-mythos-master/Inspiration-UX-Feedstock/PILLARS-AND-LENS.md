@@ -54,7 +54,7 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 
 ## Soft-teaching / class expression
 
-**Method locked (v2); board = [[CLASS-EXPRESSION-BOARD]] draft v2.** Pattern-learning north star (downtime + mechanical world; soft-teaching ≈ the loop). Universal skip = system acts as if you played (near-average; rare real-bad; manual better; never a gate). Loops may lean Roleplay / Exploration / Combat. **Combat interrupts mini-game; mini-game does not interrupt combat.** Wizard–Artificer = same weave family (map vs object). Cleric serves the channel; Paladin tends sworn word. Fighter = craft of violence; Monk = craft of the self. Sorcerer = weave-atelier (move *with* current; vessel limit). Awaiting Grok+User validation.
+**Board = [[CLASS-EXPRESSION-BOARD]] draft v3.** Thin base-class precursor + **subclass-primary** Sense→Play→Outcome desk. Inventory = shared surface (constraint + load + provenance + maintenance). Murderhobo = campaign-scoped auto-skip; players never see desks; world still runs. **Fixed primary direction** (no fluid lean). Universal skip + pattern-learning + combat-interrupt still stand. Wizard–Artificer–Sorcerer weave family; Cleric serves channel / Paladin sworn word; Fighter = violence+kit / Monk = body. Awaiting Grok+User validation.
 
 ## Planar
 
