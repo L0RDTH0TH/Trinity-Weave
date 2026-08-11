@@ -61,6 +61,7 @@ Low-chrome assist only. Failure / skip = no outline, not blindness.
 - **Illustrative scale (not product law):** tight rear cone ≈ +1; wider rear arc up to 90° ≈ +3. Exact numbers stay **rules-side**.
 - **Visual assist:** short cone/arc overlay in the **same visual family** as the existing turn-gated movement circle, reaching **~5 ft** from the enemy’s back.
 - **Who / when:** acting player only; combat-surface only. Does **not** grid the whole world.
+- **Carry-forward (lock when Combat surface closes):** 180° is the **humanoid default**, not a universal monster law. Good default for bipedal humanoid-shaped threats; other anatomies / senses get their own readability language (or none) later. Parked also on [[ROLEPLAY-SURFACE-TEXTURE]]. **Not locked this pass.**
 
 ### 4. Class contribution
 
@@ -100,6 +101,7 @@ Do **not**:
 12. Treat residue as a new authored end or mandatory after-action report.
 13. Propose game titles as `conceptual_pin` from this pass.
 14. Claim share-ready or close the pin / seasoning gate from this pass.
+15. Treat the 180° back-arc as universal monster law (humanoid default only — carry-forward; lock when Combat surface closes).
 
 ---
 

@@ -24,3 +24,5 @@ ip_posture: pattern_only_no_clone
 # Clanfolk — faction / household pocket grain
 
 Pocket Roleplay instance of the altitude nest. Complements Manor Lords high altitude.
+
+Shared institutional weather (2026-08-11) sits **on top of** this pocket grain — fingers, ripples, reputation weather — without cloning every faction as a household. See `factions-as-persons-fingers-ripples` / [[ROLEPLAY-SURFACE-TEXTURE]].

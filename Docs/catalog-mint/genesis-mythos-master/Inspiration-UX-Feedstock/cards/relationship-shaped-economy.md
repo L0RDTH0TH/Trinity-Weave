@@ -20,3 +20,5 @@ ip_posture: pattern_only_no_clone
 # Relationship-shaped economy and social consequence
 
 Open-world cluster contrast: prefer **relationship → economy/social options** over shallow unlock items.
+
+Coupling rule for shared Roleplay weather (2026-08-11): treatment rewrites ordinary transactions. See `reputation-weather` / [[ROLEPLAY-SURFACE-TEXTURE]].

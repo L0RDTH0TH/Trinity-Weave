@@ -7,7 +7,7 @@ updated: 2026-08-11
 
 # INSPIRATION-SEASONING-STATUS
 
-**Pin gate open.** Progressive distillation. Class-expression **board draft v5** (economy + claim family) still validating. Combat play-surface texture drafted 2026-08-11 — **not** maps-applied.
+**Pin gate open.** Progressive distillation. Class-expression **board draft v5** still validating. Combat play-surface + Roleplay institutional weather drafted 2026-08-11 — **not** maps-applied.
 
 ## Quality pass maps / refinements (draft 2026-08-10)
 
@@ -22,6 +22,9 @@ updated: 2026-08-11
 | `combat-threat-readability` *(new draft)* | combat, quiet, table agency | strong | Posture default + Nature outline; not a taxonomy HUD |
 | `combat-flank-blind-spot-arc` *(new draft)* | combat, table agency | strong | 180° from back; acting-player ~5 ft overlay; numbers rules-side |
 | `combat-enter-exit-residue` *(new draft)* | combat, quiet, table agency | strong | DM opens/closes; fade residue into quiet-between |
+| `factions-as-persons-fingers-ripples` *(new draft)* | living-world, backstory, quiet, table agency | strong | Factions as persons; fingers + ripples; players can become fingers/stones |
+| `reputation-weather` *(new draft)* | living-world, quiet, table agency, backstory | strong | Felt treatment; no meter; no announced “mad because X” |
+| `faction-goal-pressure-residue` *(new draft)* | living-world, quiet, session prep, early/mid | strong | Local residue of current goal; no faction sheet; no forced turn |
 
 ## Class-expression board (draft v5 — 2026-08-11)
 
@@ -36,13 +39,21 @@ Cards: `combat-threat-readability`, `combat-flank-blind-spot-arc`, `combat-enter
 Grounded in existing `combat-altitude-map-siege-raid`, `turn-gated-movement-circle`, series `ux_combat_play_surface`.  
 Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
 
+## Roleplay institutional weather (draft 2026-08-11)
+
+Note path: `Inspiration-UX-Feedstock/ROLEPLAY-SURFACE-TEXTURE.md`  
+Cards: `factions-as-persons-fingers-ripples`, `reputation-weather`, `faction-goal-pressure-residue`.  
+Grounded in existing Clanfolk / Manor Lords / relationship-economy / critical-nodes / knowledge-flow / Bannerlord-pattern / ecology / seed-region.  
+Carry-forward: 180° flank = humanoid default (lock when Combat surface closes).  
+Status: **draft_for_grok_user_validation** — not maps-applied. No new PIN-INDEX titles. No share-ready / gate close.
+
 ## Prior maps (still in play)
 
 Closure #2, pass 1, altitude, and 2026-08-07 midband maps remain proposed. See prior STATUS sections / git history for full tables.
 
 ## Unmapped / deferred
 
-- **Focused distillation next:** class-unique expression player-facing texture (v5 still open) **and** combat surface texture (drafted, quality open)
+- **Focused distillation next:** class-unique expression (v5 still open) · combat surface (drafted, quality open) · roleplay institutional weather (drafted, quality open)
 - No invent of PIN-INDEX titles
 
 ## Waive
@@ -56,7 +67,9 @@ _None — disposition = open._
 - [x] Light PIN-DERIVE remine where focuses shift
 - [x] Class-expression board draft v5 (economy + claim family)
 - [x] Combat play-surface texture draft (2026-08-11)
+- [x] Roleplay institutional-weather draft (2026-08-11)
 - [ ] Grok+User validation of CLASS-EXPRESSION-BOARD v5
 - [ ] Grok+User validation of COMBAT-SURFACE-TEXTURE
+- [ ] Grok+User validation of ROLEPLAY-SURFACE-TEXTURE
 - [ ] Optional Trinity push for Grok re-eval
 - [ ] Disposition applied|waived

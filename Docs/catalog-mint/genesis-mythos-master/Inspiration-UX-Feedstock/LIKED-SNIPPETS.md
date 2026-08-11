@@ -51,6 +51,13 @@ Multiplayer living-world fantasy + real DM/player agency in 3D. When players ima
 - Board: [[CLASS-EXPRESSION-BOARD]] — v4 density retained; economy + claim family (background sim, no new desks).
 - Status: **validate with Grok+User** — not locked. Intended to close with class-expression together.
 
+## Roleplay institutional weather (2026-08-11)
+
+- **Factions as persons:** needs, places, fingers; meet the fingers, feel the ripples; stones in the water.
+- **Reputation weather:** greeting tone, access, offers, withheld doors, rumor temperature, room-shift — felt, not announced.
+- **Goal pressure:** local residue (scarcity, hiring, watchfulness, hospitality); war settling takes time; no faction sheet; no forced turn.
+- **Carry-forward (Combat):** 180° blind-spot is the humanoid default, not a universal monster law. Lock when Combat surface closes.
+
 ## Shared-world / digital D&D
 
 - **BG3:** Best digital D&D feel (roleplay + combat). **Refuse:** single-player crafted story spine — we want multiplayer open-world chaos.

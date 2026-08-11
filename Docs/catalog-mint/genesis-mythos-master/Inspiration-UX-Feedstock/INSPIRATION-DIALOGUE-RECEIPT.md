@@ -9,17 +9,17 @@ updated: 2026-08-11
 
 # INSPIRATION-DIALOGUE-RECEIPT
 
-See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-TEXTURE]].
+See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-TEXTURE]] · [[ROLEPLAY-SURFACE-TEXTURE]].
 
 **Role:** share document for User+Cursor feedstock — **not** a Grok ladder gate.
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5** (economy + claim family added). Combat play-surface texture drafted on [[COMBAT-SURFACE-TEXTURE]] (2026-08-11) — quality still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Combat texture on [[COMBAT-SURFACE-TEXTURE]]. Roleplay institutional weather drafted on [[ROLEPLAY-SURFACE-TEXTURE]] (2026-08-11) — quality still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
-**Close intent:** class-expression + economy/claim are intended to close **together** after Grok+User validation of that pass. Combat texture is a **separate** discussion surface; disposition stays **open** (no share-ready / no gate close from the combat pass).
+**Close intent:** class-expression + economy/claim are intended to close **together** after Grok+User validation of that pass. Combat and Roleplay shared surfaces are **separate** discussion surfaces; disposition stays **open**.
 
 ## Passes this cycle
 
@@ -27,6 +27,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 5. **Draft v4 (density pass):** all listed subclass desks at full Sense → Play → Outcome. **Retained in v5 — do not thin.**
 6. **Draft v5 (economy + claim family):** background 3–4X-class sim (no player desk); item knowledge on existing D&D tools + Inventory ambient; claim/recovery network-routed (taken vs found; secrecy contests); consistency notes with Inventory / knowledge flow / sim. Full item desk still deferred beyond provenance + claim.
 7. **Combat play-surface texture (2026-08-11):** player-facing shared-surface only — posture default, Nature outline, flank 180° acting-player overlay, DM enter/exit + residue fade. Cards: `combat-threat-readability`, `combat-flank-blind-spot-arc`, `combat-enter-exit-residue`. No new PIN-INDEX titles. No second combat desk. Disposition **open**.
+8. **Roleplay institutional weather (2026-08-11):** shared surface **outside** class desks — factions as persons (fingers + ripples), reputation weather, goal-pressure residue. Cards: `factions-as-persons-fingers-ripples`, `reputation-weather`, `faction-goal-pressure-residue`. Carry-forward: 180° flank = humanoid default (lock when Combat surface closes). Disposition **open**.
 
 ## Locked this cycle (still in force)
 
@@ -43,7 +44,7 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 
 ## Deferred
 
-Full item-creation desk · Tools/Languages expansion · pin-gate close · seasoning apply · combat texture share-ready / gate close.
+Full item-creation desk · Tools/Languages expansion · pin-gate close · seasoning apply · combat / roleplay texture share-ready / gate close.
 
 ## Operator share statement
 

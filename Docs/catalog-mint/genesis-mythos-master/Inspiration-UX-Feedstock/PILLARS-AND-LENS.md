@@ -16,7 +16,7 @@ Multiple dialogue loops by design. Pass updates → Cursor feedstock → fresh G
 
 | Pillar | Player face | System face |
 |--------|-------------|-------------|
-| **Roleplay** | Talk / decide / perform | Factions, guilds, NPC sheets, reputation, relationship→economy |
+| **Roleplay** | Talk / decide / perform | Factions, guilds, NPC sheets, reputation, relationship→economy. **Surface texture (draft):** factions as persons — fingers + ripples + reputation weather + goal-pressure residue. See [[ROLEPLAY-SURFACE-TEXTURE]]. |
 | **Exploration** | Travel / notice / live in place | Habitat, seasons, travel, environment-as-adversary, continuity |
 | **Combat** | Orchestrate the fight | Turns, range, threat, resolution. **Surface texture (draft):** posture readability + optional Nature outline + acting-player flank arc + DM enter/exit with fade residue. See [[COMBAT-SURFACE-TEXTURE]]. |
 
@@ -55,6 +55,10 @@ Soft open map + hard density funnel on starting town/city + hinterland. Low-powe
 ## Soft-teaching / class expression
 
 **Board = [[CLASS-EXPRESSION-BOARD]] draft v5.** v4 class/Inventory density retained. Economy = background sim (no player desk; presence = render). Claim = network-routed recovery; item knowledge on existing D&D tools. Intended to close with class-expression after Grok+User validation.
+
+## Roleplay institutional weather (draft 2026-08-11)
+
+Shared Roleplay surface **outside** class-expression desks. Factions as persons: needs, places, fingers, ripples. Reputation is weather (felt, not announced). Local power-center goals leave residue (scarcity, hiring, watchfulness, hospitality — war settling takes time). High = regional heartbeat; pocket = household/guild/village currently touched. Opacity + agency to ignore. Relationship → economy remains the coupling. See [[ROLEPLAY-SURFACE-TEXTURE]]. Disposition **open**.
 
 ## Combat play-surface texture (draft 2026-08-11)
 

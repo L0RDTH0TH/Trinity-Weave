@@ -14,6 +14,7 @@ refuse_to_copy:
   - "Flank overlay as exploration chrome or as a second combat desk"
   - "Locking illustrative +1/+3 as product law (numbers stay rules-side)"
   - "Replacing above-table orchestration with the overlay"
+  - "180° back-arc as universal monster law (humanoid default only; other anatomies later)"
 maps_to_series:
   - ux_combat_play_surface
   - ux_collaborative_table_agency
@@ -34,6 +35,7 @@ ip_posture: pattern_only_no_clone
 - **Visual assist:** short cone/arc overlay in the **same visual family** as the existing turn-gated movement circle, reaching ~5 ft from the enemy’s back.
 - **Who sees it:** the **acting player only**.
 - **When:** combat-surface only. Does not grid the whole world.
+- **Scope (carry-forward — lock when Combat surface closes):** 180° is the **humanoid default**, not a universal monster law. Good default for bipedal humanoid-shaped threats; other anatomies / senses get their own readability language (or none) later. Not locked this pass.
 
 ## Orchestration
 

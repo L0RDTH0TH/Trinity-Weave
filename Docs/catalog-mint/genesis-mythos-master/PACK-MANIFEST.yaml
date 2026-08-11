@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-11T17:59:00Z'
+synced_at: '2026-08-11T18:19:25Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: ec3358a4182b68bd
+  ROADMAP-RESOURCE-INDEX.yaml: 863e75e77b5cec79
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,16 +264,17 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 77eabfe0bf2fb159
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 9a0e6b8e05c7151e
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: e42db5703c1fdf94
-  Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 5133c24a1a9649c7
-  Inspiration-UX-Feedstock/INDEX.md: f29496e0d2ae8e11
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: dc05dde56b2e2330
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 446485b290e8f892
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: f0ba5c1f1e8c4c73
-  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 8570f5f54fb4de57
-  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: 71c2b49b4fa31cb6
-  Inspiration-UX-Feedstock/README.md: d488b788625ca18a
+  Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: d6d963044ade40d7
+  Inspiration-UX-Feedstock/INDEX.md: e280cee33ad5ccf3
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 59210b776536e71b
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 8b913a9d9c8ff04f
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 24bb50112057ea07
+  Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 31d1dc22e0e5c919
+  Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: 7d32a56aa6ae095c
+  Inspiration-UX-Feedstock/README.md: 4d6fd6fed0dc71a1
+  Inspiration-UX-Feedstock/ROLEPLAY-SURFACE-TEXTURE.md: 39f1af146a96b35d
   Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
   Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md: 69c1f2a7e371e247
   Inspiration-UX-Feedstock/cards/banished-frontier-blueprint-settlement.md: e615e94ab11c2e88
@@ -281,16 +282,18 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md: 71d693b0560973b4
   Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: e66ad7e91ced66e1
   Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: f91d169bbd0e41c7
-  Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md: 83dea980f8840368
+  Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md: 4847fa3e14d01628
   Inspiration-UX-Feedstock/cards/class-unique-expression-surfaces.md: f8aa974f736b995b
   Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md: f3fcd2bdbfd0fc32
   Inspiration-UX-Feedstock/cards/combat-enter-exit-residue.md: ebe3d967f43d99b0
-  Inspiration-UX-Feedstock/cards/combat-flank-blind-spot-arc.md: 202632a8545003a6
+  Inspiration-UX-Feedstock/cards/combat-flank-blind-spot-arc.md: ad3a633650b42050
   Inspiration-UX-Feedstock/cards/combat-threat-readability.md: ee39c21f3f1153a5
   Inspiration-UX-Feedstock/cards/critical-node-hierarchy.md: 55ea82b81d451c08
   Inspiration-UX-Feedstock/cards/cross-pillar-altitude-nest.md: f49825e8fbe4ba37
   Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 44f0ec4534635377
   Inspiration-UX-Feedstock/cards/exploration-altitude-ecology.md: 3c449732cdb53935
+  Inspiration-UX-Feedstock/cards/faction-goal-pressure-residue.md: 010d65b5311c1cf7
+  Inspiration-UX-Feedstock/cards/factions-as-persons-fingers-ripples.md: d82897e6693eeb61
   Inspiration-UX-Feedstock/cards/forge-glow-dm-placement.md: 05b10274ddbc005f
   Inspiration-UX-Feedstock/cards/foundation-district-organic-build.md: f69f05712e24c8a5
   Inspiration-UX-Feedstock/cards/going-medieval-blueprint-pawns.md: eea0a4dcd366e2a9
@@ -308,7 +311,8 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/planar-grammar-with-local-distortion.md: 57d91742f526cf89
   Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md: ed32c05ad19c1dbf
   Inspiration-UX-Feedstock/cards/rain-world-creature-territory-habitat.md: c369d0b05c63349b
-  Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md: ed4d69eb71d5b348
+  Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md: 5188425b00f4b36f
+  Inspiration-UX-Feedstock/cards/reputation-weather.md: 3e2b84471ce6e161
   Inspiration-UX-Feedstock/cards/rimworld-designate-calendar-labor.md: a4e205ec8089ba4b
   Inspiration-UX-Feedstock/cards/rust-ark-base-systems-light.md: 34a84d3208a20eaf
   Inspiration-UX-Feedstock/cards/seed-region-density-and-travel.md: ea13c6b66512b486
@@ -328,6 +332,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: 7b0162e181f9fe14
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: df537ec172144697
+  MINT-PACK.md: 442a5c590f56f720
 warnings:
 - feed_completeness:no_focal_item

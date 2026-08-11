@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 657
+roadmap_note_count: 661
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4535,6 +4535,7 @@ roadmap_notes:
   - combat-flank-blind-spot-arc
   - combat-enter-exit-residue
   - CLASS-EXPRESSION-BOARD
+  - ROLEPLAY-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4555,6 +4556,7 @@ roadmap_notes:
   - PILLARS-AND-LENS
   - CLASS-EXPRESSION-BOARD
   - COMBAT-SURFACE-TEXTURE
+  - ROLEPLAY-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4590,6 +4592,7 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/PILLARS-AND-LENS.md
   kind: user_story
   wiki_links:
+  - ROLEPLAY-SURFACE-TEXTURE
   - COMBAT-SURFACE-TEXTURE
   - CLASS-EXPRESSION-BOARD
   linked_resources: []
@@ -4601,6 +4604,28 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - PILLARS-AND-LENS
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: ROLEPLAY-SURFACE-TEXTURE
+  wiki: '[[ROLEPLAY-SURFACE-TEXTURE]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/ROLEPLAY-SURFACE-TEXTURE.md
+  kind: user_story
+  wiki_links:
+  - clanfolk-faction-pocket-grain
+  - manor-lords-high-altitude-region
+  - relationship-shaped-economy
+  - critical-node-hierarchy
+  - knowledge-flow-channels
+  - bannerlord-offscreen-faction-military
+  - exploration-altitude-ecology
+  - seed-region-density-and-travel
+  - factions-as-persons-fingers-ripples
+  - reputation-weather
+  - faction-goal-pressure-residue
+  - CLASS-EXPRESSION-BOARD
+  - combat-flank-blind-spot-arc
+  - COMBAT-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4665,7 +4690,8 @@ roadmap_notes:
   wiki: '[[clanfolk-faction-pocket-grain]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - ROLEPLAY-SURFACE-TEXTURE
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4737,6 +4763,22 @@ roadmap_notes:
 - title: exploration-altitude-ecology
   wiki: '[[exploration-altitude-ecology]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/exploration-altitude-ecology.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: faction-goal-pressure-residue
+  wiki: '[[faction-goal-pressure-residue]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/faction-goal-pressure-residue.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: factions-as-persons-fingers-ripples
+  wiki: '[[factions-as-persons-fingers-ripples]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/factions-as-persons-fingers-ripples.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4882,6 +4924,15 @@ roadmap_notes:
 - title: relationship-shaped-economy
   wiki: '[[relationship-shaped-economy]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/relationship-shaped-economy.md
+  kind: user_story
+  wiki_links:
+  - ROLEPLAY-SURFACE-TEXTURE
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: reputation-weather
+  wiki: '[[reputation-weather]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/reputation-weather.md
   kind: user_story
   wiki_links: []
   linked_resources: []
