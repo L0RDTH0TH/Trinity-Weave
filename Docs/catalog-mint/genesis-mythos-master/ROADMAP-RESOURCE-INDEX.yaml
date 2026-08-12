@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 673
+roadmap_note_count: 674
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4715,6 +4715,14 @@ roadmap_notes:
 - title: adventure-module-ruleset-migration
   wiki: '[[adventure-module-ruleset-migration]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: background-first-finger-membrane
+  wiki: '[[background-first-finger-membrane]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/background-first-finger-membrane.md
   kind: user_story
   wiki_links: []
   linked_resources: []

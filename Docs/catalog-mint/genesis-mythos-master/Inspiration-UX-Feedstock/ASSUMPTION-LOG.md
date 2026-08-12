@@ -1,7 +1,7 @@
 ---
 title: Inspiration elevation assumption log
 project-id: genesis-mythos-master
-updated: 2026-08-11
+updated: 2026-08-12
 ---
 
 # ASSUMPTION-LOG
@@ -144,3 +144,6 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-11 | false | magic-item-commission-conversation | ux_living_world_continuity, ux_collaborative_table_agency, ux_quiet_between_pillars, ux_backstory_legacy_integration | feedstock draft (not elevated) | Ordinary path = talk to local finger |
 | 2026-08-11 | false | commission-formula-and-stock-eval | ux_living_world_continuity, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_early_game, ux_mid_game | feedstock draft (not elevated) | Base + reagents + bind time vs current stock |
 | 2026-08-11 | false | voice-table-signaling | ux_collaborative_table_agency, ux_dm_session_prep, ux_camera_control_envelopes | feedstock thicken (not elevated) | Free waveforms; save on NPC; optional IC; World-cam possession |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_player_character_creation, ux_backstory_legacy_integration, ux_early_game, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Background = first finger, not ongoing desk |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Power-band reaction window = soft guidance (power/reach > exact level) |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_backstory_legacy_integration | feedstock lock (user-validated; not elevated) | Absorption into reputation weather is intended end-state of residue |

@@ -3,7 +3,7 @@ title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
 status: feedstock-progressive-distillation
 inspiration_dialogue_satisfied: false
-updated: 2026-08-11
+updated: 2026-08-12
 
 ---
 
@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice) — quality still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** feedstock-locked 2026-08-12 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -32,6 +32,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 10. **Tools / languages / skill readability (2026-08-11):** shared surface **outside** class desks — active + passive assist, tool residue, language barrier/bridge. Cards: `skill-active-passive-assist`, `tool-use-as-presence`, `language-barrier-and-bridge`. Nature outline already locked as active-assist example. Disposition **open**.
 11. **Magic-item commission (2026-08-11):** ordinary path = conversation with local finger; formula = base + reagents + bind time vs current stock. Cards: `magic-item-commission-conversation`, `commission-formula-and-stock-eval`. Full crafting desk remains deferred. Disposition **open**.
 12. **Voice / table signaling (2026-08-11):** light thicken of existing `voice-table-signaling` — free waveforms, save on recurring NPC, optional IC button, World-cam possession. No new PIN-INDEX titles. Density low. Disposition **open**.
+13. **Backgrounds — first finger (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Social/professional only; first-finger + push-into-adventuring; mechanical + meaningful residual; power-band decay C3 latent → C1 reaction window → absorbed by B1–B2 / early A; Session 0 DM gate for named critical-node links; classic PHB skeleton kept but completed by lasting world impression + absorption into reputation weather. Card: `background-first-finger-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -46,10 +47,21 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Claim / recovery** | Taken → networks with motive+reach try recovery. Found → keepers until knowledge reaches motive+reach. Routed through the offended party’s actual channels. Secrecy + anti-divination can block a channel. No global item flag. |
 | **Join** | One event = one fact across Inventory provenance, sim render, and claim rumor. Inventory is the only full player-facing surface in this family. |
 
+**Backgrounds feedstock lock (2026-08-12 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **First finger** | Background = first already-recognized social/professional membrane into the living world — not an ongoing desk. |
+| **Decay** | Soft power-band window: C3 mostly latent → related factions react near ≈C1 → through early B → absorbed by B1–B2 / early A. |
+| **Absorption** | Residue ends in reputation weather, faction fingers, and knowledge-flow — not a permanent second identity layer. |
+| **Session 0** | Named critical-node / specific faction linkages require DM approval. |
+
 ## Deferred
 
-Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
+Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
 
 ## Operator share statement
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
+
+Cursor has recorded the Backgrounds feedstock lock (`background-first-finger-membrane`) and is ready for the next surface (**Conditions** recommended).

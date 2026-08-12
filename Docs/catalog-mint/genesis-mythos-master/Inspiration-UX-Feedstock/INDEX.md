@@ -1,7 +1,7 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-11
+updated: 2026-08-12
 ---
 
 # INDEX — pinable sources
@@ -47,6 +47,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator tools-languages-skill doctrine (2026-08-11) | strong | language-barrier-and-bridge | Barriers real; work-arounds have cost; not a scene lock |
 | Operator commission-surface doctrine (2026-08-11) | strong | magic-item-commission-conversation | Ordinary path = talk to smith / merchant / temple / faction store; not a crafting desk |
 | Operator commission-surface doctrine (2026-08-11) | strong | commission-formula-and-stock-eval | Base + reagents + bind time vs current stock / caravans / scarcity |
+| Operator backgrounds doctrine (2026-08-12 dialogue) | strong | background-first-finger-membrane | First social/professional finger into the living world; residual knowledge/contact leverage; weak at C3, reactive around C1, absorbed by mid-B / early A; Session 0 DM-gated node links; never a desk or permanent unique ability |
 
 ## Shared-world / digital D&D cousins
 
