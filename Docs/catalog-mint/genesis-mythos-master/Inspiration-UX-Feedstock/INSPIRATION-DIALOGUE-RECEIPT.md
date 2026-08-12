@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** feedstock-locked 2026-08-12 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -33,6 +33,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 11. **Magic-item commission (2026-08-11):** ordinary path = conversation with local finger; formula = base + reagents + bind time vs current stock. Cards: `magic-item-commission-conversation`, `commission-formula-and-stock-eval`. Full crafting desk remains deferred. Disposition **open**.
 12. **Voice / table signaling (2026-08-11):** light thicken of existing `voice-table-signaling` — free waveforms, save on recurring NPC, optional IC button, World-cam possession. No new PIN-INDEX titles. Density low. Disposition **open**.
 13. **Backgrounds — first finger (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Social/professional only; first-finger + push-into-adventuring; mechanical + meaningful residual; power-band decay C3 latent → C1 reaction window → absorbed by B1–B2 / early A; Session 0 DM gate for named critical-node links; classic PHB skeleton kept but completed by lasting world impression + absorption into reputation weather. Card: `background-first-finger-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
+14. **Conditions — felt state machine (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Sibling modes (Temporary/ordinary · Transformative/semi-permanent); five shared families; power-banded staged progression for transformations; explicit transformative anchors; environmental & survival-resource injuries inside the state machine; mundane lingering injury first-class; middle-path residue with open-world institutional teeth; embodied player-facing communication. Card: `conditions-felt-state-machine`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -56,6 +57,17 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Absorption** | Residue ends in reputation weather, faction fingers, and knowledge-flow — not a permanent second identity layer. |
 | **Session 0** | Named critical-node / specific faction linkages require DM approval. |
 
+**Conditions feedstock lock (2026-08-12 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Sibling modes** | Temporary/ordinary vs Transformative/semi-permanent; both share five families. |
+| **Families** | Perception · Mobility/posture · Physical agency · Social agency · Ongoing harm/capacity. |
+| **Transformations** | Power-banded staged progression; identity-level anchors (Curse / Neutral / Blessing); character becomes the thing. |
+| **Scope in machine** | Environmental fight-back, survival-resource deficit, and mundane lingering injury are first-class. |
+| **Residue** | Middle path — most temps clean; meaningful minority leave social/postural/institutional residue that can travel. |
+| **Communication** | Embodied sensory/postural + light directional chrome first; mechanical summary secondary. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -64,4 +76,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Backgrounds feedstock lock (`background-first-finger-membrane`) and is ready for the next surface (**Conditions** recommended).
+Cursor has recorded the Conditions feedstock lock (`conditions-felt-state-machine`) and is ready for the next surface (**Monsters & behaviors** recommended, or next item on the operator’s remaining list).
