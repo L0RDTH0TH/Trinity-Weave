@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 683
+roadmap_note_count: 684
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -5144,6 +5144,14 @@ roadmap_notes:
   kind: user_story
   wiki_links:
   - QUIET-BETWEEN-TEXTURE
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: session-prep-accelerator-loop
+  wiki: '[[session-prep-accelerator-loop]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/session-prep-accelerator-loop.md
+  kind: user_story
+  wiki_links: []
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
