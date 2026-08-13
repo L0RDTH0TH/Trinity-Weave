@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** + **Treasure** + **Pantheons** + **BBEGs** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** + **Treasure** + **Pantheons** + **BBEGs** + **Structures gen** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -40,6 +40,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 18. **Treasure & adventure rewards — content through membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Treasure is content that flows through existing claim/provenance/recovery/economic membranes; residual interest driven by “would anyone care,” unique identifiability, and prior ownership; rarity modulates likelihood and strength; themed hoards; information and favors first-class; DM flags prior-claim items and chooses whether (and how) to release knowledge — instant injection or living-world channels; party can keep secrets unless they themselves leak through interaction. Card: `treasure-claim-provenance-content`. No new PIN-INDEX titles. No L5. No seasoning apply.
 19. **Pantheons — institutional faith (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Pantheons and churches function as living religious factions (divine as head) inside existing institutional weather; faith can be left blank at creation; gods act primarily through fingers/institutions with power-banded response; personal divine intervention is DM-gated; oaths are RP/social/institutional for now (mechanical system deferred); multi-pantheon supported when seed region warrants it, otherwise single primary + local spirits/cults. Card: `pantheons-institutional-faith`. No new PIN-INDEX titles. No L5. No seasoning apply.
 20. **BBEGs — apex pressure nodes (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Apex pressure node (person, institution/faction finger, or ecological force); concurrency power-banded (C=1, B=2, A=up to 3); off-screen continuity and readable escalation through living-world signals; information control uses existing DM surfaces; death is only one of many valid resolution patterns; party can influence, delay, redirect, or transform the threat. Card: `bbeg-apex-pressure-node`. No new PIN-INDEX titles. No L5. No seasoning apply.
+21. **Structures gen — dungeons & settlements (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Structures are the societal subsection of worldgen; every significant structure has historical causality (reason, resources, people); cultural expression is shown through architecture/layout/materials; ruins are meaningful residual history; player-made structures follow the same rules with approximation rights; ruin density variable by DM discretion; explicit first-class cultural settlement examples included; compatible with future portable lore packages. Card: `structures-gen-cultural-historical`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -138,6 +139,17 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Resolution** | Death is only one first-class pattern; containment, dismantling, transformation, negotiation, exile, etc. remain valid. |
 | **Party influence** | Can wound, delay, redirect, expose, accelerate, contain, or transform. No railroad-until-climax. |
 
+**Structures gen feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Societal worldgen** | Structures gen is the societal half of worldgen; natural terrain is the other half; both must agree. |
+| **Historical causality** | Every significant structure has reason, resources, and people. Ruins are residual history, not random. |
+| **Cultural dialects** | Legible through form (architecture, layout, materials, defensive logic). First-class examples: elven, dwarven, goliath-mobile, human-variable. |
+| **Player-made** | Same rules with approximation rights; unique to the party inside the world’s architectural grammar. Links to hirelings/staffing. |
+| **Ruin density** | Variable by DM discretion, sub-region, and history generation. No fixed global density. |
+| **Lore packages** | Cultural dialects treated as consumable data; compatible with future portable lore packages. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · first-class mechanical oath system · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -146,4 +158,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · first-cl
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the BBEGs feedstock lock (`bbeg-apex-pressure-node`) and is ready for the next surface (**Dungeons / settlements gen** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Structures gen lock (`structures-gen-cultural-historical`) and is ready for the next surface (**Multiclass / feats / post-20** or **Session prep loop**, per operator remaining list).

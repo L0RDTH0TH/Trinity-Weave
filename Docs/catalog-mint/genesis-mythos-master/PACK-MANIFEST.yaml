@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-13T08:12:27Z'
+synced_at: '2026-08-13T17:00:13Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 77a2cb7b728098e1
+  ROADMAP-RESOURCE-INDEX.yaml: 0f11aec89e496922
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,11 +264,11 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: f5ff6049485b9b9f
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 8cba1a1ebd2cf3f0
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: 3b4e076df6ff0e0e
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: 23d51486d70d2802
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: f61fcdd97771943b
+  Inspiration-UX-Feedstock/INDEX.md: f3615ac3af7b98c2
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: e1a9531405187950
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
@@ -336,6 +336,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/situational-overlay-lenses.md: 2158c3998c7442da
   Inspiration-UX-Feedstock/cards/skill-active-passive-assist.md: 31f1f60eeb45a837
   Inspiration-UX-Feedstock/cards/stronghold-plan-engineers-time.md: dc5f73a517ab9357
+  Inspiration-UX-Feedstock/cards/structures-gen-cultural-historical.md: f30c7405d0ee2463
   Inspiration-UX-Feedstock/cards/stub-adventure-pdf-dependency-graph.md: 4923eb0e220f5102
   Inspiration-UX-Feedstock/cards/stub-df-living-detail.md: 440e54b064b5e5ec
   Inspiration-UX-Feedstock/cards/stub-oblivion-open-world.md: b75b0595a993823c
@@ -352,6 +353,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 439d6b20c4f1f218
+  MINT-PACK.md: be38e6b32ebd1baa
 warnings:
 - feed_completeness:no_focal_item

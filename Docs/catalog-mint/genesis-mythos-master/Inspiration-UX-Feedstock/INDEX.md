@@ -55,6 +55,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator treasure-rewards doctrine (2026-08-13 dialogue) | strong | treasure-claim-provenance-content | Content through existing economic/claim membrane; care + identifiability + prior ownership drive heat; rarity modulates; themed hoards; DM-controlled release of residual claims; information/favors first-class |
 | Operator pantheons doctrine (2026-08-13 dialogue) | strong | pantheons-institutional-faith | Living religious factions; fingers-first activity with DM-gated personal intervention; optional engagement; RP oaths; multi-pantheon when scale supports |
 | Operator BBEG / apex-pressure doctrine (2026-08-13 dialogue) | strong | bbeg-apex-pressure-node | Power-banded concurrency (C1/B2/A3); personal + institutional + ecological forms; off-screen continuity; flexible non-death resolutions; existing DM info control |
+| Operator structures-gen doctrine (2026-08-13 dialogue) | strong | structures-gen-cultural-historical | Societal half of worldgen; historical causality required; cultural dialects legible through form; player approximation for bases; variable ruins; explicit examples (elven, dwarven, goliath-mobile, etc.) |
 
 ## Shared-world / digital D&D cousins
 

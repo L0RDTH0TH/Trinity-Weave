@@ -76,16 +76,21 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 [https://grok.com/share/c2hhcmQtMg_381c575c-ea97-4393-bcc1-9d140f063db7](https://grok.com/share/c2hhcmQtMg_381c575c-ea97-4393-bcc1-9d140f063db7)  
 
-
 1. ~~**Backgrounds** (origin membrane + residual world recognition)~~
 2. ~~**Conditions** (felt temporary states)~~
-3. **Monsters & behaviors** (habitat actors)
-4. **Traps** (environmental agency)
-5. **Hirelings** (directed labor with leakage)
-6. **Treasure / rewards** (content that rides the already-locked claim/provenance membrane)
-7. **Pantheons** (as institutional weather + source of pressure/boons)
-8. **BBEGs** (apex pressure nodes)
+3. ~~**Monsters & behaviors** (habitat actors)~~
+4. ~~**Traps** (environmental agency)~~
+5. ~~**Hirelings** (directed labor with leakage)~~
+6. ~~**Treasure / rewards** (content that rides the already-locked claim/provenance membrane)~~
+7. ~~**Pantheons** (as institutional weather + source of pressure/boons)~~
+8. ~~**BBEGs** (apex pressure nodes)~~
 9. **Dungeons / settlements gen** (spatial grammar under art + living-world rules)
 10. **Multiclass / feats / post-20** (capacity expansion that stays readable)
 11. **Session prep loop** (continuity of DM workbench ↔ live table)
+12. **Lore**? Where come from?
+13. **Ability Checks**
+
+
+
+Voices should auto gen for npc's with the waveform surface for modifying as opposed to a more classic generation approach.
 
