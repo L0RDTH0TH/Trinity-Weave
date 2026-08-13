@@ -74,29 +74,18 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 # END PASTE
 
-Draft **v5** is in. Pin gate still **open**. Dialogue still `satisfied: false`.
+[https://grok.com/share/c2hhcmQtMg_381c575c-ea97-4393-bcc1-9d140f063db7](https://grok.com/share/c2hhcmQtMg_381c575c-ea97-4393-bcc1-9d140f063db7)  
 
-**Retained:** all v4 class rows + Inventory density.
 
-**Added — Economy + Claim family (no new desks)**
+1. ~~**Backgrounds** (origin membrane + residual world recognition)~~
+2. ~~**Conditions** (felt temporary states)~~
+3. **Monsters & behaviors** (habitat actors)
+4. **Traps** (environmental agency)
+5. **Hirelings** (directed labor with leakage)
+6. **Treasure / rewards** (content that rides the already-locked claim/provenance membrane)
+7. **Pantheons** (as institutional weather + source of pressure/boons)
+8. **BBEGs** (apex pressure nodes)
+9. **Dungeons / settlements gen** (spatial grammar under art + living-world rules)
+10. **Multiclass / feats / post-20** (capacity expansion that stays readable)
+11. **Session prep loop** (continuity of DM workbench ↔ live table)
 
-- Background 3–4X-class sim; presence = render; optional material-chain never a gate
-
-- Shopping-episode / DM-RP surface
-
-- Item knowledge ladder: ambient → skill → *Identify* → *Legend Lore*
-
-- Claim: taken vs found; network-routed; secrecy contests; no global flag
-
-- Consistency join with Inventory + knowledge flow
-
-- Murderhobo: sim still runs; no hunted-item UI
-
-Receipt notes class-expression + economy/claim are meant to **close together** after your Grok pass.
-
-**Grok:** pack `2026-08-11T08:32:19Z` · Trinity `main` + project branch pushed. Same board path.
-
-# END CURSOR OUTPUT
-
-How does that look?  
-[https://grok.com/share/c2hhcmQtMg_eecf4bbc-92b9-464e-ade5-24cfb084319f](https://grok.com/share/c2hhcmQtMg_eecf4bbc-92b9-464e-ade5-24cfb084319f)

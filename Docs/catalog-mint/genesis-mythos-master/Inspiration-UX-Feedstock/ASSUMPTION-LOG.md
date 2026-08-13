@@ -1,7 +1,7 @@
 ---
 title: Inspiration elevation assumption log
 project-id: genesis-mythos-master
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 # ASSUMPTION-LOG
@@ -152,3 +152,8 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-12 | false | conditions-felt-state-machine | ux_quiet_between_pillars, ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Environmental exposure and survival-resource loss are properly conditional |
 | 2026-08-12 | false | conditions-felt-state-machine | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Mundane lingering injury is first-class alongside fantastical forms |
 | 2026-08-12 | false | conditions-felt-state-machine | ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Residue travels with institutional attention in an open world |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_quiet_between_pillars, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Classical AI only; Intelligent mode is tactical, not generative |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Speech capability opens both Intelligent tactical mode and potential full NPC status |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Cohesion and push-to-run are separate, skill-gated chromes |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_living_world_continuity, ux_quiet_between_pillars, ux_early_game | feedstock lock (user-validated; not elevated) | Powerful-beast removal creates localized living-world rebalancing |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Retreat thresholds are fiction- and context-driven, primarily read through behavior |

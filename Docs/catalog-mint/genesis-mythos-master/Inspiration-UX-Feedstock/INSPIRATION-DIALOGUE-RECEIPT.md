@@ -3,7 +3,7 @@ title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
 status: feedstock-progressive-distillation
 inspiration_dialogue_satisfied: false
-updated: 2026-08-12
+updated: 2026-08-13
 
 ---
 
@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -34,6 +34,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 12. **Voice / table signaling (2026-08-11):** light thicken of existing `voice-table-signaling` — free waveforms, save on recurring NPC, optional IC button, World-cam possession. No new PIN-INDEX titles. Density low. Disposition **open**.
 13. **Backgrounds — first finger (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Social/professional only; first-finger + push-into-adventuring; mechanical + meaningful residual; power-band decay C3 latent → C1 reaction window → absorbed by B1–B2 / early A; Session 0 DM gate for named critical-node links; classic PHB skeleton kept but completed by lasting world impression + absorption into reputation weather. Card: `background-first-finger-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 14. **Conditions — felt state machine (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Sibling modes (Temporary/ordinary · Transformative/semi-permanent); five shared families; power-banded staged progression for transformations; explicit transformative anchors; environmental & survival-resource injuries inside the state machine; mundane lingering injury first-class; middle-path residue with open-world institutional teeth; embodied player-facing communication. Card: `conditions-felt-state-machine`. No new PIN-INDEX titles. No L5. No seasoning apply.
+15. **Monsters & behaviors — habitat actors (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Habitat actors with classical AI only; Instinct vs Intelligent (speech-capable) modes; Intelligent = tactical layer, NPC status = social/continuity layer (can coexist, including party-side allies); living-world localized vacuum on removal of powerful beasts; group cohesion + separate push-to-run chromes gated by Nature/Animal Handling/high Wisdom; retreat is creature- and context-dependent and primarily behaviorally legible. Card: `monsters-habitat-actor-behavior`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -68,6 +69,17 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Residue** | Middle path — most temps clean; meaningful minority leave social/postural/institutional residue that can travel. |
 | **Communication** | Embodied sensory/postural + light directional chrome first; mechanical summary secondary. |
 
+**Monsters & behaviors feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Habitat actors** | Creatures are habitat actors with readable behavior — signs, dens, patrol, ecological role exist before combat. Classical AI only. |
+| **Instinct / Intelligent** | Instinct = default non-speech species/unique traits (still modulated by INT/WIS/CHA). Intelligent = speech-triggered tactical layer. |
+| **NPC path** | Speech capability opens Intelligent tactical mode and potential full NPC status; layers coexist, including party-side allies. |
+| **Chromed reads** | Pack/flight cohesion + separate push-to-run; both skill-gated (Nature / Animal Handling / high Wisdom). Not universal meters. |
+| **Retreat** | Creature- and context-dependent; primarily behaviorally legible. |
+| **Vacuum** | Removal of a sufficiently powerful beast triggers localized ecological/territorial rebalancing (pocket-scale). |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -76,4 +88,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Conditions feedstock lock (`conditions-felt-state-machine`) and is ready for the next surface (**Monsters & behaviors** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Monsters & behaviors feedstock lock (`monsters-habitat-actor-behavior`) and is ready for the next surface (**Traps** recommended, or next item on the operator’s remaining list).

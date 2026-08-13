@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-12T06:53:42Z'
+synced_at: '2026-08-13T05:37:03Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: a80d0f6e72fed39b
+  ROADMAP-RESOURCE-INDEX.yaml: 6fe1fd8e4d03ccfe
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,11 +264,11 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 13480fef2a9f36eb
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 9b5a1bfe1ba0e025
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: 3b4e076df6ff0e0e
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: d629072036328c34
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 02346464c61e6117
+  Inspiration-UX-Feedstock/INDEX.md: 39841db0a434111e
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 1d03491d9ccfd7cd
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
@@ -316,6 +316,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/manor-lords-high-altitude-region.md: 0235e493e91d4145
   Inspiration-UX-Feedstock/cards/medieval-dynasty-light-life-sim.md: 8f77af6db8010f40
   Inspiration-UX-Feedstock/cards/mod-community-weak-spot-augments.md: e1f1dd2f1dd0b099
+  Inspiration-UX-Feedstock/cards/monsters-habitat-actor-behavior.md: be39a4d0699c1c61
   Inspiration-UX-Feedstock/cards/overlord-minion-labor-partial.md: 41fbf5c1ea62363a
   Inspiration-UX-Feedstock/cards/planar-grammar-with-local-distortion.md: 57d91742f526cf89
   Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md: ed32c05ad19c1dbf
@@ -346,6 +347,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: ceacc34acd8008a8
+  MINT-PACK.md: 7fad55597fe2b2b5
 warnings:
 - feed_completeness:no_focal_item

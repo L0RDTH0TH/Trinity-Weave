@@ -1,7 +1,7 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-12
+updated: 2026-08-13
 ---
 
 # INDEX — pinable sources
@@ -49,6 +49,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator commission-surface doctrine (2026-08-11) | strong | commission-formula-and-stock-eval | Base + reagents + bind time vs current stock / caravans / scarcity |
 | Operator backgrounds doctrine (2026-08-12 dialogue) | strong | background-first-finger-membrane | First social/professional finger into the living world; residual knowledge/contact leverage; weak at C3, reactive around C1, absorbed by mid-B / early A; Session 0 DM-gated node links; never a desk or permanent unique ability |
 | Operator conditions doctrine (2026-08-12 dialogue) | strong | conditions-felt-state-machine | Temporary vs transformative sibling modes sharing five families; power-banded progression; identity-level transformations; environmental fight-back and mundane lingering injury included; middle residue; embodied communication |
+| Operator monsters-behaviors doctrine (2026-08-13 dialogue) | strong | monsters-habitat-actor-behavior | Instinct/Intelligent classical split; speech-capable full NPC path; cohesion + push-to-run invested chromes; localized ecological vacuum; residue and dens continuity |
 
 ## Shared-world / digital D&D cousins
 
