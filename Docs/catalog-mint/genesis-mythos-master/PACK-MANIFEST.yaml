@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-13T05:42:58Z'
+synced_at: '2026-08-13T05:55:46Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 16821169976aee18
+  ROADMAP-RESOURCE-INDEX.yaml: 66fba12128caa98d
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,11 +264,11 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 366f51e93dc9c979
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 7406cfe54d533cda
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: 3b4e076df6ff0e0e
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: b172527f31ff3fe2
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: af653058cd0d5d86
+  Inspiration-UX-Feedstock/INDEX.md: 5b21730d6432252b
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: a08b14422f74e4bd
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
@@ -305,6 +305,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/foundation-district-organic-build.md: f69f05712e24c8a5
   Inspiration-UX-Feedstock/cards/going-medieval-blueprint-pawns.md: eea0a4dcd366e2a9
   Inspiration-UX-Feedstock/cards/habitat-wilderness-exemplar.md: c11be630519d40d0
+  Inspiration-UX-Feedstock/cards/hirelings-directed-labor.md: 006a52d1bb7b7eb4
   Inspiration-UX-Feedstock/cards/intent-shape-to-realization.md: 343146e1f3d98084
   Inspiration-UX-Feedstock/cards/kenshi-harsh-ai-permanent-consequence.md: b08d615dc7cceac1
   Inspiration-UX-Feedstock/cards/knowledge-flow-channels.md: 6986eeea5c2b2c97
@@ -348,6 +349,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: b7e80225f71ade91
+  MINT-PACK.md: 6cb67172bb43c25a
 warnings:
 - feed_completeness:no_focal_item

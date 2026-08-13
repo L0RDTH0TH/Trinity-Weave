@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -36,6 +36,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 14. **Conditions — felt state machine (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Sibling modes (Temporary/ordinary · Transformative/semi-permanent); five shared families; power-banded staged progression for transformations; explicit transformative anchors; environmental & survival-resource injuries inside the state machine; mundane lingering injury first-class; middle-path residue with open-world institutional teeth; embodied player-facing communication. Card: `conditions-felt-state-machine`. No new PIN-INDEX titles. No L5. No seasoning apply.
 15. **Monsters & behaviors — habitat actors (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Habitat actors with classical AI only; Instinct vs Intelligent (speech-capable) modes; Intelligent = tactical layer, NPC status = social/continuity layer (can coexist, including party-side allies); living-world localized vacuum on removal of powerful beasts; group cohesion + separate push-to-run chromes gated by Nature/Animal Handling/high Wisdom; retreat is creature- and context-dependent and primarily behaviorally legible. Card: `monsters-habitat-actor-behavior`. No new PIN-INDEX titles. No L5. No seasoning apply.
 16. **Traps — environmental agency (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Environmental agency (not mini-game or pure damage gate); discoverability and chrome gated by investment (Perception/Investigation/tools) on the same pattern as monster cohesion; visibility spectrum (obvious → subtle → nearly invisible); player-set traps first-class for combat tactics (aggro lure / gauntlet); residue and alert potential. Card: `traps-environmental-agency`. No new PIN-INDEX titles. No L5. No seasoning apply.
+17. **Hirelings — directed labor (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Temporary/semi-permanent directed labor under the party; capacity and quality scale with power band; site ownership (castle/keep/etc.) creates persistent staffing demand or the site degrades; loyalty/morale chrome gated by investment (same pattern as monster cohesion); medium agenda leakage handled by DM; combat hirelings inherit Instinct/Intelligent modes; one-party-per-campaign constraint preserved. Card: `hirelings-directed-labor`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -91,6 +92,17 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Residue** | Triggered, disarmed, or avoided traps leave traces; can alert nearby creatures. |
 | **Placement** | Density and lethality respect power band and location, not random spikes. |
 
+**Hirelings feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Directed labor** | Temporary/semi-permanent agency under the party — expands attempt-space without becoming a second party. |
+| **Scaling** | Capacity and quality scale C → B → A. Site ownership creates persistent staffing demand or the site degrades. |
+| **Loyalty chrome** | Investment-gated (Insight / backgrounds / CHA/WIS) — same pattern as monster cohesion and trap discoverability. |
+| **Agenda leakage** | Medium; private motives surface under stress/neglect/opportunity; RP through the DM. |
+| **Combat inherit** | Combat hirelings inherit Instinct/Intelligent; Intelligent-mode allies use that mode on party-side turns. |
+| **Hard constraint** | One party per campaign remains intact. Hirelings stay subordinate. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -99,4 +111,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Traps feedstock lock (`traps-environmental-agency`) and is ready for the next surface (**Treasure / adventure rewards** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Hirelings feedstock lock (`hirelings-directed-labor`) and is ready for the next surface (**Treasure / adventure rewards** recommended, or next item on the operator’s remaining list).
