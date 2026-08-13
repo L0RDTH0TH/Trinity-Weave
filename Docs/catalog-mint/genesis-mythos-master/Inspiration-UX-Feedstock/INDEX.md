@@ -52,6 +52,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator monsters-behaviors doctrine (2026-08-13 dialogue) | strong | monsters-habitat-actor-behavior | Instinct/Intelligent classical split; speech-capable full NPC path; cohesion + push-to-run invested chromes; localized ecological vacuum; residue and dens continuity |
 | Operator traps doctrine (2026-08-13 dialogue) | strong | traps-environmental-agency | Investment-gated discoverability; player authorship for combat lure tactics; residue and creature-alert continuity; no dedicated mini-game desk |
 | Operator hirelings doctrine (2026-08-13 dialogue) | strong | hirelings-directed-labor | Power-band scaled capacity; site staffing demand; investment-gated loyalty visibility; medium agenda leakage; subordinate to core party |
+| Operator treasure-rewards doctrine (2026-08-13 dialogue) | strong | treasure-claim-provenance-content | Content through existing economic/claim membrane; care + identifiability + prior ownership drive heat; rarity modulates; themed hoards; DM-controlled release of residual claims; information/favors first-class |
 
 ## Shared-world / digital D&D cousins
 

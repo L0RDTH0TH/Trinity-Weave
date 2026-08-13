@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** + **Treasure** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -37,6 +37,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 15. **Monsters & behaviors — habitat actors (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Habitat actors with classical AI only; Instinct vs Intelligent (speech-capable) modes; Intelligent = tactical layer, NPC status = social/continuity layer (can coexist, including party-side allies); living-world localized vacuum on removal of powerful beasts; group cohesion + separate push-to-run chromes gated by Nature/Animal Handling/high Wisdom; retreat is creature- and context-dependent and primarily behaviorally legible. Card: `monsters-habitat-actor-behavior`. No new PIN-INDEX titles. No L5. No seasoning apply.
 16. **Traps — environmental agency (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Environmental agency (not mini-game or pure damage gate); discoverability and chrome gated by investment (Perception/Investigation/tools) on the same pattern as monster cohesion; visibility spectrum (obvious → subtle → nearly invisible); player-set traps first-class for combat tactics (aggro lure / gauntlet); residue and alert potential. Card: `traps-environmental-agency`. No new PIN-INDEX titles. No L5. No seasoning apply.
 17. **Hirelings — directed labor (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Temporary/semi-permanent directed labor under the party; capacity and quality scale with power band; site ownership (castle/keep/etc.) creates persistent staffing demand or the site degrades; loyalty/morale chrome gated by investment (same pattern as monster cohesion); medium agenda leakage handled by DM; combat hirelings inherit Instinct/Intelligent modes; one-party-per-campaign constraint preserved. Card: `hirelings-directed-labor`. No new PIN-INDEX titles. No L5. No seasoning apply.
+18. **Treasure & adventure rewards — content through membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Treasure is content that flows through existing claim/provenance/recovery/economic membranes; residual interest driven by “would anyone care,” unique identifiability, and prior ownership; rarity modulates likelihood and strength; themed hoards; information and favors first-class; DM flags prior-claim items and chooses whether (and how) to release knowledge — instant injection or living-world channels; party can keep secrets unless they themselves leak through interaction. Card: `treasure-claim-provenance-content`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -103,6 +104,17 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Combat inherit** | Combat hirelings inherit Instinct/Intelligent; Intelligent-mode allies use that mode on party-side turns. |
 | **Hard constraint** | One party per campaign remains intact. Hirelings stay subordinate. |
 
+**Treasure & adventure rewards feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Content through membrane** | Treasure rides already-locked claim / provenance / recovery / economy surfaces — not a loot-table desk. |
+| **Heat** | Residual interest = care + unique identifiability + prior ownership; rarity modulates likelihood and strength. |
+| **DM release** | System flags prior-claim items; DM chooses whether to trigger and how (instant injection vs living-world channels). No auto-broadcast. |
+| **Secrets** | Party can keep secrets unless they themselves leak through interaction, or the DM triggers release. |
+| **Reward forms** | Coin, goods, art, materials, magic, information, favors, and site claims are first-class. |
+| **Hoards** | Themed to creature/place nature; reinforces habitat-actor logic. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -111,4 +123,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Hirelings feedstock lock (`hirelings-directed-labor`) and is ready for the next surface (**Treasure / adventure rewards** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Treasure & adventure rewards feedstock lock (`treasure-claim-provenance-content`) and is ready for the next surface (**Pantheons** recommended, or next item on the operator’s remaining list).
