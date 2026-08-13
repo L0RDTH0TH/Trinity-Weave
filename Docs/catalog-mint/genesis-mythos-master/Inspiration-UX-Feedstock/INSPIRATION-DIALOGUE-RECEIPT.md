@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -35,6 +35,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 13. **Backgrounds — first finger (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Social/professional only; first-finger + push-into-adventuring; mechanical + meaningful residual; power-band decay C3 latent → C1 reaction window → absorbed by B1–B2 / early A; Session 0 DM gate for named critical-node links; classic PHB skeleton kept but completed by lasting world impression + absorption into reputation weather. Card: `background-first-finger-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 14. **Conditions — felt state machine (2026-08-12):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Sibling modes (Temporary/ordinary · Transformative/semi-permanent); five shared families; power-banded staged progression for transformations; explicit transformative anchors; environmental & survival-resource injuries inside the state machine; mundane lingering injury first-class; middle-path residue with open-world institutional teeth; embodied player-facing communication. Card: `conditions-felt-state-machine`. No new PIN-INDEX titles. No L5. No seasoning apply.
 15. **Monsters & behaviors — habitat actors (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Habitat actors with classical AI only; Instinct vs Intelligent (speech-capable) modes; Intelligent = tactical layer, NPC status = social/continuity layer (can coexist, including party-side allies); living-world localized vacuum on removal of powerful beasts; group cohesion + separate push-to-run chromes gated by Nature/Animal Handling/high Wisdom; retreat is creature- and context-dependent and primarily behaviorally legible. Card: `monsters-habitat-actor-behavior`. No new PIN-INDEX titles. No L5. No seasoning apply.
+16. **Traps — environmental agency (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Environmental agency (not mini-game or pure damage gate); discoverability and chrome gated by investment (Perception/Investigation/tools) on the same pattern as monster cohesion; visibility spectrum (obvious → subtle → nearly invisible); player-set traps first-class for combat tactics (aggro lure / gauntlet); residue and alert potential. Card: `traps-environmental-agency`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -80,6 +81,16 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Retreat** | Creature- and context-dependent; primarily behaviorally legible. |
 | **Vacuum** | Removal of a sufficiently powerful beast triggers localized ecological/territorial rebalancing (pocket-scale). |
 
+**Traps feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Environmental agency** | Traps are features of the space — noticed, avoided, disarmed, triggered, or left as residue. Not a mini-game or pure damage gate. |
+| **Investment chrome** | Discoverability gated by Perception / Investigation / tools; same pattern as monster cohesion and push-to-run. Visibility spectrum: obvious → subtle → nearly invisible. |
+| **Player authorship** | First-class combat tactic — aggro lure / run the gauntlet / prepared space. |
+| **Residue** | Triggered, disarmed, or avoided traps leave traces; can alert nearby creatures. |
+| **Placement** | Density and lethality respect power band and location, not random spikes. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -88,4 +99,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Monsters & behaviors feedstock lock (`monsters-habitat-actor-behavior`) and is ready for the next surface (**Traps** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Traps feedstock lock (`traps-environmental-agency`) and is ready for the next surface (**Treasure / adventure rewards** recommended, or next item on the operator’s remaining list).
