@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 684
+roadmap_note_count: 685
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4707,6 +4707,14 @@ roadmap_notes:
 - title: _TEMPLATE
   wiki: '[[_TEMPLATE]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/_TEMPLATE.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: ability-checks-float-membrane
+  wiki: '[[ability-checks-float-membrane]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/ability-checks-float-membrane.md
   kind: user_story
   wiki_links: []
   linked_resources: []

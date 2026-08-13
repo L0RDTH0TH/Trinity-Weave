@@ -58,6 +58,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator structures-gen doctrine (2026-08-13 dialogue) | strong | structures-gen-cultural-historical | Societal half of worldgen; historical causality required; cultural dialects legible through form; player approximation for bases; variable ruins; explicit examples (elven, dwarven, goliath-mobile, etc.) |
 | Operator multiclass-feats-post20 doctrine (2026-08-13 dialogue) | strong | capacity-expansion-same-character | DM-gated multiclass and post-20; feats as cross-membrane permissions; transformations progressive across bands; primary remains primary; readability and thematic resonance as soft guidance |
 | Operator session-prep-loop doctrine (2026-08-13 dialogue) | strong | session-prep-accelerator-loop | Optional accelerator to prevent live pauses; history-rooted patterned branching; DM selects/overrides; player-log recaps; stable surfaces managed between sessions; warm live hand-off |
+| Operator ability-checks doctrine (2026-08-13 dialogue) | strong | ability-checks-float-membrane | Continuous trickle float by score + proficiency; ≤6 floor; DM Information Gate; domain-relevant; extends investment-chrome pattern |
 
 ## Shared-world / digital D&D cousins
 

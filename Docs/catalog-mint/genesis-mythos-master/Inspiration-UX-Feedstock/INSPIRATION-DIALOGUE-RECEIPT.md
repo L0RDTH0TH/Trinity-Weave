@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). Original remaining list **walked** 2026-08-12–13 (Backgrounds → Conditions → Monsters → Traps → Hirelings → Treasure → Pantheons → BBEGs → Structures gen → Multiclass/feats/post-20 → Session prep loop). Disposition still **open** — do not close until operator explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). Original remaining list **walked** 2026-08-12–13. **Ability Checks** added beyond that list (2026-08-13). Disposition still **open** — do not close until operator explicit close or waive.
 
 **Share-ready:** false.
 
@@ -43,6 +43,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 21. **Structures gen — dungeons & settlements (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Structures are the societal subsection of worldgen; every significant structure has historical causality (reason, resources, people); cultural expression is shown through architecture/layout/materials; ruins are meaningful residual history; player-made structures follow the same rules with approximation rights; ruin density variable by DM discretion; explicit first-class cultural settlement examples included; compatible with future portable lore packages. Card: `structures-gen-cultural-historical`. No new PIN-INDEX titles. No L5. No seasoning apply.
 22. **Multiclass / feats / post-20 — same character (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Capacity expansion that stays readable as the same character; primary class + subclass remain dominant; multiclass and post-20 are DM-gated (system is not the hard limit) with soft thematic/readability guidance; feats are mechanical permissions to move differently across combat, social, exploration, etc.; transformations are leveled and progressive across all power bands (not A-band only); thin-base / subclass-primary / fixed primary direction constraints preserved. Card: `capacity-expansion-same-character`. No new PIN-INDEX titles. No L5. No seasoning apply.
 23. **Session prep loop — optional accelerator (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final item on the original remaining list.** Primary goal is to prevent live-play pauses by queuing patterned responses; prep is an optional accelerator, not a necessity; system surfaces and distills potential threads from table history into a small number of patterned branches with flavor/skin options; DM selects or overrides; primarily DM-facing; session recaps (when used) generated from player notes/logs; stable surfaces (economy, certain institutional/ecological pressures, etc.) managed here; large changes may require regen; outcomes flow back into history for the next cycle. Card: `session-prep-accelerator-loop`. No new PIN-INDEX titles. No L5. No seasoning apply.
+24. **Ability Checks — float membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Addition beyond the original remaining list.** Ability checks are the primary resolution membrane; information float is a continuous trickle whose detail level scales with ability score (+ proficiency); only scores ≤6 produce no float; abnormally high scores yield richer detail even without proficiency; soft guidance only; DM Information Gate applies (system proposes, DM can pass/partial/delay/block); domain-relevant; does not auto-succeed contested actions; extends the investment-chrome pattern already used for monsters, traps, and hirelings. Card: `ability-checks-float-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -173,6 +174,16 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Warm hand-off** | Queued branches, pressures, agents, floated knowledge, location state ready for live play. |
 | **Cycle** | Outcomes flow back into history for the next prep cycle. |
 
+**Ability Checks feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Primary membrane** | Ability checks resolve uncertainty as the character’s body/mind/training pressing against the world. |
+| **Trickle float** | Detail scales with ability score (+ proficiency). ≤6 = no float. Abnormally high scores richer even without proficiency (soft guidance). |
+| **DM Information Gate** | System proposes; DM may pass / partial / delay / block. Recurring control surface attached to the surfaces it affects. |
+| **Domain-relevant** | Each score floats in its natural domains; not a universal unlock. |
+| **Check still matters** | Float improves perception/recall going in; does not auto-succeed contested or opposed actions. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · first-class mechanical oath system · pin-gate close · seasoning apply · operator dialogue close / waive · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -181,4 +192,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · first-cl
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Session prep loop lock (`session-prep-accelerator-loop`) — final item on the original remaining list. Inspiration-UX-Feedstock dialogue surface is now ready for operator review / close decision. `inspiration_dialogue_satisfied` remains **false** until explicit close or waive.
+Cursor has recorded the Ability Checks lock (`ability-checks-float-membrane`) and is ready for the next surface (**Lore — origin and packaging** — or operator close decision). `inspiration_dialogue_satisfied` remains **false**.
