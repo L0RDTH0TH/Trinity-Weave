@@ -53,6 +53,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator traps doctrine (2026-08-13 dialogue) | strong | traps-environmental-agency | Investment-gated discoverability; player authorship for combat lure tactics; residue and creature-alert continuity; no dedicated mini-game desk |
 | Operator hirelings doctrine (2026-08-13 dialogue) | strong | hirelings-directed-labor | Power-band scaled capacity; site staffing demand; investment-gated loyalty visibility; medium agenda leakage; subordinate to core party |
 | Operator treasure-rewards doctrine (2026-08-13 dialogue) | strong | treasure-claim-provenance-content | Content through existing economic/claim membrane; care + identifiability + prior ownership drive heat; rarity modulates; themed hoards; DM-controlled release of residual claims; information/favors first-class |
+| Operator pantheons doctrine (2026-08-13 dialogue) | strong | pantheons-institutional-faith | Living religious factions; fingers-first activity with DM-gated personal intervention; optional engagement; RP oaths; multi-pantheon when scale supports |
 
 ## Shared-world / digital D&D cousins
 

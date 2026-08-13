@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** + **Treasure** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). **Backgrounds** + **Conditions** feedstock-locked 2026-08-12; **Monsters & behaviors** + **Traps** + **Hirelings** + **Treasure** + **Pantheons** feedstock-locked 2026-08-13 — remaining list still open. Do not close until User+Grok explicit close or waive.
 
 **Share-ready:** false.
 
@@ -38,6 +38,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 16. **Traps — environmental agency (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Environmental agency (not mini-game or pure damage gate); discoverability and chrome gated by investment (Perception/Investigation/tools) on the same pattern as monster cohesion; visibility spectrum (obvious → subtle → nearly invisible); player-set traps first-class for combat tactics (aggro lure / gauntlet); residue and alert potential. Card: `traps-environmental-agency`. No new PIN-INDEX titles. No L5. No seasoning apply.
 17. **Hirelings — directed labor (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Temporary/semi-permanent directed labor under the party; capacity and quality scale with power band; site ownership (castle/keep/etc.) creates persistent staffing demand or the site degrades; loyalty/morale chrome gated by investment (same pattern as monster cohesion); medium agenda leakage handled by DM; combat hirelings inherit Instinct/Intelligent modes; one-party-per-campaign constraint preserved. Card: `hirelings-directed-labor`. No new PIN-INDEX titles. No L5. No seasoning apply.
 18. **Treasure & adventure rewards — content through membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Treasure is content that flows through existing claim/provenance/recovery/economic membranes; residual interest driven by “would anyone care,” unique identifiability, and prior ownership; rarity modulates likelihood and strength; themed hoards; information and favors first-class; DM flags prior-claim items and chooses whether (and how) to release knowledge — instant injection or living-world channels; party can keep secrets unless they themselves leak through interaction. Card: `treasure-claim-provenance-content`. No new PIN-INDEX titles. No L5. No seasoning apply.
+19. **Pantheons — institutional faith (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Pantheons and churches function as living religious factions (divine as head) inside existing institutional weather; faith can be left blank at creation; gods act primarily through fingers/institutions with power-banded response; personal divine intervention is DM-gated; oaths are RP/social/institutional for now (mechanical system deferred); multi-pantheon supported when seed region warrants it, otherwise single primary + local spirits/cults. Card: `pantheons-institutional-faith`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -115,12 +116,22 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Reward forms** | Coin, goods, art, materials, magic, information, favors, and site claims are first-class. |
 | **Hoards** | Themed to creature/place nature; reinforces habitat-actor logic. |
 
+**Pantheons feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Institutional faith** | Churches/cults = religious factions with the divine as head, inside existing institutional weather. |
+| **Optional** | Faith may be left blank at creation; no system punishment for non-participation. |
+| **Activity altitudes** | Default = fingers/institutions with power-banded response. Personal divine intervention is rare and DM-gated. |
+| **Oaths** | RP / social / institutional weight for now; first-class mechanical oath system deferred. |
+| **Multi-pantheon** | Supported when seed-region scale warrants it; otherwise one primary + local spirits/cults. |
+
 ## Deferred
 
-Full item-creation / crafting desk · Tools/Languages as class desks · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
+Full item-creation / crafting desk · Tools/Languages as class desks · first-class mechanical oath system · pin-gate close · seasoning apply · remaining surface walk · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
 
 ## Operator share statement
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Treasure & adventure rewards feedstock lock (`treasure-claim-provenance-content`) and is ready for the next surface (**Pantheons** recommended, or next item on the operator’s remaining list).
+Cursor has recorded the Pantheons feedstock lock (`pantheons-institutional-faith`) and is ready for the next surface (**BBEGs** recommended, or next item on the operator’s remaining list).
