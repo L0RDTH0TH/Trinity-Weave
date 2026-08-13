@@ -56,6 +56,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator pantheons doctrine (2026-08-13 dialogue) | strong | pantheons-institutional-faith | Living religious factions; fingers-first activity with DM-gated personal intervention; optional engagement; RP oaths; multi-pantheon when scale supports |
 | Operator BBEG / apex-pressure doctrine (2026-08-13 dialogue) | strong | bbeg-apex-pressure-node | Power-banded concurrency (C1/B2/A3); personal + institutional + ecological forms; off-screen continuity; flexible non-death resolutions; existing DM info control |
 | Operator structures-gen doctrine (2026-08-13 dialogue) | strong | structures-gen-cultural-historical | Societal half of worldgen; historical causality required; cultural dialects legible through form; player approximation for bases; variable ruins; explicit examples (elven, dwarven, goliath-mobile, etc.) |
+| Operator multiclass-feats-post20 doctrine (2026-08-13 dialogue) | strong | capacity-expansion-same-character | DM-gated multiclass and post-20; feats as cross-membrane permissions; transformations progressive across bands; primary remains primary; readability and thematic resonance as soft guidance |
 
 ## Shared-world / digital D&D cousins
 

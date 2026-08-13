@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-13T17:00:13Z'
+synced_at: '2026-08-13T18:39:01Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 0f11aec89e496922
+  ROADMAP-RESOURCE-INDEX.yaml: 6e2b1f3b8f137f0f
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,11 +264,11 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 8cba1a1ebd2cf3f0
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 553eba273ccc8e0e
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: 3b4e076df6ff0e0e
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: f3615ac3af7b98c2
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: e1a9531405187950
+  Inspiration-UX-Feedstock/INDEX.md: b34d7567aeed11a7
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: ecdfe2c56d8ca1fe
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
@@ -288,6 +288,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/bg3-dnd-feel-refuse-authored-spine.md: 71d693b0560973b4
   Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: e66ad7e91ced66e1
   Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: f91d169bbd0e41c7
+  Inspiration-UX-Feedstock/cards/capacity-expansion-same-character.md: 08cb5c9ff1bcaf92
   Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md: 4847fa3e14d01628
   Inspiration-UX-Feedstock/cards/class-unique-expression-surfaces.md: f8aa974f736b995b
   Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md: f3fcd2bdbfd0fc32
@@ -353,6 +354,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: be38e6b32ebd1baa
+  MINT-PACK.md: dbd06a715391a24f
 warnings:
 - feed_completeness:no_focal_item
