@@ -34,7 +34,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; **real-time labor visibility** |
-| Operator class-expression doctrine | medium | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD draft v5** — v4 density + economy/claim family; validate with Grok+User |
+| Operator class-expression doctrine | strong | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD soft-closed validated v5** (2026-08-13) — v4 density + economy/claim family; soft watches live at seasoning |
 | Operator voice-table signaling | medium | voice-table-signaling | **Thickened 2026-08-11** — free waveforms; save on recurring NPC; optional IC button; World-cam possession; see [[VOICE-TABLE-TEXTURE]] |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | factions-as-persons-fingers-ripples | Factions as persons; fingers + ripples; players can become fingers/stones |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | reputation-weather | Felt treatment; no meter; no “they are mad because of X” as primary |

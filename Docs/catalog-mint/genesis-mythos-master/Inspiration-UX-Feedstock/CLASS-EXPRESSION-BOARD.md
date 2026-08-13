@@ -1,24 +1,27 @@
 ---
-title: Class-expression board — Cursor draft v5 (validation feedstock)
+title: Class-expression board — soft-closed validated (v5)
 project-id: genesis-mythos-master
 schema_version: 1
-status: draft_for_grok_user_validation
-updated: 2026-08-11
+status: soft_closed_validated
+updated: 2026-08-13
+validated: 2026-08-13
+validated_by: Grok+User
+close_pair: class-expression + economy-claim
 signal: medium
-research_status: focused_distillation_draft
+research_status: soft_closed_validated
 batch: all_major_classes_srds_plus_artificer
 revision: v5_economy_claim_family
 ---
 
-# Class-expression board — Cursor draft v5
+# Class-expression board — soft-closed validated (v5)
 
-**Role:** Player-facing texture for `class-unique-expression-surfaces` **plus** the linked economy + claim family. Pattern language only. **Not locked** — Grok+User validate. Pin gate remains **open**. Not applied seasoning.
+**Role:** Player-facing texture for `class-unique-expression-surfaces` **plus** the linked economy + claim family. Pattern language only. **Soft-closed validated** 2026-08-13 by Grok+User (close pair: class-expression + economy/claim). Pin gate remains **open**. Not applied seasoning.
 
 **Scope:** SRD 5.1 major classes + Artificer. Shared surfaces: Tools, Languages, Inventory. **v5 add:** Economy + Claim family (background sim + knowledge ladder + network-routed recovery — **no new player desks**).
 
 **v4 retained:** full class density + Inventory full grain. Do not thin.
 
-**This pass (v5):** economy + claim family section. Tools / Languages remain stubs. Full item desk still deferred beyond provenance + claim rules.
+**Revision:** v5 economy + claim family soft-closed with class-expression. Tools / Languages remain stubs. Full item desk still deferred beyond provenance + claim rules.
 
 ---
 
@@ -575,8 +578,26 @@ Both are magic items. Full item desk remains deferred beyond provenance + claim 
 6. Consistency notes sufficient so Inventory / sim / claim cannot invent three contradictory facts for one event?
 7. Ready to soft-close class-expression + economy/claim **together**, or still thin somewhere?
 
+## Validation outcome (2026-08-13 — Grok+User)
+
+| Prompt | Outcome |
+|--------|---------|
+| 1. Density intact | Yes — full subclass Sense→Play→Outcome retained |
+| 2. Hyper-fit / walls / culturally lazy | No hard hits; soft watches only (see below) |
+| 3. Economy background-only | Yes — no desk creep |
+| 4. Claim network-routed + contestable | Yes — joins Treasure heat / DM-release pattern |
+| 5. Item knowledge on existing tools | Yes — ambient → skill → Identify → Legend Lore |
+| 6. Consistency notes sufficient | Yes — four notes enough |
+| 7. Soft-close together | Yes |
+
+**Soft watches (not blockers — keep live at seasoning):**
+
+- Barbarian Ancestral/Totem: refuse culturally lazy generic tribal dead / fashion-spirits
+- Monk: refuse orientalism-as-product / QTE-only
+- Bard/Rogue desks: must not become second combat rotations or dialogue-tree walls
+- Paladin oath ledger: class mechanics primary; oath text is flavor; institutions are support, not the desk
+
 ## Status
 
-- Cursor **draft v5** — v4 class/Inventory density retained; economy + claim family added (no new desks).
-- Class-expression + economy/claim intended to close **together** after Grok+User validation.
-- Pin gate **open**. Dialogue **not** satisfied. Not applied seasoning.
+- Cursor **soft-closed validated v5** (2026-08-13) — v4 class/Inventory density retained; economy + claim family soft-closed **together**.
+- Soft watches remain live for seasoning. Pin gate **open**. Dialogue **not** satisfied (awaiting operator full close/waive). Not applied seasoning.

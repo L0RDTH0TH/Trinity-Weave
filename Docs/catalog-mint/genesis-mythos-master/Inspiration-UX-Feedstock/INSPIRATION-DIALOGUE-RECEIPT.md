@@ -15,11 +15,11 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). Original remaining list **walked** 2026-08-12–13. Stretch additions **Ability Checks** + **Lore (Core vs Table)** (2026-08-13). Current stretch complete. Disposition still **open** — do not close until operator explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression + economy/claim **soft-closed validated** on [[CLASS-EXPRESSION-BOARD]] v5 (2026-08-13 Grok+User) — **no longer the open validation blocker**. Shared surfaces drafted 2026-08-11. Original remaining list + stretch (Ability Checks, Lore) walked 2026-08-12–13. Disposition still **open** — do not close until operator explicit close or waive.
 
 **Share-ready:** false.
 
-**Close intent:** class-expression + economy/claim are intended to close **together** after Grok+User validation of that pass. Shared surfaces remain **separate** discussion surfaces; disposition stays **open**. Combat exit residue and Nature outline are **texture locks** only (not pin-gate close). Full crafting desk remains deferred.
+**Close intent:** class-expression + economy/claim soft-closed **together** (2026-08-13). Shared surfaces remain **separate** discussion surfaces; disposition stays **open**. Combat exit residue and Nature outline are **texture locks** only (not pin-gate close). Full crafting desk remains deferred.
 
 ## Passes this cycle
 
@@ -45,18 +45,20 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 23. **Session prep loop — optional accelerator (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final item on the original remaining list.** Primary goal is to prevent live-play pauses by queuing patterned responses; prep is an optional accelerator, not a necessity; system surfaces and distills potential threads from table history into a small number of patterned branches with flavor/skin options; DM selects or overrides; primarily DM-facing; session recaps (when used) generated from player notes/logs; stable surfaces (economy, certain institutional/ecological pressures, etc.) managed here; large changes may require regen; outcomes flow back into history for the next cycle. Card: `session-prep-accelerator-loop`. No new PIN-INDEX titles. No L5. No seasoning apply.
 24. **Ability Checks — float membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Addition beyond the original remaining list.** Ability checks are the primary resolution membrane; information float is a continuous trickle whose detail level scales with ability score (+ proficiency); only scores ≤6 produce no float; abnormally high scores yield richer detail even without proficiency; soft guidance only; DM Information Gate applies (system proposes, DM can pass/partial/delay/block); domain-relevant; does not auto-succeed contested actions; extends the investment-chrome pattern already used for monsters, traps, and hirelings. Card: `ability-checks-float-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 25. **Lore — Core vs Table (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final addition of the current stretch.** Dual system (Core Lore = portable prebuilt conceptual pack that defines roles; Table Lore = local non-portable overlay for named fillers, rulings, bans, campaign history, and addenda); Core packs are prebuilt and worlds grow into them (growing Core during play is out of scope); entire table must share the same Core Lore package; major domains include politics, economics, history, religion, magic handling, cultural dialects, and source of floated information; complete mid-to-high fantasy Core Lore Exemplar is required; Table Lore never feeds back into Core. Card: `lore-core-table-dual`. No new PIN-INDEX titles. No L5. No seasoning apply.
+26. **Class-expression + economy/claim soft-close (2026-08-13):** Grok+User validated draft v5. Density retained; no hard hyper-fit/wall/cultural hits (soft watches only). Economy locked background-only. Claim locked network-routed and secrecy-contestable; joins Treasure. Item knowledge locked on existing tool ladder + Inventory ambient. Consistency notes sufficient. Soft-closed **together**. Pin gate remains open. Seasoning not applied. This pair is **no longer the open validation blocker**.
 
 ## Locked this cycle (still in force)
 
 Murderhobo · inventory shared surface · thin base / subclass-primary capacity · fixed primary direction · no fluid lean · v2 method.
 
-**v5 locks:**
+**v5 locks (soft-closed validated 2026-08-13 — class-expression + economy/claim):**
 
 | Lock | Statement |
 |------|-----------|
+| **Class-expression** | Soft-closed validated with board v5. v4 density retained. Soft watches live at seasoning (Barbarian Ancestral/Totem, Monk, Bard/Rogue desks, Paladin oath ledger). |
 | **Economy** | Background sim; presence = render; optional deep material-chain (never a gate); no player-facing economy desk; shopping-episode / DM-RP surface; relationship-shaped asks stay. |
 | **Item knowledge** | Ambient Inventory tells → skill check → *Identify* → *Legend Lore*. Membrane applies. No item-lore mini-game. Murderhobo does not strip checks/spells. |
-| **Claim / recovery** | Taken → networks with motive+reach try recovery. Found → keepers until knowledge reaches motive+reach. Routed through the offended party’s actual channels. Secrecy + anti-divination can block a channel. No global item flag. |
+| **Claim / recovery** | Taken → networks with motive+reach try recovery. Found → keepers until knowledge reaches motive+reach. Routed through the offended party’s actual channels. Secrecy + anti-divination can block a channel. No global item flag. Joins Treasure heat / DM-release. |
 | **Join** | One event = one fact across Inventory provenance, sim render, and claim rumor. Inventory is the only full player-facing surface in this family. |
 
 **Backgrounds feedstock lock (2026-08-12 — this surface only):**
@@ -201,6 +203,6 @@ Full item-creation / crafting desk · Tools/Languages as class desks · first-cl
 
 ## Operator share statement
 
-_Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
+_Pending operator full-cycle close or waive._ Class-expression + economy/claim soft-closed validated 2026-08-13 (no longer the open validation blocker). Soft watches live at seasoning. Pin gate remains open.
 
-Cursor has recorded the Lore lock (`lore-core-table-dual`) — final addition of the current stretch. Inspiration-UX-Feedstock dialogue surface now contains the complete set of surfaces walked in this dialogue pass. Ready for operator review / close decision. `inspiration_dialogue_satisfied` remains **false**.
+Cursor has recorded the class-expression + economy/claim soft-close on [[CLASS-EXPRESSION-BOARD]] v5. `inspiration_dialogue_satisfied` remains **false** until operator explicit full close or waive.
