@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-13T19:21:42Z'
+synced_at: '2026-08-13T21:19:51Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: a2336ec8c47bb22c
+  ROADMAP-RESOURCE-INDEX.yaml: e474d0f1f69df4a2
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -264,11 +264,11 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 7a34f1a4f3076fc3
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 1770721380f055ff
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: 3b4e076df6ff0e0e
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: 0f125227ebc7a94a
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 4c38ee39dc0cc78e
+  Inspiration-UX-Feedstock/INDEX.md: a6a44e8c806c9423
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: e486d8e945faec0f
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
   Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
@@ -314,6 +314,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/knowledge-flow-channels.md: 6986eeea5c2b2c97
   Inspiration-UX-Feedstock/cards/language-barrier-and-bridge.md: b252bb938db56921
   Inspiration-UX-Feedstock/cards/live-grid-correspondence.md: f9049518c3c03842
+  Inspiration-UX-Feedstock/cards/lore-core-table-dual.md: 1af1bd20adf364a0
   Inspiration-UX-Feedstock/cards/low-fantasy-tone-exemplar.md: 39a89225086427a5
   Inspiration-UX-Feedstock/cards/magic-item-commission-conversation.md: a5c2bc1b813367d9
   Inspiration-UX-Feedstock/cards/majesty-goal-heroes-realize.md: 28ed5fbff3c9a321
@@ -356,6 +357,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 72f4b56015ca03eb
+  MINT-PACK.md: c5fc086ab11f87f3
 warnings:
 - feed_completeness:no_focal_item

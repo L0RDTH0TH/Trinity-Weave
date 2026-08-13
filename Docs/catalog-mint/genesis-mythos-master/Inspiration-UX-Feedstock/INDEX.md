@@ -59,6 +59,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator multiclass-feats-post20 doctrine (2026-08-13 dialogue) | strong | capacity-expansion-same-character | DM-gated multiclass and post-20; feats as cross-membrane permissions; transformations progressive across bands; primary remains primary; readability and thematic resonance as soft guidance |
 | Operator session-prep-loop doctrine (2026-08-13 dialogue) | strong | session-prep-accelerator-loop | Optional accelerator to prevent live pauses; history-rooted patterned branching; DM selects/overrides; player-log recaps; stable surfaces managed between sessions; warm live hand-off |
 | Operator ability-checks doctrine (2026-08-13 dialogue) | strong | ability-checks-float-membrane | Continuous trickle float by score + proficiency; ≤6 floor; DM Information Gate; domain-relevant; extends investment-chrome pattern |
+| Operator lore-pack doctrine (2026-08-13 dialogue) | strong | lore-core-table-dual | Portable Core Lore (roles, paradigms, tone) vs local Table Lore (fillers, rulings, mutations); prebuilt packs; shared-table requirement; exemplar mid-to-high fantasy pack required; upstream data for pantheons, structures, factions, magic, floats, etc. |
 
 ## Shared-world / digital D&D cousins
 

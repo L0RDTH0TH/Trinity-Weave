@@ -15,7 +15,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). Original remaining list **walked** 2026-08-12–13. **Ability Checks** added beyond that list (2026-08-13). Disposition still **open** — do not close until operator explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Class-expression **v4 density retained** on [[CLASS-EXPRESSION-BOARD]] draft **v5**. Shared surfaces drafted 2026-08-11 (Combat / Roleplay / Quiet / Skill-readability / Commission / Voice). Original remaining list **walked** 2026-08-12–13. Stretch additions **Ability Checks** + **Lore (Core vs Table)** (2026-08-13). Current stretch complete. Disposition still **open** — do not close until operator explicit close or waive.
 
 **Share-ready:** false.
 
@@ -44,6 +44,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 22. **Multiclass / feats / post-20 — same character (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. Capacity expansion that stays readable as the same character; primary class + subclass remain dominant; multiclass and post-20 are DM-gated (system is not the hard limit) with soft thematic/readability guidance; feats are mechanical permissions to move differently across combat, social, exploration, etc.; transformations are leveled and progressive across all power bands (not A-band only); thin-base / subclass-primary / fixed primary direction constraints preserved. Card: `capacity-expansion-same-character`. No new PIN-INDEX titles. No L5. No seasoning apply.
 23. **Session prep loop — optional accelerator (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final item on the original remaining list.** Primary goal is to prevent live-play pauses by queuing patterned responses; prep is an optional accelerator, not a necessity; system surfaces and distills potential threads from table history into a small number of patterned branches with flavor/skin options; DM selects or overrides; primarily DM-facing; session recaps (when used) generated from player notes/logs; stable surfaces (economy, certain institutional/ecological pressures, etc.) managed here; large changes may require regen; outcomes flow back into history for the next cycle. Card: `session-prep-accelerator-loop`. No new PIN-INDEX titles. No L5. No seasoning apply.
 24. **Ability Checks — float membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Addition beyond the original remaining list.** Ability checks are the primary resolution membrane; information float is a continuous trickle whose detail level scales with ability score (+ proficiency); only scores ≤6 produce no float; abnormally high scores yield richer detail even without proficiency; soft guidance only; DM Information Gate applies (system proposes, DM can pass/partial/delay/block); domain-relevant; does not auto-succeed contested actions; extends the investment-chrome pattern already used for monsters, traps, and hirelings. Card: `ability-checks-float-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
+25. **Lore — Core vs Table (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final addition of the current stretch.** Dual system (Core Lore = portable prebuilt conceptual pack that defines roles; Table Lore = local non-portable overlay for named fillers, rulings, bans, campaign history, and addenda); Core packs are prebuilt and worlds grow into them (growing Core during play is out of scope); entire table must share the same Core Lore package; major domains include politics, economics, history, religion, magic handling, cultural dialects, and source of floated information; complete mid-to-high fantasy Core Lore Exemplar is required; Table Lore never feeds back into Core. Card: `lore-core-table-dual`. No new PIN-INDEX titles. No L5. No seasoning apply.
 
 ## Locked this cycle (still in force)
 
@@ -184,6 +185,16 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Domain-relevant** | Each score floats in its natural domains; not a universal unlock. |
 | **Check still matters** | Float improves perception/recall going in; does not auto-succeed contested or opposed actions. |
 
+**Lore feedstock lock (2026-08-13 — this surface only):**
+
+| Lock | Statement |
+|------|-----------|
+| **Dual system** | Core Lore = portable prebuilt pack (roles, paradigms, tone). Table Lore = local overlay (fillers, rulings, bans, history, addenda). Table never feeds Core. |
+| **Roles not fillers** | The pack defines the role, not who currently fills it at a table. |
+| **Shared table** | Entire table uses the same Core Lore package. |
+| **Lifecycle** | Packs are prebuilt; worlds grow into them. Growing Core during play is out of scope. |
+| **Exemplar** | Complete mid-to-high fantasy Core Lore pack is required. Architecture stays open across tonal range. |
+
 ## Deferred
 
 Full item-creation / crafting desk · Tools/Languages as class desks · first-class mechanical oath system · pin-gate close · seasoning apply · operator dialogue close / waive · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
@@ -192,4 +203,4 @@ Full item-creation / crafting desk · Tools/Languages as class desks · first-cl
 
 _Pending._ After v5 validation (or explicit waive). Soft-close class-expression + economy/claim together if Grok+User green.
 
-Cursor has recorded the Ability Checks lock (`ability-checks-float-membrane`) and is ready for the next surface (**Lore — origin and packaging** — or operator close decision). `inspiration_dialogue_satisfied` remains **false**.
+Cursor has recorded the Lore lock (`lore-core-table-dual`) — final addition of the current stretch. Inspiration-UX-Feedstock dialogue surface now contains the complete set of surfaces walked in this dialogue pass. Ready for operator review / close decision. `inspiration_dialogue_satisfied` remains **false**.
