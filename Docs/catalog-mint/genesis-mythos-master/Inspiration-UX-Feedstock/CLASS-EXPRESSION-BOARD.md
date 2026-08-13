@@ -597,6 +597,13 @@ Both are magic items. Full item desk remains deferred beyond provenance + claim 
 - Bard/Rogue desks: must not become second combat rotations or dialogue-tree walls
 - Paladin oath ledger: class mechanics primary; oath text is flavor; institutions are support, not the desk
 
+**Hard guard (preserved 2026-08-13 — do not soften):**
+
+- Oaths under class (Paladin and equivalents) remain **mechanical**.
+- Guard purpose is intentional: do not mint a Paladin mid-campaign because the player did not understand the oath they repeated.
+- Soft watches on the oath ledger do **not** override this hard guard.
+- Only a system-wide first-class mechanical oath layer *outside* class desks stays out of scope / non-first-class.
+
 ## Status
 
 - Cursor **soft-closed validated v5** (2026-08-13) — v4 class/Inventory density retained; economy + claim family soft-closed **together**.

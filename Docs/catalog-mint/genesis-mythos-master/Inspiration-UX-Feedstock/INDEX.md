@@ -33,7 +33,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
-| Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; **real-time labor visibility** |
+| Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; real-time labor visibility; **realism-with-optional-traceability** (2026-08-13) |
 | Operator class-expression doctrine | strong | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD soft-closed validated v5** (2026-08-13) — v4 density + economy/claim family; soft watches live at seasoning |
 | Operator voice-table signaling | medium | voice-table-signaling | **Thickened 2026-08-11** — free waveforms; save on recurring NPC; optional IC button; World-cam possession; see [[VOICE-TABLE-TEXTURE]] |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | factions-as-persons-fingers-ripples | Factions as persons; fingers + ripples; players can become fingers/stones |
@@ -59,7 +59,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator multiclass-feats-post20 doctrine (2026-08-13 dialogue) | strong | capacity-expansion-same-character | DM-gated multiclass and post-20; feats as cross-membrane permissions; transformations progressive across bands; primary remains primary; readability and thematic resonance as soft guidance |
 | Operator session-prep-loop doctrine (2026-08-13 dialogue) | strong | session-prep-accelerator-loop | Optional accelerator to prevent live pauses; history-rooted patterned branching; DM selects/overrides; player-log recaps; stable surfaces managed between sessions; warm live hand-off |
 | Operator ability-checks doctrine (2026-08-13 dialogue) | strong | ability-checks-float-membrane | Continuous trickle float by score + proficiency; ≤6 floor; DM Information Gate; domain-relevant; extends investment-chrome pattern |
-| Operator lore-pack doctrine (2026-08-13 dialogue) | strong | lore-core-table-dual | Portable Core Lore (roles, paradigms, tone) vs local Table Lore (fillers, rulings, mutations); prebuilt packs; shared-table requirement; exemplar mid-to-high fantasy pack required; upstream data for pantheons, structures, factions, magic, floats, etc. |
+| Operator lore-pack doctrine (2026-08-13 dialogue) | strong | lore-core-table-dual | Portable Core Lore vs local Table Lore; prebuilt packs; shared-table; **Tal’dorei Exemplar pivot CLOSED** under adventure-module import/migration grammar; roles not fillers; upstream for pantheons/structures/factions/magic/floats |
 
 ## Shared-world / digital D&D cousins
 
@@ -108,7 +108,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
-| Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Intent · NPC labor · calendar; **refuse** place-build. **Primary labor exemplar OPEN** |
+| Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Intent · NPC labor · calendar; **refuse** place-build. **Primary labor exemplar CLOSED:** realism-with-optional-traceability (2026-08-13) |
 | Townscaper | strong | townscaper-click-add-world-element | Intent UX — click-add world/grid |
 | Majesty / Majesty 2 | strong | majesty-goal-heroes-realize | Sovereign goals → heroes/peasants realize (primary candidate) |
 | Stronghold (series) | strong | stronghold-plan-engineers-time | Castle plan → engineers over time (primary candidate) |

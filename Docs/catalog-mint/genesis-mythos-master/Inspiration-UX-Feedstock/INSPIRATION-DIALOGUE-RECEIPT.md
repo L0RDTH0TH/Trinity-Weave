@@ -15,11 +15,11 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Class-expression + economy/claim **soft-closed validated** on [[CLASS-EXPRESSION-BOARD]] v5 (2026-08-13 Grok+User) — **no longer the open validation blocker**. Shared surfaces drafted 2026-08-11. Original remaining list + stretch (Ability Checks, Lore) walked 2026-08-12–13. Disposition still **open** — do not close until operator explicit close or waive.
+**Dialogue satisfied (overall cycle):** false. Feedstock locks ready for elevation after operator close/waive. Class-expression + economy/claim soft-closed validated. Primary labor exemplar + Core Lore Exemplar pivot closed 2026-08-13. Shared surfaces complete enough for seasoning/elevation at pin-derive. Disposition still **open** — do not treat dialogue step as passed for pin-seeding until operator explicit close or waive.
 
 **Share-ready:** false.
 
-**Close intent:** class-expression + economy/claim soft-closed **together** (2026-08-13). Shared surfaces remain **separate** discussion surfaces; disposition stays **open**. Combat exit residue and Nature outline are **texture locks** only (not pin-gate close). Full crafting desk remains deferred.
+**Close intent:** Awaiting operator explicit close or waive. Class-expression + economy/claim already soft-closed. Shared surface patterns complete enough for elevation; no further dialogue required on pattern density unless operator re-opens a specific surface. Full crafting desk and system-wide oath layer outside class remain deferred / non-first-class.
 
 ## Passes this cycle
 
@@ -46,6 +46,14 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 24. **Ability Checks — float membrane (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Addition beyond the original remaining list.** Ability checks are the primary resolution membrane; information float is a continuous trickle whose detail level scales with ability score (+ proficiency); only scores ≤6 produce no float; abnormally high scores yield richer detail even without proficiency; soft guidance only; DM Information Gate applies (system proposes, DM can pass/partial/delay/block); domain-relevant; does not auto-succeed contested actions; extends the investment-chrome pattern already used for monsters, traps, and hirelings. Card: `ability-checks-float-membrane`. No new PIN-INDEX titles. No L5. No seasoning apply.
 25. **Lore — Core vs Table (2026-08-13):** Grok+User dialogue complete for this surface. Pattern locked for feedstock; disposition **open** pending full dialogue close. **Final addition of the current stretch.** Dual system (Core Lore = portable prebuilt conceptual pack that defines roles; Table Lore = local non-portable overlay for named fillers, rulings, bans, campaign history, and addenda); Core packs are prebuilt and worlds grow into them (growing Core during play is out of scope); entire table must share the same Core Lore package; major domains include politics, economics, history, religion, magic handling, cultural dialects, and source of floated information; complete mid-to-high fantasy Core Lore Exemplar is required; Table Lore never feeds back into Core. Card: `lore-core-table-dual`. No new PIN-INDEX titles. No L5. No seasoning apply.
 26. **Class-expression + economy/claim soft-close (2026-08-13):** Grok+User validated draft v5. Density retained; no hard hyper-fit/wall/cultural hits (soft watches only). Economy locked background-only. Claim locked network-routed and secrecy-contestable; joins Treasure. Item knowledge locked on existing tool ladder + Inventory ambient. Consistency notes sufficient. Soft-closed **together**. Pin gate remains open. Seasoning not applied. This pair is **no longer the open validation blocker**.
+27. **Operator decisions — labor / lore Exemplar / oaths / append path / elevation (2026-08-13):**
+   - **Primary labor exemplar CLOSED:** realism-with-optional-traceability. Continuous labor/material flows; presence renders state; optional caravan/production/scarcity/ownership trace; no mandatory tracking / factory sim / place-build; A/B/C internal grammar; no game-title primary. Cards: `calendar-npc-labor-world-shape`, `intent-shape-to-realization`.
+   - **Core Lore Exemplar pivot CLOSED:** Core Lore packs use adventure-module import/migration grammar (`adventure-module-ruleset-migration`). First Exemplar source = **Tal’dorei** — extract portable Core roles/paradigms/grammar; named fillers stay Table Lore. Shared-table discipline remains. Card: `lore-core-table-dual`. Content extraction may proceed separately; architecture locked.
+   - **Class oaths hard guard PRESERVED:** Paladin (and equivalent) oaths remain mechanical — intentional gate against mid-campaign mint from misunderstood oath text. Soft watches do not override. System-wide oath layer outside class desks stays non-first-class / deferred.
+   - **Append path for non-first-class additions:** prefer existing Conceptual anchor → closest approximation → append child note explaining the addition → never unfreeze/rework the parent. Applies to deferred full crafting desk and system-wide oath layer.
+   - **Shared surfaces:** Combat / roleplay institutional weather / quiet-between / skill-readability / commission / voice-table complete enough for seasoning/elevation at pin-derive. No further pattern-density dialogue unless operator re-opens.
+   - **Elevation state:** Recent locks are feedstock-validated, not yet elevated. Pin-derive and seasoning maps next after operator close/waive. No L5, no seasoning apply, no new PIN-INDEX titles this handoff.
+   - `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**.
 
 ## Locked this cycle (still in force)
 
@@ -195,14 +203,47 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Roles not fillers** | The pack defines the role, not who currently fills it at a table. |
 | **Shared table** | Entire table uses the same Core Lore package. |
 | **Lifecycle** | Packs are prebuilt; worlds grow into them. Growing Core during play is out of scope. |
-| **Exemplar** | Complete mid-to-high fantasy Core Lore pack is required. Architecture stays open across tonal range. |
+| **Exemplar** | Complete mid-to-high fantasy Core Lore pack required. **Pivot CLOSED:** Tal’dorei as first source under adventure-module import/migration grammar; roles not fillers. |
+
+**Primary labor exemplar lock (2026-08-13):**
+
+| Lock | Statement |
+|------|-----------|
+| **Exemplar** | realism-with-optional-traceability — continuous labor/material flows; presence renders; optional trace to source; no mandatory tracking / factory sim / place-build. |
+| **Grammar** | A/B/C textures remain internal. No game-title primary. |
+
+**Core Lore Exemplar pivot (2026-08-13):**
+
+| Lock | Statement |
+|------|-----------|
+| **Import grammar** | Same as adventure modules — native when aligned; else DM migration + audit. |
+| **First source** | Tal’dorei → extract portable Core; named fillers stay Table Lore. |
+| **Shared table** | Entire table on the same Core package. |
+
+**Class oaths hard guard (2026-08-13 — preserved):**
+
+| Lock | Statement |
+|------|-----------|
+| **Mechanical class oaths** | Paladin and equivalents remain mechanical. Intentional: do not mint mid-campaign from misunderstood oath text. Soft watches do not soften this. |
+| **Out of scope** | System-wide first-class mechanical oath layer *outside* class desks stays non-first-class. |
+
+**Non-first-class append path (2026-08-13):**
+
+| Step | Rule |
+|------|------|
+| 1 | Prefer existing Conceptual anchor. |
+| 2 | If none clean, take closest approximation. |
+| 3 | Append a new child note explaining the system addition. |
+| 4 | Never unfreeze or rework the parent. |
 
 ## Deferred
 
-Full item-creation / crafting desk · Tools/Languages as class desks · first-class mechanical oath system · pin-gate close · seasoning apply · operator dialogue close / waive · combat / roleplay / quiet / skill-readability / commission / voice texture share-ready / gate close.
+Full item-creation / crafting desk (append-path / non-first-class until elevated) · Tools/Languages as class desks · system-wide mechanical oath layer outside class · pin-gate close · seasoning apply · pin-derive · operator dialogue close / waive.
+
+Shared surfaces (Combat / roleplay / quiet / skill-readability / commission / voice) are **complete enough for seasoning/elevation at pin-derive** — no further pattern-density dialogue unless operator re-opens.
 
 ## Operator share statement
 
-_Pending operator full-cycle close or waive._ Class-expression + economy/claim soft-closed validated 2026-08-13 (no longer the open validation blocker). Soft watches live at seasoning. Pin gate remains open.
+_Pending operator full-cycle close or waive._ Feedstock locks ready for elevation. Pin-derive and seasoning maps next **after** close/waive. Soft watches live at seasoning. Class oaths hard guard preserved. Pin gate remains open.
 
-Cursor has recorded the class-expression + economy/claim soft-close on [[CLASS-EXPRESSION-BOARD]] v5. `inspiration_dialogue_satisfied` remains **false** until operator explicit full close or waive.
+Cursor has recorded operator decisions (labor realism, Tal’dorei Core/Table pivot, class-oath hard guard, non-first-class append path, shared-surface elevation readiness). Holding for operator close. `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**.
