@@ -1,0 +1,88 @@
+schema_version: 1
+project_id: genesis-mythos-master
+archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
+note: Map new series ids → historical after series remine; start as identity candidates
+mappings:
+- historical_id: ux_world_generation
+  new_id: ux_world_generation
+  status: restored_from_archive
+  label: DM can create (table can shape) a persistent living world
+  l5_scope: scopes/ux_world_generation/L5.md
+- historical_id: ux_dm_campaign_creation
+  new_id: ux_dm_campaign_creation
+  status: restored_from_archive
+  label: DM can bootstrap a campaign frame inside a world
+  l5_scope: scopes/ux_dm_campaign_creation/L5.md
+- historical_id: ux_player_character_creation
+  new_id: ux_player_character_creation
+  status: restored_from_archive
+  label: Players can author characters and submit them for DM acceptance into a world
+  l5_scope: scopes/ux_player_character_creation/L5.md
+- historical_id: ux_dm_session_prep
+  new_id: ux_dm_session_prep
+  status: restored_from_archive
+  label: DM can prep a session without leaving the collaborative table frame
+  l5_scope: scopes/ux_dm_session_prep/L5.md
+- historical_id: ux_early_game
+  new_id: ux_early_game
+  status: restored_from_archive
+  label: Early play is a power band that gates world and pillar response
+  l5_scope: scopes/ux_early_game/L5.md
+- historical_id: ux_mid_game
+  new_id: ux_mid_game
+  status: restored_from_archive
+  label: Mid play is a power band for lasting pressure and deeper world response
+  l5_scope: scopes/ux_mid_game/L5.md
+- historical_id: ux_late_game
+  new_id: ux_late_game
+  status: restored_from_archive
+  label: Late play is a power band for campaign crescendo, close, and character-to-world
+    persistence
+  l5_scope: scopes/ux_late_game/L5.md
+- historical_id: ux_mental_stat_interpretation
+  new_id: ux_mental_stat_interpretation
+  status: restored_from_archive
+  label: Mental stats surface available read paths not only sheet numbers
+  l5_scope: scopes/ux_mental_stat_interpretation/L5.md
+- historical_id: ux_collaborative_table_agency
+  new_id: ux_collaborative_table_agency
+  status: restored_from_archive
+  label: Shared virtual-tabletop loop with character agency and DM orchestration
+  l5_scope: scopes/ux_collaborative_table_agency/L5.md
+- historical_id: ux_quiet_between_pillars
+  new_id: ux_quiet_between_pillars
+  status: restored_from_archive
+  label: In-adventure quiet keeps continuous fiction between combat social and explore
+  l5_scope: scopes/ux_quiet_between_pillars/L5.md
+- historical_id: ux_combat_play_surface
+  new_id: ux_combat_play_surface
+  status: restored_from_archive
+  label: Combat can resolve by authored paths including non-win ends
+  l5_scope: scopes/ux_combat_play_surface/L5.md
+- historical_id: ux_camera_control_envelopes
+  new_id: ux_camera_control_envelopes
+  status: restored_from_archive
+  label: Perspective and control envelopes can change and cleanly return
+  l5_scope: scopes/ux_camera_control_envelopes/L5.md
+- historical_id: ux_living_world_continuity
+  new_id: ux_living_world_continuity
+  status: restored_from_archive
+  label: World can move off-screen and show lasting readable costs
+  l5_scope: scopes/ux_living_world_continuity/L5.md
+- historical_id: ux_backstory_legacy_integration
+  new_id: ux_backstory_legacy_integration
+  status: restored_from_archive
+  label: Backstory and legacies can hook into play and chronicle
+  l5_scope: scopes/ux_backstory_legacy_integration/L5.md
+- historical_id: ux_world_authorship_modability
+  new_id: ux_world_authorship_modability
+  status: restored_from_archive
+  label: Table and community can author world change via curated and mod contracts
+  l5_scope: scopes/ux_world_authorship_modability/L5.md
+status: applied_restore
+quality_validation: structure_only_pending_content_validation — 2026-08-01 remine
+  expanded UX-MINT-SERIES packs (not a cold PMG-only series invent). Series set matched
+  archive 15/15; content restored from archive + selective live template drift. Full
+  independent series quality validation outside structure is FUTURE debt if issues
+  appear.
+applied_at: '2026-08-01'

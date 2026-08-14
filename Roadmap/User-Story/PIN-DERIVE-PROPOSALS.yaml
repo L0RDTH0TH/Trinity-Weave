@@ -1,0 +1,382 @@
+proposals:
+- row_id: ux_world_generation
+  recommended: Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  alt: Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+  candidates:
+  - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+  - Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  pin_focus: Durable gen graph; structures cultural-historical; seed density; travel
+    modality; settlement threat-pressure; planar late-bound
+  rationale: '2026-08-14 pin-seed remine: Phase-2 primary. Season with structures-gen-cultural-historical,
+    travel-modality-explicit, exploration settlement pressure, planar grammar.'
+  conceptual_pin_refs:
+  - title: Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: World creation as durable container / gen graph
+    color_key: Blue
+  - title: Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Seed/snapshot seam only — not campaign frame
+    color_key: Cyan
+- row_id: ux_dm_campaign_creation
+  recommended: amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  alt: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  candidates:
+  - amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+  pin_focus: Campaign frame bootstrap; one-party seed; lore Core pack import/migration
+    (Tal’dorei Exemplar); planar late-bound
+  rationale: '2026-08-14 pin-seed remine: campaign-frame primary. Season with lore-core-table-dual
+    + adventure-module import grammar, one party per campaign, planar availability
+    rules.'
+  vision_drift: false
+  mint_target:
+    parent: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    proposed_title: amend-campaign-frame-bootstrap-inside-world
+    path_class: amendment
+    minted: true
+    path: 1-Projects/genesis-mythos-master/Roadmap/Conceptual-Amendments/Phase-4-Perspective-Split-and-Control-Systems/Phase-4-2-DM-Rigs-and-Mode-Transition-Graph/amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04.md
+  conceptual_pin_refs:
+  - title: amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04
+    heading: '## Behavior (amendment weld)'
+    role: primary
+    excerpt_note: Campaign frame bootstrap inside existing world
+    color_key: Orange
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Session-authority / transition-guard machinery
+    color_key: Orange
+  - title: Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+    heading: '## Behavior'
+    role: contrast
+    excerpt_note: Demo ≠ campaign parent
+    color_key: Red
+- row_id: ux_player_character_creation
+  recommended: Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  alt: Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+  candidates:
+  - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+  - Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+  - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
+  pin_focus: Player authors PC + DM acceptance; class-expression soft-closed validated
+    v5; backgrounds first-finger; capacity expansion same-character
+  rationale: '2026-08-14 pin-seed remine: CLASS-EXPRESSION-BOARD soft-closed validated
+    v5 (soft watches at seasoning). Spawn bootstrap primary. Season with backgrounds-first-finger,
+    capacity-expansion-same-character, pantheons optional faith, lore Core/Table.'
+  conceptual_pin_refs:
+  - title: Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Spawn/bootstrap cast entry into world
+    color_key: Green
+  - title: Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Archetype/profile weight tables only
+    color_key: Lime
+- row_id: ux_dm_session_prep
+  recommended: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  alt: Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+  candidates:
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+  - Phase-4-2-DM-Rigs-and-Mode-Transition-Graph-Roadmap-2026-06-26-1730
+  pin_focus: DM prep/session authority; session-prep accelerator; downtime verbs;
+    adventure contract/patronage; voice authorship
+  rationale: '2026-08-14 pin-seed remine: Session authority primary. Season with session-prep-accelerator-loop,
+    downtime-verbs-surface, adventure-contract-patronage, voice-table-signaling, import
+    migration.'
+  conceptual_pin_refs:
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Prep/session authority + transition guards
+    color_key: Orange
+  - title: Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Layer/composer bootstrap chrome
+    color_key: Purple
+- row_id: ux_early_game
+  recommended: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  alt: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  candidates:
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  pin_focus: Low power band — seed travel; rest/travel modality; adventure contracts;
+    backgrounds first-finger; settlement pressure gradient
+  rationale: '2026-08-14 pin-seed remine: Quest-Pressure primary. Season with seed-region
+    travel, adventure-contract-patronage, backgrounds-first-finger, travel-modality-explicit,
+    power-band membrane.'
+  conceptual_pin_refs:
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Early-band offer/quest pressure signals and priority bands
+    color_key: Yellow
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+- row_id: ux_mid_game
+  recommended: Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  alt: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  candidates:
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  pin_focus: Mid power band — living-sim nest; party as provisional faction; hirelings/site
+    demand; institutional weather; claim heat
+  rationale: '2026-08-14 pin-seed remine: Living-Simulation primary. Season with party-provisional-faction,
+    hirelings-directed-labor, reputation weather, treasure claim, BBEG concurrency
+    B2.'
+  conceptual_pin_refs:
+  - title: Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Mid-band living-sim tick spine before delta surfacing / lasting
+      world response
+    color_key: Blue
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Mid-band offer/pressure consequences
+    color_key: Yellow
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+- row_id: ux_late_game
+  recommended: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  alt: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  candidates:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  pin_focus: High band + close — apex/critical-node crescendo; power-banded funeral;
+    death/rez heat; off-screen lasting costs
+  rationale: '2026-08-14 pin-seed remine: Off-Screen Faction primary. Season with
+    bbeg-apex-pressure-node, death-rez-replacement-funeral (High A funeral scale),
+    knowledge-flow accelerators.'
+  conceptual_pin_refs:
+  - title: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Late-band off-screen continuity / since-you-left lasting costs
+    color_key: Blue
+  - title: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: PC→world / rail persistence after close
+    color_key: Purple
+  - title: Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Shared session-prep machinery (not the band weld)
+    color_key: Orange
+- row_id: ux_mental_stat_interpretation
+  recommended: Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  alt: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  candidates:
+  - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  pin_focus: Mental-stat cues / float membrane; skill active-passive assist; shared
+    magic readability floats; knowledge surfaces by actor
+  rationale: '2026-08-14 pin-seed remine: Spell/agency metadata primary. Season with
+    ability-checks-float-membrane, skill-readability trio, Conditions shared-magic
+    float recognition, knowledge-flow.'
+  conceptual_pin_refs:
+  - title: Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Cue/read-path metadata for mental-stat interpretation
+    color_key: Magenta
+  - title: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Visibility envelope only
+    color_key: Cyan
+- row_id: ux_collaborative_table_agency
+  recommended: Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  alt: Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+  candidates:
+  - Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+  - Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+  - Phase-4-Perspective-Split-and-Control-Systems-Roadmap-2026-06-26-0914
+  pin_focus: Shared VTT — one party as provisional faction; dual-rail seats; voice/IC;
+    hirelings as party-faction fingers; membrane bleed
+  rationale: '2026-08-14 pin-seed remine: Agency envelope primary. Season with party-provisional-faction,
+    voice-table-signaling, hirelings-directed-labor, claim/secrecy contests.'
+  conceptual_pin_refs:
+  - title: Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Active agency modes for dual-rail table seats
+    color_key: Green
+  - title: Phase-4-3-Agency-Envelope-and-Pilot-Machinery-Glue-Roadmap-2026-06-26-1945
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Pilot machinery glue around envelope
+    color_key: Lime
+- row_id: ux_quiet_between_pillars
+  recommended: Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  alt: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  candidates:
+  - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+  - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  pin_focus: In-adventure quiet via tick; rest decision surface; travel modality;
+    witnessable labor; chase intermediate grammar; care loops yield to combat
+  rationale: '2026-08-14 pin-seed remine: Tick core primary. Season with adventuring-day-rest-decision,
+    travel-modality-explicit, quiet textures, chase-pursuit-readability, real-time
+    labor witness.'
+  conceptual_pin_refs:
+  - title: Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: In-adventure quiet via tick pipeline / continuous low-intensity
+      sim
+    color_key: Blue
+  - title: Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Rail/ledger persistence only — not the quiet-between-pillars weld
+    color_key: Purple
+- row_id: ux_combat_play_surface
+  recommended: Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  alt: Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+  candidates:
+  - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+  - Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+  - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
+  pin_focus: Combat altitudes consume rule math; threat/flank/residue textures; chase
+    grammar; death/rez living-world; interrupts class desks
+  rationale: '2026-08-14 pin-seed remine: Rule-engine primary. Season with combat
+    surface textures, chase-pursuit-readability, death-rez-replacement-funeral, monsters/traps
+    investment chrome. Class soft-closed — interrupt lock unchanged.'
+  conceptual_pin_refs:
+  - title: Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Rule-math consume path for nested combat altitudes
+    color_key: Red
+  - title: Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Rule system integration envelope
+    color_key: Orange
+- row_id: ux_camera_control_envelopes
+  recommended: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  alt: Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+  candidates:
+  - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+  - Phase-4-1-2-UnifiedSceneGraph-CameraInterpolatorRegistry-and-PlayerFPRig-Roadmap-2026-07-16-0828
+  pin_focus: Perspective/control envelopes; reusable orientation tools for planar
+    disorientation
+  rationale: 'Quality pass light remine: FP envelope primary. Season lightly with
+    planar-grammar orientation-difficulty tools (reusable; content late-bound).'
+  conceptual_pin_refs:
+  - title: Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Player FP / perspective envelope machinery
+    color_key: Cyan
+  - title: Phase-4-1-3-WorldCam-MapCam-and-SensoriumAttach-FOV-Roadmap-2026-07-16-0845
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: DM WorldCam/MapCam/Sensorium envelopes
+    color_key: Blue
+- row_id: ux_living_world_continuity
+  recommended: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  alt: Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
+  candidates:
+  - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+  - Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
+  - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+  pin_focus: High-altitude continuity; critical-node fallout; institutional weather;
+    BBEG apex; lore Core/Table; labor realism-with-optional-traceability
+  rationale: '2026-08-14 pin-seed remine: Off-Screen primary. Season with institutional
+    weather, bbeg-apex-pressure-node, lore-core-table-dual, labor exemplar closed,
+    treasure claim, hirelings/site staffing.'
+  conceptual_pin_refs:
+  - title: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: High-altitude off-screen continuity with lasting costs
+    color_key: Blue
+  - title: Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Pocket faction/household graph grain under high continuity
+    color_key: Cyan
+  - title: Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Mid nest living-sim envelope around continuity
+    color_key: Lime
+- row_id: ux_backstory_legacy_integration
+  recommended: Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  alt: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  candidates:
+  - Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+  - Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+  - Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
+  pin_focus: Backstory/legacy hooks; backgrounds first-finger absorption; pantheons
+    optional; party residue on replacement PC
+  rationale: '2026-08-14 pin-seed remine: Canon registry primary. Season with background-first-finger-membrane,
+    pantheons-institutional-faith, death-rez party residue inherit, critical-node
+    people.'
+  conceptual_pin_refs:
+  - title: Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Canon registry / intent resolver for legacy hooks
+    color_key: Magenta
+  - title: Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Canon→quest pressure into play
+    color_key: Yellow
+  - title: Phase-3-1-3-NPC-Agendas-Subsystem-Roadmap-2026-06-29-2330
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: NPC agenda hooks for legacy people
+    color_key: Green
+- row_id: ux_world_authorship_modability
+  recommended: Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  alt: Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+  candidates:
+  - Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+  - Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+  - Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+  pin_focus: Curated + mod + intent-shape A/B/C; labor realism-with-optional-traceability;
+    downtime verbs ride authorship membranes
+  rationale: '2026-08-14 pin-seed remine: Modularity primary. Season with closed labor
+    exemplar, intent-shape witnessable labor, downtime-verbs-surface (no second economy
+    desk).'
+  conceptual_pin_refs:
+  - title: Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437
+    heading: '## Behavior'
+    role: primary
+    excerpt_note: Modularity/safety seams for authorship contracts
+    color_key: Green
+  - title: Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630
+    heading: '## Behavior'
+    role: supporting
+    excerpt_note: Overwrite vs deliberate regen policy
+    color_key: Yellow
+  - title: Phase-6-4-Reference-Exemplar-Roadmap-2026-08-01
+    heading: '## Behavior'
+    role: contrast
+    excerpt_note: Exemplar ≠ product default
+    color_key: Red

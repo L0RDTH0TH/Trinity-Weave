@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "project_id": "genesis-mythos-master",
+  "last_generated_utc": "2026-08-14T04:59:48Z",
+  "input_fingerprint": "a36159e677d03a201eb19f370836eee67cd09707ea8c83304e2790c755c1cc43",
+  "tertiary_index_fingerprint": "b8db8c9da93ae9a6ef01df3d0c58f27470b28f986d33e3b6cffe44317e337996",
+  "last_publish_utc": null,
+  "bridge": {
+    "trinity_repo": "L0RDTH0TH/Trinity-Weave",
+    "main_branch": "main",
+    "project_branch": "project/genesis-mythos-master",
+    "layout_version": "1"
+  },
+  "nodes": [
+    {
+      "id": "pmg",
+      "kind": "pmg",
+      "path": "genesis-mythos-master-goal.md",
+      "role": "Project master goal anchor"
+    },
+    {
+      "id": "moc",
+      "kind": "moc",
+      "path": "genesis-mythos-master-Roadmap-MOC.md",
+      "role": "Roadmap map of content"
+    },
+    {
+      "id": "slice_catalog",
+      "kind": "catalog",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "role": "Mint / deliverable rows"
+    },
+    {
+      "id": "catalog:ux_world_generation",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_world_generation"
+    },
+    {
+      "id": "l5:ux_world_generation",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_world_generation/L5.md"
+    },
+    {
+      "id": "catalog:ux_dm_campaign_creation",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_campaign_creation"
+    },
+    {
+      "id": "l5:ux_dm_campaign_creation",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_dm_campaign_creation/L5.md"
+    },
+    {
+      "id": "catalog:ux_player_character_creation",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_player_character_creation"
+    },
+    {
+      "id": "l5:ux_player_character_creation",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_player_character_creation/L5.md"
+    },
+    {
+      "id": "catalog:ux_dm_session_prep",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_session_prep"
+    },
+    {
+      "id": "l5:ux_dm_session_prep",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_dm_session_prep/L5.md"
+    },
+    {
+      "id": "catalog:ux_early_game",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_early_game"
+    },
+    {
+      "id": "l5:ux_early_game",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_early_game/L5.md"
+    },
+    {
+      "id": "catalog:ux_mid_game",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_mid_game"
+    },
+    {
+      "id": "l5:ux_mid_game",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_mid_game/L5.md"
+    },
+    {
+      "id": "catalog:ux_late_game",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_late_game"
+    },
+    {
+      "id": "l5:ux_late_game",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_late_game/L5.md"
+    },
+    {
+      "id": "catalog:ux_mental_stat_interpretation",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_mental_stat_interpretation"
+    },
+    {
+      "id": "l5:ux_mental_stat_interpretation",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_mental_stat_interpretation/L5.md"
+    },
+    {
+      "id": "catalog:ux_collaborative_table_agency",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_collaborative_table_agency"
+    },
+    {
+      "id": "l5:ux_collaborative_table_agency",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_collaborative_table_agency/L5.md"
+    },
+    {
+      "id": "catalog:ux_quiet_between_pillars",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_quiet_between_pillars"
+    },
+    {
+      "id": "l5:ux_quiet_between_pillars",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_quiet_between_pillars/L5.md"
+    },
+    {
+      "id": "catalog:ux_combat_play_surface",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_combat_play_surface"
+    },
+    {
+      "id": "l5:ux_combat_play_surface",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_combat_play_surface/L5.md"
+    },
+    {
+      "id": "catalog:ux_camera_control_envelopes",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_camera_control_envelopes"
+    },
+    {
+      "id": "l5:ux_camera_control_envelopes",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_camera_control_envelopes/L5.md"
+    },
+    {
+      "id": "catalog:ux_living_world_continuity",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_living_world_continuity"
+    },
+    {
+      "id": "l5:ux_living_world_continuity",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_living_world_continuity/L5.md"
+    },
+    {
+      "id": "catalog:ux_backstory_legacy_integration",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_backstory_legacy_integration"
+    },
+    {
+      "id": "l5:ux_backstory_legacy_integration",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_backstory_legacy_integration/L5.md"
+    },
+    {
+      "id": "catalog:ux_world_authorship_modability",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_world_authorship_modability"
+    },
+    {
+      "id": "l5:ux_world_authorship_modability",
+      "kind": "l5",
+      "path": "Roadmap/User-Story/scopes/ux_world_authorship_modability/L5.md"
+    },
+    {
+      "id": "catalog:ux_absent_proxy",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_absent_proxy"
+    },
+    {
+      "id": "catalog:ux_agency_handoff_enter_exit",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_agency_handoff_enter_exit"
+    },
+    {
+      "id": "catalog:ux_baseline_fp",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_baseline_fp"
+    },
+    {
+      "id": "catalog:ux_baseline_fp_controls",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_baseline_fp_controls"
+    },
+    {
+      "id": "catalog:ux_divination_override",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_divination_override"
+    },
+    {
+      "id": "catalog:ux_dm_mapcam",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_mapcam"
+    },
+    {
+      "id": "catalog:ux_dm_pilot",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_pilot"
+    },
+    {
+      "id": "catalog:ux_dm_sensorium",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_sensorium"
+    },
+    {
+      "id": "catalog:ux_dm_worldcam",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dm_worldcam"
+    },
+    {
+      "id": "catalog:ux_dominate_pilot",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dominate_pilot"
+    },
+    {
+      "id": "catalog:ux_dominate_victim",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_dominate_victim"
+    },
+    {
+      "id": "catalog:ux_liminal_unconscious",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_liminal_unconscious"
+    },
+    {
+      "id": "catalog:ux_planar_travel_override",
+      "kind": "catalog_row",
+      "path": "Roadmap/User-Story/slice-catalog.yaml",
+      "row_id": "ux_planar_travel_override"
+    }
+  ],
+  "edges": [
+    {
+      "from": "catalog:ux_world_generation",
+      "to": "[[Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_world_generation",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_world_generation",
+      "to": "l5:ux_world_generation",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_dm_campaign_creation",
+      "to": "[[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_campaign_creation",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_campaign_creation",
+      "to": "l5:ux_dm_campaign_creation",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_player_character_creation",
+      "to": "[[Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_player_character_creation",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_player_character_creation",
+      "to": "l5:ux_player_character_creation",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_dm_session_prep",
+      "to": "[[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_session_prep",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_session_prep",
+      "to": "l5:ux_dm_session_prep",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_early_game",
+      "to": "[[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_early_game",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_early_game",
+      "to": "l5:ux_early_game",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_mid_game",
+      "to": "[[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_mid_game",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_mid_game",
+      "to": "l5:ux_mid_game",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_late_game",
+      "to": "[[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_late_game",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_late_game",
+      "to": "l5:ux_late_game",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_mental_stat_interpretation",
+      "to": "[[Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_mental_stat_interpretation",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_mental_stat_interpretation",
+      "to": "l5:ux_mental_stat_interpretation",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_collaborative_table_agency",
+      "to": "[[Phase-4-3-1-AgencyEnvelope-and-Active-Agency-Modes-Roadmap-2026-07-16-0709]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_collaborative_table_agency",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_collaborative_table_agency",
+      "to": "l5:ux_collaborative_table_agency",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_quiet_between_pillars",
+      "to": "[[Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_quiet_between_pillars",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_quiet_between_pillars",
+      "to": "l5:ux_quiet_between_pillars",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_combat_play_surface",
+      "to": "[[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_combat_play_surface",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_combat_play_surface",
+      "to": "l5:ux_combat_play_surface",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_camera_control_envelopes",
+      "to": "[[Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_camera_control_envelopes",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_camera_control_envelopes",
+      "to": "l5:ux_camera_control_envelopes",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_living_world_continuity",
+      "to": "[[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_living_world_continuity",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_living_world_continuity",
+      "to": "l5:ux_living_world_continuity",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_backstory_legacy_integration",
+      "to": "[[Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_backstory_legacy_integration",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_backstory_legacy_integration",
+      "to": "l5:ux_backstory_legacy_integration",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_world_authorship_modability",
+      "to": "[[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_world_authorship_modability",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_world_authorship_modability",
+      "to": "l5:ux_world_authorship_modability",
+      "kind": "row_to_l5"
+    },
+    {
+      "from": "catalog:ux_absent_proxy",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_absent_proxy",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_agency_handoff_enter_exit",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_agency_handoff_enter_exit",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_baseline_fp",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_baseline_fp",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_baseline_fp_controls",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_baseline_fp_controls",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_divination_override",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_divination_override",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_mapcam",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_mapcam",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_pilot",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_pilot",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_sensorium",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_sensorium",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dm_worldcam",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dm_worldcam",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dominate_pilot",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dominate_pilot",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_dominate_victim",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_dominate_victim",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_liminal_unconscious",
+      "to": "1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_liminal_unconscious",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "catalog:ux_planar_travel_override",
+      "to": "1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md",
+      "kind": "conceptual_pin"
+    },
+    {
+      "from": "catalog:ux_planar_travel_override",
+      "to": [
+        "catalog_mint",
+        "catalog_mint_gate",
+        "product_factory_pipeline",
+        "ux_context_execution_gate",
+        "factory_product_bom"
+      ],
+      "kind": "related_weave_cards",
+      "note": "Gate law on main branch"
+    },
+    {
+      "from": "half_a",
+      "to": "half_b",
+      "kind": "factory_handoff",
+      "note": "Roadmap factory \u2192 implementation factory"
+    }
+  ],
+  "routes": {
+    "weave_law": {
+      "branch": "main",
+      "paths": [
+        "weave/components/",
+        "weave/component-proposals/"
+      ]
+    },
+    "project_instances": {
+      "branch": "project/genesis-mythos-master",
+      "start": "GROK-PROJECT-START.md"
+    }
+  }
+}

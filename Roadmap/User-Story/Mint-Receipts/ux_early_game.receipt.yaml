@@ -1,0 +1,33 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T19:16:52Z'
+lock_state: applied
+decision: power_band_on_stage_rows; no separate progression series parent
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Early = power band gating access/offer; rhythm is band-gated; not tutorial
+    law.
+row:
+  id: ux_early_game
+  dimension: ui_surface
+  label: Early play is a power band that gates world and pillar response
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- first session must teach stolen agency
+- early game is combat-only onboarding
+- early play is a mandatory tutorial plot
+- progression requires a separate series parent from stage bands
+- session prep replaces the early power-band contract
+alternatives_not_banned:
+- Implicit band (content only) vs visible band indicator
+- Strict gates vs soft advice the DM can override
+- Fast climb out of early vs long stay in band
+- Prep-authored early situations vs mostly emergent within band limits

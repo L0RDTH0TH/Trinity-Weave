@@ -1,0 +1,223 @@
+---
+title: Inspiration elevation assumption log
+project-id: genesis-mythos-master
+updated: 2026-08-13
+---
+
+# ASSUMPTION-LOG
+
+Mandatory fields per elevation line:
+
+`assumption` · `source_snippet` · `derived_pin_id` · `maps_to_series` · `elevated_into`
+
+Optional: `divergence_from_user` when a later correction appears.
+
+## Entries
+
+| when | assumption | derived_pin_id | maps_to_series | elevated_into | source_snippet |
+|------|------------|----------------|----------------|---------------|----------------|
+| 2026-08-05 | true | forge-glow-dm-placement | ux_camera_control_envelopes | feedstock seed (pre-elevate) | Halo Forge glow place for DM world cam |
+| 2026-08-05 | true | turn-gated-movement-circle | ux_combat_play_surface | feedstock seed (pre-elevate) | Cities circle on turn; range glow |
+| 2026-08-05 | true | low-fantasy-tone-exemplar | ux_world_generation, ux_dm_campaign_creation | feedstock seed (pre-elevate) | KCD low fantasy exemplar |
+| 2026-08-05 | true | habitat-wilderness-exemplar | ux_world_generation, ux_living_world_continuity | feedstock seed (pre-elevate) | Primal habitat |
+| 2026-08-05 | true | bounded-dm-resource-politics | ux_living_world_continuity, ux_dm_session_prep | feedstock seed (pre-elevate) | Stellaris/DF/Anno resource → politics |
+| 2026-08-05 | true | live-grid-correspondence | ux_combat_play_surface, ux_camera_control_envelopes | feedstock seed (pre-elevate) | Live square map for players+DM |
+
+_No silent elevations into SERIES / locked batches / attested L5. When Cursor elevates into children or L5 seasoning, append a row here._
+
+| 2026-08-07 | false | situational-overlay-lenses | ux_dm_session_prep, ux_living_world_continuity, ux_camera_control_envelopes | feedstock correction | Cities implicit = situational lenses |
+| 2026-08-07 | true | turn-gated-movement-circle | ux_combat_play_surface | feedstock re-source | divergence: was wrongly Cities; now operator invent |
+| 2026-08-07 | false | relationship-shaped-economy | ux_living_world_continuity, ux_backstory_legacy_integration | feedstock seed | Fable vs Skyrim Mara contrast |
+| 2026-08-07 | false | mod-player-pressure-surfaces | ux_world_authorship_modability, ux_quiet_between_pillars, ux_living_world_continuity, ux_combat_play_surface | feedstock seed | Campfire/Frostfall-class as research |
+| 2026-08-07 | true | stub-oblivion-open-world | ux_living_world_continuity, ux_world_generation | feedstock stub | Open-world cluster add |
+
+| 2026-08-07 | false | bg3-dnd-feel-refuse-authored-spine | ux_combat_play_surface, ux_collaborative_table_agency, ux_dm_campaign_creation | feedstock record | BG3 feel + refuse SP spine |
+| 2026-08-07 | false | destiny-shared-world-refuse-fireteam-shooter | ux_collaborative_table_agency, ux_living_world_continuity, ux_combat_play_surface | feedstock record | Shared world; refuse 3-cap shooter |
+| 2026-08-07 | false | mod-community-weak-spot-augments | (multi) | feedstock replace mod-player-pressure-surfaces | Weak-spot + augmentation framing |
+| 2026-08-07 | false | bounded-dm-resource-politics | ux_living_world_continuity, ux_dm_session_prep | feedstock refresh | +Civ; DM override first-class |
+| 2026-08-07 | false | PILLARS-AND-LENS | — | feedstock doctrine | Pillars + lens note |
+| 2026-08-07 | false | bannerlord-offscreen-faction-military | ux_living_world_continuity, ux_dm_session_prep | feedstock seed | Off-screen faction/military |
+| 2026-08-07 | false | kenshi-harsh-ai-permanent-consequence | ux_living_world_continuity, ux_quiet_between_pillars | feedstock seed | AI agendas + permanent consequence |
+| 2026-08-07 | false | rain-world-creature-territory-habitat | ux_world_generation, ux_living_world_continuity | feedstock seed | Creature territory / habitat |
+| 2026-08-07 | false | valheim-progressive-map-biome | ux_world_generation, ux_living_world_continuity | feedstock seed | Progressive map + biome |
+| 2026-08-07 | false | medieval-dynasty-light-life-sim | ux_living_world_continuity, ux_dm_session_prep | feedstock seed | Light life-sim settlement |
+| 2026-08-07 | false | rust-ark-base-systems-light | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Base foil; refuse loop |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock doctrine | Design → NPC labor → calendar |
+| 2026-08-07 | false | townscaper-click-add-world-element | ux_world_authorship_modability, ux_camera_control_envelopes | feedstock seed | Click-add world/grid UX |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock refresh | Split + primary labor OPEN |
+| 2026-08-07 | false | overlord-minion-labor-partial | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Labor tone; thin calendar |
+| 2026-08-07 | false | majesty-goal-heroes-realize | (multi) | feedstock seed | Sovereign → subjects |
+| 2026-08-07 | false | stronghold-plan-engineers-time | (multi) | feedstock seed | Castle plan → time |
+| 2026-08-07 | false | foundation-district-organic-build | (multi) | feedstock seed | Organic settlement |
+| 2026-08-07 | false | rimworld-designate-calendar-labor | (multi) | feedstock seed | Calendar labor clarity |
+| 2026-08-07 | false | going-medieval-blueprint-pawns | (multi) | feedstock seed | Fantasy blueprint clock |
+| 2026-08-07 | false | banished-frontier-blueprint-settlement | (multi) | feedstock seed | Light settlement |
+| 2026-08-07 | false | settlers-flag-serfs-build | (multi) | feedstock seed | Classic flag→labor |
+
+| 2026-08-07 | false | banished-frontier-blueprint-settlement | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | banished-frontier-blueprint-settlement | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bannerlord-offscreen-faction-military | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bannerlord-offscreen-faction-military | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bg3-dnd-feel-refuse-authored-spine | ux_combat_play_surface | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bg3-dnd-feel-refuse-authored-spine | ux_collaborative_table_agency | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bg3-dnd-feel-refuse-authored-spine | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bounded-dm-resource-politics | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | bounded-dm-resource-politics | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | ux_quiet_between_pillars | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | calendar-npc-labor-world-shape | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | destiny-shared-world-refuse-fireteam-shooter | ux_collaborative_table_agency | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | destiny-shared-world-refuse-fireteam-shooter | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | destiny-shared-world-refuse-fireteam-shooter | ux_combat_play_surface | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | forge-glow-dm-placement | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | forge-glow-dm-placement | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | foundation-district-organic-build | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | foundation-district-organic-build | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | going-medieval-blueprint-pawns | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | going-medieval-blueprint-pawns | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | habitat-wilderness-exemplar | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | habitat-wilderness-exemplar | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | kenshi-harsh-ai-permanent-consequence | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | kenshi-harsh-ai-permanent-consequence | ux_quiet_between_pillars | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | live-grid-correspondence | ux_combat_play_surface | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | live-grid-correspondence | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | low-fantasy-tone-exemplar | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | low-fantasy-tone-exemplar | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | low-fantasy-tone-exemplar | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | majesty-goal-heroes-realize | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | majesty-goal-heroes-realize | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | majesty-goal-heroes-realize | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | medieval-dynasty-light-life-sim | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | medieval-dynasty-light-life-sim | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | mod-community-weak-spot-augments | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | mod-community-weak-spot-augments | ux_quiet_between_pillars | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | mod-community-weak-spot-augments | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | mod-community-weak-spot-augments | ux_combat_play_surface | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | mod-community-weak-spot-augments | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | overlord-minion-labor-partial | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | overlord-minion-labor-partial | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rain-world-creature-territory-habitat | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rain-world-creature-territory-habitat | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | relationship-shaped-economy | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | relationship-shaped-economy | ux_backstory_legacy_integration | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rimworld-designate-calendar-labor | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rimworld-designate-calendar-labor | ux_quiet_between_pillars | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rust-ark-base-systems-light | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | rust-ark-base-systems-light | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | settlers-flag-serfs-build | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | settlers-flag-serfs-build | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | situational-overlay-lenses | ux_dm_session_prep | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | situational-overlay-lenses | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | situational-overlay-lenses | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stronghold-plan-engineers-time | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stronghold-plan-engineers-time | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stronghold-plan-engineers-time | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-adventure-pdf-dependency-graph | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-df-living-detail | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-oblivion-open-world | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-oblivion-open-world | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-rdr-mount-feel | ux_quiet_between_pillars | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-seasonal-location-rewrite | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-skyrim-living-fp-share | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-talespire-dm-tooling | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | stub-world-anvil-lore-surface | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | townscaper-click-add-world-element | ux_world_authorship_modability | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | townscaper-click-add-world-element | ux_camera_control_envelopes | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | townscaper-click-add-world-element | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | turn-gated-movement-circle | ux_combat_play_surface | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | valheim-progressive-map-biome | ux_world_generation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | valheim-progressive-map-biome | ux_living_world_continuity | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-07 | false | valheim-progressive-map-biome | ux_dm_campaign_creation | seasoning apply (shared pin gate remine) | card maps_to_series |
+| 2026-08-11 | false | combat-threat-readability | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock draft (not elevated) | Posture default + Nature outline; not taxonomy HUD |
+| 2026-08-11 | false | combat-flank-blind-spot-arc | ux_combat_play_surface, ux_collaborative_table_agency | feedstock draft (not elevated) | 180° from back; acting-player ~5 ft overlay |
+| 2026-08-11 | false | combat-enter-exit-residue | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock draft (not elevated) | DM open/close; fade residue into quiet-between |
+| 2026-08-11 | false | factions-as-persons-fingers-ripples | ux_living_world_continuity, ux_backstory_legacy_integration, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock draft (not elevated) | Factions as persons; fingers + ripples |
+| 2026-08-11 | false | reputation-weather | ux_living_world_continuity, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_backstory_legacy_integration | feedstock draft (not elevated) | Felt treatment; no meter; no announced mad-because-X |
+| 2026-08-11 | false | faction-goal-pressure-residue | ux_living_world_continuity, ux_quiet_between_pillars, ux_dm_session_prep, ux_early_game, ux_mid_game | feedstock draft (not elevated) | Local residue of current goal; no faction sheet |
+| 2026-08-11 | false | quiet-travel-camp-loop | ux_quiet_between_pillars, ux_living_world_continuity, ux_early_game, ux_collaborative_table_agency | feedstock draft (not elevated) | Leave → day travel → camp/watch/sleep |
+| 2026-08-11 | false | quiet-soft-world-pressure | ux_quiet_between_pillars, ux_living_world_continuity, ux_collaborative_table_agency | feedstock draft (not elevated) | Rumor/weather/sign/patrol; system waits |
+| 2026-08-11 | false | quiet-surface-boundaries | ux_quiet_between_pillars, ux_living_world_continuity, ux_combat_play_surface, ux_collaborative_table_agency | feedstock draft (not elevated) | In-adventure only; weeks/months not this surface |
+| 2026-08-11 | false | skill-active-passive-assist | ux_mental_stat_interpretation, ux_collaborative_table_agency, ux_quiet_between_pillars, ux_combat_play_surface | feedstock draft (not elevated) | Active + passive same surface; not a HUD |
+| 2026-08-11 | false | tool-use-as-presence | ux_mental_stat_interpretation, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_living_world_continuity | feedstock draft (not elevated) | Attempt leaves residue — not only a number |
+| 2026-08-11 | false | language-barrier-and-bridge | ux_mental_stat_interpretation, ux_collaborative_table_agency, ux_living_world_continuity, ux_quiet_between_pillars | feedstock draft (not elevated) | Barriers real; work-arounds have cost |
+| 2026-08-11 | false | magic-item-commission-conversation | ux_living_world_continuity, ux_collaborative_table_agency, ux_quiet_between_pillars, ux_backstory_legacy_integration | feedstock draft (not elevated) | Ordinary path = talk to local finger |
+| 2026-08-11 | false | commission-formula-and-stock-eval | ux_living_world_continuity, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_early_game, ux_mid_game | feedstock draft (not elevated) | Base + reagents + bind time vs current stock |
+| 2026-08-11 | false | voice-table-signaling | ux_collaborative_table_agency, ux_dm_session_prep, ux_camera_control_envelopes | feedstock thicken (not elevated) | Free waveforms; save on NPC; optional IC; World-cam possession |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_player_character_creation, ux_backstory_legacy_integration, ux_early_game, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Background = first finger, not ongoing desk |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Power-band reaction window = soft guidance (power/reach > exact level) |
+| 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_backstory_legacy_integration | feedstock lock (user-validated; not elevated) | Absorption into reputation weather is intended end-state of residue |
+| 2026-08-12 | false | conditions-felt-state-machine | ux_combat_play_surface, ux_quiet_between_pillars, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Conditions = felt temporary-to-semi-permanent state machine, not a flat taxonomy |
+| 2026-08-12 | false | conditions-felt-state-machine | ux_combat_play_surface, ux_mid_game, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Transformative forms are power-banded and identity-level |
+| 2026-08-12 | false | conditions-felt-state-machine | ux_quiet_between_pillars, ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Environmental exposure and survival-resource loss are properly conditional |
+| 2026-08-12 | false | conditions-felt-state-machine | ux_combat_play_surface, ux_quiet_between_pillars, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Mundane lingering injury is first-class alongside fantastical forms |
+| 2026-08-12 | false | conditions-felt-state-machine | ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Residue travels with institutional attention in an open world |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_quiet_between_pillars, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Classical AI only; Intelligent mode is tactical, not generative |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Speech capability opens both Intelligent tactical mode and potential full NPC status |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Cohesion and push-to-run are separate, skill-gated chromes |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_living_world_continuity, ux_quiet_between_pillars, ux_early_game | feedstock lock (user-validated; not elevated) | Powerful-beast removal creates localized living-world rebalancing |
+| 2026-08-13 | false | monsters-habitat-actor-behavior | ux_combat_play_surface, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Retreat thresholds are fiction- and context-driven, primarily read through behavior |
+| 2026-08-13 | false | traps-environmental-agency | ux_quiet_between_pillars, ux_combat_play_surface, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Traps = environmental agency, not a separate desk |
+| 2026-08-13 | false | traps-environmental-agency | ux_quiet_between_pillars, ux_combat_play_surface, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Discoverability and chrome follow the same investment pattern as monster behavioral readability |
+| 2026-08-13 | false | traps-environmental-agency | ux_combat_play_surface, ux_collaborative_table_agency, ux_early_game | feedstock lock (user-validated; not elevated) | Player-set traps are a supported combat tactic |
+| 2026-08-13 | false | traps-environmental-agency | ux_living_world_continuity, ux_quiet_between_pillars, ux_combat_play_surface | feedstock lock (user-validated; not elevated) | Residue and creature-alert potential are expected |
+| 2026-08-13 | false | hirelings-directed-labor | ux_living_world_continuity, ux_early_game, ux_mid_game, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Hireling capacity scales with power band and site needs |
+| 2026-08-13 | false | hirelings-directed-labor | ux_living_world_continuity, ux_mid_game | feedstock lock (user-validated; not elevated) | Site ownership creates ongoing staffing pressure |
+| 2026-08-13 | false | hirelings-directed-labor | ux_collaborative_table_agency, ux_combat_play_surface | feedstock lock (user-validated; not elevated) | Loyalty visibility follows the established investment-chrome pattern |
+| 2026-08-13 | false | hirelings-directed-labor | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Agenda leakage is medium and DM-handled |
+| 2026-08-13 | false | hirelings-directed-labor | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | One-party-per-campaign constraint is non-negotiable |
+| 2026-08-13 | false | treasure-claim-provenance-content | ux_living_world_continuity, ux_collaborative_table_agency, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Treasure rides existing claim/provenance/recovery membranes |
+| 2026-08-13 | false | treasure-claim-provenance-content | ux_living_world_continuity, ux_early_game, ux_mid_game | feedstock lock (user-validated; not elevated) | Residual interest is driven by care + identifiability + prior ownership, modulated by rarity |
+| 2026-08-13 | false | treasure-claim-provenance-content | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | DM controls whether and how prior owners learn of resurfacing items |
+| 2026-08-13 | false | treasure-claim-provenance-content | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Party can keep secrets unless they themselves leak or the DM triggers release |
+| 2026-08-13 | false | treasure-claim-provenance-content | ux_living_world_continuity, ux_backstory_legacy_integration, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Hoards are themed; information and favors are first-class rewards |
+| 2026-08-13 | false | pantheons-institutional-faith | ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Pantheons act primarily through institutional fingers; personal intervention is DM-gated |
+| 2026-08-13 | false | pantheons-institutional-faith | ux_player_character_creation, ux_backstory_legacy_integration | feedstock lock (user-validated; not elevated) | Faith engagement is fully optional at creation |
+| 2026-08-13 | false | pantheons-institutional-faith | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Oaths are RP/institutional for this lock; mechanical system deferred |
+| 2026-08-13 | false | pantheons-institutional-faith | ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Multi-pantheon support is scale-dependent on the seed region |
+| 2026-08-13 | false | pantheons-institutional-faith | ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Religious institutions are specialized living factions inside existing weather systems |
+| 2026-08-13 | false | bbeg-apex-pressure-node | ux_living_world_continuity, ux_early_game, ux_mid_game, ux_late_game | feedstock lock (user-validated; not elevated) | Apex pressure nodes are power-banded in concurrency (C1 / B2 / A3) |
+| 2026-08-13 | false | bbeg-apex-pressure-node | ux_living_world_continuity, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Personal, institutional, and ecological forms are equally first-class |
+| 2026-08-13 | false | bbeg-apex-pressure-node | ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Off-screen continuity and living-world readability are required |
+| 2026-08-13 | false | bbeg-apex-pressure-node | ux_collaborative_table_agency, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Information control reuses existing DM surfaces |
+| 2026-08-13 | false | bbeg-apex-pressure-node | ux_living_world_continuity, ux_collaborative_table_agency, ux_late_game | feedstock lock (user-validated; not elevated) | Death is only one of many valid resolution patterns |
+| 2026-08-13 | false | structures-gen-cultural-historical | ux_living_world_continuity, ux_dm_campaign_creation, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Structures are historical and cultural facts, not random content |
+| 2026-08-13 | false | structures-gen-cultural-historical | ux_living_world_continuity, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Cultural settlement dialects are first-class and must be legible through form |
+| 2026-08-13 | false | structures-gen-cultural-historical | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Player bases follow the same rules with approximation rights |
+| 2026-08-13 | false | structures-gen-cultural-historical | ux_dm_campaign_creation, ux_early_game | feedstock lock (user-validated; not elevated) | Ruin density is DM/sub-region variable |
+| 2026-08-13 | false | structures-gen-cultural-historical | ux_living_world_continuity, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Pattern is compatible with future portable lore packages |
+| 2026-08-13 | false | capacity-expansion-same-character | ux_player_character_creation, ux_collaborative_table_agency, ux_late_game | feedstock lock (user-validated; not elevated) | Multiclass and post-20 capacity are DM-gated; system is not the hard limiter |
+| 2026-08-13 | false | capacity-expansion-same-character | ux_collaborative_table_agency, ux_player_character_creation | feedstock lock (user-validated; not elevated) | Soft thematic resonance and readability guidance sit alongside the DM gate |
+| 2026-08-13 | false | capacity-expansion-same-character | ux_combat_play_surface, ux_collaborative_table_agency, ux_mid_game | feedstock lock (user-validated; not elevated) | Feats are cross-membrane mechanical permissions |
+| 2026-08-13 | false | capacity-expansion-same-character | ux_mid_game, ux_late_game, ux_player_character_creation | feedstock lock (user-validated; not elevated) | Transformations are progressive across all power bands |
+| 2026-08-13 | false | capacity-expansion-same-character | ux_player_character_creation, ux_combat_play_surface | feedstock lock (user-validated; not elevated) | Primary class + subclass remain the dominant expression surface |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_dm_session_prep, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Session prep is an optional accelerator, not a requirement for world continuity |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_dm_session_prep, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Patterned branching is history-rooted and distilled (not exhaustive) |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_dm_session_prep, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | DM retains full override and manual authorship |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_collaborative_table_agency, ux_dm_session_prep | feedstock lock (user-validated; not elevated) | Recaps prefer player notes/logs to avoid information bleed |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_dm_session_prep, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Stable surfaces (economy, etc.) are primarily managed between sessions in this loop |
+| 2026-08-13 | false | session-prep-accelerator-loop | ux_dm_session_prep, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Large changes to stable surfaces may require regen |
+| 2026-08-13 | false | ability-checks-float-membrane | ux_mental_stat_interpretation, ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Information float is a continuous trickle scaled by ability score (+ proficiency) |
+| 2026-08-13 | false | ability-checks-float-membrane | ux_mental_stat_interpretation | feedstock lock (user-validated; not elevated) | Scores ≤6 produce no float |
+| 2026-08-13 | false | ability-checks-float-membrane | ux_collaborative_table_agency, ux_dm_session_prep, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | DM Information Gate is a recurring control surface (propose → DM pass/partial/delay/block) |
+| 2026-08-13 | false | ability-checks-float-membrane | ux_collaborative_table_agency, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | The gate is attached to the surfaces it affects rather than extracted as a separate top-level item |
+| 2026-08-13 | false | ability-checks-float-membrane | ux_mental_stat_interpretation, ux_combat_play_surface, ux_quiet_between_pillars | feedstock lock (user-validated; not elevated) | Floating knowledge does not replace the need for checks under opposition or uncertainty |
+| 2026-08-13 | false | lore-core-table-dual | ux_living_world_continuity, ux_dm_campaign_creation, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Core Lore is portable and prebuilt; Table Lore is local and non-contaminating |
+| 2026-08-13 | false | lore-core-table-dual | ux_living_world_continuity, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | The pack defines roles, not the specific entities that fill them at a table |
+| 2026-08-13 | false | lore-core-table-dual | ux_collaborative_table_agency, ux_dm_campaign_creation | feedstock lock (user-validated; not elevated) | Entire table shares one Core Lore package |
+| 2026-08-13 | false | lore-core-table-dual | ux_living_world_continuity, ux_dm_campaign_creation, ux_backstory_legacy_integration | feedstock lock (user-validated; not elevated) | A complete mid-to-high fantasy Core Lore Exemplar is required |
+| 2026-08-13 | false | lore-core-table-dual | ux_mental_stat_interpretation, ux_living_world_continuity | feedstock lock (user-validated; not elevated) | Floated information under ability scores / investment draws conceptual content from the active Core Lore |
+| 2026-08-13 | false | calendar-npc-labor-world-shape | ux_living_world_continuity, ux_world_authorship_modability, ux_quiet_between_pillars, ux_dm_campaign_creation | feedstock lock (operator; not elevated) | Primary labor exemplar = realism-with-optional-traceability |
+| 2026-08-13 | false | intent-shape-to-realization | ux_living_world_continuity, ux_world_authorship_modability, ux_quiet_between_pillars | feedstock lock (operator; not elevated) | Optional caravan/production/scarcity/ownership trace; no mandatory factory sim |
+| 2026-08-13 | false | lore-core-table-dual | ux_living_world_continuity, ux_dm_campaign_creation | feedstock lock (operator; not elevated) | Core Lore packs use adventure-module import/migration grammar; Tal’dorei is first Exemplar source |
+| 2026-08-13 | false | class-unique-expression-surfaces | ux_player_character_creation, ux_collaborative_table_agency | feedstock lock (operator; not elevated) | Class oaths remain mechanical hard guard; soft watches do not soften |
+| 2026-08-13 | false | append-path-non-first-class | ux_dm_campaign_creation, ux_living_world_continuity | feedstock process lock (operator) | Prefer Conceptual anchor → closest approx → append child note; never unfreeze parent |
+| 2026-08-14 | false | adventuring-day-rest-decision | ux_quiet_between_pillars, ux_combat_play_surface, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (operator close-out; not elevated) | Above-table should-we-rest; DM gate opens window; shared time budget; interrupt rude/rare |
+| 2026-08-14 | false | party-provisional-faction | ux_collaborative_table_agency, ux_living_world_continuity, ux_backstory_legacy_integration, ux_early_game, ux_mid_game | feedstock lock (operator close-out; not elevated) | Free-willed individuals + provisional faction; hirelings = party-faction fingers |
+| 2026-08-14 | false | death-rez-replacement-funeral | ux_combat_play_surface, ux_living_world_continuity, ux_collaborative_table_agency, ux_late_game, ux_quiet_between_pillars | feedstock lock (operator close-out; not elevated) | PC exit/re-entry as living-world event; rez cost+heat; power-banded funeral |
+| 2026-08-14 | false | downtime-verbs-surface | ux_dm_session_prep, ux_living_world_continuity, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_world_authorship_modability | feedstock lock (operator close-out; not elevated) | Between-adventure verbs ride existing membranes; Tools as actions not desk |
+| 2026-08-14 | false | travel-modality-explicit | ux_quiet_between_pillars, ux_living_world_continuity, ux_world_generation, ux_early_game | feedstock lock (operator close-out; not elevated) | No mundane fast travel; modalities = power band + availability + pressure; no travel desk |
+| 2026-08-14 | false | chase-pursuit-readability | ux_combat_play_surface, ux_quiet_between_pillars, ux_living_world_continuity, ux_collaborative_table_agency | feedstock lock (operator close-out; not elevated) | Thin multi-beat chase grammar between combat and travel |
+| 2026-08-14 | false | adventure-contract-patronage | ux_living_world_continuity, ux_dm_session_prep, ux_collaborative_table_agency, ux_early_game, ux_mid_game | feedstock lock (operator close-out; not elevated) | Hook→play via fingers + session-prep + commission + claim; thin RP + tag |
+| 2026-08-14 | false | conditions-felt-state-machine | ux_combat_play_surface, ux_quiet_between_pillars, ux_living_world_continuity | feedstock lock (operator close-out; not elevated) | Shared magic/environment readability as felt conditions; float can recognize; no new physics card |
+| 2026-08-14 | false | light-cover-hazardous-terrain | ux_combat_play_surface, ux_quiet_between_pillars | feedstock defer (composed; no dedicated card this cycle) | Composed from combat threat + traps + skill assist + conditions |

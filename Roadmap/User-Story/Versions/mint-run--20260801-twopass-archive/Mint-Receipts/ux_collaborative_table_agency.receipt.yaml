@@ -1,0 +1,32 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T22:42:32Z'
+lock_state: applied
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Shared VTT loop; DM owns NPC voice; assist≠auto-speak; not identical envelopes.
+row:
+  id: ux_collaborative_table_agency
+  dimension: dm_rail
+  label: Shared virtual-tabletop loop with character agency and DM orchestration
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- DM is only a cue issuer for other players
+- players and DM share identical control envelopes
+- system-owned NPC dialogue is the product default
+- player social play defaults to dialogue-option trees
+- play must be combat-primary / hack-and-slash
+alternatives_not_banned:
+- Combat-heavy tables vs social/explore-primary tables
+- Heavy transcription vs light note capture of player intent
+- Rich NPC context assist vs minimal prompts
+- DM who also runs a character vs DM seat only
+- Optional later system-suggested NPC lines under DM accept (not default auto-speak)

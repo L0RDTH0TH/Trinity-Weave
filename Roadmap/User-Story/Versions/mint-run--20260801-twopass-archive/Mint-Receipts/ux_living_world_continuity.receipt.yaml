@@ -1,0 +1,38 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-31T04:38:21Z'
+lock_state: applied
+bone_pilot_edit: depends_on world_generation + early_game; min downtime + resource
+  interruption in PoC
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Off-screen pulse + band-scaled costs; DM machinery / player FP texture; not
+    death-pact-only.
+row:
+  id: ux_living_world_continuity
+  dimension: ui_surface
+  label: World can move off-screen and show lasting readable costs
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- world motion requires a scripted companion betrayal arc
+- lasting costs are only cosmic death pacts
+- one conspiracy skin is the only continuity form
+- this row owns in-adventure quiet-between road/camp/linger
+- players get full sim-admin tools as the continuity surface
+alternatives_not_banned:
+- Sparse vs dense off-screen pulse
+- Soft “the world noticed” texture vs hard mechanical scars that block options
+- Mostly social/faction residue vs mostly geographic/physical/resource
+- Fast-moving political worlds vs slow scar accumulation
+- High-band existential threats that are planar/cosmic vs purely political-apocalyptic
+- Thin vs richer downtime surfaces later

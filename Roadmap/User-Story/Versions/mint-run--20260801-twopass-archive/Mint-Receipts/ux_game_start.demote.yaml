@@ -1,0 +1,16 @@
+schema_version: 1
+project_id: genesis-mythos-master
+id: ux_game_start
+action: demote
+demoted_at: '2026-07-30T19:10:59Z'
+from:
+  walk_tier: series
+  series_id: lifecycle
+  series_order: 4
+to:
+  status: dropped
+  walk_tier: coverage
+  maps_to: ux_dm_session_prep
+reason: Opening situation is prep authorship; enter-play is shell verb; not a series
+  peer.
+next_focal: ux_early_game

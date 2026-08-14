@@ -1,0 +1,376 @@
+schema_version: 1
+project_id: genesis-mythos-master
+status: proposed
+archive_ref: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Versions/mint-run--20260801-twopass-archive
+generated_at: '2026-08-01T21:10:50Z'
+note: Cursor proposes; operator accepts → UX-MINT-SERIES.project.yaml + series_draft_accepted
+packs:
+- id: lifecycle
+  label: Table lifecycle
+  walk_rank: 0
+  description: World container through campaign/session arc — world gen, campaigns,
+    playthrough, end game.
+  members:
+  - role_key: world_generation
+    label: DM can create (table can shape) a persistent living world
+    summary: Durable world container — DM creates initial form via wizard+preview
+      (tone-aware shape families, cached/pre-existing assets); table can shape; players
+      do not author the first world. Physical/settlement layers + monster-region tags;
+      import/attach first-class; every world-hitting change is DM-retconnable. Multiple
+      campaigns/casts attach to the same world.
+    altitude: product_contract
+    seat:
+    - shared_table
+    - dm_as_player
+    - privileged_access
+    time_scale: world_era
+    pillar: shared
+    does_not_mandate:
+    - one world equals exactly one campaign forever
+    - worldgen is only a Session 0 checkbox with no persistent container
+    - players author the first world
+    - world create forces unconstrained multi-knob fresh-noise every time
+    - world creation's default next step is player character creation
+    ux_axis: session0_identity_art
+    catalog_face: living_world
+    dimension: world_gen
+  - role_key: dm_campaign_creation
+    label: DM can bootstrap a campaign frame inside a world
+    summary: Orchestrator creates or revises a campaign frame (tone, bounds, public
+      facts, cast expectations, logging seam) as a player-facing authorship act inside
+      an existing or newly attached world — not the world container itself. Exit to
+      world or session prep; not player character creation.
+    altitude: product_contract
+    seat:
+    - dm_as_player
+    - privileged_access
+    time_scale: campaign
+    pillar: shared
+    does_not_mandate:
+    - every campaign begins in captivity
+    - offline Microscope play is required before Session 0
+    - starting a campaign must regenerate the whole world
+    - campaign creation's default next step is player character creation
+    - DM is the primary author of player characters after frame bootstrap
+    ux_axis: session0_identity_art
+    catalog_face: table
+    dimension: session_bootstrap
+  - role_key: player_character_creation
+    label: Players can author characters and submit them for DM acceptance into a
+      world
+    summary: 'Player authors and owns a character before and after DM greenlight.
+      Builds may be unbound or against a campaign invite (entry into campaign and
+      world); invited builds disable banned options from world and campaign configs
+      with overwrite-request path. Accept flow: invite → attach → greenlight. Incomplete
+      builds are unfinished characters, not a draft type. Background→world proposals
+      stay DM-gated and retconnable.'
+    altitude: product_contract
+    seat:
+    - player
+    - shared_table
+    time_scale: campaign
+    pillar: shared
+    does_not_mandate:
+    - characters must start with a stolen-agency wound
+    - backstory is only flavor text with no play hooks
+    - ownership transfers to the DM on greenlight
+    - character creation requires a separate draft object type
+    - players may only build inside an open campaign invite
+    ux_axis: session0_identity_art
+    catalog_face: table
+    dimension: session_bootstrap
+  - role_key: dm_session_prep
+    label: DM can prep a session without leaving the collaborative table frame
+    summary: 'DM authors the next shared session experience in-tool; the system auto-stages
+      against the attached world and campaign. Visibility is opt-in: general (whole-table)
+      and/or per-player tags; unmarked stays secret. World-hitting edits batch and
+      hand off into world-gen on prep complete under the same DM gate and retcon rules.
+      Privileged orchestrator seat — not offline admin or invisible infrastructure.
+      Opening situation (session 1 or session N), temporary constraints, and multi-path
+      goals into an authored beat are prep authorship — not a separate series parent.
+      Enter-live-play is a thin shell verb with readiness gates.'
+    altitude: product_contract
+    seat:
+    - dm_as_player
+    - privileged_access
+    time_scale: session
+    pillar: shared
+    does_not_mandate:
+    - prep must be a separate offline app
+    - players never see any prep residue
+    - all prep material is public by default
+    - prep is a back door around DM gate/retcon on world changes
+    - session prep creates or replaces the world or campaign frame
+    - visibility is only a single whole-table tag with no per-player option
+    - session open is a separate series product noun from prep
+    - one captivity/tavern/jailbreak open is the product default start
+    ux_axis: dm_player_rails
+    catalog_face: table
+    dimension: dm_rail
+  - role_key: early_game
+    label: Early play is a power band that gates world and pillar response
+    summary: 'Early-game is the low power band for the cast: world access, social
+      audience, explore pressure, and combat offer scale to that band. Pillar rhythm
+      follows the band rather than a second axis. Not a tutorial plot, not session
+      prep, and not a mandatory onboarding fantasy. Mid/end stages own their bands
+      the same way — no parallel progression parent.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    time_scale: session
+    pillar: shared
+    does_not_mandate:
+    - first session must teach stolen agency
+    - early game is combat-only onboarding
+    - progression requires a separate series parent from stage bands
+    ux_axis: agency
+    catalog_face: flows
+    dimension: ui_surface
+  - role_key: mid_game
+    label: Mid play is a power band for lasting pressure and deeper world response
+    summary: 'Mid-game is the middle power band: world access, social tier, explore
+      stakes, and combat offer scale up with it — including who will engage and what
+      costs can stick. Lasting pressure and party authorship are capabilities in this
+      band, not one mandated conspiracy or romance skin. Pillar rhythm follows the
+      band. Same ownership model as early: stages own the band; no parallel progression
+      parent.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    time_scale: campaign
+    pillar: shared
+    does_not_mandate:
+    - mid game requires a companion romance track
+    - mid game must center a single conspiracy reveal
+    - progression requires a separate series parent from stage bands
+    - session prep replaces the mid power-band contract
+    - one CR/BG mid-arc skin is the product default
+    ux_axis: agency
+    catalog_face: living_world
+    dimension: ui_surface
+  - role_key: late_game
+    label: Late play is a power band for campaign crescendo, close, and character-to-world
+      persistence
+    summary: 'Late-game is the high power band: survivors are world-shapers. It covers
+      build-up to close and the close itself. DM triggers campaign end through a story
+      crescendo visible in play; players map retirement/future plans; those characters
+      persist as powerful DM-controlled NPCs in the living world. Default continuation
+      is a new campaign in the same world; other topologies remain via world/campaign
+      parents. Not one mandatory finale skin; not session prep.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    - dm_as_player
+    time_scale: campaign
+    pillar: shared
+    does_not_mandate:
+    - the only correct ending is institutional seizure
+    - end game must erase player legacies
+    - progression requires a separate series parent from stage bands
+    - session prep replaces the late power-band / close contract
+    - post-close must start in a different world by default
+    - late play is only the final session, not a high power band
+    ux_axis: agency
+    catalog_face: living_world
+    dimension: ui_surface
+  - role_key: mental_stat_interpretation
+    label: Mental stats surface available read paths not only sheet numbers
+    summary: INT, WIS, and CHA can drive visual cues on people, places, and objects
+      that hold relevant information. The cue signals that a mental-stat path is available
+      — it does not spill the content. Cues are stat-gated per player where appropriate;
+      the DM can place or fire cues. Structure menu for presentation, not auto-solving
+      the interaction and not one social-scene skin.
+    altitude: product_contract
+    seat:
+    - shared_table
+    time_scale: moment
+    pillar: roleplay
+    does_not_mandate:
+    - mental stats unlock a single romance dialogue tree
+    - low mental stats hide all social information
+    - cues auto-reveal facts without a check or roleplay
+    - mental-stat cues are DM-only with no player-facing affordance
+    - one insight beat is the only product presentation
+    ux_axis: agency
+    catalog_face: surfaces
+    dimension: ui_surface
+- id: pmg_capabilities
+  label: PMG capability families
+  walk_rank: 1
+  description: Product Master Goal capability contracts — collaborative table through
+    mod authorship.
+  members:
+  - role_key: collaborative_table_agency
+    label: Shared virtual-tabletop loop with character agency and DM orchestration
+    summary: 'Virtual tabletop for collaborative storytelling: players act through
+      character tools in an open 3D world; the DM is the privileged orchestrator in
+      the same product loop. Loop is player agency → system and DM resolution → world
+      reacts → roleplay inside that structure. Motives/stakes are table-defined and
+      recorded; player speech can be transcribed. NPC dialogue is the DM’s responsibility
+      — assist tools surface context, they do not replace the DM as speaker by default.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    - dm_as_player
+    - privileged_access
+    time_scale: session
+    pillar: shared
+    does_not_mandate:
+    - DM is only a cue issuer for other players
+    - players and DM share identical control envelopes
+    - system-owned NPC dialogue is the product default
+    - player social play defaults to dialogue-option trees
+    - play must be combat-primary / hack-and-slash
+    ux_axis: dm_player_rails
+    catalog_face: table
+    dimension: dm_rail
+  - role_key: quiet_between_pillars
+    label: In-adventure quiet keeps continuous fiction between combat social and explore
+    summary: In-adventure quiet is the product surface for time between pillar bursts
+      — road, camp, linger, and other low-intensity presence — so fiction stays continuous
+      while the table is not in a forced combat, social set-piece, or explore objective.
+      Quiet is largely the system waiting for players and DM to move the story forward.
+      Between-adventures weeks/months sit with living-world continuity, not this parent.
+    altitude: product_contract
+    seat:
+    - shared_table
+    time_scale: session
+    pillar: shared
+    does_not_mandate:
+    - downtime equals BG3 campsite companion UI
+    - quiet is only a long-rest resource refill
+    - quiet is a loading state between pillars
+    - this row owns between-adventures weeks/months calendar downtime
+    - system must force the next combat social or explore beat during quiet
+    ux_axis: agency
+    catalog_face: table
+    dimension: ui_surface
+  - role_key: combat_play_surface
+    label: Combat can resolve by authored paths including non-win ends
+    summary: 'Combat is a distinct play surface the whole table enters and exits:
+      combat chrome and audio for both seats; authorship menu of ends (fight, disengage/flee,
+      parley, stakes, surrender, escape-with-cost, and other legitimate paths); DM
+      gates all actions, owns the encounter cast with creature chrome and voice tools,
+      and can adjust live values. Movement is a readable terrain-aware envelope. Surface
+      consumes pre-compiled rule math from an import/library path. Power band gates
+      offer and lasting costs. Not one flee caption and not the full rules-math pack.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    time_scale: moment
+    pillar: combat
+    does_not_mandate:
+    - flee is the only correct authored end
+    - combat always resolves to XP loot chrome
+    - combat is a single win/lose elimination pipeline
+    - DM only adjudicates and never inhabits creature roles
+    - player and DM share identical combat control envelopes
+    ux_axis: combat_cast_feedback
+    catalog_face: inhabit
+    dimension: ui_surface
+  - role_key: camera_control_envelopes
+    label: Perspective and control envelopes can change and cleanly return
+    summary: 'Baseline player FP and a set of explicit temporary envelopes that change
+      perspective and/or control then hard-restore. Overrides (scry/divination, dominate,
+      liminal/unconscious, planar/gate, absent-proxy, etc.) always return to baseline
+      FP or the declared prior state. DM rail is first-class in the same parent: WorldCam
+      is the DM default; MapCam, Sensorium Attach, and DM pilot are explicit departures
+      with hard restore. Players never use WorldCam/MapCam. Every enter declares controller,
+      presentation, duration, and return target.'
+    altitude: product_contract
+    seat:
+    - player
+    - dm_as_player
+    - privileged_access
+    time_scale: moment
+    pillar: shared
+    does_not_mandate:
+    - players get free third-person orbit as default
+    - DM tools exist only as debug infrastructure
+    - envelope exits leave soft residual control or wrong perspective
+    - camera modes can become permanent without a restore path
+    - players may use WorldCam or MapCam as free exploration seats
+    ux_axis: perspective_overrides
+    catalog_face: inhabit
+    dimension: player_rail
+  - role_key: living_world_continuity
+    label: World can move off-screen and show lasting readable costs
+    summary: 'Living world continues while the party is elsewhere: factions, threads,
+      calendar, minimal downtime, random pressure, and resource sites move off-screen.
+      Costs are readable on return — DM sees machinery; players feel residue in first
+      person (worried NPCs, rumors, tense streets, closed doors, resource interruptions).
+      Lasting-cost amplitude is power-band gated (early local/regional; mid structural/campaign-scale;
+      late existential). Distinct from in-adventure quiet-between. Not a single conspiracy
+      skin.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    - dm_as_player
+    time_scale: campaign
+    pillar: shared
+    does_not_mandate:
+    - world motion requires a scripted companion betrayal arc
+    - lasting costs are only cosmic death pacts
+    - one conspiracy skin is the only continuity form
+    - this row owns in-adventure quiet-between road/camp/linger
+    - players get full sim-admin tools as the continuity surface
+    ux_axis: agency
+    catalog_face: living_world
+    dimension: ui_surface
+  - role_key: backstory_legacy_integration
+    label: Backstory and legacies can hook into play and chronicle
+    summary: 'Backstory and legacies are a first-class player seeding system: players
+      seed personal history, relationships, debts, places, and claims; the system
+      floats those hooks to the DM; the DM weaves timing, intensity, and form under
+      the world/campaign gate (accept, revise, retcon). Players do not auto-write
+      canon. Seeds appear in play and player-lite chronicle as structure menu — not
+      a mandated reunion ordeal and not DM-only lore with no player surface.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    - player
+    time_scale: campaign
+    pillar: roleplay
+    does_not_mandate:
+    - every backstory forces a mid-game reunion ordeal
+    - legacies are DM-only lore with no player surface
+    - system auto-weaves hooks without DM accept
+    - one identity-pact skin is the product default for legacies
+    - players may auto-write world canon from backstory without DM gate
+    ux_axis: class_chrome
+    catalog_face: table
+    dimension: ui_surface
+  - role_key: world_authorship_modability
+    label: Table and community can author world change via curated and mod contracts
+    summary: 'World change is first-class authorship across the physical container
+      and the esoteric graph (terrain, settlements, eras, factions, populations, high-authority
+      fiction such as Wish). Every structural change gets a computational cost estimate:
+      cheap → in-place; expensive → intentional re-gen with a designed waiting activity
+      (e.g. tournament-style pong or equivalent), then hard-restore — no menu dump.
+      One mod contract covers table/DM and community packages; authority/trust differ,
+      contract shape does not. Microscope-informed non-linear history welcome. Under
+      DM gate; not silent mutation.'
+    altitude: product_contract
+    seat:
+    - shared_table
+    - dm_as_player
+    - privileged_access
+    time_scale: world_era
+    pillar: shared
+    authorship:
+    - table_intent
+    - curated_tools
+    - mod_contract
+    - import_bundle
+    does_not_mandate:
+    - mods are post-1.0 only
+    - timeline editing is player-lite default
+    - world mutation may bypass intentional re-gen and DM gate
+    - expensive re-gen dumps the table to menus
+    - physical and esoteric authorship use different cheat paths outside the mod contract
+    ux_axis: session0_identity_art
+    catalog_face: living_world
+    dimension: session_bootstrap
+enabled_pack_ids:
+- lifecycle
+- pmg_capabilities

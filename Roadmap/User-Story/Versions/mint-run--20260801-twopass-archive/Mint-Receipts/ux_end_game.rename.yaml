@@ -1,0 +1,7 @@
+schema_version: 1
+project_id: genesis-mythos-master
+action: rename
+at: '2026-07-30T19:33:10Z'
+from_id: ux_end_game
+to_id: ux_late_game
+reason: Late power band + crescendo/close — not end-of-game-only noun
