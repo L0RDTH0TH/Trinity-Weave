@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]
-- pin_focus: Durable gen graph; seed density; settlement threat-pressure gradient; planar late-bound grammar
+- pin_focus: Durable gen graph; structures cultural-historical; seed density; travel modality; settlement threat-pressure; planar late-bound
 - alternate: [[Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Durable world container — DM creates initial form via wizard+preview (tone-awa
 
 ## Rationale
 
-Quality pass light remine: Phase-2 primary. Season with exploration settlement pressure + planar not-at-launch / disorientation-first tools reusable.
+2026-08-14 pin-seed remine: Phase-2 primary. Season with structures-gen-cultural-historical, travel-modality-explicit, exploration settlement pressure, planar grammar.
 
 ## Operator
 

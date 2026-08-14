@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-13T23:24:30Z'
+synced_at: '2026-08-14T04:59:20Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: e474d0f1f69df4a2
+  ROADMAP-RESOURCE-INDEX.yaml: 31773d2059a44163
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -198,21 +198,21 @@ file_hashes:
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
   scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
-  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: 0ea65de30dc1d1c9
+  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: be54cf6034371e0b
   scopes/ux_camera_control_envelopes/PIN-DERIVE.md: 3ab4c4b0a91ad6e2
-  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: 14249f926ffb0d9e
-  scopes/ux_combat_play_surface/PIN-DERIVE.md: ddf035fb0eccf0da
-  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: 0c0ee4499003a297
-  scopes/ux_dm_session_prep/PIN-DERIVE.md: 18c8281dd4603878
-  scopes/ux_early_game/PIN-DERIVE.md: 2b6827c2ce7a737d
-  scopes/ux_late_game/PIN-DERIVE.md: 90321ffcdbfd3e01
-  scopes/ux_living_world_continuity/PIN-DERIVE.md: 6de96cebca0efaa7
-  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: fe58a55ad4899faf
-  scopes/ux_mid_game/PIN-DERIVE.md: 0e5f5a9fe4acdcec
-  scopes/ux_player_character_creation/PIN-DERIVE.md: 3c6f9f1186b15cac
-  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 239716f91db267f6
-  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 7a62a45e0c3807fb
-  scopes/ux_world_generation/PIN-DERIVE.md: cb47354f0691d366
+  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: c01e45fb96a4c003
+  scopes/ux_combat_play_surface/PIN-DERIVE.md: 3c19d14cc524664d
+  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: 4316e7b5653bd6ff
+  scopes/ux_dm_session_prep/PIN-DERIVE.md: 3bdf21b34d1549bb
+  scopes/ux_early_game/PIN-DERIVE.md: 148e1f71568fd1fa
+  scopes/ux_late_game/PIN-DERIVE.md: a9cce6aeab24dce6
+  scopes/ux_living_world_continuity/PIN-DERIVE.md: 371e1b106de98a72
+  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 469bdb2c9507abfa
+  scopes/ux_mid_game/PIN-DERIVE.md: 040c007d2bafde8a
+  scopes/ux_player_character_creation/PIN-DERIVE.md: 3391a600baf44a31
+  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 13057ebb551ae57e
+  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 2a2556cf4ff94dff
+  scopes/ux_world_generation/PIN-DERIVE.md: 8ba5820e6c6b8d64
   scopes/ux_backstory_legacy_integration/L5.md: 31ad2ef870a2a3cb
   scopes/ux_camera_control_envelopes/L5.md: 8844ee60d639b561
   scopes/ux_collaborative_table_agency/L5.md: af4d365cffdc7ff8
@@ -244,7 +244,7 @@ file_hashes:
   scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: ab6df804fa832adc
   scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: c06cb6b1fda269b9
   L5-AFFIRM-STATUS.md: 68bdefc892f8a197
-  PIN-DERIVE-STATUS.md: 36c65f1511324d60
+  PIN-DERIVE-STATUS.md: c033029206185ee3
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -264,13 +264,13 @@ file_hashes:
   Actual-Play-Feedstock/WB-ordinary-progression-rhythm.md: 18399b20c028e5f2
   Actual-Play-Feedstock/WB-quiet-between-pillars.md: aeea7eb79be2af38
   Actual-Play-Feedstock/INDEX.md: 306003862f7974e1
-  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 61155084162299c3
+  Inspiration-UX-Feedstock/ASSUMPTION-LOG.md: 13ca3e2ebf8b85fb
   Inspiration-UX-Feedstock/CLASS-EXPRESSION-BOARD.md: e791d6dc4ac90d0a
   Inspiration-UX-Feedstock/COMBAT-SURFACE-TEXTURE.md: 65a11d8d591d7dbf
-  Inspiration-UX-Feedstock/INDEX.md: 792bd5cb38b14a9f
-  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 8aaa807fe8127d99
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: 7ac82ef0afb70006
-  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 9cc5794a00c12db8
+  Inspiration-UX-Feedstock/INDEX.md: f7fbcfd47bc8d867
+  Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md: 950420bcee168e93
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-RECEIPT.md: f749b6162cd5bd1c
+  Inspiration-UX-Feedstock/INSPIRATION-SEASONING-STATUS.md: 1e44adba4b0d4fd4
   Inspiration-UX-Feedstock/ITEM-COMMISSION-TEXTURE.md: 961c6eb9e2e6e495
   Inspiration-UX-Feedstock/LIKED-SNIPPETS.md: 65fecfdcbe00a0ac
   Inspiration-UX-Feedstock/PILLARS-AND-LENS.md: e95e3721d9c6bf3b
@@ -280,8 +280,10 @@ file_hashes:
   Inspiration-UX-Feedstock/SKILL-READABILITY-TEXTURE.md: 6f22041711b6788d
   Inspiration-UX-Feedstock/VOICE-TABLE-TEXTURE.md: ddbc4598f590dba1
   Inspiration-UX-Feedstock/cards/_TEMPLATE.md: 7182175cb4795661
-  Inspiration-UX-Feedstock/cards/ability-checks-float-membrane.md: c151a83f26d38dfc
+  Inspiration-UX-Feedstock/cards/ability-checks-float-membrane.md: 3d4255e46bc3a862
+  Inspiration-UX-Feedstock/cards/adventure-contract-patronage.md: 4e8939dbd6b034c3
   Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md: 69c1f2a7e371e247
+  Inspiration-UX-Feedstock/cards/adventuring-day-rest-decision.md: f40fdc5c531ff1a8
   Inspiration-UX-Feedstock/cards/background-first-finger-membrane.md: 48b085bccffc2205
   Inspiration-UX-Feedstock/cards/banished-frontier-blueprint-settlement.md: e615e94ab11c2e88
   Inspiration-UX-Feedstock/cards/bannerlord-offscreen-faction-military.md: a1de4f217d55435b
@@ -290,6 +292,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/bounded-dm-resource-politics.md: e66ad7e91ced66e1
   Inspiration-UX-Feedstock/cards/calendar-npc-labor-world-shape.md: c2ce8b127a0044da
   Inspiration-UX-Feedstock/cards/capacity-expansion-same-character.md: 08cb5c9ff1bcaf92
+  Inspiration-UX-Feedstock/cards/chase-pursuit-readability.md: 4ff4f652ed3bb82b
   Inspiration-UX-Feedstock/cards/clanfolk-faction-pocket-grain.md: 4847fa3e14d01628
   Inspiration-UX-Feedstock/cards/class-unique-expression-surfaces.md: febefffe56310447
   Inspiration-UX-Feedstock/cards/combat-altitude-map-siege-raid.md: f3fcd2bdbfd0fc32
@@ -297,10 +300,12 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/combat-flank-blind-spot-arc.md: ad3a633650b42050
   Inspiration-UX-Feedstock/cards/combat-threat-readability.md: e4e9c191e8af284e
   Inspiration-UX-Feedstock/cards/commission-formula-and-stock-eval.md: db0466cf2bcdae1f
-  Inspiration-UX-Feedstock/cards/conditions-felt-state-machine.md: ba150b024f97f529
+  Inspiration-UX-Feedstock/cards/conditions-felt-state-machine.md: 9bf61476c7f930ab
   Inspiration-UX-Feedstock/cards/critical-node-hierarchy.md: 55ea82b81d451c08
   Inspiration-UX-Feedstock/cards/cross-pillar-altitude-nest.md: f49825e8fbe4ba37
+  Inspiration-UX-Feedstock/cards/death-rez-replacement-funeral.md: 7da12ca38f765932
   Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md: 44f0ec4534635377
+  Inspiration-UX-Feedstock/cards/downtime-verbs-surface.md: f8ad94c678a1cc4f
   Inspiration-UX-Feedstock/cards/exploration-altitude-ecology.md: 3c449732cdb53935
   Inspiration-UX-Feedstock/cards/faction-goal-pressure-residue.md: 010d65b5311c1cf7
   Inspiration-UX-Feedstock/cards/factions-as-persons-fingers-ripples.md: d82897e6693eeb61
@@ -324,6 +329,7 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/monsters-habitat-actor-behavior.md: be39a4d0699c1c61
   Inspiration-UX-Feedstock/cards/overlord-minion-labor-partial.md: 41fbf5c1ea62363a
   Inspiration-UX-Feedstock/cards/pantheons-institutional-faith.md: a4cfb5f6efca3186
+  Inspiration-UX-Feedstock/cards/party-provisional-faction.md: ae91016ece7af8a9
   Inspiration-UX-Feedstock/cards/planar-grammar-with-local-distortion.md: 57d91742f526cf89
   Inspiration-UX-Feedstock/cards/power-band-semipermeable-membrane.md: ed32c05ad19c1dbf
   Inspiration-UX-Feedstock/cards/quiet-soft-world-pressure.md: d2bf3311dbd18b8c
@@ -352,11 +358,12 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/tool-use-as-presence.md: 38520f588ea2a74f
   Inspiration-UX-Feedstock/cards/townscaper-click-add-world-element.md: 5720ceddc1bd1590
   Inspiration-UX-Feedstock/cards/traps-environmental-agency.md: 068da626121b2a1b
+  Inspiration-UX-Feedstock/cards/travel-modality-explicit.md: a5ee5ee90f4a6b37
   Inspiration-UX-Feedstock/cards/treasure-claim-provenance-content.md: 85d739dd5d0cc5e9
   Inspiration-UX-Feedstock/cards/turn-gated-movement-circle.md: 2ddd55835ccb0592
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: da4fc17c1de0b27c
+  MINT-PACK.md: 68a674eb7d06f36a
 warnings:
 - feed_completeness:no_focal_item

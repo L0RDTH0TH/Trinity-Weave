@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-- pin_focus: High-altitude continuity nesting mid/pocket; critical-node fallout; knowledge baseline+accelerators; settlement threat pressure
+- pin_focus: High-altitude continuity; critical-node fallout; institutional weather; BBEG apex; lore Core/Table; labor realism-with-optional-traceability
 - alternate: [[Phase-3-1-4-FactionGraph-Subsystem-Roadmap-2026-06-30-0015]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Living world continues while the party is elsewhere: factions, threads, calendar
 
 ## Rationale
 
-Quality pass light remine: Off-Screen primary. Season with knowledge-flow baseline/accelerators, exploration settlement threat-pressure gradient, labor visibility residue.
+2026-08-14 pin-seed remine: Off-Screen primary. Season with institutional weather, bbeg-apex-pressure-node, lore-core-table-dual, labor exemplar closed, treasure claim, hirelings/site staffing.
 
 ## Operator
 

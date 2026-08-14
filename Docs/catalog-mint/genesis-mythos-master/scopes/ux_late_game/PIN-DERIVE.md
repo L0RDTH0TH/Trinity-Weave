@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615]]
-- pin_focus: High band + close — off-screen lasting costs; apex/critical-node crescendo; knowledge suite; membrane
+- pin_focus: High band + close — apex/critical-node crescendo; power-banded funeral; death/rez heat; off-screen lasting costs
 - alternate: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Late-game is the high power band: survivors are world-shapers. It covers build-u
 
 ## Rationale
 
-Closure #2 light remine: Off-Screen Faction remains late primary. Season with critical-node-hierarchy + knowledge-flow-channels + combat altitude access.
+2026-08-14 pin-seed remine: Off-Screen Faction primary. Season with bbeg-apex-pressure-node, death-rez-replacement-funeral (High A funeral scale), knowledge-flow accelerators.
 
 ## Operator
 

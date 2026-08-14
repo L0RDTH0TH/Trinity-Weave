@@ -1,7 +1,7 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-13
+updated: 2026-08-14
 ---
 
 # INDEX — pinable sources
@@ -60,6 +60,13 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Operator session-prep-loop doctrine (2026-08-13 dialogue) | strong | session-prep-accelerator-loop | Optional accelerator to prevent live pauses; history-rooted patterned branching; DM selects/overrides; player-log recaps; stable surfaces managed between sessions; warm live hand-off |
 | Operator ability-checks doctrine (2026-08-13 dialogue) | strong | ability-checks-float-membrane | Continuous trickle float by score + proficiency; ≤6 floor; DM Information Gate; domain-relevant; extends investment-chrome pattern |
 | Operator lore-pack doctrine (2026-08-13 dialogue) | strong | lore-core-table-dual | Portable Core Lore vs local Table Lore; prebuilt packs; shared-table; **Tal’dorei Exemplar pivot CLOSED** under adventure-module import/migration grammar; roles not fillers; upstream for pantheons/structures/factions/magic/floats |
+| Operator adventuring-day / rest doctrine (2026-08-14 close-out) | strong | adventuring-day-rest-decision | Above-table should-we-rest; DM gate opens window; shared time budget for enemy AI; interrupt rude/rare |
+| Operator party-as-faction doctrine (2026-08-14 close-out) | strong | party-provisional-faction | Free-willed individuals + provisional faction; world may treat as finger/stone/target; hirelings = party-faction fingers |
+| Operator death/rez/replacement doctrine (2026-08-14 close-out) | strong | death-rez-replacement-funeral | PC exit/re-entry as living-world event; rez cost+heat; new PC inherits party residue; power-banded funeral |
+| Operator downtime-verbs doctrine (2026-08-14 close-out) | strong | downtime-verbs-surface | Between-adventure options; above-table what-do-you-want; verbs ride existing membranes; Tools as actions not desk |
+| Operator travel-modality doctrine (2026-08-14 close-out) | strong | travel-modality-explicit | No mundane fast travel; modalities = power band + availability + seed/quiet pressure; no travel desk |
+| Operator chase/pursuit doctrine (2026-08-14 close-out) | strong | chase-pursuit-readability | Thin multi-beat chase grammar; borrows push-to-run, combat residue, quiet travel, traps |
+| Operator adventure-contract doctrine (2026-08-14 close-out) | strong | adventure-contract-patronage | Hook→play via faction fingers + session-prep + commission + claim; thin RP + system tag |
 
 ## Shared-world / digital D&D cousins
 

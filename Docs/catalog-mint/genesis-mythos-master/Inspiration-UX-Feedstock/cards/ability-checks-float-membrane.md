@@ -58,6 +58,8 @@ Floating knowledge improves what the character perceives or recalls going into a
 
 Directly extends the investment-chrome pattern from Monsters & behaviors (cohesion / push-to-run), Traps (discoverability), and Hirelings (loyalty visibility). Backgrounds and knowledge-flow channels become stronger when paired with high relevant scores. Conditions that impair scores temporarily suppress the corresponding floats. Session prep can surface currently active or gated floats for DM awareness.
 
+**Shared magic / environment readability (2026-08-14):** high relevant proficiency may float recognition of persistent magical terrain, concentration, zones, or residual magic weather as felt conditions — see [[conditions-felt-state-machine]]. No new physics system.
+
 ## Refuse (required)
 
 - Only proficiency unlocks knowledge (extreme talent must also matter)

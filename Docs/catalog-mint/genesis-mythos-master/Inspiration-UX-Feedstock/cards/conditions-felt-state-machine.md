@@ -7,7 +7,7 @@ research_status: operator_seed
 assumption: false
 liked: "Sibling Temporary/ordinary and Transformative/semi-permanent modes sharing five families; power-banded identity-level transformations; environmental fight-back and mundane lingering injury first-class; middle-path residue with institutional teeth; embodied player-facing communication"
 why_it_worked: "Conditions feel like lived pressure and world consequence, not a flat taxonomy HUD or second upkeep desk"
-fits_our_game: "Felt state machine across Combat / Quiet / Roleplay. Shared families: Perception, Mobility/posture, Physical agency, Social agency, Ongoing harm/capacity. Transformative anchors are directional (Curse / Neutral / Blessing) — native writing later; character becomes the thing, stronger than mild touched templates. Recovery via time/save/magic/rest/active routes through existing tools and institutions. Grounds in `power-band-semipermeable-membrane`, `reputation-weather`, `factions-as-persons-fingers-ripples`, combat/quiet residue texture."
+fits_our_game: "Felt state machine across Combat / Quiet / Roleplay. Shared families: Perception, Mobility/posture, Physical agency, Social agency, Ongoing harm/capacity. Transformative anchors are directional (Curse / Neutral / Blessing) — native writing later; character becomes the thing, stronger than mild touched templates. Recovery via time/save/magic/rest/active routes through existing tools and institutions. **Shared magic / environment readability (2026-08-14):** persistent magical terrain, concentration, zones, and residual magic weather are first-class readable states / felt conditions; high relevant proficiency can float recognition via ability-checks-float-membrane — no new physics system. PC exit/re-entry lifecycle lives on death-rez-replacement-funeral (body states stay here). Grounds in `power-band-semipermeable-membrane`, `reputation-weather`, `factions-as-persons-fingers-ripples`, combat/quiet residue texture."
 refuse_to_copy:
   - "Pure numerical flags with no embodied or world texture"
   - "HUD-centric primary experience"
@@ -97,6 +97,14 @@ Embodied sensory / postural language + light directional chrome **first**; mecha
 |-----------|--------------|
 | **Stun** | Control lock + real-time world differential + crystalline border |
 | **Poison** | Green vignette + actual poison effects beyond flat damage |
+
+## Shared magic / environment readability (2026-08-14 — one-line lock)
+
+Persistent magical terrain, concentration, zones, and residual magic weather are **first-class readable states / felt conditions** inside this machine. High relevant proficiency can float recognition (e.g. “this is a concentration effect — disrupt it”) via [[ability-checks-float-membrane]]. **No new card. No new physics system.**
+
+## PC exit / re-entry
+
+Body and transformative states stay here. Party-facing death / rez / replacement / power-banded funeral lives on [[death-rez-replacement-funeral]].
 
 ## Refuse (required)
 

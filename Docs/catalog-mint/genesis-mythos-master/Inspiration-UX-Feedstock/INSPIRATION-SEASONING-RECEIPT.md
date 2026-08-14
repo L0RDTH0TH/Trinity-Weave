@@ -4,12 +4,13 @@ project-id: genesis-mythos-master
 inspiration_seasoning_disposition: open
 inspiration_seasoning_waive_reason: ""
 status: open
-updated: 2026-08-11
+updated: 2026-08-14
 ---
+
 
 # INSPIRATION-SEASONING-RECEIPT
 
-**Shared Conceptual pin gate — OPEN** (progressive distillation; quality pass 2026-08-10). Prior `applied` / L5 are **not** current relative to this remine.
+**Shared Conceptual pin gate — OPEN.** Dialogue cycle closed 2026-08-14; seasoning disposition still open until Grok+User gate + Cursor apply/waive.
 
 ```yaml
 inspiration_seasoning_disposition: open
@@ -17,22 +18,20 @@ inspiration_seasoning_disposition: open
 
 ## Batch scope
 
-Prior feedstock + class-expression **board draft v5** + combat / roleplay / quiet / skill-readability / commission / voice surface texture drafts (2026-08-11). Disposition stays **open**.
+Full feedstock remine 2026-08-14: all `cards/` maps (83) in [[INSPIRATION-SEASONING-STATUS]] — class-expression soft-closed validated; shared surface textures; Aug 12–13 locks; close-out stretch (rest / party-faction / death-rez / downtime / travel modality / chase / adventure contract); Conditions shared-magic note. Disposition stays **open**.
 
 ## Maps accepted
 
-_Pending Grok+User re-evaluation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]].
+_Pending Grok+User seasoning validation._ Draft maps in [[INSPIRATION-SEASONING-STATUS]].
 
 ## Deferred / refused
 
-- Class player-facing texture → focused distillation loop (board v5 still validating)
-- Combat play-surface texture drafted; quality still open; no seasoning apply
-- Roleplay institutional weather drafted; quality still open; no seasoning apply
-- Quiet-between texture drafted; quality still open; no seasoning apply
-- Tools / languages / skill readability drafted; quality still open; no seasoning apply
-- Magic-item commission drafted; full crafting desk remains deferred; no seasoning apply
-- Voice / table signaling thickened (low density); no seasoning apply
-- Do not close gate on partial quality pass alone
+- Full crafting desk (append-path / non-first-class)
+- System-wide mechanical oath layer outside class
+- Tools/Languages as class desks
+- Light/cover/hazardous terrain as dedicated card (composed this cycle)
+- No invent of PIN-INDEX titles from inspiration
+- Do not set disposition `applied` without board apply; do not waive without reason
 
 ## Waive
 
@@ -40,4 +39,4 @@ _None._
 
 ## Recommended next action
 
-Shared surface textures + class-expression v5 remain **open** for Grok+User. No disposition `applied|waived` from this pass.
+Pin-derive board confirm → `apply_pins` → Grok+User seasoning receipt → set disposition `applied|waived` → Pass B.

@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914]]
-- pin_focus: Mid power band — living-sim nest; critical-node structural fallout; knowledge on delay; membrane bleed
+- pin_focus: Mid power band — living-sim nest; party as provisional faction; hirelings/site demand; institutional weather; claim heat
 - alternate: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Mid-game is the middle power band: world access, social tier, explore stakes, an
 
 ## Rationale
 
-Closure #2 light remine: Living-Simulation remains mid primary. Season with critical-node-hierarchy + knowledge-flow-channels + exploration-altitude-ecology mid nest.
+2026-08-14 pin-seed remine: Living-Simulation primary. Season with party-provisional-faction, hirelings-directed-labor, reputation weather, treasure claim, BBEG concurrency B2.
 
 ## Operator
 

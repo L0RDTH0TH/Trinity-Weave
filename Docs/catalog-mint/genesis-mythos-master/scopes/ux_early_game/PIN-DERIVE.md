@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-3-Quest-Pressure-from-Canon-Graph-Roadmap-2026-06-26-2142]]
-- pin_focus: Low power band — early offers; seed travel; settlement safe-ish pressure gradient; slow knowledge baseline
+- pin_focus: Low power band — seed travel; rest/travel modality; adventure contracts; backgrounds first-finger; settlement pressure gradient
 - alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Early-game is the low power band for the cast: world access, social audience, ex
 
 ## Rationale
 
-Quality pass light remine: Quest-Pressure primary. Season with settlement threat pressure around seed + knowledge baseline (accelerators scarce early).
+2026-08-14 pin-seed remine: Quest-Pressure primary. Season with seed-region travel, adventure-contract-patronage, backgrounds-first-finger, travel-modality-explicit, power-band membrane.
 
 ## Operator
 

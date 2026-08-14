@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
-- pin_focus: DM prep/session authority; NPC voice authorship; labor failure options; import migration
+- pin_focus: DM prep/session authority; session-prep accelerator; downtime verbs; adventure contract/patronage; voice authorship
 - alternate: [[Phase-1-1-1-Session-Composer-and-Layer-Graph-Bootstrap-Roadmap-2026-06-29-0847]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ DM authors the next shared session experience in-tool; the system auto-stages ag
 
 ## Rationale
 
-Quality pass light remine: Session authority primary. Season with voice-table-signaling (DM remains primary NPC voice) + labor failure/recovery choices.
+2026-08-14 pin-seed remine: Session authority primary. Season with session-prep-accelerator-loop, downtime-verbs-surface, adventure-contract-patronage, voice-table-signaling, import migration.
 
 ## Operator
 

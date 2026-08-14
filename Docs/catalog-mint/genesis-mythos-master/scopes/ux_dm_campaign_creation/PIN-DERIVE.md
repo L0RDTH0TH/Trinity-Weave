@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[amend-campaign-frame-bootstrap-inside-world-Roadmap-2026-08-04]]
-- pin_focus: Campaign frame bootstrap; one-party seed; planar late-bound when table has power + DM rules
+- pin_focus: Campaign frame bootstrap; one-party seed; lore Core pack import/migration (Tal’dorei Exemplar); planar late-bound
 - alternate: [[Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Rationale
 
-Quality pass light remine: campaign-frame primary. Season with planar availability rules (not launch atlas) + one party per campaign.
+2026-08-14 pin-seed remine: campaign-frame primary. Season with lore-core-table-dual + adventure-module import grammar, one party per campaign, planar availability rules.
 
 ## Operator
 

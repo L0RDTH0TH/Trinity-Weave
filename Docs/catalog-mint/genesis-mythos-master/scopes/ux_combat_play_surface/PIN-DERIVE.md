@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045]]
-- pin_focus: Combat altitudes consume rule math; combat interrupts class-expression loops; apex as event
+- pin_focus: Combat altitudes consume rule math; threat/flank/residue textures; chase grammar; death/rez living-world; interrupts class desks
 - alternate: [[Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ Combat is a distinct play surface the whole table enters and exits: combat chrom
 
 ## Rationale
 
-Class-expression draft v1 present; interrupt lock unchanged (combat wins). Rule-engine primary. Do not bind combat UX to unvalidated class loop skins.
+2026-08-14 pin-seed remine: Rule-engine primary. Season with combat surface textures, chase-pursuit-readability, death-rez-replacement-funeral, monsters/traps investment chrome. Class soft-closed — interrupt lock unchanged.
 
 ## Operator
 

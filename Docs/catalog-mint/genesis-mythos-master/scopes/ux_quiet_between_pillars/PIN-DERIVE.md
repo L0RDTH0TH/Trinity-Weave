@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600]]
-- pin_focus: In-adventure quiet via tick; witnessable labor; knowledge on delay; care loops yield to combat
+- pin_focus: In-adventure quiet via tick; rest decision surface; travel modality; witnessable labor; chase intermediate grammar; care loops yield to combat
 - alternate: [[Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -30,7 +30,7 @@ In-adventure quiet is the product surface for time between pillar bursts — roa
 
 ## Rationale
 
-Quality pass light remine: Tick core primary. Season with real-time labor witness + knowledge-flow baseline delays.
+2026-08-14 pin-seed remine: Tick core primary. Season with adventuring-day-rest-decision, travel-modality-explicit, quiet textures, chase-pursuit-readability, real-time labor witness.
 
 ## Operator
 

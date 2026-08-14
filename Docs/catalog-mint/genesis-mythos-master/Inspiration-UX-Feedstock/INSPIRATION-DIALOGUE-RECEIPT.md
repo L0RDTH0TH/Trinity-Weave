@@ -1,9 +1,9 @@
 ---
 title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
-status: feedstock-progressive-distillation
-inspiration_dialogue_satisfied: false
-updated: 2026-08-13
+status: dialogue_closed_ready_for_pin_seeding
+inspiration_dialogue_satisfied: true
+updated: 2026-08-14
 
 ---
 
@@ -15,11 +15,11 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
 
 **Process:** progressive conversational distillation.
 
-**Dialogue satisfied (overall cycle):** false. Feedstock locks ready for elevation after operator close/waive. Class-expression + economy/claim soft-closed validated. Primary labor exemplar + Core Lore Exemplar pivot closed 2026-08-13. Shared surfaces complete enough for seasoning/elevation at pin-derive. Disposition still **open** — do not treat dialogue step as passed for pin-seeding until operator explicit close or waive.
+**Dialogue satisfied (overall cycle):** **true** (operator explicit close 2026-08-14). Feedstock complete for pin seeding. Class-expression + economy/claim soft-closed validated. Primary labor exemplar + Core Lore Exemplar pivot closed. Close-out stretch locked. Shared surfaces complete enough for seasoning/elevation.
 
-**Share-ready:** false.
+**Share-ready:** **true** (dialogue share).
 
-**Close intent:** Awaiting operator explicit close or waive. Class-expression + economy/claim already soft-closed. Shared surface patterns complete enough for elevation; no further dialogue required on pattern density unless operator re-opens a specific surface. Full crafting desk and system-wide oath layer outside class remain deferred / non-first-class.
+**Close intent:** CLOSED. Next = Conceptual pin seeding (PIN-DERIVE board remine/confirm → `apply_pins`) + inspiration seasoning gate (maps drafted; disposition still **open** until applied|waived). Full crafting desk and system-wide oath layer outside class remain deferred / non-first-class. Light/cover composed — no dedicated card this cycle.
 
 ## Passes this cycle
 
@@ -54,6 +54,19 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
    - **Shared surfaces:** Combat / roleplay institutional weather / quiet-between / skill-readability / commission / voice-table complete enough for seasoning/elevation at pin-derive. No further pattern-density dialogue unless operator re-opens.
    - **Elevation state:** Recent locks are feedstock-validated, not yet elevated. Pin-derive and seasoning maps next after operator close/waive. No L5, no seasoning apply, no new PIN-INDEX titles this handoff.
    - `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**.
+28. **Close-out stretch — high/medium completeness gaps (2026-08-14):** Operator decisions locked as thin feedstock cards (not elevated). No new PIN-INDEX titles. No L5. No seasoning apply.
+   - **Adventuring-day / rest:** `adventuring-day-rest-decision` — above-table should-we-rest; DM gate opens window; shared time budget for enemy AI; interrupt rude/rare.
+   - **Party as provisional faction:** `party-provisional-faction` — free-willed individuals + provisional faction; world may treat as finger/stone/target; hirelings = party-faction fingers.
+   - **Death / rez / replacement + power-banded funeral:** `death-rez-replacement-funeral` — living-world exit/re-entry; rez cost+heat; new PC inherits party residue; funeral scales C town → B city/region → A kingdoms.
+   - **Downtime verbs:** `downtime-verbs-surface` — above-table what-do-you-want; most idle live feel; verbs ride existing membranes; Tools as actions not desk.
+   - **Travel modality explicit:** `travel-modality-explicit` — no mundane fast travel; modalities = power band + availability + seed/quiet pressure; prevents travel desk.
+   - **Chase / pursuit readability:** `chase-pursuit-readability` — thin multi-beat grammar; borrows push-to-run, combat residue, quiet travel, traps.
+   - **Adventure contract / patronage:** `adventure-contract-patronage` — hook→play via faction fingers + session-prep + commission + claim; thin RP + system tag.
+   - **Shared magic / environment readability:** one-line note under Conditions (+ ability-check float join) — persistent magical terrain / concentration / zones / residual magic weather as felt conditions; float can recognize; no new card / no new physics system.
+   - **Light / cover / hazardous terrain:** **composed / no dedicated card this cycle** (combat threat + traps + skill assist + conditions). Explicitly deferred as dedicated card.
+   - Prior locks still in force (labor exemplar, Tal’dorei Core pivot, class oaths hard guard, append path, crafting deferred).
+   - `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**. Hold for operator close/waive.
+29. **Operator dialogue CLOSE (2026-08-14):** Explicit close for pin seeding. `inspiration_dialogue_satisfied: true`. Share-ready: true. Shared Conceptual pin gate remains **OPEN** until board confirm → `apply_pins` + seasoning disposition applied|waived. Seasoning STATUS full remine drafted. No L5. No seasoning apply this close pass.
 
 ## Locked this cycle (still in force)
 
@@ -88,6 +101,8 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Scope in machine** | Environmental fight-back, survival-resource deficit, and mundane lingering injury are first-class. |
 | **Residue** | Middle path — most temps clean; meaningful minority leave social/postural/institutional residue that can travel. |
 | **Communication** | Embodied sensory/postural + light directional chrome first; mechanical summary secondary. |
+| **Shared magic readability (2026-08-14)** | Persistent magical terrain / concentration / zones / residual magic weather are first-class felt conditions; float can recognize; no new physics system. |
+| **PC exit lifecycle** | Body states stay here; party-facing death/rez/replacement/funeral on `death-rez-replacement-funeral`. |
 
 **Monsters & behaviors feedstock lock (2026-08-13 — this surface only):**
 
@@ -120,6 +135,7 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | **Agenda leakage** | Medium; private motives surface under stress/neglect/opportunity; RP through the DM. |
 | **Combat inherit** | Combat hirelings inherit Instinct/Intelligent; Intelligent-mode allies use that mode on party-side turns. |
 | **Hard constraint** | One party per campaign remains intact. Hirelings stay subordinate. |
+| **Party-faction fingers (2026-08-14)** | Hirelings are fingers of the party’s provisional faction (`party-provisional-faction`) — subordinate, but explicitly the party-faction’s own. |
 
 **Treasure & adventure rewards feedstock lock (2026-08-13 — this surface only):**
 
@@ -236,14 +252,30 @@ Murderhobo · inventory shared surface · thin base / subclass-primary capacity 
 | 3 | Append a new child note explaining the system addition. |
 | 4 | Never unfreeze or rework the parent. |
 
+**Close-out stretch feedstock locks (2026-08-14):**
+
+| Lock | Statement |
+|------|-----------|
+| **Adventuring-day / rest** | Above-table should-we-rest; DM gate opens short/long window; enemy AI shares time budget; interrupt is rude and rare. Card: `adventuring-day-rest-decision`. |
+| **Party provisional faction** | Free-willed individuals + single provisional faction; world may treat as finger/stone/target; hirelings are party-faction fingers. Card: `party-provisional-faction`. |
+| **Death / rez / replacement** | Living-world exit/re-entry; rez cost+heat; new PC inherits party residue when owed; funeral scales High C town → High B city/region → High A kingdoms. Card: `death-rez-replacement-funeral`. |
+| **Downtime verbs** | Between-adventure options; above-table what-do-you-want; verbs ride existing membranes; Tools appear as actions not a desk. Card: `downtime-verbs-surface`. |
+| **Travel modality** | No mundane fast travel; modalities express power band + availability + seed/quiet pressure; no travel desk. Card: `travel-modality-explicit`. |
+| **Chase / pursuit** | Thin multi-beat readability grammar between combat and travel. Card: `chase-pursuit-readability`. |
+| **Adventure contract** | Hook→play via faction fingers + session-prep + commission + claim; thin RP + system tag. Card: `adventure-contract-patronage`. |
+| **Shared magic readability** | Persistent magical terrain / concentration / zones / residual magic weather = first-class felt conditions; float can recognize; no new physics card. |
+| **Light / cover / hazardous terrain** | Composed / no dedicated card this cycle. |
+
 ## Deferred
 
-Full item-creation / crafting desk (append-path / non-first-class until elevated) · Tools/Languages as class desks · system-wide mechanical oath layer outside class · pin-gate close · seasoning apply · pin-derive · operator dialogue close / waive.
+Full item-creation / crafting desk (append-path / non-first-class until elevated) · Tools/Languages as class desks · system-wide mechanical oath layer outside class · light/cover/hazardous terrain as dedicated card (composed this cycle) · shared Conceptual pin-gate close (`apply_pins` + seasoning disposition) · Pass B / L5.
 
 Shared surfaces (Combat / roleplay / quiet / skill-readability / commission / voice) are **complete enough for seasoning/elevation at pin-derive** — no further pattern-density dialogue unless operator re-opens.
 
 ## Operator share statement
 
-_Pending operator full-cycle close or waive._ Feedstock locks ready for elevation. Pin-derive and seasoning maps next **after** close/waive. Soft watches live at seasoning. Class oaths hard guard preserved. Pin gate remains open.
+**CLOSED 2026-08-14.** Operator closed the Inspiration dialogue cycle for pin seeding. Feedstock locks (through close-out stretch) are share-ready.
 
-Cursor has recorded operator decisions (labor realism, Tal’dorei Core/Table pivot, class-oath hard guard, non-first-class append path, shared-surface elevation readiness). Holding for operator close. `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**.
+**Next:** Conceptual pin seeding — Grok+User validate `PIN-DERIVE-STATUS` / per-row `PIN-DERIVE.md` → operator board confirm → `apply_pins` → seasoning gate (STATUS maps drafted; RECEIPT disposition still `open`) → then Pass B.
+
+`inspiration_dialogue_satisfied`: **true**. Share-ready: **true**. Shared pin gate: **open**.

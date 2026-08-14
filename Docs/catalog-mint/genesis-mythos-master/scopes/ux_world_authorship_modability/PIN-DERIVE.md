@@ -4,7 +4,7 @@
 - status: proposed
 - schema: pin_v2
 - recommended: [[Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]
-- pin_focus: Curated + mod + intent-shape A/B/C with witnessable calendar labor + failure choice + planar late-bound
+- pin_focus: Curated + mod + intent-shape A/B/C; labor realism-with-optional-traceability; downtime verbs ride authorship membranes
 - alternate: [[Phase-3-3-DM-Overwrite-vs-Deliberate-Re-Generation-Policy-Roadmap-2026-06-26-1630]]
 - vision_drift: false
 - vision_drift_cite: _(none)_
@@ -31,7 +31,7 @@ World change is first-class authorship across the physical container and the eso
 
 ## Rationale
 
-Quality pass light remine: Modularity primary. Season with intent-shape labor visibility (camp/watch bricks/seeds/trees) + planar late-bound availability + adventure migration.
+2026-08-14 pin-seed remine: Modularity primary. Season with closed labor exemplar, intent-shape witnessable labor, downtime-verbs-surface (no second economy desk).
 
 ## Operator
 

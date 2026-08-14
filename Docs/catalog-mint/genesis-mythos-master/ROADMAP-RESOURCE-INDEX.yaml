@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 686
+roadmap_note_count: 693
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -4716,6 +4716,15 @@ roadmap_notes:
   wiki: '[[ability-checks-float-membrane]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/ability-checks-float-membrane.md
   kind: user_story
+  wiki_links:
+  - conditions-felt-state-machine
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: adventure-contract-patronage
+  wiki: '[[adventure-contract-patronage]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/adventure-contract-patronage.md
+  kind: user_story
   wiki_links: []
   linked_resources: []
   tert_id: null
@@ -4725,6 +4734,19 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/adventure-module-ruleset-migration.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: adventuring-day-rest-decision
+  wiki: '[[adventuring-day-rest-decision]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/adventuring-day-rest-decision.md
+  kind: user_story
+  wiki_links:
+  - quiet-travel-camp-loop
+  - quiet-soft-world-pressure
+  - quiet-surface-boundaries
+  - conditions-felt-state-machine
+  - combat-enter-exit-residue
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4788,6 +4810,14 @@ roadmap_notes:
 - title: capacity-expansion-same-character
   wiki: '[[capacity-expansion-same-character]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/capacity-expansion-same-character.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: chase-pursuit-readability
+  wiki: '[[chase-pursuit-readability]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/chase-pursuit-readability.md
   kind: user_story
   wiki_links: []
   linked_resources: []
@@ -4857,7 +4887,9 @@ roadmap_notes:
   wiki: '[[conditions-felt-state-machine]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/conditions-felt-state-machine.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - ability-checks-float-membrane
+  - death-rez-replacement-funeral
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -4877,11 +4909,32 @@ roadmap_notes:
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
+- title: death-rez-replacement-funeral
+  wiki: '[[death-rez-replacement-funeral]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/death-rez-replacement-funeral.md
+  kind: user_story
+  wiki_links:
+  - conditions-felt-state-machine
+  - pantheons-institutional-faith
+  - reputation-weather
+  - party-provisional-faction
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: destiny-shared-world-refuse-fireteam-shooter
   wiki: '[[destiny-shared-world-refuse-fireteam-shooter]]'
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/destiny-shared-world-refuse-fireteam-shooter.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: downtime-verbs-surface
+  wiki: '[[downtime-verbs-surface]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/downtime-verbs-surface.md
+  kind: user_story
+  wiki_links:
+  - quiet-surface-boundaries
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5069,6 +5122,18 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/pantheons-institutional-faith.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: party-provisional-faction
+  wiki: '[[party-provisional-faction]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/party-provisional-faction.md
+  kind: user_story
+  wiki_links:
+  - factions-as-persons-fingers-ripples
+  - reputation-weather
+  - hirelings-directed-labor
+  - voice-table-signaling
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -5297,6 +5362,18 @@ roadmap_notes:
   rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/traps-environmental-agency.md
   kind: user_story
   wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
+- title: travel-modality-explicit
+  wiki: '[[travel-modality-explicit]]'
+  rel_under_project: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/travel-modality-explicit.md
+  kind: user_story
+  wiki_links:
+  - seed-region-density-and-travel
+  - exploration-altitude-ecology
+  - structures-gen-cultural-historical
+  - power-band-semipermeable-membrane
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
