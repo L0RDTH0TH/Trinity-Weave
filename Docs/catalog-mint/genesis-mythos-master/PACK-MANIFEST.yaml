@@ -1,6 +1,6 @@
 schema_version: 1
 project_id: genesis-mythos-master
-synced_at: '2026-08-14T04:59:20Z'
+synced_at: '2026-08-14T06:17:12Z'
 card: catalog_mint
 card_path_on_main: weave/component-proposals/catalog_mint.yaml
 pack_path_on_main: Docs/catalog-mint/genesis-mythos-master/
@@ -79,7 +79,7 @@ file_hashes:
   : 234c5a7b985ba264
   ? PIN-EXCERPTS/ux_mental_stat_interpretation__Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705__Behavior.md
   : 81f9cc69add5a006
-  ROADMAP-RESOURCE-INDEX.yaml: 31773d2059a44163
+  ROADMAP-RESOURCE-INDEX.yaml: 0566f5ce9d89caa7
   Tech-Stack-Excerpt.yaml: 379fa92e9486c3c1
   Stack-Domain-Registry-Excerpt.yaml: 7703937d9d8a6c2e
   slice-catalog.yaml: e2e09c9252e48a95
@@ -198,21 +198,21 @@ file_hashes:
   scopes/ux_living_world_continuity/BATCH-DIGEST.md: df99d31647ffb127
   scopes/ux_world_authorship_modability/BATCH-DIGEST.md: 900d740ffb5d3e63
   scopes/ux_world_generation/BATCH-DIGEST.md: 415f36e6eb87d7ed
-  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: be54cf6034371e0b
-  scopes/ux_camera_control_envelopes/PIN-DERIVE.md: 3ab4c4b0a91ad6e2
-  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: c01e45fb96a4c003
-  scopes/ux_combat_play_surface/PIN-DERIVE.md: 3c19d14cc524664d
-  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: 4316e7b5653bd6ff
-  scopes/ux_dm_session_prep/PIN-DERIVE.md: 3bdf21b34d1549bb
-  scopes/ux_early_game/PIN-DERIVE.md: 148e1f71568fd1fa
-  scopes/ux_late_game/PIN-DERIVE.md: a9cce6aeab24dce6
-  scopes/ux_living_world_continuity/PIN-DERIVE.md: 371e1b106de98a72
-  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 469bdb2c9507abfa
-  scopes/ux_mid_game/PIN-DERIVE.md: 040c007d2bafde8a
-  scopes/ux_player_character_creation/PIN-DERIVE.md: 3391a600baf44a31
-  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 13057ebb551ae57e
-  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 2a2556cf4ff94dff
-  scopes/ux_world_generation/PIN-DERIVE.md: 8ba5820e6c6b8d64
+  scopes/ux_backstory_legacy_integration/PIN-DERIVE.md: a2cd46a1daeeb0a8
+  scopes/ux_camera_control_envelopes/PIN-DERIVE.md: b5390ebc9b38a69e
+  scopes/ux_collaborative_table_agency/PIN-DERIVE.md: acd42bb4e9d6c974
+  scopes/ux_combat_play_surface/PIN-DERIVE.md: a6d28a696e35571e
+  scopes/ux_dm_campaign_creation/PIN-DERIVE.md: 4d76ad7790457383
+  scopes/ux_dm_session_prep/PIN-DERIVE.md: 16308fd38028ff36
+  scopes/ux_early_game/PIN-DERIVE.md: fb25f6c22e2ff7f0
+  scopes/ux_late_game/PIN-DERIVE.md: c74f281ea7ccce19
+  scopes/ux_living_world_continuity/PIN-DERIVE.md: 690c34060d0e0922
+  scopes/ux_mental_stat_interpretation/PIN-DERIVE.md: 06ada69db4c8b482
+  scopes/ux_mid_game/PIN-DERIVE.md: 7e5189e7d49d2efa
+  scopes/ux_player_character_creation/PIN-DERIVE.md: 50441b3773c56333
+  scopes/ux_quiet_between_pillars/PIN-DERIVE.md: 84b1f6e45252eb13
+  scopes/ux_world_authorship_modability/PIN-DERIVE.md: 03d2597b9a7922ce
+  scopes/ux_world_generation/PIN-DERIVE.md: 55bbf33b8bf21501
   scopes/ux_backstory_legacy_integration/L5.md: 31ad2ef870a2a3cb
   scopes/ux_camera_control_envelopes/L5.md: 8844ee60d639b561
   scopes/ux_collaborative_table_agency/L5.md: af4d365cffdc7ff8
@@ -244,7 +244,7 @@ file_hashes:
   scopes/ux_world_authorship_modability/L5-AFFIRM-DIGEST.md: ab6df804fa832adc
   scopes/ux_world_generation/L5-AFFIRM-DIGEST.md: c06cb6b1fda269b9
   L5-AFFIRM-STATUS.md: 68bdefc892f8a197
-  PIN-DERIVE-STATUS.md: c033029206185ee3
+  PIN-DERIVE-STATUS.md: a8170146c3a4af60
   Actual-Play-Feedstock/BG-P01-moral-fork-with-combat.md: 3d4c31aa12c971b9
   Actual-Play-Feedstock/BG-P02-camp-social-layer.md: a4870374e2d89af4
   Actual-Play-Feedstock/BG-P04-institutional-faith-betrayal.md: b87f2e9472b3fe8d
@@ -364,6 +364,6 @@ file_hashes:
   Inspiration-UX-Feedstock/cards/valheim-progressive-map-biome.md: 0e4417d3ca8acba2
   Inspiration-UX-Feedstock/cards/voice-table-signaling.md: add4d68c2f75adca
   FEED-ENVELOPE.yaml: 26158520e347a400
-  MINT-PACK.md: 68a674eb7d06f36a
+  MINT-PACK.md: d0c048eea63a8fa5
 warnings:
 - feed_completeness:no_focal_item

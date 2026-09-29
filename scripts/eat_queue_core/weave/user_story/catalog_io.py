@@ -14,6 +14,7 @@ from ..factory.project_identity import ProjectIdMissingError, resolve_project_id
 
 DEFAULT_BUDGET_REL = "Roadmap/User-Story/slice-depth-budget.json"
 DEFAULT_CATALOG_REL = "Roadmap/User-Story/slice-catalog.yaml"
+DEFAULT_RELEASE_PLAN_REL = "Roadmap/User-Story/release-plan.yaml"
 DEFAULT_LANE_MAP_REL = "Factory-DRB/lane-map.yaml"
 DEFAULT_STATE_REL = "Roadmap/User-Story/user-story-state.md"
 DEFAULT_BEATS_DIR = "Roadmap/User-Story/beats"
@@ -58,6 +59,7 @@ def user_story_paths(vault_root: Path, project_id: str) -> dict[str, Path]:
     return {
         "budget": base / str(merged.get("budget_rel") or DEFAULT_BUDGET_REL),
         "catalog": base / str(merged.get("catalog_rel") or DEFAULT_CATALOG_REL),
+        "release_plan": base / str(merged.get("release_plan_rel") or DEFAULT_RELEASE_PLAN_REL),
         "lane_map": base / str(merged.get("lane_map_rel") or DEFAULT_LANE_MAP_REL),
         "state": base / str(merged.get("state_rel") or DEFAULT_STATE_REL),
         "beats_dir": base / str(merged.get("beats_dir") or DEFAULT_BEATS_DIR),

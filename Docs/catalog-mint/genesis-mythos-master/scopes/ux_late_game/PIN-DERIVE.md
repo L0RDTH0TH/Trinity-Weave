@@ -17,7 +17,10 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+- parent: Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615 | proposed_title: amend-high-band-close-pc-world-persistence | path_class: amendment | minted: false | path: —
+- dual_approve: operator+grok_optimal_2026-08-14 | write_gate: closed_until_operator_says_write
+- stub_ref: [[MINT-TARGET-STUBS]]
+
 
 ## Series contract (Pass A / Trinity published)
 
@@ -35,7 +38,7 @@ Late-game is the high power band: survivors are world-shapers. It covers build-u
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(pending amendment write — mint_target dual-approved shape)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

@@ -33,7 +33,9 @@ OPERATOR_LOOP_IDS = frozenset(
     {
         "operator_loop_1_pmg",
         "operator_loop_2_catalog_levels",
+        "operator_loop_2_release_plan",
         "operator_loop_3_slice_selection",
+        "operator_loop_3_package_selection",
     }
 )
 

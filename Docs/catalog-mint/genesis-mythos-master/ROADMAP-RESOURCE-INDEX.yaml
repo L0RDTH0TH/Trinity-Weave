@@ -5,7 +5,7 @@ poll_protocol: 'When minting and you need more information: (1) find the roadmap
   if PIN-EXCERPTS lacks the body, ask bone pilot for Tier C fulfill using tert_id
   (or a paste). Do not invent titles or open vault 1-Projects/ paths. Legal conceptual_pin
   values still come only from PIN-INDEX.md.'
-roadmap_note_count: 693
+roadmap_note_count: 694
 resource_count: 3
 roadmap_notes:
 - title: decisions-log
@@ -5465,6 +5465,14 @@ roadmap_notes:
   - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/CATALOG-MINI-TRINITY
   tert_id: null
   pin_excerpt_available: false
+- title: MINT-TARGET-STUBS
+  wiki: '[[MINT-TARGET-STUBS]]'
+  rel_under_project: Roadmap/User-Story/MINT-TARGET-STUBS.md
+  kind: user_story
+  wiki_links: []
+  linked_resources: []
+  tert_id: null
+  pin_excerpt_available: false
 - title: ux_dm_campaign_creation.meaning
   wiki: '[[ux_dm_campaign_creation.meaning]]'
   rel_under_project: Roadmap/User-Story/Mint-Receipts/ux_dm_campaign_creation.meaning.md
@@ -5477,7 +5485,8 @@ roadmap_notes:
   wiki: '[[PIN-DERIVE-STATUS]]'
   rel_under_project: Roadmap/User-Story/PIN-DERIVE-STATUS.md
   kind: user_story
-  wiki_links: []
+  wiki_links:
+  - MINT-TARGET-STUBS
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -6980,6 +6989,7 @@ roadmap_notes:
   wiki_links:
   - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
   - Phase-5-Rule-System-Integration-and-Extensibility-Roadmap-2026-06-26-0914
+  - MINT-TARGET-STUBS
   - Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951
   linked_resources: []
   tert_id: null
@@ -7234,6 +7244,7 @@ roadmap_notes:
   - Phase-3-2-Off-Screen-Faction-Tribe-Activity-Roadmap-2026-06-26-1615
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
   - Phase-4-2-1-TransitionGuardRegistry-and-DM-Session-Authority-Roadmap-2026-07-16-0456
+  - MINT-TARGET-STUBS
   linked_resources: []
   tert_id: null
   pin_excerpt_available: false
@@ -7641,6 +7652,7 @@ roadmap_notes:
   wiki_links:
   - Phase-5-2-Spell-Agency-Perspective-Metadata-Roadmap-2026-06-26-2115
   - Phase-4-1-Player-FP-and-Perspective-Envelope-Roadmap-2026-06-26-1705
+  - MINT-TARGET-STUBS
   - Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045
   linked_resources: []
   tert_id: null
@@ -7717,6 +7729,7 @@ roadmap_notes:
   wiki_links:
   - Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600
   - Phase-2-3-1-ProfileWeightManifest-Archetype-Tables-Roadmap-2026-06-29-2115
+  - MINT-TARGET-STUBS
   - Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roadmap-2026-06-27-0406
   linked_resources: []
   tert_id: null
@@ -7755,6 +7768,7 @@ roadmap_notes:
   wiki_links:
   - Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600
   - Phase-4-3-3-AgencyPersistenceLedger-AbsentProxy-and-RailStatePersistence-Roadmap-2026-07-16-0749
+  - MINT-TARGET-STUBS
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null
@@ -7864,6 +7878,7 @@ roadmap_notes:
   wiki_links:
   - Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914
   - Phase-1-3-2-SeedSnapshotAuthority-Contract-Roadmap-2026-06-29-1110
+  - MINT-TARGET-STUBS
   - Phase-3-Living-Simulation-and-Dynamic-Agency-Roadmap-2026-06-26-0914
   linked_resources: []
   tert_id: null

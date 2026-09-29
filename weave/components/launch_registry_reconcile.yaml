@@ -102,8 +102,8 @@ contract:
   invariant_ids:
   - registry_reconcile_pre_read
 meta:
-  touch_refreshed_at: '2026-07-17T05:29:36.264594Z'
-  touch_content_hash: c6330a839f2becfa668512a80be9adf0bb87d8fe9d069cb6184ff90e0b92d453
+  touch_refreshed_at: '2026-09-28T23:35:34.722013Z'
+  touch_content_hash: 8d44786e1b24c2819fc03eaad4cb536c17cc95d17f3ff04af6561541b69ff8c1
   last_disconnect: null
   schema_version: 2
   closure_must_read_count: 21

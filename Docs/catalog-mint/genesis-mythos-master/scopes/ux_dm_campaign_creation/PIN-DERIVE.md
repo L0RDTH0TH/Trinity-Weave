@@ -35,7 +35,7 @@ Orchestrator creates or revises a campaign frame (tone, bounds, public facts, ca
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(operator confirm 2026-08-14 — existing amendment)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

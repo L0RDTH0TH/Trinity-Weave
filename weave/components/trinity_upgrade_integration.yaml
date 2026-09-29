@@ -161,9 +161,9 @@ meta:
   provisional: false
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
-  touch_content_hash: 3460e894e4cde26a9bd149592d5dcade1de333f6859d43234cb780dadb0fd618
-  touch_refreshed_at: '2026-06-15T18:28:46.485871Z'
-  closure_must_read_count: 12
+  touch_content_hash: b660845627d150b772f21e8c2869eb32d99233f3d1cd90c9be3eab5032204b89
+  touch_refreshed_at: '2026-09-28T23:35:36.080211Z'
+  closure_must_read_count: 13
   last_disconnect: null
   lock_kind: maintenance_core
   system_mutable: false

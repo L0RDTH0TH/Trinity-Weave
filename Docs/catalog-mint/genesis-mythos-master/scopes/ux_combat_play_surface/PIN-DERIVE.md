@@ -16,7 +16,10 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+- parent: Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roadmap-2026-06-26-2045 | proposed_title: amend-combat-play-surface-enter-exit-ends | path_class: amendment | minted: false | path: —
+- dual_approve: operator+grok_optimal_2026-08-14 | write_gate: closed_until_operator_says_write
+- stub_ref: [[MINT-TARGET-STUBS]]
+
 
 ## Series contract (Pass A / Trinity published)
 
@@ -34,7 +37,7 @@ Combat is a distinct play surface the whole table enters and exits: combat chrom
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(pending amendment write — mint_target dual-approved shape)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

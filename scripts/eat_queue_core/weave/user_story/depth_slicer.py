@@ -33,7 +33,11 @@ def run_depth_slicer(
     row_ids: list[str] | None = None,
     bootstrap_l5: bool = True,
 ) -> dict[str, Any]:
-    """Slice L5 into level scopes for one row or many."""
+    """Slice L5 into level scopes for one row or many.
+
+    Transitional CLI only — **not** Operator Loop 2. Retire after the first
+    successful alpha wave under release-plan feed (CDR release-plan-loop2-migration).
+    """
     vault_root = vault_root.resolve()
     if row_id:
         out = slice_l5_to_levels(

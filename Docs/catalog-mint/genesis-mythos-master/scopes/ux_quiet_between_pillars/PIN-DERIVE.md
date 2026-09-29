@@ -16,7 +16,10 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+- parent: Phase-3-1-Tick-Based-Simulation-Core-Roadmap-2026-06-26-1600 | proposed_title: amend-in-adventure-quiet-surface | path_class: amendment | minted: false | path: —
+- dual_approve: operator+grok_optimal_2026-08-14 | write_gate: closed_until_operator_says_write
+- stub_ref: [[MINT-TARGET-STUBS]]
+
 
 ## Series contract (Pass A / Trinity published)
 
@@ -34,7 +37,7 @@ In-adventure quiet is the product surface for time between pillar bursts — roa
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(pending amendment write — mint_target dual-approved shape)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

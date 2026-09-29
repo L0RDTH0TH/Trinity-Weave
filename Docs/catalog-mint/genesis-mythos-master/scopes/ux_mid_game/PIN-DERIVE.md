@@ -17,7 +17,7 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+_(none — deferred mint; accepted yellow risk 2026-08-14 — revisit after apply_pins / L5 if painful)_
 
 ## Series contract (Pass A / Trinity published)
 
@@ -35,7 +35,7 @@ Mid-game is the middle power band: world access, social tier, explore stakes, an
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(operator 2026-08-14 — accepted yellow risk; defer mint)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

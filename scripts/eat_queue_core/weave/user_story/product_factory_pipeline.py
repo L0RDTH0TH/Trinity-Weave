@@ -1191,3 +1191,83 @@ def confirm_slice_selection(
         },
     )
     return {"ok": True, "row_ids": row_ids, "dispatch_depth": dispatch_depth, "slice_id": slice_id}
+
+
+def confirm_package_selection(
+    vault_root: Path,
+    *,
+    project_id: str,
+    wave: str,
+    package_id: str,
+) -> dict[str, Any]:
+    """Loop 3 confirm under release_plan_feed — activates a package (not dispatch_depth)."""
+    from .release_plan import get_package, load_release_plan, release_plan_feed_enabled
+
+    if not release_plan_feed_enabled(vault_root, project_id):
+        return {
+            "ok": False,
+            "error": "release_plan_feed_disabled",
+            "hint": "Set product_factory.release_plan_feed: true after test_release_plan is green",
+        }
+
+    plan = load_release_plan(vault_root, project_id)
+    pkg = get_package(plan, wave, package_id)
+    if pkg is None:
+        return {"ok": False, "error": f"package_not_found:{wave}/{package_id}"}
+
+    pf = load_product_factory(vault_root, project_id)
+    completed = clear_factory_beat_phases(
+        normalize_completed_phases(list(pf.get("completed_phases") or []))
+    )
+    from .work_order_translate import assemble_pillar_packet
+
+    from .product_factory_ux_context import build_ux_context
+
+    run_id = str(pf.get("run_id") or uuid.uuid4().hex[:12])
+    active_package = {
+        "wave": wave,
+        "package_id": package_id,
+        "catalog_row_ids": list(pkg.catalog_row_ids),
+        "fidelity": pkg.fidelity,
+    }
+    # Compat: derive active_slice for translators not yet package-aware
+    active_slice = {"row_ids": list(pkg.catalog_row_ids), "dispatch_depth": 1, "fidelity": pkg.fidelity}
+    ux_context = build_ux_context(
+        vault_root, project_id=project_id, active_slice=active_slice
+    )
+    packet = assemble_pillar_packet(
+        vault_root,
+        project_id=project_id,
+        producer_run_id=f"sp-pending-{run_id[:8]}",
+        active_slice=active_slice,
+    )
+    slice_id = str(packet.get("slice_id") or "") if packet else ""
+    cell = (
+        default_implementation_cell(slice_id=slice_id, producer_run_id=f"sp-pending-{run_id[:8]}")
+        if slice_id
+        else {"phase": "awaiting_compose", "pm_review_status": "idle"}
+    )
+    save_product_factory(
+        vault_root,
+        project_id,
+        {
+            **pf,
+            "active_package": active_package,
+            "active_slice": active_slice,
+            "package_selection_confirmed_at": _utc_iso(),
+            "slice_selection_confirmed_at": _utc_iso(),
+            "ux_context": ux_context,
+            "operator_loop": 3,
+            "phase": "package_selection",
+            "completed_phases": completed,
+            "implementation_cell": cell,
+        },
+    )
+    return {
+        "ok": True,
+        "wave": wave,
+        "package_id": package_id,
+        "catalog_row_ids": list(pkg.catalog_row_ids),
+        "fidelity": pkg.fidelity,
+        "slice_id": slice_id,
+    }

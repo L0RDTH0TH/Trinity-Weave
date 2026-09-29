@@ -52,12 +52,18 @@ def check_operator_loop_1(vault_root: Path, project_id: str) -> LoopCheck:
 
 
 def check_operator_loop_2(vault_root: Path, project_id: str) -> LoopCheck:
-    """Exit criteria for Operator Loop 2 (depth slice + level validate + sign).
+    """Exit criteria for Operator Loop 2.
 
-    ``depth_sliced`` (L1 present) is an *exit* check. The pipeline must run
-    ``run_depth_slicer`` before requiring this check to pass — do not treat
-    missing L1 as a reason to refuse starting the slicer.
+    When ``release_plan_feed`` is enabled: release-plan schema + package-row L5/pins + sign.
+    Legacy path: depth slice + level validate + budget + sign.
     """
+    from .release_plan import loop2_release_plan_checks, release_plan_feed_enabled
+
+    if release_plan_feed_enabled(vault_root, project_id):
+        checks = loop2_release_plan_checks(vault_root, project_id)
+        ok = all(c[1] for c in checks)
+        return LoopCheck("operator_loop_2_release_plan", ok, tuple(checks))
+
     paths = user_story_paths(vault_root, project_id)
     state = parse_state_frontmatter(paths["state"])
     row_ids = _budget_row_ids(vault_root, project_id)
@@ -134,7 +140,33 @@ def check_execution_engineering(vault_root: Path, project_id: str) -> LoopCheck:
 
 
 def check_operator_loop_3(vault_root: Path, project_id: str) -> LoopCheck:
+    from .release_plan import get_package, load_release_plan, release_plan_feed_enabled
+
     pf = load_product_factory(vault_root, project_id)
+
+    if release_plan_feed_enabled(vault_root, project_id):
+        active = pf.get("active_package") if isinstance(pf.get("active_package"), dict) else {}
+        wave = str(active.get("wave") or "")
+        package_id = str(active.get("package_id") or "")
+        confirmed = bool(pf.get("package_selection_confirmed_at") or pf.get("slice_selection_confirmed_at"))
+        plan = load_release_plan(vault_root, project_id)
+        pkg = get_package(plan, wave, package_id) if wave and package_id else None
+        checks: list[tuple[str, bool, str]] = [
+            (
+                "active_package_declared",
+                bool(wave and package_id),
+                f"wave={wave}:pkg={package_id}" if wave and package_id else "no_active_package",
+            ),
+            (
+                "package_in_plan",
+                pkg is not None,
+                "package_ok" if pkg else f"missing:{wave}/{package_id}",
+            ),
+            ("package_confirmed", confirmed, "confirmed" if confirmed else "awaiting_confirm"),
+        ]
+        ok = all(c[1] for c in checks)
+        return LoopCheck("operator_loop_3_package_selection", ok, tuple(checks))
+
     active = pf.get("active_slice") if isinstance(pf.get("active_slice"), dict) else {}
     row_ids = active.get("row_ids") if isinstance(active.get("row_ids"), list) else []
     row_ids = [str(x) for x in row_ids if x]
@@ -156,7 +188,7 @@ def check_operator_loop_3(vault_root: Path, project_id: str) -> LoopCheck:
                 detail = f"{rid}:expected={expected}:got={dispatch_depth}"
                 break
 
-    checks: list[tuple[str, bool, str]] = [
+    checks = [
         ("active_slice_declared", bool(row_ids), f"rows={row_ids}" if row_ids else "no_active_rows"),
         (
             "dispatch_depth_set",
@@ -188,8 +220,8 @@ def loop_status_dict(vault_root: Path, project_id: str) -> dict[str, Any]:
         blocked = eng.loop_id
     return {
         "operator_loop_1_pmg": {"ok": l1.ok, "sub_checks": l1.sub_checks},
-        "operator_loop_2_catalog_levels": {"ok": l2.ok, "sub_checks": l2.sub_checks},
+        l2.loop_id: {"ok": l2.ok, "sub_checks": l2.sub_checks},
         "execution_engineering": {"ok": eng.ok, "sub_checks": eng.sub_checks},
-        "operator_loop_3_slice_selection": {"ok": l3.ok, "sub_checks": l3.sub_checks},
+        l3.loop_id: {"ok": l3.ok, "sub_checks": l3.sub_checks},
         "blocked_at": blocked,
     }

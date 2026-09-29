@@ -110,8 +110,8 @@ contract:
   invariant_ids:
   - lane_run_authoritative_activity
 meta:
-  touch_refreshed_at: '2026-07-17T05:35:17.849082Z'
-  touch_content_hash: 158c97c84b305d93e0fc11db2b28a44e4a7338f8f10844125a897be17d065d77
+  touch_refreshed_at: '2026-09-29T00:59:08.892639Z'
+  touch_content_hash: f486b95374b1999876a8fc885d0cc596ad544a4547bcab39faa974b19f99c5cc
   last_disconnect: null
   schema_version: 2
   closure_must_read_count: 21

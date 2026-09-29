@@ -59,10 +59,32 @@ def factory_done_when_matched(
         key = str(raw or "").strip().lower().replace(" ", "_")
         if not key:
             continue
-        if key in ("all_budget_rows_at_target_depth", "factory_levels_satisfied"):
+        if key in (
+            "all_budget_rows_at_target_depth",
+            "factory_levels_satisfied",
+            "active_wave_complete",
+            "factory_wave_satisfied",
+        ):
+            from ..user_story.release_plan import (
+                active_wave_complete,
+                release_plan_feed_enabled,
+            )
+
+            if key in ("active_wave_complete", "factory_wave_satisfied"):
+                ok, _reason = active_wave_complete(vault_root, pid)
+                if ok:
+                    return True, key
+                continue
+            # Legacy budget tokens: prefer wave when feed enabled, else budget rows
+            if release_plan_feed_enabled(vault_root, pid):
+                ok, _reason = active_wave_complete(vault_root, pid)
+                if ok:
+                    return True, key
+                continue
             ok, _reason = factory_levels_satisfied(vault_root, pid)
             if ok:
                 return True, key
+            continue
         if key in ("factory_cell_complete", "cell_complete"):
             pf = load_product_factory(vault_root, pid)
             completed = pf.get("completed_phases") or []

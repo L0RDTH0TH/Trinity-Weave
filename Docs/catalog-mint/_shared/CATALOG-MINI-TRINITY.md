@@ -39,9 +39,9 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 11. **Series L5** draft/affirm — Pass-B + resolved pin + inspiration/AP seasoning (shapes children)  
 12. **Children L5** — **all** Pass B children under each parent after series L5; inherit series `conceptual_pin_refs` + series L5 (promote-to-planned skipped for now)  
 13. Family attest (series + children digests green; operator cross-row flags)  
-14. **Operator Loop 2** — depth slicer → Grok + user validate levels — **not** L5 definition; do not require L1 files before the slicer runs  
-15. Operator sets `catalog_signed_at`  
-16. Loop 3 / Execution deepen — `execution_pins[]` fill as deepen references/mints; do not invent outside L5  
+14. **Operator Loop 2** — release plan (`release-plan.yaml`: waves alpha→beta→rc→ga, packages + fidelity + exit_criteria) with L5 affirmed for package rows — **not** depth slicer / level validate; see [[Factory-Vocabulary]]  
+15. Operator sets `catalog_signed_at` / plan sign  
+16. Loop 3 / Execution deepen — `execution_pins[]` fill as deepen references/mints for next package; do not invent outside L5  
 
 **Forbidden:** Pass B lock **before** Conceptual lens pack closes. Shared pin gate is **fail-closed**: every planned row must have resolved Conceptual pin (or pin waive) **and** `INSPIRATION-SEASONING-RECEIPT` must set `inspiration_seasoning_disposition: applied|waived` (`waived` requires `inspiration_seasoning_waive_reason`). Soft feedstock share ≠ this demand.
 
@@ -65,7 +65,7 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 | Children L5 before series L5 for that parent | Series shapes children |
 | Waive-as-proxy after mint_target dual-approved | Must mint the file |
 | Game titles / inspiration ids in `conceptual_pin` | Wrong seat |
-| Calling L5 “Operator Loop 2” | Loop 2 = depth slice + level validate only |
+| Calling L5 “Operator Loop 2” | Loop 2 = release plan + L5 for package rows (not depth slice) |
 
 ## Gate split
 

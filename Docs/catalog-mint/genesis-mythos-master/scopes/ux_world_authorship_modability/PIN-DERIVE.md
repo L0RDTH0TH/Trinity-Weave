@@ -35,7 +35,7 @@ World change is first-class authorship across the physical container and the eso
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(operator confirm 2026-08-14 — accept current primary)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

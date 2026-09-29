@@ -16,7 +16,10 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+- parent: Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roadmap-2026-06-27-0600 | proposed_title: amend-player-author-dm-acceptance-flow | path_class: amendment | minted: false | path: —
+- dual_approve: operator+grok_optimal_2026-08-14 | write_gate: closed_until_operator_says_write
+- stub_ref: [[MINT-TARGET-STUBS]]
+
 
 ## Series contract (Pass A / Trinity published)
 
@@ -34,7 +37,7 @@ Player authors and owns a character before and after DM greenlight. Builds may b
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(pending amendment write — mint_target dual-approved shape)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

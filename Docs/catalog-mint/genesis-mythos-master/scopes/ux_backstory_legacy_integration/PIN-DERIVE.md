@@ -35,7 +35,7 @@ Backstory and legacies are a first-class player seeding system: players seed per
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(operator confirm 2026-08-14 — accept current primary)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 

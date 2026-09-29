@@ -26,4 +26,17 @@ _Pin-before-L5. Shared Conceptual pin gate: pins + inspiration seasoning (RECEIP
 
 ## Operator close
 
-After Grok receipt (judgment on same excerpts): confirm/waive → `apply_pins` (follow-on) → L5 mint (follow-on). Yellow weak pins → Grok pass-to-Cursor (loop cap: one re-derive).
+**Dialogue closed 2026-08-14** — pin seeding in play. After Grok receipt (judgment on same excerpts + seasoning maps): confirm/waive → `apply_pins` → set `inspiration_seasoning_disposition: applied|waived` → Pass B. Yellow weak pins → Grok pass-to-Cursor (loop cap: one re-derive). Shared primary warn: `Phase-3-2-Off-Screen…` on `ux_late_game` + `ux_living_world_continuity` (pre-existing first-emit heuristic — confirm distinct spans or demote).
+
+## Operator split (2026-08-14 — accepted)
+
+See [[MINT-TARGET-STUBS]].
+
+| Bucket | Rows |
+|--------|------|
+| Confirm now | `ux_dm_campaign_creation`, `ux_living_world_continuity`, `ux_backstory_legacy_integration`, `ux_world_authorship_modability` |
+| Must-mint (dual-approved shape; write_gate closed) | `ux_world_generation`, `ux_player_character_creation`, `ux_late_game`, `ux_quiet_between_pillars`, `ux_combat_play_surface`, `ux_mental_stat_interpretation` |
+| Defer yellow risk | `ux_dm_session_prep`, `ux_early_game`, `ux_mid_game`, `ux_collaborative_table_agency`, `ux_camera_control_envelopes` |
+
+**Next:** operator says **write** → Cursor writes the six amendments → Highlightr → PIN-INDEX → re-pin → Grok single-row subset. Then board confirm → `apply_pins` → seasoning disposition → series L5.
+

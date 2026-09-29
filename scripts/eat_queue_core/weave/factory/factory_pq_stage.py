@@ -279,7 +279,11 @@ def append_factory_wave(
     wave: int,
     dry_run: bool = False,
 ) -> dict[str, Any]:
-    """Append IMPLEMENT_SLICE lines for CDP wave N (PM-orchestrated lane batch)."""
+    """Append IMPLEMENT_SLICE lines for CDP lane batch N.
+
+    Legacy name: CDP used ``waves[]``. Prefer ``append_factory_lane_batch``.
+    Release **wave** means alpha/beta/rc/ga — not this function.
+    """
     prepared = _prepare_factory_dispatch(
         vault_root, lane, packet, run_id=run_id, wave=int(wave)
     )
@@ -327,9 +331,36 @@ def append_factory_wave(
         "ok": True,
         "appended": len(entries),
         "wave": int(wave),
+        "lane_batch": int(wave),
         "slice_id": slice_id,
         "orchestrator": prepared.get("orchestrator"),
     }
+
+
+def append_factory_lane_batch(
+    vault_root: Path,
+    lane: str,
+    packet: dict[str, Any],
+    *,
+    run_id: str,
+    batch: int,
+    dry_run: bool = False,
+) -> dict[str, Any]:
+    """Append IMPLEMENT_SLICE lines for CDP lane_batch N (preferred name).
+
+    CDP schema still accepts ``waves[]`` during transition; prefer ``lane_batches[]``.
+    """
+    out = append_factory_wave(
+        vault_root,
+        lane,
+        packet,
+        run_id=run_id,
+        wave=int(batch),
+        dry_run=dry_run,
+    )
+    if isinstance(out, dict):
+        out = {**out, "lane_batch": int(batch), "wave": int(batch)}
+    return out
 
 
 def stage_factory_dispatch_to_pq(

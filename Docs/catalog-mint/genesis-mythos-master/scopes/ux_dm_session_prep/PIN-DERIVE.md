@@ -16,7 +16,7 @@
 
 ## mint_target
 
-_(none — Grok mint gate owns volume)_
+_(none — deferred mint; accepted yellow risk 2026-08-14 — revisit after apply_pins / L5 if painful)_
 
 ## Series contract (Pass A / Trinity published)
 
@@ -34,7 +34,7 @@ DM authors the next shared session experience in-tool; the system auto-stages ag
 
 ## Operator
 
-- [ ] confirm recommended
+- [x] confirm recommended *(operator 2026-08-14 — accepted yellow risk; defer mint)*
 - [ ] confirm alternate
 - [ ] waive (reason below)
 
