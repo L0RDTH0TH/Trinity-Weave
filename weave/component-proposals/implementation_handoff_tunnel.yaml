@@ -1,49 +1,62 @@
 id: implementation_handoff_tunnel
 conceptual:
-  outcome: Queue and architect hand-offs for Track C carry stack-baseline phase context
-    (Path B tracker, repo_path, engine_adapter) — tunneled without fanout to wrong
-    lanes.
-  summary: D→B-style hand-off contract for implementation segment; stack baseline
-    phase wired via Path B tracker and stack_baseline_honesty card.
-  primary_case: Layer 1 dispatches implementation work from godot lane with stack
-    baseline phase artifacts present (tracker + honesty card + goal-authority).
+  outcome: Queue and architect hand-offs for Track C / Half B carry catalog authority,
+    release_stage preference (alpha_0 before alpha_1/beta), stack-baseline phase context,
+    and Code-Repos write target — without fanout to wrong lanes or Phase-6-only global law.
+  summary: D→B-style hand-off contract for implementation segment under Alpha mode.
+    Params should carry release_stage and preferred alpha_0 catalog row ids when known;
+    project-branch catalog YAML may be referenced before fully rewritten.
+  primary_case: Layer 1 dispatches implementation work with release_stage=alpha_0 and
+    capability ids (table_front_door, session_roles, module_pack_load, rules_min_pf1,
+    seats_fp_dm); stack baseline artifacts present when available.
   edge_cases:
   - Stale sandbox modes on godot PQ
-  - Missing demo_spec_ref in params
+  - Missing demo_spec_ref — acceptable under alpha_0 if catalog row ids present
+  - Hand-off forcing overnight conductor as only drain path
   misread_risks:
   - Using HANDOFF_AUDIT_REPAIR for gameplay build
+  - Treating Phase-6-only as required hand-off filter forever
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - .technical/parallel/godot/prompt-queue.jsonl
   - .technical/parallel/godot/goal-authority.json
   harness_commands:
   - append_entries
   behavior_signals:
+  - hand-off documents release_stage preference
   - test_stack_baseline_phase_wired
   meta_lens_force_align: true
 rules:
   forbidden:
   - fanout implementation to sandbox lane
+  - claim factory greenlit
+  - claim closed_alpha Success
+  - reintroduce Phase-6-only as global law
+  - require overnight / multi-loop conductor in hand-off for alpha_0
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  - 'policy: prefer alpha_0 catalog tags in hand-off params'
   acceptance:
-  - test_stack_baseline_phase_wired
-  fixtures: []
+  - release_stage wiring documented for hand-off params
 contract:
   proof:
+  - Docs/Half-B-Alpha-Mode.md
   - scripts/eat_queue_core/harness.py
-  - scripts/eat_queue_core/tests/test_implementation_track_c.py
   invariant_ids:
   - implementation_handoff_tunnel_params
+  - release_stage_prefers_alpha_0
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-09-30T00:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
   source:
-    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+    operator_note: Half B Alpha mode hand-off — release tags — 2026-09-30
   last_disconnect: null

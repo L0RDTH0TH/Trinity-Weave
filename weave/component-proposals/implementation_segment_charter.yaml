@@ -1,50 +1,68 @@
 id: implementation_segment_charter
 conceptual:
   outcome: 'Implementation work has a clear charter: readonly roadmap inputs, repo
-    writes, maintenance receipts — without reopening RESUME_ROADMAP deepens.'
-  summary: Track C segment charter — effective_track implementation; A+B readonly;
-    Code-Repos write target.
-  primary_case: Agent receives implementation hand-off; must know what is readonly
-    vs writable before touching engine or repo.
+    writes tagged to release stages (alpha_0 / alpha_1 / beta), maintenance receipts —
+    without reopening RESUME_ROADMAP deepens or treating Phase-6-only as forever law.'
+  summary: Track C / Half B segment charter under Alpha mode. Catalog rows + release_stage
+    tags are authority; Roadmap Execution is readonly feedstock; Code-Repos is the write
+    target. Product = table platform; example goblin-style pack = cartridge only.
+  primary_case: Agent receives implementation hand-off for alpha_0 capabilities
+    (table_front_door, session_roles, module_pack_load, rules_min_pf1, seats_fp_dm);
+    writes under genesis-mythos-alpha; does not deepen Execution tree as Half B work.
   edge_cases:
-  - Treating demo spec as factory core
-  - Blocking on B rollup while demo milestones pending
+  - Treating demo / proof-loop spec as factory core or campaign Success
+  - Implementing lan_listen_server under alpha_0
+  - Blocking on full BOM / conduct block before any front door exists
   misread_risks:
   - Confusing Track C with another RESUME_ROADMAP deepen
-  - Writing vault rules instead of host-weld pilots
+  - Writing vault rules instead of host-weld pilots / Code-Repos
+  - Claiming factory greenlit from charter presence
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - .technical/weave/host-weld/pilots/implementation_factory_loop.md
   - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   harness_commands:
   - trinity_expand_self
   meta_lens_force_align: true
   behavior_signals:
+  - Docs/Half-B-Alpha-Mode.md Alpha 0 capability list
   - test_pilot_manifest_registered
 rules:
   forbidden:
   - mutate .cursor/rules/**
+  - claim factory greenlit
+  - claim closed_alpha Success
+  - reintroduce Phase-6-only as global law
+  - treat proof-loop receipts as campaign-capable product Success
+  - treat We Be Goblins!-style example pack as product identity
+  - implement lan_listen_server as alpha_0 scope
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
-  - 'policy: block demo on HANDOFF_AUDIT_REPAIR'
+  - 'policy: prefer catalog rows tagged alpha_0 before alpha_1/beta'
+  - 'policy: Roadmap Execution readonly feedstock — no infinite deepen as Half B'
   acceptance:
-  - test_pilot_manifest_registered
-  fixtures: []
+  - Alpha 0 table+module product bar documented
+  - release stages alpha_0/alpha_1/beta named on charter
 contract:
   proof:
+  - Docs/Half-B-Alpha-Mode.md
   - .technical/weave/host-weld/pilots/implementation_factory_loop.md
-  - scripts/eat_queue_core/tests/test_implementation_track_c.py
   invariant_ids:
   - implementation_readonly_roadmap_inputs
+  - alpha_0_table_product_bar
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-09-30T00:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
   source:
-    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+    operator_note: Half B Alpha mode charter — release-aligned — 2026-09-30
   last_disconnect: null

@@ -1,12 +1,54 @@
 id: product_factory_pipeline
 conceptual:
-  outcome: Product factory gate — product_factory_pipeline (three operator loops, UX-before-execution).
-  summary: Harness-verified law for PMG → product conductor path.
+  outcome: Product factory pipeline is staged for release tags (alpha_0 → alpha_1 → beta)
+    and must not block Alpha 0 Code-Repos work behind three operator loops or overnight
+    conductor. Factory remains ungreenlit until operator ack.
+  summary: Provisional Half B pipeline law under Alpha mode. Catalog + release_stage drive
+    what to implement; UX-before-execution loops are deferred theater for alpha_0, not a
+    gate before table front door. Advanced conductor (factory_staged / CONTINUE / headless)
+    stays available after greenlight — not normative for first alpha.
+  primary_case: Implementation prefers alpha_0-tagged catalog capabilities (table_front_door,
+    session_roles, module_pack_load, rules_min_pf1, seats_fp_dm) into genesis-mythos-alpha.
+  secondary_case: After operator greenlight and alpha_0 exit, conductor may resume loop-aware
+    ticks; lan_listen_server remains alpha_1-only.
+  edge_cases:
+  - BOM or conduct block mode refusing any implement path under alpha_0 — soft-gate / warn instead
+  - Claiming pipeline greenlit from card presence alone
+  misread_risks:
+  - Reading three operator loops as mandatory before Host table / pick module / enter exists
+  - Equating Phase-6-only spike locks with forever law
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
   - scripts/eat_queue_core/weave/user_story/product_factory_ux_context.py
-behavior_signals:
-  - product_factory.tick blocked_at operator_loop
-  - ux_context present on execution RESUME when product_factory_run_id set
+  - scripts/eat_queue_core/weave/factory/factory_bom.py
+  behavior_signals:
+  - product_factory.tick may warn on advisory BOM under alpha_0 without hard-blocking slim path
+  - Docs/Half-B-Alpha-Mode.md present
 status: proposal
+rules:
+  forbidden:
+  - claim factory greenlit
+  - claim closed_alpha Success
+  - reintroduce Phase-6-only as global law
+  - require three-operator-loop UX theater before table front door under alpha_0
+  - require overnight multi-loop conductor as normative alpha_0 path
+  precedence:
+  - 'policy: release_stage alpha_0 before alpha_1 before beta'
+  - 'policy: Docs/Half-B-Alpha-Mode.md — factory_greenlit false until operator validation'
+  acceptance:
+  - Alpha mode staged explicitly; greenlit false
+  - alpha_0 capability preference documented
+contract:
+  proof:
+  - Docs/Half-B-Alpha-Mode.md
+  - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
+meta:
+  schema_version: 2
+  provisional: true
+  promotion_tier: provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
+  source:
+    operator_note: Half B Alpha mode rework 2026-09-30

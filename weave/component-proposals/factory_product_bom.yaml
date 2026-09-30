@@ -1,17 +1,25 @@
 id: factory_product_bom
 conceptual:
-  outcome: Operator and factory share one receipt-backed checklist of ingredients required before building Product — no parallel mental models.
-  summary: Product Factory BOM evaluator composes existing verifiers into sections (product, roadmap_factory, implementation_factory, build_progress, product_acceptance).
-  primary_case: Operator runs factory-bom; blocked_at catalog_signed; brief shows same gaps factory orchestrator sees before ROADMAP_FACTORY_STAGE_FACTORY.
+  outcome: Operator and factory share a receipt-backed checklist — but Alpha 0 code writes
+    must not wait on the full multi-section BOM. Slim or advisory BOM for alpha_0; full
+    sections return for beta / closed_alpha honesty.
+  summary: Product Factory BOM evaluator composes verifiers into sections. Under
+    implementation_release_stage=alpha_0, hard gate is slim (product + build_progress);
+    roadmap/operator-loop/implementation_factory/product_acceptance sections are advisory
+    (warn, do not block). Full multi-section gate remains available for later stages.
+  primary_case: Alpha 0 implement path evaluates slim BOM; missing operator_loop_3 does not
+    block writing table_front_door in Code-Repos.
+  secondary_case: Operator promotes ship / closed_alpha honesty — full BOM sections required
+    again; factory-bom brief still shows advisory gaps during alpha_0.
   edge_cases:
-  - product-bom.yaml missing — product section fails first
-  - feed_authority vault_roadmap but roadmap rows incomplete — vault_roadmap_feed_ready partial
-  - enforce_product_acceptance true — surface_pass becomes required
+  - product-bom.yaml missing — product section fails first (still relevant under slim)
+  - enforce_product_acceptance true under alpha_0 — treat as advisory unless ship claim
   misread_risks:
   - Treating BOM markdown brief as source of truth — evaluator registry is canonical
-  - Duplicating verifier logic inside BOM module
+  - Treating slim alpha_0 pass as closed_alpha factory-ready
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - scripts/eat_queue_core/weave/factory/factory_bom.py
   - scripts/eat_queue_core/weave/factory/factory_bom_brief.py
   - scripts/eat_queue_core/weave/factory/factory_bom_io.py
@@ -23,21 +31,30 @@ touch:
   - factory_bom
   - factory_bom_brief
   behavior_signals:
-  - test_factory_bom.py passes
+  - alpha_0 slim BOM sections do not hard-block on operator loops
 rules:
   forbidden:
-  - claim factory-ready without factory_bom evaluate when orchestrator gate enabled
+  - claim factory-ready / factory greenlit from alpha_0 slim BOM alone
+  - hard-block Alpha 0 Code-Repos writes on full multi-section BOM
   - self-report BOM pass without delegating to proof modules
+  - claim closed_alpha Success from slim BOM
+  precedence:
+  - 'policy: alpha_0 slim = product + build_progress hard; other sections advisory'
+  - 'policy: full BOM sections deferred to beta / closed_alpha honesty'
+  - 'policy: Docs/Half-B-Alpha-Mode.md'
   acceptance:
-  - test_factory_bom.py passes
+  - alpha_0 soft-gate documented and wired in factory_bom resolve helper
+  - full BOM not required to start alpha_0 implementation
 contract:
   proof:
   - scripts/eat_queue_core/weave/factory/factory_bom.py
-  - scripts/eat_queue_core/tests/test_factory_bom.py
+  - Docs/Half-B-Alpha-Mode.md
 meta:
   schema_version: 2
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
   source:
-    operator_note: Factory Product BOM fold 2026-06-16
+    operator_note: Half B Alpha mode — slim/advisory BOM for alpha_0 — 2026-09-30

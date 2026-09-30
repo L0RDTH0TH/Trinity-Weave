@@ -1,22 +1,27 @@
 id: factory_output_conduct
 conceptual:
-  outcome: Product slice Success claims require conduct on LaunchShell → PlayRegion (alpha track) —
-    smokes, Sparky weld, and no narrative deferral loopholes — not stack-only or orphan-harness proof.
-  summary: Factory output honesty card for Product 2 (closed_alpha). Binds slice smokes,
-    LaunchShell → PlayRegion critical path, Core/ narrative drift scan, and enforcement ladder off|warn|block.
-  primary_case: Agent marks slice3 complete after stack interpretation_pass while Main.tscn
-    still uses legacy DMCameraRig — conduct proofs fail before Success.
-  secondary_case: Operator runs factory-output-gate in warn mode — trace receives warnings
-    without blocking ship rollup grandfathered slices.
+  outcome: Product slice Success claims eventually require conduct on the real table path —
+    but Alpha 0 implementation must start under warn or off. Block mode only when the
+    operator explicitly promotes a ship claim (closed_alpha / release promote).
+  summary: Factory output honesty card. Staged enforcement ladder off|warn|block. For
+    implementation_release_stage=alpha_0, default warn (or off); do not require block to
+    begin table + example module work. Closed_alpha ship claims still bind LaunchShell →
+    PlayRegion smokes, Sparky weld honesty, and no narrative deferral loopholes.
+  primary_case: Alpha 0 agent implements table_front_door under warn/off — conduct proofs
+    may warn; they do not hard-stop starting Code-Repos work.
+  secondary_case: Operator sets factory_output_trinity_gate=block for a ship claim —
+    conduct proofs must pass before Success rollup.
   edge_cases:
-  - Grandfathered slices 1–4 complete_pre_conduct until re-proof under block mode
+  - Grandfathered slices complete_pre_conduct until re-proof under block mode
   - Ortho tabletop stack-green but not operator-bound — documented gap not silent waiver
   - little_val_ok on harness scene without Main.tscn weld
   misread_risks:
   - Treating stack_baseline_honesty green as closed_alpha slice conduct
-  - Re-opening until-then little_val-only slice Trinity deferral
+  - Treating Alpha 0 warn-mode playtest as closed_alpha Success
+  - Re-opening until-then little_val-only slice Trinity deferral under block mode
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/closed-alpha-v1.md
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/PlayRegion.tscn
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.tscn
@@ -26,55 +31,53 @@ touch:
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/Core/
   - .technical/parallel/godot/goal-authority.json
   - .technical/weave/host-weld/pilots/implementation_factory_loop.md
-  - 5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.tscn
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/project.godot
   - 1-Projects/godot-genesis-mythos-master/Factory-DRB/Release-Definitions/Ship-Rollup-v1.md
+  - scripts/eat_queue_core/weave/factory/factory_output_gate.py
   harness_commands:
   - factory_output_conduct
   - factory_output_gate
   - trinity_align
   behavior_signals:
+  - alpha_0 resolves to warn or off unless operator sets block for ship claim
   - test_product_play_path_launch_to_play_region
-  - test_play_region_tscn_uses_sparky_not_legacy_dm_rig
   - test_factory_output_conduct_card_present
-  - test_pilot_documents_factory_output_enforcement
-  - test_closed_alpha_v1_closes_until_then_loophole
-  - test_goal_authority_vault_roadmap_planner_hints
-  - test_core_narrative_drift_scan_clean
-  - test_launch_shell_product_track
-  - test_config_declares_factory_output_trinity_gate_block
   meta_lens_force_align: true
 rules:
   forbidden:
-  - claim closed_alpha slice complete without Main.tscn smoke pass
-  - use orphan harness scene as Alpha stand-in for slice Success
-  - waive Sparky visual weld by default when stack interpretation_pass is green
-  - defer slice Trinity to little_val_ok only (until-then loophole)
-  - mark slice complete without factory_output_conduct when enforcement_mode is block
+  - require factory_output_conduct block mode to start alpha_0 implementation
+  - claim closed_alpha slice complete without Main.tscn smoke pass when enforcement_mode is block
+  - use orphan harness scene as Alpha stand-in for closed_alpha slice Success
+  - waive Sparky visual weld by default when stack interpretation_pass is green under block
+  - defer slice Trinity to little_val_ok only (until-then loophole) under block
+  - claim factory greenlit
+  - claim closed_alpha Success from alpha_0 warn-mode alone
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
-  - 'policy: stack_baseline_honesty gates Product 1 — factory_output_conduct gates Product 2 graybox output'
+  - 'policy: alpha_0 → warn|off; block only on operator ship promote'
+  - 'policy: stack_baseline_honesty gates Product 1 — factory_output_conduct gates Product 2 under block'
   - 'policy: enforcement_mode warn must not block grandfathered complete_pre_conduct slices'
   acceptance:
-  - test_slice_smoke_scripts_exist_and_target_main
-  - test_main_tscn_uses_sparky_not_legacy_dm_rig
-  - test_closed_alpha_v1_closes_until_then_loophole
-  fixtures: []
+  - Docs/Half-B-Alpha-Mode.md states block not required to start alpha_0
+  - resolve helper prefers warn for alpha_0 when gate unset
 contract:
   proof:
   - scripts/eat_queue_core/weave/factory/factory_output_gate.py
-  - scripts/eat_queue_core/tests/test_factory_output_conduct.py
+  - Docs/Half-B-Alpha-Mode.md
   invariant_ids:
   - factory_output_main_conduct
   - closed_alpha_no_until_then_loophole
+  - alpha_0_conduct_not_block_by_default
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-10T22:00:00Z'
-  rules_confirmed_at: '2026-06-10T22:00:00Z'
+  rules_confirmed_at: '2026-09-30T00:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
   source:
-    operator_note: Closed Alpha factory output conduct — staged warn then block 2026-06-10
+    operator_note: Half B Alpha mode — warn/off for alpha_0; block on ship promote — 2026-09-30
   last_disconnect: null

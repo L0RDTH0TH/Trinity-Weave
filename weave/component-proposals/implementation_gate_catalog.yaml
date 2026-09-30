@@ -1,48 +1,64 @@
 id: implementation_gate_catalog
 conceptual:
-  outcome: Binary milestone gates (M0–M8) are machine-checkable done_when strings
-    — engine adapter fills concrete checks.
-  summary: Gate catalog schema for implementation milestones; instance spec supplies
-    milestone table.
-  primary_case: Agent claims M3 complete; gate catalog requires M2 receipt and demo-spec
-    done_when match.
+  outcome: Alpha release capabilities are machine-checkable done_when strings tagged to
+    release stages — catalog altitude, not a demo M0–M8 ladder as product Success, and not
+    Phase-6-only forever.
+  summary: Gate catalog for Half B Alpha mode. Prefer rows/capabilities tagged alpha_0
+    before alpha_1/beta. First Alpha 0 set (provisional names OK) — table_front_door,
+    session_roles, module_pack_load, rules_min_pf1, seats_fp_dm; lan_listen_server is
+    alpha_1 only. Legacy M0–M8 demo tables remain feedstock, not campaign Success.
+  primary_case: Agent claims table_front_door complete; gate requires Host table / pick
+    module / enter path in Code-Repos with receipt — not overnight conductor green.
   edge_cases:
-  - Skipping M0 engine smoke
+  - Skipping engine smoke entirely
   - Subjective 'feels done' without receipt
+  - Claiming Alpha 0 DONE without module pack load of example cartridge
   misread_risks:
   - Hardcoding Godot checks into factory core
+  - Treating proof-loop / camera harness as Alpha product Success
+  - Treating We Be Goblins!-style pack as product identity
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - 1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md
   - .technical/parallel/godot/goal-authority.json
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   harness_commands:
   - mcp_postedit_validate
   behavior_signals:
-  - test_demo_spec_milestone_table
+  - Alpha 0 capability list present in Docs/Half-B-Alpha-Mode.md
   meta_lens_force_align: true
 rules:
   forbidden:
-  - advance milestone without prior gate pass
+  - advance release capability without prior gate pass / receipt
+  - claim factory greenlit
+  - claim closed_alpha Success
+  - reintroduce Phase-6-only as global law
+  - treat demo/loop alone as campaign-capable Success
+  - implement or gate-pass lan_listen_server under alpha_0
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  - 'policy: prefer alpha_0-tagged catalog rows before alpha_1/beta'
   acceptance:
-  - test_demo_spec_milestone_table
-  fixtures: []
+  - Alpha 0 capability ids documented
+  - Alpha 0 DONE matches table+module product bar
 contract:
   proof:
-  - 1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md
-  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  - Docs/Half-B-Alpha-Mode.md
   invariant_ids:
   - implementation_milestone_binary_gate
+  - alpha_0_capability_preference
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-06-09T20:45:57Z'
+  rules_confirmed_at: '2026-09-30T00:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
+  alpha_mode_staged: true
+  factory_greenlit: false
   source:
-    operator_note: Phase 0.3 Track C factory extension — 2026-06-09
+    operator_note: Half B Alpha mode gates — release-tagged capabilities — 2026-09-30
   last_disconnect: null

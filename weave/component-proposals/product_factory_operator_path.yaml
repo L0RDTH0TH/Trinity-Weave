@@ -1,29 +1,61 @@
 id: product_factory_operator_path
 conceptual:
-  outcome: One repeatable operator session from PMG through factory_staged, lane drain, and loop-3 reopen without mode hunting.
-  summary: Integration card for conductor, PRODUCT_FACTORY_CONTINUE, headless_eat, and overnight on a single PQ drain surface.
-  primary_case: Operator runs product-factory session then headless_eat or headless_overnight on the project lane.
+  outcome: Operator can ship Alpha 0 table work from catalog rows without hunting overnight
+    conductor modes — factory remains ungreenlit until bone-pilot ack.
+  summary: Half B Alpha mode operator path. Normative for alpha_0 is select release-tagged
+    catalog rows → implement in Code-Repos → playtest → receipt. Overnight / headless /
+    multi-loop factory_staged is optional advanced tooling, not the Alpha 0 default.
+  primary_case: Bone pilot tags or selects alpha_0 catalog rows (table_front_door, session_roles,
+    module_pack_load, rules_min_pf1, seats_fp_dm), implements under genesis-mythos-alpha,
+    playtests table + example goblin-style module cartridge, records receipt.
+  secondary_case: After Alpha 0 exit and operator greenlight, advanced path may use
+    PRODUCT_FACTORY_CONTINUE / headless_eat / overnight on a project lane — still not
+    required for first table front door.
+  edge_cases:
+  - Treating We Be Goblins!-style pack as product identity — it is an example cartridge only
+  - Requiring three operator loops before any Code-Repos write
+  - Claiming factory greenlit from this card alone
+  misread_risks:
+  - Equating proof-loop receipts with campaign-capable product Success
+  - Treating Phase-6-only read locks as permanent global law
 touch:
   primary_paths:
-    - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
-    - scripts/eat_queue_core/weave/user_story/product_factory_continue.py
-    - scripts/eat_queue_core/weave/user_story/factory_eat_handoff.py
-    - scripts/eat_queue_core/weave/user_story/roadmap_factory_handlers.py
-    - scripts/eat_queue_core/layer1_roadmap_factory.py
-    - scripts/eat_queue_core/headless_orchestrator.py
-    - scripts/eat_queue_core/headless_overnight.py
+  - Docs/Half-B-Alpha-Mode.md
+  - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
+  - scripts/eat_queue_core/weave/user_story/product_factory_continue.py
+  - scripts/eat_queue_core/weave/factory/factory_bom.py
+  - scripts/eat_queue_core/weave/factory/factory_output_gate.py
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   behavior_signals:
-    - test_headless_eat_drains_product_factory_continue_dry_run
-    - test_layer1_roadmap_factory_consumes_continue_tick
-    - test_factory_staged_eat_factory_lanes_drains_in_harness_context
-    - test_no_orphan_execution_gap_mode
+  - alpha_0 normative path documented in Docs/Half-B-Alpha-Mode.md
+  - bom_blocks soft-gate for alpha_0 slim sections
 rules:
   forbidden:
-    - require roadmap_factory_eat as normative operator path when headless_eat is available
-    - eat_factory_lanes ack-only in harness_context when IMPLEMENT_SLICE jobs pending
+  - claim factory greenlit without operator manual validation
+  - claim closed_alpha Success from Alpha 0 playtest alone
+  - require overnight / headless / multi-loop conductor as normative Alpha 0 path
+  - require roadmap_factory_eat as sole entry when simple catalog implement path is available
+  - treat Phase-6-only as global implementation law
+  - treat example goblin-style module as product name or identity
+  precedence:
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: alpha_0 prefers catalog release_stage tags over Phase-6-only tourniquet'
+  - 'policy: Docs/Half-B-Alpha-Mode.md is operator home for Half B Alpha mode'
+  acceptance:
+  - Docs/Half-B-Alpha-Mode.md states factory_greenlit false and Alpha 0 exit criteria
+  - normative path is catalog→implement→playtest→receipt for alpha_0
 contract:
   proof:
-    - scripts/eat_queue_core/tests/test_product_factory_operator_path.py
+  - Docs/Half-B-Alpha-Mode.md
+  - weave/component-proposals/product_factory_operator_path.yaml
 meta:
+  schema_version: 2
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
   lock_kind: provisional
   status: trialing
+  alpha_mode_staged: true
+  factory_greenlit: false
+  source:
+    operator_note: Half B Alpha mode rework 2026-09-30 — defer overnight/BOM/conduct for alpha_0

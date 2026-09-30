@@ -1,12 +1,27 @@
 id: ux_context_execution_gate
 conceptual:
-  outcome: Product factory gate — ux_context_execution_gate (three operator loops, UX-before-execution).
-  summary: Harness-verified law for PMG → product conductor path.
+  outcome: UX-before-execution context remains available for later product-factory ticks —
+    but three-operator-loop UX theater must not block Alpha 0 table front door work.
+  summary: Staged companion to product_factory_pipeline under Half B Alpha mode. Loops and
+    ux_context injection stay valid after operator greenlight; alpha_0 normative path is
+    catalog→implement→playtest (Docs/Half-B-Alpha-Mode.md), not loop theater first.
 touch:
   primary_paths:
+  - Docs/Half-B-Alpha-Mode.md
   - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
   - scripts/eat_queue_core/weave/user_story/product_factory_ux_context.py
 behavior_signals:
-  - product_factory.tick blocked_at operator_loop
-  - ux_context present on execution RESUME when product_factory_run_id set
+  - product_factory.tick blocked_at operator_loop (post-greenlight / non-alpha_0)
+  - alpha_0 does not require three loops before Code-Repos front door
 status: proposal
+rules:
+  forbidden:
+  - require three-operator-loop UX theater before table front door under alpha_0
+  - claim factory greenlit
+  - reintroduce Phase-6-only as global law
+meta:
+  provisional: true
+  alpha_mode_staged: true
+  factory_greenlit: false
+  source:
+    operator_note: Half B Alpha mode — defer loop theater for alpha_0 — 2026-09-30
