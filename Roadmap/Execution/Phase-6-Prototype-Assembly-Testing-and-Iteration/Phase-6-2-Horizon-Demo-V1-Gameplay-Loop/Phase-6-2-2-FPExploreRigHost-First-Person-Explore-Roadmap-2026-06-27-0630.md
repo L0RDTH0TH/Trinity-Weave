@@ -41,11 +41,15 @@ links:
 - '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-2-PlayRegionHost-Mount-Lifecycle-Roadmap-2026-06-27-0431]]'
 - '[[Ingest/Agent-Research/godot-worldshell-node-scenetree-citations-gmm-2026-09-29-0126]]'
 - '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/SeamRegistry-CSharp-Host-Index]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Stock-Patterns]]'
 weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.2.2 — FPExploreRigHost First-Person Explore (Execution)
 
-Execution tertiary: **FPExploreRigHost** (beat 2) — activate `player_fp` on **PerspectiveEnvelope**, locomotion/look on `input.*`, emit `demo_fp_active`. Prereq: 6.2.1 `demo_spawn_complete`. Respects **DMPauseGate**. Consumers: **6.2.3**. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — FP explore host is PLAYER_FP seat; not DM rail; not world-author.
+> **Stock Godot FPS (mandatory):** [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (+ [[PIN-stock_godot_fps]]). **Supersedes** any reading that FPExploreRigHost / PerspectiveEnvelope / “FP rail” / host Move·Look·HandleInput **owns** locomotion. Host = **selector**: set envelope mode `player_fp`, set eye `Camera3D.Current`, **enable** stock FPS on `res://player/Player.tscn` (`CharacterBody3D`). Stock pattern implements walk+look.
+
+Execution tertiary: **FPExploreRigHost** (beat 2) — activate `player_fp` on **PerspectiveEnvelope** (selector), enable stock FPS locomotion/look, emit `demo_fp_active`. Prereq: 6.2.1 `demo_spawn_complete`. Respects **DMPauseGate**. Consumers: **6.2.3**. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — FP explore host is PLAYER_FP seat; not DM rail; not world-author.
 
 ### Intent Mapping
 
@@ -53,10 +57,10 @@ Execution tertiary: **FPExploreRigHost** (beat 2) — activate `player_fp` on **
 |-------|--------|
 | Design intent | FP explore host after spawn ([[conceptual 6.2.2]]) |
 | Inspiration / L5 bar (advisory) | PLAYER_FP explore host; distinct from DM rail; no world-author via look |
-| Inspiration (studied) | (1) Conceptual 6.2.2. (2) Execution 6.2.1. (3) PerspectiveEnvelope / PlayerFPRig (4.1). (4) PlayRegionHost (6.1.2) |
+| Inspiration (studied) | (1) Conceptual 6.2.2. (2) Execution 6.2.1. (3) PerspectiveEnvelope / PlayerFPRig (4.1) as **selector**. (4) PlayRegionHost (6.1.2). (5) Stock FPS matrix |
 | L5 / package crosswalk | phase-aligned `[[ux_baseline_fp]]` / `pkg_world_shell` — seats + FP≠DM rail |
-| Execution mechanism | Host Node; envelope RO activate; input map move/look |
-| Validation | Catalog paint DoD met |
+| Execution mechanism | Host Node; envelope RO activate; enable stock CharacterBody3D FPS (not custom binder) |
+| Validation | Catalog paint DoD met; playable claim needs operator F5 |
 
 ### ux_context crosswalk
 
@@ -102,8 +106,8 @@ Execution tertiary: **FPExploreRigHost** (beat 2) — activate `player_fp` on **
 | Module | Responsibility |
 |--------|----------------|
 | `FPExploreRigHost` | awaiting_spawn → activating → exploring → beat_exit \| blocked |
-| `PerspectiveEnvelopeActivator` | Set envelope mode `player_fp` (RO to ModeTransitionGraph) |
-| `FPLocomotionBinder` | Bind move/look to `input.*` |
+| `PerspectiveEnvelopeActivator` | Set envelope mode `player_fp` (RO to ModeTransitionGraph) — **selector only** |
+| `StockFpEnableGate` | Enable stock FPS on mounted `Player.tscn` + set eye cam `Current` (**supersedes** `FPLocomotionBinder` as mover) |
 | `DMPauseGateListener` | Block explore while paused |
 
 ## Interfaces
@@ -127,9 +131,10 @@ JUNIOR WORK-ORDER (ux_collaborative_table_agency L5 — advisory) ===
 # ===========================================================
 
 # 6.2.2 — FPExploreRigHost (Godot 4 stable).
-# Citations: Node; InputMap; RefCounted; Error/OK; signals.
+# Citations: Node; Camera3D.Current; CharacterBody3D stock FPS; Error/OK; signals.
+# Authority: Godot-Implementation-Decision-Matrix + Godot-Stock-Patterns.
 # Reject: activate without spawn_complete; owning ModeTransitionGraph;
-#         ignoring DMPauseGate; Half B/L5.
+#         host Move/Look/HandleInput as player controller; ignoring DMPauseGate; Half B/L5.
 
 class_name FPExploreRigHost
 extends Node
@@ -155,16 +160,19 @@ func activate_after_spawn(fp_rig: Node, envelope: RefCounted) -> Error:
 		_block(&"dm_pause")
 		return ERR_BUSY
 	_state = State.ACTIVATING
-	envelope.call("set_mode", &"player_fp")  # RO activate contract
+	envelope.call("set_mode", &"player_fp")  # selector — not mover
+	# Enable stock FPS on Player.tscn (CharacterBody3D); expose eye Camera3D.Current.
+	# Do NOT implement Move/Look/HandleInput on this host (matrix defect).
 	fp_rig.set("fp_active", true)
-	_bind_locomotion()
+	_enable_stock_fps(fp_rig)
 	_fp_active = true
 	_state = State.EXPLORING
 	demo_fp_active.emit(StringName(str(fp_rig.get_instance_id())))
 	return OK
 
-func _bind_locomotion() -> void:
-	# Wire input.* move/look → FPRig; no intent labeling here (6.2.3).
+func _enable_stock_fps(fp_rig: Node) -> void:
+	# Selector: enable FPS script + Captured mouse; locomotion lives on stock CharacterBody3D.
+	# See Godot-Stock-Patterns §1. Supersedes: Wire input.* move/look → FPRig as controller.
 	pass
 
 func _dm_paused() -> bool:
@@ -178,14 +186,15 @@ func _block(code: StringName) -> void:
 # Manifest: stack-perspective-camera, stack-input-intent, engine-godot-463-dotnet | Catalog: ux_baseline_fp | Type: Genesis.Demo.FpExploreRigHost
 
 namespace Genesis.Demo;
-// GAP4: FPExploreRigHost → ICameraRig / PlayerFPRig (4.1) + PerspectiveEnvelope — not a fake DemoCamera
+// GAP4: FPExploreRigHost → ICameraRig / PlayerFPRig (4.1) as SELECTOR + stock CharacterBody3D FPS — not DemoCamera mover
 public sealed partial class FPExploreRigHost : Node {
-    private ICameraRig _fpRig = null!; // PlayerFPRig implements ICameraRig
+    private ICameraRig _fpRig = null!; // PlayerFPRig implements ICameraRig (selector only)
     public Error ActivateAfterSpawn(ICameraRig fpRig, PerspectiveEnvelope envelope, SeatContext seat) {
         if (seat.Id != SeatId.Player && !seat.AllowsSharedTable()) return Error.Unauthorized;
         var err = fpRig.Activate(PerspectiveMode.FirstPerson, seat);
         if (err != Error.Ok) return err;
         envelope.AssertPlayerFpBounds(); // 4.1 contract
+        // Then: enable stock CharacterBody3D FPS on Player.tscn (Stock Patterns) — not host Move/Look.
         return Error.Ok;
     }
 }
@@ -200,6 +209,7 @@ public sealed partial class FPExploreRigHost : Node {
 | I-6.2.2-002 | Does not own ModeTransitionGraph — envelope RO activate only |
 | I-6.2.2-003 | DMPauseGate must block explore transitions |
 | I-6.2.2-004 | demo_fp_active is the sole beat-2 exit signal |
+| I-6.2.2-005 | Host does not own locomotion/look — stock CharacterBody3D only (matrix) |
 
 ## Acceptance
 

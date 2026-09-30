@@ -140,7 +140,7 @@ public interface IFactionGraph {
 
 | Host | Phase | Methods | Seat / authority | Must-fail cases |
 |------|-------|---------|------------------|-----------------|
-| `ICameraRig` | 4.1.3 | `Activate(PerspectiveMode, SeatContext)`; `ApplyFov` | player vs dm_as_player | player on DM rail → **Unauthorized** |
+| `ICameraRig` | 4.1.3 | `Activate(PerspectiveMode, SeatContext)`; `ApplyFov` — **selector only** (swap `Camera3D.Current`, enable/disable stock FPS). Must **not** implement player Move/Look/HandleInput (see [[Godot-Implementation-Decision-Matrix]] Seats row) | player vs dm_as_player | player on DM rail → **Unauthorized**; Move/Look on body via this host → **defect** |
 | `IAgencyEnvelope` / PilotHandoff | 4.3 | `Error Assert(SeatContext)`; `Error Release(StringName pilotId)` | FP≠DM | wrong seat → Unauthorized; dominate without release path → reject |
 
 ```csharp

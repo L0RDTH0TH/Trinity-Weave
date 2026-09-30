@@ -46,6 +46,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.2 — Horizon Demo V1 Gameplay Loop (Execution)
 
+> **Stock Godot FPS (mandatory before Code-Exhibit player/camera):** [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (+ [[PIN-stock_godot_fps]]). Beat 2 FP explore enables stock `CharacterBody3D` FPS (`res://player/Player.tscn`); beat 6 DM cam swaps `Camera3D.Current` + disables FPS. PerspectiveEnvelope / PlayerFPRig / `ICameraRig` = **selector, not mover**. Demo receipts ≠ walk+look Done (operator F5).
+
 Execution secondary: **HorizonDemoManifest** + **DemoLoopOrchestrator** + eight beat stubs (spawn → FP → intent → sim ≤1 → rule check → DM cam → overwrite → feedback). Mounts into **6.1** PlayRegionHost. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — horizon demo loop proves FP≠DM rail + gated agency without inventing extra beats.
 
 ### Intent Mapping

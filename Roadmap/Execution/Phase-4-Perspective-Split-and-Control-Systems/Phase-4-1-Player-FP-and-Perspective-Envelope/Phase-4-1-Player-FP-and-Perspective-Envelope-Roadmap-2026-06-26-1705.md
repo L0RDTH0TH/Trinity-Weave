@@ -44,6 +44,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 4.1 — Player FP and Perspective Envelope (Execution)
 
+> **Superseded for locomotion/look feedstock:** Treat this note’s PerspectiveEnvelope / PlayerFPRig / `ICameraRig` as **seat/camera selectors**, not the player controller. Before Code-Exhibit player/camera writes, open [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (+ [[PIN-stock_godot_fps]]). Player locomotion = stock `CharacterBody3D` at `res://player/Player.tscn`. Any prose below that reads as “envelope / FP rail owns Move·Look” is **defect feedstock** — defer to matrix.
+
 Execution secondary: **PlayerFP baseline** + **PerspectiveEnvelope** (legal modes, intent vs observe) wired to **UnifiedSceneGraph**, **CameraInterpolatorRegistry**, DM FOV rigs, and **PilotGraph**. Parallel spine. **No Half B.** L5/SERIES are **read-only advisory feedstock** — player FP vs DM observe/rail seats + observe-only guards **enable** shared-table play without players authoring the world.
 
 ### Intent Mapping

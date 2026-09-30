@@ -47,6 +47,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.4 — Reference Exemplar (Execution)
 
+> **Playable honesty:** Walk+look Done requires stock FPS ([[Godot-Stock-Patterns]]) + **operator F5**. Demo / Exemplar receipts alone ≠ kinesthetic Done. Demo ≠ Exemplar; not campaign ship from receipt theater.
+
 Execution secondary: **ReferenceExemplarManifest** + **CampaignCapableDoDGate** + **ExemplarPackDefaultFiller** + **SwapMatrixSlotBinder** + **AuthorityPackageContract** (player cosmetics vs DM world). Third delivery track — not factory attestation, not 6.2 demo. Parallel spine under `Execution/Phase-6-…/Phase-6-4-…/`. **No Half B.** L5/SERIES advisory — Reference Exemplar is campaign-capable default fill with seat/agency DoD; not player world-author invent. **Paint spine terminal for Phase-6.**
 
 ### Intent Mapping

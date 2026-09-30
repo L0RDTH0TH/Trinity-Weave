@@ -49,11 +49,13 @@ conceptual_frozen_at: '2026-07-17T05:59:24Z'
 
 ## Phase 6.2.2 — FPExploreRigHost First-Person Explore
 
-Decomposes **beat 2 (FP explore)** from [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]: **FPExploreRigHost**, **PerspectiveEnvelope** `player_fp`, locomotion/look, `demo.fp_active`.…
+> **Execution lens (2026-09-30):** Conceptual “locomotion/look on input.*” / envelope-as-mover reading is **superseded** for Code-Exhibit. Defer to Execution [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]]: host selects `player_fp` + enables stock `CharacterBody3D` FPS; does not own walk/look.
+
+Decomposes **beat 2 (FP explore)** from [[Phase-6-2-Horizon-Demo-V1-Gameplay-Loop-Roadmap-2026-06-26-1951]]: **FPExploreRigHost**, **PerspectiveEnvelope** `player_fp` (selector), enable stock FPS (not custom rail mover), `demo.fp_active`.…
 
 ## Scope
 
-**In:** host lifecycle; `player_fp` activation (4.1; OQ-6.2.1-003); move/look on `input.*`; `demo.fp_active` on `session.*`; beat 2 gates; **DMPauseGate** respect. **Out:** 6.2.1 spawn; 6.2.3–6.2.8; factory KH; exec — advisory.
+**In:** host lifecycle; `player_fp` activation (4.1; OQ-6.2.1-003); enable stock FPS (matrix); `demo.fp_active` on `session.*`; beat 2 gates; **DMPauseGate** respect. **Out:** 6.2.1 spawn; 6.2.3–6.2.8; factory KH; exec — advisory. **Superseded:** host-owned move/look binder as the player controller.
 
 ## Behavior
 

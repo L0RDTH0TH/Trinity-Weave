@@ -44,7 +44,9 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.2.1 — SpawnBootstrapController Session Bootstrap (Execution)
 
-Execution tertiary: **SpawnBootstrapController** (beat 1) — session handle + stub shrine facet + inactive **PlayerFPRig** attach → `demo_spawn_complete`. Prereq: 6.1.2 `play_region_ready`. Consumers: **6.2.2**. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — demo spawn bootstrap is FP-safe; no world-author.
+> **Stock FPS mount (not a custom controller):** Prefer instance `res://player/Player.tscn` (`CharacterBody3D` + eye cam) inactive at spawn; 6.2.2 enables FPS. `PlayerFPRig` / `ICameraRig` remain **selector** hosts — see [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]].
+
+Execution tertiary: **SpawnBootstrapController** (beat 1) — session handle + stub shrine facet + inactive **PlayerFPRig** / stock Player prefab attach → `demo_spawn_complete`. Prereq: 6.1.2 `play_region_ready`. Consumers: **6.2.2**. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — demo spawn bootstrap is FP-safe; no world-author.
 
 ### Intent Mapping
 

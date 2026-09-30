@@ -44,6 +44,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6 — Prototype Assembly, Testing, and Iteration (Execution)
 
+> **Stock Godot FPS (mandatory before Code-Exhibit player/camera):** [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (+ [[PIN-stock_godot_fps]]). Player locomotion = stock `CharacterBody3D` at `res://player/Player.tscn`. `ICameraRig` / seats / PerspectiveEnvelope = **selector only** (swap `Camera3D.Current`, enable/disable FPS) — **not** the mover. Any “FP rail / envelope owns locomotion” reading of 4.1→6.x feedstock is **superseded**.
+
 Execution primary: four tracks — **6.1** factory presentation shell, **6.2** horizon demo proof loop, **6.3** dual-track boundary glue, **6.4** Reference Exemplar. **Phase 6 end-state = PMG Medium Fantasy Reference Exemplar as assembled campaign-capable prototype** (graybox OK) — not demo-only. Horizon (6.2) proves shell+loop; Exemplar (6.4) is the shippable campaign bar. Parallel spine under `Execution/Phase-6-…/`. **No Half B.** Seats: FP≠DM rail; no player world-author.
 
 ### Intent Mapping

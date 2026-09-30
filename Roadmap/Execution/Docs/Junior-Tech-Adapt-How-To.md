@@ -28,7 +28,7 @@ Authority sources: [[../../Factory-DRB/Tech-Stack-Manifest-v1|Tech-Stack-Manifes
 
 ## 0. C# / .NET host conventions (all recipes)
 
-**Player FP / cameras (mandatory before Code-Exhibit player/camera write):** Open [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (pin [[PIN-stock_godot_fps]]). Quote the matrix principle line and the Player move/look row in the agent report. Stock `CharacterBody3D` FPS only — Host Index binds; PerspectiveEnvelope / “FP rail” must not own locomotion. Missing quote ⇒ invalid pass (Half-B PRECONDITIONS).
+**Player FP / cameras (mandatory before Code-Exhibit player/camera write):** Open [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (pin [[PIN-stock_godot_fps]]). Quote the matrix principle line and the Player move/look row in the agent report. Stock `CharacterBody3D` FPS only (`res://player/Player.tscn`) — Host Index binds; `ICameraRig` / seats / PerspectiveEnvelope = **selector only** (swap `Camera3D.Current`, enable/disable FPS). PerspectiveEnvelope / “FP rail” must **not** own locomotion. Missing quote ⇒ invalid pass (Half-B PRECONDITIONS).
 
 | Rule | Junior action |
 |------|----------------|

@@ -43,6 +43,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.2.6 — DMCamTransitionSlot DM Cam (Execution)
 
+> **Seats = selector only:** [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] §3. On DM: WorldCam `Current = true`; **disable** stock FPS. On return to Player: eye cam `Current`; **enable** FPS. Hosts must **not** implement Move/Look/HandleInput on the player body.
+
 Execution tertiary: **DMCamTransitionSlot** (beat 6) — on eligible `demo_rule_check_complete` + cue/hotkey, run **fp_to_worldcam_demo** guards (+ **DMPauseGate**) → WorldCam-only + HUD badge → `demo_dm_cam_active`. Consumers: **6.2.7**, **6.2.8**. Parallel spine under `Execution/Phase-6-…/Phase-6-2-…/`. **No Half B.** L5/SERIES advisory — DMCamTransitionSlot proves FP≠DM rail with observe-only WorldCam; no player world-author.
 
 ### Intent Mapping
@@ -171,7 +173,7 @@ func request_transition(trigger: StringName) -> Error:
 		_reject(&"guard_fail")
 		return ERR_UNAUTHORIZED
 	_state = State.TRANSITIONING
-	# Camera swap: player_fp → WorldCam only (demo)
+	# Selector: player_fp → WorldCam Current swap; disable stock FPS (not a second mover).
 	_state = State.DM_ACTIVE
 	presentation_mode_badge_dm.emit(true)
 	demo_dm_cam_active.emit()

@@ -48,6 +48,8 @@ conceptual_frozen_at: '2026-07-17T05:59:24Z'
 
 ## Behavior
 
+> **Execution lens:** Shell ≠ player controller. Player/camera Code-Exhibit → [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]].
+
 Launch → PlayRegion → HUD. LaunchFlowController: bootstrap + DevLeakageGuard → PresentationSessionHandle. PlayRegionHost: single viewport + sockets; `presentation.play_region_ready`. HUDLayerStack Base/Mode/Context/Transient; reflects mode, does not drive ModeTransitionGraph (4.2). KH-6.1-001–004. Detail → [[Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15]].
 
 ## Interfaces

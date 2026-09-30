@@ -43,6 +43,8 @@ weave_pass: exec-weave-stack-ux-20260929
 ---
 # Phase 6.1 — Factory Phase 0 Presentation Shell (Execution)
 
+> **Stock Godot FPS (mandatory before Code-Exhibit player/camera):** [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]]. Shell mounts PlayRegion sockets and reflects mode chrome — it does **not** implement walk/look. Seats later swap cameras + enable/disable stock FPS only.
+
 Execution secondary: **PresentationShellManifest** + **LaunchFlowController** + **DevLeakageGuard** + **PlayRegionHost** + **HUDLayerStack** + **KinestheticHonestyChecklist**. Factory spine only — not 6.2 demo. Parallel spine under `Execution/Phase-6-…/Phase-6-1-…/`. **No Half B.** L5/SERIES advisory — factory Phase-0 shell enables seat-safe launch; HUD is Presentation only.
 
 ### Intent Mapping

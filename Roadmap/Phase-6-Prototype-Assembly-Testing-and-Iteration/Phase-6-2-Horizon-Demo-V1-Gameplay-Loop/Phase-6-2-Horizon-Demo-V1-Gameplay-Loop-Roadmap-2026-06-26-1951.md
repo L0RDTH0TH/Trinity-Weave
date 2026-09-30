@@ -41,6 +41,8 @@ conceptual_frozen_at: '2026-07-17T05:59:24Z'
 
 ## Phase 6.2 — Horizon Demo v1 Gameplay Loop
 
+> **Execution lens:** FP explore / DM cam beats select cameras + enable/disable stock FPS — not a custom FP rail controller. See [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]]. Demo receipts ≠ walk+look Done.
+
 Playable **horizon demo v1** loop: spawn → FP explore → intent stub → sim stub → rule check → DM cam → overwrite → feedback. Mounts into **6.1** PlayRegionHost — not factory spine.
 
 ## Scope

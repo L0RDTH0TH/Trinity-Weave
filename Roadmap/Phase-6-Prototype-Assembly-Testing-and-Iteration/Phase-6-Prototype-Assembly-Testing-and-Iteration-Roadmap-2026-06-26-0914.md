@@ -31,6 +31,8 @@ operator_triad_rewrite_at: '2026-08-01'
 
 ## Phase 6 — Prototype Assembly, Testing, and Iteration
 
+> **Execution lens:** Before Code-Exhibit player/camera work → [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]]. PerspectiveEnvelope import = mode/seat selector, not locomotion owner.
+
 Three tracks (do not conflate): factory spine, playable demo proof, Reference Exemplar.
 
 | Track | Phase | Purpose |
