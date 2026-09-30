@@ -1,0 +1,38 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T07:41:00Z'
+amended_at: '2026-07-30T18:37:43Z'
+lock_state: applied
+bone_pilot_edit: depends_on keeps ux_dm_campaign_creation; visibility = general +
+  per-player; dropped character-creation exit refrain
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Author+auto-stage; general/per-player visibility; batched world handoff;
+    DM-as-player seat.
+row:
+  id: ux_dm_session_prep
+  dimension: dm_rail
+  label: DM can prep a session without leaving the collaborative table frame
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_dm_campaign_creation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- prep must be a separate offline app
+- players never see any prep residue
+- all prep material is public by default
+- prep is a back door around DM gate/retcon on world changes
+- session prep creates or replaces the world or campaign frame
+- visibility is only a single whole-table tag with no per-player option
+alternatives_not_banned:
+- Thin author notes vs rich structured beats (system still stages)
+- Mostly secret with selective reveals vs broader general tags
+- Prep mode distinct vs prep panels on the DM rail during downtime
+- Batch applied on complete vs batch held for DM confirm in world-gen

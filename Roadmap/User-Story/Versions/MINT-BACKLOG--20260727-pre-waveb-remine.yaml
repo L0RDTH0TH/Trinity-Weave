@@ -1,0 +1,1607 @@
+schema_version: 1
+project_id: genesis-mythos-master
+backlog_status: proposed
+generated_at: '2026-07-27T04:53:58Z'
+waived_axes: []
+rubric: Docs/catalog-mint/_shared/UX-MINT-RUBRIC.md
+taxonomy: Templates/Roadmap/User-Story/UX-MINT-TAXONOMY/manifest.yaml
+items:
+- id: ux_absent_proxy_exploration
+  label: Absent-player proxy (exploration)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Delegate pilots an absent PC with explicit handoff when the owner returns.
+    Feedstock: …andidates - label: Soft-power party seizure summary: A living companion
+    removed by law/magic, not HP. - label: Rescue as social contract summary: The
+    table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy /
+    agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy Pillar
+    focus: exploration.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: absent_proxy
+  status: pending
+  catalog_face: inhabit
+  experience_mode: absent_proxy
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode)'
+  supplement: false
+- id: ux_absent_proxy_combat
+  label: Absent-player proxy (combat)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Delegate pilots an absent PC with explicit handoff when the owner returns.
+    Feedstock: …andidates - label: Soft-power party seizure summary: A living companion
+    removed by law/magic, not HP. - label: Rescue as social contract summary: The
+    table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy /
+    agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy Pillar
+    focus: combat. Pillar cue: …ral / control Public street → custody. Attention on
+    the missing seat. Control is bureaucratic and investigative before combat. ##
+    Experience noun candidates - label: Soft-power party seizure summary: A living
+    companion removed by law/magic,…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: absent_proxy
+  status: pending
+  catalog_face: inhabit
+  experience_mode: absent_proxy
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: mentioned in feedstock'
+  supplement: false
+- id: ux_absent_proxy_roleplay
+  label: Absent-player proxy (roleplay)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Delegate pilots an absent PC with explicit handoff when the owner returns.
+    Feedstock: …andidates - label: Soft-power party seizure summary: A living companion
+    removed by law/magic, not HP. - label: Rescue as social contract summary: The
+    table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy /
+    agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy Pillar
+    focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: absent_proxy
+  status: pending
+  catalog_face: inhabit
+  experience_mode: absent_proxy
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_agency_handoff_enter_exit
+  label: Agency enter / exit handoff feel
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Shared choreography when control or perspective transfers and cleanly
+    returns. Feedstock: …ft-power party seizure summary: A living companion removed
+    by law/magic, not HP. - label: Rescue as social contract summary: The table re-forms
+    around getting them back. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit
+    - dm_workbench_lore_gui / wa_faction_hierarchy'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: agency_handoff_enter_exit
+  status: pending
+  catalog_face: inhabit
+  experience_mode: agency_handoff_enter_exit
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_baseline_fp_exploration
+  label: Baseline first-person embodiment (exploration)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Default embodied play — what the human sees and touches in this pillar.
+    Feedstock: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable,
+    aggressively modular first-person 3D VTT generator that procedurally creates living,
+    collaborative open worlds from shared DM and player intents — mandatory in-tool
+    session 0, visible world continuity, player-lite legacies and chronicle — players
+    in fir… Pillar focus: exploration. Pillar cue: …l states) and **always return
+    to FP** when the effect ends. Third-person **character orbit is out of scope**
+    as default exploration; polymorph and similar effects stay **FP from the new body**.
+    - **Agency delegation (player rail)** — separate from DM…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_embodiment
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock'
+  supplement: false
+- id: ux_baseline_fp_combat
+  label: Baseline first-person embodiment (combat)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Default embodied play — what the human sees and touches in this pillar.
+    Feedstock: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable,
+    aggressively modular first-person 3D VTT generator that procedurally creates living,
+    collaborative open worlds from shared DM and player intents — mandatory in-tool
+    session 0, visible world continuity, player-lite legacies and chronicle — players
+    in fir… Pillar focus: combat.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_embodiment
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: (infer from mode)'
+  supplement: false
+- id: ux_baseline_fp_roleplay
+  label: Baseline first-person embodiment (roleplay)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Default embodied play — what the human sees and touches in this pillar.
+    Feedstock: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable,
+    aggressively modular first-person 3D VTT generator that procedurally creates living,
+    collaborative open worlds from shared DM and player intents — mandatory in-tool
+    session 0, visible world continuity, player-lite legacies and chronicle — players
+    in fir… Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_embodiment
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_baseline_fp_controls
+  label: Baseline FP controls
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'How move, look, and intent issuance feel and where control surfaces sit
+    relative to first-person view. Feedstock: # Genesis Mythos Master Goal ## One-line
+    Build an open-source, monetizable, aggressively modular first-person 3D VTT generator
+    that procedurally creates living, collaborative open worlds from shared DM and
+    player intents — mandatory in-tool session 0, visible world continuity, player-lite
+    legacies and chronicle — players in fir…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_fp_controls
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp_controls
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_class_chrome_discovery
+  label: Class / identity chrome discovery
+  dimension: ui_surface
+  ux_axis: class_chrome
+  summary: '[gap] Required taxonomy slot `class_chrome_discovery` — no strong feedstock
+    hit yet. How class or identity polish is noticed and used without leaving the
+    embodied moment. Nearest context: Early in a digital D&D-like game, two factions
+    ask for your blade. Choosing a side changes **who you fight**, who trusts you
+    at camp, and which story threads stay open. The fork is not a dialogue checkbox
+    only — the next combat encounter *is* the moral residue. Consequence scent: the
+    world remembers. Split map regions (sanctuary vs hostile camp). Attention on spokespeople
+    then on the battlefield you unlocked. Soft framing via urgency an'
+  conceptual_pin: needs pin
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: class_chrome_discovery
+  status: pending
+  catalog_face: inhabit
+  experience_mode: class_chrome_discovery
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: false
+  pillar_notes: 'exploration: (fill) | combat: mentioned in feedstock | roleplay:
+    (fill)'
+  supplement: false
+- id: ux_combat_cast_feedback
+  label: Combat / cast sensory feedback
+  dimension: ui_surface
+  ux_axis: combat_cast_feedback
+  summary: '[gap] Required taxonomy slot `combat_cast_feedback` — no strong feedstock
+    hit yet. Cast and hit sensory response the player notices — not damage formulas.
+    Nearest context: Early in a digital D&D-like game, two factions ask for your blade.
+    Choosing a side changes **who you fight**, who trusts you at camp, and which story
+    threads stay open. The fork is not a dialogue checkbox only — the next combat
+    encounter *is* the moral residue. Consequence scent: the world remembers. Split
+    map regions (sanctuary vs hostile camp). Attention on spokespeople then on the
+    battlefield you unlocked. Soft framing via urgency an'
+  conceptual_pin: needs pin
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: combat_cast_feedback
+  status: pending
+  catalog_face: inhabit
+  experience_mode: combat_cast_feedback
+  mode_tier: multi_pillar
+  dnd_pillar: combat
+  feedstock_hit: false
+  pillar_notes: 'exploration: (fill) | combat: mentioned in feedstock | roleplay:
+    (fill)'
+  supplement: false
+- id: ux_divination_override_exploration
+  label: Divination / remote-sense override (exploration)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'Temporary rules-bound departure from baseline FP for remote sensing (scry,
+    clairvoyance, find path, and kin). Feedstock: …n for players and commanding mastery
+    for the DM. - **Players default to first-person** — immediate, personal, experiential.
+    No casual third-person orbit or free tactical camera for players. - **Perspective
+    overrides** (Scry/Clairvoyance, divination, astral travel, DM-granted visions,
+    unconscious/liminal states, etc.) are **explicit, temporary, rules-bound** departures
+    from baseline FP — not a permanent camera mode. Overrides use contract-d… Pillar
+    focus: exploration. Pillar cue: …l states) and **always return to FP** when the
+    effect ends. Third-person **character orbit is out of scope** as default exploration;
+    polymorph and similar effects stay **FP from the new body**. - **Agency delegation
+    (player rail)** — separate from DM…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: divination_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: divination_override
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock'
+  supplement: false
+- id: ux_divination_override_combat
+  label: Divination / remote-sense override (combat)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'Temporary rules-bound departure from baseline FP for remote sensing (scry,
+    clairvoyance, find path, and kin). Feedstock: …n for players and commanding mastery
+    for the DM. - **Players default to first-person** — immediate, personal, experiential.
+    No casual third-person orbit or free tactical camera for players. - **Perspective
+    overrides** (Scry/Clairvoyance, divination, astral travel, DM-granted visions,
+    unconscious/liminal states, etc.) are **explicit, temporary, rules-bound** departures
+    from baseline FP — not a permanent camera mode. Overrides use contract-d… Pillar
+    focus: combat.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: divination_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: divination_override
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: (infer from mode)'
+  supplement: false
+- id: ux_divination_override_roleplay
+  label: Divination / remote-sense override (roleplay)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'Temporary rules-bound departure from baseline FP for remote sensing (scry,
+    clairvoyance, find path, and kin). Feedstock: …n for players and commanding mastery
+    for the DM. - **Players default to first-person** — immediate, personal, experiential.
+    No casual third-person orbit or free tactical camera for players. - **Perspective
+    overrides** (Scry/Clairvoyance, divination, astral travel, DM-granted visions,
+    unconscious/liminal states, etc.) are **explicit, temporary, rules-bound** departures
+    from baseline FP — not a permanent camera mode. Overrides use contract-d… Pillar
+    focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: divination_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: divination_override
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dm_mapcam_exploration
+  label: DM MapCam (exploration)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Map-fixed orthographic DM rail — tokens, measurements, fog, LOS adjudication
+    feel. Feedstock: …tool session 0, visible world continuity, player-lite legacies
+    and chronicle — players in first-person by default with rules-driven perspective
+    and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam,
+    read-only Sensorium Attach), player lore woven into systemic depth, major structural
+    changes via intentional re-generation, every layer built for community remixing.
+    ## Vision **Perspective split** delivers immersion… Pillar focus: exploration.
+    Pillar cue: …l states) and **always return to FP** when the effect ends. Third-person
+    **character orbit is out of scope** as default exploration; polymorph and similar
+    effects stay **FP from the new body**. - **Agency delegation (player rail)** —
+    separate from DM…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_mapcam
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock'
+  supplement: false
+- id: ux_dm_mapcam_combat
+  label: DM MapCam (combat)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Map-fixed orthographic DM rail — tokens, measurements, fog, LOS adjudication
+    feel. Feedstock: …tool session 0, visible world continuity, player-lite legacies
+    and chronicle — players in first-person by default with rules-driven perspective
+    and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam,
+    read-only Sensorium Attach), player lore woven into systemic depth, major structural
+    changes via intentional re-generation, every layer built for community remixing.
+    ## Vision **Perspective split** delivers immersion… Pillar focus: combat.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_mapcam
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: (infer from mode)'
+  supplement: false
+- id: ux_dm_mapcam_roleplay
+  label: DM MapCam (roleplay)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Map-fixed orthographic DM rail — tokens, measurements, fog, LOS adjudication
+    feel. Feedstock: …tool session 0, visible world continuity, player-lite legacies
+    and chronicle — players in first-person by default with rules-driven perspective
+    and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam,
+    read-only Sensorium Attach), player lore woven into systemic depth, major structural
+    changes via intentional re-generation, every layer built for community remixing.
+    ## Vision **Perspective split** delivers immersion… Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_mapcam
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dm_pilot
+  label: DM pilot (agency, not Sensorium)
+  dimension: dm_rail
+  ux_axis: agency
+  summary: 'When session/rules put the DM in control of an entity via pilot envelope.
+    Feedstock: …ey see?” — **no intent/control transfer** on the DM rail. Compare
+    multiple viewpoints for ruling. Operator debug attach uses the same read-only
+    contract. Always **exit back** to prior DM mode (WorldCam or MapCam). - **DM pilot**
+    — when rules or session policy puts the DM in control of an entity (e.g. NPC dominate,
+    absent PC), that uses the **agency delegation** system (pilot envelope), not Sensorium
+    Attach. DM may pilot with FP from that body…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_pilot
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dm_sensorium_exploration
+  label: DM Sensorium Attach (exploration)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Read-only sight bind to an entity — no intent transfer; adjudicate what
+    they see. Feedstock: …re that lands because the player assembled it. - label:
+    Guide who was the problem summary: Narrator/ally trust collapse without removing
+    player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium
+    / divination_override Pillar focus: exploration.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_sensorium
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode)'
+  supplement: false
+- id: ux_dm_sensorium_combat
+  label: DM Sensorium Attach (combat)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Read-only sight bind to an entity — no intent transfer; adjudicate what
+    they see. Feedstock: …re that lands because the player assembled it. - label:
+    Guide who was the problem summary: Narrator/ally trust collapse without removing
+    player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium
+    / divination_override Pillar focus: combat.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_sensorium
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: (infer from mode)'
+  supplement: false
+- id: ux_dm_sensorium_roleplay
+  label: DM Sensorium Attach (roleplay)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Read-only sight bind to an entity — no intent transfer; adjudicate what
+    they see. Feedstock: …re that lands because the player assembled it. - label:
+    Guide who was the problem summary: Narrator/ally trust collapse without removing
+    player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel - dm_sensorium
+    / divination_override Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_sensorium
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dm_worldcam_exploration
+  label: DM WorldCam (exploration)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Free-flight DM observation rail — how mastery feels in this pillar. Feedstock:
+    …texture summary: How inhabit/table feel when the map itself is the enemy. - label:
+    Triage under asymmetric power summary: Choosing who to carry when you cannot save
+    the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy / agency_handoff_enter_exit
+    - quest_pressure_surface / sim_weather_pulse Pillar focus: exploration.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_worldcam
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode)'
+  supplement: false
+- id: ux_dm_worldcam_combat
+  label: DM WorldCam (combat)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Free-flight DM observation rail — how mastery feels in this pillar. Feedstock:
+    …texture summary: How inhabit/table feel when the map itself is the enemy. - label:
+    Triage under asymmetric power summary: Choosing who to carry when you cannot save
+    the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy / agency_handoff_enter_exit
+    - quest_pressure_surface / sim_weather_pulse Pillar focus: combat. Pillar cue:
+    …ment, and shame coexist with skillful retreat. Models the rare UX truth: victory
+    screens are not the only honest end of combat. ## Spatial / temporal / control
+    Wide disaster scale; attention splits across civilians and sky. Soft framing from
+    de…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_worldcam
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: mentioned in feedstock'
+  supplement: false
+- id: ux_dm_worldcam_roleplay
+  label: DM WorldCam (roleplay)
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Free-flight DM observation rail — how mastery feels in this pillar. Feedstock:
+    …texture summary: How inhabit/table feel when the map itself is the enemy. - label:
+    Triage under asymmetric power summary: Choosing who to carry when you cannot save
+    the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy / agency_handoff_enter_exit
+    - quest_pressure_surface / sim_weather_pulse Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_worldcam
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dominate_pilot_exploration
+  label: Dominate / pilot (controller) (exploration)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Dominator pilots the target — FP and control from the dominated body.
+    Feedstock: # Felt moment (pattern language) Final hours ask **who owns the ending**:
+    sacrifice, transform, free, dominate. Companions react; combat may resolve the
+    social choice or follow it. Party trust under cosmic stakes. Digital D&D’s version
+    of “the table decides what kind of story this was.” ## Spatial / temporal / control
+    Climax a… Pillar focus: exploration.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: dominate_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_pilot
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode)'
+  supplement: false
+- id: ux_dominate_pilot_combat
+  label: Dominate / pilot (controller) (combat)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Dominator pilots the target — FP and control from the dominated body.
+    Feedstock: # Felt moment (pattern language) Final hours ask **who owns the ending**:
+    sacrifice, transform, free, dominate. Companions react; combat may resolve the
+    social choice or follow it. Party trust under cosmic stakes. Digital D&D’s version
+    of “the table decides what kind of story this was.” ## Spatial / temporal / control
+    Climax a… Pillar focus: combat. Pillar cue: …nt (pattern language) Final hours
+    ask **who owns the ending**: sacrifice, transform, free, dominate. Companions
+    react; combat may resolve the social choice or follow it. Party trust under cosmic
+    stakes. Digital D&D’s version of “the table decide…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: dominate_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_pilot
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: mentioned in feedstock'
+  supplement: false
+- id: ux_dominate_pilot_roleplay
+  label: Dominate / pilot (controller) (roleplay)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Dominator pilots the target — FP and control from the dominated body.
+    Feedstock: # Felt moment (pattern language) Final hours ask **who owns the ending**:
+    sacrifice, transform, free, dominate. Companions react; combat may resolve the
+    social choice or follow it. Party trust under cosmic stakes. Digital D&D’s version
+    of “the table decides what kind of story this was.” ## Spatial / temporal / control
+    Climax a… Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: dominate_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_pilot
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_dominate_victim_exploration
+  label: Dominate victim / passenger overlay (exploration)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Victim presentation during dominate — passenger FP, locked input, liminal
+    chrome. Feedstock: …where companions and combat hang on the choice. - label: Party
+    trust under ascension pressure summary: Social contract tested when power offers
+    an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim
+    - planar_travel_override - canon_pipeline_feel Pillar focus: exploration.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: victim_overlay
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_victim
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode)'
+  supplement: false
+- id: ux_dominate_victim_combat
+  label: Dominate victim / passenger overlay (combat)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Victim presentation during dominate — passenger FP, locked input, liminal
+    chrome. Feedstock: …where companions and combat hang on the choice. - label: Party
+    trust under ascension pressure summary: Social contract tested when power offers
+    an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim
+    - planar_travel_override - canon_pipeline_feel Pillar focus: combat. Pillar cue:
+    …nt (pattern language) Final hours ask **who owns the ending**: sacrifice, transform,
+    free, dominate. Companions react; combat may resolve the social choice or follow
+    it. Party trust under cosmic stakes. Digital D&D’s version of “the table decide…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: victim_overlay
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_victim
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: mentioned in feedstock'
+  supplement: false
+- id: ux_dominate_victim_roleplay
+  label: Dominate victim / passenger overlay (roleplay)
+  dimension: player_rail
+  ux_axis: agency
+  summary: 'Victim presentation during dominate — passenger FP, locked input, liminal
+    chrome. Feedstock: …where companions and combat hang on the choice. - label: Party
+    trust under ascension pressure summary: Social contract tested when power offers
+    an exit from humanity. ## maps_to_taxonomy - dominate_pilot / dominate_victim
+    - planar_travel_override - canon_pipeline_feel Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: victim_overlay
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_victim
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_liminal_unconscious
+  label: Liminal / unconscious presentation
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'Status-bound liminal or unconscious presentation and return to baseline.
+    Feedstock: …un candidates - label: Cure that harms summary: Trusted procedure
+    as betrayal of body and belief. - label: Faith shatter at the machine summary:
+    Identity progression via institutional doubt. ## maps_to_taxonomy - liminal_unconscious
+    / combat_cast_feedback - class_chrome_discovery - session0_bootstrap'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  ux_family: liminal_states
+  status: pending
+  catalog_face: inhabit
+  experience_mode: liminal_unconscious
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_planar_travel_override_exploration
+  label: Planar / gate travel override (exploration)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'How planar travel or gate-like transitions feel as temporary perspective/agency
+    departures. Feedstock: …(victim)** — dominated PC: presentation policy is spell-bound
+    (e.g. passenger FP with locked input, liminal UI); exact default locked at Phase
+    5 spell metadata. - **Absent-player proxy** — session policy allows a delegate
+    (another player or DM) to **pilot** an absent PC with explicit handoff when the
+    owner returns. - **Enter/exit** — every delegation declares controller, victim
+    presentation, duration, and clean return to `agency: self`… Pillar focus: exploration.
+    Pillar cue: …l states) and **always return to FP** when the effect ends. Third-person
+    **character orbit is out of scope** as default exploration; polymorph and similar
+    effects stay **FP from the new body**. - **Agency delegation (player rail)** —
+    separate from DM…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: planar_travel_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: planar_travel_override
+  mode_tier: critical_matrix
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock'
+  supplement: false
+- id: ux_planar_travel_override_combat
+  label: Planar / gate travel override (combat)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'How planar travel or gate-like transitions feel as temporary perspective/agency
+    departures. Feedstock: …(victim)** — dominated PC: presentation policy is spell-bound
+    (e.g. passenger FP with locked input, liminal UI); exact default locked at Phase
+    5 spell metadata. - **Absent-player proxy** — session policy allows a delegate
+    (another player or DM) to **pilot** an absent PC with explicit handoff when the
+    owner returns. - **Enter/exit** — every delegation declares controller, victim
+    presentation, duration, and clean return to `agency: self`… Pillar focus: combat.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: planar_travel_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: planar_travel_override
+  mode_tier: critical_matrix
+  dnd_pillar: combat
+  feedstock_hit: true
+  pillar_notes: 'combat: (infer from mode)'
+  supplement: false
+- id: ux_planar_travel_override_roleplay
+  label: Planar / gate travel override (roleplay)
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: 'How planar travel or gate-like transitions feel as temporary perspective/agency
+    departures. Feedstock: …(victim)** — dominated PC: presentation policy is spell-bound
+    (e.g. passenger FP with locked input, liminal UI); exact default locked at Phase
+    5 spell metadata. - **Absent-player proxy** — session policy allows a delegate
+    (another player or DM) to **pilot** an absent PC with explicit handoff when the
+    owner returns. - **Enter/exit** — every delegation declares controller, victim
+    presentation, duration, and clean return to `agency: self`… Pillar focus: roleplay.'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: planar_travel_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: planar_travel_override
+  mode_tier: critical_matrix
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'roleplay: (infer from mode)'
+  supplement: false
+- id: ux_chronicle_buckets
+  label: Chronicle data buckets
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Keep world ripples, session chronicle, and personal archive distinct in
+    UX. Feedstock: …abel: Side-deal mischief beside sincere pain summary: Continuous
+    fiction holding comedy theft and family grief in one session. ## maps_to_taxonomy
+    - session0_bootstrap / tone_profile_surface - player_lite_lore_gui / chronicle_buckets
+    - agency_handoff_enter_exit'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  ux_family: chronicle_buckets
+  status: pending
+  catalog_face: table
+  experience_mode: chronicle_buckets
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_dm_workbench_lore_gui
+  label: DM workbench lore GUI
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: 'Canon graph, accept/revise intents, faction off-screen, quest-hook integration
+    UI. Feedstock: …since you left…”) · **Last session** recap · **My chronicle**
+    (personal notes by session, search) · optional export/mirror for note-taking players.
+    **Not** timeline editing, contradiction resolution, or sim admin. | | **DM workbench**
+    | Full canon graph, faction/tribe off-screen activity, accept/revise intents,
+    quest integration from active hooks. | Keep three **data buckets** distinct in
+    UX: **world ripples** (system/DM canon) · **session chronic…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_workbench_lore_gui
+  status: pending
+  catalog_face: table
+  experience_mode: dm_workbench_lore_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_player_lite_lore_gui
+  label: Player-lite lore GUI
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Intent inbox, Legacies, last-session recap, personal chronicle — not sim
+    admin. Feedstock: …rce, monetizable, aggressively modular first-person 3D VTT
+    generator that procedurally creates living, collaborative open worlds from shared
+    DM and player intents — mandatory in-tool session 0, visible world continuity,
+    player-lite legacies and chronicle — players in first-person by default with rules-driven
+    perspective and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed
+    Tabletop MapCam, read-only Sensorium Attach), player lore wove…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: player_lite_lore_gui
+  status: pending
+  catalog_face: table
+  experience_mode: player_lite_lore_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_session0_bootstrap
+  label: Session 0 bootstrap feel
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: 'In-tool session 0 — bounds, tone pick, intent propose, table accept/revise.
+    Feedstock: …Goal ## One-line Build an open-source, monetizable, aggressively modular
+    first-person 3D VTT generator that procedurally creates living, collaborative
+    open worlds from shared DM and player intents — mandatory in-tool session 0, visible
+    world continuity, player-lite legacies and chronicle — players in first-person
+    by default with rules-driven perspective and agency envelopes, DMs on a dedicated
+    rail (WorldCam, map-fixed Tabletop MapCam, read-o…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: session0_bootstrap
+  status: pending
+  catalog_face: table
+  experience_mode: session0_bootstrap
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_tone_profile_surface
+  label: Campaign tone profile surface
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: 'How the chosen tone biases chrome, previews, and felt world without siloed
+    presets. Feedstock: …ts — so quests integrate with the world graph, not generic
+    fetch loops. **Collaborative canon & session bootstrap.** - **Session 0 (required,
+    in-tool):** world bootstrap before campaign play — table bounds, **campaign tone
+    profile** (see below), player intents, DM/table accept or revise canon. Collaborative-history
+    patterns (shared eras, legacies, non-linear threads) are **Microscope-informed**
+    — see [[Ingest/Microscope PDF]] — **not** dependent…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: tone_profile_surface
+  status: pending
+  catalog_face: table
+  experience_mode: tone_profile_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_canon_pipeline_feel
+  label: Canon pipeline feel
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'proposed → accepted → hooked → sim-active as human-facing states. Feedstock:
+    …, legacies, non-linear threads) are **Microscope-informed** — see [[Ingest/Microscope
+    PDF]] — **not** dependent on playing a separate RPG. Optional offline history
+    may **import** as a canon bundle (power-user path). - **Canon pipeline:** `proposed
+    → accepted → hooked → sim-active` — intents become facts, then systemic hooks,
+    then visible ripples and quest pressure. **Campaign tone profiles** — one session-level
+    vibe that biases every subsystem (Pale…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: canon_pipeline_feel
+  status: pending
+  catalog_face: living_world
+  experience_mode: canon_pipeline_feel
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_economy_resources
+  label: Resource distribution visibility
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'What player/DM can see vs must discover about resources — not spreadsheet
+    admin by default. Feedstock: …nts and machine: DM and players feed seeds; the
+    system proposes scaffolds refined through choice loops. ### Operator contract
+    Constraints for **this generation** — normative factory and stack policy. Architecture:
+    [[3-Resources/Second-Brain/Docs/Five-Factories-Trail|Five-Factories-Trail]]. **Stack
+    & platform (locked)** - **Godot 4.6.3 .NET** — implementation engine. - **Linux
+    primary**, Windows secondary (dev, CI smoke, contributor parity).…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: economy_resources
+  status: pending
+  catalog_face: living_world
+  experience_mode: economy_resources
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_economy_trade
+  label: Trade routes / market pressure
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Trade and market pressure as world-continuity surfaces. Feedstock: # Felt
+    moment (pattern language) The party suspects a friend is double-dealing. They
+    **choose to look** (familiar spy, eavesdrop) and catch a disguised meeting. Truth
+    lands: the ally traded sacred secrets for research ambition, then grew to care
+    for the party against the original plan. The table must decide whether to destroy,
+    use, or rehabilitate someone who lied. Players feel clever for connecting threa…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: economy_trade
+  status: pending
+  catalog_face: living_world
+  experience_mode: economy_trade
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_quest_pressure_surface
+  label: Quest pressure from canon
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How hooks appear in play and on the workbench — not fetch-only tables.
+    Feedstock: …e RPG. Optional offline history may **import** as a canon bundle (power-user
+    path). - **Canon pipeline:** `proposed → accepted → hooked → sim-active` — intents
+    become facts, then systemic hooks, then visible ripples and quest pressure. **Campaign
+    tone profiles** — one session-level vibe that biases every subsystem (Palette
+    for *how* the world feels, not plot). Core set (**four only for now**; optional
+    tags/modifiers deferred): | Profile | Vibe (re…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: quest_pressure_surface
+  status: pending
+  catalog_face: living_world
+  experience_mode: quest_pressure_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_sim_weather_pulse
+  label: Weather / ambient sim pulse
+  dimension: sim_system
+  ux_axis: agency
+  summary: 'Tone-weighted weather and ambient world pulse as felt, not raw tick tables.
+    Feedstock: …l: Triage under asymmetric power summary: Choosing who to carry when
+    you cannot save the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam - absent_proxy
+    / agency_handoff_enter_exit - quest_pressure_surface / sim_weather_pulse'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: sim_weather_pulse
+  status: pending
+  catalog_face: living_world
+  experience_mode: sim_weather_pulse
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_faction_goals
+  label: Faction goals / agenda surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Faction goals and pressure as felt by player and DM. Feedstock: # Felt
+    moment (pattern language) The party suspects a friend is double-dealing. They
+    **choose to look** (familiar spy, eavesdrop) and catch a disguised meeting. Truth
+    lands: the ally traded sacred secrets for research ambition, then grew to care
+    for the party against the original plan. The table must decide whether to destroy,
+    use, or rehabilitate someone who lied. Players feel clever for connecting threads
+    — then responsible for the moral af…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: wa_faction_goals
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_goals
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_faction_hierarchy
+  label: Faction hierarchy surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Faction structure and ranks as browsable/playable continuity. Feedstock:
+    # Felt moment (pattern language) Early in a digital D&D-like game, two factions
+    ask for your blade. Choosing a side changes **who you fight**, who trusts you
+    at camp, and which story threads stay open. The fork is not a dialogue checkbox
+    only — the next combat encounter *is* the moral residue. Con…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_faction_hierarchy
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_hierarchy
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_faction_offscreen
+  label: Off-screen faction activity
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Since-you-left deltas and off-screen faction pulse as human-facing continuity.
+    Feedstock: …goal:** show that **actions change the world** — visibly, between
+    sessions, not only in the current scene. - Factions, tribes, and threads from
+    player/DM intents are **canon entities** with history and goals — **active off-screen**
+    while PCs are elsewhere, or **gone with a recorded cause** that can be explored.
+    - **Lore and narrative stay emergent** (not hardcoded plot). **Systems** are in
+    scope: intent population pipelines, reputation and conse…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_faction_offscreen
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_offscreen
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_faction_reputation
+  label: Reputation standing surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Reputation and consequence as surfaced to player vs DM. Feedstock: …giance
+    rewrites the combat cast and camp trust. - label: Incomplete information before
+    blood summary: Deciding with partial truth so regret and authorship coexist. ##
+    maps_to_taxonomy - wa_faction_goals / wa_faction_reputation - baseline_fp / quest_pressure_surface'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_faction_reputation
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_reputation
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_faction_territory
+  label: Faction territory / influence
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Territory and influence as map and embodied discovery. Feedstock: …log
+    and attestation fail path; **PresentationSessionHandle** fields emitted at handoff;
+    `presentation.launch_complete` bus contract; rollback on bootstrap failure. **Out
+    of scope:** PlayRegion viewport mount (**6.1.2** territory); HUD layer stack (**6.1.3**
+    territory); horizon demo spawn (**6.2**); factory vs demo glue (**6.3**); execution-track
+    build pipeline CI wiring (execution-deferred / advisory). ## Behavior **Actors:**
+    Player/operator…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
+  ux_family: wa_faction_territory
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_territory
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  supplement: false
+- id: ux_wa_locations
+  label: Location surfaces
+  dimension: world_gen
+  ux_axis: agency
+  summary: 'Locations as authoring and discovery surfaces. Feedstock: …ent surprises,
+    persistent scars from play — **weighted by campaign tone profile**. - **DM overwrites:**
+    in-session tweaks (tokens, weather, events, whispers) vs. deliberate re-generation
+    for terrain reshaping or biome relocation. - Extensibility: swap simulation flavors,
+    visual styles, rule behaviors, and **tone profiles** without breaking cohesion.
+    **Open source and aggressive modularity** — every system (generation stages, simulation
+    ticks,…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_locations
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_locations
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_lore_articles
+  label: Lore codex / articles
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'World lore articles as readable continuity distinct from personal chronicle.
+    Feedstock: # Felt moment (pattern language) Mid/late game, the player connects
+    breadcrumbs and learns who the **Chosen / conspiracy** really are — or that a
+    trusted voice was shaping them. Lore dump feels earned because the player walked
+    the map. Trust in narrator, dream-guide, or ally rewires. Digital cousin to table
+    information scent. ## Spatial / temporal / control Colony / sanctum / dream space.
+    Soft fra…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: wa_lore_articles
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_lore_articles
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  supplement: false
+- id: ux_wa_maps_vs_embodied
+  label: Maps vs embodied discovery
+  dimension: ui_surface
+  ux_axis: dm_player_rails
+  summary: 'When knowledge comes from map chrome vs first-person discovery. Feedstock:
+    …ou at camp, and which story threads stay open. The fork is not a dialogue checkbox
+    only — the next combat encounter *is* the moral residue. Consequence scent: the
+    world remembers. ## Spatial / temporal / control Split map regions (sanctuary
+    vs hostile camp). Attention on spokespeople then on the battlefield you unlocked.
+    Soft framing via urgency and incomplete information. ## Experience noun candidates
+    - label: Moral fork that schedule…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_maps_vs_embodied
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_maps_vs_embodied
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_npc_agenda
+  label: NPC agenda / schedule visibility
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Agenda and schedule as human-facing continuity — not raw sim tables. Feedstock:
+    …DM canon) · **session chronicle** (table recap) · **personal archive** (player-owned
+    notes — may disagree with canon). **The world pulses with life, customization,
+    and balanced agency.** - Layered simulation: weather, NPC agendas, ambient surprises,
+    persistent scars from play — **weighted by campaign tone profile**. - **DM overwrites:**
+    in-session tweaks (tokens, weather, events, whispers) vs. deliberate re-generation
+    for terrain reshaping or b…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_npc_agenda
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_agenda
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_npc_dialogue_hooks
+  label: NPC dialogue / roleplay hooks
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How dialogue and roleplay hooks surface in the moment of play. Feedstock:
+    …Felt moment (pattern language) Early in a digital D&D-like game, two factions
+    ask for your blade. Choosing a side changes **who you fight**, who trusts you
+    at camp, and which story threads stay open. The fork is not a dialogue checkbox
+    only — the next combat encounter *is* the moral residue. Consequence scent: the
+    world remembers. ## Spatial / temporal / control Split map regions (sanctuary
+    vs hostile camp). Attention on spokespeople then o…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_npc_dialogue_hooks
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_dialogue_hooks
+  mode_tier: multi_pillar
+  dnd_pillar: roleplay
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_npc_relations
+  label: NPC relationship web
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How relationships among NPCs/factions are browsed and felt. Feedstock:
+    …summary: Class and backstory felt as conversation, not menu. - label: Quiet between
+    pillars summary: Designed downtime that keeps continuous fiction alive. - label:
+    Who to sit with tonight summary: Soft agency over relationship temperature between
+    quests. ## maps_to_taxonomy - session0_bootstrap / tone_profile_surface - class_chrome_discovery
+    - application_shell / primary_navigation'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: wa_npc_relations
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_relations
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  supplement: false
+- id: ux_wa_npc_secrets
+  label: NPC secrets / knowledge gates
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How hidden knowledge is gated and revealed without spoiling authoring
+    vs play. Feedstock: # Felt moment (pattern language) A dungeon is structured as
+    **tests** for a companion’s faith or order. Completing it can force a loyalty
+    crisis: spare or sacrifice a person/secret the companion swore to. Exploration
+    authorship (puzzles, paths) ends in a moral fork the party feels at camp afterward.
+    Consequence lands mid-game, not at credits. ## Spatial / temporal / control Authored
+    trial spaces…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: wa_npc_secrets
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_secrets
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_npc_sheet
+  label: NPC identity sheet feel
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'World Anvil–depth NPC identity surface — who they are at a glance in play/authoring.
+    Feedstock: …hat ends in loyalty summary: Authored exploration whose boss is a
+    relationship decision. - label: Spare-or-swear companion crisis summary: Party
+    trust rewritten by one mid-campaign choice. ## maps_to_taxonomy - wa_npc_secrets
+    / wa_npc_relations - canon_pipeline_feel - planar_travel_override (threshold metaphors)'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: wa_npc_sheet
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_sheet
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_wa_timelines
+  label: Timeline / era threads
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'Eras and non-linear history threads as Microscope-informed continuity
+    UX. Feedstock: …eed) · **My Legacies** (canon ripples — tribe status, threads,
+    “since you left…”) · **Last session** recap · **My chronicle** (personal notes
+    by session, search) · optional export/mirror for note-taking players. **Not**
+    timeline editing, contradiction resolution, or sim admin. | | **DM workbench**
+    | Full canon graph, faction/tribe off-screen activity, accept/revise intents,
+    quest integration from active hooks. | Keep three **data buckets** dis…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_timelines
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_timelines
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_worldgen_gui
+  label: Worldgen GUI
+  dimension: world_gen
+  ux_axis: presentation_shells
+  summary: 'Collaborative generation dialogue — propose scaffolds, choose/refine,
+    preview, accept/regenerate. Feedstock: …onflict | | **Grimdark** | Moral gray,
+    harsh consequences (Witcher-like) | Bleak weather bias, costly hope, persistent
+    scars | - **`ToneProfile`** — one bundled profile per campaign (chosen at session
+    0), consumed by **world gen**, **weather**, **sim defaults**, **lore/event tone**,
+    and **quest framing** — not siloed presets per subsystem. - Profiles are **defaults**,
+    not stereotypes; table Palette can veto elements. **Player & DM surfaces.**…'
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: worldgen_gui
+  status: pending
+  catalog_face: living_world
+  experience_mode: worldgen_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  supplement: false
+- id: ux_application_shell
+  label: Application shell / layout chrome
+  dimension: ui_surface
+  ux_axis: presentation_shells
+  summary: 'Baseline shell — screen regions, chrome placement, layout mapping for
+    any product. Feedstock: …ction alive. - label: Who to sit with tonight summary:
+    Soft agency over relationship temperature between quests. ## maps_to_taxonomy
+    - session0_bootstrap / tone_profile_surface - class_chrome_discovery - application_shell
+    / primary_navigation'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: application_shell
+  status: pending
+  catalog_face: surfaces
+  experience_mode: application_shell
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_primary_navigation
+  label: Primary navigation / wayfinding
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How users move between major areas — menus, routes, breadcrumbs, spatial
+    wayfinding. Feedstock: …abel: Who to sit with tonight summary: Soft agency over
+    relationship temperature between quests. ## maps_to_taxonomy - session0_bootstrap
+    / tone_profile_surface - class_chrome_discovery - application_shell / primary_navigation'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: primary_navigation
+  status: pending
+  catalog_face: flows
+  experience_mode: primary_navigation
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_session_onboarding
+  label: Session / onboarding bootstrap
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: 'First-run or session-start rituals — setup, preferences, identity tone
+    before core use. Feedstock: …en recovery reveals emotional injury. - label: Logistics
+    of a missing seat summary: How the table reconfigures roles without a recruit
+    screen. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit - session_onboarding
+    / primary_navigation - chronicle_buckets'
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  ux_family: session_onboarding
+  status: pending
+  catalog_face: flows
+  experience_mode: session_onboarding
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: false
+- id: ux_content_authoring_surface
+  label: Content authoring surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: 'How operators or users create, edit, and publish content — distinct from
+    read-only consumption. Feedstock: …synthesis — L5 remint after contaminated artifact
+    wipe (CTO brief) **Audience:** CTO — timeline and governance risk after intentional
+    User-Story wipe and goal-authority supersession; what must be proven before fresh
+    L5 authoring and `l5_manual_gate`. **Phase:** `conceptual_deepen`; vault-known:
+    `Roadmap/User-Story/` tree **wiped** per remint (`gmm-remint-l5-20260627T231800Z`);
+    prior factory run `7e3881b91953` **superseded**; conceptual roadma…'
+  conceptual_pin: Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
+  derived_from: research:Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
+  ux_family: content_authoring_surface
+  status: pending
+  catalog_face: content
+  experience_mode: content_authoring_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  supplement: false
+- id: ux_class_chrome
+  label: Class / subclass chrome
+  dimension: ui_surface
+  ux_axis: class_chrome
+  summary: Visible class identity polish — not class feature math.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: class_chrome_discovery
+- id: ux_dm_player_rails
+  label: DM / player rails
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: How DM and player flows share chrome without fighting each other.
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: dm_pilot
+- id: ux_dmpausegate_interaction
+  label: DMPauseGate interaction
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `DMPauseGate interaction`.
+    Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-4-SimTickStub-Sim-Stub-Roll-up-2026-07-16.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_feedback_payload_composition_demo_truncated
+  label: Feedback payload composition (demo-truncated)
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `Feedback payload
+    composition (demo-truncated)`. Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-8-PlayerFeedbackChannel-Feedback-Roll-up-2026-07-17.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_launch_playregion_hud_flow
+  label: Launch → PlayRegion → HUD flow
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `Launch → PlayRegion
+    → HUD flow`. Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-Factory-Phase-0-Presentation-Shell-Roll-up-2026-07-15.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_operator_dm_rail_hotkey_vs_scripted_cue
+  label: Operator DM rail hotkey vs scripted cue
+  dimension: ui_surface
+  ux_axis: dm_player_rails
+  summary: Project-specific experience noun from feedstock heading `Operator DM rail
+    hotkey vs scripted cue`. Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-6-DMCamTransitionSlot-DM-Cam-Roll-up-2026-07-16.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: dm_pilot
+- id: ux_perspectiveenvelope_player_fp_activation
+  label: PerspectiveEnvelope `player_fp` activation
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `PerspectiveEnvelope
+    `player_fp` activation`. Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-2-FPExploreRigHost-First-Person-Explore-Roll-up-2026-07-15.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_player_agency_loop
+  label: Player agency loop
+  dimension: player_rail
+  ux_axis: agency
+  summary: Frictionless moments where the player feels authorship over outcomes.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_playerfprig_attachment
+  label: PlayerFPRig attachment
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `PlayerFPRig attachment`.
+    Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-2-Horizon-Demo-V1-Gameplay-Loop/Phase-6-2-1-SpawnBootstrapController-Session-Bootstrap-Roll-up-2026-07-15.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_presentation_shell
+  label: Presentation shell
+  dimension: ui_surface
+  ux_axis: presentation_shells
+  summary: Baseline shell that hosts experience surfaces (supporting axis only).
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: application_shell
+- id: ux_rule_representation
+  label: Rule representation
+  dimension: ui_surface
+  ux_axis: agency
+  summary: Project-specific experience noun from feedstock heading `Rule representation`.
+    Grounds taxonomy coverage in local pin language.
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-5-Rule-System-Integration-and-Extensibility/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks/Phase-5-1-Rule-Engine-Primitives-and-Plugin-Hooks-Roll-up-2026-07-15.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: baseline_fp
+- id: ux_scry_presentation
+  label: Scry / Clairvoyance presentation
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: How perspective overrides feel and present to the player (not the sim alone).
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: divination_override
+- id: ux_session0_identity_art
+  label: Session 0 / identity art
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: Bootstrap rituals and art direction that set identity tone.
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: ''
+  status: pending
+  catalog_face: supplement
+  experience_mode: ''
+  mode_tier: supplement
+  dnd_pillar: shared
+  feedstock_hit: true
+  pillar_notes: ''
+  supplement: true
+  maps_to: session0_bootstrap

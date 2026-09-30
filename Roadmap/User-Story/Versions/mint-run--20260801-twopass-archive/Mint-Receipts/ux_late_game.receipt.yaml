@@ -1,0 +1,42 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T19:33:10Z'
+lock_state: applied
+renamed_from: ux_end_game
+bone_pilot_edit: id ux_late_game; depends_on += ux_mid_game; default same-world next
+  campaign named
+decision: late band + close + persistence; same-world next campaign default; no progression
+  parent
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Late band crescendo/close/NPC persistence; default same-world continuation;
+    not one finale skin.
+row:
+  id: ux_late_game
+  dimension: ui_surface
+  label: Late play is a power band for campaign crescendo, close, and character-to-world
+    persistence
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  - ux_mid_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+  renamed_from: ux_end_game
+does_not_mandate:
+- the only correct ending is institutional seizure
+- end game must erase player legacies
+- progression requires a separate series parent from stage bands
+- session prep replaces the late power-band / close contract
+- post-close must start in a different world by default
+- late play is only the final session, not a high power band
+alternatives_not_banned:
+- Abrupt DM end vs long staged crescendo
+- Heavy retirement planning vs light future-notes
+- Same-world next campaign immediately vs gap time in world sim only
+- Multi-world / multi-campaign setups via existing parents

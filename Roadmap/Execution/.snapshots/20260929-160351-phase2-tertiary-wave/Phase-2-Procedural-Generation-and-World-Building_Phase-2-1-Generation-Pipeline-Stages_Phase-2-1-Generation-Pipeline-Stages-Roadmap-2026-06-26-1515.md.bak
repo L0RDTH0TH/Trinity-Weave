@@ -1,0 +1,233 @@
+---
+title: Phase 2.1 — Generation Pipeline Stages (Execution)
+roadmap-level: secondary
+phase-number: 2
+subphase-index: "2.1"
+project-id: genesis-mythos-master
+roadmap_track: execution
+conceptual_counterpart: '[[1-Projects/genesis-mythos-master/Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-1-Generation-Pipeline-Stages/Phase-2-1-Generation-Pipeline-Stages-Roadmap-2026-06-26-1515]]'
+status: active
+priority: high
+progress: 45
+handoff_readiness: 72
+package_id: pkg_world_shell
+catalog_row_ids:
+- ux_world_generation
+product_factory_run_id: overnight-exec-20260928
+persona_id: half_a.execution_tech_lead
+created: 2026-09-29
+updated: 2026-09-29
+tags:
+- roadmap
+- genesis-mythos-master
+- phase-2
+- generation-pipeline
+- execution
+- pkg_world_shell
+para-type: Project
+links:
+- '[[1-Projects/genesis-mythos-master/Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-1-Generation-Pipeline-Stages/Phase-2-1-Generation-Pipeline-Stages-Roadmap-2026-06-26-1515]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-2-Procedural-Generation-and-World-Building/Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-1-Conceptual-Foundation-and-Core-Architecture/Phase-1-2-Procedural-Generation-Graph-and-Intent-Population-Pipeline/Phase-1-2-Procedural-Generation-Graph-and-Intent-Population-Pipeline-Roadmap-2026-06-26-1022]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-1-Conceptual-Foundation-and-Core-Architecture/Phase-1-3-Modularity-Seams-and-Safety-Invariants/Phase-1-3-Modularity-Seams-and-Safety-Invariants-Roadmap-2026-06-26-1437]]'
+- '[[Ingest/Agent-Research/godot-worldshell-node-scenetree-citations-gmm-2026-09-29-0126]]'
+---
+
+# Phase 2.1 — Generation Pipeline Stages (Execution)
+
+Execution secondary for SeedParser → stage DAG (`terrain → biomes → POIs → entities → sim_bootstrap`) → DeterministicCompiler under disposable generated-world container. Parallel spine under `Roadmap/Execution/Phase-2-…/Phase-2-1-…/`. **No Half B code. No L5 / factory.**
+
+### Intent Mapping
+
+| Field | Value |
+|-------|--------|
+| Design intent | Collaborative world-forge pipeline with dry-run gates + optional refinement pauses ([[conceptual 2.1#Behavior]]) |
+| Inspiration (studied) | (1) Conceptual 2.1 + tertiary 2.1.1. (2) Execution 1.2 StageOrchestrator / DeterministicCompiler. (3) Execution Phase-2 WorldShell swap semantics. (4) [[Ingest/Agent-Research/godot-worldshell-node-scenetree-citations-gmm-2026-09-29-0126]] |
+| L5 / package crosswalk | `pkg_world_shell` / `ux_world_generation` — read-only L5 bar; no L5 edit |
+| Execution mechanism | GDScript interfaces + pseudo for SeedParser, GenerationPipeline, stage executors, CollaborativeRefinementLoop hooks, DryRun + compile |
+| Validation signal | Tertiary **2.1.1** execution mirror next; wave continues 2.2 / 2.3 |
+
+### ux_context crosswalk
+
+| Envelope key | This run |
+|--------------|----------|
+| `catalog_row_ids` | `ux_world_generation` |
+| `package_id` | `pkg_world_shell` |
+| `l5_path` | `Roadmap/User-Story/scopes/ux_world_generation/L5.md` (read-only) |
+| `conceptual_pin` | Frozen conceptual 2.1 + 2.1.1 |
+| `dispatch_scope` | Execution secondary **2.1** mint (FAST wave) |
+
+## Module map
+
+| Module | Responsibility |
+|--------|----------------|
+| `SeedParser` | Session-0 → SeedBundle + ProvenanceEnvelope; blocks if tone missing |
+| `GenerationPipeline` | Owns DAGValidator + StageOrchestrator under generated container |
+| `TerrainStageExecutor` | SeedBundle + tone weights → TerrainManifest |
+| `BiomeStageExecutor` | TerrainManifest → BiomeManifest |
+| `POIStageExecutor` | BiomeManifest + accepted hooks → POIManifest |
+| `EntityStageExecutor` | POIManifest + LoreHookRegistry → EntityManifest |
+| `SimBootstrapStageExecutor` | EntityManifest → SimGraphSeed |
+| `CollaborativeRefinementLoop` | Optional pause points (registry detail → **2.1.1**) |
+| `DryRunValidator` | Entry + pre-compile (import Execution 1.3.3) |
+| `DeterministicCompiler` | Manifests → byte-stable CompiledWorldManifest |
+| `WorldEventLogInitializer` | Seed append-only log from compiled manifest |
+
+## Interfaces
+
+```text
+enum StageId { TERRAIN, BIOMES, POIS, ENTITIES, SIM_BOOTSTRAP }
+
+SeedBundle (RefCounted):
+  + map_seed: int
+  + tone_profile_id: StringName
+  + accepted_fact_ids: PackedStringArray
+  + tone_fingerprint: String
+  + to_dict() -> Dictionary
+
+SeedParser (RefCounted):
+  + parse(session_closure: Dictionary) -> Dictionary
+  # { ok:bool, bundle:SeedBundle, error:Error, missing:PackedStringArray }
+  signals: seed_bundle_ready(fingerprint), seed_bundle_blocked(missing)
+
+IStageExecutor (RefCounted):
+  + stage_id() -> StageId
+  + run(upstream: Dictionary, weights: Dictionary) -> Dictionary
+  # returns manifest Dictionary; may set partial:true + reason
+
+GenerationPipeline (Node, disposable under GeneratedWorldContainer — NOT Autoload):
+  + run(bundle: SeedBundle) -> Error
+  + last_manifests() -> Dictionary
+  + last_compiled() -> Dictionary
+  signals: stage_ready(stage_id), stage_failed(stage_id, reason)
+  signals: pipeline_complete(manifest_id), pipeline_aborted(reason)
+  signals: refinement_pause(stage_id, scaffold_delta)
+
+CollaborativeRefinementLoop (RefCounted):
+  + should_pause(stage_id: StageId) -> bool
+  + present(scaffold_delta: Dictionary) -> void
+  + await_decision(timeout_sec: float) -> Dictionary  # {accepted:bool, revisions:Dictionary}
+  signals: refinement_accepted(stage_id), refinement_timeout(stage_id)
+
+WorldEventLogInitializer (RefCounted):
+  + init_from(manifest: Dictionary) -> Error
+  signals: world_event_log_ready(path_hint)
+```
+
+## Pseudo-code
+
+```pseudo
+# Phase 2.1 — Generation pipeline under disposable container (Godot 4 stable).
+# Citations: docs.godotengine.org/en/stable/ (Node, RefCounted, Error/OK, queue_free children).
+# Reject: Autoload GenerationPipeline; world write inside DryRunValidator; unseeded RNG in compile.
+
+class_name GenerationPipeline
+extends Node
+
+signal stage_ready(stage_id)
+signal stage_failed(stage_id, reason)
+signal pipeline_complete(manifest_id)
+signal pipeline_aborted(reason)
+signal refinement_pause(stage_id, scaffold_delta)
+
+var _dag: DAGValidator          # from Execution 1.2
+var _dry_run: DryRunValidator   # from Execution 1.3
+var _snapshot: SeedSnapshotAuthority
+var _injector: ToneProfileInjector
+var _intent: IntentResolver     # boundary with 2.2
+var _compiler: DeterministicCompiler
+var _loop: CollaborativeRefinementLoop
+var _executors: Dictionary      # StageId -> IStageExecutor
+var _manifests: Dictionary = {}
+
+func run(bundle: SeedBundle) -> Error:
+    var snap := _snapshot.last_sealed()
+    var entry := _dry_run.validate({"phase": "entry", "bundle": bundle.to_dict()}, snap)
+    if entry.get("outcome", "") == "fail":
+        pipeline_aborted.emit("dry_run_entry")
+        return ERR_INVALID_PARAMETER
+    var err := _dag.preflight(_default_edges())
+    if err != OK:
+        pipeline_aborted.emit("dag_preflight")
+        return err
+    var order: Array = [StageId.TERRAIN, StageId.BIOMES, StageId.POIS, StageId.ENTITIES, StageId.SIM_BOOTSTRAP]
+    for sid in order:
+        if _loop.should_pause(sid):
+            var delta := {"stage": sid, "upstream": _upstream(sid)}
+            refinement_pause.emit(sid, delta)
+            var decision := _loop.await_decision(session_policy_timeout())
+            if not decision.get("accepted", true):
+                # timeout default accept is encoded in CollaborativeRefinementLoop
+                pass
+        var weights := _injector.apply(sid, bundle.tone_profile_id, {})
+        if sid in [StageId.POIS, StageId.ENTITIES, StageId.SIM_BOOTSTRAP]:
+            err = _intent.resolve_for_stage(sid, null)
+            if err != OK:
+                stage_failed.emit(sid, "intent_gate")
+                pipeline_aborted.emit("intent")
+                return err
+        var m: Dictionary = _executors[sid].run(_upstream(sid), weights)
+        if m.get("partial", false):
+            stage_failed.emit(sid, m.get("reason", "partial"))
+            pipeline_aborted.emit("stage_partial")
+            return ERR_BUG
+        _manifests[sid] = m
+        stage_ready.emit(sid)
+    var pre := _dry_run.validate({"phase": "pre_compile", "manifests": _manifests}, snap)
+    if pre.get("outcome", "") == "fail":
+        pipeline_aborted.emit("dry_run_pre_compile")
+        return ERR_BUSY
+    var compiled := _compiler.compile(bundle, _manifests, _intent.lore_hooks())
+    if not compiled.get("ok", false):
+        pipeline_aborted.emit("compile")
+        return int(compiled.get("error", ERR_BUG))
+    pipeline_complete.emit(str(compiled.get("manifest_id", "")))
+    return OK
+
+# Stages live as children of GeneratedWorldContainer; WorldHost.swap_generated_child
+# queue_free() frees prior container AND all pipeline nodes (stable Node docs).
+```
+
+## Acceptance criteria (execution)
+
+- [x] Parallel spine path under `Execution/Phase-2-…/Phase-2-1-…/` (not flat)
+- [x] Path-qualified `conceptual_counterpart` → conceptual 2.1
+- [x] Interfaces + pseudo for SeedParser / GenerationPipeline / stage executors / DryRun gates
+- [x] Godot stable citations in Research integration (whitelist)
+- [ ] Tertiary **2.1.1** CollaborativeRefinementLoop pause-point registry minted
+- [ ] Edge-case ACs on tertiary (timeout accept, sparse_world, tone block)
+- [ ] Half B / playable ladder later
+
+## Research integration
+
+### Key takeaways
+
+- Pipeline Node is **disposable** under generated container — not Autoload; regen swaps World children.
+- `queue_free()` on container frees all stage children (WorldShell primary contract).
+- Fallible APIs return GlobalScope `Error` / `OK`; past-tense signals on owners.
+- DryRunValidator never mutates world; DeterministicCompiler forbids wall-clock / unseeded entropy.
+
+### Verbatim anchors
+
+> "Finally, when a node is freed with Object.free() or queue_free(), it will also free all its children."
+> — https://docs.godotengine.org/en/stable/classes/class_node.html
+
+> "When changing levels, you can then swap out the children of the \"World\" node."
+> — https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html
+
+> "OK = 0 — Methods that return Error return OK when no error occurred."
+> — https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-error
+
+### Links
+
+- [[Ingest/Agent-Research/godot-worldshell-node-scenetree-citations-gmm-2026-09-29-0126]]
+- [[Ingest/Agent-Research/godot-phase1-layer-decoupling-citations-gmm-2026-09-29-0144]]
+
+## Subphase next
+
+1. Mint **2.1.1** CollaborativeRefinementLoop Pause-Point Registry (DFS).
+2. Sibling secondaries **2.2** / **2.3** (same FAST wave).
+
+## Status
+
+`deepen_complete: true` for Execution **2.1** secondary mint. Nested V/IRA skipped (operator batch-later). Next tertiary **2.1.1**.
