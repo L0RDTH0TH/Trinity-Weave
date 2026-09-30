@@ -38,15 +38,21 @@ rules:
   - treat proof-loop receipts as campaign-capable product Success
   - treat We Be Goblins!-style example pack as product identity
   - implement lan_listen_server as alpha_0 scope
+  - Code-Exhibit player/camera/look/move write without Godot Decision Matrix + Stock Patterns resolved
+  - skip quoting matrix principle line + Player move/look row in agent report for those writes
+  - implement player locomotion via PerspectiveEnvelope / FP-rail / free-fly Camera3D-only (non-stock)
+  - mark segment Success for player-camera when PRECONDITIONS missing (pass status = invalid)
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
   - 'policy: prefer catalog rows tagged alpha_0 before alpha_1/beta'
   - 'policy: Roadmap Execution readonly feedstock — no infinite deepen as Half B'
+  - 'policy: Docs/Half-B-Alpha-Mode.md Godot PRECONDITIONS — invent FPS / missing quote = invalid pass'
   acceptance:
   - Alpha 0 table+module product bar documented
   - release stages alpha_0/alpha_1/beta named on charter
+  - player/camera segments require matrix quote + stock CharacterBody3D pattern
 contract:
   proof:
   - Docs/Half-B-Alpha-Mode.md
@@ -54,15 +60,16 @@ contract:
   invariant_ids:
   - implementation_readonly_roadmap_inputs
   - alpha_0_table_product_bar
+  - godot_fps_preconditions_invalid_without_quote
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-09-30T00:00:00Z'
+  rules_confirmed_at: '2026-09-30T03:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode charter — release-aligned — 2026-09-30
+    operator_note: Half B Alpha mode charter + Godot PRECONDITIONS — 2026-09-30
   last_disconnect: null

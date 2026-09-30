@@ -37,16 +37,21 @@ rules:
   - require roadmap_factory_eat as sole entry when simple catalog implement path is available
   - treat Phase-6-only as global implementation law
   - treat example goblin-style module as product name or identity
+  - overnight or conductor Success around missing Godot matrix quote / non-stock FPS / MCP-only walk+look claim
+  - mark Alpha Success for walk+look without operator F5 attestation
   precedence:
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: alpha_0 prefers catalog release_stage tags over Phase-6-only tourniquet'
   - 'policy: Docs/Half-B-Alpha-Mode.md is operator home for Half B Alpha mode'
+  - 'policy: godot_stock_fps + operator_kinesthetic_walk_look block — invent FPS / MCP-only = invalid'
   acceptance:
   - Docs/Half-B-Alpha-Mode.md states factory_greenlit false and Alpha 0 exit criteria
   - normative path is catalog→implement→playtest→receipt for alpha_0
+  - Godot PRECONDITIONS documented; invent FPS / missing quote = invalid pass
 contract:
   proof:
   - Docs/Half-B-Alpha-Mode.md
+  - Docs/MCP-Playtest-WalkLook.md
   - weave/component-proposals/product_factory_operator_path.yaml
 meta:
   schema_version: 2
@@ -58,4 +63,4 @@ meta:
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode rework 2026-09-30 — defer overnight/BOM/conduct for alpha_0
+    operator_note: Half B Alpha mode + Godot enforcement forbidden Success paths — 2026-09-30

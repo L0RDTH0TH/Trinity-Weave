@@ -6,7 +6,8 @@ conceptual:
   summary: Gate catalog for Half B Alpha mode. Prefer rows/capabilities tagged alpha_0
     before alpha_1/beta. First Alpha 0 set (provisional names OK) — table_front_door,
     session_roles, module_pack_load, rules_min_pf1, seats_fp_dm; lan_listen_server is
-    alpha_1 only. Legacy M0–M8 demo tables remain feedstock, not campaign Success.
+    alpha_1 only. Also machine gates godot_stock_fps + operator_kinesthetic_walk_look
+    (block). Legacy M0–M8 demo tables remain feedstock, not campaign Success.
   primary_case: Agent claims table_front_door complete; gate requires Host table / pick
     module / enter path in Code-Repos with receipt — not overnight conductor green.
   edge_cases:
@@ -36,29 +37,49 @@ rules:
   - reintroduce Phase-6-only as global law
   - treat demo/loop alone as campaign-capable Success
   - implement or gate-pass lan_listen_server under alpha_0
+  - claim Alpha Success / playable push without operator_kinesthetic_walk_look when walk+look claimed
+  - pass player/camera/locomotion slice without godot_stock_fps (stock CharacterBody3D + matrix quote)
+  - accept MCP-only or agent self-cert as walk+look Done
+  - phrase or record 'MCP verified walk+look' as Success evidence
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
   - 'policy: prefer alpha_0-tagged catalog rows before alpha_1/beta'
+  - 'policy: Docs/Half-B-Alpha-Mode.md Godot PRECONDITIONS — invent FPS / missing quote = invalid pass'
   acceptance:
   - Alpha 0 capability ids documented
   - Alpha 0 DONE matches table+module product bar
+  - gates godot_stock_fps and operator_kinesthetic_walk_look present with severity block
+gates:
+  - id: godot_stock_fps
+    applies_when: player / camera / look / move / locomotion Code-Exhibit files
+    pass: CharacterBody3D + child Camera3D + mouse capture path; matrix principle + Player move/look row quoted
+    fail: invent controller; free-fly Camera3D only; no quote; PerspectiveEnvelope/FP-rail as mover
+    severity: block
+  - id: operator_kinesthetic_walk_look
+    applies_when: Alpha Success claim or playable push that asserts walk+look
+    pass: operator F5 attested
+    fail: MCP-only; agent self-cert; phrasing MCP verified walk+look
+    severity: block
 contract:
   proof:
   - Docs/Half-B-Alpha-Mode.md
+  - Docs/MCP-Playtest-WalkLook.md
   invariant_ids:
   - implementation_milestone_binary_gate
   - alpha_0_capability_preference
+  - godot_stock_fps_block
+  - operator_kinesthetic_walk_look_block
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-09-30T00:00:00Z'
+  rules_confirmed_at: '2026-09-30T03:00:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode gates — release-tagged capabilities — 2026-09-30
+    operator_note: Half B Alpha mode gates + godot_stock_fps / operator_kinesthetic block — 2026-09-30
   last_disconnect: null
