@@ -2,6 +2,18 @@
 
 **Branch:** `project/genesis-mythos-master` (branch name — artifacts at **branch root**, not nested under `project/`)
 
+## Player / camera Code-Exhibit (mandatory)
+
+Before any write touching player / camera / look / move:
+
+1. Open `Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md` + `Godot-Stock-Patterns.md` (pin `PIN-stock_godot_fps.md`).
+2. **Quote** the matrix principle line and the Player move/look row in your report.
+3. Stock `CharacterBody3D` FPS only; hosts select cameras — they do not own locomotion.
+4. Missing quote or invent-a-camera ⇒ **invalid pass**. Walk+look Done = **operator F5 only** (ban “MCP verified walk+look”).
+5. Reject codes: `engine_pattern_miss` | `gui_input_steal` | `seat_ok_feel_fail` | `verify_mcp_only`.
+
+Canonical agent brief: [[AGENTS]]. Trinity Half-B PRECONDITIONS + gates `godot_stock_fps` / `operator_kinesthetic_walk_look`. Factory remains not greenlit.
+
 ## If the task is catalog mint
 
 **STOP — this is not `weave/CARD-INDEX` / OBSERVABILITY / harness mint.**

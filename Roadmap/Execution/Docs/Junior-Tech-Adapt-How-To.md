@@ -1,8 +1,8 @@
 ---
 title: Junior Tech-Adapt How-To (Execution) — genesis-mythos-master
 created: 2026-09-29
-updated: 2026-09-29
-tags: [execution, tech-adapt, junior-mandatory, genesis-mythos-master, terrain3d, gaea, diceroller, pf1]
+updated: 2026-09-30
+tags: [execution, tech-adapt, junior-mandatory, genesis-mythos-master, terrain3d, gaea, diceroller, pf1, godot-stock]
 para-type: Project
 project-id: genesis-mythos-master
 roadmap_track: execution
@@ -27,6 +27,8 @@ Authority sources: [[../../Factory-DRB/Tech-Stack-Manifest-v1|Tech-Stack-Manifes
 ---
 
 ## 0. C# / .NET host conventions (all recipes)
+
+**Player FP / cameras (mandatory before Code-Exhibit player/camera write):** Open [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (pin [[PIN-stock_godot_fps]]). Quote the matrix principle line and the Player move/look row in the agent report. Stock `CharacterBody3D` FPS only — Host Index binds; PerspectiveEnvelope / “FP rail” must not own locomotion. Missing quote ⇒ invalid pass (Half-B PRECONDITIONS).
 
 | Rule | Junior action |
 |------|----------------|
@@ -252,6 +254,7 @@ Execution leaves that mention these nouns should link this note and/or include a
 - Phase-5 primary + 5.1.x + 6.2.5 → Recipes D–F  
 - Phase-6.4 Exemplar → Recipes A–C + F (pack defaults) + **§6 paper design assembly**  
 - Phase-1.3 SeamRegistry host index → §0 conventions + seam ids used above  
+- Phase-4 / Phase-6 player FP / cameras / seats → [[Godot-Implementation-Decision-Matrix]] + [[Godot-Stock-Patterns]] (not envelope-as-mover)
 
 ---
 
