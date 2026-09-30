@@ -87,14 +87,22 @@ public static class ModuleSiteBuilder
 
 	private static void AddBox(Node3D parent, string name, Vector3 pos, Vector3 size, Color color)
 	{
-		var mesh = new MeshInstance3D { Name = name, Position = pos };
+		var body = new StaticBody3D { Name = name, Position = pos };
+		var mesh = new MeshInstance3D { Name = "Mesh" };
 		mesh.Mesh = new BoxMesh { Size = size };
 		mesh.MaterialOverride = new StandardMaterial3D
 		{
 			AlbedoColor = color,
 			Roughness = 0.85f,
 		};
-		parent.AddChild(mesh);
+		body.AddChild(mesh);
+		var col = new CollisionShape3D
+		{
+			Name = "Collision",
+			Shape = new BoxShape3D { Size = size },
+		};
+		body.AddChild(col);
+		parent.AddChild(body);
 	}
 
 	private static void AddPillar(Node3D parent, string name, Vector3 pos, Color color)

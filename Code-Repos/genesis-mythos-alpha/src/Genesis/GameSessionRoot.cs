@@ -79,6 +79,7 @@ public partial class GameSessionRoot : Node3D
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 			return;
 		}
+		GetViewport()?.GuiReleaseFocus();
 		GD.Print($"[Alpha0] Table session started seat={seat} pregen={pregenId}");
 	}
 

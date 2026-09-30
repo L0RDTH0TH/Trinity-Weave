@@ -72,7 +72,16 @@ public partial class TablePlaySession : Node3D
 
 		RefreshHud();
 		ApplySeatCamera(showRefuseToast: false);
+		// After role / front-door UI closes, release GUI focus so viewport gets look/move.
+		CallDeferred(nameof(ReleaseUiFocusForPlay));
 		return Error.Ok;
+	}
+
+	private void ReleaseUiFocusForPlay()
+	{
+		GetViewport()?.GuiReleaseFocus();
+		if (_activeSeat == SeatId.Player || _cams?.ActiveMode == PerspectiveMode.FirstPerson)
+			_cams?.CaptureMouseForFp();
 	}
 
 	private void ClearChildren()
@@ -227,33 +236,34 @@ public partial class TablePlaySession : Node3D
 		actions.AddThemeConstantOverride("separation", 10);
 		_hud.AddChild(actions);
 
-		_skillBtn = new Button { Text = "Skill check", CustomMinimumSize = new Vector2(140, 36) };
+		_skillBtn = new Button { Text = "Skill check", CustomMinimumSize = new Vector2(140, 36), FocusMode = Control.FocusModeEnum.None };
 		_skillBtn.Pressed += RunSkillCheck;
 		actions.AddChild(_skillBtn);
 
-		_skirmishBtn = new Button { Text = "Start skirmish", CustomMinimumSize = new Vector2(150, 36) };
+		_skirmishBtn = new Button { Text = "Start skirmish", CustomMinimumSize = new Vector2(150, 36), FocusMode = Control.FocusModeEnum.None };
 		_skirmishBtn.Pressed += StartSkirmish;
 		actions.AddChild(_skirmishBtn);
 
-		_attackBtn = new Button { Text = "Attack", CustomMinimumSize = new Vector2(100, 36), Disabled = true };
+		_attackBtn = new Button { Text = "Attack", CustomMinimumSize = new Vector2(100, 36), Disabled = true, FocusMode = Control.FocusModeEnum.None };
 		_attackBtn.Pressed += ResolveAttack;
 		actions.AddChild(_attackBtn);
 
-		_seatPlayerBtn = new Button { Text = "Seat: Player", CustomMinimumSize = new Vector2(130, 36) };
+		_seatPlayerBtn = new Button { Text = "Seat: Player", CustomMinimumSize = new Vector2(130, 36), FocusMode = Control.FocusModeEnum.None };
 		_seatPlayerBtn.Pressed += () => SwitchSeat(SeatId.Player);
 		actions.AddChild(_seatPlayerBtn);
 
-		_seatDmBtn = new Button { Text = "Seat: DM", CustomMinimumSize = new Vector2(110, 36) };
+		_seatDmBtn = new Button { Text = "Seat: DM", CustomMinimumSize = new Vector2(110, 36), FocusMode = Control.FocusModeEnum.None };
 		_seatDmBtn.Pressed += () => SwitchSeat(SeatId.DmAsPlayer);
 		actions.AddChild(_seatDmBtn);
 
-		_dmRailBtn = new Button { Text = "DM rail view", CustomMinimumSize = new Vector2(130, 36) };
+		_dmRailBtn = new Button { Text = "DM rail view", CustomMinimumSize = new Vector2(130, 36), FocusMode = Control.FocusModeEnum.None };
 		_dmRailBtn.Pressed += ToggleDmRail;
 		actions.AddChild(_dmRailBtn);
 
-		_backDoorBtn = new Button { Text = "Front door", CustomMinimumSize = new Vector2(120, 36) };
+		_backDoorBtn = new Button { Text = "Front door", CustomMinimumSize = new Vector2(120, 36), FocusMode = Control.FocusModeEnum.None };
 		_backDoorBtn.Pressed += () =>
 		{
+			_cams?.ReleaseMouseCapture();
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 			ReturnToFrontDoor?.Invoke();
 		};
@@ -261,7 +271,7 @@ public partial class TablePlaySession : Node3D
 
 		_controls = new Label
 		{
-			Text = "WASD move · Mouse look · C skill · V skirmish · B attack · Tab DM rail (Player→Unauthorized) · Esc quit",
+			Text = "WASD move · Mouse look · Esc free mouse (no quit) · click recapture · C skill · V skirmish · B attack · Tab DM rail",
 			Position = new Vector2(24, 490),
 		};
 		_controls.AddThemeFontSizeOverride("font_size", 13);
@@ -521,14 +531,35 @@ public partial class TablePlaySession : Node3D
 		if (_toastBg != null) _toastBg.Visible = false;
 	}
 
-	public override void _UnhandledInput(InputEvent @event)
+	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventKey { Pressed: true, Keycode: Key.Escape })
+		if (!Visible) return;
+
+		if (@event is InputEventKey { Pressed: true, Echo: false, Keycode: Key.Escape })
 		{
+			// Esc frees mouse only — MUST NOT quit the project.
+			_cams?.ReleaseMouseCapture();
 			Input.MouseMode = Input.MouseModeEnum.Visible;
-			GetTree().Quit();
+			GetViewport().SetInputAsHandled();
 			return;
 		}
+
+		if (@event is InputEventKey { Pressed: true, Echo: false, Keycode: Key.Tab })
+		{
+			if (_cams == null) return;
+			// Tab → DM cam (offline: takes DM seat). Seat: Player returns FP + recapture.
+			if (_activeSeat == SeatId.Player)
+				SwitchSeat(SeatId.DmAsPlayer);
+			else
+				ToggleDmRail();
+			GetViewport().SetInputAsHandled();
+			return;
+		}
+	}
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (!Visible) return;
 
 		if (@event is InputEventKey { Pressed: true, Echo: false, Keycode: Key.C })
 		{
@@ -548,12 +579,6 @@ public partial class TablePlaySession : Node3D
 			GetViewport().SetInputAsHandled();
 			return;
 		}
-
-		if (@event is not InputEventKey { Pressed: true, Keycode: Key.Tab } || _cams == null)
-			return;
-
-		ToggleDmRail();
-		GetViewport().SetInputAsHandled();
 	}
 
 	private static EnemyDef CloneEnemy(EnemyDef e) => new()
