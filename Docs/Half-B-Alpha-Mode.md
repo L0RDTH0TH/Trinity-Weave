@@ -15,6 +15,7 @@ factory_greenlit: false
 
 Canonical junior law (vault / project Execution Docs — **not** duplicated here):
 
+- `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/ENGINE-COMPILE-PACK-stock_godot_fps.md` (**resolve first**)
 - `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md`
 - `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Stock-Patterns.md`
 - `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PIN-stock_godot_fps.md`
@@ -22,17 +23,21 @@ Canonical junior law (vault / project Execution Docs — **not** duplicated here
 
 ```text
 PRECONDITION for any Code-Exhibit write touching player / camera / look / move:
-  1. Decision Matrix + Stock Patterns paths resolved
-  2. Agent output quotes principle line + Player move/look matrix row
-  3. Implementation matches stock CharacterBody3D pattern (not envelope-as-mover)
+  1. ENGINE-COMPILE-PACK-stock_godot_fps resolved (pins + assembly checklist)
+  2. Decision Matrix + Stock Patterns paths resolved
+  3. Agent output quotes principle line + Player move/look matrix row
+  4. Implementation matches stock CharacterBody3D pattern (not envelope-as-mover)
+  5. Assembly checklist all yes (file:line / MCP structural) BEFORE asking operator kinesthetic attest
 Missing any ⇒ pass status = invalid; do not push playable claim; do not mark Alpha Success
 ```
+
+**FpsSanity gate (locomotion):** No table/Main UI F5 for walk+look until the operator attests FpsSanity (`res://dev/FpsSanity.tscn`) walk+look. Do not restore `run/main_scene` to Main for locomotion proof before that attest.
 
 **Principle (must be quotable):** ClassDB first. Host Index binds. Never parallel physics/controller. Prefer stock Godot; extend only at seat/authority boundaries.
 
 **Hard veto:** walk OR look fail ⇒ not Alpha Success.  
 **Presentation scrap:** human “no camera difference” ⇒ typed reject `engine_pattern_miss` (not more HUD).  
-**MCP:** synthetic input / automated probes are **necessary, not sufficient**. **Only operator F5** sets walk+look Done. Ban phrasing: “MCP verified walk+look.”  
+**MCP:** synthetic input / automated probes are **necessary, not sufficient**. **Only operator FpsSanity F5** sets walk+look Done. Ban phrasing: “MCP verified walk+look.”  
 See [[MCP-Playtest-WalkLook]].
 
 ### Failure taxonomy (reject codes — first-class)
