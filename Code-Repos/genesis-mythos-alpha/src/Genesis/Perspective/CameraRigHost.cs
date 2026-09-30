@@ -20,36 +20,26 @@ public interface ICameraRig
 }
 
 /// <summary>
-/// ICameraRig — real FP CharacterBody3D (WASD + mouse look) + DM aerial over same place.
-/// Player≠DM rail. Esc uncaptures mouse; click / resume Player seat recaptures.
+/// Seat camera swap only. FP walk+look lives on <see cref="FpPlayerController"/> (CharacterBody3D).
+/// DM = aerial Camera3D; FP script disabled while DM is current.
 /// </summary>
 public partial class CameraRigHost : Node3D, ICameraRig
 {
-	private CharacterBody3D? _fpBody;
-	private Camera3D? _fpCam;
+	private FpPlayerController? _fp;
 	private Camera3D? _dmCam;
 	private PerspectiveMode? _active;
 	private ReceiptLedger? _ledger;
 	private Error _lastRefuse = Error.Ok;
-	private bool _fpControl;
-	private float _yaw;
-	private float _pitch = -0.08f;
 	private Vector3 _fpOrigin = new(0f, 1.65f, 7.5f);
 	private Vector3 _dmOrigin = new(0f, 16f, 10f);
 	private Vector3 _dmRotationDegrees = new(-58f, 0f, 0f);
-
-	public const float MoveSpeed = 5.2f;
-	public const float LookSensitivity = 0.0025f;
-	public const float EyeHeight = 1.65f;
-	public const float PitchMinRad = -1.4835f; // ~-85 deg
-	public const float PitchMaxRad = 1.4835f;  // ~+85 deg
-	public const float Gravity = 24f;
 
 	public PerspectiveMode? ActiveMode => _active;
 	public bool FpMounted { get; private set; }
 	public bool DmMounted { get; private set; }
 	public Error LastRefuse => _lastRefuse;
 	public bool MouseCaptured => Input.MouseMode == Input.MouseModeEnum.Captured;
+	public FpPlayerController? FpPlayer => _fp;
 
 	public void BindLedger(ReceiptLedger ledger) => _ledger = ledger;
 
@@ -62,133 +52,55 @@ public partial class CameraRigHost : Node3D, ICameraRig
 			_dmRotationDegrees = rotationDegrees.Value;
 	}
 
-	public override void _Ready() => EnsureCams();
+	public override void _Ready() => EnsureRigs();
 
-	public override void _UnhandledInput(InputEvent @event)
+	private void EnsureRigs()
 	{
-		if (_active != PerspectiveMode.FirstPerson || _fpBody == null || _fpCam == null)
+		if (_fp != null && GodotObject.IsInstanceValid(_fp) && _dmCam != null && GodotObject.IsInstanceValid(_dmCam))
 			return;
 
-		// Click into play viewport to recapture when mouse is free (Player FP seat).
-		if (_fpControl && @event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left }
-		    && Input.MouseMode != Input.MouseModeEnum.Captured)
+		_fp = GetNodeOrNull<FpPlayerController>("FpPlayer");
+		if (_fp == null)
 		{
-			CaptureMouseForFp();
-			GetViewport().SetInputAsHandled();
-			return;
+			_fp = new FpPlayerController
+			{
+				Name = "FpPlayer",
+				FloorStopOnSlope = true,
+				FloorMaxAngle = Mathf.DegToRad(46f),
+				FloorSnapLength = 0.2f,
+			};
+			AddChild(_fp);
 		}
+		_fp.EnsureEyeCamera();
 
-		if (!_fpControl || Input.MouseMode != Input.MouseModeEnum.Captured)
-			return;
-
-		if (@event is InputEventMouseMotion motion)
+		_dmCam = GetNodeOrNull<Camera3D>("DmCamera");
+		if (_dmCam == null)
 		{
-			_yaw -= motion.Relative.X * LookSensitivity;
-			_pitch -= motion.Relative.Y * LookSensitivity;
-			_pitch = Mathf.Clamp(_pitch, PitchMinRad, PitchMaxRad);
-			ApplyLookRotation();
-			GetViewport().SetInputAsHandled();
+			_dmCam = new Camera3D
+			{
+				Name = "DmCamera",
+				Current = false,
+				Fov = 50f,
+				Position = _dmOrigin,
+				RotationDegrees = _dmRotationDegrees,
+			};
+			AddChild(_dmCam);
 		}
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		if (!_fpControl || _active != PerspectiveMode.FirstPerson || _fpBody == null)
-			return;
-
-		var input = Vector3.Zero;
-		if (Input.IsKeyPressed(Key.W) || Input.IsKeyPressed(Key.Up)) input.Z -= 1f;
-		if (Input.IsKeyPressed(Key.S) || Input.IsKeyPressed(Key.Down)) input.Z += 1f;
-		if (Input.IsKeyPressed(Key.A) || Input.IsKeyPressed(Key.Left)) input.X -= 1f;
-		if (Input.IsKeyPressed(Key.D) || Input.IsKeyPressed(Key.Right)) input.X += 1f;
-
-		var vel = _fpBody.Velocity;
-		if (!_fpBody.IsOnFloor())
-			vel.Y -= Gravity * (float)delta;
-		else if (vel.Y < 0f)
-			vel.Y = -0.1f;
-
-		if (input != Vector3.Zero)
-		{
-			input = input.Normalized();
-			var basis = Basis.FromEuler(new Vector3(0f, _yaw, 0f));
-			var wish = basis * input;
-			wish.Y = 0f;
-			wish = wish.Normalized() * MoveSpeed;
-			vel.X = wish.X;
-			vel.Z = wish.Z;
-		}
-		else
-		{
-			vel.X = 0f;
-			vel.Z = 0f;
-		}
-
-		_fpBody.Velocity = vel;
-		_fpBody.MoveAndSlide();
-	}
-
-	private void EnsureCams()
-	{
-		if (_fpBody != null && _fpCam != null && _dmCam != null) return;
-
-		_fpBody = new CharacterBody3D
-		{
-			Name = "FpPlayer",
-			FloorStopOnSlope = true,
-			FloorMaxAngle = Mathf.DegToRad(46f),
-		};
-		var capsule = new CollisionShape3D
-		{
-			Name = "FpCapsule",
-			Position = new Vector3(0f, 0.9f, 0f),
-			Shape = new CapsuleShape3D { Radius = 0.35f, Height = 1.7f },
-		};
-		_fpBody.AddChild(capsule);
-
-		_fpCam = new Camera3D
-		{
-			Name = "FpCamera",
-			Current = false,
-			Fov = 75f,
-			Position = new Vector3(0f, EyeHeight, 0f),
-		};
-		_fpBody.AddChild(_fpCam);
-		AddChild(_fpBody);
-
-		_dmCam = new Camera3D
-		{
-			Name = "DmCamera",
-			Current = false,
-			Fov = 50f,
-			Position = _dmOrigin,
-			RotationDegrees = _dmRotationDegrees,
-		};
-		AddChild(_dmCam);
-	}
-
-	private void ApplyLookRotation()
-	{
-		if (_fpBody == null || _fpCam == null) return;
-		_fpBody.Rotation = new Vector3(0f, _yaw, 0f);
-		_fpCam.Rotation = new Vector3(_pitch, 0f, 0f);
 	}
 
 	private void ResetFpToSpawn()
 	{
-		if (_fpBody == null || _fpCam == null) return;
-		// SpawnEye is eye height; body feet sit slightly above floor top (Y≈0).
-		_fpBody.GlobalPosition = new Vector3(_fpOrigin.X, 0.05f, _fpOrigin.Z);
-		_fpBody.Velocity = Vector3.Zero;
-		_yaw = 0f;
-		_pitch = -0.08f;
-		ApplyLookRotation();
+		if (_fp == null) return;
+		// SpawnEye is eye height; body origin sits just above floor top (Y≈0).
+		_fp.GlobalPosition = new Vector3(_fpOrigin.X, 0.05f, _fpOrigin.Z);
+		_fp.Velocity = Vector3.Zero;
+		_fp.ResetLook();
 	}
 
 	public Error Activate(PerspectiveMode mode, SeatContext seat)
 	{
 		_lastRefuse = Error.Ok;
-		EnsureCams();
+		EnsureRigs();
 
 		if (mode == PerspectiveMode.DmWorldCam)
 		{
@@ -205,9 +117,9 @@ public partial class CameraRigHost : Node3D, ICameraRig
 				WriteCamReceipt();
 				return dmSeat;
 			}
-			_fpControl = false;
+			_fp!.SetControlEnabled(false);
 			ReleaseMouseCapture();
-			_fpCam!.Current = false;
+			_fp.MakeCurrentCamera(false);
 			_dmCam!.Current = true;
 			_dmCam.Position = _dmOrigin;
 			_dmCam.RotationDegrees = _dmRotationDegrees;
@@ -224,10 +136,10 @@ public partial class CameraRigHost : Node3D, ICameraRig
 			return fpSeat;
 		}
 		_dmCam!.Current = false;
-		_fpCam!.Current = true;
+		_fp!.MakeCurrentCamera(true);
 		if (!FpMounted)
 			ResetFpToSpawn();
-		_fpControl = true;
+		_fp.SetControlEnabled(true);
 		CaptureMouseForFp();
 		_active = PerspectiveMode.FirstPerson;
 		FpMounted = true;
@@ -238,16 +150,24 @@ public partial class CameraRigHost : Node3D, ICameraRig
 	public Error ApplyFov(float fovDegrees)
 	{
 		if (_active == null) return Error.Unconfigured;
-		var cam = _active == PerspectiveMode.FirstPerson ? _fpCam : _dmCam;
-		if (cam == null) return Error.Unconfigured;
-		cam.Fov = fovDegrees;
+		if (_active == PerspectiveMode.FirstPerson)
+		{
+			_fp?.EnsureEyeCamera();
+			if (_fp?.EyeCamera == null) return Error.Unconfigured;
+			_fp.EyeCamera.Fov = fovDegrees;
+			return Error.Ok;
+		}
+		if (_dmCam == null) return Error.Unconfigured;
+		_dmCam.Fov = fovDegrees;
 		return Error.Ok;
 	}
 
 	public void SetFpControl(bool enabled)
 	{
-		_fpControl = enabled && _active == PerspectiveMode.FirstPerson;
-		if (_fpControl)
+		EnsureRigs();
+		var on = enabled && _active == PerspectiveMode.FirstPerson;
+		_fp!.SetControlEnabled(on);
+		if (on)
 			CaptureMouseForFp();
 		else
 			ReleaseMouseCapture();

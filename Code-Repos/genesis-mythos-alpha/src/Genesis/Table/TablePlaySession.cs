@@ -145,6 +145,8 @@ public partial class TablePlaySession : Node3D
 		{
 			Position = new Vector2(24, 20),
 			CustomMinimumSize = new Vector2(560, 130),
+			// Do not eat viewport clicks needed for mouse recapture after Esc.
+			MouseFilter = Control.MouseFilterEnum.Ignore,
 		};
 		var style = new StyleBoxFlat
 		{
@@ -161,10 +163,10 @@ public partial class TablePlaySession : Node3D
 		panel.AddThemeStyleboxOverride("panel", style);
 		_hud.AddChild(panel);
 
-		var vbox = new VBoxContainer();
+		var vbox = new VBoxContainer { MouseFilter = Control.MouseFilterEnum.Ignore };
 		panel.AddChild(vbox);
 
-		_hudTitle = new Label { Text = "Table" };
+		_hudTitle = new Label { Text = "Table", MouseFilter = Control.MouseFilterEnum.Ignore };
 		_hudTitle.AddThemeFontSizeOverride("font_size", 24);
 		_hudTitle.AddThemeColorOverride("font_color", new Color(0.95f, 0.88f, 0.62f));
 		vbox.AddChild(_hudTitle);
@@ -174,17 +176,18 @@ public partial class TablePlaySession : Node3D
 			Text = "",
 			AutowrapMode = TextServer.AutowrapMode.WordSmart,
 			CustomMinimumSize = new Vector2(520, 0),
+			MouseFilter = Control.MouseFilterEnum.Ignore,
 		};
 		_hudBody.AddThemeFontSizeOverride("font_size", 14);
 		_hudBody.AddThemeColorOverride("font_color", new Color(0.88f, 0.90f, 0.94f));
 		vbox.AddChild(_hudBody);
 
-		_hudSheet = new Label { Text = "", Position = new Vector2(24, 170) };
+		_hudSheet = new Label { Text = "", Position = new Vector2(24, 170), MouseFilter = Control.MouseFilterEnum.Ignore };
 		_hudSheet.AddThemeFontSizeOverride("font_size", 13);
 		_hudSheet.AddThemeColorOverride("font_color", new Color(0.75f, 0.9f, 0.8f));
 		_hud.AddChild(_hudSheet);
 
-		_seatBadge = new Label { Text = "", Position = new Vector2(24, 210) };
+		_seatBadge = new Label { Text = "", Position = new Vector2(24, 210), MouseFilter = Control.MouseFilterEnum.Ignore };
 		_seatBadge.AddThemeFontSizeOverride("font_size", 14);
 		_seatBadge.AddThemeColorOverride("font_color", new Color(0.85f, 0.82f, 0.55f));
 		_hud.AddChild(_seatBadge);
@@ -195,6 +198,7 @@ public partial class TablePlaySession : Node3D
 			Position = new Vector2(24, 240),
 			AutowrapMode = TextServer.AutowrapMode.WordSmart,
 			CustomMinimumSize = new Vector2(700, 0),
+			MouseFilter = Control.MouseFilterEnum.Ignore,
 		};
 		_honesty.AddThemeFontSizeOverride("font_size", 12);
 		_honesty.AddThemeColorOverride("font_color", new Color(0.62f, 0.66f, 0.55f));
@@ -206,6 +210,7 @@ public partial class TablePlaySession : Node3D
 			Position = new Vector2(24, 280),
 			AutowrapMode = TextServer.AutowrapMode.WordSmart,
 			CustomMinimumSize = new Vector2(720, 0),
+			MouseFilter = Control.MouseFilterEnum.Ignore,
 		};
 		_hudResult.AddThemeFontSizeOverride("font_size", 16);
 		_hudResult.AddThemeColorOverride("font_color", new Color(0.95f, 0.92f, 0.75f));
@@ -256,7 +261,7 @@ public partial class TablePlaySession : Node3D
 		_seatDmBtn.Pressed += () => SwitchSeat(SeatId.DmAsPlayer);
 		actions.AddChild(_seatDmBtn);
 
-		_dmRailBtn = new Button { Text = "DM rail view", CustomMinimumSize = new Vector2(130, 36), FocusMode = Control.FocusModeEnum.None };
+		_dmRailBtn = new Button { Text = "DM cam", CustomMinimumSize = new Vector2(130, 36), FocusMode = Control.FocusModeEnum.None };
 		_dmRailBtn.Pressed += ToggleDmRail;
 		actions.AddChild(_dmRailBtn);
 
@@ -271,8 +276,9 @@ public partial class TablePlaySession : Node3D
 
 		_controls = new Label
 		{
-			Text = "WASD move · Mouse look · Esc free mouse (no quit) · click recapture · C skill · V skirmish · B attack · Tab DM rail",
+			Text = "WASD move · Mouse look · Esc free mouse (no quit) · click recapture · C skill · V skirmish · B attack · Tab DM cam",
 			Position = new Vector2(24, 490),
+			MouseFilter = Control.MouseFilterEnum.Ignore,
 		};
 		_controls.AddThemeFontSizeOverride("font_size", 13);
 		_controls.AddThemeColorOverride("font_color", new Color(0.72f, 0.75f, 0.8f));
