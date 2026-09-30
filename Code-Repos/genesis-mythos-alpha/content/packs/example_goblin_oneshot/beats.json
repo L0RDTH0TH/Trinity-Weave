@@ -1,0 +1,25 @@
+{
+  "skill_check": {
+    "id": "sneak_past_lanterns",
+    "title": "Sneak past the lanterns",
+    "skill_id": "stealth",
+    "skill_fallback_label": "Stealth",
+    "dc": 12,
+    "blurb": "PF1-shaped: d20 + Stealth mod vs DC 12. Result shows on screen."
+  },
+  "skirmish": {
+    "id": "clearing_scrap",
+    "title": "Clearing scrap",
+    "blurb": "Simple initiative, one attack exchange, damage, HP. One enemy placeholder.",
+    "enemy": {
+      "id": "camp_mongrel",
+      "name": "Camp Mongrel (placeholder)",
+      "hp": 6,
+      "hp_max": 6,
+      "attack_mod": 2,
+      "damage": "1d4",
+      "ac": 12,
+      "initiative_mod": 2
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "sites": [
+    {
+      "id": "cave_mouth_path",
+      "name": "Cave Mouth Path",
+      "kind": "path",
+      "blurb": "Lantern-lit trail from the tribe cave mouth toward the scrap clearing. Placeholder geometry.",
+      "spawn_eye": [0.0, 1.65, 7.5],
+      "dm_eye": [0.0, 16.0, 10.0],
+      "theme": "cave_dusk"
+    },
+    {
+      "id": "scrap_clearing",
+      "name": "Scrap Clearing",
+      "kind": "landmark",
+      "blurb": "Open dirt patch past the lanterns — good place for a short scuffle.",
+      "spawn_eye": [0.0, 1.65, -4.0],
+      "dm_eye": [0.0, 14.0, 4.0],
+      "theme": "clearing"
+    }
+  ]
+}

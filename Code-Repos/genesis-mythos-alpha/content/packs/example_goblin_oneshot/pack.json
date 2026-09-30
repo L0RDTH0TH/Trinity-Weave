@@ -1,0 +1,12 @@
+{
+  "pack_id": "example_goblin_oneshot",
+  "title": "Example Goblin Oneshot",
+  "subtitle": "Example module cartridge — NOT campaign ship / NOT full Genesis campaign",
+  "ruleset_bind": "pathfinder_pf1",
+  "release_stage": "alpha_0",
+  "honesty": "Placeholder art. Offline table only. No LAN. Original example cartridge for Alpha 0 — not a licensed adventure dump.",
+  "default_site_id": "cave_mouth_path",
+  "pregens_file": "pregens.json",
+  "sites_file": "sites.json",
+  "beats_file": "beats.json"
+}

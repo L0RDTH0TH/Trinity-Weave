@@ -1,0 +1,64 @@
+{
+  "pregens": [
+    {
+      "id": "goblin_scout_rinka",
+      "name": "Rinka",
+      "ancestry_label": "Goblin (example)",
+      "hp": 8,
+      "hp_max": 8,
+      "attack_mod": 3,
+      "damage": "1d4+1",
+      "ac": 15,
+      "skills": [
+        { "id": "stealth", "label": "Stealth", "mod": 6 },
+        { "id": "perception", "label": "Perception", "mod": 2 },
+        { "id": "acrobatics", "label": "Acrobatics", "mod": 4 }
+      ]
+    },
+    {
+      "id": "goblin_bruiser_mog",
+      "name": "Mog",
+      "ancestry_label": "Goblin (example)",
+      "hp": 12,
+      "hp_max": 12,
+      "attack_mod": 4,
+      "damage": "1d6+2",
+      "ac": 14,
+      "skills": [
+        { "id": "intimidate", "label": "Intimidate", "mod": 3 },
+        { "id": "perception", "label": "Perception", "mod": 1 },
+        { "id": "climb", "label": "Climb", "mod": 5 }
+      ]
+    },
+    {
+      "id": "goblin_firebug_zip",
+      "name": "Zip",
+      "ancestry_label": "Goblin (example)",
+      "hp": 7,
+      "hp_max": 7,
+      "attack_mod": 2,
+      "damage": "1d4",
+      "ac": 13,
+      "skills": [
+        { "id": "craft_alchemy", "label": "Craft (alchemy)", "mod": 4 },
+        { "id": "stealth", "label": "Stealth", "mod": 5 },
+        { "id": "perception", "label": "Perception", "mod": 3 }
+      ]
+    },
+    {
+      "id": "goblin_slicer_nub",
+      "name": "Nub",
+      "ancestry_label": "Goblin (example)",
+      "hp": 9,
+      "hp_max": 9,
+      "attack_mod": 3,
+      "damage": "1d4+1",
+      "ac": 14,
+      "skills": [
+        { "id": "stealth", "label": "Stealth", "mod": 4 },
+        { "id": "sleight_of_hand", "label": "Sleight of Hand", "mod": 5 },
+        { "id": "perception", "label": "Perception", "mod": 2 }
+      ]
+    }
+  ]
+}
