@@ -27,5 +27,6 @@ You found **Trinity-Weave** on GitHub. This folder is the **meat suit entry** fo
 3. [[SYNC-AND-SESSION-HEAL|Sync and session heal]]
 4. [[GROK-VS-BONE-PILOT|Grok vs bone pilot]]
 5. Half B Alpha mode (Genesis Mythos table releases): [`Docs/Half-B-Alpha-Mode.md`](../Docs/Half-B-Alpha-Mode.md) — **factory not greenlit** until bone-pilot checklist
+6. Alpha 0 implementation receipt (landed, Curator-private code): [`Docs/Half-B-Alpha-0-Implementation-Receipt.md`](../Docs/Half-B-Alpha-0-Implementation-Receipt.md)
 
 Law lives in YAML under `weave/` — these pages **explain**; they do not override cards.

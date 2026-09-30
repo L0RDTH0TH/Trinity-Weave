@@ -118,6 +118,12 @@ Alpha 0 bar **plus** local LAN host/join (`lan_listen_server`). Still not campai
 | `implementation_handoff_tunnel` | Catalog + release_stage in hand-off |
 | `implementation_gate_catalog` | Alpha capabilities, not M0–M8 demo ladder as product Success |
 
+## Alpha 0 implementation status (public receipt)
+
+**Code landed** (vault / Curator private Code-Repos) for table front door + `example_goblin_oneshot` — see [[Half-B-Alpha-0-Implementation-Receipt]].
+
+Trinity-Weave publishes this **receipt** and Alpha mode law. It does **not** host `5-Attachments/Code-Repos/` (forbidden on the public weave remote). Factory remains **not** greenlit.
+
 ## Manual validation checklist (bone pilot)
 
 Copy/paste after reviewing the push:
@@ -129,6 +135,7 @@ Copy/paste after reviewing the push:
 [ ] Normative path is simple implement-from-catalog-rows, not overnight conductor
 [ ] Example module is explicitly a cartridge, not product identity
 [ ] Phase-6-only is not global law
+[ ] Public Trinity receipt pushed (Half-B-Alpha-0-Implementation-Receipt)
 [ ] Commit pushed and hash recorded
 ```
 
