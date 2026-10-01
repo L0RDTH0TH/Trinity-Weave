@@ -3,11 +3,11 @@ conceptual:
   outcome: Alpha release capabilities are machine-checkable done_when strings tagged to
     release stages — catalog altitude, not a demo M0–M8 ladder as product Success, and not
     Phase-6-only forever.
-  summary: Gate catalog for Half B Alpha mode. Prefer rows/capabilities tagged alpha_0
-    before alpha_1/beta. First Alpha 0 set (provisional names OK) — table_front_door,
-    session_roles, module_pack_load, rules_min_pf1, seats_fp_dm; lan_listen_server is
-    alpha_1 only. Also machine gates godot_stock_fps + operator_kinesthetic_walk_look
-    (block). Legacy M0–M8 demo tables remain feedstock, not campaign Success.
+  summary: Gate catalog for Half B. Prefer alpha_0 before alpha_1/beta. Staging set —
+    table_front_door, session_roles, module_pack_load, rules_min_pf1, seats_fp_dm,
+    pdf_to_adventure_packet; FEEDSTOCK-SHAPE operator lock required for shaped Half-B claims;
+    horizon_demo_investor archived (not live Success). lan_listen_server alpha_1 only. How-gates engine_stock_first +
+    godot_stock_fps + operator_kinesthetic_walk_look (block). Staging is not Success ceiling.
   primary_case: Agent claims table_front_door complete; gate requires Host table / pick
     module / enter path in Code-Repos with receipt — not overnight conductor green.
   edge_cases:
@@ -20,14 +20,26 @@ conceptual:
   - Treating We Be Goblins!-style pack as product identity
 touch:
   primary_paths:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
   - 1-Projects/godot-genesis-mythos-master/Horizon-Q3-Demo-Spec.md
   - .technical/parallel/godot/goal-authority.json
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/ENGINE-COMPILE-PACK-stock_godot_fps.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PIN-stock_godot_fps.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md
+  - 1-Projects/genesis-mythos-master/AGENTS.md
+  - .technical/weave/component-proposals/engine_stock_authority.yaml
+  - 1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Junior-Tech-Adapt-How-To.md
+  - Ingest/PZO9500-9E_WeBeGoblinsFree.pdf
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PDF-to-Adventure-Packet.md
+  - .technical/weave/component-proposals/ask_fidelity.yaml
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Ask-Fidelity-Exemplars.md
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/genesis-mythos/content/packs/
   harness_commands:
   - mcp_postedit_validate
   behavior_signals:
-  - Alpha 0 capability list present in Docs/Half-B-Alpha-Mode.md
+  - Alpha 0 capability list present in 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
   meta_lens_force_align: true
 rules:
   forbidden:
@@ -41,17 +53,37 @@ rules:
   - pass player/camera/locomotion slice without godot_stock_fps (stock CharacterBody3D + matrix quote)
   - accept MCP-only or agent self-cert as walk+look Done
   - phrase or record 'MCP verified walk+look' as Success evidence
+  - invent parallel game system or notify channel when engine_stock_authority / stack row owns the concern
+  - treat staging table-only / placeholder pack as permanent Success ceiling
+  - claim ask Success with only staging/foundation evidence (fidelity_miss)
+  - claim factory greenlit while factory_greenlit false / without operator greenlight
+  - revive archived horizon_demo_investor as live Success
+  - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
+  - pass Code-Repos matrix/manifest concern write without engine_stock_first quote
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
   - 'policy: prefer alpha_0-tagged catalog rows before alpha_1/beta'
-  - 'policy: Docs/Half-B-Alpha-Mode.md Godot PRECONDITIONS — invent FPS / missing quote = invalid pass'
+  - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md Godot PRECONDITIONS — invent FPS / missing quote = invalid pass'
+  - 'policy: engine_stock_authority — copy masters + seat funnels; engine_stock_first = block'
   acceptance:
-  - Alpha 0 capability ids documented
-  - Alpha 0 DONE matches table+module product bar
-  - gates godot_stock_fps and operator_kinesthetic_walk_look present with severity block
+  - staging capability ids documented; FEEDSTOCK-SHAPE lock required for shaped claims
+  - staging is not permanent Success ceiling; horizon_demo_investor archived
+  - gates engine_stock_first, fidelity_match_ask, godot_stock_fps, operator_kinesthetic_walk_look, inspiration_shape_source present; horizon_demo_investor archived
+  reject_codes:
+  - fidelity_miss
+  - inspiration_shape_miss
+  - engine_pattern_miss
+  - gui_input_steal
+  - seat_ok_feel_fail
+  - verify_mcp_only
 gates:
+  - id: engine_stock_first
+    applies_when: Code-Repos write matching Decision Matrix concern or Tech-Stack-Manifest stack-* row
+    pass: name stock authority; quote matrix Prefer/Never or How-To reject; use locked master; seat-route results/context
+    fail: missing quote; second authority; invent from-scratch mastered system; parallel notify/RP channel
+    severity: block
   - id: godot_stock_fps
     applies_when: player / camera / look / move / locomotion Code-Exhibit files
     pass: CharacterBody3D + child Camera3D + mouse capture path; matrix principle + Player move/look row quoted
@@ -62,15 +94,43 @@ gates:
     pass: operator F5 attested
     fail: MCP-only; agent self-cert; phrasing MCP verified walk+look
     severity: block
+  - id: pdf_to_adventure_packet
+    applies_when: cartridge work or investor demo that requires adventure content pack
+    pass: structured pack under content/packs/<id>/ derived from adventure PDF path (pack.json/beats/sites/pregens); IP honesty banner; no Paizo prose dump
+    fail: placeholder forever as law; prose dump; missing pack schema
+    severity: block
+  - id: horizon_demo_investor
+    applies_when: historical only — archived ask; do not use as live Success / greenlight bar
+    pass: N/A — ask retired (improper end flavor); see 4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/
+    fail: treating archived investor demo as live Success or greenlight chase
+    severity: block
+    status: archived
+  - id: inspiration_shape_source
+    applies_when: Half B / product-factory claim of shaped output (Success or staging shaped progress)
+    pass: FEEDSTOCK-SHAPE.md operator_confirmed true loaded; focus inspirations resolve→cite→land (visual bar when visual); claim_class staging; factory_greenlit false
+    fail: missing FEEDSTOCK-SHAPE lock; inspiration_shape_miss; forked pins bible; revived investor catalog as shape substitute
+    severity: block
+  - id: fidelity_match_ask
+    applies_when: Half B / product-factory Success claim against an operator or catalog ask
+    pass: ask_id + done_when quoted; claim_class ask_success only if house met; staging labeled staging
+    fail: substitute as ask_success; missing done_when; foundation-only as house
+    severity: block
 contract:
   proof:
-  - Docs/Half-B-Alpha-Mode.md
-  - Docs/MCP-Playtest-WalkLook.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/FEEDSTOCK-SHAPE.md
+  - 3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md
+  - Ingest/PZO9500-9E_WeBeGoblinsFree.pdf
   invariant_ids:
   - implementation_milestone_binary_gate
   - alpha_0_capability_preference
+  - engine_stock_first_block
   - godot_stock_fps_block
   - operator_kinesthetic_walk_look_block
+  - inspiration_shape_source_block
+  - feedstock_shape_lock_required
+  - ask_fidelity_match_ask_block
+  - pdf_to_adventure_packet_required
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
@@ -81,5 +141,5 @@ meta:
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode gates + godot_stock_fps / operator_kinesthetic block — 2026-09-30
+    operator_note: Investor + ask_fidelity (house≠foundation) + stock how-gates — 2026-09-30
   last_disconnect: null

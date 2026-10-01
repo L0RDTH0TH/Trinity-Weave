@@ -1,48 +1,60 @@
 id: product_factory_pipeline
 conceptual:
-  outcome: Product factory pipeline is staged for release tags (alpha_0 → alpha_1 → beta)
-    and must not block Alpha 0 Code-Repos work behind three operator loops or overnight
-    conductor. Factory remains ungreenlit until operator ack.
-  summary: Provisional Half B pipeline law under Alpha mode. Catalog + release_stage drive
-    what to implement; UX-before-execution loops are deferred theater for alpha_0, not a
-    gate before table front door. Advanced conductor (factory_staged / CONTINUE / headless)
-    stays available after greenlight — not normative for first alpha.
-  primary_case: Implementation prefers alpha_0-tagged catalog capabilities (table_front_door,
-    session_roles, module_pack_load, rules_min_pf1, seats_fp_dm) into genesis-mythos-alpha.
-  secondary_case: After operator greenlight and alpha_0 exit, conductor may resume loop-aware
-    ticks; lan_listen_server remains alpha_1-only.
+  outcome: Product factory pipeline stages work toward investor/horizon attest and
+    continuously updates the current Code-Repos — not blocked behind three operator
+    loops or overnight conductor before staging. Factory remains ungreenlit until
+    operator investor attest.
+  summary: Half B pipeline law. Catalog + release_stage drive generate and
+    update_existing_exhibit. UX-before-execution loops deferred theater for pre-greenlit.
+    Advanced conductor available after greenlight — not normative until then.
+  primary_case: Prefer alpha_0 work (staging capabilities + pdf_to_adventure_packet when
+    in scope) into current genesis-mythos-alpha via generate or update under FEEDSTOCK-SHAPE lock.
+  secondary_case: After operator greenlit and investor attest, conductor may resume
+    loop-aware ticks; lan_listen_server remains alpha_1-only.
   edge_cases:
-  - BOM or conduct block mode refusing any implement path under alpha_0 — soft-gate / warn instead
+  - BOM/conduct block refusing any implement/update under staging — soft-gate / warn
   - Claiming pipeline greenlit from card presence alone
+  - Treating generate-only as Half B (skipping updates to live exhibit)
   misread_risks:
-  - Reading three operator loops as mandatory before Host table / pick module / enter exists
-  - Equating Phase-6-only spike locks with forever law
+  - Reading three operator loops as mandatory before front door
+  - Equating table-only shrink with Success ceiling
 touch:
   primary_paths:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - .technical/weave/component-proposals/engine_stock_authority.yaml
+  - Ingest/PZO9500-9E_WeBeGoblinsFree.pdf
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
   - scripts/eat_queue_core/weave/user_story/product_factory_ux_context.py
   - scripts/eat_queue_core/weave/factory/factory_bom.py
   behavior_signals:
-  - product_factory.tick may warn on advisory BOM under alpha_0 without hard-blocking slim path
-  - Docs/Half-B-Alpha-Mode.md present
+  - update_existing_exhibit first-class alongside generate
+  - Half-B-Alpha-Mode investor Success documented
 status: proposal
 rules:
   forbidden:
   - claim factory greenlit
   - claim closed_alpha Success
+  - revive archived horizon_demo_investor as live Success
+  - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
   - reintroduce Phase-6-only as global law
-  - require three-operator-loop UX theater before table front door under alpha_0
-  - require overnight multi-loop conductor as normative alpha_0 path
+  - treat staging table-only as permanent Success ceiling
+  - treat Half B as generate-only (no update/extend of current exhibit)
+  - require three-operator-loop UX theater before table front door pre-greenlit
+  - require overnight multi-loop conductor as normative pre-greenlit path
+  - dump Paizo prose into Code-Repos
   precedence:
   - 'policy: release_stage alpha_0 before alpha_1 before beta'
-  - 'policy: Docs/Half-B-Alpha-Mode.md — factory_greenlit false until operator validation'
+  - 'policy: Half B = generate + update_existing_exhibit'
+  - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md — factory_greenlit false'
+  - 'policy: FEEDSTOCK-SHAPE.md operator_confirmed required before shaped Half-B claims'
   acceptance:
-  - Alpha mode staged explicitly; greenlit false
-  - alpha_0 capability preference documented
+  - Alpha mode staged; greenlit false
+  - update_existing_exhibit documented as first-class
+  - FEEDSTOCK-SHAPE lock required; investor ask archived
 contract:
   proof:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
   - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
 meta:
   schema_version: 2
@@ -51,4 +63,4 @@ meta:
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode rework 2026-09-30
+    operator_note: FEEDSTOCK-SHAPE lock + update machine; investor archived — 2026-10-01

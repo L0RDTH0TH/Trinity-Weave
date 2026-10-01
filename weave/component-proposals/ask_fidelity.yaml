@@ -1,0 +1,136 @@
+id: ask_fidelity
+conceptual:
+  outcome: Agents share the operator endpoint for any ask — catalog/chat done_when is
+    Success (the house). Staging checkpoints only prove foundation. Lower-fidelity
+    substitutes reported as ask Success are rejected (fidelity_miss).
+  summary: Robust anti-substitution law for Half B generate/update. Required hand-off
+    fields ask_id + done_when + forbidden_substitutes; Success receipts must quote
+    done_when and set claim_class staging|ask_success; little_val + validator
+    validation_type ask_fidelity enforce structurally. Orthogonal to engine_stock_authority
+    (how) and operator F5. FEEDSTOCK-SHAPE lock required for shaped Half-B claims;
+    horizon_demo_investor archived (not live attest).
+  primary_case: Ask is character creation; agent ships OptionButton dropdown and claims
+    ask_success — fidelity_miss; staging claim_class OK. Do not revive archived horizon_demo_investor.
+  edge_cases:
+  - Honest staging progress labeled claim_class staging
+  - Stock/MCP green used to launder a substitute as ask_success
+  - Chat ask without normalizing ask_id/done_when before Success
+  misread_risks:
+  - Adding more human F5 rituals instead of automated endpoint match
+  - Treating foundation checkpoints as the house
+touch:
+  primary_paths:
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/FEEDSTOCK-SHAPE.md
+  - .technical/weave/component-proposals/implementation_handoff_tunnel.yaml
+  - .technical/weave/component-proposals/implementation_gate_catalog.yaml
+  - 1-Projects/genesis-mythos-master/Roadmap/User-Story/scopes/ux_player_character_creation/L5.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Ask-Fidelity-Exemplars.md
+  - scripts/eat_queue_core/weave/ask_fidelity.py
+  - scripts/eat_queue_core/tests/test_ask_fidelity.py
+  - .cursor/agents/validator.md
+  - .cursor/skills/little-val-structural/SKILL.md
+  harness_commands: []
+  behavior_signals:
+  - gate fidelity_match_ask present with severity block
+  - test_ask_fidelity_substitute_not_ask_success
+  - handoff_required_fields documented
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - claim ask_success when artifact only satisfies foundation checkpoints
+  - claim ask_success with a forbidden_substitute for the ask
+  - omit ask_id or done_when on Half B implement/update Success path
+  - use stock/MCP/F5 green to launder substitute as ask Success
+  - treat staging spine/dropdown as demo/chargen Success
+  - claim factory greenlit
+  - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
+  - revive archived horizon_demo_investor as live Success
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Same endpoint as the ask — foundation ≠ house'
+  - 'policy: engine_stock_authority is how — not a substitute for ask_fidelity'
+  - 'policy: claim_class staging may proceed; claim_class ask_success requires done_when match'
+  - 'policy: FEEDSTOCK-SHAPE.md operator_confirmed required before shaped Half-B claims'
+  acceptance:
+  - fidelity_match_ask gate block present
+  - handoff_required_fields and success_receipt_schema defined
+  - substitute_taxonomy includes demo and character_creation exemplars
+  - test_ask_fidelity_substitute_not_ask_success passes
+  reject_codes:
+  - fidelity_miss
+gates:
+  - id: fidelity_match_ask
+    applies_when: Half B or product-factory claim of Success against an operator/catalog ask
+    pass: ask_id + done_when quoted; claim_class ask_success only if artifact meets done_when and avoids forbidden_substitutes; staging labeled staging
+    fail: substitute reported as ask_success; missing done_when quote; foundation-only evidence as house
+    severity: block
+substitute_taxonomy:
+  - ask_ids: [demo, horizon_demo, horizon_demo_investor]
+    status: archived  # do not pursue as live Success; FEEDSTOCK-SHAPE lock
+    forbidden_substitutes:
+    - front_door_spine_only
+    - table_chrome_only
+    - staging_checkpoints_as_demo
+    - revive_archived_investor_ask
+    house_done_when: ARCHIVED — not live Success; see horizon-demo-investor-ask-retired archive
+  - ask_ids: [character_creation, ux_player_character_creation, chargen]
+    forbidden_substitutes:
+    - single_dropdown_stub
+    - option_button_only
+    - pick_preset_menu_without_authoring
+    - DM_picks_PC
+    house_done_when: Player authors a character (build ownership, invite/attach/greenlight path per L5) — not a lone dropdown
+  - ask_ids: [rules_resolution, rules_min_pf1]
+    forbidden_substitutes:
+    - hardcoded_ok_bypass_rules_host
+    house_done_when: PF1-shaped resolution via rules plugin host with seat-routed results
+handoff_required_fields:
+  - ask_id
+  - done_when
+  - forbidden_substitutes
+  - claim_class  # staging | ask_success
+  - foundation_checkpoint_ids  # optional list
+success_receipt_schema:
+  required:
+  - ask_id
+  - done_when_quote
+  - claim_class
+  - evidence_paths
+  when_ask_success:
+  - assert_not_in_forbidden_substitutes
+  - done_when_quote_nonempty
+validator_contract:
+  validation_type: ask_fidelity
+  inputs:
+  - handoff params (ask_id, done_when, forbidden_substitutes)
+  - success receipt / report
+  - artifact paths
+little_val_contract:
+  profile_or_explicit: ask_fidelity via scripts/eat_queue_core/weave/ask_fidelity.py
+  fail_ok_false_when:
+  - claim_class ask_success and missing done_when_quote
+  - claim_class ask_success and substitute marker matched
+contract:
+  proof:
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/FEEDSTOCK-SHAPE.md
+  - scripts/eat_queue_core/weave/ask_fidelity.py
+  - scripts/eat_queue_core/tests/test_ask_fidelity.py
+  invariant_ids:
+  - ask_fidelity_match_ask_block
+  - foundation_not_house
+  - fidelity_miss_reject
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-09-30T23:20:00Z'
+  rules_confirmed_at: '2026-09-30T23:20:00Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  factory_greenlit: false
+  project_scope: genesis-mythos-master
+  source:
+    operator_note: Robust ask fidelity / anti-substitution — 2026-09-30
+  last_disconnect: null

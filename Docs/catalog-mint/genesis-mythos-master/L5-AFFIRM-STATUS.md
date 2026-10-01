@@ -2,7 +2,7 @@
 
 emitted_at: 2026-08-04T20:05:01.227767Z
 
-**Ladder:** series L5 digests below (15 planned). **Children L5** drafted under `scopes/<parent>/children-of-<parent>/<child>/L5.md` (44) — inherit series pins; Grok affirms series first, then child batches under each parent. **Operator Loop 2** (depth slice) only after family attest.
+**Ladder:** series L5 digests below (15 planned). **Children L5** drafted under `scopes/<parent>/children-of-<parent>/<child>/L5.md` (44) — inherit series pins; Grok affirms series first, then child batches under each parent. **Operator Loop 2** (release plan + L5 for package rows) only after family attest.
 
 ## Per-row
 

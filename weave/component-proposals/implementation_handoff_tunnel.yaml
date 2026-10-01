@@ -1,31 +1,37 @@
 id: implementation_handoff_tunnel
 conceptual:
   outcome: Queue and architect hand-offs for Track C / Half B carry catalog authority,
-    release_stage preference (alpha_0 before alpha_1/beta), stack-baseline phase context,
-    and Code-Repos write target — without fanout to wrong lanes or Phase-6-only global law.
-  summary: D→B-style hand-off contract for implementation segment under Alpha mode.
-    Params should carry release_stage and preferred alpha_0 catalog row ids when known;
-    project-branch catalog YAML may be referenced before fully rewritten.
-  primary_case: Layer 1 dispatches implementation work with release_stage=alpha_0 and
-    capability ids (table_front_door, session_roles, module_pack_load, rules_min_pf1,
-    seats_fp_dm); stack baseline artifacts present when available.
+    release_stage preference, Code-Repos write target, AND ask fidelity params
+    (ask_id, done_when, forbidden_substitutes, claim_class) so agents share the operator
+    endpoint — foundation checkpoints may proceed as staging; they must not be claimed
+    as ask Success.
+  summary: D→B-style hand-off contract under Alpha / investor mode. Params must carry
+    ask_id + done_when (house bar) for implement/update Success paths; optional
+    foundation_checkpoint_ids; claim_class staging|ask_success on receipts.
+  primary_case: Layer 1 dispatches update toward horizon_demo_investor with done_when
+    ~30 min PDF cartridge loop and forbidden_substitutes including front_door_spine_only;
+    agent may claim staging for table_front_door but not ask_success until house met.
   edge_cases:
-  - Stale sandbox modes on godot PQ
-  - Missing demo_spec_ref — acceptable under alpha_0 if catalog row ids present
+  - Chat ask without normalizing ask_id/done_when before Success
+  - Missing demo_spec_ref — OK if ask_id + done_when present
   - Hand-off forcing overnight conductor as only drain path
   misread_risks:
   - Using HANDOFF_AUDIT_REPAIR for gameplay build
-  - Treating Phase-6-only as required hand-off filter forever
+  - Omitting fidelity fields and hoping stock gates imply the house
 touch:
   primary_paths:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - .technical/weave/component-proposals/ask_fidelity.yaml
+  - scripts/eat_queue_core/weave/ask_fidelity.py
   - .technical/parallel/godot/prompt-queue.jsonl
   - .technical/parallel/godot/goal-authority.json
   harness_commands:
   - append_entries
   behavior_signals:
   - hand-off documents release_stage preference
+  - hand-off documents ask_id done_when forbidden_substitutes
   - test_stack_baseline_phase_wired
+  - test_ask_fidelity_substitute_not_ask_success
   meta_lens_force_align: true
 rules:
   forbidden:
@@ -34,29 +40,35 @@ rules:
   - claim closed_alpha Success
   - reintroduce Phase-6-only as global law
   - require overnight / multi-loop conductor in hand-off for alpha_0
+  - dispatch Half B implement/update Success path without ask_id and done_when
+  - claim_class ask_success when only foundation_checkpoint_ids are satisfied
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
   - 'policy: prefer alpha_0 catalog tags in hand-off params'
+  - 'policy: ask_fidelity — same endpoint as ask; foundation ≠ house'
   acceptance:
   - release_stage wiring documented for hand-off params
+  - ask_id done_when forbidden_substitutes required fields documented
 contract:
   proof:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - .technical/weave/component-proposals/ask_fidelity.yaml
   - scripts/eat_queue_core/harness.py
   invariant_ids:
   - implementation_handoff_tunnel_params
   - release_stage_prefers_alpha_0
+  - ask_fidelity_handoff_required_fields
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-09-30T00:00:00Z'
+  rules_confirmed_at: '2026-09-30T23:20:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode hand-off — release tags — 2026-09-30
+    operator_note: Ask fidelity hand-off required fields — 2026-09-30
   last_disconnect: null

@@ -15,3 +15,9 @@ status: proposal
 pairs_with:
   - catalog_mint
 
+# Ask fidelity (house ≠ foundation) — mint going forward
+# New or reminted capability rows MUST include:
+#   done_when: experience bar (house)
+#   forbidden_substitutes: (or equivalent) stand-ins that must not be claimed as Success
+# Staging checkpoints may be listed separately; they are not the house.
+pairs_with_ask_fidelity: ask_fidelity

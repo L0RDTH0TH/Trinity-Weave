@@ -1,171 +1,237 @@
 ---
-title: Half B Alpha mode — Genesis Mythos table releases
+title: Half B Alpha mode — Genesis Mythos update machine (staging)
 created: 2026-09-30
-updated: 2026-09-30
+updated: 2026-10-01
 audience: bone_pilot
 status: provisional
 factory_greenlit: false
+claim_class: staging
 ---
 
 # Half B Alpha mode
 
-**Factory is NOT greenlit.** This note reworks the Half B (implementation) path so Alpha 0 can proceed from catalog rows without the heavy overnight / full-BOM / closed-alpha conduct ladder. Operator must manually validate, then explicitly greenlight factory operation in a later message.
+**Factory is NOT greenlit.** `factory_greenlit: false`. Half B generates and updates **Code-Repos** under stock/seat PRECONDITIONS. **Do not** treat investor ~30 min / PDF-cartridge Success as the live optimization target — that ask is **archived** (improper end flavor).
 
-## Godot stock FPS — PRECONDITIONS (enforceable)
+Archive: `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`.
 
-Canonical junior law (vault / project Execution Docs — **not** duplicated here):
+**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → first slice [[alpha0_chargen_seats_tricam_r1]].
 
-- `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/ENGINE-COMPILE-PACK-stock_godot_fps.md` (**resolve first**)
-- `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md`
-- `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Stock-Patterns.md`
-- `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PIN-stock_godot_fps.md`
-- Project brief: `1-Projects/genesis-mythos-master/AGENTS.md`
+Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how**. They do **not** redefine product Success as table-chrome-only — and they do **not** authorize pursuing archived investor Success as current Done.
+
+## Active now (thin pointer — staging)
+
+**Operator lock (required for shaped Half-B claims):** [[FEEDSTOCK-SHAPE]] (`operator_confirmed: true`, `lock_id: feedstock_shape_v1`, `factory_greenlit: false`).
+
+| Topic | Stance |
+|-------|--------|
+| Umbrella / first weld | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_chargen_seats_tricam_r1]] |
+| Feedstock shape | [[FEEDSTOCK-SHAPE]] — frozen consult locks; pointer package only |
+| Inspirations | Focus-scoped mandatory per weld — [[INSPIRATION-HALF-B-SHAPE]] (cite/land or `inspiration_shape_miss`) |
+| 3D visual bar | [[Visual-Factory-Direction-Stylized-Low-Poly]] — Astroneer stylized low poly |
+| GUI chrome bar | [[GUI-Chrome-Direction-Fantasy-UI]] — `Ingest/fantasy_ui.jpg` (menus/panels; ≠ 3D bar) |
+| Pins / illegal flows | [[Godot-Implementation-Decision-Matrix]] + stock packs + gates + `ask_fidelity` — **no parallel architecture-pins bible** |
+| Cameras | [[Camera-Mode-Taxonomy-Live]] — all three included + functional |
+| Chargen / DM | Tutorial PF1 at player seat (D&D-bridge language OK; not 5e engine); refuse codes in matrix/gates/exemplars |
+| DF world-gen | Possible ≠ required — not discouraged; must remain possible |
+| Greenlight | `factory_greenlit: false`; investor demo **archived** — do not revive |
+
+## Staging checkpoints (necessary foundation)
+
+These prove availability — they are **not** ask_success:
+
+1. Minimal front door — Host table / pick module / enter  
+2. Session roles — DM + player seats  
+3. Module pack load — cartridge slot works  
+4. FP play + DM rail + seat refuse (stock `CharacterBody3D`; operator FpsSanity F5 for walk+look)  
+5. PF1-shaped resolution via rules plugin host  
+6. PDF → adventure packet path (when cartridge work is in scope) — **leaf capability**, not live Success ceiling  
+
+| Capability / gate | Role | Stage |
+|-------------------|------|-------|
+| `table_front_door` | staging | alpha_0 |
+| `session_roles` | staging | alpha_0 |
+| `module_pack_load` | staging | alpha_0 |
+| `rules_min_pf1` | staging | alpha_0 |
+| `seats_fp_dm` | staging | alpha_0 |
+| `stock_godot_fps` / `input_focus_contract` | how + staging | alpha_0 |
+| `pdf_to_adventure_packet` | optional leaf when in scope | alpha_0 |
+| `horizon_demo_investor` | **archived** — not live Success driver | — |
+| `lan_listen_server` | deferred | **alpha_1 only** |
+
+Game write target (LIVE): `5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/`. **Not** Code-Exhibit. Half-B game code requires a filled weld brief; `factory_greenlit` stays false until operator unlocks.
+
+## Cartridge path (PDF → adventure packet)
+
+**When in scope:** Adventure PDF → structured adventure packet → `…/genesis-mythos/content/packs/<id>/` under the LIVE Code-Repos slug.
+
+**Exemplar path:** Vault ingest PDF `Ingest/PZO9500-9E_WeBeGoblinsFree.pdf` → We Be Goblins–shaped oneshot packet (operator IP rules). Placeholder pack `example_goblin_oneshot` is **empty-shape feedstock only**.
+
+**Pack schema (align with current shape):** `pack.json`, `beats.json`, `sites.json`, `pregens.json`. Execution pointer: `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PDF-to-Adventure-Packet.md`.
+
+**IP honesty:** No Paizo prose dump into the game tree.
+
+## Ask fidelity — house ≠ foundation
+
+Trinity **`ask_fidelity`** (gate `fidelity_match_ask`, reject `fidelity_miss`):
+
+- **House** = operator/catalog `done_when` for the **active** ask (not archived investor demo).
+- **Foundation** = staging checkpoints — prove availability; **must not** be reported as the ask.
+- Hand-off requires `ask_id`, `done_when`, `forbidden_substitutes`; receipts use `claim_class: staging | ask_success`.
+- Exemplars: [[Ask-Fidelity-Exemplars]] — chargen ≠ dropdown; archived horizon ask not pursued.
+- Automated check: `scripts/eat_queue_core/weave/ask_fidelity.py`; validator `validation_type: ask_fidelity`.
+
+## Inspiration → output shape (generalized)
+
+**Require** [[FEEDSTOCK-SHAPE]] before claiming shaped Half-B output. Inspirations are **source of output shape** for Half-B — focus-scoped mandatory (not a fixed global list). Process law: [[INSPIRATION-HALF-B-SHAPE]].
+
+| Step | Requirement |
+|------|-------------|
+| Lock | [[FEEDSTOCK-SHAPE]] `operator_confirmed: true` |
+| Resolve | Focus Inspiration-UX-Feedstock + L5/ASSUMPTION-LOG; visual lane → [[Visual-Factory-Direction-Stylized-Low-Poly]]; seasoning = rest of INDEX when not in focus |
+| Cite | Hand-off / receipt names the move-pin(s) or visual bar |
+| Fail | **`inspiration_shape_miss`** — feedstock flavor expected but absent from output |
+
+Archived provisional horizon / investor rows do **not** replace this law. `claim_class: staging`. `factory_greenlit: false`.
+
+## Half B = generate + update machine
+
+| Mode | Meaning |
+|------|---------|
+| **Generate** | Weld new catalog / capability slices into LIVE Code-Repos |
+| **Update / extend** | Change the **current** game version in place |
+
+Same stock + seat-funnel law on both modes. Target = LIVE Code-Repos tree, not Code-Exhibit, not a parallel throwaway demo repo by default. Fill [[Half-B-Weld-Brief-Template]] first.
+
+## Godot / stock — PRECONDITIONS (how — enforceable)
+
+Canonical junior law (vault Execution Docs — not duplicated as Success):
+
+- `ENGINE-COMPILE-PACK-stock_godot_fps.md` (**resolve first** for player/camera)
+- `Godot-Implementation-Decision-Matrix.md`
+- `Godot-Stock-Patterns.md` / `PIN-stock_godot_fps.md`
+- Trinity `engine_stock_authority` — gate `engine_stock_first`
+- Project brief: `AGENTS.md`
 
 ```text
-PRECONDITION for any Code-Exhibit write touching player / camera / look / move:
-  1. ENGINE-COMPILE-PACK-stock_godot_fps resolved (pins + assembly checklist)
-  2. Decision Matrix + Stock Patterns paths resolved
-  3. Agent output quotes principle line + Player move/look matrix row
-  4. Implementation matches stock CharacterBody3D pattern (not envelope-as-mover)
-  5. Assembly checklist all yes (file:line / MCP structural) BEFORE asking operator kinesthetic attest
-Missing any ⇒ pass status = invalid; do not push playable claim; do not mark Alpha Success
+PRECONDITION for Code-Repos writes matching matrix/manifest concerns:
+  1. engine_stock_authority / matrix / How-To resolved; stock authority named + quoted
+  2. Player/camera also: ENGINE pack + CharacterBody3D pattern + matrix Player row quote
+  3. Assembly structural checks before asking operator kinesthetic attest
+Missing any ⇒ pass status = invalid; do not claim playable Success
 ```
 
-**FpsSanity gate (locomotion):** No table/Main UI F5 for walk+look until the operator attests FpsSanity (`res://dev/FpsSanity.tscn`) walk+look. Do not restore `run/main_scene` to Main for locomotion proof before that attest.
+**FpsSanity:** No table/Main UI F5 for walk+look until operator attests `res://dev/FpsSanity.tscn`.  
+**Principle:** Copy the masters. ClassDB / stack row / Host Index first. PF → calcs; seat-route results/context. Never invent parallel physics/terrain/rules/notify channels.  
+**MCP:** necessary, not sufficient for feel. Ban “MCP verified walk+look.” See [[MCP-Playtest-WalkLook]].
 
-**Principle (must be quotable):** ClassDB first. Host Index binds. Never parallel physics/controller. Prefer stock Godot; extend only at seat/authority boundaries.
-
-**Hard veto:** walk OR look fail ⇒ not Alpha Success.  
-**Presentation scrap:** human “no camera difference” ⇒ typed reject `engine_pattern_miss` (not more HUD).  
-**MCP:** synthetic input / automated probes are **necessary, not sufficient**. **Only operator FpsSanity F5** sets walk+look Done. Ban phrasing: “MCP verified walk+look.”  
-See [[MCP-Playtest-WalkLook]].
-
-### Failure taxonomy (reject codes — first-class)
+### Reject codes
 
 | Code | Meaning |
 |------|---------|
-| `engine_pattern_miss` | Invented controller / free-fly-as-player / envelope-as-mover / no stock CharacterBody3D |
-| `gui_input_steal` | Menu/Control permanently eats mouse/keys after Enter play |
-| `seat_ok_feel_fail` | Seats/Unauthorized OK in code but walk+look still fail for human |
-| `verify_mcp_only` | Agent certified feel from MCP alone |
-
-### Little-val / hostile evidence
-
-Claims FPS or Alpha player ready → must evidence `CharacterBody3D`, child `Camera3D`, mouse capture path, **and** matrix quote. Else `engine_pattern_miss`.
+| `engine_pattern_miss` | Invented parallel system / non-stock controller / bypass seat funnel |
+| `gui_input_steal` | Control eats input after Enter play |
+| `seat_ok_feel_fail` | Code OK, human feel fail |
+| `verify_mcp_only` | Feel certified from MCP alone |
+| `inspiration_shape_miss` | Inspiration/L5 seasoning or visual bar exists upstream but output lacks that flavor/shape |
 
 ### Gates (implementation_gate_catalog)
 
 | Gate id | Severity | Notes |
 |---------|----------|--------|
-| `godot_stock_fps` | **block** | Player/camera/locomotion slices |
-| `operator_kinesthetic_walk_look` | **block** | Always for Alpha Success / playable push |
+| `engine_stock_first` | **block** | Pattern — any matrix/manifest concern |
+| `godot_stock_fps` | **block** | Player/camera/locomotion |
+| `operator_kinesthetic_walk_look` | **block** | Playable feel claims |
+| `horizon_demo_investor` | **archived** | Not live Success / greenlight bar — do not revive |
+| `inspiration_shape_source` | **block** (shaped Half-B claims) | [[FEEDSTOCK-SHAPE]] lock + cite/land; reject `inspiration_shape_miss` |
 
-If a harness schema only accepts `warn` today: set warn **and** treat as block for Alpha player-camera; promote to literal block when schema allows. Prefer real `block` when supported.
-
-## Product north star
+## Product north star (PMG — not this pass’s Success chase)
 
 | Term | Meaning |
 |------|---------|
-| **Product** | The **table** (runtime/platform): FP players, DM rail, seats, session, rules plugin host, module load slot, later LAN |
-| **Modules** | Cartridges on the table |
-| **We Be Goblins!-style** | **Example module pack only** — not the product name or identity |
-| **Alpha** | Table + one example module playtest bar — **not** camera harness, **not** full worldgen/chargen |
+| **Product** | Modular FP 3D VTT platform (table + systems) — PMG owns long-horizon proof language |
+| **Modules / cartridges** | Adventure packets on the table |
+| **Staging Alpha** | Checkpoints + first-weld staging — not archived-investor Success |
 
-Catalog rows + release tags drive implementation. Phase-6-only read locks were a temporary spike tourniquet — **not** global law.
+Phase-6-only read locks were a spike tourniquet — **not** global law. Failure-driven shrink to “table only = Done” remains **non-normative**.
 
 ## Release stages
 
 | Stage | Scope |
 |-------|--------|
-| `alpha_0` | Offline table + one example module pack |
+| `alpha_0` | Offline staging path; stock/FPS how; first-weld staging intent |
 | `alpha_1` | Same + local LAN host/join |
-| `beta` | Harden UX/seats; optional 2nd module |
+| `beta` | Harden UX/seats; optional further packs |
 
-Implementation **prefers** catalog rows tagged `alpha_0` before `alpha_1` / `beta`.
-
-## Alpha 0 DONE (table product bar)
-
-1. **Minimal front door** — Host table / pick module / enter  
-2. **Session roles** — DM + player seats  
-3. **Module pack load** — example goblin-style pack  
-4. **FP play + DM rail + seat refuse** (stock CharacterBody3D; operator F5 for walk+look)  
-5. **PF1-shaped resolution** via rules plugin host  
-6. Placeholder art OK; **not** campaign ship; **not** full worldgen/chargen  
-
-| Capability | Stage |
-|------------|-------|
-| `table_front_door` | alpha_0 |
-| `session_roles` | alpha_0 |
-| `module_pack_load` | alpha_0 |
-| `rules_min_pf1` | alpha_0 |
-| `seats_fp_dm` | alpha_0 |
-| `stock_godot_fps` / `input_focus_contract` | alpha_0 (Execution PIN) |
-| `lan_listen_server` | **alpha_1 only** |
-
-Game write target: `5-Attachments/Code-Exhibit/genesis-mythos-alpha/`.
+Prefer `alpha_0`-tagged rows before `alpha_1` / `beta`.
 
 ## Keep / Cut / Add
 
 ### Keep
 
-- Catalog rows as authority; Code-Exhibit write target; Host Index / no invent seams  
-- Roadmap Execution readonly feedstock; honesty: demo/loop ≠ campaign Success  
+- Catalog authority; LIVE Code-Repos write target; Host Index / stock masters  
+- Roadmap Execution readonly feedstock  
+- Stock FPS + F5 + `engine_stock_first` as **how**  
+- Inspiration → output shape ([[INSPIRATION-HALF-B-SHAPE]]); operator lock [[FEEDSTOCK-SHAPE]]; visual bar  
 
 ### Cut or defer
 
-1. Full multi-section BOM hard-gate for alpha_0 → slim/advisory  
-2. `factory_output_conduct` **block** not required to start alpha_0  
-3. Overnight / headless / multi-loop conductor **not** normative for alpha_0  
-4. Phase-6-only / proof-loop = product Success — non-normative  
-5. Three-operator-loop UX before front door  
+1. Treating table+placeholder-only as permanent Success ceiling  
+2. Treating **archived** `horizon_demo_investor` as live factory Success / greenlight chase  
+3. Overnight / headless conductor as normative before greenlit  
+4. Parallel “architecture pins / illegal flows” docs that reinvent the Decision Matrix  
 
 ### Add
 
-- This Alpha mode path + release tags + Alpha exit criteria  
-- Godot Decision Matrix + Stock Patterns PRECONDITIONS (above)  
-- Explicit: factory not greenlit until operator manual validation  
+- First-weld staging pointer (chargen + seats + three cams)  
+- Explicit: archived investor ask ≠ active Done  
+- Honesty: `factory_greenlit: false`  
 
-## Normative Alpha 0 operator path (simple)
+## Normative operator path (pre-greenlit)
 
-1. Select catalog rows tagged **`alpha_0`** (incl. stock FPS pins).  
-2. Satisfy Godot PRECONDITIONS if touching player/camera.  
-3. Implement in Code-Exhibit.  
-4. Playtest; **operator F5** for walk+look.  
-5. Record honest receipt.  
+1. Select work (catalog slice **or** update/extend on current exhibit) — **not** archived investor Success.  
+2. Load [[FEEDSTOCK-SHAPE]]; resolve focus inspiration/L5 seasoning (and visual bar if visual); cite in hand-off.  
+3. Satisfy stock / seat-funnel PRECONDITIONS for touched concerns.  
+4. Implement or update in LIVE Code-Repos; advance PDF→packet only when cartridge work is in scope.  
+5. Playtest; operator F5 for walk+look when locomotion is claimed.  
+6. Record honest receipt — `inspiration_shape_miss` if flavor was expected and missing.  
 
-**Non-normative:** `headless_eat`, overnight, multi-loop `factory_staged`, closed_alpha conduct **block** as start gate.
+**Non-normative until greenlit:** overnight multi-loop conductor as default.
 
 ## Honesty
 
-- Demo / loop / stack-green alone ≠ campaign-capable Success  
-- Example module = cartridge, not product identity  
+- Staging complete ≠ ask_success ≠ campaign Exemplar (6.4)  
+- Archived investor demo ≠ live Success driver  
 - This note does **not** turn Half B “on” (`factory_greenlit: false`)  
+- No Paizo prose in game tree  
 
 ## Card map
 
-| Card | Alpha mode stance |
-|------|-------------------|
-| `product_factory_operator_path` | Simple path normative; forbidden Success around missing FPS quote / non-stock / MCP-only feel |
-| `product_factory_pipeline` | Staged; not greenlit |
-| `factory_product_bom` | Slim / advisory for alpha_0 |
-| `factory_output_conduct` | warn/off for alpha_0 |
-| `implementation_segment_charter` | PRECONDITIONS on player/camera segments |
-| `implementation_handoff_tunnel` | Catalog + release_stage |
-| `implementation_gate_catalog` | `godot_stock_fps` + `operator_kinesthetic_walk_look` **block** |
+| Card | Stance |
+|------|--------|
+| `engine_stock_authority` | Copy masters + seat funnels (**how**) |
+| `ask_fidelity` | House ≠ foundation; `fidelity_match_ask` / `fidelity_miss` |
+| `product_factory_operator_path` | Generate + update; greenlit remains operator-owned |
+| `product_factory_pipeline` | Staged; update_existing_exhibit first-class; not greenlit |
+| `implementation_segment_charter` | Generate + update current version; stock PRECONDITIONS |
+| `implementation_gate_catalog` | Stock/FPS/F5 + `inspiration_shape_source`; investor gate archived |
+| `factory_output_conduct` | warn/off until greenlit |
+| Inspiration shape law | [[INSPIRATION-HALF-B-SHAPE]] |
+| Feedstock shape lock | [[FEEDSTOCK-SHAPE]] (`operator_confirmed`) |
 
-## Alpha 0 implementation status
+## Implementation status
 
-See [[Half-B-Alpha-0-Implementation-Receipt]]. Trinity does **not** host Code-Exhibit on main Docs path as game source of truth for weave law. Factory remains **not** greenlit. Walk+look remain subject to operator F5 + stock FPS gates.
+See [[Half-B-Alpha-0-Implementation-Receipt]] for staging receipts. Factory remains **not** greenlit.
 
 ## Manual validation checklist (bone pilot)
 
 ```
-[ ] Alpha 0 exit criteria match table+module product
-[ ] Full BOM not hard gate for alpha_0
-[ ] output_conduct block not required to start alpha_0
-[ ] Normative path = catalog→implement→playtest (not overnight)
-[ ] Example module = cartridge, not product identity
-[ ] Phase-6-only not global law
-[ ] Godot PRECONDITIONS + gates godot_stock_fps / operator_kinesthetic_walk_look present
-[ ] Commit pushed and hash recorded
+[ ] factory_greenlit false
+[ ] FEEDSTOCK-SHAPE operator_confirmed loaded
+[ ] Archived horizon_demo_investor not treated as live Success
+[ ] First-weld staging = chargen + seats + three cams (not Success)
+[ ] Staging checkpoints labeled necessary-not-ask_success
+[ ] Stock/FPS/F5/engine_stock_first remain how
+[ ] Inspiration shape cited + landed (else inspiration_shape_miss debt)
+[ ] Decision Matrix / gates used — no reinvented pins bible
+[ ] No Paizo prose dump in game tree
 ```

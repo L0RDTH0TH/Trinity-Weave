@@ -105,7 +105,7 @@ def main(argv: list[str] | None = None) -> int:
 
     osv = sub.add_parser(
         "operator-scope-validate",
-        help="Loop 2 — operator attestation of L5..target_depth scope files per row",
+        help="Legacy Loop 2 — L5..target_depth attestation (when release_plan_feed is false)",
     )
     osv.add_argument("--project-id", default="genesis-mythos-master")
     osv.add_argument("--list", action="store_true")

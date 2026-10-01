@@ -24,6 +24,8 @@ Each **planned** catalog row is a **mini project trinity**: flood the LLM from t
 
 **Inspiration** is **not** a form pin and **not** a separate ladder gate. Feedstock → second mine under the **same Conceptual pin gate** → seasoning **slaved** to Conceptual/series. Never game titles in `conceptual_pin`. See [[INSPIRATION-UX-FEEDSTOCK]] · [[INSPIRATION-SEASONING-VALIDATION]].
 
+**Half-B continuation:** seasoning that stops at L5 is incomplete factory law. Half-B must use inspiration shape as **source of output shape** for all properly shaped artifacts — [[INSPIRATION-HALF-B-SHAPE]] (`inspiration_shape_miss` on miss). Operator confirmation lock: [[FEEDSTOCK-SHAPE]] (`operator_confirmed`) required before shaped Half-B claims. Not demo-catalog-only.
+
 ## Operator ladder (v4)
 
 1. Conceptual feed ready → freeze  

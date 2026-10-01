@@ -1,4 +1,9 @@
-"""Operator rollout depth budget + dependency warnings."""
+"""Operator rollout depth budget + dependency warnings.
+
+Legacy planner path when ``release_plan_feed`` is false. Primary Loop 2 planner
+is ``release-plan.yaml`` (see ``release_plan.py``). Keep this module for
+non-GMM / pre-flip projects until first successful alpha wave retires depth budget.
+"""
 
 from __future__ import annotations
 

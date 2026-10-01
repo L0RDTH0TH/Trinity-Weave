@@ -811,9 +811,9 @@ def tick(
             park = park_loop2_machine_ready(vault_root, project_id)
             steps.append({"step": "loop2_machine_park", **park})
 
-    # Loop 2 = depth slicer → Grok+user validate levels (not L5).
-    # Run slicer before the full Loop 2 exit check — depth_sliced (L1..) is
-    # slicer *output*, not a start precondition (chicken-egg fix).
+    # Optional transitional depth_slice (L4…L1 food) — not Loop 2 exit when
+    # release_plan_feed is on. Legacy Loop 2 still uses slicer + level validate.
+    # Run before full Loop 2 exit check so depth_sliced output exists for legacy path.
     if "depth_slice" not in completed:
         ds = run_depth_slicer(vault_root, project_id=project_id)
         steps.append({"step": "depth_slice", **ds})

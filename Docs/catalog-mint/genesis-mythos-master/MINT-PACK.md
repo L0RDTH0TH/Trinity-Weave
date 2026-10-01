@@ -50,7 +50,7 @@ See `FEED-ENVELOPE.yaml` for the machine summary of core / thickeners / complete
 
 ## Walk Order
 
-**Grok ladder (content) v4:** series individually → (optional feedstock polish) → **Conceptual pin gate** (pin derive + seasoning maps, shared board) → **Pass B** → **series L5** → **children L5**. Never L5 before pin confirm. Never Pass B before shared pin gate closes. Never children L5 before series L5. Seasoning is **not** a separate ladder gate. **Operator Loop 2** = depth slice → validate levels — not L5. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
+**Grok ladder (content) v4:** series individually → (optional feedstock polish) → **Conceptual pin gate** (pin derive + seasoning maps, shared board) → **Pass B** → **series L5** → **children L5**. Never L5 before pin confirm. Never Pass B before shared pin gate closes. Never children L5 before series L5. Seasoning is **not** a separate ladder gate. **Operator Loop 2** = release plan (`release-plan.yaml`: packages + fidelity + exit_criteria; L5 for package rows) — not depth slice / level validate. Cursor drafts ahead; Grok validates published pack only ([`CATALOG-MINI-TRINITY.md`](../_shared/CATALOG-MINI-TRINITY.md)).
 
 **Two-pass mint (first-class):** series cards complete + on Grok-facing Trinity/GitHub before any children mine.
 

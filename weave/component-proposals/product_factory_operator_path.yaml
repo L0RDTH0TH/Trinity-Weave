@@ -1,57 +1,64 @@
 id: product_factory_operator_path
 conceptual:
-  outcome: Operator can ship Alpha 0 table work from catalog rows without hunting overnight
-    conductor modes — factory remains ungreenlit until bone-pilot ack.
-  summary: Half B Alpha mode operator path. Normative for alpha_0 is select release-tagged
-    catalog rows → implement in Code-Repos → playtest → receipt. Overnight / headless /
-    multi-loop factory_staged is optional advanced tooling, not the Alpha 0 default.
-  primary_case: Bone pilot tags or selects alpha_0 catalog rows (table_front_door, session_roles,
-    module_pack_load, rules_min_pf1, seats_fp_dm), implements under genesis-mythos-alpha,
-    playtests table + example goblin-style module cartridge, records receipt.
-  secondary_case: After Alpha 0 exit and operator greenlight, advanced path may use
-    PRODUCT_FACTORY_CONTINUE / headless_eat / overnight on a project lane — still not
-    required for first table front door.
+  outcome: Operator can drive Half B generate and update on the current game under
+    FEEDSTOCK-SHAPE lock — factory remains ungreenlit (factory_greenlit false).
+  summary: Half B operator path. Normative pre-greenlit = select catalog slice or
+    update/fix on current Code-Repos → implement under stock/seat law → playtest →
+    receipt; advance PDF→adventure packet; aim at horizon_demo_investor. Overnight/
+    headless/multi-loop is advanced tooling after greenlit, not the default.
+  primary_case: Bone pilot updates genesis-mythos-alpha or welds alpha_0 staging rows
+    under FEEDSTOCK-SHAPE lock, advances PDF-derived packet when in scope under IP honesty,
+    records honest staging receipt — does not claim greenlit.
+  secondary_case: After investor attest and operator greenlight, advanced path may use
+    PRODUCT_FACTORY_CONTINUE / headless_eat / overnight on a project lane.
   edge_cases:
-  - Treating We Be Goblins!-style pack as product identity — it is an example cartridge only
-  - Requiring three operator loops before any Code-Repos write
+  - Treating placeholder pack as Success ceiling
+  - Requiring three operator loops before any Code-Repos write/update
   - Claiming factory greenlit from this card alone
   misread_risks:
-  - Equating proof-loop receipts with campaign-capable product Success
-  - Treating Phase-6-only read locks as permanent global law
+  - Equating staging receipts with investor Success
+  - Reading Half B as generate-only
 touch:
   primary_paths:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - Ingest/PZO9500-9E_WeBeGoblinsFree.pdf
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/genesis-mythos/content/packs/
   - scripts/eat_queue_core/weave/user_story/product_factory_pipeline.py
   - scripts/eat_queue_core/weave/user_story/product_factory_continue.py
   - scripts/eat_queue_core/weave/factory/factory_bom.py
   - scripts/eat_queue_core/weave/factory/factory_output_gate.py
-  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   behavior_signals:
-  - alpha_0 normative path documented in Docs/Half-B-Alpha-Mode.md
-  - bom_blocks soft-gate for alpha_0 slim sections
+  - Half-B-Alpha-Mode normative path generate+update + investor attest
+  - bom_blocks soft-gate for slim staging sections
 rules:
   forbidden:
-  - claim factory greenlit without operator manual validation
-  - claim closed_alpha Success from Alpha 0 playtest alone
-  - require overnight / headless / multi-loop conductor as normative Alpha 0 path
-  - require roadmap_factory_eat as sole entry when simple catalog implement path is available
+  - claim factory greenlit without operator greenlight
+  - claim closed_alpha Success from staging playtest alone
+  - revive archived horizon_demo_investor as live Success
+  - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
+  - require overnight / headless / multi-loop as normative pre-greenlit path
+  - treat Half B as generate-only
   - treat Phase-6-only as global implementation law
-  - treat example goblin-style module as product name or identity
-  - overnight or conductor Success around missing Godot matrix quote / non-stock FPS / MCP-only walk+look claim
-  - mark Alpha Success for walk+look without operator F5 attestation
+  - treat placeholder pack as forever cartridge / Success ceiling
+  - dump Paizo prose into Code-Repos
+  - overnight or conductor Success around missing stock quote / non-stock FPS / MCP-only feel
+  - mark walk+look Done without operator F5 attestation
   precedence:
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
-  - 'policy: alpha_0 prefers catalog release_stage tags over Phase-6-only tourniquet'
-  - 'policy: Docs/Half-B-Alpha-Mode.md is operator home for Half B Alpha mode'
-  - 'policy: godot_stock_fps + operator_kinesthetic_walk_look block — invent FPS / MCP-only = invalid'
+  - 'policy: Half B = generate + update current exhibit'
+  - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md is operator home'
+  - 'policy: factory_greenlit false until operator greenlight; investor ask archived'
+  - 'policy: FEEDSTOCK-SHAPE.md operator_confirmed required before shaped Half-B claims'
+  - 'policy: engine_stock_first + godot_stock_fps + operator_kinesthetic_walk_look block'
   acceptance:
-  - Docs/Half-B-Alpha-Mode.md states factory_greenlit false and Alpha 0 exit criteria
-  - normative path is catalog→implement→playtest→receipt for alpha_0
-  - Godot PRECONDITIONS documented; invent FPS / missing quote = invalid pass
+  - Half-B-Alpha-Mode states factory_greenlit false; FEEDSTOCK-SHAPE lock required
+  - normative path includes update_existing_exhibit
+  - PDF→packet path pointed; Godot PRECONDITIONS documented; investor ask archived
 contract:
   proof:
-  - Docs/Half-B-Alpha-Mode.md
-  - Docs/MCP-Playtest-WalkLook.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md
   - weave/component-proposals/product_factory_operator_path.yaml
 meta:
   schema_version: 2
@@ -63,4 +70,4 @@ meta:
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode + Godot enforcement forbidden Success paths — 2026-09-30
+    operator_note: FEEDSTOCK-SHAPE lock; investor archived — 2026-10-01

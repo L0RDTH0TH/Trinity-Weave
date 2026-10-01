@@ -6,7 +6,7 @@ updated: 2026-08-07
 
 # L5 affirm validation
 
-**After Pass B lock + pin confirm/waive + inspiration seasoning apply/waive** — Pass-B **+ Conceptual pin** (+ seasoning) L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (depth slicer → level validate).
+**After Pass B lock + pin confirm/waive + inspiration seasoning apply/waive** — Pass-B **+ Conceptual pin** (+ seasoning) L5 projection review. Same receipt discipline as Pass B children. **Not** a second mint harvest, not pin derive, and **not** Operator Loop 2 (release plan + L5 for package rows — not depth slicer).
 
 **Frame:** [[CATALOG-MINI-TRINITY]] ladder v4. Never draft/affirm L5 before pin confirm/waive. **Series L5 before children L5** for that parent. **Children L5 = all Pass B children**, batched under parent; inherit series pins + series L5 (promote-to-planned skipped for now). Seasoning may cite inspiration/AP move-pins — never treat game titles as Conceptual pins.
 
@@ -59,7 +59,7 @@ Batch scope: [all planned / listed row ids]
 
 ## Operator close
 
-- **Green (series + children family)** → fill cross-row flags → family attest → **Operator Loop 2** (depth slice → Grok+user validate levels) → then `catalog_signed_at`  
+- **Green (series + children family)** → fill cross-row flags → family attest → **Operator Loop 2** (author/sign `release-plan.yaml` + L5 for package rows) → then `catalog_signed_at` / plan sign  
 
 - **Yellow / red** → Cursor re-draft flagged rows (`force_overwrite`) → re-emit digests → re-validate subset  
 - **Do not** treat “L5 files exist” as ready

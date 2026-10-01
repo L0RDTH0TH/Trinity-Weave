@@ -1,6 +1,8 @@
-"""Pre–Loop-2 operator surface — budget + L5 drafts; optional L4..L1 when slice_derived.
+"""Pre–Loop-2 operator surface — L5 drafts; optional L4..L1 when slice_derived.
 
-Operator Loop 2 itself is depth slicer → Grok+user validate levels (see product_factory_pipeline).
+When ``release_plan_feed`` is on, Operator Loop 2 = release plan + L5 for package
+rows (see ``release_plan.py`` / Factory-Vocabulary). Depth slicer remains
+transitional CLI only — not the Loop 2 exit check.
 """
 
 from __future__ import annotations
@@ -534,10 +536,11 @@ def prepare_loop2_operator_surface(
     slice_derived: bool = False,
 ) -> dict[str, Any]:
     """
-    After catalog_mint / pin apply: budget + substantive L5 drafts.
+    After catalog_mint / pin apply: budget (legacy) + substantive L5 drafts.
     L4..L1 only when slice_derived=True (normally the pipeline runs depth_slice separately).
 
-    L5 authoring is *not* Operator Loop 2 — Loop 2 = slicer then level validate.
+    L5 authoring is *not* Operator Loop 2 — Loop 2 = release plan + L5 for package
+    rows when ``release_plan_feed``; legacy path = slicer then level validate.
     """
     vault_root = vault_root.resolve()
     paths = user_story_paths(vault_root, project_id)

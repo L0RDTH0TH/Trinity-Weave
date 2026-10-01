@@ -1,12 +1,14 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-08-14
+updated: 2026-10-01
 ---
 
 # INDEX — pinable sources
 
 Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
+
+> **Horizon staging clarifications (2026-10-01):** DF world-gen = possible ≠ required for ~30m demo (not discouraged). FG/TaleSpire classic VTT cam (`vtt_planar_ortho`) ≠ `god_mode_sparky` ≠ `anchored_actor`. Skyrim town/settlement urban feel is welcome pattern extract.
 
 ## Cross-pillar altitude (2026-08-08 remine)
 
@@ -79,7 +81,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
-| Skyrim | strong | stub-skyrim-living-fp-share, mod-community-weak-spot-augments | Living world + FP share; mod ecosystem as weak-spot research |
+| Skyrim | strong | stub-skyrim-living-fp-share, mod-community-weak-spot-augments | Living world + FP share; **town/settlement urban feel welcome** (pattern extract, not clone); mod ecosystem as weak-spot research |
 | Oblivion | medium | stub-oblivion-open-world | Same cluster |
 | Kingdom Come Deliverance / KCD2 | strong | low-fantasy-tone-exemplar | Tone / power bar |
 | Hogwarts Legacy | medium | stub-seasonal-location-rewrite | Seasonal rewrite |
@@ -92,7 +94,8 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 |--------|--------|--------------|-------|
 | Halo 3 Forge | strong | forge-glow-dm-placement, live-grid-correspondence | DM world cam + review |
 | Cities: Skylines | strong | situational-overlay-lenses | Implicit situational lenses — not combat circle |
-| TaleSpire | medium | stub-talespire-dm-tooling | DM tools for FP players |
+| TaleSpire | medium | stub-talespire-dm-tooling | DM tools for FP players; **classic VTT camera = `vtt_planar_ortho`** (planar lock, slight angle, 180° around center) — **≠** sparky god-mode (`god_mode_sparky`) **≠** anchored actor cams |
+| Fantasy Grounds | medium | *(operator elevate 2026-10-01 — peer TaleSpire)* | Shared table / GM–player asymmetry / check chrome; **same classic VTT camera column** as TaleSpire (`vtt_planar_ortho`) — do not conflate with WorldCam/sparky or FP/NPC/monster anchors |
 | Operator combat invent | medium | turn-gated-movement-circle | Combat affordance; not Cities |
 | Operator combat-surface doctrine (2026-08-11) | strong | combat-threat-readability | Posture default (swingy/shooty); Nature green/yellow/red outline; **not** a taxonomy HUD |
 | Operator combat-surface doctrine (2026-08-11) | strong | combat-flank-blind-spot-arc | 180° from back; acting-player ~5 ft cone in movement-circle family |
@@ -108,7 +111,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Rain World | strong | rain-world-creature-territory-habitat | High-fidelity creature territory; thicker ecosystem than Primal alone |
 | Valheim | medium | valheim-progressive-map-biome | Progressive map + biome atmosphere — “how much world when” |
 | Medieval Dynasty | medium | medieval-dynasty-light-life-sim | Light life-sim / seasons / settlement-as-place |
-| Dwarf Fortress (detail) | medium | stub-df-living-detail | Detail / bookkeeping relief |
+| Dwarf Fortress (detail) | medium | stub-df-living-detail | Detail / bookkeeping relief; history as context; **world-gen:** not required for ~30m investor demo, **not discouraged**, **must remain possible** (thin demo OK; deep DF-shaped path legitimate later) |
 | Far Cry Primal | strong | habitat-wilderness-exemplar | Habitat / wilderness pressure |
 
 ## World shape / midband base

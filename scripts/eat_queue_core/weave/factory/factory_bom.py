@@ -24,20 +24,6 @@ from .factory_output_gate import parse_factory_orchestrator_yaml
 from .lane_charters import validate_six_lane_charters
 from .tech_stack_manifest import load_manifest
 
-# Half B Alpha mode — release stages (Docs/Half-B-Alpha-Mode.md). Not factory greenlight.
-VALID_IMPLEMENTATION_RELEASE_STAGES = frozenset({"alpha_0", "alpha_1", "beta"})
-# Slim hard-gate sections for alpha_0; other BOM sections stay advisory.
-ALPHA_0_SLIM_BOM_SECTIONS: tuple[str, ...] = ("product", "build_progress")
-ALPHA_0_ADVISORY_BOM_SECTIONS: tuple[str, ...] = (
-    "roadmap_factory",
-    "operator_loop_1_pmg",
-    "operator_loop_2_catalog_levels",
-    "execution_engineering",
-    "operator_loop_3_slice_selection",
-    "implementation_factory",
-    "product_acceptance",
-)
-
 
 class BomStatus(str, Enum):
     MISSING = "missing"
@@ -45,43 +31,6 @@ class BomStatus(str, Enum):
     PASS = "pass"
     WAIVED = "waived"
     NOT_APPLICABLE = "not_applicable"
-
-
-def resolve_implementation_release_stage(
-    vault_root: Path,
-    *,
-    project_id: str | None = None,
-) -> str:
-    """
-    Resolve Half B implementation_release_stage.
-
-    Order: product_factory.implementation_release_stage →
-    factory_orchestrator.implementation_release_stage → default alpha_0
-    (pre-greenlight Alpha mode; operator may promote later).
-    """
-    vault_root = vault_root.resolve()
-    pid = str(project_id or "").strip()
-    if pid:
-        try:
-            from ..user_story.product_factory_state import load_product_factory
-
-            pf = load_product_factory(vault_root, pid)
-            raw = str(pf.get("implementation_release_stage") or "").strip().lower()
-            if raw in VALID_IMPLEMENTATION_RELEASE_STAGES:
-                return raw
-        except Exception:
-            pass
-    try:
-        from ...config_loader import resolve_config_path
-
-        cfg_path = resolve_config_path(vault_root, None)
-        fo = parse_factory_orchestrator_yaml(cfg_path)
-        raw = str(fo.get("implementation_release_stage") or "").strip().lower()
-        if raw in VALID_IMPLEMENTATION_RELEASE_STAGES:
-            return raw
-    except Exception:
-        pass
-    return "alpha_0"
 
 
 @dataclass(frozen=True)
@@ -809,18 +758,12 @@ def evaluate_factory_bom_v2(
         summary[st.value] = sum(1 for s in all_steps if s.status == st)
 
     blocked_at: str | None = None
-    # Only hard-block on loops whose sections were requested (alpha_0 slim omits them).
-    loop_gate: list[tuple[str, Any, str]] = []
-    if "operator_loop_1_pmg" in active:
-        loop_gate.append((l1.loop_id, l1, "operator_loop_1_pmg"))
-    if "operator_loop_2_catalog_levels" in active:
-        loop_gate.append((l2.loop_id, l2, "operator_loop_2_catalog_levels"))
-    if "execution_engineering" in active:
-        loop_gate.append(("execution_engineering", eng, "execution_engineering"))
-    if "operator_loop_3_slice_selection" in active:
-        loop_gate.append((l3.loop_id, l3, "operator_loop_3_slice_selection"))
-
-    for loop_id, chk, _section in loop_gate:
+    for loop_id, chk in (
+        (l1.loop_id, l1),
+        (l2.loop_id, l2),
+        ("execution_engineering", eng),
+        (l3.loop_id, l3),
+    ):
         if not chk.ok:
             if loop_id.startswith("operator_loop_"):
                 blocked_at = loop_id
@@ -861,58 +804,8 @@ def bom_blocks_factory_stage_v2(
     vault_root: Path,
     *,
     project_id: str,
-    release_stage: str | None = None,
 ) -> tuple[bool, str | None, FactoryBomResult]:
-    """
-    Factory stage gate for BOM schema v2.
-
-    Under implementation_release_stage=alpha_0 (Half B Alpha mode default): hard-gate
-    only slim sections (product + build_progress). Operator-loop / implementation_factory
-    / product_acceptance gaps are advisory — they must not block starting Alpha 0
-    Code-Repos work. Full multi-section gate applies for alpha_1+ unless overridden.
-    See Docs/Half-B-Alpha-Mode.md — factory is not greenlit by this soft-gate alone.
-    """
-    stage = (release_stage or resolve_implementation_release_stage(vault_root, project_id=project_id)).strip().lower()
-    if stage == "alpha_0":
-        slim = evaluate_factory_bom_v2(
-            vault_root,
-            project_id=project_id,
-            sections=ALPHA_0_SLIM_BOM_SECTIONS,
-        )
-        # Advisory evaluate (full conductor sections) for operator visibility — never blocks.
-        advisory = evaluate_factory_bom_v2(
-            vault_root,
-            project_id=project_id,
-            sections=ALPHA_0_ADVISORY_BOM_SECTIONS,
-        )
-        merged_summary = dict(slim.summary)
-        for k, v in advisory.summary.items():
-            merged_summary[k] = merged_summary.get(k, 0) + int(v)
-        # Attach advisory blocked_at into detail via synthetic step when slim ok.
-        steps = list(slim.steps) + list(advisory.steps)
-        if advisory.blocked_at and slim.ok:
-            steps.append(
-                _step(
-                    "alpha_0_advisory_gap",
-                    "build_progress",
-                    "Alpha 0 advisory BOM gap (non-blocking)",
-                    status=BomStatus.PARTIAL,
-                    required=False,
-                    artifact_ref="Docs/Half-B-Alpha-Mode.md",
-                    detail=f"advisory_blocked_at:{advisory.blocked_at}",
-                    verifier="bom_blocks_factory_stage_v2.alpha_0_soft",
-                )
-            )
-        result = FactoryBomResult(
-            ok=slim.ok,
-            blocked_at=slim.blocked_at,
-            product_id=project_id,
-            versioning=slim.versioning,
-            steps=tuple(steps),
-            summary=merged_summary,
-        )
-        return result.ok, result.blocked_at, result
-
+    """Factory stage gate for BOM schema v2 — loops through implementation_factory."""
     sections = (
         "product",
         "operator_loop_1_pmg",

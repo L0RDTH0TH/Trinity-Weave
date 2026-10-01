@@ -68,6 +68,14 @@ Path: `Inspiration-UX-Feedstock/INSPIRATION-DIALOGUE-RECEIPT.md` — accepted / 
 
 Every INDEX source → ≥1 derived move-pin. Stubs OK until a desk needs them.
 
+## Half-B binding (generalized — not mint-only)
+
+Catalog mint seasons children/L5. **Half-B must still treat that seasoning (and feedstock shape) as source of output shape** for every properly shaped weld — UX, systems feel, and visual lane. Demo lacking feedstock flavor = inspirations were **absent from relevance**.
+
+**Operator lock (required):** [[FEEDSTOCK-SHAPE]] (`operator_confirmed: true`, `factory_greenlit: false`) before shaped Half-B claims.
+
+Normative process: [[INSPIRATION-HALF-B-SHAPE]]. Reject: **`inspiration_shape_miss`**. Visual bar: [[Visual-Factory-Direction-Stylized-Low-Poly]] (Astroneer = stylized low poly). Host-weld: `implementation_factory_loop` · `product_factory_pipeline`.
+
 ## Cross-links
 
-- [[CATALOG-MINI-TRINITY]] · [[INSPIRATION-SEASONING-VALIDATION]] · [[PIN-DERIVE-VALIDATION]] · [[WHAT-GOOD-LOOKS-LIKE]]
+- [[CATALOG-MINI-TRINITY]] · [[INSPIRATION-SEASONING-VALIDATION]] · [[PIN-DERIVE-VALIDATION]] · [[WHAT-GOOD-LOOKS-LIKE]] · [[INSPIRATION-HALF-B-SHAPE]] · [[FEEDSTOCK-SHAPE]]

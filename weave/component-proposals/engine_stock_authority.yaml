@@ -1,0 +1,108 @@
+id: engine_stock_authority
+conceptual:
+  outcome: Code-Repos implement work copies locked masters (engine physics, Terrain3D,
+    Pathfinder→computer calcs) and routes results/context to the correct seat (Player/DM)
+    — never invents parallel game systems or notify/RP channels for concerns the stack
+    already owns.
+  summary: Project-scoped anti-NIH pattern law for genesis-mythos-master implement. More
+    than node types — whole systems. Funnel = seat routing + DM/Player context feeds
+    (skill results to calling DM; NPC relationship history as DM RP context). Does not
+    ban NPC systems; bans reinventing masters and bypassing Host Index seats.
+  primary_case: Agent starts terrain or rules Code-Repos slice; must name stack authority
+    (e.g. stack-procedural-terrain / Terrain3D, rules_pf1) and quote matrix Prefer/Never
+    or How-To reject before write — invent MeshInstance heightfield or hardcoded combat
+    = engine_pattern_miss.
+  edge_cases:
+  - Demo shortcut that bypasses PF1 rules host
+  - Skill check resolved with no DM result surface when DM called the check
+  - NPC enmity data with no DM context feed while inventing a parallel notify channel
+  - Treating stack_baseline_honesty vetting ladder as substitute for this pattern gate
+  misread_risks:
+  - Reading funnel as ban-all-NPC-systems
+  - FPS-only compliance while inventing parallel terrain/rules
+  - Duplicating full Tech-Stack-Manifest BOM into this card
+touch:
+  primary_paths:
+  - 1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Junior-Tech-Adapt-How-To.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/SeamRegistry-CSharp-Host-Index.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PF1-Ruleset-Content-Scaffold.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/ENGINE-COMPILE-PACK-stock_godot_fps.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PIN-stock_godot_fps.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
+  harness_commands:
+  - mcp_postedit_validate
+  behavior_signals:
+  - gate engine_stock_first present with severity block
+  - stock_authorities lists player_fps procedural_terrain rules_pf1 host_index_seams
+  meta_lens_force_align: true
+rules:
+  forbidden:
+  - invent parallel physics/controller when CharacterBody3D / stock FPS owns the concern
+  - invent second terrain authority beside Terrain3D (res://addons/terrain_3d/)
+  - invent parallel RPG resolution or hardcoded combat/dice that bypasses PF1 rules host
+  - invent parallel notify/RP channel when Host Index seat routing owns the seam
+  - skip naming stock authority id + quote before Code-Repos write on a matrix/manifest concern
+  - claim factory greenlit
+  - treat copy-masters posture as FPS-node-types-only
+  precedence:
+  - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
+  - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
+  - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
+  - 'policy: Copy the masters — engine physics, Terrain3D, Pathfinder→calcs; calibrate stock, do not invent'
+  - 'policy: Funnel = seat routing + context — DM gets called skill results; NPC history feeds DM RP; Host Index binds'
+  - 'policy: stack_baseline_honesty is vetting honesty ladder — not a substitute for engine_stock_first'
+  - 'policy: godot_stock_fps remains specialized block under this umbrella for player/camera/look/move'
+  acceptance:
+  - engine_stock_first gate present with severity block
+  - stock_authorities cover FPS Terrain3D PF1 Host Index
+  - touch paths resolve Tech-Stack-Manifest + Decision Matrix + Junior-Tech-Adapt-How-To
+  reject_codes:
+  - engine_pattern_miss
+gates:
+  - id: engine_stock_first
+    applies_when: Code-Repos write matching a Decision Matrix concern or Tech-Stack-Manifest stack-* row
+    pass: name stock authority id; quote matrix Prefer/Never or How-To reject; use locked master (ClassDB/vendor/PF host); route results/context via Host Index seats
+    fail: missing quote; second authority; from-scratch mastered system; bypass seat-routed results/context with parallel channel
+    severity: block
+stock_authorities:
+  - id: player_fps
+    manifest_or_pin: PIN-stock_godot_fps / ENGINE-COMPILE-PACK-stock_godot_fps
+    prefer: engine CharacterBody3D + child Camera3D + capture path
+    never: invent free-fly / PerspectiveEnvelope-as-mover / parallel controller
+    specialized_gate: godot_stock_fps
+  - id: procedural_terrain
+    manifest_or_pin: stack-procedural-terrain
+    prefer: Terrain3D at res://addons/terrain_3d/ via ITerrainAuthority wrap (Junior-Tech-Adapt-How-To §1)
+    never: second terrain authority; Gaea GridMap/TileMap as 3D terrain authority
+  - id: rules_pf1
+    manifest_or_pin: rules_min_pf1 / pathfinder_pf1
+    prefer: PF1 → computer calcs via Host Index §B4 + PF1-Ruleset-Content-Scaffold; surface results to calling seat
+    never: hardcoded demo combat/dice bypassing rules host; parallel RPG resolution stack
+  - id: host_index_seams
+    manifest_or_pin: SeamRegistry-CSharp-Host-Index
+    prefer: seat routing + context feeds (skill results to DM who called; NPC relationship/history as DM RP context)
+    never: parallel notify/RP host for the same seam
+contract:
+  proof:
+  - 1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Godot-Implementation-Decision-Matrix.md
+  - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Junior-Tech-Adapt-How-To.md
+  invariant_ids:
+  - engine_stock_first_block
+  - copy_masters_not_invent
+  - seat_funnel_routing
+meta:
+  schema_version: 2
+  conceptual_confirmed_at: '2026-09-30T22:00:00Z'
+  rules_confirmed_at: '2026-09-30T22:00:00Z'
+  provisional: true
+  promotion_tier: provisional
+  card_class: promoted_provisional
+  factory_greenlit: false
+  project_scope: genesis-mythos-master
+  source:
+    operator_note: Anti-NIH pattern + seat funnel clarification — 2026-09-30
+  last_disconnect: null

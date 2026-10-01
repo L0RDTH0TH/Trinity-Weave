@@ -27,18 +27,23 @@ pilots:
     status: trialing
     path: .technical/weave/host-weld/pilots/implementation_factory_loop.md
     trinity_refs:
+      - engine_stock_authority
+      - ask_fidelity
       - implementation_segment_charter
       - implementation_gate_catalog
       - implementation_handoff_tunnel
       - mcp_postedit_validator
       - cursor_engine_mcp_loop
-    note: Track C implementation factory loop — first pilot godot-genesis-mythos-master
+    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit false
 
   product_factory_pipeline:
     status: trialing
     path: .technical/weave/host-weld/pilots/product_factory_pipeline.md
     trinity_refs:
       - product_factory_pipeline
+      - product_factory_operator_path
+      - engine_stock_authority
+      - ask_fidelity
       - catalog_mint_gate
       - ux_context_execution_gate
-    note: PMG → product via three operator loops; GMM first post-build run
+    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit false

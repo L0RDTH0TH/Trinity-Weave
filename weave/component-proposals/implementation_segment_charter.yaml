@@ -1,75 +1,92 @@
 id: implementation_segment_charter
 conceptual:
-  outcome: 'Implementation work has a clear charter: readonly roadmap inputs, repo
-    writes tagged to release stages (alpha_0 / alpha_1 / beta), maintenance receipts —
-    without reopening RESUME_ROADMAP deepens or treating Phase-6-only as forever law.'
-  summary: Track C / Half B segment charter under Alpha mode. Catalog rows + release_stage
-    tags are authority; Roadmap Execution is readonly feedstock; Code-Repos is the write
-    target. Product = table platform; example goblin-style pack = cartridge only.
-  primary_case: Agent receives implementation hand-off for alpha_0 capabilities
-    (table_front_door, session_roles, module_pack_load, rules_min_pf1, seats_fp_dm);
-    writes under genesis-mythos-alpha; does not deepen Execution tree as Half B work.
+  outcome: 'Half B implementation generates new catalog/capability welds and continuously
+    updates/extends the current Code-Repos game version — readonly roadmap feedstock,
+    release_stage tags, maintenance receipts — without treating table-only shrink as
+    Success ceiling or Phase-6-only as forever law.'
+  summary: Track C / Half B segment charter. Catalog + release_stage authority; Execution
+    readonly; Code-Repos is generate + update target. Investor/horizon ~30 min +
+    PDF-derived cartridge is greenlight attest (Half-B-Alpha-Mode). Staging checkpoints
+    are necessary, not ceiling. Stock/seat gates are how.
+  primary_case: Agent receives hand-off to extend genesis-mythos-alpha (new slice or
+    update/fix) toward staging under FEEDSTOCK-SHAPE lock (horizon_demo_investor archived); does not deepen Execution
+    tree as Half B work; does not claim greenlit from charter.
   edge_cases:
-  - Treating demo / proof-loop spec as factory core or campaign Success
+  - Treating staging table+placeholder as permanent Success
+  - Greenfield-only reading that refuses to update current exhibit
   - Implementing lan_listen_server under alpha_0
-  - Blocking on full BOM / conduct block before any front door exists
+  - Blocking on full BOM / conduct block before staging can proceed
   misread_risks:
-  - Confusing Track C with another RESUME_ROADMAP deepen
-  - Writing vault rules instead of host-weld pilots / Code-Repos
+  - Confusing Track C with RESUME_ROADMAP deepen
   - Claiming factory greenlit from charter presence
+  - Treating placeholder pack as goal ceiling
 touch:
   primary_paths:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/catalog-mint/_shared/FEEDSTOCK-SHAPE.md
   - .technical/weave/host-weld/pilots/implementation_factory_loop.md
-  - scripts/eat_queue_core/tests/test_implementation_track_c.py
+  - .technical/weave/component-proposals/engine_stock_authority.yaml
+  - .technical/weave/component-proposals/ask_fidelity.yaml
+  - Ingest/PZO9500-9E_WeBeGoblinsFree.pdf
   - 5-Attachments/Code-Repos/genesis-mythos-alpha/
+  - 5-Attachments/Code-Repos/genesis-mythos-alpha/genesis-mythos/content/packs/
   harness_commands:
   - trinity_expand_self
+  - mcp_postedit_validate
   meta_lens_force_align: true
   behavior_signals:
-  - Docs/Half-B-Alpha-Mode.md Alpha 0 capability list
+  - Half-B-Alpha-Mode investor Success + staging vs ceiling
   - test_pilot_manifest_registered
 rules:
   forbidden:
   - mutate .cursor/rules/**
   - claim factory greenlit
   - claim closed_alpha Success
+  - claim investor/horizon Success without operator ~30 min attest on PDF-derived cartridge
   - reintroduce Phase-6-only as global law
-  - treat proof-loop receipts as campaign-capable product Success
-  - treat We Be Goblins!-style example pack as product identity
+  - treat staging table+module alone as permanent Success ceiling
+  - treat Half B as greenfield-only (refuse update/extend of current exhibit)
+  - treat placeholder example_goblin_oneshot as forever cartridge law
+  - dump Paizo prose into Code-Repos game tree
   - implement lan_listen_server as alpha_0 scope
   - Code-Exhibit player/camera/look/move write without Godot Decision Matrix + Stock Patterns resolved
-  - skip quoting matrix principle line + Player move/look row in agent report for those writes
-  - implement player locomotion via PerspectiveEnvelope / FP-rail / free-fly Camera3D-only (non-stock)
-  - mark segment Success for player-camera when PRECONDITIONS missing (pass status = invalid)
+  - skip quoting matrix principle + Player move/look row for those writes
+  - implement player locomotion via PerspectiveEnvelope / FP-rail / free-fly Camera3D-only
+  - mark segment Success for player-camera when PRECONDITIONS missing
+  - report staging substitute as ask Success (fidelity_miss) — foundation ≠ house
+  - claim ask_success without hand-off ask_id + done_when
   precedence:
   - 'policy: lens/host_execution_safety_contract — protected_paths_and_trash_policy_are_non_negotiable'
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Track C does not mutate .cursor/rules/** — host-weld bridge only'
-  - 'policy: prefer catalog rows tagged alpha_0 before alpha_1/beta'
+  - 'policy: Half B = generate + update current Code-Repos'
+  - 'policy: investor/horizon ~30 min + PDF→packet is greenlight attest; staging is not ceiling'
   - 'policy: Roadmap Execution readonly feedstock — no infinite deepen as Half B'
-  - 'policy: Docs/Half-B-Alpha-Mode.md Godot PRECONDITIONS — invent FPS / missing quote = invalid pass'
+  - 'policy: engine_stock_authority + Godot PRECONDITIONS — invent parallel / missing quote = invalid'
+  - 'policy: ask_fidelity — same endpoint as ask; staging ≠ ask_success'
   acceptance:
-  - Alpha 0 table+module product bar documented
-  - release stages alpha_0/alpha_1/beta named on charter
-  - player/camera segments require matrix quote + stock CharacterBody3D pattern
+  - Half-B doc states investor Success vs staging
+  - charter forbids greenfield-only reading
+  - player/camera segments require matrix quote + stock CharacterBody3D
 contract:
   proof:
-  - Docs/Half-B-Alpha-Mode.md
+  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
   - .technical/weave/host-weld/pilots/implementation_factory_loop.md
   invariant_ids:
   - implementation_readonly_roadmap_inputs
-  - alpha_0_table_product_bar
+  - half_b_generate_and_update
+  - feedstock_shape_lock_required
+  - ask_fidelity_match_ask_block
   - godot_fps_preconditions_invalid_without_quote
 meta:
   schema_version: 2
   conceptual_confirmed_at: '2026-06-09T20:45:57Z'
-  rules_confirmed_at: '2026-09-30T03:00:00Z'
+  rules_confirmed_at: '2026-09-30T22:45:00Z'
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
   alpha_mode_staged: true
   factory_greenlit: false
   source:
-    operator_note: Half B Alpha mode charter + Godot PRECONDITIONS — 2026-09-30
+    operator_note: Investor bar + update machine re-align — 2026-09-30
   last_disconnect: null

@@ -2,11 +2,11 @@
 
 ## created: 2026-07-17
 
-updated: 2026-08-07
+updated: 2026-09-30
 tags: [second-brain, grok, custom-instructions, trinity-weave]
 title: Grok — Trinity-Weave custom instructions (paste)
 source: "Paste ALL of the body below into Grok Chat → Custom instructions."
-version: 2026-08-07d
+version: 2026-09-30a
 vault_path: 3-Resources/Second-Brain/Docs/Grok-Second-Brain-Custom-Instructions.md
 trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Second-Brain-Custom-Instructions.md](https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Second-Brain-Custom-Instructions.md)
 
@@ -76,115 +76,5 @@ trinity_url: [https://github.com/L0RDTH0TH/Trinity-Weave/blob/main/Docs/Grok-Sec
 
 Voices should auto gen for npc's with the waveform surface for modifying as opposed to a more classic generation approach.    
 
-# **THIS IS THE LINK WE ARE USING TO AMEND THE CONCEPTUAL TO SUPPORT THE PINS**
-
-[https://grok.com/share/c2hhcmQtMw_8e7916aa-a2d4-4fa9-9d87-524aca09432a](https://grok.com/share/c2hhcmQtMw_8e7916aa-a2d4-4fa9-9d87-524aca09432a)    
-  
-  
 
 
-I think loop 2 splicer need replaced with a rollout scheduale for the system. So rather than user setting waves based on the levels we scrap that system and do a more traditional software rollout approach and feed that into Half B.  
-
-# CURSOR RESPONSE
-
-Your instinct tracks the real pain: **Loop 2 is doing release planning with the wrong primitive**.
-
-## What Loop 2 / the slicer actually is today
-
-There are two harness pieces people casually call “the slicer”:
-
-| Piece | Job today |
-
-|-------|-----------|
-
-| **Rollout slicer** `rollout_slicer.py` → `slice-depth-budget.json`) | Operator sets `target_depth` *per catalog row** |
-
-| **Depth slicer** `depth_slicer.py`) | Drafts **L4…L1** scope files from L5 |
-
-Half B then treats that budget as the overnight stop condition: weld each row until `current_depth >= target_depth`, while **waves** are only lane batches *inside one rung* `CDP waves[]` / `append_factory_wave`). Docs are explicit that overnight stops on **levels**, not “wave 2 finished” — see [[3-Resources/Second-Brain/Docs/Five-Factories-Trail|Five-Factories-Trail]] and [[Slice-Catalog-and-Slicer]].
-
-So the operator-facing mental model is: “pick how deep each noun goes this rollout.” That is *not* a normal software rollout schedule; it is a **per-feature depth dial** that Half B interprets as a weld queue.
-
-## Why replacing it with a rollout schedule is coherent
-
-Traditional rollout answers questions the depth dial answers badly:
-
-1. **What ships together** (coherent vertical slice / milestone), not how many L-rungs each noun should reach in isolation
-2. **Order and gates** (foundation → playable → polish → pack-ready), not “combat to 3, inventory to 2” as the primary plan object
-3. **Exit criteria** that Half B can chase `milestone_complete`, demo path green), instead of `all_budget_rows_at_target_depth` as the default `done_when`
-
-Feeding that into Half B is the right seam: Loop 2 / Half A should produce **what to build next and when it’s done**; Half B should only **compose lanes, run waves, review, bump**.
-
-What you would be scrapping is specifically the **level-budget as release planner** — not necessarily L5 itself.
-
-## What to keep vs scrap
-
-**Keep (UX / catalog truth):**
-
-- Catalog rows + L5 as the experiential bar  
-- Pass B / family attest / `catalog_signed_at`  
-- Loop 3 slice pick (or its successor: “which milestone / which package”)  
-- Half B **lane waves** as PM batching *inside* a beat (different word than release “waves” — rename later to avoid collision)
-
-**Scrap or demote:**
-
-- Operator-authored `target_depth` *per row** as the main Loop 2 ceremony  
-- Overnight default of “every budget row at target depth” as the product plan  
-- Treating depth-sliced L4–L1 validation as if it *is* the rollout plan (it can stay as optional implementation food, not the schedule)
-
-**Replace with (Half A → Half B feed):**
-
-Something like a **rollout schedule artifact**, e.g.:
-
-```text
-
-rollout_schedule.yaml
-
-  releases[] / milestones[]
-
-    id, name, order
-
-    includes: [{row_id, intent}, ...]   # or packages / epics
-
-    depends_on: [prior milestone]
-
-    exit_criteria: [...]                # demo path, tests, playtest brief
-
-    half_b_done_when: ...               # token Half B overnight understands
-
-```
-
-Half B consumes **active milestone → work packages → CDP compose**, not **row × target_depth ladder**.
-
-Depth (if still useful) becomes an **implementation detail of a package** (“this milestone needs combat at playable fidelity”), not the operator’s primary control surface.
-
-## Mapping into Half B
-
-| Today | Proposed |
-
-|-------|----------|
-
-| Loop 2: set `target_depth` + validate L5..target | Loop 2: author/confirm **rollout schedule** (+ keep L5 family green) |
-
-| Loop 3: pick row + next `dispatch_depth` | Loop 3: pick **milestone / package** (or auto-advance schedule) |
-
-| Overnight: all rows at target depth | Overnight: **active milestone exit criteria** met |
-
-| Depth bump on row | Milestone progress / package complete (row depth optional receipt) |
-
-Lane-level **waves** can stay; they are just “parallel lanes this beat,” not the release plan.
-
-## Design risks to decide up front
-
-1. **L4–L1 depth slicer** — still useful as translator food for a package, or retire until a milestone needs it? Don’t let “generate all levels for all rows” stay as a Loop 2 gate if the schedule no longer cares.
-2. `depends_on` */* `min_depth` *on catalog** — either promote into schedule edges or drop once milestones own order.
-3. **Naming** — “waves” already means two things; schedule should say **milestone / release / train**, leave **wave** for Half B lane batches.
-4. **Grok ladder docs** — many places say “Operator Loop 2 = depth slicer → validate levels”; that line would need a doctrine rewrite when you implement (Ask mode: guidance only).
-
-
-
-## Verdict
-
-Yes: **replace Loop 2’s depth/budget splicer-as-plan with a traditional rollout schedule, and make that the Half B feed.** Keep L5/catalog as meaning; stop using per-row level dials as the system’s release brain.
-
-If you want a concrete next step in Agent mode, the clean CDR shape is: *Loop 2 artifact = rollout schedule; Half B* `done_when` *= milestone exit;* `slice-depth-budget` *demoted or deleted; depth slicer optional behind packages.* I can sketch the schema and gate chain against `product_factory_loops` / goal-packet tokens when you switch modes.

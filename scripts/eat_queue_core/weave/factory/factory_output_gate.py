@@ -109,31 +109,12 @@ def parse_factory_orchestrator_yaml(config_path: Path) -> dict[str, Any]:
 
 
 def load_factory_output_enforcement_mode(vault_root: Path) -> EnforcementMode:
-    """
-    Resolve factory_output_trinity_gate.
-
-    Explicit Config value always wins. When unset, Half B Alpha mode defaults to
-    ``warn`` for alpha_0 (never auto-promote to ``block``). Block only when the
-    operator sets the knob for a ship claim — see Docs/Half-B-Alpha-Mode.md.
-    """
     cfg_path = resolve_config_path(vault_root, None)
     raw = parse_factory_orchestrator_yaml(cfg_path)
-    explicit = raw.get("factory_output_trinity_gate")
-    if explicit is not None and str(explicit).strip() != "":
-        mode = str(explicit).strip().lower()
-        if mode not in VALID_MODES:
-            return "warn"
-        return mode  # type: ignore[return-value]
-    # Unset: prefer warn under alpha_0; never invent block.
-    try:
-        from .factory_bom import resolve_implementation_release_stage
-
-        stage = resolve_implementation_release_stage(vault_root)
-        if stage == "alpha_0":
-            return "warn"
-    except Exception:
-        pass
-    return "warn"
+    mode = str(raw.get("factory_output_trinity_gate") or "warn").strip().lower()
+    if mode not in VALID_MODES:
+        return "warn"
+    return mode  # type: ignore[return-value]
 
 
 def scan_core_narrative_drift(vault_root: Path, *, game_repo_rel: str | None = None) -> list[NarrativeDriftHit]:
