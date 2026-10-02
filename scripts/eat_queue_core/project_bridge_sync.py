@@ -33,15 +33,29 @@ MAIN_FORBIDDEN_PREFIXES = (
 )
 
 # Project branches are instance-only — never ship weave law / harness / Docs from main.
+# Operator 2026-10-01: Prefer weld LIVE game + Factory-DRB must publish on project/*.
 PROJECT_ALLOWED_EXACT = frozenset(
     {
         "GROK-PROJECT-START.md",
         "PROJECT-OBSERVABILITY.json",
         "TERTIARY-INDEX.json",
+        "AGENTS.md",
     }
 )
 PROJECT_ALLOWED_PREFIXES = (
     "Roadmap/",
+    "Factory-DRB/",
+    "5-Attachments/Code-Repos/",
+    "5-Attachments/Code-Exhibit/",  # legacy alias; LIVE path is Code-Repos
+)
+
+_COPY_IGNORE = shutil.ignore_patterns(
+    "__pycache__",
+    "*.pyc",
+    ".DS_Store",
+    ".godot",
+    ".git",
+    "android",
 )
 
 
@@ -169,12 +183,38 @@ def heal_stale_session(vault_root: Path, export_root: Path, cfg: dict[str, Any])
     return healed
 
 
-def _project_files_to_copy(project_root: Path, project_id: str) -> list[tuple[Path, str]]:
+def _read_game_repo_path(project_root: Path) -> str | None:
+    """Vault-relative LIVE game path from Factory-DRB/factory-project.yaml when present."""
+    fp = project_root / "Factory-DRB" / "factory-project.yaml"
+    if not fp.is_file():
+        return None
+    try:
+        text = fp.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    for line in text.splitlines():
+        raw = line.strip()
+        if raw.startswith("game_repo_path:"):
+            val = raw.split(":", 1)[1].strip().strip("\"'")
+            return val or None
+    return None
+
+
+def _project_files_to_copy(
+    vault_root: Path,
+    project_root: Path,
+    project_id: str,
+    *,
+    include_factory_drb: bool = True,
+    include_live_game_repo: bool = True,
+    extra_vault_paths: list[str] | None = None,
+) -> list[tuple[Path, str]]:
     pairs: list[tuple[Path, str]] = []
     for name in (
         "GROK-PROJECT-START.md",
         "PROJECT-OBSERVABILITY.json",
         "TERTIARY-INDEX.json",
+        "AGENTS.md",
         f"{project_id}-goal.md",
         f"{project_id}-Roadmap-MOC.md",
     ):
@@ -184,6 +224,24 @@ def _project_files_to_copy(project_root: Path, project_id: str) -> list[tuple[Pa
     roadmap = project_root / "Roadmap"
     if roadmap.is_dir():
         pairs.append((roadmap, "Roadmap"))
+    if include_factory_drb:
+        factory = project_root / "Factory-DRB"
+        if factory.is_dir():
+            pairs.append((factory, "Factory-DRB"))
+    if include_live_game_repo:
+        game_rel = _read_game_repo_path(project_root)
+        if game_rel:
+            game_src = (vault_root / game_rel).resolve()
+            if game_src.is_dir():
+                # Preserve vault-relative path so Prefer weld refs stay valid on the branch.
+                pairs.append((game_src, game_rel.replace("\\", "/")))
+    for extra in extra_vault_paths or []:
+        rel = str(extra).replace("\\", "/").lstrip("./")
+        if not rel or rel in {dest for _, dest in pairs}:
+            continue
+        src = (vault_root / rel).resolve()
+        if src.is_file() or src.is_dir():
+            pairs.append((src, rel))
     return pairs
 
 
@@ -238,17 +296,22 @@ def sync_project_to_export(
         if not orphan.get("ok"):
             return orphan
 
+        surfaces = cfg.get("project_surfaces") if isinstance(cfg.get("project_surfaces"), dict) else {}
         copied: list[str] = []
-        for src, dest_name in _project_files_to_copy(project_root, project_id):
+        for src, dest_name in _project_files_to_copy(
+            vault_root,
+            project_root,
+            project_id,
+            include_factory_drb=bool(surfaces.get("include_factory_drb", True)),
+            include_live_game_repo=bool(surfaces.get("include_live_game_repo", True)),
+            extra_vault_paths=list(surfaces.get("extra_vault_paths") or []),
+        ):
             dest = export_root / dest_name
             if src.is_dir():
                 if dest.exists():
                     shutil.rmtree(dest)
-                shutil.copytree(
-                    src,
-                    dest,
-                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store"),
-                )
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copytree(src, dest, ignore=_COPY_IGNORE)
             else:
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(src, dest)

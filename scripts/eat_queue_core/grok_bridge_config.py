@@ -26,6 +26,7 @@ def resolve_grok_bridge(merged: dict[str, Any]) -> dict[str, Any]:
     wp = get_weave_publish_config(merged)
     github = gb.get("github") if isinstance(gb.get("github"), dict) else {}
     push_economy = gb.get("push_economy") if isinstance(gb.get("push_economy"), dict) else {}
+    surfaces = gb.get("project_surfaces") if isinstance(gb.get("project_surfaces"), dict) else {}
 
     export_root_s = github.get("export_repo_root") or wp.get("export_repo_root") or DEFAULT_EXPORT_ROOT
     remote_url = str(github.get("remote_url") or wp.get("remote_url") or DEFAULT_REMOTE_URL)
@@ -45,6 +46,12 @@ def resolve_grok_bridge(merged: dict[str, Any]) -> dict[str, Any]:
         "max_nodes_per_fulfill": int(gb.get("max_nodes_per_fulfill") or 5),
         "max_chars_per_node": int(gb.get("max_chars_per_node") or 2000),
         "deny_globs": list(gb.get("deny_globs") or []),
+        # Prefer weld LIVE game + Factory-DRB on project/* (operator override 2026-10-01).
+        "project_surfaces": {
+            "include_factory_drb": bool(surfaces.get("include_factory_drb", True)),
+            "include_live_game_repo": bool(surfaces.get("include_live_game_repo", True)),
+            "extra_vault_paths": list(surfaces.get("extra_vault_paths") or []),
+        },
         "push_economy": {
             "respect_git_push_enabled": bool(push_economy.get("respect_git_push_enabled", True)),
             "push_cooldown_hours": float(push_economy.get("push_cooldown_hours") or 24),

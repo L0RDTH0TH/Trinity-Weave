@@ -341,9 +341,9 @@ def run_kinesthetic_probes(
     if run_smokes:
         results = _apply_smoke_overrides(repo, results)
 
-    allowed = checklist_ids
-    if allowed:
-        allowed_set = frozenset(allowed)
+    # None = all probes; empty tuple = explicitly no structural seats for this lane/slice.
+    if checklist_ids is not None:
+        allowed_set = frozenset(checklist_ids)
         return tuple(results[cid] for cid in KINESTHETIC_IDS if cid in results and cid in allowed_set)
     return tuple(results[cid] for cid in KINESTHETIC_IDS if cid in results)
 

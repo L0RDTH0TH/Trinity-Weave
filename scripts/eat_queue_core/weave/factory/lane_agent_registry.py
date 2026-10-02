@@ -43,6 +43,39 @@ class LaneAgentSpec:
         drb_ref = str(job.get("drb_ref") or "")
         drop_manifest = DROP_CONTRACTS.get(self.drop_contract, "")
         mission_block = _mission_first_block(vault_root, job)
+        prefer_block = ""
+        half_b_brief = str(job.get("half_b_brief_path") or "")
+        armed_packet = str(job.get("armed_packet_path") or "")
+        prefer_proof = str(job.get("prefer_proof") or "")
+        ask_id = str(job.get("ask_id") or "")
+        if half_b_brief or armed_packet or prefer_proof:
+            from .prefer_authorship_contract import (
+                authorship_overlay_markdown,
+                slice_requires_prefer_authorship,
+            )
+
+            prefer_excerpt = ""
+            if half_b_brief:
+                bp = vault_root / half_b_brief
+                if bp.is_file():
+                    prefer_excerpt = bp.read_text(encoding="utf-8", errors="replace")[:2800]
+            prefer_block = (
+                f"\n## Prefer overlay (hand-off law — MUST load)\n"
+                f"- **ask_id:** `{ask_id or '(see brief)'}`\n"
+                f"- **half_b_overlay_slice_id:** `{job.get('half_b_overlay_slice_id') or ''}`\n"
+                f"- **brief:** `{half_b_brief}`\n"
+                f"- **armed packet:** `{armed_packet}`\n"
+                f"- **prefer_proof:** {prefer_proof or '(see brief done_when)'}\n"
+                f"- **do_not_waive:** `{job.get('do_not_waive')}`\n"
+                f"- **waive_shell_era_seats:** `{job.get('waive_shell_era_seats')}` "
+                f"(shell-era only — **cannot** silence prefer_authorship_pass)\n"
+                f"- ClassDB Terrain3D Prefer required — Multimesh/graybox-only = fail `graybox_only_world`\n"
+                f"- Quote Matrix Dual-grid Prefer/Never; claim_class staging; ban `verify_mcp_only`\n\n"
+            )
+            if slice_requires_prefer_authorship(slice_id, job):
+                prefer_block += authorship_overlay_markdown(slice_id=slice_id) + "\n"
+            if prefer_excerpt:
+                prefer_block += f"### Prefer brief excerpt\n{prefer_excerpt}\n\n"
         zone_block = (
             "\n".join(f"- `{repo_rel.rstrip('/')}/{z}`" for z in zone_write)
             if zone_write
@@ -71,6 +104,7 @@ class LaneAgentSpec:
             f"| Engine | `{self.engine_adapter}` |\n"
             f"| Drop contract | `{self.drop_contract.upper()}` → `{repo_rel}/{drop_manifest}` |\n\n"
             f"{mission_block}"
+            f"{prefer_block}"
             f"## Produce\n{self.produces}\n\n"
             f"## Consume (drops only — no cross-zone edits)\n{consume_block}\n\n"
             f"## Zone write (ONLY these paths)\n{zone_block}\n\n"
@@ -255,11 +289,19 @@ def build_lane_agent_handoff(
 
 
 def lane_review_passes(job: dict[str, Any]) -> list[str]:
+    from .prefer_authorship_contract import slice_requires_prefer_authorship
+
     lane_id = str(job.get("lane_id") or "")
     agent = get_lane_agent(lane_id)
     from_charter = job.get("review_passes") or []
     if from_charter:
-        return [str(x) for x in from_charter]
-    if agent:
-        return list(agent.default_review_passes)
-    return ["structure_pass", "interpretation_pass"]
+        passes = [str(x) for x in from_charter]
+    elif agent:
+        passes = list(agent.default_review_passes)
+    else:
+        passes = ["structure_pass", "interpretation_pass"]
+    # Product Prefer authorship seat — every Prefer worldgen/terrain3d_feed weld.
+    if slice_requires_prefer_authorship(str(job.get("slice_id") or ""), job):
+        if "prefer_authorship_pass" not in passes:
+            passes.append("prefer_authorship_pass")
+    return passes

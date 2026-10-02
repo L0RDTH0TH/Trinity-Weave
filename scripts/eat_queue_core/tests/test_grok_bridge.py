@@ -144,6 +144,57 @@ class TestGrokBridge(unittest.TestCase):
             self.assertTrue(any(h.startswith("weave/") for h in hits))
             self.assertFalse(any(h == "GROK-PROJECT-START.md" for h in hits))
 
+    def test_project_sync_includes_factory_and_live_game(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            vault = Path(td) / "vault"
+            export = Path(td) / "export"
+            vault.mkdir()
+            pid = "genesis-mythos-master"
+            proj = vault / "1-Projects" / pid
+            proj.mkdir(parents=True)
+            (proj / "GROK-PROJECT-START.md").write_text("# start\n", encoding="utf-8")
+            (proj / "PROJECT-OBSERVABILITY.json").write_text("{}\n", encoding="utf-8")
+            (proj / "TERTIARY-INDEX.json").write_text('{"entries":[]}\n', encoding="utf-8")
+            drb = proj / "Factory-DRB"
+            drb.mkdir(parents=True)
+            (drb / "factory-project.yaml").write_text(
+                "project_id: genesis-mythos-master\n"
+                "game_repo_path: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos\n",
+                encoding="utf-8",
+            )
+            game = (
+                vault
+                / "5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos"
+            )
+            game.mkdir(parents=True)
+            (game / "project.godot").write_text("; Godot\n", encoding="utf-8")
+            (game / ".godot").mkdir()
+            (game / ".godot" / "cache").write_text("skip\n", encoding="utf-8")
+            _git_init(export, "https://github.com/L0RDTH0TH/Trinity-Weave.git")
+            cfg = resolve_grok_bridge({"grok_bridge": {"pilot_project_id": pid}})
+            out = sync_project_to_export(vault, export, pid, cfg=cfg)
+            self.assertTrue(out.get("ok"), out)
+            subprocess.run(
+                ["git", "checkout", f"project/{pid}"],
+                cwd=export,
+                check=True,
+                capture_output=True,
+            )
+            self.assertTrue((export / "Factory-DRB/factory-project.yaml").is_file())
+            self.assertTrue(
+                (
+                    export
+                    / "5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/project.godot"
+                ).is_file()
+            )
+            self.assertFalse(
+                (
+                    export
+                    / "5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/.godot"
+                ).exists()
+            )
+            subprocess.run(["git", "checkout", "main"], cwd=export, check=True, capture_output=True)
+
     def test_main_forbidden_roadmap_on_main_branch_scan(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             export = Path(td) / "export"

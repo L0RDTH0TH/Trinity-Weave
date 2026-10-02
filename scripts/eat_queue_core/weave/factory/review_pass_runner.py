@@ -15,6 +15,7 @@ from .surface_pass import run_surface_pass
 from .module_fit_lint import run_module_fit_pass
 from .interpretation_pass import run_interpretation_pass
 from .factory_output_gate import run_factory_output_gate
+from .prefer_authorship_contract import run_prefer_authorship_pass
 
 
 @dataclass(frozen=True)
@@ -158,8 +159,15 @@ def _surface_pass_runner(vault_root: Path, *, gate_mode: str, **kw: Any) -> Any:
         run_probes = gate_mode == "lane_seat"
     job = kw.get("job") if isinstance(kw.get("job"), dict) else {}
     params = job.get("params") if isinstance(job.get("params"), dict) else {}
-    raw_ids = params.get("checklist_ids") or job.get("checklist_ids") or []
-    checklist_ids = tuple(str(x) for x in raw_ids if x) or None
+    # Explicit checklist_ids (including empty) scopes lane seats; missing → probe all.
+    if "checklist_ids" in params:
+        raw_ids = params.get("checklist_ids") or []
+        checklist_ids: tuple[str, ...] | None = tuple(str(x) for x in raw_ids if x)
+    elif "checklist_ids" in job:
+        raw_ids = job.get("checklist_ids") or []
+        checklist_ids = tuple(str(x) for x in raw_ids if x)
+    else:
+        checklist_ids = None
     return run_surface_pass(
         vault_root,
         run_probes=bool(run_probes),
@@ -178,7 +186,18 @@ PASS_RUNNERS: dict[str, Any] = {
         v, gate_mode=str(kw.pop("gate_mode", None) or "lane_seat"), **kw
     ),
     "module_fit_pass": lambda v, **kw: run_module_fit_pass(
-        v, lane_id=str(kw.get("lane_id") or "module"), game_repo_rel=str(kw.get("game_repo_rel") or "")
+        v,
+        lane_id=str(kw.get("lane_id") or "module"),
+        game_repo_rel=str(kw.get("game_repo_rel") or ""),
+        changed_paths=kw.get("changed_paths"),
+        job=kw.get("job") if isinstance(kw.get("job"), dict) else None,
+    ),
+    "prefer_authorship_pass": lambda v, **kw: run_prefer_authorship_pass(
+        v,
+        lane_id=kw.get("lane_id"),
+        game_repo_rel=str(kw.get("game_repo_rel") or ""),
+        changed_paths=kw.get("changed_paths"),
+        job=kw.get("job") if isinstance(kw.get("job"), dict) else None,
     ),
     "interpretation_pass": lambda v, **kw: run_interpretation_pass(
         v, lane_id=kw.get("lane_id"), job=kw.get("job")
@@ -249,12 +268,23 @@ def run_slice_exit_gates(
         "gate_mode": "lane_seat" if lane_seat else "full",
     }
     tagged = set((job or {}).get("review_passes") or [])
+    waive_shell = bool((job or {}).get("waive_shell_era_seats"))
+    # Product Prefer / authorship seats — never silenced by shell-era waive.
+    PRODUCT_PREFER_SEATS = frozenset(
+        {
+            "prefer_authorship_pass",
+            "product_kinesthetic_honesty",
+        }
+    )
     for gate in exit_gates:
         name = str(gate).strip()
         if name in TAGGED_STUB_SEATS and name not in tagged:
             lv = FactoryLittleValResult(True, [], name)
             results[name] = ReviewPassResult(name, True, lv, f"{name}_not_required_untagged")
             continue
+        if waive_shell and name in PRODUCT_PREFER_SEATS:
+            # Explicit: waive flag must not skip product Prefer seats.
+            pass
         runner = PASS_RUNNERS.get(name)
         if runner is None:
             lv = FactoryLittleValResult(False, [f"unknown_exit_gate:{name}"], name)

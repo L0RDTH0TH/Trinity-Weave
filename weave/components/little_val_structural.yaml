@@ -87,8 +87,8 @@ meta:
     lock_kind: maintenance_core
   conceptual_confirmed_at: '2026-06-03T00:12:12Z'
   rules_confirmed_at: '2026-06-03T00:12:12Z'
-  touch_content_hash: 1a912bdd1792be9c1b141fa20bbd304ec5267f88ad7507685615c9a609f6a3ce
-  touch_refreshed_at: '2026-09-28T23:35:34.869891Z'
+  touch_content_hash: 9902df9b4728f9270eee0fc2a185286bbd0dbed6c643d13b0e72700748f66cd4
+  touch_refreshed_at: '2026-10-01T19:02:21.761983Z'
   closure_must_read_count: 6
   last_disconnect: null
   provisional: false

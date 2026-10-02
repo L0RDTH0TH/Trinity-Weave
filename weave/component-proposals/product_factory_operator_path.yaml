@@ -1,7 +1,7 @@
 id: product_factory_operator_path
 conceptual:
   outcome: Operator can drive Half B generate and update on the current game under
-    FEEDSTOCK-SHAPE lock — factory remains ungreenlit (factory_greenlit false).
+    FEEDSTOCK-SHAPE lock — factory_greenlit true (operator 2026-10-01); claim_class staging until slice attest.
   summary: Half B operator path. Normative pre-greenlit = select catalog slice or
     update/fix on current Code-Repos → implement under stock/seat law → playtest →
     receipt; advance PDF→adventure packet; aim at horizon_demo_investor. Overnight/
@@ -48,11 +48,11 @@ rules:
   - 'policy: lens/maintenance_honesty_anchor — structural > inferred > narrative'
   - 'policy: Half B = generate + update current exhibit'
   - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md is operator home'
-  - 'policy: factory_greenlit false until operator greenlight; investor ask archived'
+  - 'policy: factory_greenlit true (operator greenlight); investor ask archived; no auto-dispatch'
   - 'policy: FEEDSTOCK-SHAPE.md operator_confirmed required before shaped Half-B claims'
   - 'policy: engine_stock_first + godot_stock_fps + operator_kinesthetic_walk_look block'
   acceptance:
-  - Half-B-Alpha-Mode states factory_greenlit false; FEEDSTOCK-SHAPE lock required
+  - Half-B-Alpha-Mode states factory_greenlit true (operator); FEEDSTOCK-SHAPE lock required
   - normative path includes update_existing_exhibit
   - PDF→packet path pointed; Godot PRECONDITIONS documented; investor ask archived
 contract:
@@ -68,6 +68,6 @@ meta:
   lock_kind: provisional
   status: trialing
   alpha_mode_staged: true
-  factory_greenlit: false
+  factory_greenlit: true
   source:
     operator_note: FEEDSTOCK-SHAPE lock; investor archived — 2026-10-01

@@ -34,7 +34,7 @@ pilots:
       - implementation_handoff_tunnel
       - mcp_postedit_validator
       - cursor_engine_mcp_loop
-    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit false
+    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit true (operator 2026-10-01)
 
   product_factory_pipeline:
     status: trialing
@@ -46,4 +46,4 @@ pilots:
       - ask_fidelity
       - catalog_mint_gate
       - ux_context_execution_gate
-    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit false
+    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit true (operator 2026-10-01)

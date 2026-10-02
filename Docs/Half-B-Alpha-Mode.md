@@ -4,36 +4,39 @@ created: 2026-09-30
 updated: 2026-10-01
 audience: bone_pilot
 status: provisional
-factory_greenlit: false
+factory_greenlit: true
 claim_class: staging
 ---
 
 # Half B Alpha mode
 
-**Factory is NOT greenlit.** `factory_greenlit: false`. Half B generates and updates **Code-Repos** under stock/seat PRECONDITIONS. **Do not** treat investor ~30 min / PDF-cartridge Success as the live optimization target — that ask is **archived** (improper end flavor).
+**Factory is greenlit** (`factory_greenlit: true`, operator 2026-10-01). Half B generates and updates **Code-Repos** under stock/seat PRECONDITIONS. Launch remains word-gated (`WELD`); do not auto-dispatch. **Do not** treat investor ~30 min / PDF-cartridge Success as the live optimization target — that ask is **archived** (improper end flavor).
 
 Archive: `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`.
 
-**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → first slice [[alpha0_chargen_seats_tricam_r1]].
+**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active craft chain [[alpha0_townscaper_craft_core_r1]] → [[alpha0_townscaper_craft_visual_r1]] → [[alpha0_townscaper_df_depth_r1]]. Scrapped/archived for next round: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
 
 Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how**. They do **not** redefine product Success as table-chrome-only — and they do **not** authorize pursuing archived investor Success as current Done.
 
 ## Active now (thin pointer — staging)
 
-**Operator lock (required for shaped Half-B claims):** [[FEEDSTOCK-SHAPE]] (`operator_confirmed: true`, `lock_id: feedstock_shape_v1`, `factory_greenlit: false`).
+**Operator lock (required for shaped Half-B claims):** [[FEEDSTOCK-SHAPE]] (`operator_confirmed: true`, `lock_id: feedstock_shape_v1`, `factory_greenlit: true`).
 
 | Topic | Stance |
 |-------|--------|
-| Umbrella / first weld | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_chargen_seats_tricam_r1]] |
+| Umbrella / active craft chain | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_townscaper_craft_core_r1]] → [[alpha0_townscaper_craft_visual_r1]] → [[alpha0_townscaper_df_depth_r1]] |
+| Cohesive vision + art | [[COHESIVE-VISION-ART-DIRECTION]] — **required cite** for shaped Half-B flavor (no freelance look/craft) |
 | Feedstock shape | [[FEEDSTOCK-SHAPE]] — frozen consult locks; pointer package only |
 | Inspirations | Focus-scoped mandatory per weld — [[INSPIRATION-HALF-B-SHAPE]] (cite/land or `inspiration_shape_miss`) |
+| Craft grammar | [[Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI]] — required before craft-core code |
 | 3D visual bar | [[Visual-Factory-Direction-Stylized-Low-Poly]] — Astroneer stylized low poly |
 | GUI chrome bar | [[GUI-Chrome-Direction-Fantasy-UI]] — `Ingest/fantasy_ui.jpg` (menus/panels; ≠ 3D bar) |
 | Pins / illegal flows | [[Godot-Implementation-Decision-Matrix]] + stock packs + gates + `ask_fidelity` — **no parallel architecture-pins bible** |
-| Cameras | [[Camera-Mode-Taxonomy-Live]] — all three included + functional |
-| Chargen / DM | Tutorial PF1 at player seat (D&D-bridge language OK; not 5e engine); refuse codes in matrix/gates/exemplars |
+| Cameras | [[Camera-Mode-Taxonomy-Live]] — craft cam (`vtt_planar_ortho` / craft envelope) for dual-grid authorship this round; sparky / Terrain3D handoff **deferred** (not armed on craft path) |
+| Worldgen / craft | Townscaper dual-grid Hot Wheels craft chain — [[alpha0_townscaper_craft_core_r1]]; legacy dualgrid+Terrain3D Prefer **scrapped** for this round |
+| Chargen / DM | Deferred (superseded brief [[alpha0_chargen_seats_tricam_r1]]); refuse codes remain when in scope |
 | DF world-gen | Possible ≠ required — not discouraged; must remain possible |
-| Greenlight | `factory_greenlit: false`; investor demo **archived** — do not revive |
+| Greenlight | `factory_greenlit: true` (operator); investor demo **archived** — do not revive |
 
 ## Staging checkpoints (necessary foundation)
 
@@ -58,7 +61,7 @@ These prove availability — they are **not** ask_success:
 | `horizon_demo_investor` | **archived** — not live Success driver | — |
 | `lan_listen_server` | deferred | **alpha_1 only** |
 
-Game write target (LIVE): `5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/`. **Not** Code-Exhibit. Half-B game code requires a filled weld brief; `factory_greenlit` stays false until operator unlocks.
+Game write target (LIVE): `5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/`. **Not** Code-Exhibit. Half-B game code requires a filled weld brief; `factory_greenlit: true` (operator). Still word-gated (`WELD`); `claim_class: staging` until slice attest.
 
 ## Cartridge path (PDF → adventure packet)
 
@@ -91,7 +94,7 @@ Trinity **`ask_fidelity`** (gate `fidelity_match_ask`, reject `fidelity_miss`):
 | Cite | Hand-off / receipt names the move-pin(s) or visual bar |
 | Fail | **`inspiration_shape_miss`** — feedstock flavor expected but absent from output |
 
-Archived provisional horizon / investor rows do **not** replace this law. `claim_class: staging`. `factory_greenlit: false`.
+Archived provisional horizon / investor rows do **not** replace this law. `claim_class: staging`. `factory_greenlit: true`.
 
 ## Half B = generate + update machine
 
@@ -182,11 +185,11 @@ Prefer `alpha_0`-tagged rows before `alpha_1` / `beta`.
 
 ### Add
 
-- First-weld staging pointer (chargen + seats + three cams)  
+- Active craft-chain staging pointer ([[alpha0_townscaper_craft_core_r1]] → visual → DF-depth; Terrain3D deferred)  
 - Explicit: archived investor ask ≠ active Done  
-- Honesty: `factory_greenlit: false`  
+- Honesty: `factory_greenlit: true` (operator); `claim_class: staging` until slice attest  
 
-## Normative operator path (pre-greenlit)
+## Normative operator path (greenlit — word-gated)
 
 1. Select work (catalog slice **or** update/extend on current exhibit) — **not** archived investor Success.  
 2. Load [[FEEDSTOCK-SHAPE]]; resolve focus inspiration/L5 seasoning (and visual bar if visual); cite in hand-off.  
@@ -195,13 +198,13 @@ Prefer `alpha_0`-tagged rows before `alpha_1` / `beta`.
 5. Playtest; operator F5 for walk+look when locomotion is claimed.  
 6. Record honest receipt — `inspiration_shape_miss` if flavor was expected and missing.  
 
-**Non-normative until greenlit:** overnight multi-loop conductor as default.
+**Non-normative without launch word:** overnight multi-loop conductor / auto IMPLEMENT_SLICE dispatch.
 
 ## Honesty
 
 - Staging complete ≠ ask_success ≠ campaign Exemplar (6.4)  
 - Archived investor demo ≠ live Success driver  
-- This note does **not** turn Half B “on” (`factory_greenlit: false`)  
+- This note records operator greenlight (`factory_greenlit: true`); do not auto-dispatch; wait for `WELD`  
 - No Paizo prose in game tree  
 
 ## Card map
@@ -211,24 +214,24 @@ Prefer `alpha_0`-tagged rows before `alpha_1` / `beta`.
 | `engine_stock_authority` | Copy masters + seat funnels (**how**) |
 | `ask_fidelity` | House ≠ foundation; `fidelity_match_ask` / `fidelity_miss` |
 | `product_factory_operator_path` | Generate + update; greenlit remains operator-owned |
-| `product_factory_pipeline` | Staged; update_existing_exhibit first-class; not greenlit |
+| `product_factory_pipeline` | Staged; update_existing_exhibit first-class; factory_greenlit true |
 | `implementation_segment_charter` | Generate + update current version; stock PRECONDITIONS |
 | `implementation_gate_catalog` | Stock/FPS/F5 + `inspiration_shape_source`; investor gate archived |
-| `factory_output_conduct` | warn/off until greenlit |
+| `factory_output_conduct` | warn/off until ship sign-off; greenlit does not auto-raise to block |
 | Inspiration shape law | [[INSPIRATION-HALF-B-SHAPE]] |
 | Feedstock shape lock | [[FEEDSTOCK-SHAPE]] (`operator_confirmed`) |
 
 ## Implementation status
 
-See [[Half-B-Alpha-0-Implementation-Receipt]] for staging receipts. Factory remains **not** greenlit.
+See [[Half-B-Alpha-0-Implementation-Receipt]] for staging receipts. Factory is **greenlit** (operator); launch word `WELD`.
 
 ## Manual validation checklist (bone pilot)
 
 ```
-[ ] factory_greenlit false
+[x] factory_greenlit true (operator)
 [ ] FEEDSTOCK-SHAPE operator_confirmed loaded
 [ ] Archived horizon_demo_investor not treated as live Success
-[ ] First-weld staging = chargen + seats + three cams (not Success)
+[ ] First-weld staging = dual-grid worldgen craft (craft cam) then sparky inspect/fly (not Success)
 [ ] Staging checkpoints labeled necessary-not-ask_success
 [ ] Stock/FPS/F5/engine_stock_first remain how
 [ ] Inspiration shape cited + landed (else inspiration_shape_miss debt)

@@ -43,7 +43,7 @@ rules:
   - omit ask_id or done_when on Half B implement/update Success path
   - use stock/MCP/F5 green to launder substitute as ask Success
   - treat staging spine/dropdown as demo/chargen Success
-  - claim factory greenlit
+  - claim factory greenlit without operator greenlight
   - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
   - revive archived horizon_demo_investor as live Success
   precedence:
@@ -129,7 +129,7 @@ meta:
   provisional: true
   promotion_tier: provisional
   card_class: promoted_provisional
-  factory_greenlit: false
+  factory_greenlit: true
   project_scope: genesis-mythos-master
   source:
     operator_note: Robust ask fidelity / anti-substitution — 2026-09-30

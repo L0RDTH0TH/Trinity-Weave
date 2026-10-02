@@ -33,7 +33,7 @@ touch:
 status: proposal
 rules:
   forbidden:
-  - claim factory greenlit
+  - claim factory greenlit without operator greenlight
   - claim closed_alpha Success
   - revive archived horizon_demo_investor as live Success
   - claim shaped Half-B output without FEEDSTOCK-SHAPE operator lock
@@ -41,15 +41,15 @@ rules:
   - treat staging table-only as permanent Success ceiling
   - treat Half B as generate-only (no update/extend of current exhibit)
   - require three-operator-loop UX theater before table front door pre-greenlit
-  - require overnight multi-loop conductor as normative pre-greenlit path
+  - auto-dispatch IMPLEMENT_SLICE / factory lanes without operator launch word
   - dump Paizo prose into Code-Repos
   precedence:
   - 'policy: release_stage alpha_0 before alpha_1 before beta'
   - 'policy: Half B = generate + update_existing_exhibit'
-  - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md — factory_greenlit false'
+  - 'policy: 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md — factory_greenlit true (operator)'
   - 'policy: FEEDSTOCK-SHAPE.md operator_confirmed required before shaped Half-B claims'
   acceptance:
-  - Alpha mode staged; greenlit false
+  - Alpha mode staged; factory_greenlit true (operator)
   - update_existing_exhibit documented as first-class
   - FEEDSTOCK-SHAPE lock required; investor ask archived
 contract:
@@ -61,6 +61,6 @@ meta:
   provisional: true
   promotion_tier: provisional
   alpha_mode_staged: true
-  factory_greenlit: false
+  factory_greenlit: true
   source:
     operator_note: FEEDSTOCK-SHAPE lock + update machine; investor archived — 2026-10-01

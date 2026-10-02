@@ -4,15 +4,17 @@ audience: cursor_half_b_operator
 created: 2026-10-01
 updated: 2026-10-01
 claim_class: staging
-factory_greenlit: false
+factory_greenlit: true
 status: process_law_staging
 ---
 
 # Inspiration → Half-B output shape
 
-**Process law (staging).** `claim_class: staging`. `factory_greenlit: false`. Not operator Success. Not demo-only.
+**Process law (staging).** `claim_class: staging`. `factory_greenlit: true` (operator). Not operator Success / ask_success. Not demo-only.
 
 **Operator lock:** shaped Half-B claims also require [[FEEDSTOCK-SHAPE]] (`operator_confirmed: true`, 2026-10-01) — focus-scoped inspirations, visual bar pointer, architecture pointer package, three cams, DF possible, investor archived.
+
+**Cohesive vision (required cite):** [[COHESIVE-VISION-ART-DIRECTION]] — agents must not freelance look, UI chrome pairing, dual/nested-grid craft, or cam/DF stance; land this vision with focus inspirations.
 
 ## Error mode this law closes
 
@@ -57,11 +59,12 @@ Severity: **block** for Success / `ask_success` / `factory_greenlit` claims. Sta
 
 ## Archived demo catalog (not active)
 
-Provisional horizon / `horizon_demo_investor` materials are **archived** (improper end flavor) under `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`. Stubs remain at former User-Story paths. They **must not** replace this law or be treated as live Success / locked catalog. `factory_greenlit: false`.
+Provisional horizon / `horizon_demo_investor` materials are **archived** (improper end flavor) under `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`. Stubs remain at former User-Story paths. They **must not** replace this law or be treated as live Success / locked catalog. Investor archive stays non-Success even while factory is greenlit.
 
 ## Cross-links
 
 - [[FEEDSTOCK-SHAPE]] (operator confirmation lock — required)
+- [[COHESIVE-VISION-ART-DIRECTION]] (cohesive look + craft — required cite for shaped Half-B)
 - [[INSPIRATION-UX-FEEDSTOCK]] · [[INSPIRATION-SEASONING-VALIDATION]] · [[CATALOG-MINI-TRINITY]]
 - [[Half-B-Alpha-Mode]] · host-weld pilots `implementation_factory_loop` · `product_factory_pipeline`
 - [[Visual-Factory-Direction-Stylized-Low-Poly]] · PMG Astroneer-level art fidelity (= stylized low poly)

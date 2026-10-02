@@ -119,7 +119,15 @@ def check_execution_engineering(vault_root: Path, project_id: str) -> LoopCheck:
     pf = load_product_factory(vault_root, project_id)
     exec_exists = execution_track_exists(vault_root, project_id)
     pins = wire_execution_pins(vault_root, project_id=project_id)
-    strict = run_catalog_coverage_strict(vault_root, project_id=project_id)
+    # Scope strict coverage to Loop-2 budget / active-wave package rows (not full catalog).
+    from .product_factory_budget import budget_row_ids
+
+    scoped = tuple(budget_row_ids(vault_root, project_id))
+    strict = run_catalog_coverage_strict(
+        vault_root,
+        project_id=project_id,
+        planned_row_ids=scoped or None,
+    )
     ux = pf.get("ux_context")
     ux_val = (
         validate_ux_context({"ux_context": ux, "product_factory_run_id": pf.get("run_id")})

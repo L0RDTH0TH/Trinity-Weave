@@ -151,14 +151,40 @@ def bootstrap_all_drop_manifests(game_repo: Path) -> list[str]:
     return created
 
 
+def is_bootstrap_stub_manifest(data: dict[str, Any]) -> bool:
+    """True when manifest is bootstrap skeleton only — not a satisfied drop contract."""
+    if not data:
+        return True
+    receipt = str(data.get("generated_by_receipt_id") or "").strip().lower()
+    drops = data.get("drops") if isinstance(data.get("drops"), list) else []
+    active = [
+        r
+        for r in drops
+        if isinstance(r, dict) and r.get("drop_id") and not r.get("retired_at")
+    ]
+    if receipt == "bootstrap" and not active:
+        return True
+    # All active rows still carry bootstrap receipt → stub theater.
+    if active and all(
+        str(r.get("receipt_id") or "").strip().lower() == "bootstrap" for r in active
+    ):
+        return True
+    return False
+
+
 def list_drop_ids(game_repo: Path, contract_types: tuple[str, ...] | None = None) -> set[str]:
     types = contract_types or tuple(DROP_CONTRACTS.keys())
     out: set[str] = set()
     for ctype in types:
         data = load_drop_manifest(game_repo, ctype)
+        if is_bootstrap_stub_manifest(data):
+            continue
         for row in data.get("drops") or []:
             if isinstance(row, dict) and row.get("drop_id"):
                 if not row.get("retired_at"):
+                    # Individual bootstrap-receipt rows do not satisfy depends_on.
+                    if str(row.get("receipt_id") or "").strip().lower() == "bootstrap":
+                        continue
                     out.add(str(row["drop_id"]))
     return out
 
@@ -209,7 +235,11 @@ def check_depends_on_drops(
     *,
     pinned_receipt_ids: list[str] | None = None,
 ) -> tuple[bool, list[str]]:
-    """Return (ok, violations). depends_on: drop_id, contract_type, or contract_type:drop_id."""
+    """Return (ok, violations). depends_on: drop_id, contract_type, or contract_type:drop_id.
+
+    Bootstrap stubs (empty skeleton / bootstrap receipt only) never satisfy depends_on.
+    Refuse Matrix Prefer / module success on stubs alone.
+    """
     violations: list[str] = []
     all_ids = list_drop_ids(game_repo)
     for dep in depends_on:
@@ -217,14 +247,23 @@ def check_depends_on_drops(
         if ":" in dep_s:
             ctype, drop_part = dep_s.split(":", 1)
             if drop_part not in all_ids:
-                violations.append(f"missing_drop:{dep_s}")
+                data = load_drop_manifest(game_repo, ctype) if ctype in DROP_CONTRACTS else {}
+                if is_bootstrap_stub_manifest(data):
+                    violations.append(f"bootstrap_stub_not_ready:{dep_s}")
+                else:
+                    violations.append(f"missing_drop:{dep_s}")
             continue
         if dep_s in DROP_CONTRACTS:
             data = load_drop_manifest(game_repo, dep_s)
+            if is_bootstrap_stub_manifest(data):
+                violations.append(f"bootstrap_stub_not_ready:{dep_s}")
+                continue
             active = [
                 r
                 for r in (data.get("drops") or [])
-                if isinstance(r, dict) and not r.get("retired_at")
+                if isinstance(r, dict)
+                and not r.get("retired_at")
+                and str(r.get("receipt_id") or "").strip().lower() != "bootstrap"
             ]
             if not active:
                 violations.append(f"missing_drop_contract:{dep_s}")
@@ -237,7 +276,9 @@ def check_depends_on_drops(
             receipts = {
                 str(r.get("receipt_id"))
                 for r in (data.get("drops") or [])
-                if isinstance(r, dict) and r.get("receipt_id")
+                if isinstance(r, dict)
+                and r.get("receipt_id")
+                and str(r.get("receipt_id")).strip().lower() != "bootstrap"
             }
             for pin in pinned_receipt_ids:
                 if pin and pin not in receipts and pin != "bootstrap":

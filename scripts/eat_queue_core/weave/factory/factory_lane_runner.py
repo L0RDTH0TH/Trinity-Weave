@@ -17,6 +17,8 @@ from .factory_self_heal import attempt_self_heal_chain, handle_seat_failure_esca
 from .interpretation_pass import run_interpretation_pass
 from .lane_agent_registry import build_lane_agent_handoff, enrich_job_from_charter, lane_review_passes
 from .merge_barrier import acquire_lane_job, check_job_allowed, release_lane_job
+from .factory_dispatch_preflight import run_factory_dispatch_preflight
+from .prefer_authorship_contract import product_prefer_seats_met
 from .factory_output_gate import apply_factory_output_gate_to_trace
 from .factory_run_summary import write_lane_run_summary, write_slice_run_summary
 from .playtest_brief import write_playtest_brief
@@ -65,6 +67,25 @@ def _persist_state(vault_root: Path, state: dict[str, Any]) -> None:
         save_machine_state(vault_root, state)
     except (OSError, ValueError):
         pass
+
+
+def _escalation_requires_eat_exit(esc: dict[str, Any] | None) -> bool:
+    """L2 escalate_review_seat / hard_block must stop implementation_eat (no zombie spin)."""
+    if not esc:
+        return False
+    if esc.get("escalated"):
+        heals = esc.get("heals") or []
+        for h in heals:
+            if not isinstance(h, dict):
+                continue
+            action = str(h.get("action") or "")
+            tier = str(h.get("tier") or "")
+            if action in ("escalate_review_seat", "escalate", "escalate_operator") or (
+                tier == "L2" and not h.get("healed")
+            ):
+                return True
+        return True
+    return False
 
 
 def _run_lane_seats(
@@ -277,6 +298,7 @@ def run_factory_lane_job(
             k: params[k]
             for k in params
             if k.startswith("depends_on")
+            or k.startswith("half_b_")
             or k
             in (
                 "blocks_parallel_lanes",
@@ -292,10 +314,72 @@ def run_factory_lane_job(
                 "catalog_row_id",
                 "dispatch_depth",
                 "target_depth",
+                "armed_packet_path",
+                "prefer_proof",
+                "ask_id",
+                "mission_path",
+                "waive_shell_era_seats",
+                "do_not_waive",
+                "persona_handoff",
+                "host_touch_budget",
+                "thin_prefer",
+                "game_repo_rel",
             )
         },
     }
     enrich_job_from_charter(vault_root, job)
+
+    # Prefer worldgen: ensure do_not_waive lists product seats (cannot be waived).
+    from .prefer_authorship_contract import slice_requires_prefer_authorship
+
+    if slice_requires_prefer_authorship(str(job.get("slice_id") or ""), job):
+        dn = job.get("do_not_waive")
+        if isinstance(dn, str):
+            dn = [dn]
+        elif not isinstance(dn, list):
+            dn = []
+        for code in (
+            "Terrain3D_prefer_proof",
+            "prefer_authorship_pass",
+            "craft_cam_recenter_on_place",
+            "craft_terrain_blend",
+        ):
+            if code not in dn:
+                dn.append(code)
+        job["do_not_waive"] = dn
+
+    # Fail-closed topology / identity / checklist preflight BEFORE first lane agent.
+    dispatch_pf = run_factory_dispatch_preflight(
+        vault_root,
+        job={**job, "project_id": project_id, "checklist_ids": job.get("checklist_ids") or params.get("checklist_ids") or []},
+        project_id=project_id,
+        game_repo_rel=repo_rel,
+        zone_write=[str(z) for z in (job.get("zone_write") or []) if z],
+        checklist_ids=[str(x) for x in (job.get("checklist_ids") or params.get("checklist_ids") or []) if x],
+    )
+    if not dispatch_pf.ok:
+        mstate = init_machine_state(
+            entry_id=eid,
+            slice_id=slice_id,
+            lane_id=lane_id,
+            queue_lane=queue_lane,
+            run_id=parent_run_id or eid,
+            chain_id=parent_run_id or eid,
+        )
+        mstate = mark_jam(mstate, machine="preflight", error="dispatch_preflight_failed")
+        _persist_state(vault_root, mstate)
+        return {
+            "ok": False,
+            "id": eid,
+            "slice_id": slice_id,
+            "lane_id": lane_id,
+            "error": "dispatch_preflight_failed",
+            "dispatch_preflight": dispatch_pf.to_dict(),
+            "segment": "IMPLEMENT_SLICE",
+            "hard_block": True,
+            "stop_eat": True,
+            "resume_from": "preflight",
+        }
 
     ctx = FactoryRunContext.from_entry(
         entry, params, queue_lane=queue_lane, parent_run_id=parent_run_id
@@ -665,6 +749,9 @@ def run_factory_lane_job(
             "changed_paths": list(changed_paths),
             "segment": "IMPLEMENT_SLICE",
             "resume_from": "seats",
+            "hard_block": bool(esc.get("escalated")),
+            "stop_eat": _escalation_requires_eat_exit(esc),
+            "prefer_product_seats_met": product_prefer_seats_met(lane_seats),
         }
 
     release_lane_job(vault_root, job, ok=True)
@@ -1014,6 +1101,8 @@ def run_factory_lane_job(
                         run_id=pf_run,
                         trigger_entry_id=str(params.get("request_id") or receipt_id),
                         source="depth_bump",
+                        prefer_product_seats_met=product_prefer_seats_met(lane_seats),
+                        cell_complete=True,
                     )
 
     if all_lanes_done and slice_complete:

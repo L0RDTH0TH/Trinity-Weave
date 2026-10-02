@@ -59,6 +59,16 @@ SLICE_LANE_CHECKLISTS: dict[str, dict[str, tuple[str, ...]]] = {
         "module": ("Nav_LookWhileMove_FP", "Nav_LookWhileMove_DM", "Flow_Ortho_Tabletop"),
         "presentation": ("Flow_DM_Mode",),
     },
+    # Worldgen dual-grid first weld — do NOT inherit presentation-shell Nav/Flow seats.
+    # Chargen/seats/tricam kinesthetic bars are deferred (supersedes alpha0_chargen_seats_tricam_r1).
+    "row_ux_world_generation_r1_d1": {
+        "presentation": ("Anti_DevOnlyHUD",),
+        "module": (),
+    },
+    "alpha0_worldgen_dualgrid_sparky_r1": {
+        "presentation": ("Anti_DevOnlyHUD",),
+        "module": (),
+    },
 }
 
 

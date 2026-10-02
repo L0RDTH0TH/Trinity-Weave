@@ -13,7 +13,7 @@ Three-tier Cursor ↔ Grok bridge on **Trinity-Weave**.
 | Tier | Surface | Contents |
 |------|---------|----------|
 | A | `main` | Weave law: locked + **provisional** cards, harness, indexes |
-| B | `project/<id>` | Project instances: Roadmap, catalog, observability |
+| B | `project/<id>` | Project instances: Roadmap, Factory-DRB, LIVE Code-Repos game (`game_repo_path`), catalog, observability |
 | C | Mediated fulfill | Tertiary pointers → security gate → bone-pilot ack → pack paste |
 
 ## Routing

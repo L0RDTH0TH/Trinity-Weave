@@ -132,6 +132,12 @@ def compose_slice_briefs_from_packet(
 
     mission_paths: list[str] = []
     lane_missions: dict[str, Any] = {}
+    from .prefer_authorship_contract import (
+        authorship_overlay_markdown,
+        slice_requires_prefer_authorship,
+    )
+
+    inject_authorship = slice_requires_prefer_authorship(slice_id, packet)
     for lid in lane_ids:
         owned = bullet_assignments.get(lid) or []
         owned_lines = "\n".join(
@@ -140,28 +146,35 @@ def compose_slice_briefs_from_packet(
         )
         mission_rel = f"1-Projects/{project_id}/Factory-DRB/slice-briefs/{slice_id}/missions/{lid}.md"
         mission_paths.append(mission_rel)
+        authorship_block = ""
+        if inject_authorship:
+            authorship_block = "\n" + authorship_overlay_markdown(slice_id=slice_id) + "\n"
         mission_body = (
             f"---\n"
             f"lane_id: {lid}\n"
             f"slice_id: {slice_id}\n"
             f"producer_run_id: {producer_run_id}\n"
             f"ux_bullet_ids: {json.dumps(owned)}\n"
+            f"prefer_authorship_injected: {str(inject_authorship).lower()}\n"
             f"---\n\n"
             f"# Lane Mission — {lid}\n\n"
             f"## Mission\n"
             f"Deliver your lane contribution for `{row_id}` at depth {dispatch_depth}.\n\n"
+            f"{authorship_block}"
             f"## UX bullets you own\n{owned_lines or '- (shared slice goal)'}\n\n"
             f"## Shape context\nSee SIB §2 — do not relitigate conceptual lock.\n\n"
             f"## Realization notes\nSee SIB §3 — crosswalk acceptance to your UX bullets.\n\n"
             f"## Done when\n"
             f"- Build passes\n"
             f"- Lane receipt cites UX bullet ids satisfied\n"
+            f"- Prefer product seats met (no proxy override)\n"
         )
         (vault_root / mission_rel).write_text(mission_body, encoding="utf-8")
         lane_missions[lid] = {
             "mission_path": mission_rel,
             "ux_bullet_ids": owned,
             "blocked_by": [],
+            "prefer_authorship_injected": inject_authorship,
         }
 
     cdp_rel = f"1-Projects/{project_id}/Factory-DRB/slice-briefs/{slice_id}/cell_dispatch_plan.json"

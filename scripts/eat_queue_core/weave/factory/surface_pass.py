@@ -137,7 +137,7 @@ def run_surface_pass(
     nav_ids = _extract_checklist_ids_from_drb(paths["nav"])
     launch_ids = _extract_checklist_ids_from_drb(paths["launch"])
     declared = nav_ids | launch_ids
-    if lane_seat and checklist_ids:
+    if lane_seat and checklist_ids is not None:
         coverage = {cid: cid in declared for cid in checklist_ids}
         for cid in checklist_ids:
             if cid not in declared:
@@ -151,7 +151,9 @@ def run_surface_pass(
         coverage = {}
 
     if lane_seat:
-        if run_probes:
+        # Scoped checklist_ids: structural probe only (do not full-sync feedback —
+        # full sync would clobber out-of-scope / operator-waived rows).
+        if run_probes and checklist_ids is None:
             run_and_sync_probes(
                 vault_root,
                 run_smokes=run_smokes,

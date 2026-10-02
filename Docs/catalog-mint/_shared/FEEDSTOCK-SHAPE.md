@@ -6,7 +6,7 @@ updated: 2026-10-01
 operator_confirmed: true
 operator_confirmed_at: 2026-10-01
 claim_class: staging
-factory_greenlit: false
+factory_greenlit: true
 status: locked_staging
 lock_id: feedstock_shape_v1
 ---
@@ -14,7 +14,7 @@ lock_id: feedstock_shape_v1
 # Feedstock shape — operator confirmation lock
 
 **Operator-confirmed lock.** `operator_confirmed: true` (2026-10-01).  
-**`claim_class: staging`.** **`factory_greenlit: false`.** Not product Success. Not a weld-brief template. Not a named Half-B slice brief.
+**`claim_class: staging`.** **`factory_greenlit: true`** (operator 2026-10-01). Not product Success. Not a weld-brief template. Not a named Half-B slice brief. Lock remains; greenlight does not invent ask_success.
 
 This note is the **canonical pointer package** for feedstock shape. Half-B / product-factory / host-weld must **require** this lock before claiming properly shaped Half-B output. Process detail for inspiration → output lives in [[INSPIRATION-HALF-B-SHAPE]]; this lock freezes the consult decisions below.
 
@@ -27,7 +27,7 @@ This note is the **canonical pointer package** for feedstock shape. Half-B / pro
 
 Archived investor/demo materials (improper end flavor):  
 `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`  
-Do **not** revive. Point at archive if historical context is needed. **`factory_greenlit: false`.**
+Do **not** revive. Point at archive if historical context is needed. Factory greenlight is operator-owned and **not** via archived investor Success.
 
 ## Frozen locks (checkable)
 
@@ -81,11 +81,11 @@ Pointers: [[Ask-Fidelity-Exemplars]] (camera column) · Inspiration INDEX / Tale
 - [x] **Must remain possible** (thin path ≠ forever-forbidden deep DF-shaped worldgen).
 - [x] Pointer: [[Ask-Fidelity-Exemplars]] staging clarifications · Inspiration INDEX staging note.
 
-### 7. Investor demo — archived; greenlit false
+### 7. Investor demo — archived; factory greenlit (operator)
 
 - [x] Investor / provisional horizon demo ask is **already archived** — do not revive.
 - [x] Archive path above; stubs may remain at former User-Story paths.
-- [x] **`factory_greenlit: false`** until operator greenlight (not via archived investor Success).
+- [x] **`factory_greenlit: true`** — operator greenlight 2026-10-01 (not via archived investor Success).
 - [x] Product Success remains **`claim_class: staging`** on this lock surface.
 
 ## Half-B / weave requirement
@@ -97,7 +97,7 @@ Before claiming **shaped** Half-B output (generate or update) as meeting feedsto
 3. Visual welds cite [[Visual-Factory-Direction-Stylized-Low-Poly]].
 4. Architecture/illegal-flow claims cite matrix / stock / gates / ask_fidelity — not a forked pins bible.
 5. Camera / chargen / DF / investor stance match the frozen locks above.
-6. Receipts stay **`claim_class: staging`** and **`factory_greenlit: false`** unless operator later greenlights.
+6. Receipts stay **`claim_class: staging`** unless operator attests `ask_success`. Factory surface may show **`factory_greenlit: true`** after operator greenlight.
 
 Host-weld: `implementation_factory_loop` · `product_factory_pipeline` · `product_factory_operator_path`.  
 Operator home: [[Half-B-Alpha-Mode]].
@@ -109,8 +109,12 @@ Operator home: [[Half-B-Alpha-Mode]].
 - Godot gameplay implementation
 - Code-Exhibit writes
 
+## Cohesive vision (pointer)
+
+Shaped Half-B flavor / art / craft stance: [[COHESIVE-VISION-ART-DIRECTION]] — cite required with this lock; do not freelance look or dual/nested-grid craft.
+
 ## Cross-links
 
 - [[INSPIRATION-HALF-B-SHAPE]] · [[INSPIRATION-UX-FEEDSTOCK]] · [[CATALOG-MINI-TRINITY]]
-- [[Half-B-Alpha-Mode]] · [[Ask-Fidelity-Exemplars]] · [[Visual-Factory-Direction-Stylized-Low-Poly]]
+- [[COHESIVE-VISION-ART-DIRECTION]] · [[Half-B-Alpha-Mode]] · [[Ask-Fidelity-Exemplars]] · [[Visual-Factory-Direction-Stylized-Low-Poly]]
 - [[Godot-Implementation-Decision-Matrix]] · Trinity `ask_fidelity` · `product_factory_pipeline`

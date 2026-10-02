@@ -10,9 +10,15 @@ from typing import Any
 
 from ...lane_bundle import bundle_dir_for_lane
 from ...queue_bus import append_raw_queue_entries
+from ..persona_handoff import merge_persona_into_params
+from ..user_story.product_factory_state import (
+    FACTORY_STAGED,
+    load_product_factory,
+    save_product_factory,
+    update_implementation_cell,
+)
 from .factory_orchestrator import run_factory_orchestrator
 from .factory_project import load_factory_project
-from ..persona_handoff import merge_persona_into_params
 from .slice_producer_harness import load_cell_dispatch_plan, load_producer_receipt, technical_slice_dir
 
 
@@ -259,6 +265,38 @@ def _prepare_factory_dispatch(
         wave=int(wave),
         producer_receipt=producer_receipt if vault_feed else None,
     )
+
+    # Fail-closed dispatch preflight — armed paths / identity / shell-era checklist.
+    from .factory_dispatch_preflight import run_factory_dispatch_preflight
+
+    for entry in entries:
+        params = entry.get("params") if isinstance(entry.get("params"), dict) else {}
+        pf_job = {
+            **params,
+            "project_id": project_id,
+            "slice_id": params.get("slice_id") or slice_id,
+        }
+        pre = run_factory_dispatch_preflight(
+            vault_root,
+            job=pf_job,
+            project_id=project_id,
+            game_repo_rel=str(params.get("repo_path") or params.get("game_repo_rel") or ""),
+            zone_write=[str(z) for z in (params.get("zone_write") or []) if z],
+            checklist_ids=[str(x) for x in (params.get("checklist_ids") or []) if x],
+        )
+        if not pre.ok:
+            return {
+                "ok": False,
+                "orchestrator": result,
+                "entries": [],
+                "detail": "dispatch_preflight_failed",
+                "dispatch_preflight": pre.to_dict(),
+                "project_id": project_id,
+                "slice_id": slice_id,
+                "wave": int(wave),
+                "fail_closed": True,
+            }
+
     return {
         "ok": True,
         "orchestrator": result,
@@ -445,8 +483,6 @@ def stage_factory_dispatch_to_pq(
         completed = list(pf.get("completed_phases") or [])
         if FACTORY_STAGED not in completed:
             completed.append(FACTORY_STAGED)
-            from ..user_story.product_factory_state import save_product_factory
-
             save_product_factory(vault_root, project_id, {**pf, "completed_phases": completed})
 
     return {

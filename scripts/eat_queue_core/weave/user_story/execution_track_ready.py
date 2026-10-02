@@ -222,9 +222,32 @@ def execution_map_complete(vault_root: Path, project_id: str) -> tuple[bool, str
 
 
 def execution_factory_handoff_ready(vault_root: Path, project_id: str) -> tuple[bool, str]:
-    """Hard gate before factory_staged / IMPLEMENT_SLICE staging."""
-    return execution_map_complete(vault_root, project_id)
+    """Hard gate before factory_staged / IMPLEMENT_SLICE staging.
+
+    When Execution state is ``ready-for-implementation`` with ``design_gate_pass``
+    and operator ``factory_greenlit``, unlock Half B even if primary handoff_readiness
+    scores sit below the pre-greenlit map bar (operator owns the unlock).
+    """
+    ok, reason = execution_map_complete(vault_root, project_id)
+    if ok:
+        return True, reason
+
+    state_fm = _read_execution_state_frontmatter(vault_root, project_id)
+    status = str(state_fm.get("status") or "").lower().strip()
+    terminal = status in (
+        "complete",
+        "completed",
+        "ready-for-implementation",
+        "implementation-ready",
+    )
+    if (
+        terminal
+        and bool(state_fm.get("design_gate_pass"))
+        and bool(state_fm.get("factory_greenlit"))
+    ):
+        return True, f"operator_greenlit_design_gate:{reason}"
+    return False, reason
 
 
 def execution_track_ready(vault_root: Path, project_id: str) -> tuple[bool, str]:
-    return execution_map_complete(vault_root, project_id)
+    return execution_factory_handoff_ready(vault_root, project_id)

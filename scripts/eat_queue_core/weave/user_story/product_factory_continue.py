@@ -78,11 +78,19 @@ def append_product_factory_continue(
     trigger_entry_id: str | None = None,
     source: str = "product_factory_continue",
     agent_phase_complete: str | None = None,
+    prefer_product_seats_met: bool | None = None,
+    cell_complete: bool | None = None,
+    force: bool = False,
 ) -> dict[str, Any]:
-    """Single helper — append one PRODUCT_FACTORY_CONTINUE line to lane PQ."""
+    """Single helper — append one PRODUCT_FACTORY_CONTINUE line to lane PQ.
+
+    Suppresses spurious continues when Prefer product seats unmet or cell not complete
+    (unless ``force``). Dedupe: skip when an identical open continue already sits on PQ.
+    """
     vault_root = vault_root.resolve()
     lane = lane.strip().lower()
     from .done_when_eval import loop2_exit_honestly_eligible
+    from .product_factory_state import load_product_factory
 
     if loop2_exit_honestly_eligible(vault_root, project_id):
         return {
@@ -91,6 +99,76 @@ def append_product_factory_continue(
             "reason": "loop2_exit_eligible",
             "project_id": project_id,
         }
+
+    if not force:
+        if prefer_product_seats_met is False:
+            return {
+                "ok": True,
+                "skipped": True,
+                "reason": "prefer_product_seats_unmet",
+                "project_id": project_id,
+                "run_id": run_id,
+            }
+        pf = load_product_factory(vault_root, project_id) if project_id else {}
+        cell = pf.get("implementation_cell") if isinstance(pf.get("implementation_cell"), dict) else {}
+        phase = str(cell.get("phase") or "")
+        completed = pf.get("completed_phases") or []
+        if cell_complete is False:
+            return {
+                "ok": True,
+                "skipped": True,
+                "reason": "cell_not_complete",
+                "project_id": project_id,
+                "run_id": run_id,
+            }
+        # Spurious continue after failed Prefer — cell still lanes_running / pm_review blocked.
+        if phase in ("lanes_running", "blocked", "jammed") and source in (
+            "depth_bump",
+            "factory_lane_success_theater",
+        ):
+            return {
+                "ok": True,
+                "skipped": True,
+                "reason": f"cell_phase_blocks_continue:{phase}",
+                "project_id": project_id,
+                "run_id": run_id,
+            }
+        if isinstance(completed, list) and "factory_cell_complete" not in completed:
+            if source == "depth_bump" and prefer_product_seats_met is False:
+                return {
+                    "ok": True,
+                    "skipped": True,
+                    "reason": "factory_cell_incomplete_prefer_unmet",
+                    "project_id": project_id,
+                }
+
+    # Dedupe open continues for same run on PQ.
+    from ...lane_bundle import bundle_dir_for_lane
+    import json
+
+    pq = bundle_dir_for_lane(vault_root, lane) / "prompt-queue.jsonl"
+    if pq.is_file():
+        for line in pq.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            mode = str(row.get("mode") or "").upper().replace("-", "_")
+            if mode != "PRODUCT_FACTORY_CONTINUE":
+                continue
+            params = row.get("params") if isinstance(row.get("params"), dict) else {}
+            if str(params.get("product_factory_run_id") or "") == run_id:
+                return {
+                    "ok": True,
+                    "skipped": True,
+                    "reason": "continue_already_queued",
+                    "project_id": project_id,
+                    "run_id": run_id,
+                    "existing_id": row.get("id"),
+                }
+
     eid = f"pfc-{uuid.uuid4().hex[:12]}"
     fp = f"product-factory-continue:{run_id}:{trigger_entry_id or eid}"
     params: dict[str, Any] = {
