@@ -14,7 +14,7 @@ claim_class: staging
 
 Archive: `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`.
 
-**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active craft chain [[alpha0_townscaper_craft_core_r1]] → [[alpha0_townscaper_craft_visual_r1]] → [[alpha0_townscaper_df_depth_r1]]. Scrapped/archived for next round: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
+**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active craft chain [[alpha0_townscaper_craft_core_r1]] (Prefer landed) → [[alpha0_townscaper_craft_visual_r1]] (Prefer landed) → [[alpha0_townscaper_df_depth_r1]]. Scrapped/archived for next round: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
 
 Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how**. They do **not** redefine product Success as table-chrome-only — and they do **not** authorize pursuing archived investor Success as current Done.
 
@@ -24,7 +24,7 @@ Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how
 
 | Topic | Stance |
 |-------|--------|
-| Umbrella / active craft chain | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_townscaper_craft_core_r1]] → [[alpha0_townscaper_craft_visual_r1]] → [[alpha0_townscaper_df_depth_r1]] |
+| Umbrella / active craft chain | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_townscaper_craft_core_r1]] (Prefer landed) → [[alpha0_townscaper_craft_visual_r1]] (Prefer landed) → [[alpha0_townscaper_df_depth_r1]] |
 | Cohesive vision + art | [[COHESIVE-VISION-ART-DIRECTION]] — **required cite** for shaped Half-B flavor (no freelance look/craft) |
 | Feedstock shape | [[FEEDSTOCK-SHAPE]] — frozen consult locks; pointer package only |
 | Inspirations | Focus-scoped mandatory per weld — [[INSPIRATION-HALF-B-SHAPE]] (cite/land or `inspiration_shape_miss`) |
@@ -33,7 +33,7 @@ Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how
 | GUI chrome bar | [[GUI-Chrome-Direction-Fantasy-UI]] — `Ingest/fantasy_ui.jpg` (menus/panels; ≠ 3D bar) |
 | Pins / illegal flows | [[Godot-Implementation-Decision-Matrix]] + stock packs + gates + `ask_fidelity` — **no parallel architecture-pins bible** |
 | Cameras | [[Camera-Mode-Taxonomy-Live]] — craft cam (`vtt_planar_ortho` / craft envelope) for dual-grid authorship this round; sparky / Terrain3D handoff **deferred** (not armed on craft path) |
-| Worldgen / craft | Townscaper dual-grid Hot Wheels craft chain — [[alpha0_townscaper_craft_core_r1]]; legacy dualgrid+Terrain3D Prefer **scrapped** for this round |
+| Worldgen / craft | Townscaper dual-grid Hot Wheels craft chain — active [[alpha0_townscaper_craft_visual_r1]] (core Prefer landed); legacy dualgrid+Terrain3D Prefer **scrapped** for this round |
 | Chargen / DM | Deferred (superseded brief [[alpha0_chargen_seats_tricam_r1]]); refuse codes remain when in scope |
 | DF world-gen | Possible ≠ required — not discouraged; must remain possible |
 | Greenlight | `factory_greenlit: true` (operator); investor demo **archived** — do not revive |
