@@ -98,6 +98,7 @@ Before claiming **shaped** Half-B output (generate or update) as meeting feedsto
 4. Architecture/illegal-flow claims cite matrix / stock / gates / ask_fidelity — not a forked pins bible.
 5. Camera / chargen / DF / investor stance match the frozen locks above.
 6. Receipts stay **`claim_class: staging`** unless operator attests `ask_success`. Factory surface may show **`factory_greenlit: true`** after operator greenlight.
+7. **Prefer / gate shape** *(pointer — Prefer-Authorship § C.2 draft)*: before choosing Prefer refuse/gate shape or decision-matrix Prefer row, **quote intent** (`structural_success` + `success_object`). Intent validates gates; mechanical Prefer green does not prove intent. See Factory-DRB [[prefer_intent_validates_gates_r1]] (draft_awaiting_greenlight).
 
 Host-weld: `implementation_factory_loop` · `product_factory_pipeline` · `product_factory_operator_path`.  
 Operator home: [[Half-B-Alpha-Mode]].

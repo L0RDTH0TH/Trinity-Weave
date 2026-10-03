@@ -1,6 +1,6 @@
 # Trinity card index (auto-generated)
 
-Generated: `2026-10-03T20:27:36Z` — do not hand-edit; regenerated on each `weave_public_sync`.
+Generated: `2026-10-03T22:46:38Z` — do not hand-edit; regenerated on each `weave_public_sync`.
 
 Includes **locked** (`weave/components/`) and **provisional** (`weave/component-proposals/`).
 
@@ -155,6 +155,7 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `pool_drain` | **provisional** | component |  | Pool Drain exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels like |
 | `pq_headless_cap` | **provisional** | component |  | Pq Headless Cap exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
 | `pq_staging` | **provisional** | component |  | Pq Staging exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels like |
+| `prefer_intent_validates_gates` | **provisional** | component |  | Failure family proxy_substitution — intellectual laziness via countable or scanner proxies (points_as_grid, stretch_as_v |
 | `product_factory_operator_path` | **provisional** | component | provisional | Half B operator path. Normative pre-greenlit = select catalog slice or update/fix on current Code-Repos → implement unde |
 | `product_factory_pipeline` | **provisional** | component |  | Half B pipeline law. Catalog + release_stage drive generate and update_existing_exhibit. UX-before-execution loops defer |
 | `product_kinesthetic_honesty` | **provisional** | component |  | Weave honesty core for Product 2+ human-facing operate claims. Mirrors stack_baseline_honesty for player shell, camera,  |

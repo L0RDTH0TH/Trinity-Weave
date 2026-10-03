@@ -1,0 +1,82 @@
+id: prefer_intent_validates_gates
+meta:
+  schema_version: 2
+  card_kind: component
+  promotion_tier: provisional
+  provisional: true
+  card_class: complete_draft
+  anatomy: A-prefer-intent
+  factory_greenlit: false
+  status: draft_awaiting_greenlight
+  source:
+    kind: operator_prefer_doctrine
+    generated_at: '2026-10-03T22:44:30Z'
+    notes: >-
+      Draft Prefer/weave umbrella — intent validates gates. Nested dual seat
+      prefer_dual_object_identity. No Prefer code harden until GREENLIGHT WELD.
+conceptual:
+  outcome: >-
+    Prefer authorship treats intent as the validator of Prefer gate shape.
+    Mechanical Prefer green never alone proves intent. Armed packets declare
+    structural_success (intent language) plus success_object (geometric/object
+    class). Prefer pass requires intent-evidence alignment.
+  summary: >-
+    Failure family proxy_substitution — intellectual laziness via countable or
+    scanner proxies (points_as_grid, stretch_as_variant, stable-≤4-of-wrong-object,
+    primary_face_as_dual, stamp_as_dual). Dual harden is a nested seat under this
+    umbrella, not the whole ticket.
+  primary_case: >-
+    Agent Prefer-oks a host with green scanner symbols for the wrong object
+    class (e.g. stable ≤4 primary faces sold as dual). Umbrella Prefer must
+    fail proxy_substitution / intent mismatch; intent-aligned host Prefer-passes.
+  edge_cases:
+  - Dual-only harden without umbrella → next proxy family repeats
+  - structural_success prose without success_object → underspecified object class
+  - Decision matrix Prefer row chosen before quoting intent → gate-first anti-pattern
+  misread_risks:
+  - Hyper-focus on primary_face_as_dual as the Prefer product ticket
+  - Treating Prefer scanner green as ask_success / intent proof
+  - Staging Genesis LIVE weld under this Prefer/weave ticket
+  process:
+    roles:
+      operator: GREENLIGHT WELD Prefer/weave-only
+      cursor: Draft law + tickets now; Prefer code only after greenlight
+      grok: Validate umbrella + nested dual seat against Prefer host law
+    activation:
+      default: draft_awaiting_greenlight
+      code_harden_when:
+      - Operator GREENLIGHT WELD Prefer/weave-only
+touch:
+  primary_paths:
+  - weave/component-proposals/prefer_intent_validates_gates.yaml
+  - scripts/eat_queue_core/weave/factory/prefer_authorship_contract.py
+  - scripts/eat_queue_core/weave/factory/implicit_intent_bind.py
+  - scripts/eat_queue_core/tests/test_prefer_authorship_host_law.py
+  vault_project_surfaces:
+  - Factory-DRB/Prefer-Authorship-Host-Law.md
+  - Factory-DRB/Grid-Topology-Host-Law.md
+  - Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  - Factory-DRB/slice-briefs/prefer_intent_validates_gates_r1.md
+  - Factory-DRB/slice-briefs/prefer_dual_object_identity_r1.md
+  - Factory-DRB/slice-briefs/prefer_authorship_harden_track_r1.md
+refuse_class:
+  code: proxy_substitution
+  instances:
+  - points_as_grid
+  - count_equals_topology
+  - stretch_as_variant
+  - primary_face_as_dual
+  - stamp_as_dual
+  - explicit_met_implicit_miss
+nested_seats:
+- id: prefer_dual_object_identity
+  role: dual_success_object_and_primary_face_as_dual_emit
+  out_of_scope:
+  - genesis_f5_attest
+  - dual_visual_art
+  - density_lift
+out_of_scope:
+- genesis_f5_attest
+- dual_visual_art
+- density_lift
+- live_code_repos_weld
