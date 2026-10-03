@@ -70,6 +70,80 @@ def _assign_bullets_to_lanes(
     return out
 
 
+def _load_armed_for_packet(vault_root: Path, packet: dict[str, Any]) -> dict[str, Any]:
+    from .prefer_authorship_contract import load_armed_packet
+
+    return load_armed_packet(vault_root, packet)
+
+
+def validate_conceptual_leg_for_compose(
+    vault_root: Path, packet: dict[str, Any]
+) -> list[str]:
+    """Authorship/dual Prefer compose requires conceptual leg fields (intent validates gates)."""
+    from .prefer_authorship_contract import (
+        resolve_authorship_conceptual_fields,
+        resolve_step1_lock,
+        slice_requires_prefer_authorship,
+    )
+
+    slice_id = str(packet.get("slice_id") or "")
+    if not slice_requires_prefer_authorship(slice_id, packet):
+        return []
+    armed = _load_armed_for_packet(vault_root, packet)
+    step1, _ = resolve_step1_lock(armed)
+    fields = resolve_authorship_conceptual_fields(armed, step1)
+    # Packet may carry conceptual_leg when armed is not yet written.
+    leg = packet.get("conceptual_leg") if isinstance(packet.get("conceptual_leg"), dict) else {}
+    for key in ("structural_success", "success_object", "end_state", "path_position", "intent_invariant"):
+        if not fields.get(key):
+            fields[key] = str(
+                leg.get(key)
+                or packet.get(key)
+                or (leg.get("project_end_state") if key == "end_state" else "")
+                or ""
+            ).strip()
+    violations: list[str] = []
+    if not fields.get("structural_success"):
+        violations.append("compose_missing_structural_success")
+    if not fields.get("success_object"):
+        violations.append("compose_missing_success_object")
+    if not fields.get("path_position"):
+        violations.append("compose_missing_path_position")
+    if not fields.get("intent_invariant"):
+        violations.append("compose_missing_intent_invariant")
+    # end_state soft-required when dual/authorship Prefer — prefer fail when absent
+    if not fields.get("end_state"):
+        violations.append("compose_missing_end_state")
+    return violations
+
+
+def review_blocks_depth_bump_prefer_symbols_only(
+    review: dict[str, Any],
+    *,
+    packet: dict[str, Any] | None = None,
+    slice_id: str = "",
+) -> list[str]:
+    """Block depth bump when dual/authorship review cites Prefer symbols without concept confirm."""
+    from .prefer_authorship_contract import slice_requires_prefer_authorship
+
+    job = packet if isinstance(packet, dict) else {"slice_id": slice_id}
+    sid = str(slice_id or job.get("slice_id") or review.get("slice_id") or "")
+    if not slice_requires_prefer_authorship(sid, job):
+        return []
+    if review.get("concept_prefer_ok") is True:
+        return []
+    if review.get("concept_confirm") is True:
+        return []
+    # Prefer-symbol-only pass: structural harness green without concept Prefer.
+    if review.get("prefer_symbols_only") is True:
+        return ["depth_bump_blocked_prefer_symbols_only"]
+    concept_notes = str(review.get("concept_prefer_notes") or review.get("intent_invariant") or "").strip()
+    success_object = str(review.get("success_object") or "").strip()
+    if review.get("verdict") == "pass" and not (concept_notes and success_object):
+        return ["depth_bump_blocked_concept_prefer_required"]
+    return []
+
+
 def compose_slice_briefs_from_packet(
     vault_root: Path,
     packet: dict[str, Any],
@@ -84,6 +158,16 @@ def compose_slice_briefs_from_packet(
     dispatch_depth = int(packet.get("dispatch_depth") or 0)
     target_depth = int(packet.get("target_depth") or 0)
     lane_ids = [str(x) for x in (packet.get("lane_roster") or []) if x]
+
+    conceptual_violations = validate_conceptual_leg_for_compose(vault_root, packet)
+    if conceptual_violations:
+        return {
+            "ok": False,
+            "violations": conceptual_violations,
+            "slice_id": slice_id,
+            "producer_run_id": producer_run_id,
+            "detail": "compose_conceptual_leg_incomplete",
+        }
 
     ux = packet.get("ux") if isinstance(packet.get("ux"), dict) else {}
     conceptual = packet.get("conceptual") if isinstance(packet.get("conceptual"), dict) else {}
@@ -344,12 +428,22 @@ def validate_producer_review(
     review: dict[str, Any],
     *,
     lane_receipts: list[dict[str, Any]] | None = None,
+    packet: dict[str, Any] | None = None,
 ) -> tuple[bool, list[str]]:
     violations: list[str] = []
     if not review.get("ok") and review.get("verdict") not in ("rework", "blocked"):
         violations.append("review_not_ok")
     violations.extend(validate_producer_review_persona(review))
     violations.extend(validate_producer_review_tier_b(review, lane_receipts=lane_receipts))
+    # Authorship/dual: Prefer-symbol pass alone cannot unlock depth bump.
+    if review.get("verdict") == "pass" or review.get("ok"):
+        violations.extend(
+            review_blocks_depth_bump_prefer_symbols_only(
+                review,
+                packet=packet,
+                slice_id=str(review.get("slice_id") or ""),
+            )
+        )
     return not violations, violations
 
 
@@ -411,6 +505,13 @@ def run_slice_producer_compose(
     composed = compose_slice_briefs_from_packet(
         vault_root, packet, producer_run_id=producer_run_id
     )
+    if not composed.get("ok", True):
+        return {
+            "ok": False,
+            "violations": list(composed.get("violations") or []),
+            "slice_id": slice_id,
+            "detail": str(composed.get("detail") or "compose_failed"),
+        }
     receipt_path = technical_slice_dir(vault_root, slice_id) / "producer-receipt.json"
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     ok, violations = validate_producer_receipt(vault_root, receipt)

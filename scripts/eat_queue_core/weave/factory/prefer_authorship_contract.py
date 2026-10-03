@@ -130,6 +130,22 @@ NEGATIVE_EXAMPLES: tuple[dict[str, str], ...] = (
             "without half-step OrganicDualOffsetLattice"
         ),
     },
+    {
+        "id": "proxy_substitution",
+        "refuse": "proxy_substitution",
+        "summary": (
+            "Parent refuse class: countable / scanner / Prefer-symbol stand-in "
+            "sold as Success for a different object class (intent-evidence mismatch)"
+        ),
+    },
+    {
+        "id": "intent_collapsed_to_mechanics",
+        "refuse": "intent_collapsed_to_mechanics",
+        "summary": (
+            "Intent reduced to mechanical Prefer symbols / prove APIs / cardinality "
+            "without surviving conceptual leg (success_object + invariant)"
+        ),
+    },
 )
 
 WORLDGEN_SLICE_MARKERS: tuple[str, ...] = (
@@ -181,6 +197,8 @@ PRODUCT_PREFER_DO_NOT_WAIVE: tuple[str, ...] = (
     "unstable_dual_neighborhood",
     "stamp_as_dual",
     "primary_face_as_dual",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics",
     "inspiration_shape_miss",
     "hex_scaffold_as_final_mesh",
     "dual_overlay_as_grid_kernel",
@@ -197,6 +215,12 @@ PRODUCT_PREFER_DO_NOT_WAIVE: tuple[str, ...] = (
     "free_boundary_fold",
     "extrusion_before_2d_stable",
     "relax_step_too_hard",
+)
+
+# Intent-validates-gates Prefer — non-waivable parent + collapse class.
+INTENT_VALIDATES_DO_NOT_WAIVE: tuple[str, ...] = (
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics",
 )
 
 # Armed-named LIVE surfaces that a topology bind is always scanned against —
@@ -1010,6 +1034,152 @@ def armed_requires_dual_lattice(armed: dict[str, Any] | None) -> bool:
     return "primary_face_as_dual" in {str(c) for c in refuse}
 
 
+def armed_requires_dual_object_identity(armed: dict[str, Any] | None) -> bool:
+    """Organic dual Prefer altitudes that must prove OrganicDualOffsetLattice object identity.
+
+    Covers neighborhood / lattice / visual / dual-corner. Excludes Hex19 tutorial
+    ``step2_dual_offset`` (markers dual — still uses ``skip_dual_offset`` seat).
+    """
+    return (
+        armed_requires_dual_corner_on_organic(armed)
+        or armed_requires_dual_visual(armed)
+        or armed_requires_dual_neighborhood(armed)
+        or armed_requires_dual_lattice(armed)
+        or (
+            isinstance(armed, dict)
+            and isinstance(armed.get("locks"), dict)
+            and isinstance(armed["locks"].get("dual_object_identity"), dict)
+            and bool(armed["locks"].get("dual_object_identity"))
+        )
+    )
+
+
+def armed_requires_any_dual_prefer(armed: dict[str, Any] | None) -> bool:
+    """True when any dual Prefer altitude is armed (organic identity or Hex19 s2 offset)."""
+    return armed_requires_dual_object_identity(armed) or armed_requires_dual_offset(armed)
+
+
+def resolve_authorship_conceptual_fields(
+    armed: dict[str, Any] | None,
+    step1_lock: dict[str, Any] | None = None,
+) -> dict[str, str]:
+    """Resolve structural_success + success_object (+ optional conceptual leg) from armed law."""
+    armed = armed if isinstance(armed, dict) else {}
+    step1 = step1_lock if isinstance(step1_lock, dict) else {}
+    locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+    dual_id = (
+        locks.get("dual_object_identity")
+        if isinstance(locks.get("dual_object_identity"), dict)
+        else {}
+    )
+    intent_lock = (
+        locks.get("intent_validates_gates")
+        if isinstance(locks.get("intent_validates_gates"), dict)
+        else {}
+    )
+    conceptual = (
+        armed.get("conceptual_leg")
+        if isinstance(armed.get("conceptual_leg"), dict)
+        else {}
+    )
+
+    structural = str(
+        step1.get("structural_success")
+        or armed.get("structural_success")
+        or intent_lock.get("structural_success")
+        or conceptual.get("structural_success")
+        or ""
+    ).strip()
+    success_object = str(
+        step1.get("success_object")
+        or armed.get("success_object")
+        or dual_id.get("success_object_required")
+        or dual_id.get("success_object")
+        or intent_lock.get("success_object")
+        or conceptual.get("success_object")
+        or ""
+    ).strip()
+    end_state = str(
+        conceptual.get("end_state")
+        or conceptual.get("project_end_state")
+        or armed.get("end_state")
+        or armed.get("project_end_state")
+        or step1.get("end_state")
+        or ""
+    ).strip()
+    path_position = str(
+        conceptual.get("path_position")
+        or armed.get("path_position")
+        or step1.get("path_position")
+        or ""
+    ).strip()
+    intent_invariant = str(
+        conceptual.get("intent_invariant")
+        or armed.get("intent_invariant")
+        or step1.get("intent_invariant")
+        or dual_id.get("intent_invariant")
+        or ""
+    ).strip()
+    return {
+        "structural_success": structural,
+        "success_object": success_object,
+        "end_state": end_state,
+        "path_position": path_position,
+        "intent_invariant": intent_invariant,
+    }
+
+
+def authorship_armed_missing_required_fields(
+    armed: dict[str, Any] | None,
+    step1_lock: dict[str, Any] | None = None,
+) -> list[str]:
+    """Fail closed when authorship/dual Prefer packets omit intent + success_object."""
+    armed = armed if isinstance(armed, dict) else {}
+    if not armed:
+        return []
+    # Authorship / dual Prefer product packets must declare intent fields.
+    needs = bool(step1_lock) or armed_requires_any_dual_prefer(armed) or bool(
+        armed.get("prefer_authorship")
+        or (isinstance(armed.get("locks"), dict) and armed["locks"].get("intent_validates_gates"))
+        or (isinstance(armed.get("locks"), dict) and armed["locks"].get("dual_object_identity"))
+    )
+    if not needs:
+        return []
+    fields = resolve_authorship_conceptual_fields(armed, step1_lock)
+    violations: list[str] = []
+    if not fields["structural_success"]:
+        violations.append("armed_packet_missing_structural_success")
+    if not fields["success_object"]:
+        violations.append("armed_packet_missing_success_object")
+    return violations
+
+
+def dual_success_object_is_lattice_cell(success_object: str) -> bool:
+    """True when named success_object is dual-lattice cell class (not primary face)."""
+    s = (success_object or "").lower().replace("-", "_")
+    if not s:
+        return False
+    if any(
+        bad in s
+        for bad in (
+            "primary_organic_face",
+            "primary_face",
+            "org_face",
+            "centroid_stamp",
+        )
+    ):
+        return False
+    return any(
+        good in s
+        for good in (
+            "organic_dual_offset_lattice_cell",
+            "dual_offset_lattice",
+            "dual_lattice_cell",
+            "half_step_dual",
+        )
+    )
+
+
 def armed_requires_dual_visual(armed: dict[str, Any] | None) -> bool:
     """True when Prefer requires shape-distinct dual mesh variants (not gray ramp)."""
     armed = armed if isinstance(armed, dict) else {}
@@ -1678,6 +1848,10 @@ def run_prefer_authorship_pass(
         if any(m in str(armed.get("slice_id") or "").lower() for m in WORLDGEN_SLICE_MARKERS):
             violations.append("armed_packet_missing_step1_authorship_lock")
 
+    # Intent-validates-gates: authorship/dual armed packets require intent + object class.
+    conceptual_fields = resolve_authorship_conceptual_fields(armed, step1_lock)
+    violations.extend(authorship_armed_missing_required_fields(armed, step1_lock))
+
     # Bind fidelity (post-lane): the entry-seat rewrite must still hold.
     from .implicit_intent_bind import check_implicit_intent_bind
 
@@ -1758,25 +1932,58 @@ def run_prefer_authorship_pass(
         else:
             topology_evidence = {"dual_visual": dual_visual_evidence}
 
-    # Dual-neighborhood — stable ≤4 ownership; refuse stamp_as_dual / unstable set.
+    # Dual-neighborhood / organic dual Prefer — stable ≤4 ownership; refuse stamp_as_dual.
+    # Organic dual altitudes always require dual-offset lattice proof (no detect-only neighborhood).
     dual_neighborhood_evidence: dict[str, Any] | None = None
+    dual_object_identity = armed_requires_dual_object_identity(armed)
     if (
-        armed_requires_dual_neighborhood(armed) or armed_requires_dual_lattice(armed)
+        armed_requires_dual_neighborhood(armed)
+        or armed_requires_dual_lattice(armed)
+        or dual_object_identity
     ) and repo is not None:
         dual_neighborhood_evidence = scan_dual_neighborhood_evidence(repo)
-        violations.extend(
-            dual_neighborhood_violations_from_evidence(
-                dual_neighborhood_evidence,
-                require_dual_lattice=armed_requires_dual_lattice(armed),
-            )
+        # Intent-validates-gates: organic dual altitudes always require lattice proof.
+        require_lattice = dual_object_identity or armed_requires_dual_lattice(armed)
+        dual_viols = dual_neighborhood_violations_from_evidence(
+            dual_neighborhood_evidence,
+            require_dual_lattice=require_lattice,
         )
+        violations.extend(dual_viols)
+        # Parent class emit when wrong-object / proxy stand-in is detected.
+        if any(
+            str(v).startswith("primary_face_as_dual")
+            or str(v).startswith("stamp_as_dual")
+            or str(v).startswith("points_as_grid")
+            or str(v).startswith("stretch_as_variant")
+            for v in dual_viols
+        ):
+            violations.append("proxy_substitution:wrong_object_or_proxy_stand_in")
+        if require_lattice and dual_neighborhood_evidence.get("primary_face_as_dual"):
+            violations.append("intent_collapsed_to_mechanics:stable_metric_of_wrong_object")
+        # success_object mismatch — dual Prefer naming primary face as Success.
+        so = conceptual_fields.get("success_object") or ""
+        if so and dual_object_identity and not dual_success_object_is_lattice_cell(so):
+            if any(
+                bad in so.lower()
+                for bad in ("primary_face", "primary_organic", "org_face", "centroid")
+            ):
+                violations.append(
+                    f"proxy_substitution:success_object_not_dual_lattice:{so}"
+                )
+                violations.append(
+                    f"intent_collapsed_to_mechanics:success_object_proxy:{so}"
+                )
         if topology_evidence is not None:
             topology_evidence = {
                 **topology_evidence,
                 "dual_neighborhood": dual_neighborhood_evidence,
+                "conceptual_fields": conceptual_fields,
             }
         else:
-            topology_evidence = {"dual_neighborhood": dual_neighborhood_evidence}
+            topology_evidence = {
+                "dual_neighborhood": dual_neighborhood_evidence,
+                "conceptual_fields": conceptual_fields,
+            }
 
     # do_not_waive product Prefer seats must remain listed when Prefer overlay present.
     do_not_waive = job.get("do_not_waive") or []
@@ -1814,7 +2021,11 @@ def run_prefer_authorship_pass(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_dual_visual)
                 )
-        if armed_requires_dual_neighborhood(armed) or armed_requires_dual_lattice(armed):
+        if (
+            armed_requires_dual_neighborhood(armed)
+            or armed_requires_dual_lattice(armed)
+            or dual_object_identity
+        ):
             missing_neighborhood = [
                 c
                 for c in DUAL_NEIGHBORHOOD_DO_NOT_WAIVE
@@ -1825,7 +2036,7 @@ def run_prefer_authorship_pass(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_neighborhood)
                 )
-        if armed_requires_dual_lattice(armed):
+        if armed_requires_dual_lattice(armed) or dual_object_identity:
             missing_lattice = [
                 c
                 for c in DUAL_LATTICE_DO_NOT_WAIVE
@@ -1836,6 +2047,22 @@ def run_prefer_authorship_pass(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_lattice)
                 )
+        # Intent-validates-gates parent class always non-waivable on Prefer overlays.
+        missing_intent = [
+            c
+            for c in INTENT_VALIDATES_DO_NOT_WAIVE
+            if c not in {str(x) for x in do_not_waive}
+        ]
+        if missing_intent and (
+            armed
+            or job.get("prefer_authorship")
+            or dual_object_identity
+            or conceptual_fields.get("success_object")
+        ):
+            violations.append(
+                "prefer_overlay_missing_do_not_waive_intent_codes:"
+                + ",".join(missing_intent)
+            )
         if armed_requires_organic_quad_kernel(armed):
             missing_organic = [
                 c

@@ -3,17 +3,18 @@ meta:
   schema_version: 2
   card_kind: component
   promotion_tier: provisional
-  provisional: true
-  card_class: complete_draft
+  provisional: false
+  card_class: greenlit
   anatomy: A-prefer-intent
-  factory_greenlit: false
-  status: draft_awaiting_greenlight
+  factory_greenlit: true
+  status: greenlit_prefer_weave
   source:
     kind: operator_prefer_doctrine
     generated_at: '2026-10-03T22:44:30Z'
+    greenlit_at: '2026-10-04T00:00:00Z'
     notes: >-
-      Draft Prefer/weave umbrella — intent validates gates. Nested dual seat
-      prefer_dual_object_identity. No Prefer code harden until GREENLIGHT WELD.
+      GREENLIT Prefer/weave umbrella — intent validates gates. Nested dual seat
+      prefer_dual_object_identity. Harness + host law § C.2 binding.
 conceptual:
   outcome: >-
     Prefer authorship treats intent as the validator of Prefer gate shape.
@@ -43,7 +44,7 @@ conceptual:
       cursor: Draft law + tickets now; Prefer code only after greenlight
       grok: Validate umbrella + nested dual seat against Prefer host law
     activation:
-      default: draft_awaiting_greenlight
+      default: greenlit_prefer_weave
       code_harden_when:
       - Operator GREENLIGHT WELD Prefer/weave-only
 touch:

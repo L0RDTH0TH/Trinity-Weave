@@ -99,6 +99,29 @@ def _handle_compose(
             "hint": "Dispatch Task(slice-producer) mode compose or set params.harness_fallback",
         }
 
+    # Dual/authorship: structural harness compose is never Success — force PM judgment.
+    from ..factory.prefer_authorship_contract import slice_requires_prefer_authorship
+
+    job_probe = {
+        **params,
+        "slice_id": slice_id,
+        "project_id": project_id,
+        "prefer_authorship": params.get("prefer_authorship")
+        or (active_slice or {}).get("prefer_authorship"),
+    }
+    if slice_id and slice_requires_prefer_authorship(slice_id, job_probe):
+        return {
+            "ok": False,
+            "id": eid,
+            "mode": "SLICE_PRODUCER_COMPOSE",
+            "detail": "slice_producer_judgment_required",
+            "failure_class": "slice_producer_judgment_required",
+            "hint": (
+                "Authorship/dual Prefer requires Task(slice-producer) / "
+                "layer1_slice_producer PM invoke — harness_fallback Success forbidden"
+            ),
+        }
+
     compose = run_slice_producer_compose(
         vault_root,
         project_id=project_id,
@@ -144,6 +167,26 @@ def _handle_review(
     slice_id = str(params.get("slice_id") or "")
     wave = int(params.get("wave") or 1)
     run_id = str(params.get("product_factory_run_id") or "")
+
+    from ..factory.prefer_authorship_contract import slice_requires_prefer_authorship
+
+    job_probe = {**params, "slice_id": slice_id, "project_id": project_id}
+    if (
+        harness_fallback
+        and slice_id
+        and slice_requires_prefer_authorship(slice_id, job_probe)
+    ):
+        return {
+            "ok": False,
+            "id": eid,
+            "mode": "SLICE_PRODUCER_REVIEW",
+            "detail": "slice_producer_judgment_required",
+            "failure_class": "slice_producer_judgment_required",
+            "hint": (
+                "Authorship/dual Prefer review requires PM agent path — "
+                "structural harness review cannot claim Success"
+            ),
+        }
 
     review = _load_review_doc(vault_root, slice_id)
     if review is None and harness_fallback:
