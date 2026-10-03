@@ -1,7 +1,7 @@
 ---
 title: Half B Alpha mode — Genesis Mythos update machine (staging)
 created: 2026-09-30
-updated: 2026-10-02
+updated: 2026-10-03
 audience: bone_pilot
 status: provisional
 factory_greenlit: true
@@ -10,11 +10,13 @@ claim_class: staging
 
 # Half B Alpha mode
 
-**Factory is greenlit** (`factory_greenlit: true`, operator 2026-10-01). Half B generates and updates **Code-Repos** under stock/seat PRECONDITIONS. Launch remains word-gated (`WELD`); do not auto-dispatch. **Do not** treat investor ~30 min / PDF-cartridge Success as the live optimization target — that ask is **archived** (improper end flavor).
+**Factory is greenlit** (`factory_greenlit: true`, operator 2026-10-01). Half B generates and updates **Code-Repos** under stock/seat PRECONDITIONS. Weld launches stay **operator-paced** (chat **GREENLIGHT WELD** — no YAML word-gate). **Do not** treat investor ~30 min / PDF-cartridge Success as the live optimization target — that ask is **archived** (improper end flavor).
 
 Archive: `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`.
 
-**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active series [[alpha0_townscaper_tutorial_r1]] (step 1 attested via [[alpha0_townscaper_craft_core_r1]] / [[alpha0_townscaper_tutorial_s1_attest]] → next [[alpha0_townscaper_tutorial_s2_dual_offset_r1]] awaiting GREENLIGHT WELD). Visual Prefer altitude **failed** (metrics-only): [[alpha0_townscaper_craft_visual_altitude_failed_2026-10-02]]. DF-depth **frozen** until tutorial ladder clears. Scrapped/archived: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
+**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active Prefer [[alpha0_stalberg_grid_kernel_r1]] / [[alpha0_stalberg_quad_kernel_r1]] (**draft** until GREENLIGHT WELD). Tutorial ladder [[alpha0_townscaper_tutorial_r1]] is **separate / non-authority**. Visual Prefer altitude **failed** (metrics-only): [[alpha0_townscaper_craft_visual_altitude_failed_2026-10-02]]. DF-depth **frozen**. Scrapped/archived: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
+
+Canonical project copy: `1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/Half-B-Alpha-Mode.md`.
 
 Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how**. They do **not** redefine product Success as table-chrome-only — and they do **not** authorize pursuing archived investor Success as current Done.
 
