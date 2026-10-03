@@ -340,6 +340,13 @@ def run_factory_dispatch_preflight(
             slice_id=slice_id, job=job, checklist_ids=checklist_ids
         )
     )
+    from .implicit_intent_bind import check_implicit_intent_bind
+
+    bind_result = check_implicit_intent_bind(
+        vault_root, slice_id=slice_id, job=job, project_id=pid or None
+    )
+    if bind_result.applicable and not bind_result.ok:
+        violations.extend(bind_result.violations)
 
     ok = len(violations) == 0
     detail = "; ".join(violations) if violations else "factory_dispatch_preflight_ok"

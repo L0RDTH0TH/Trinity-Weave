@@ -92,7 +92,8 @@ Class-expression + economy/claim **soft-closed validated**. Close-out stretch th
 | `stub-talespire-dm-tooling` | camera_control_envelopes | medium | DM table tooling re-expressed for FP players |
 | `stub-world-anvil-lore-surface` | world_authorship_modability | weak | Lore/world-building management surface |
 | `tool-use-as-presence` | mental_stat_interpretation, quiet_between_pillars, collaborative_ta… | strong | Attempt leaves residue the table can see or feel — noise, time, traces, altered object. Success/failure is not |
-| `townscaper-click-add-world-element` | world_authorship_modability, camera_control_envelopes, dm_campaign_… | strong | Click-and-add UX for placing world elements — joyful, low-friction authorship; 2D map intent → 3D world realiz |
+| `dual-grid-nested-placetile-world-authorship` | world_authorship_modability, camera_control_envelopes, dm_campaign_… | strong | **Primary** (locked 2026-10-02). Dual-grid nested placetile + living-sim cheat-mode aspiration; Hot Wheels≠Terrain3D. Supersedes townscaper-click-add |
+| `townscaper-click-add-world-element` | world_authorship_modability, camera_control_envelopes, dm_campaign_… | strong | **Superseded** by dual-grid-nested-placetile-world-authorship — historical click-add seed only |
 | `traps-environmental-agency` | quiet_between_pillars, combat_play_surface, living_world_continuity… | strong | Investment-gated discoverability; player authorship for combat lure tactics; residue and creature-alert contin |
 | `travel-modality-explicit` | quiet_between_pillars, living_world_continuity, world_generation, e… | strong | No mundane fast travel; mounts/airships/carts/polymorph/teleport as power-band + availability + seed/quiet pre |
 | `treasure-claim-provenance-content` | living_world_continuity, collaborative_table_agency, quiet_between_… | strong | Content through existing economic/claim membrane; care + identifiability + prior ownership drive heat; rarity  |

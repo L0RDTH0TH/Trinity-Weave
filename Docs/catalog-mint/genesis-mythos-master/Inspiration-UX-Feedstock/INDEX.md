@@ -1,7 +1,7 @@
 ---
 title: Inspiration UX INDEX — pinable sources
 project-id: genesis-mythos-master
-updated: 2026-10-01
+updated: 2026-10-02
 ---
 
 # INDEX — pinable sources
@@ -9,6 +9,17 @@ updated: 2026-10-01
 Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 
 > **Horizon staging clarifications (2026-10-01):** DF world-gen = possible ≠ required for ~30m demo (not discouraged). FG/TaleSpire classic VTT cam (`vtt_planar_ortho`) ≠ `god_mode_sparky` ≠ `anchored_actor`. Skyrim town/settlement urban feel is welcome pattern extract.
+
+> **Authorship feedstock lock (2026-10-02):** Primary world-authorship move-pin is [[dual-grid-nested-placetile-world-authorship]] (operator-locked feedstock). Supersedes [[townscaper-click-add-world-element]]. Canonical YT remains `Y19Mw5YsgjI`. Hex-19 tutorial scaffold ≠ ossified product lattice; nesting/biome/living-sim = aspiration altitude for later tickets. No L5 / pin-derive / seasoning apply this lock.
+
+
+## Visual factory bar (2026-10-01)
+
+| Source | Signal | Derived pins | Notes |
+|--------|--------|--------------|-------|
+| Astroneer (colloquial → **stylized low poly**) | strong | astroneer-stylized-low-poly-visual | Factory visual lane + Exemplar `astroneer_bar_v0`; chars/NPCs/env/VFX; ref `Ingest/grok_image_1790835133801.jpg`; law [[Visual-Factory-Direction-Stylized-Low-Poly]] · [[INSPIRATION-HALF-B-SHAPE]] |
+
+> Operator: “Astroneer” names the art style **stylized low poly** (spelling: stylized). Not a gameplay clone.
 
 ## Cross-pillar altitude (2026-08-08 remine)
 
@@ -37,7 +48,7 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 |--------|--------|--------------|-------|
 | Operator intent→realization doctrine | strong | intent-shape-to-realization | Shape→floor plans→calendar labor; A/B/C; failure/recovery; real-time labor visibility; **realism-with-optional-traceability** (2026-08-13) |
 | Operator class-expression doctrine | strong | class-unique-expression-surfaces | **CLASS-EXPRESSION-BOARD soft-closed validated v5** (2026-08-13) — v4 density + economy/claim family; soft watches live at seasoning |
-| Operator voice-table signaling | medium | voice-table-signaling | **Thickened 2026-08-11** — free waveforms; save on recurring NPC; optional IC button; World-cam possession; see [[VOICE-TABLE-TEXTURE]] |
+| Operator voice-table signaling | medium | voice-table-signaling | **Thickened 2026-08-27** — save-on-record; optional IC; World-cam parallel; not faction weather; see [[VOICE-TABLE-TEXTURE]] |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | factions-as-persons-fingers-ripples | Factions as persons; fingers + ripples; players can become fingers/stones |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | reputation-weather | Felt treatment; no meter; no “they are mad because of X” as primary |
 | Operator roleplay-surface doctrine (2026-08-11) | strong | faction-goal-pressure-residue | Local residue of current goal/crisis; no faction sheet; no forced turn |
@@ -119,7 +130,8 @@ Pillar map: see [[PILLARS-AND-LENS]]. Closure pass #2 folded below.
 | Source | Signal | Derived pins | Notes |
 |--------|--------|--------------|-------|
 | Operator doctrine (vs survival builders) | strong | calendar-npc-labor-world-shape | Intent · NPC labor · calendar; **refuse** place-build. **Primary labor exemplar CLOSED:** realism-with-optional-traceability (2026-08-13) |
-| Townscaper | strong | townscaper-click-add-world-element | Intent UX — click-add world/grid |
+| Townscaper dual-grid + living-sim cheat-mode (operator synthesis) | strong | dual-grid-nested-placetile-world-authorship | **Primary** authorship feedstock (locked 2026-10-02). Nested placetile + biome/connectivity aspiration; Hot Wheels≠Terrain3D. Supersedes `townscaper-click-add-world-element` |
+| Townscaper *(superseded thin draft)* | strong | townscaper-click-add-world-element | Historical click-add seed — **superseded_by** [[dual-grid-nested-placetile-world-authorship]] |
 | Majesty / Majesty 2 | strong | majesty-goal-heroes-realize | Sovereign goals → heroes/peasants realize (primary candidate) |
 | Stronghold (series) | strong | stronghold-plan-engineers-time | Castle plan → engineers over time (primary candidate) |
 | Foundation | strong | foundation-district-organic-build | District designate → organic build (modern persistence) |

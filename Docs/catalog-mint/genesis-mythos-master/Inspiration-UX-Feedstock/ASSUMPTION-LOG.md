@@ -44,6 +44,7 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-07 | false | rust-ark-base-systems-light | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Base foil; refuse loop |
 | 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock doctrine | Design → NPC labor → calendar |
 | 2026-08-07 | false | townscaper-click-add-world-element | ux_world_authorship_modability, ux_camera_control_envelopes | feedstock seed | Click-add world/grid UX |
+| 2026-10-02 | false | dual-grid-nested-placetile-world-authorship | ux_world_authorship_modability, ux_camera_control_envelopes, ux_dm_campaign_creation | feedstock lock (supersedes townscaper-click-add) | Nested placetile primary authorship; hex-19≠product lattice; aspiration altitude noted |
 | 2026-08-07 | false | calendar-npc-labor-world-shape | (multi) | feedstock refresh | Split + primary labor OPEN |
 | 2026-08-07 | false | overlord-minion-labor-partial | ux_living_world_continuity, ux_world_authorship_modability | feedstock seed | Labor tone; thin calendar |
 | 2026-08-07 | false | majesty-goal-heroes-realize | (multi) | feedstock seed | Sovereign → subjects |
@@ -144,6 +145,7 @@ _No silent elevations into SERIES / locked batches / attested L5. When Cursor el
 | 2026-08-11 | false | magic-item-commission-conversation | ux_living_world_continuity, ux_collaborative_table_agency, ux_quiet_between_pillars, ux_backstory_legacy_integration | feedstock draft (not elevated) | Ordinary path = talk to local finger |
 | 2026-08-11 | false | commission-formula-and-stock-eval | ux_living_world_continuity, ux_quiet_between_pillars, ux_collaborative_table_agency, ux_early_game, ux_mid_game | feedstock draft (not elevated) | Base + reagents + bind time vs current stock |
 | 2026-08-11 | false | voice-table-signaling | ux_collaborative_table_agency, ux_dm_session_prep, ux_camera_control_envelopes | feedstock thicken (not elevated) | Free waveforms; save on NPC; optional IC; World-cam possession |
+| 2026-08-27 | false | voice-table-signaling | ux_collaborative_table_agency, ux_dm_session_prep, ux_camera_control_envelopes | feedstock thicken (not elevated) | Save-on-record; optional explicit IC; World-cam parallel; not faction weather; medium density |
 | 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_player_character_creation, ux_backstory_legacy_integration, ux_early_game, ux_collaborative_table_agency | feedstock lock (user-validated; not elevated) | Background = first finger, not ongoing desk |
 | 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_early_game | feedstock lock (user-validated; not elevated) | Power-band reaction window = soft guidance (power/reach > exact level) |
 | 2026-08-12 | false | background-first-finger-membrane | ux_living_world_continuity, ux_backstory_legacy_integration | feedstock lock (user-validated; not elevated) | Absorption into reputation weather is intended end-state of residue |

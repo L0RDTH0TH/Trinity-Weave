@@ -3,7 +3,7 @@ title: Inspiration dialogue receipt — genesis-mythos-master
 project-id: genesis-mythos-master
 status: dialogue_closed_ready_for_pin_seeding
 inspiration_dialogue_satisfied: true
-updated: 2026-08-14
+updated: 2026-10-02
 
 ---
 
@@ -67,6 +67,7 @@ See also [[PILLARS-AND-LENS]] · [[CLASS-EXPRESSION-BOARD]] · [[COMBAT-SURFACE-
    - Prior locks still in force (labor exemplar, Tal’dorei Core pivot, class oaths hard guard, append path, crafting deferred).
    - `inspiration_dialogue_satisfied` remains **false**. Share-ready remains **false**. Hold for operator close/waive.
 29. **Operator dialogue CLOSE (2026-08-14):** Explicit close for pin seeding. `inspiration_dialogue_satisfied: true`. Share-ready: true. Shared Conceptual pin gate remains **OPEN** until board confirm → `apply_pins` + seasoning disposition applied|waived. Seasoning STATUS full remine drafted. No L5. No seasoning apply this close pass.
+30. **Dual-grid nested placetile authorship feedstock lock (2026-10-02):** Operator synthesis validated + locked as [[dual-grid-nested-placetile-world-authorship]]. **Supersedes** [[townscaper-click-add-world-element]]. Canonical YT remains `Y19Mw5YsgjI`. Lock clarifications: hex-19 tutorial scaffold ≠ ossified product lattice; nesting / biome mechanical pressure / living-sim connectivity / Terrain3D hand-off = aspiration altitude for later tickets; tutorial ladder [[alpha0_townscaper_tutorial_r1]] remains step-by-step execution. Hot Wheels≠Terrain3D unchanged. **Feedstock only** — no L5, no pin-derive, no seasoning apply, no factory WELD this turn. INDEX + COHESIVE vision + YT cite + tutorial hub lightly cross-linked.
 
 ## Locked this cycle (still in force)
 
@@ -276,6 +277,8 @@ Shared surfaces (Combat / roleplay / quiet / skill-readability / commission / vo
 
 **CLOSED 2026-08-14.** Operator closed the Inspiration dialogue cycle for pin seeding. Feedstock locks (through close-out stretch) are share-ready.
 
-**Next:** Conceptual pin seeding — Grok+User validate `PIN-DERIVE-STATUS` / per-row `PIN-DERIVE.md` → operator board confirm → `apply_pins` → seasoning gate (STATUS maps drafted; RECEIPT disposition still `open`) → then Pass B.
+**Authorship feedstock append (2026-10-02):** Primary world-authorship card locked — [[dual-grid-nested-placetile-world-authorship]]. Does **not** reopen the 2026-08-14 dialogue close; does **not** apply seasoning or pin-derive. Grok catalog conversation may thicken candidates named on that card later.
+
+**Next:** Conceptual pin seeding — Grok+User validate `PIN-DERIVE-STATUS` / per-row `PIN-DERIVE.md` → operator board confirm → `apply_pins` → seasoning gate (STATUS maps drafted; RECEIPT disposition still `open`) → then Pass B. When remine hits world authorship, prefer the dual-grid nested card over the superseded Townscaper thin draft.
 
 `inspiration_dialogue_satisfied`: **true**. Share-ready: **true**. Shared pin gate: **open**.

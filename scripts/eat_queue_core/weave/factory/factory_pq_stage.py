@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from ...lane_bundle import bundle_dir_for_lane
 from ...queue_bus import append_raw_queue_entries
 from ..persona_handoff import merge_persona_into_params
@@ -18,7 +20,11 @@ from ..user_story.product_factory_state import (
     update_implementation_cell,
 )
 from .factory_orchestrator import run_factory_orchestrator
-from .factory_project import load_factory_project
+from .factory_project import factory_project_rel, load_factory_project
+from .prefer_authorship_contract import (
+    PRODUCT_PREFER_DO_NOT_WAIVE,
+    slice_requires_prefer_authorship,
+)
 from .slice_producer_harness import load_cell_dispatch_plan, load_producer_receipt, technical_slice_dir
 
 
@@ -54,6 +60,78 @@ _VAULT_EXIT_GATES = (
     "factory_output_conduct",
     "product_kinesthetic_honesty",
 )
+
+
+def armed_packet_rel_for_slice(project_id: str, slice_id: str) -> str:
+    """Sibling armed packet of the slice brief: ``{slice_id}.armed.yaml``."""
+    return f"1-Projects/{project_id}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
+
+
+def resolve_sibling_armed_packet(
+    vault_root: Path, *, project_id: str, slice_id: str
+) -> tuple[str, dict[str, Any]]:
+    """Return (rel_path, armed_dict); ('', {}) when no sibling armed packet exists."""
+    if not project_id or not slice_id:
+        return "", {}
+    rel = armed_packet_rel_for_slice(project_id, slice_id)
+    path = vault_root / rel
+    if not path.is_file():
+        return "", {}
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return rel, {}
+    return rel, data if isinstance(data, dict) else {}
+
+
+def resolve_authority_armed_packet(
+    vault_root: Path, *, project_id: str, slice_id: str
+) -> tuple[str, dict[str, Any]]:
+    """Armed packet with authority for a slice: sibling first, else project pointer.
+
+    The project-level pointer matters because a stale implementation cell can tick
+    under a different ``slice_id`` and still needs the armed law for context.
+    """
+    rel, armed = resolve_sibling_armed_packet(
+        vault_root, project_id=project_id, slice_id=slice_id
+    )
+    if rel:
+        return rel, armed
+    # load_factory_project normalizes away armed_* keys — read the manifest directly.
+    manifest_path = vault_root / factory_project_rel(project_id)
+    if not manifest_path.is_file():
+        return "", {}
+    try:
+        manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return "", {}
+    if not isinstance(manifest, dict):
+        return "", {}
+    rel = str(manifest.get("armed_packet") or "").strip()
+    path = vault_root / rel if rel else None
+    if not rel or path is None or not path.is_file():
+        return "", {}
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return rel, {}
+    return rel, data if isinstance(data, dict) else {}
+
+
+def armed_slice_authority_note(
+    armed: dict[str, Any] | None, *, slice_id: str = ""
+) -> str:
+    """Advisory only — GO is an operator chat kickoff, never a YAML word-gate.
+
+    Staging is never refused from armed-packet state. When the project's armed slice
+    differs from the slice the orchestrator composed, return a note so the staged
+    result carries the divergence for review; the armed slice stays the weld target.
+    """
+    armed = armed if isinstance(armed, dict) else {}
+    armed_slice = str(armed.get("slice_id") or "")
+    if slice_id and armed_slice and armed_slice != slice_id:
+        return f"armed_slice_divergence:{armed_slice}!={slice_id}"
+    return ""
 
 
 def factory_lane_entries_from_dispatch(
@@ -99,6 +177,10 @@ def factory_lane_entries_from_dispatch(
                 wave_lane_list = [str(x) for x in (wdef.get("lanes") or []) if x]
                 wave_lanes = set(wave_lane_list)
                 break
+
+    armed_rel, armed = resolve_sibling_armed_packet(
+        vault_root, project_id=project_id, slice_id=slice_id
+    )
 
     receipts_dir = technical_slice_dir(vault_root, slice_id) / "receipts" if slice_id else None
 
@@ -172,6 +254,26 @@ def factory_lane_entries_from_dispatch(
         }
         if isinstance(half_a_prov, dict):
             lane_params["half_a_provenance"] = half_a_prov
+        if armed_rel:
+            lane_params["armed_packet_path"] = armed_rel
+            lane_params["half_b_brief_path"] = str(armed.get("brief_path") or sib_path or "")
+            lane_params["half_b_overlay_slice_id"] = str(armed.get("slice_id") or slice_id)
+            ask_id = str(armed.get("ask_id") or "")
+            if ask_id:
+                lane_params["ask_id"] = ask_id
+            umbrella = str(armed.get("umbrella_ask_id") or "")
+            if umbrella:
+                lane_params["umbrella_ask_id"] = umbrella
+            if armed.get("step1_authorship") or (
+                isinstance(armed.get("locks"), dict)
+                and (
+                    armed["locks"].get("step1_authorship")
+                    or armed["locks"].get("step1_occupancy")
+                )
+            ):
+                lane_params["step1_authorship"] = True
+        if slice_requires_prefer_authorship(slice_id, lane_params):
+            lane_params["do_not_waive"] = list(PRODUCT_PREFER_DO_NOT_WAIVE)
         lane_params["sibling_lane_status"] = _sibling_status(lid)
         lane_params = merge_persona_into_params(lane_params)
         out.append(
@@ -242,6 +344,12 @@ def _prepare_factory_dispatch(
         }
 
     slice_id = str(orch.active_slice_id or "")
+
+    armed_rel, armed = resolve_authority_armed_packet(
+        vault_root, project_id=project_id, slice_id=slice_id
+    )
+    armed_note = armed_slice_authority_note(armed, slice_id=slice_id)
+
     vault_feed = any(str(j.get("feed_authority") or "") == "vault_roadmap" for j in orch.jobs)
     producer_receipt = load_producer_receipt(vault_root, slice_id) if vault_feed else {"ok": True}
     if vault_feed and (not producer_receipt or not producer_receipt.get("ok")):
@@ -305,6 +413,8 @@ def _prepare_factory_dispatch(
         "slice_id": slice_id,
         "wave": int(wave),
         "vault_feed": vault_feed,
+        "armed_packet_path": armed_rel,
+        "armed_slice_note": armed_note,
     }
 
 

@@ -330,7 +330,10 @@ def run_factory_lane_job(
     enrich_job_from_charter(vault_root, job)
 
     # Prefer worldgen: ensure do_not_waive lists product seats (cannot be waived).
-    from .prefer_authorship_contract import slice_requires_prefer_authorship
+    from .prefer_authorship_contract import (
+        PRODUCT_PREFER_DO_NOT_WAIVE,
+        slice_requires_prefer_authorship,
+    )
 
     if slice_requires_prefer_authorship(str(job.get("slice_id") or ""), job):
         dn = job.get("do_not_waive")
@@ -338,12 +341,7 @@ def run_factory_lane_job(
             dn = [dn]
         elif not isinstance(dn, list):
             dn = []
-        for code in (
-            "Terrain3D_prefer_proof",
-            "prefer_authorship_pass",
-            "craft_cam_recenter_on_place",
-            "craft_terrain_blend",
-        ):
+        for code in PRODUCT_PREFER_DO_NOT_WAIVE:
             if code not in dn:
                 dn.append(code)
         job["do_not_waive"] = dn

@@ -136,8 +136,46 @@ def compose_slice_briefs_from_packet(
         authorship_overlay_markdown,
         slice_requires_prefer_authorship,
     )
+    from .implicit_intent_bind import (
+        bind_markdown_overlay,
+        ensure_implicit_intent_bind,
+        load_implicit_intent_bind,
+        slice_requires_implicit_bind,
+    )
 
     inject_authorship = slice_requires_prefer_authorship(slice_id, packet)
+    bind_overlay = ""
+    bind_path_rel: str | None = None
+    if slice_requires_implicit_bind(slice_id, packet):
+        explicit_ask = str(
+            packet.get("explicit_ask")
+            or packet.get("prefer")
+            or packet.get("done_when")
+            or packet.get("scope")
+            or f"{slice_id} hexagonal grid occupancy points"
+        )
+        # Compose == re-weld: always re-write so composed_at postdates armed law.
+        bind_file, _reason = ensure_implicit_intent_bind(
+            vault_root,
+            slice_id=slice_id,
+            project_id=project_id,
+            explicit_ask=explicit_ask,
+            structural_success=str(packet.get("structural_success") or "") or None,
+            refuse=list(packet.get("refuse") or []) or None,
+            producer_run_id=producer_run_id,
+            # Armed law (packet pointer → project authority) drives topology_rewrite;
+            # the ask prose is only a secondary trigger.
+            job=packet,
+            force=True,
+        )
+        bind_path_rel = str(bind_file.relative_to(vault_root.resolve()))
+        bind_payload = (
+            load_implicit_intent_bind(
+                vault_root, project_id=project_id, slice_id=slice_id
+            )
+            or {}
+        )
+        bind_overlay = "\n" + bind_markdown_overlay(bind_payload) + "\n"
     for lid in lane_ids:
         owned = bullet_assignments.get(lid) or []
         owned_lines = "\n".join(
@@ -149,6 +187,7 @@ def compose_slice_briefs_from_packet(
         authorship_block = ""
         if inject_authorship:
             authorship_block = "\n" + authorship_overlay_markdown(slice_id=slice_id) + "\n"
+        authorship_block = authorship_block + bind_overlay
         mission_body = (
             f"---\n"
             f"lane_id: {lid}\n"
@@ -156,6 +195,7 @@ def compose_slice_briefs_from_packet(
             f"producer_run_id: {producer_run_id}\n"
             f"ux_bullet_ids: {json.dumps(owned)}\n"
             f"prefer_authorship_injected: {str(inject_authorship).lower()}\n"
+            f"implicit_bind_path: {bind_path_rel or ''}\n"
             f"---\n\n"
             f"# Lane Mission — {lid}\n\n"
             f"## Mission\n"
@@ -175,6 +215,7 @@ def compose_slice_briefs_from_packet(
             "ux_bullet_ids": owned,
             "blocked_by": [],
             "prefer_authorship_injected": inject_authorship,
+            "implicit_bind_path": bind_path_rel,
         }
 
     cdp_rel = f"1-Projects/{project_id}/Factory-DRB/slice-briefs/{slice_id}/cell_dispatch_plan.json"
@@ -201,9 +242,12 @@ def compose_slice_briefs_from_packet(
         "violations": [],
         "escalate_to_architect": False,
         "producer_run_id": producer_run_id,
+        "slice_id": slice_id,
+        "project_id": project_id,
         "sib_path": sib_rel,
         "cdp_path": cdp_rel,
         "mission_paths": mission_paths,
+        "implicit_bind_path": bind_path_rel,
         "composed_at": _utc_iso(),
         "persona_attestation": synthetic_persona_attestation(
             "half_b.slice_producer_pm",
@@ -259,7 +303,40 @@ def validate_producer_receipt(
     prov = receipt.get("half_a_provenance")
     if isinstance(prov, dict):
         violations.extend(validate_provenance_for_compose(prov))
+    violations.extend(validate_receipt_implicit_bind(vault_root, receipt))
     return not violations, violations
+
+
+def validate_receipt_implicit_bind(
+    vault_root: Path, receipt: dict[str, Any]
+) -> list[str]:
+    """Hard (not advisory) bind gate — a bind-required slice cannot compose without one."""
+    from .implicit_intent_bind import (
+        slice_requires_implicit_bind,
+        validate_bind_artifact,
+    )
+
+    slice_id = str(receipt.get("slice_id") or "")
+    if not slice_id:
+        sib_rel = str(receipt.get("sib_path") or "")
+        slice_id = Path(sib_rel).stem if sib_rel else ""
+    if not slice_id:
+        return []
+    job = {"project_id": str(receipt.get("project_id") or "")}
+    if not slice_requires_implicit_bind(slice_id, job):
+        return []
+
+    bind_rel = str(receipt.get("implicit_bind_path") or "")
+    if not bind_rel:
+        return ["implicit_bind_missing_on_producer_receipt"]
+    bind_path = vault_root / bind_rel
+    if not bind_path.is_file():
+        return [f"implicit_bind_file_missing:{bind_rel}"]
+    try:
+        data = json.loads(bind_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return [f"implicit_bind_unreadable:{bind_rel}"]
+    return validate_bind_artifact(data if isinstance(data, dict) else None)
 
 
 def validate_producer_review(

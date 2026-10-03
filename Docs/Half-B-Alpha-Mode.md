@@ -1,7 +1,7 @@
 ---
 title: Half B Alpha mode — Genesis Mythos update machine (staging)
 created: 2026-09-30
-updated: 2026-10-01
+updated: 2026-10-02
 audience: bone_pilot
 status: provisional
 factory_greenlit: true
@@ -14,7 +14,7 @@ claim_class: staging
 
 Archive: `4-Archives/Projects/genesis-mythos-master/horizon-demo-investor-ask-retired-20261001T072552Z/`.
 
-**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active craft chain [[alpha0_townscaper_craft_core_r1]] (Prefer landed) → [[alpha0_townscaper_craft_visual_r1]] (Prefer landed) → [[alpha0_townscaper_df_depth_r1]]. Scrapped/archived for next round: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
+**Umbrella ask:** [[alpha_architecture_half_b]]. **Before code:** fill [[Half-B-Weld-Brief-Template]] → active series [[alpha0_townscaper_tutorial_r1]] (step 1 attested via [[alpha0_townscaper_craft_core_r1]] / [[alpha0_townscaper_tutorial_s1_attest]] → next [[alpha0_townscaper_tutorial_s2_dual_offset_r1]] awaiting GREENLIGHT WELD). Visual Prefer altitude **failed** (metrics-only): [[alpha0_townscaper_craft_visual_altitude_failed_2026-10-02]]. DF-depth **frozen** until tutorial ladder clears. Scrapped/archived: [[alpha0_worldgen_dualgrid_sparky_r1]], [[alpha0_worldgen_terrain3d_feed_r3]] (Terrain3D deferred later).
 
 Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how**. They do **not** redefine product Success as table-chrome-only — and they do **not** authorize pursuing archived investor Success as current Done.
 
@@ -24,19 +24,19 @@ Stock gates (`engine_stock_authority`, `godot_stock_fps`, operator F5) are **how
 
 | Topic | Stance |
 |-------|--------|
-| Umbrella / active craft chain | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_townscaper_craft_core_r1]] (Prefer landed) → [[alpha0_townscaper_craft_visual_r1]] (Prefer landed) → [[alpha0_townscaper_df_depth_r1]] |
+| Umbrella / active series | [[alpha_architecture_half_b]] · [[Half-B-Weld-Brief-Template]] · [[alpha0_townscaper_tutorial_r1]] — step 1 attested → **step 2** [[alpha0_townscaper_tutorial_s2_dual_offset_r1]] (**awaiting GREENLIGHT WELD**) |
 | Cohesive vision + art | [[COHESIVE-VISION-ART-DIRECTION]] — **required cite** for shaped Half-B flavor (no freelance look/craft) |
 | Feedstock shape | [[FEEDSTOCK-SHAPE]] — frozen consult locks; pointer package only |
 | Inspirations | Focus-scoped mandatory per weld — [[INSPIRATION-HALF-B-SHAPE]] (cite/land or `inspiration_shape_miss`) |
-| Craft grammar | [[Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI]] — required before craft-core code |
-| 3D visual bar | [[Visual-Factory-Direction-Stylized-Low-Poly]] — Astroneer stylized low poly |
+| Craft grammar | [[Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI]] — required; step 2 proves dual offset + update-four |
+| 3D visual bar | Deferred until tutorial step 6 — do **not** Prefer art re-skin now |
 | GUI chrome bar | [[GUI-Chrome-Direction-Fantasy-UI]] — `Ingest/fantasy_ui.jpg` (menus/panels; ≠ 3D bar) |
 | Pins / illegal flows | [[Godot-Implementation-Decision-Matrix]] + stock packs + gates + `ask_fidelity` — **no parallel architecture-pins bible** |
 | Cameras | [[Camera-Mode-Taxonomy-Live]] — craft cam (`vtt_planar_ortho` / craft envelope) for dual-grid authorship this round; sparky / Terrain3D handoff **deferred** (not armed on craft path) |
-| Worldgen / craft | Townscaper dual-grid Hot Wheels craft chain — active [[alpha0_townscaper_craft_visual_r1]] (core Prefer landed); legacy dualgrid+Terrain3D Prefer **scrapped** for this round |
+| Worldgen / craft | Tutorial ladder — step 1 = craft_core Prefer attested; visual Prefer **failed altitude**; next = dual offset structure only |
 | Chargen / DM | Deferred (superseded brief [[alpha0_chargen_seats_tricam_r1]]); refuse codes remain when in scope |
-| DF world-gen | Possible ≠ required — not discouraged; must remain possible |
-| Greenlight | `factory_greenlit: true` (operator); investor demo **archived** — do not revive |
+| DF world-gen | Possible ≠ required — not discouraged; must remain possible; **df_depth ticket frozen** until ladder clears |
+| Greenlight | Machine `factory_greenlit: true`; **slice step 2** `factory_greenlit: false` until operator GREENLIGHT WELD |
 
 ## Staging checkpoints (necessary foundation)
 
@@ -185,7 +185,7 @@ Prefer `alpha_0`-tagged rows before `alpha_1` / `beta`.
 
 ### Add
 
-- Active craft-chain staging pointer ([[alpha0_townscaper_craft_core_r1]] → visual → DF-depth; Terrain3D deferred)  
+- Active tutorial-ladder staging pointer ([[alpha0_townscaper_tutorial_r1]]; step 2 dual offset; visual Prefer failed altitude; DF-depth frozen; Terrain3D deferred)  
 - Explicit: archived investor ask ≠ active Done  
 - Honesty: `factory_greenlit: true` (operator); `claim_class: staging` until slice attest  
 
