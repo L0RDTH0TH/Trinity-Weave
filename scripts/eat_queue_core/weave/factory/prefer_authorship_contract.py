@@ -121,6 +121,15 @@ NEGATIVE_EXAMPLES: tuple[dict[str, str], ...] = (
             "cells owned by shared logic corners"
         ),
     },
+    {
+        "id": "primary_face_as_dual",
+        "refuse": "primary_face_as_dual",
+        "summary": (
+            "Ownership/highlight keyed to OrganicQuadMesh face indices / primary "
+            "face-neighborhood (cyan 2×2 on yellow wire) sold as dual Success "
+            "without half-step OrganicDualOffsetLattice"
+        ),
+    },
 )
 
 WORLDGEN_SLICE_MARKERS: tuple[str, ...] = (
@@ -171,6 +180,7 @@ PRODUCT_PREFER_DO_NOT_WAIVE: tuple[str, ...] = (
     "over_neighbor_paint",
     "unstable_dual_neighborhood",
     "stamp_as_dual",
+    "primary_face_as_dual",
     "inspiration_shape_miss",
     "hex_scaffold_as_final_mesh",
     "dual_overlay_as_grid_kernel",
@@ -967,8 +977,37 @@ def armed_requires_dual_neighborhood(armed: dict[str, Any] | None) -> bool:
     if isinstance(step1.get("refuse"), list):
         refuse.extend(step1.get("refuse") or [])
     return bool(
-        {"unstable_dual_neighborhood", "stamp_as_dual"} & {str(c) for c in refuse}
+        {"unstable_dual_neighborhood", "stamp_as_dual", "primary_face_as_dual"}
+        & {str(c) for c in refuse}
     )
+
+
+def armed_requires_dual_lattice(armed: dict[str, Any] | None) -> bool:
+    """True when Prefer requires half-step OrganicDualOffsetLattice (not primary-face dual)."""
+    armed = armed if isinstance(armed, dict) else {}
+    blob = " ".join(
+        [
+            str(armed.get("slice_id") or ""),
+            str(armed.get("mode") or ""),
+            str(armed.get("ask_id") or ""),
+            str(armed.get("done_when") or ""),
+        ]
+    ).lower()
+    if (
+        "dual_lattice" in blob
+        or "primary_face_as_dual" in blob
+        or "fix_dual_lattice" in blob
+        or "organicdualoffsetlattice" in blob.replace("_", "")
+    ):
+        return True
+    locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+    if isinstance(locks.get("dual_lattice"), dict) and bool(locks.get("dual_lattice")):
+        return True
+    refuse = list(armed.get("refuse_codes") or [])
+    step1 = locks.get("step1_authorship") if isinstance(locks.get("step1_authorship"), dict) else {}
+    if isinstance(step1.get("refuse"), list):
+        refuse.extend(step1.get("refuse") or [])
+    return "primary_face_as_dual" in {str(c) for c in refuse}
 
 
 def armed_requires_dual_visual(armed: dict[str, Any] | None) -> bool:
@@ -1014,6 +1053,16 @@ DUAL_VISUAL_DO_NOT_WAIVE: tuple[str, ...] = (
 
 # Dual-neighborhood Prefer — stable four-cell ownership before dual_visual art.
 DUAL_NEIGHBORHOOD_DO_NOT_WAIVE: tuple[str, ...] = (
+    "unstable_dual_neighborhood",
+    "over_neighbor_paint",
+    "stamp_as_dual",
+    "primary_face_as_dual",
+)
+
+# Dual-lattice Prefer — half-step OrganicDualOffsetLattice; refuse primary_face_as_dual.
+DUAL_LATTICE_DO_NOT_WAIVE: tuple[str, ...] = (
+    "primary_face_as_dual",
+    "skip_dual_offset",
     "unstable_dual_neighborhood",
     "over_neighbor_paint",
     "stamp_as_dual",
@@ -1069,16 +1118,63 @@ _DUAL_NEIGHBORHOOD_SIGNALS: tuple[tuple[str, re.Pattern[str]], ...] = (
     (
         "hard_refuse_over_neighbor",
         re.compile(
-            r"faces\.Count\s*>\s*MaxDualCellsPerLogicFlip[\s\S]{0,200}?return\s+0",
+            r"(?:faces|owned|cells)\.Count\s*>\s*MaxDualCellsPerLogicFlip[\s\S]{0,200}?return\s+0",
             re.M,
         ),
     ),
     (
         "corner_owned_dual_geometry",
         re.compile(
-            r"FaceCornersLocal[\s\S]{0,400}?dual|dual[\s\S]{0,400}?shared.?logic.?corner",
+            r"OrganicDualOffsetLattice|DualCellsTouching|MakeHalfStepDual|Varignon|"
+            r"half.?step.*dual|dual.*half.?step",
             re.I,
         ),
+    ),
+)
+
+# Primary-face neighborhood sold as dual (cyan 2×2 on organic faces).
+_PRIMARY_FACE_AS_DUAL_TELLS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    (
+        "org_face_index_dual_key",
+        re.compile(
+            r'org_\{|"org_"\s*\+|Name\s*=\s*\$?"DualCell_org_',
+            re.I,
+        ),
+    ),
+    (
+        "vertex_to_faces_as_dual_ownership",
+        re.compile(
+            r"_vertexToFaces[\s\S]{0,1200}?OwnedDualFaceIndices|"
+            r"OwnedDualFaceIndices[\s\S]{0,400}?_vertexToFaces",
+            re.M,
+        ),
+    ),
+    (
+        "ensure_organic_dual_by_face_index",
+        re.compile(
+            r"EnsureOrganicDualCellMesh\s*\(\s*(?:int\s+)?faceIndex|"
+            r"EnsureOrganicDualCellMesh\s*\(\s*fi\s*\)",
+            re.I,
+        ),
+    ),
+)
+
+_DUAL_LATTICE_SIGNALS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    (
+        "organic_dual_offset_lattice_type",
+        re.compile(r"\bOrganicDualOffsetLattice\b", re.I),
+    ),
+    (
+        "dual_cells_touching_api",
+        re.compile(r"OrganicDualOffsetLattice\.DualCellsTouching|\bDualCellsTouching\b", re.I),
+    ),
+    (
+        "half_step_offset_proof",
+        re.compile(r"\bIsHalfStepOffset\b|MakeHalfStepDual|VarignonMidpoints", re.I),
+    ),
+    (
+        "owned_dual_cell_keys",
+        re.compile(r"\bOwnedDualCell(?:Keys|Ids)\b|LastOwnedDualCellsCsv", re.I),
     ),
 )
 
@@ -1089,35 +1185,59 @@ def scan_dual_neighborhood_evidence(game_repo: Path) -> dict[str, Any]:
         "repo_present": game_repo.is_dir(),
         "files_scanned": [],
         "neighborhood_signals": [],
+        "lattice_signals": [],
         "unstable_tells": [],
         "stamp_tells": [],
+        "primary_face_tells": [],
         "has_prove_stable_neighborhood": False,
         "has_debug_owned_dual_highlight": False,
         "has_hard_refuse_over_neighbor": False,
+        "has_organic_dual_offset_lattice": False,
+        "has_dual_cells_touching": False,
+        "has_half_step_offset_proof": False,
         "unstable_dual_neighborhood": False,
         "stamp_as_dual": False,
         "over_neighbor_paint": False,
+        "primary_face_as_dual": False,
     }
     host = game_repo / "Systems" / "DualGridCraftHost.cs"
-    if not host.is_file():
+    lattice = game_repo / "Core" / "WorldGen" / "OrganicDualOffsetLattice.cs"
+    texts: list[tuple[str, str, str]] = []
+    if host.is_file():
+        rel = "Systems/DualGridCraftHost.cs"
+        evidence["files_scanned"].append(rel)
+        raw = host.read_text(encoding="utf-8", errors="replace")
+        texts.append((rel, raw, _code_only(raw)))
+    if lattice.is_file():
+        rel = "Core/WorldGen/OrganicDualOffsetLattice.cs"
+        evidence["files_scanned"].append(rel)
+        raw = lattice.read_text(encoding="utf-8", errors="replace")
+        texts.append((rel, raw, _code_only(raw)))
+    if not texts:
         return evidence
-    rel = "Systems/DualGridCraftHost.cs"
-    evidence["files_scanned"].append(rel)
-    raw = host.read_text(encoding="utf-8", errors="replace")
-    code = _code_only(raw)
-    for name, pat in _DUAL_NEIGHBORHOOD_SIGNALS:
-        if pat.search(code) or pat.search(raw):
-            evidence["neighborhood_signals"].append(f"{name}:{rel}")
-    for name, pat in _UNSTABLE_NEIGHBORHOOD_TELLS:
-        if pat.search(code) or pat.search(raw):
-            evidence["unstable_tells"].append(f"{name}:{rel}")
-    for name, pat in _STAMP_AS_DUAL_TELLS:
-        if pat.search(code) or pat.search(raw):
-            evidence["stamp_tells"].append(f"{name}:{rel}")
+    for rel, raw, code in texts:
+        for name, pat in _DUAL_NEIGHBORHOOD_SIGNALS:
+            if pat.search(code) or pat.search(raw):
+                evidence["neighborhood_signals"].append(f"{name}:{rel}")
+        for name, pat in _DUAL_LATTICE_SIGNALS:
+            if pat.search(code) or pat.search(raw):
+                evidence["lattice_signals"].append(f"{name}:{rel}")
+        for name, pat in _UNSTABLE_NEIGHBORHOOD_TELLS:
+            if pat.search(code) or pat.search(raw):
+                evidence["unstable_tells"].append(f"{name}:{rel}")
+        for name, pat in _STAMP_AS_DUAL_TELLS:
+            if pat.search(code) or pat.search(raw):
+                evidence["stamp_tells"].append(f"{name}:{rel}")
+        for name, pat in _PRIMARY_FACE_AS_DUAL_TELLS:
+            if pat.search(code) or pat.search(raw):
+                evidence["primary_face_tells"].append(f"{name}:{rel}")
     evidence["neighborhood_signals"] = sorted(set(evidence["neighborhood_signals"]))
+    evidence["lattice_signals"] = sorted(set(evidence["lattice_signals"]))
     evidence["unstable_tells"] = sorted(set(evidence["unstable_tells"]))
     evidence["stamp_tells"] = sorted(set(evidence["stamp_tells"]))
+    evidence["primary_face_tells"] = sorted(set(evidence["primary_face_tells"]))
     sigs = evidence["neighborhood_signals"]
+    lsigs = evidence["lattice_signals"]
     evidence["has_prove_stable_neighborhood"] = any(
         s.startswith("prove_stable_neighborhood:") for s in sigs
     )
@@ -1127,15 +1247,32 @@ def scan_dual_neighborhood_evidence(game_repo: Path) -> dict[str, Any]:
     evidence["has_hard_refuse_over_neighbor"] = any(
         s.startswith("hard_refuse_over_neighbor:") for s in sigs
     )
+    evidence["has_organic_dual_offset_lattice"] = any(
+        s.startswith("organic_dual_offset_lattice_type:") for s in lsigs
+    ) or (game_repo / "Core" / "WorldGen" / "OrganicDualOffsetLattice.cs").is_file()
+    evidence["has_dual_cells_touching"] = any(
+        s.startswith("dual_cells_touching_api:") for s in lsigs
+    )
+    evidence["has_half_step_offset_proof"] = any(
+        s.startswith("half_step_offset_proof:") for s in lsigs
+    )
     evidence["unstable_dual_neighborhood"] = bool(evidence["unstable_tells"]) or not evidence[
         "has_prove_stable_neighborhood"
     ]
     evidence["stamp_as_dual"] = bool(evidence["stamp_tells"])
     evidence["over_neighbor_paint"] = not evidence["has_hard_refuse_over_neighbor"]
+    # Primary-face-as-dual: face-index dual ownership without organic dual-offset lattice.
+    evidence["primary_face_as_dual"] = bool(evidence["primary_face_tells"]) and not (
+        evidence["has_organic_dual_offset_lattice"]
+        and evidence["has_dual_cells_touching"]
+        and evidence["has_half_step_offset_proof"]
+    )
     return evidence
 
 
-def dual_neighborhood_violations_from_evidence(evidence: dict[str, Any]) -> list[str]:
+def dual_neighborhood_violations_from_evidence(
+    evidence: dict[str, Any], *, require_dual_lattice: bool = False
+) -> list[str]:
     """Map dual-neighborhood LIVE gaps onto durable refuse codes (non-waivable)."""
     violations: list[str] = []
     if not evidence.get("has_prove_stable_neighborhood"):
@@ -1155,6 +1292,18 @@ def dual_neighborhood_violations_from_evidence(evidence: dict[str, Any]) -> list
         )
     if evidence.get("over_neighbor_paint"):
         violations.append("over_neighbor_paint:missing:hard_return_0_on_incident_gt_4")
+    if require_dual_lattice:
+        if not evidence.get("has_organic_dual_offset_lattice"):
+            violations.append("primary_face_as_dual:missing:OrganicDualOffsetLattice")
+        if not evidence.get("has_dual_cells_touching"):
+            violations.append("primary_face_as_dual:missing:DualCellsTouching")
+        if not evidence.get("has_half_step_offset_proof"):
+            violations.append("primary_face_as_dual:missing:IsHalfStepOffset_or_MakeHalfStepDual")
+        if evidence.get("primary_face_as_dual"):
+            violations.append(
+                "primary_face_as_dual:tells:"
+                + ",".join(str(s) for s in (evidence.get("primary_face_tells") or [])[:4])
+            )
     return violations
 
 
@@ -1611,10 +1760,15 @@ def run_prefer_authorship_pass(
 
     # Dual-neighborhood — stable ≤4 ownership; refuse stamp_as_dual / unstable set.
     dual_neighborhood_evidence: dict[str, Any] | None = None
-    if armed_requires_dual_neighborhood(armed) and repo is not None:
+    if (
+        armed_requires_dual_neighborhood(armed) or armed_requires_dual_lattice(armed)
+    ) and repo is not None:
         dual_neighborhood_evidence = scan_dual_neighborhood_evidence(repo)
         violations.extend(
-            dual_neighborhood_violations_from_evidence(dual_neighborhood_evidence)
+            dual_neighborhood_violations_from_evidence(
+                dual_neighborhood_evidence,
+                require_dual_lattice=armed_requires_dual_lattice(armed),
+            )
         )
         if topology_evidence is not None:
             topology_evidence = {
@@ -1660,7 +1814,7 @@ def run_prefer_authorship_pass(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_dual_visual)
                 )
-        if armed_requires_dual_neighborhood(armed):
+        if armed_requires_dual_neighborhood(armed) or armed_requires_dual_lattice(armed):
             missing_neighborhood = [
                 c
                 for c in DUAL_NEIGHBORHOOD_DO_NOT_WAIVE
@@ -1670,6 +1824,17 @@ def run_prefer_authorship_pass(
                 violations.append(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_neighborhood)
+                )
+        if armed_requires_dual_lattice(armed):
+            missing_lattice = [
+                c
+                for c in DUAL_LATTICE_DO_NOT_WAIVE
+                if c not in {str(x) for x in do_not_waive}
+            ]
+            if missing_lattice:
+                violations.append(
+                    "prefer_overlay_missing_do_not_waive_dual_codes:"
+                    + ",".join(missing_lattice)
                 )
         if armed_requires_organic_quad_kernel(armed):
             missing_organic = [
