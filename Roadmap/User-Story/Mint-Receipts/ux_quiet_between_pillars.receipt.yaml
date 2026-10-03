@@ -1,0 +1,32 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-31T02:41:21Z'
+lock_state: applied
+boundary: in-adventure quiet only; between-adventures → living-world continuity
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Quiet = designed in-adventure texture; not rest-only, not calendar downtime.
+row:
+  id: ux_quiet_between_pillars
+  dimension: ui_surface
+  label: In-adventure quiet keeps continuous fiction between combat social and explore
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- downtime equals BG3 campsite companion UI
+- quiet is only a long-rest resource refill
+- quiet is a loading state between pillars
+- this row owns between-adventures weeks/months calendar downtime
+- system must force the next combat social or explore beat during quiet
+alternatives_not_banned:
+- Camp-centric vs road-centric vs both inside the adventure
+- Quiet as distinct mode vs low-intensity state in the same world view
+- Rest embedded in quiet vs separate rest verb usable during quiet
+- Sparse linger vs frequent light authored beats on the road

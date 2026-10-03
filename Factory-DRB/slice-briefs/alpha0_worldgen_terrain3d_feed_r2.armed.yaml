@@ -1,0 +1,161 @@
+# Armed packet — operator GO / WELD for Prefer rework.
+# factory_greenlit: true — operator greenlight 2026-10-01; launch word WELD spoken.
+# Thin Prefer rework after alpha0_worldgen_terrain3d_feed_r1 F5 gaps.
+
+schema_version: 1
+status: superseded
+superseded_by: alpha0_worldgen_terrain3d_feed_r3
+launch_word: WELD
+armed_at: "2026-10-01T21:51:12Z"
+greenlit_at: "2026-10-01T18:43:00Z"
+factory_greenlit: true
+claim_class: staging
+do_not_auto_dispatch: false
+operator_go: true
+
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_worldgen_terrain3d_feed
+slice_id: alpha0_worldgen_terrain3d_feed_r2
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d3
+parent_prefer: alpha0_worldgen_terrain3d_feed_r1
+parent_factory_feed: row_ux_world_generation_r1_d2
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_worldgen_terrain3d_feed_r2.md
+supersedes: alpha0_worldgen_terrain3d_feed_r1
+project_id: genesis-mythos-master
+
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_thin_prefer_rework
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+    - implementation_factory_loop
+    - product_factory_pipeline
+
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: >-
+      Terrain3D (or existing Prefer terrain) as world/height authority + stock GridMap
+      (or equivalent stock grid) as craft cell overlay — one craft cell data authority
+    never: >-
+      Second parallel terrain or physics authority; custom voxel engine for this ticket;
+      GridMap (or other) as a second height/terrain authority beside Terrain3D
+  terrain_maps_never: >-
+      Second terrain authority; Gaea GridMap/TileMap as 3D terrain authority
+
+hard_prefer_gaps:
+  - id: mouse_aim
+    must: place_and_stamp_ray_from_mouse_cursor
+    refuse: camera_center_aim
+  - id: sparky_without_g
+    must: tab_sparky_without_requiring_g_seed
+    refuse: sparky_requires_g_seed
+  - id: craft_place_feeds_terrain3d
+    must: each_place_updates_terrain3d_chunk_region
+    refuse: f6_only_terrain_feed
+    fail_visible: graybox_only_world_under_sparky
+
+terrain3d_feed:
+  host_under: WorldgenCraft / DualGridCraftHost
+  canonical_stamp: stamp_oasis_desert
+  stamp_must: push_height_region_into_Terrain3D_data
+  place_must: push_corresponding_Terrain3D_chunk_per_module
+  sparky: consumer_only_no_g_gate
+  fail_visible: graybox_models_alone_without_Terrain3D_mesh_update
+  vendor_already_on_disk: true
+  lanes_expected:
+    - module
+  lanes_if_needed:
+    - presentation  # only if project.godot / HUD wiring required for gaps
+  skip_unless_adc_tac_needed:
+    - asset
+    - techart
+
+host_touch_budget:
+  default_raise_to: 1200
+  prefer_trim_into: Systems/
+  never_waive: Terrain3D_prefer_proof
+  escalate_to_operator_if_budget_blocks_prefer_proof: true
+
+camera:
+  craft_phase: already_landed_do_not_relitigate
+  post_world: god_mode_sparky_consumer_only_without_g_seed_gate
+  refuse: sparky_as_terrain_author
+
+ask_fidelity:
+  ask_id: alpha0_worldgen_terrain3d_feed
+  done_when: >-
+    (1) Place and stamp ray from mouse cursor not camera center;
+    (2) Tab/sparky works without requiring G seed first;
+    (3) Each craft place updates corresponding Terrain3D chunk/region so sparky
+    sees that mesh — not F6-only / not graybox-only; Matrix Dual-grid Prefer/Never
+    quoted; entry remains res://scenes/WorldgenCraft.tscn
+  forbidden_substitutes:
+    - inspiration_shape_miss
+    - fidelity_miss
+    - engine_pattern_miss
+    - verify_mcp_only
+    - parallel_terrain_engine
+    - graybox_only_world
+    - camera_center_aim
+    - sparky_requires_g_seed
+    - f6_only_terrain_feed
+  claim_class: staging
+
+operator_attest: F5_three_hard_gaps_mouse_sparky_place_feed
+ban: verify_mcp_only
+
+zone_ownership:
+  module:
+    - scenes/**
+    - addons/terrain_3d/**
+    - Systems/**
+    - Core/**
+    - Camera/**
+    - Player/**
+  presentation_if_needed:
+    - project.godot
+    - UI/**
+    - GameHud.tscn
+
+mcp_prep:
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+  note: Cursor user-godot proxy connects only after Godot editor + plugin attach
+
+on_launch_word_WELD:
+  must_trigger: >-
+    REAL product-factory / factory-orchestrator eat for this Prefer rework —
+    IMPLEMENT_SLICE / factory lanes only (module-primary). Catalog feed id
+    row_ux_world_generation_r1_d3 after budget raise; weld brief / ask fidelity
+    overlay MUST be slice_id alpha0_worldgen_terrain3d_feed_r2.
+  required_path:
+    - Load this armed packet + brief alpha0_worldgen_terrain3d_feed_r2.md
+    - Confirm FEEDSTOCK-SHAPE operator_confirmed + factory_greenlit true
+    - Raise rollout budget target_depth≥3 (row_depth_complete at d2)
+    - product-factory-confirm-slice ux_world_generation dispatch_depth 3
+    - project_id genesis-mythos-master; LIVE slug genesis-mythos-alpha-20260930/genesis-mythos
+    - factory-orchestrator / stage IMPLEMENT_SLICE — module-only unless
+      presentation touch required for HUD/hint wiring; skip asset/techart
+    - Quote Dual-grid Prefer/Never; claim_class staging; factory_greenlit true
+    - Do not waive Terrain3D proof; host_touch_budget raise or trim to Systems/
+    - Do not reopen chargen/seats/tricam
+  forbidden:
+    - Freestyle generalPurpose Code-Repos coding
+    - Ad-hoc Terrain3D weld outside factory lanes / IMPLEMENT_SLICE
+    - Reviving archived horizon_demo_investor as Success
+    - Chargen / seats / tricam reopen
+    - Waiving Terrain3D Prefer proof for touch-budget theater
+
+fresh_chat_instruction: >-
+  WELD — eat armed Prefer rework alpha0_worldgen_terrain3d_feed_r2 via
+  factory-orchestrator / IMPLEMENT_SLICE / factory lanes only (project_id
+  genesis-mythos-master; package pkg_world_shell / ux_world_generation → feed
+  row_ux_world_generation_r1_d3; LIVE genesis-mythos-alpha-20260930/genesis-mythos;
+  load this armed packet + brief as hand-off law). FORBIDDEN: freestyle Code-Repos.
+  Proof F5: mouse aim · sparky without G · place→Terrain3D per module.

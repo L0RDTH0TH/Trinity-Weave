@@ -1,0 +1,6 @@
+{
+  "conditions": [
+    {"condition_id": "flat_footed", "notes": "scaffold stub"},
+    {"condition_id": "prone", "notes": "scaffold stub"}
+  ]
+}

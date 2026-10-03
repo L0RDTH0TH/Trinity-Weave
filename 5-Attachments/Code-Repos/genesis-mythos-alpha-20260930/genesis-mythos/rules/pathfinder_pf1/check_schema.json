@@ -1,0 +1,8 @@
+{
+  "schema_id": "pf1_check_v0",
+  "plugin_id": "pathfinder_pf1",
+  "default_roll": "1d20",
+  "modes": ["check", "save", "attack", "opposed", "caster_level"],
+  "success_rule": "total_gte_dc",
+  "forbid_pf2e_degree_ladder_as_default": true
+}

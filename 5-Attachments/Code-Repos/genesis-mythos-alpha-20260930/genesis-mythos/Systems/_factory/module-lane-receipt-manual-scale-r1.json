@@ -1,0 +1,34 @@
+{
+  "lane_id": "module",
+  "slice_id": "alpha0_stalberg_manual_scale_r1",
+  "weld_slice_id": "alpha0_stalberg_manual_scale_r1",
+  "ask_id": "alpha0_stalberg_manual_scale",
+  "producer_run_id": "sp-tms-20261003",
+  "claim_class": "staging",
+  "prefer_authorship_pass": "ok",
+  "completed_at": "2026-10-03T18:32:16Z",
+  "live_files": [
+    "Core/WorldGen/StalbergQuadKernel.cs",
+    "Systems/DualGridCraftHost.cs"
+  ],
+  "manual_limit": {
+    "seed_rings": 2,
+    "seed_verts": 19,
+    "before_quads": 328,
+    "after_quads": 50,
+    "before_verts": 359,
+    "after_verts": 63,
+    "density_lift": "deferred_until_pipeline_ask_success",
+    "spacing": 3.0,
+    "legacy_spacing": 1.15,
+    "side_approx": 1.37,
+    "hull_diameter_approx": 12.0,
+    "interpretation": "enlarge_world_spacing_not_cell_count"
+  },
+  "mcp_evidence_before": "addons/godot_mcp/cache/screenshots/stalberg_manual_scale_before_r5.png",
+  "mcp_evidence_after": "addons/godot_mcp/cache/screenshots/stalberg_manual_scale_r1_spacing3.png",
+  "hex19_success": false,
+  "dual_corner_wired": true,
+  "craft_plane_authority": true,
+  "awaiting_operator_f5": true
+}

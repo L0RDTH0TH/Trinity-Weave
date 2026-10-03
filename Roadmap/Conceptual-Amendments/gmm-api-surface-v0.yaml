@@ -1,0 +1,170 @@
+# Genesis Mythos — API surface v0 (internal / first-party)
+# Living classification: Roadmap/Conceptual-Amendments/api-core-protection-inventory.md
+# CDR: Roadmap/Conceptual-Decision-Records/api-core-protection-boundary-2026-09-28.md
+# Stability: v0 internal only; public versioning deferred to Phase 5 formalization.
+
+api_version: 0
+stability: internal_first_party
+project_id: genesis-mythos-master
+
+provisional_promotion_rule: >
+  Promote a provisional slot to a real versioned port when a first-party flavor
+  is required by the exemplar loop or when a pack swap needs it. Until then
+  named-only; no direct core reach.
+
+deeper_access_sunset:
+  rule: temporary_justified
+  by_acceptance: phase_6_4
+  disposition: remove_or_promote_to_internal_only_port
+  public_path: api_only
+
+capability_verbs:
+  - id: register
+    meaning: Bind a module or pack to a published port
+  - id: observe
+    meaning: Read events or query surfaces without mutation
+  - id: request
+    meaning: Ask core for a capability; core may refuse
+  - id: propose
+    meaning: >
+      Submit a candidate change (canon, re-gen, overwrite, etc.).
+      Always gated by ConflictArbiter, NarrativeDeltaVetoPolicy, and
+      overwrite/re-gen paths. Never a direct mutate of protected state.
+    direct_mutate: false
+    gates:
+      - ConflictArbiter
+      - NarrativeDeltaVetoPolicy
+      - DMOverwriteClass
+      - ReGenerationIntentQueue
+
+protected_invariants:
+  - id: dual_perspective_authority
+    summary: Player FP baseline + DM WorldCam/MapCam/SensoriumAttach authority not replaceable by modules
+  - id: agency_envelope_authority
+    summary: Who may issue intents is rules/session-bound; modules cannot bypass AgencyEnvelope
+  - id: sim_tick_ownership
+    summary: SimClock / SimTickPipeline / WorldStateCommitter / DMPauseGate owned by core
+  - id: regen_overwrite_policy
+    summary: Structural re-gen and overwrite classes owned by core; modules propose only
+  - id: canon_commit_gate
+    summary: CanonCommitBoundary lifecycle proposed→accepted→hooked→sim-active owned by core
+  - id: rule_effect_bus_ownership
+    summary: Plugins subscribe to RuleEffectBus; they do not own the bus
+
+ports:
+  # --- Active (SeamRegistry seed + conceptual) ---
+  - id: gen.stage.terrain
+    family: generation
+    layer: WorldState
+    status: active
+  - id: gen.stage.biomes
+    family: generation
+    layer: WorldState
+    status: active
+  - id: gen.stage.pois
+    family: generation
+    layer: WorldState
+    status: active
+  - id: gen.stage.entities
+    family: generation
+    layer: WorldState
+    status: active
+  - id: gen.stage.sim_bootstrap
+    family: generation
+    layer: Simulation
+    status: active
+  - id: rule.core.primitives
+    family: rule_engine
+    layer: Simulation
+    status: active
+  - id: rule.conflict.arbiter
+    family: rule_engine
+    layer: Simulation
+    status: active
+  - id: bus.sim.tick
+    family: event_bus
+    layer: Simulation
+    status: active
+  - id: bus.canon.commit
+    family: event_bus
+    layer: WorldState
+    status: active
+  - id: bus.session.lifecycle
+    family: event_bus
+    layer: Presentation
+    status: active
+  - id: input.intent.player
+    family: input_loop
+    layer: InputIntent
+    status: active
+  - id: input.intent.population
+    family: input_loop
+    layer: InputIntent
+    status: active
+  - id: sim.flavor.weather
+    family: simulation_flavor
+    layer: Simulation
+    status: active_conceptual
+  - id: sim.flavor.npc_agendas
+    family: simulation_flavor
+    layer: Simulation
+    status: active_conceptual
+  - id: sim.flavor.faction_graph
+    family: simulation_flavor
+    layer: Simulation
+    status: active_conceptual
+  - id: presentation.camera.interpolator_easing
+    family: presentation
+    layer: Presentation
+    status: active_conceptual
+    note: Easing only — not camera authority
+  - id: pack.tone
+    family: pack
+    layer: pack_matrix
+    status: active
+  - id: pack.visual_chrome
+    family: pack
+    layer: pack_matrix
+    status: active
+  - id: pack.world_visual
+    family: pack
+    layer: pack_matrix
+    status: active
+  - id: pack.content
+    family: pack
+    layer: pack_matrix
+    status: active
+  - id: pack.rules
+    family: pack
+    layer: pack_matrix
+    status: active
+
+  # --- Provisional (promote per provisional_promotion_rule) ---
+  - id: sim.flavor.physics
+    family: simulation_flavor
+    layer: Simulation
+    status: provisional
+  - id: sim.flavor.economics
+    family: simulation_flavor
+    layer: Simulation
+    status: provisional
+  - id: presentation.lod
+    family: presentation
+    layer: Presentation
+    status: provisional
+    note: Display/perf stack; never owns sim or re-gen
+  - id: presentation.lighting
+    family: presentation
+    layer: Presentation
+    status: provisional
+    note: Display stack; never owns sim or re-gen
+  - id: presentation.graphics_settings
+    family: presentation
+    layer: Presentation
+    status: provisional
+    note: Display/settings stack; never owns sim or re-gen
+
+phase_6_acceptance:
+  systemic_flavor_port_required: true
+  pack_level_swap_required: true
+  deeper_access_sunset_checked_at: phase_6_4

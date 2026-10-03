@@ -1,0 +1,6 @@
+{
+  "skills": [
+    {"skill_id": "perception", "ability": "wis", "trained_only": false},
+    {"skill_id": "stealth", "ability": "dex", "trained_only": false, "armor_check": true}
+  ]
+}

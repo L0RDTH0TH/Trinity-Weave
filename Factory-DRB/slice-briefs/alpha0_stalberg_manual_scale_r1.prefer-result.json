@@ -1,0 +1,187 @@
+{
+  "slice_id": "alpha0_stalberg_manual_scale_r1",
+  "ok": true,
+  "detail": "prefer_authorship_pass_ok",
+  "violations": [],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Camera/CraftPlanarCamRig.cs",
+      "Core/WorldGen/Hex19DualOffsetLattice.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs",
+      "Core/WorldGen/ICraftCellAuthority.cs",
+      "Core/WorldGen/StalbergQuadKernel.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_present": [
+      "Systems/DualGridCraftHost.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs"
+    ],
+    "required_live_files_absent": [],
+    "edge_signals": [
+      "edge_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Systems/DualGridCraftHost.cs",
+      "line_primitive:Systems/DualGridCraftHost.cs",
+      "neighbor_api:Core/WorldGen/Hex19OccupancyLattice.cs"
+    ],
+    "face_cell_signals": [
+      "cell_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "cell_builder:Systems/DualGridCraftHost.cs",
+      "cell_entity:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "corner_api:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "corner_api:Systems/DualGridCraftHost.cs",
+      "face_collection:Core/WorldGen/StalbergQuadKernel.cs",
+      "face_collection:Systems/DualGridCraftHost.cs",
+      "face_collection:Systems/WorldgenCraft.cs"
+    ],
+    "point_signals": [],
+    "has_edges": true,
+    "has_faces_or_cells": true,
+    "points_only": false,
+    "missing_axes": [],
+    "organic_quad_kernel": {
+      "repo_present": true,
+      "files_scanned": [
+        "Core/WorldGen/OrganicQuadMesh.cs",
+        "Core/WorldGen/StalbergQuadKernel.cs",
+        "Systems/DualGridCraftHost.cs",
+        "Systems/WorldgenCraft.cs"
+      ],
+      "required_organic_files_present": [
+        "Core/WorldGen/StalbergQuadKernel.cs",
+        "Core/WorldGen/OrganicQuadMesh.cs",
+        "Systems/DualGridCraftHost.cs"
+      ],
+      "required_organic_files_absent": [],
+      "pipeline_signals": [
+        "area_side:Core/WorldGen/StalbergQuadKernel.cs",
+        "boundary_pin:Core/WorldGen/StalbergQuadKernel.cs",
+        "clamp_force:Core/WorldGen/StalbergQuadKernel.cs",
+        "dissolve:Core/WorldGen/StalbergQuadKernel.cs",
+        "flatten:Core/WorldGen/OrganicQuadMesh.cs",
+        "flatten:Systems/DualGridCraftHost.cs",
+        "get_or_add:Core/WorldGen/StalbergQuadKernel.cs",
+        "position_hash:Core/WorldGen/StalbergQuadKernel.cs",
+        "prove:Systems/DualGridCraftHost.cs",
+        "regenerate:Systems/DualGridCraftHost.cs",
+        "regenerate:Systems/WorldgenCraft.cs",
+        "relax:Core/WorldGen/StalbergQuadKernel.cs",
+        "reweld:Core/WorldGen/StalbergQuadKernel.cs",
+        "seed:Core/WorldGen/StalbergQuadKernel.cs",
+        "subdivide:Core/WorldGen/StalbergQuadKernel.cs",
+        "triangulate:Core/WorldGen/StalbergQuadKernel.cs",
+        "unique_topo:Core/WorldGen/StalbergQuadKernel.cs"
+      ],
+      "hex_scaffold_signals": [],
+      "dual_as_kernel_signals": [
+        "dual_visual_success_true:Systems/DualGridCraftHost.cs"
+      ],
+      "noodle_render_signals": [],
+      "has_seed": true,
+      "has_triangulate": true,
+      "has_dissolve": true,
+      "has_subdivide": true,
+      "has_relax": true,
+      "has_flatten": true,
+      "has_regenerate": true,
+      "has_unique_topo": true,
+      "has_get_or_add": true,
+      "has_position_hash": true,
+      "has_area_side": true,
+      "has_clamp_force": true,
+      "has_boundary_pin": true,
+      "has_reweld": true,
+      "has_organic_root": true,
+      "ensure_host_builds_organic": true,
+      "ensure_host_builds_hex_scaffold": false,
+      "ensure_host_builds_dual_overlay": false,
+      "has_try_pick_organic_face": true,
+      "has_organic_face_cell": true,
+      "hex19_snap_in_try_pick_hex": false,
+      "hex19_snap_in_try_pick_organic": false,
+      "set_cell_fill_uses_organic": true
+    },
+    "dual_offset": {
+      "repo_present": true,
+      "files_scanned": [
+        "Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "Systems/DualGridCraftHost.cs"
+      ],
+      "required_dual_files_present": [
+        "Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "Systems/DualGridCraftHost.cs"
+      ],
+      "required_dual_files_absent": [],
+      "dual_signals": [
+        "corner_occupancy:Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "corner_occupancy:Systems/DualGridCraftHost.cs",
+        "dual_cells_touching:Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "dual_cells_touching:Systems/DualGridCraftHost.cs",
+        "dual_overlay_toggle:Systems/DualGridCraftHost.cs",
+        "half_step_offset:Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "half_step_offset:Systems/DualGridCraftHost.cs",
+        "tile_family:Core/WorldGen/Hex19DualOffsetLattice.cs",
+        "tile_family:Systems/DualGridCraftHost.cs",
+        "update_four_api:Systems/DualGridCraftHost.cs"
+      ],
+      "markers_only_signals": [],
+      "has_update_four": true,
+      "has_corner_reads": true,
+      "has_half_offset": true,
+      "has_dual_toggle": true,
+      "markers_only": false
+    }
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "bind_path": ".technical/weave/factory/genesis-mythos-master/alpha0_stalberg_manual_scale_r1/implicit-intent-bind.json",
+    "topology_rewrite": true,
+    "armed_topology_signals": [
+      "armed_lock_refuse:step1_authorship:count_equals_topology",
+      "armed_lock_refuse:step1_authorship:points_as_grid",
+      "armed_prefer_authorship_with_topology_law",
+      "armed_structural_topology:done_when",
+      "armed_structural_topology:hard_prefer_gaps",
+      "armed_structural_topology:step1_authorship.structural_success"
+    ],
+    "topology_axis_armed": true
+  },
+  "warnings": [],
+  "applicable": true,
+  "manual_limit": {
+    "seed_rings": 2,
+    "seed_verts": 19,
+    "spacing": 3.0,
+    "legacy_dense_spacing": 1.15,
+    "before_dense": {
+      "seed_rings": 5,
+      "quads": 328,
+      "verts": 359,
+      "spacing": 1.15,
+      "hull_diameter_approx": 11.5,
+      "side_approx": 0.51,
+      "edges_est": 1312
+    },
+    "after": {
+      "seed_rings": 2,
+      "quads": 50,
+      "verts": 63,
+      "spacing": 3.0,
+      "hull_diameter_approx": 12.0,
+      "side_approx": 1.37,
+      "edges_est": 200
+    },
+    "interpretation": "enlarge_world_spacing_not_cell_count",
+    "density_lift": "deferred_until_pipeline_ask_success"
+  },
+  "mcp_evidence": {
+    "before_dense_r5": "Factory-DRB/slice-briefs/_evidence/stalberg_manual_scale_before_r5.png",
+    "after_r2_spacing1p15": "Factory-DRB/slice-briefs/_evidence/stalberg_manual_scale_after_r2.png",
+    "after_r2_spacing3": "Factory-DRB/slice-briefs/_evidence/stalberg_manual_scale_r1_spacing3.png"
+  }
+}

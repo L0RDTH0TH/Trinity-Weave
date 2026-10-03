@@ -1,0 +1,78 @@
+schema_version: 1
+project_id: genesis-mythos-master
+release_tier: closed_alpha
+playtest_gate: structural_lint_and_trace
+last_probe_run: '2026-10-03T03:58:01.808514+00:00'
+drb_refs:
+- 1-Projects/genesis-mythos-master/Factory-DRB/Factory-DRB/usability-navigation-v1.md
+- 1-Projects/genesis-mythos-master/Factory-DRB/Factory-DRB/usability-launch-v1.md
+feedback:
+- checklist_id: Nav_LookWhileMove_FP
+  kinesthetic: true
+  source: operator
+  probed_at: '2026-10-01T19:40:20.698375+00:00'
+  notes: operator_waive_slice_scope:row_ux_world_generation_r1_d1; degraded=deferred_chargen_seats_tricam;
+    supersedes_alpha0_chargen_seats_tricam_r1; claim_class=staging; not_ask_success
+  drb_ref: Factory-DRB/usability-navigation-v1.md
+  pass: true
+  structural_hint: false
+  operator_confirmed: true
+  confirmed_at: '2026-10-01T20:12:56.975244Z'
+- checklist_id: Nav_LookWhileMove_DM
+  kinesthetic: true
+  source: operator
+  probed_at: '2026-10-01T19:40:20.698421+00:00'
+  notes: operator_waive_slice_scope:row_ux_world_generation_r1_d1; degraded=deferred_chargen_seats_tricam;
+    supersedes_alpha0_chargen_seats_tricam_r1; claim_class=staging; not_ask_success
+  drb_ref: Factory-DRB/usability-navigation-v1.md
+  pass: true
+  structural_hint: false
+  operator_confirmed: true
+  confirmed_at: '2026-10-01T20:12:57.835386Z'
+- checklist_id: Flow_Launch
+  kinesthetic: true
+  source: operator
+  probed_at: '2026-10-01T19:40:20.698434+00:00'
+  notes: operator_waive_slice_scope:row_ux_world_generation_r1_d1; degraded=deferred_chargen_seats_tricam;
+    supersedes_alpha0_chargen_seats_tricam_r1; claim_class=staging; not_ask_success
+  drb_ref: Factory-DRB/usability-launch-v1.md
+  pass: true
+  structural_hint: false
+  operator_confirmed: true
+  confirmed_at: '2026-10-01T20:12:58.591668Z'
+- checklist_id: Flow_DM_Mode
+  kinesthetic: true
+  source: operator
+  probed_at: '2026-10-01T19:40:20.698446+00:00'
+  notes: operator_waive_slice_scope:row_ux_world_generation_r1_d1; degraded=deferred_chargen_seats_tricam;
+    supersedes_alpha0_chargen_seats_tricam_r1; claim_class=staging; not_ask_success
+  drb_ref: Factory-DRB/usability-launch-v1.md
+  pass: true
+  structural_hint: false
+  operator_confirmed: true
+  confirmed_at: '2026-10-01T20:12:59.331485Z'
+- checklist_id: Flow_Ortho_Tabletop
+  kinesthetic: true
+  source: operator
+  probed_at: '2026-10-01T19:40:20.698458+00:00'
+  notes: operator_waive_slice_scope:row_ux_world_generation_r1_d1; degraded=deferred_chargen_seats_tricam;
+    supersedes_alpha0_chargen_seats_tricam_r1; claim_class=staging; not_ask_success
+  drb_ref: Factory-DRB/usability-launch-v1.md
+  pass: true
+  structural_hint: false
+  operator_confirmed: true
+  confirmed_at: '2026-10-01T20:13:00.205897Z'
+- checklist_id: Anti_DevOnlyHUD
+  kinesthetic: false
+  source: structural_lint
+  probed_at: '2026-10-03T03:58:01.808461+00:00'
+  notes: player_facing_hud_with_perspective_hint
+  drb_ref: Factory-DRB/usability-navigation-v1.md
+  pass: true
+- checklist_id: Anti_HarnessSubstitutesPlaytest
+  kinesthetic: false
+  source: structural_lint
+  probed_at: '2026-10-03T03:58:01.808504+00:00'
+  notes: surface_pass_blocks_harness_only_ship
+  drb_ref: Factory-DRB/usability-navigation-v1.md
+  pass: true

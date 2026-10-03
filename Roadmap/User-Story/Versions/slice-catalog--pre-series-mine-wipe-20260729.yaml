@@ -1,0 +1,76 @@
+schema_version: 1
+mint_epoch_id: grok-bridge-mint-2026-07-17
+mint_epoch_started_utc: "2026-07-17T17:55:04Z"
+mint_source_pmg: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+historical_mint_archive: 4-Archives/Projects/genesis-mythos-master/catalog-mint-historical-20260717T175504Z
+historical_mint_authority: cite_only_non_authoritative
+# Prior remint rows and L5 scopes were archived — do not resurrect without operator rollback.
+catalog_levels_unsigned_advisory: true
+execution_pins_advisory: empty execution_pins[] expected until Operator Loop 2 / execution track
+rows:
+  - id: ux_dm_soft_framing_tools
+    dimension: ui_surface
+    label: DM soft framing tools
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
+  - id: ux_campaign_start_structures
+    dimension: session_bootstrap
+    label: Campaign start structures
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
+  - id: ux_combat_resolution_authorship
+    dimension: ui_surface
+    label: Combat resolution authorship
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
+  - id: ux_incomplete_information_before_blood
+    dimension: ui_surface
+    label: Incomplete information before blood
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
+  - id: ux_who_to_sit_with_tonight
+    dimension: ui_surface
+    label: Who to sit with tonight
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []
+  - id: ux_visible_lasting_costs
+    dimension: ui_surface
+    label: Visible lasting costs
+    planned: true
+    mint_status: proposed
+    conceptual_pin: needs pin
+    execution_pins: []
+    depends_on: []
+    touchstone_refs: []
+    stack_domain_ids: []
+    spine_interfaces: []

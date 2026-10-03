@@ -1,0 +1,231 @@
+schema_version: 1
+status: staging_prefer_ok_awaiting_operator_f5
+armed_at: '2026-10-03T19:34:53Z'
+greenlit_at: '2026-10-03T19:34:53Z'
+prefer_ok_at: '2026-10-03T19:42:00Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_visual_r2
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2c
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_visual_r2.md
+prior_slice_id: alpha0_stalberg_dual_visual_r1
+logic_prior_slice_id: alpha0_stalberg_dual_corner_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: dual_visual_r1_failed_altitude_stretch_as_shape__prefer_harden_primary__live_proof_secondary
+depends_on: alpha0_stalberg_dual_visual_r1
+prefer_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+next_in_chain: null
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: bind_dual_visual_discrete_silhouette_fidelity
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      One logic-point flip rebuilds only dual cells sharing that point (≤4);
+      each cell selects a discrete MeshLibrary item (empty/edge/corner/full +
+      rot/mirror) via translate+yaw(+uniform scale only) — not face-warped
+      elongation or gray albedo ramp; Prefer edges+faces; organic craft plane
+      + dual-corner logic + rings=2 spacing=3.0 preserved
+    refuse:
+    - stretch_as_variant
+    - over_neighbor_paint
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - skip_dual_offset
+    - prop_scatter_as_composition
+    - bitmask_equals_townscaper
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - dual_overlay_as_grid_kernel
+    - non_unique_vertices
+    - relax_before_quad_only
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_corner:
+    law: logic_points_at_organic_quad_corners__click_flips__rebuild_four_dual_cells
+    preserved: true
+    max_dual_cells_per_logic_flip: 4
+    not_product_ask_success: true
+  dual_visual:
+    law: discrete_meshlibrary_silhouettes__not_stretch_not_gray_ramp
+    success_types_preferred:
+    - Systems/DualGridCraftHost.cs
+    - assets/craft/dual_grid/
+    pipeline_ok_either:
+    - blender_to_meshlibrary
+    - approved_discrete_shape_distinct_graybox_standins
+    require_discrete_library_place: true
+    require_neighborhood_cardinality_gate: true
+    refuse_substitute:
+    - DualFamilyColor_gray_ramp_only
+    - FaceCornersLocal_CommitDualFamilyMesh_stretch
+    - non_uniform_Scale_as_variant
+    - Library_null_with_same_plate_mesh
+    families_minimum:
+    - empty
+    - edge
+    - corner
+    - full
+    transform_ok:
+    - rotation
+    - mirror
+    - uniform_scale
+    transform_refuse:
+    - non_uniform_scale
+    - face_warp_elongation
+    prior_failed_altitude: alpha0_stalberg_dual_visual_r1
+matrix_quotes:
+  dual_visual_discrete_silhouette:
+    prefer: >-
+      Logic flip → ≤4 dual cells; each picks discrete MeshLibrary silhouette
+      (empty/edge/corner/full + rot/mirror); no axis stretch; Prefer edges+faces;
+      organic + craft authority + manual scale stay.
+    never: >-
+      stretch_as_variant; over_neighbor_paint; gray_ramp_only; face-warped
+      elongation as Success; Hex19/Terrain3D/art/cam yank/density lift
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_visual_discrete
+  must: discrete_meshlibrary_item_per_family_plus_cardinality_le_4
+  refuse:
+  - stretch_as_variant
+  - over_neighbor_paint
+  - gray_ramp_only
+  - inspiration_shape_miss
+  - skip_dual_offset
+- id: kernel_and_logic_preserved
+  must: organic_underlay_craft_authority_dual_corner_four_cell_manual_scale
+  refuse:
+  - hex19_pick_as_craft_authority
+  - noodle_edge_clutter
+  - non_unique_vertices
+- id: scope_visual_fidelity_only
+  must: no_density_lift_no_terrain3d_no_art_bind_no_hex19_success
+  refuse:
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: >-
+  F5: one logic-point flip rebuilds only ≤4 dual cells sharing that point with
+  discrete empty/edge/corner/full silhouettes (MeshLibrary items + rot/mirror) —
+  not axis elongation or gray ramp; Prefer has_edges + has_faces_or_cells and
+  refuses stretch_as_variant + over_neighbor_paint; organic + craft authority +
+  dual-corner + rings=2 spacing=3.0 preserved; regenerable.
+refuse_codes:
+- stretch_as_variant
+- over_neighbor_paint
+- gray_ramp_only
+- inspiration_shape_miss
+- skip_dual_offset
+- prop_scatter_as_composition
+- bitmask_equals_townscaper
+- points_as_grid
+- count_equals_topology
+- hex_scaffold_as_final_mesh
+- hex19_pick_as_craft_authority
+- dual_overlay_as_grid_kernel
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+do_not_waive:
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- skip_dual_offset
+- gray_ramp_only
+- stretch_as_variant
+- over_neighbor_paint
+- inspiration_shape_miss
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- noodle_edge_clutter
+- wireframe_spaghetti
+- extruded_prism_as_quad_board
+- unbounded_z_jitter
+- nonplanar_face_soup
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- relax_step_too_hard
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_visual_r2
+  require_implicit_bind: true
+  steps:
+  - GREENLIGHT — Prefer harden already primary; LIVE discrete place as proof
+  - Load armed packet + Prefer § C.1 + Grid-Topology dual silhouette law
+  - Prefer must fail r1-shaped LIVE (stretch/uncapped) and pass discrete place
+  - Preserve organic underlay, craft-plane, dual-corner ≤4, manual scale
+  - Prefer pass + MCP a/b silhouettes; claim_class staging until F5
+  - Do NOT Curator; do NOT claim r1 ask_success
+fresh_chat_instruction: >-
+  GREENLIT armed_ready_to_stage. Weave Prefer harden primary (stretch_as_variant
+  + over_neighbor_paint). LIVE discrete MeshLibrary place as proof bed. No Curator.
+  claim_class staging until F5.

@@ -1,0 +1,40 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-31T12:35:59Z'
+lock_state: applied
+bone_pilot_edit: depends_on character + table agency + living-world; first-class seeding
+  + DM weave
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Player seeds → float to DM → weave under gate; not auto-canon; not reunion-ordeal
+    law.
+row:
+  id: ux_backstory_legacy_integration
+  dimension: ui_surface
+  label: Backstory and legacies can hook into play and chronicle
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_player_character_creation
+  - ux_collaborative_table_agency
+  - ux_living_world_continuity
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- every backstory forces a mid-game reunion ordeal
+- legacies are DM-only lore with no player surface
+- system auto-weaves hooks without DM accept
+- one identity-pact skin is the product default for legacies
+- players may auto-write world canon from backstory without DM gate
+alternatives_not_banned:
+- Sparse vs dense seeding
+- Mostly social recognition vs mechanical claims (land, title, blood debt)
+- Early-only seeding vs ongoing personal stakes added later
+- Quiet chronicle-only persistence vs loud in-play callbacks
+- One-campaign binding of a legacy vs legacies that can travel into a later campaign
+  in the same world
+- Minimal vs richer player-lite chronicle chrome later

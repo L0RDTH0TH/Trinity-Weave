@@ -1,0 +1,177 @@
+# Armed Prefer packet — Stålberg organic all-quad kernel VISUAL / geometric execution fix.
+# Approach stays: seed → tri → dissolve → subdivide → relax.
+# Prior r1 (sp-sqk-3210b7) = failed_altitude_visual_execution_fail (noodle/prism F5).
+# Greenlit via operator GREENLIGHT WELD at 2026-10-03T07:35:18Z. Staging until F5 planar readable quad board.
+
+schema_version: 1
+status: superseded_by_relax_r1
+armed_at: '2026-10-03T07:24:00Z'
+greenlit_at: '2026-10-03T07:35:18Z'
+law_amended_at: '2026-10-03T07:35:18Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_quad_kernel
+slice_id: alpha0_stalberg_quad_kernel_visual_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_visual_r1.md
+prior_slice_id: alpha0_stalberg_quad_kernel_r1
+prior_producer_run_id: sp-sqk-3210b7
+prior_weld_altitude: failed_altitude_visual_execution_fail
+next_in_chain: alpha0_stalberg_quad_kernel_relax_r1
+superseded_by: alpha0_stalberg_quad_kernel_relax_r1
+authority_parked: true
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_planar_quad_board_visual_execution
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    algorithm_cite: Factory-DRB/references/oskar-procedure/02-grid-algorithm.md
+    algorithm_concept_cite: Factory-DRB/references/oskar-procedure/01-concept.md
+    algorithm_upstream: https://github.com/kai-denrei/oskar-procedure
+    algorithm_seed_variant: Variant_B_hex_lattice_preferred
+    craft: hot_wheels_grid_kernel_only
+    terrain3d: out_of_scope_this_step
+    structural_success: organic_all_quad_planar_board__pipeline_intact__readable_f5
+    approach_locked_from: alpha0_stalberg_quad_kernel_r1
+    refuse:
+    - noodle_edge_clutter
+    - wireframe_spaghetti
+    - extruded_prism_as_quad_board
+    - unbounded_z_jitter
+    - nonplanar_face_soup
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - skip_dissolve_relax
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+  kernel_occupancy:
+    law: seed_hex_or_poisson__triangulate__dissolve_to_quads__subdivide_all_faces_to_quads__relax__flatten_to_craft_plane__render_coherent_quad_surface
+    replace_live_assumption: overlapping_translucent_prism_volumes_or_additive_wire_spaghetti_as_stalberg_success
+    success_types_preferred:
+    - Core/WorldGen/StalbergQuadKernel.cs
+    - Core/WorldGen/OrganicQuadMesh.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Core/WorldGen/Hex19DualOffsetLattice.cs
+    strip_from_success:
+    - extruded_prism_display
+    - additive_overlapping_wire_volumes
+    - dual_corner_paint
+    - tile_families
+    - connector_modules
+    - craft_visual_art_bind
+    - points_only_markers
+    - hex19_occupancy_tutorial_success
+    - dual_overlay_on_hex_scaffold
+matrix_quotes:
+  stalberg_quad_kernel_visual:
+    prefer: 'Same pipeline (seed→tri→dissolve→subdivide→relax); F5 primary = readable
+      planar irregular all-quad mesh on craft plane; coherent surface + depth-tested
+      edges; regenerable; graybox OK; flatten 3D intermediates for display.'
+    never: 'noodle_edge_clutter / wireframe_spaghetti; extruded_prism_as_quad_board;
+      unbounded_z_jitter / nonplanar_face_soup; hex_scaffold_as_final_mesh; dual_overlay_as_grid_kernel;
+      skip_dissolve_relax; points-only; tutorial s1/s2 Success; tiles/art/connectors this step'
+hard_prefer_gaps:
+- id: planar_board
+  must: faces_on_or_near_craft_plane
+  refuse:
+  - unbounded_z_jitter
+  - nonplanar_face_soup
+  - extruded_prism_as_quad_board
+- id: readable_quad_graph
+  must: clean_quad_edge_graph_without_spaghetti
+  refuse:
+  - noodle_edge_clutter
+  - wireframe_spaghetti
+- id: coherent_surface_render
+  must: single_mesh_or_coherent_surface_with_depth_test
+  refuse:
+  - extruded_prism_as_quad_board
+  - noodle_edge_clutter
+- id: pipeline_intact
+  must: seed_tri_dissolve_subdivide_relax_in_code
+  refuse:
+  - skip_dissolve_relax
+  - dual_overlay_as_grid_kernel
+  - hex_scaffold_as_final_mesh
+- id: regenerable
+  must: operator_can_regenerate_new_planar_quad_field
+- id: scope_kernel_only
+  must: no_dual_paint_no_tiles_no_art_no_terrain3d_success
+  refuse:
+  - bundle_tutorial_steps
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: >-
+  F5: readable planar irregular all-quad mesh on craft plane; clean quad edges
+  (no noodle/spaghetti / prism soup); pipeline seed→tri→dissolve→subdivide→relax
+  intact; regenerable; graybox OK; no dual-paint/art/Terrain3D Success
+refuse_codes:
+- noodle_edge_clutter
+- wireframe_spaghetti
+- extruded_prism_as_quad_board
+- unbounded_z_jitter
+- nonplanar_face_soup
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- prop_scatter_as_composition
+- bundle_tutorial_steps
+- terrain3d_in_scope
+- craft_terrain_blend
+- terrain3d_leak_f5
+- verify_mcp_only
+- infinite_rect_as_hex19
+- craft_cam_recenter_on_place
+- inspiration_shape_miss
+- fidelity_miss
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_quad_kernel_visual_r1
+  require_implicit_bind: true
+  steps:
+  - Load this armed packet + brief + Grid-Topology-Host-Law + oskar vault cites (02 pipeline)
+  - Emit / verify implicit-intent-bind (structural_success = organic_all_quad_planar_board__pipeline_intact__readable_f5)
+  - Keep pipeline; fix flatten-to-craft-plane + coherent surface render (no prism/noodle F5)
+  - Do NOT claim dual paint, tiles, connectors, Hex19 tutorial Success, or approach rewrite
+  - Write staging receipt; claim_class staging until operator F5
+  - Do NOT Curator push
+fresh_chat_instruction: >-
+  Stålberg quad kernel VISUAL fix greenlit. Approach from
+  alpha0_stalberg_quad_kernel_r1 stays. Prior weld sp-sqk-3210b7 =
+  failed_altitude_visual_execution_fail (noodle/prism F5). Force-compose
+  (module lane only + fresh bind), IMPLEMENT_SLICE with armed_packet_path.
+  Success = F5 readable planar irregular all-quad board; pipeline intact;
+  regenerate works. Prefer fails noodle_edge_clutter / wireframe_spaghetti /
+  extruded_prism_as_quad_board / unbounded_z_jitter / nonplanar_face_soup plus
+  prior kernel refuses. No dual paint, tiles, art, or Terrain3D this step.

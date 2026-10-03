@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://gm_worldgen_gui_d1"]
+
+[ext_resource type="Script" path="res://UI/WorldgenGui.cs" id="1_script"]
+
+[node name="WorldgenGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_script")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.05, 0.07, 0.72)
+mouse_filter = 0
+
+[node name="Frame" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -260.0
+offset_right = 280.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Frame"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Frame/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderLabel" type="Label" parent="Frame/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.62, 1)
+theme_override_font_sizes/font_size = 22
+text = "WORLDGEN · PASTORAL"
+horizontal_alignment = 1
+
+[node name="Diamond" type="Label" parent="Frame/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.58, 0.32, 1)
+theme_override_font_sizes/font_size = 12
+text = "◆ collaborative generation ◆"
+horizontal_alignment = 1
+
+[node name="RefuseLabel" type="Label" parent="Frame/Margin/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.7, 0.55, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+text = "Wrong seat"
+
+[node name="OptionStack" type="VBoxContainer" parent="Frame/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PreviewPanel" type="PanelContainer" parent="Frame/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviewMargin" type="MarginContainer" parent="Frame/Margin/VBox/PreviewPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="PreviewBody" type="Label" parent="Frame/Margin/VBox/PreviewPanel/PreviewMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.86, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+text = "Preview scaffold"
+
+[node name="Actions" type="HBoxContainer" parent="Frame/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ProposeButton" type="Button" parent="Frame/Margin/VBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 34)
+layout_mode = 2
+text = "Propose"
+
+[node name="RefineButton" type="Button" parent="Frame/Margin/VBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 34)
+layout_mode = 2
+text = "Refine"
+
+[node name="RegenerateButton" type="Button" parent="Frame/Margin/VBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 34)
+layout_mode = 2
+text = "Regenerate"
+
+[node name="CommitRow" type="HBoxContainer" parent="Frame/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="Frame/Margin/VBox/CommitRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "Cancel"
+
+[node name="AcceptButton" type="Button" parent="Frame/Margin/VBox/CommitRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+text = "Accept World"

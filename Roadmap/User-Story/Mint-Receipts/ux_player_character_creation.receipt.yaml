@@ -1,0 +1,33 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T07:29:30Z'
+lock_state: applied
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Player-owned character; unbound or invite-aware; option-level dual config;
+    greenlight ≠ ownership transfer.
+row:
+  id: ux_player_character_creation
+  dimension: session_bootstrap
+  label: Players can author characters and submit them for DM acceptance into a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- characters must start with a stolen-agency wound
+- backstory is only flavor text with no play hooks
+- ownership transfers to the DM on greenlight
+- character creation requires a separate draft object type
+- players may only build inside an open campaign invite
+alternatives_not_banned:
+- Unbound build then later invite vs build only into an open invite
+- Hard greenlight vs return-with-notes / overwrite negotiation
+- One-campaign binding vs later invite into another campaign in the same world
+- Minimal builder vs richer chrome after legality is solid
+- Aligned vs divergent world/campaign option sets
