@@ -2141,7 +2141,10 @@ def run_prefer_authorship_pass(
         mesh_viols = organic_mesh_graph_violations_from_evidence(mesh_graph_evidence)
         violations.extend(mesh_viols)
         so = conceptual_fields.get("success_object") or ""
-        if so and not organic_mesh_graph_success_object(so):
+        claimed_so = str(armed.get("success_object") or so)
+        # SO identity only when this Prefer claims organic_mesh_graph as Success.
+        # dual_rebind / dual_offset_cells may preserve MeshGraph without re-claiming it.
+        if organic_mesh_graph_success_object(claimed_so) and so and not organic_mesh_graph_success_object(so):
             violations.append(f"proxy_substitution:success_object_not_organic_mesh_graph:{so}")
             violations.append(f"intent_collapsed_to_mechanics:success_object_proxy:{so}")
         if topology_evidence is not None:
