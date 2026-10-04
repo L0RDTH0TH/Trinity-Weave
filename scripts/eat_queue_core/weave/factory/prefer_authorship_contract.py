@@ -1175,6 +1175,8 @@ def dual_success_object_is_lattice_cell(success_object: str) -> bool:
             "organic_dual_offset_lattice_cell",
             "dual_offset_lattice",
             "dual_lattice_cell",
+            "dual_offset_cells",
+            "dual_offset_cell",
             "half_step_dual",
         )
     )
