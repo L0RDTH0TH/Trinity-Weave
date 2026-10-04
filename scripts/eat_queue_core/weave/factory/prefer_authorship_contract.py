@@ -1154,6 +1154,206 @@ def authorship_armed_missing_required_fields(
     return violations
 
 
+
+def organic_mesh_graph_success_object(success_object: str) -> bool:
+    """True when named success_object is primal MeshGraph class."""
+    s = (success_object or "").lower().replace("-", "_")
+    return bool(s) and (
+        "organic_mesh_graph" in s
+        or s in ("mesh_graph", "primal_mesh_graph")
+    )
+
+
+def armed_requires_organic_mesh_graph(armed: dict[str, Any] | None) -> bool:
+    """True when Prefer requires OrganicMeshGraph Vertex/Edge/Face singletons + incidence."""
+    armed = armed if isinstance(armed, dict) else {}
+    blob = " ".join(
+        [
+            str(armed.get("slice_id") or ""),
+            str(armed.get("ask_id") or ""),
+            str(armed.get("mode") or ""),
+            str(armed.get("done_when") or ""),
+            str(armed.get("success_object") or ""),
+            _flatten_law_text(armed.get("hard_prefer_gaps")),
+        ]
+    ).lower()
+    if any(
+        m in blob
+        for m in (
+            "organic_mesh_graph",
+            "primal_graph",
+            "indexed_lists_as_graph",
+            "ephemeral_edge_key_as_topology",
+            "mesograph",
+            "mesh_graph",
+        )
+    ):
+        return True
+    locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+    if isinstance(locks.get("organic_mesh_graph"), dict):
+        return True
+    refuse = list(armed.get("refuse_codes") or [])
+    step1 = locks.get("step1_authorship") if isinstance(locks.get("step1_authorship"), dict) else {}
+    if isinstance(step1.get("refuse"), list):
+        refuse.extend(step1.get("refuse") or [])
+    return bool(
+        {"indexed_lists_as_graph", "ephemeral_edge_key_as_topology"}
+        & {str(c) for c in refuse}
+    )
+
+
+MESH_GRAPH_DO_NOT_WAIVE: tuple[str, ...] = (
+    "indexed_lists_as_graph",
+    "ephemeral_edge_key_as_topology",
+    "non_unique_vertices",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics",
+)
+
+_MESH_GRAPH_FILE_SIGNALS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("organic_mesh_graph_type", re.compile(r"\bclass\s+OrganicMeshGraph\b")),
+    ("vertex_singleton", re.compile(r"\bclass\s+Vertex\b")),
+    ("edge_singleton", re.compile(r"\bclass\s+Edge\b")),
+    ("face_singleton", re.compile(r"\bclass\s+Face\b")),
+    ("get_or_add_vertex", re.compile(r"\bGetOrAddVertex\b")),
+    ("get_or_add_edge", re.compile(r"\bGetOrAddEdge\b")),
+    ("add_quad", re.compile(r"\bAddQuad\b")),
+    ("faces_touching_vertex", re.compile(r"\bFacesTouchingVertex\b")),
+)
+
+_MESH_GRAPH_REQUIRED_FILES = (
+    "Core/WorldGen/OrganicMeshGraph.cs",
+    "Core/WorldGen/OrganicQuadMesh.cs",
+    "Core/WorldGen/StalbergQuadKernel.cs",
+    "Core/WorldGen/OrganicDualOffsetLattice.cs",
+    "Systems/DualGridCraftHost.cs",
+)
+
+
+def scan_organic_mesh_graph_evidence(game_repo: Path) -> dict[str, Any]:
+    """LIVE evidence for primal MeshGraph singletons + incidence."""
+    evidence: dict[str, Any] = {
+        "repo_present": game_repo.is_dir(),
+        "files_scanned": [],
+        "required_present": [],
+        "required_absent": [],
+        "signals": [],
+        "has_organic_mesh_graph": False,
+        "has_get_or_add_vertex": False,
+        "has_get_or_add_edge": False,
+        "has_add_quad": False,
+        "has_faces_touching_vertex": False,
+        "has_vertex_edge_face": False,
+        "oqm_wraps_graph": False,
+        "kernel_emits_graph": False,
+        "dual_corners_vertex_refs": False,
+        "support_face_success_tells": [],
+        "indexed_lists_as_graph": False,
+        "ephemeral_edge_key_as_topology": False,
+    }
+    if not game_repo.is_dir():
+        return evidence
+    for rel in _MESH_GRAPH_REQUIRED_FILES:
+        fp = game_repo / rel
+        if fp.is_file():
+            evidence["required_present"].append(rel)
+        else:
+            evidence["required_absent"].append(rel)
+    for rel in _MESH_GRAPH_REQUIRED_FILES:
+        fp = game_repo / rel
+        if not fp.is_file():
+            continue
+        raw = fp.read_text(encoding="utf-8", errors="replace")
+        code = _code_only(raw)
+        evidence["files_scanned"].append(rel.replace("\\", "/"))
+        for name, pat in _MESH_GRAPH_FILE_SIGNALS:
+            if pat.search(code):
+                evidence["signals"].append(f"{name}:{rel}")
+        if rel.endswith("OrganicMeshGraph.cs"):
+            evidence["has_organic_mesh_graph"] = "class OrganicMeshGraph" in code
+            evidence["has_get_or_add_vertex"] = "GetOrAddVertex" in code
+            evidence["has_get_or_add_edge"] = "GetOrAddEdge" in code
+            evidence["has_add_quad"] = "AddQuad" in code
+            evidence["has_faces_touching_vertex"] = "FacesTouchingVertex" in code
+            evidence["has_vertex_edge_face"] = all(
+                x in code for x in ("class Vertex", "class Edge", "class Face")
+            )
+            # Ephemeral long edge keys as sole topology = refuse (HashSet<long> without Edge class is UniqueTopology2D)
+            if "class Edge" not in code and ("HashSet<long>" in code or "<< 32" in code):
+                evidence["ephemeral_edge_key_as_topology"] = True
+        if rel.endswith("OrganicQuadMesh.cs"):
+            evidence["oqm_wraps_graph"] = (
+                "OrganicMeshGraph" in code and ("Graph" in code or "AttachGraph" in code)
+            )
+        if rel.endswith("StalbergQuadKernel.cs"):
+            evidence["kernel_emits_graph"] = (
+                "OrganicMeshGraph.FromIndexedMesh" in code
+                or "new OrganicQuadMesh(graph" in code
+                or "new OrganicQuadMesh(graph," in code
+            )
+        if rel.endswith("OrganicDualOffsetLattice.cs"):
+            evidence["dual_corners_vertex_refs"] = (
+                "OrganicMeshGraph.Vertex" in code and "CornerVertices" in code
+            )
+            if re.search(r"SupportFaceIndex\s*[=;]", code) and "Obsolete" not in code:
+                evidence["support_face_success_tells"].append(f"support_face_assign:{rel}")
+        if rel.endswith("DualGridCraftHost.cs"):
+            if "ProveOrganicMeshGraph" in code:
+                evidence["signals"].append(f"prove_organic_mesh_graph:{rel}")
+            if re.search(r"\.Take\s*\(\s*4\s*\)", code):
+                evidence["support_face_success_tells"].append(f"soft_take_4:{rel}")
+            if "_vertexToFaces" in code and "DEAD for dual Success" not in code and "NOT dual Success" not in raw:
+                evidence["support_face_success_tells"].append(f"live_vertex_to_faces:{rel}")
+
+    # Indexed lists as graph when MeshGraph type missing or kernel does not emit graph.
+    if not evidence["has_organic_mesh_graph"] or not evidence["kernel_emits_graph"]:
+        evidence["indexed_lists_as_graph"] = True
+    if evidence["has_organic_mesh_graph"] and not evidence["has_get_or_add_edge"]:
+        evidence["ephemeral_edge_key_as_topology"] = True
+    return evidence
+
+
+def organic_mesh_graph_violations_from_evidence(evidence: dict[str, Any]) -> list[str]:
+    """Prefer violations for primal MeshGraph seat."""
+    violations: list[str] = []
+    if not evidence.get("repo_present"):
+        violations.append("indexed_lists_as_graph:missing_game_repo")
+        return violations
+    if evidence.get("required_absent"):
+        violations.append(
+            "indexed_lists_as_graph:missing_files:"
+            + ",".join(evidence["required_absent"])
+        )
+    if not evidence.get("has_organic_mesh_graph"):
+        violations.append("indexed_lists_as_graph:missing:OrganicMeshGraph")
+    if not evidence.get("has_vertex_edge_face"):
+        violations.append("indexed_lists_as_graph:missing:Vertex|Edge|Face")
+    if not evidence.get("has_get_or_add_vertex"):
+        violations.append("non_unique_vertices:missing:GetOrAddVertex")
+    if not evidence.get("has_get_or_add_edge"):
+        violations.append("ephemeral_edge_key_as_topology:missing:GetOrAddEdge")
+    if not evidence.get("has_add_quad"):
+        violations.append("indexed_lists_as_graph:missing:AddQuad")
+    if not evidence.get("has_faces_touching_vertex"):
+        violations.append("indexed_lists_as_graph:missing:FacesTouchingVertex")
+    if not evidence.get("oqm_wraps_graph"):
+        violations.append("indexed_lists_as_graph:OrganicQuadMesh_missing_Graph_wrap")
+    if not evidence.get("kernel_emits_graph"):
+        violations.append("indexed_lists_as_graph:kernel_not_emitting_OrganicMeshGraph")
+    if not evidence.get("dual_corners_vertex_refs"):
+        violations.append("proxy_substitution:dual_corners_not_vertex_refs")
+    if evidence.get("indexed_lists_as_graph"):
+        violations.append("indexed_lists_as_graph:live_indexed_lists_without_mesh_graph")
+    if evidence.get("ephemeral_edge_key_as_topology"):
+        violations.append("ephemeral_edge_key_as_topology:edge_keys_without_Edge_singleton")
+    for tell in evidence.get("support_face_success_tells") or []:
+        if "soft_take_4" in str(tell):
+            violations.append(f"intent_collapsed_to_mechanics:{tell}")
+        elif "support_face" in str(tell):
+            violations.append(f"primary_face_as_dual:{tell}")
+    return violations
+
+
 def dual_success_object_is_lattice_cell(success_object: str) -> bool:
     """True when named success_object is dual-lattice cell class (not primary face)."""
     s = (success_object or "").lower().replace("-", "_")
@@ -1934,6 +2134,28 @@ def run_prefer_authorship_pass(
         else:
             topology_evidence = {"dual_visual": dual_visual_evidence}
 
+    # Primal MeshGraph Prefer — Vertex/Edge/Face singletons + incidence.
+    mesh_graph_evidence: dict[str, Any] | None = None
+    if armed_requires_organic_mesh_graph(armed) and repo is not None:
+        mesh_graph_evidence = scan_organic_mesh_graph_evidence(repo)
+        mesh_viols = organic_mesh_graph_violations_from_evidence(mesh_graph_evidence)
+        violations.extend(mesh_viols)
+        so = conceptual_fields.get("success_object") or ""
+        if so and not organic_mesh_graph_success_object(so):
+            violations.append(f"proxy_substitution:success_object_not_organic_mesh_graph:{so}")
+            violations.append(f"intent_collapsed_to_mechanics:success_object_proxy:{so}")
+        if topology_evidence is not None:
+            topology_evidence = {
+                **topology_evidence,
+                "organic_mesh_graph": mesh_graph_evidence,
+                "conceptual_fields": conceptual_fields,
+            }
+        else:
+            topology_evidence = {
+                "organic_mesh_graph": mesh_graph_evidence,
+                "conceptual_fields": conceptual_fields,
+            }
+
     # Dual-neighborhood / organic dual Prefer — stable ≤4 ownership; refuse stamp_as_dual.
     # Organic dual altitudes always require dual-offset lattice proof (no detect-only neighborhood).
     dual_neighborhood_evidence: dict[str, Any] | None = None
@@ -2065,6 +2287,17 @@ def run_prefer_authorship_pass(
                 "prefer_overlay_missing_do_not_waive_intent_codes:"
                 + ",".join(missing_intent)
             )
+        if armed_requires_organic_mesh_graph(armed):
+            missing_mesh_graph = [
+                c
+                for c in MESH_GRAPH_DO_NOT_WAIVE
+                if c not in {str(x) for x in do_not_waive}
+            ]
+            if missing_mesh_graph:
+                violations.append(
+                    "prefer_overlay_missing_do_not_waive_mesh_graph_codes:"
+                    + ",".join(missing_mesh_graph)
+                )
         if armed_requires_organic_quad_kernel(armed):
             missing_organic = [
                 c
