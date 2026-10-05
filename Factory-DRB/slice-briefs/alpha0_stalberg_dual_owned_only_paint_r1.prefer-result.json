@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass",
+    "detail": ""
+  },
+  "detail": "prefer_authorship_pass_ok",
+  "applicable": true,
+  "negative_examples": [
+    "craft_cam_recenter_on_place",
+    "craft_terrain_blend",
+    "craft_phase_terrain3d_deform",
+    "unfed_terrain_under_sparky",
+    "inspiration_shape_miss",
+    "points_as_grid",
+    "count_equals_topology",
+    "explicit_met_implicit_miss",
+    "skip_dual_offset",
+    "hex_scaffold_as_final_mesh",
+    "dual_overlay_as_grid_kernel",
+    "skip_dissolve_relax",
+    "stretch_as_variant",
+    "over_neighbor_paint",
+    "unstable_dual_neighborhood",
+    "stamp_as_dual",
+    "primary_face_as_dual",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics",
+    "plinth_as_terrain",
+    "blob_as_module",
+    "metrics_only_glb_drop",
+    "procedural_only_as_success"
+  ],
+  "warnings": [],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/Hex19DualOffsetLattice.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs",
+      "Core/WorldGen/ICraftCellAuthority.cs",
+      "Core/WorldGen/OrganicDualOffsetLattice.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_present": [
+      "Systems/DualGridCraftHost.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs"
+    ],
+    "required_live_files_absent": [],
+    "edge_signals": [
+      "edge_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Systems/DualGridCraftHost.cs",
+      "line_primitive:Systems/DualGridCraftHost.cs",
+      "neighbor_api:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "neighbor_api:Core/WorldGen/OrganicDualOffsetLattice.cs"
+    ],
+    "face_cell_signals": [
+      "cell_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "cell_builder:Systems/DualGridCraftHost.cs",
+      "cell_entity:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "cell_entity:Systems/DualGridCraftHost.cs",
+      "corner_api:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "corner_api:Systems/DualGridCraftHost.cs",
+      "face_collection:Core/WorldGen/OrganicDualOffsetLattice.cs",
+      "face_collection:Systems/DualGridCraftHost.cs",
+      "face_collection:Systems/WorldgenCraft.cs"
+    ],
+    "point_signals": [
+      "logic_points:Core/WorldGen/OrganicDualOffsetLattice.cs",
+      "logic_points:Systems/DualGridCraftHost.cs"
+    ],
+    "has_edges": true,
+    "has_faces_or_cells": true,
+    "points_only": false,
+    "missing_axes": []
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "bind_path": ".technical/weave/factory/genesis-mythos-master/alpha0_stalberg_dual_owned_only_paint_r1/implicit-intent-bind.json",
+    "topology_rewrite": true,
+    "armed_topology_signals": [
+      "armed_lock_refuse:step1_authorship:count_equals_topology",
+      "armed_lock_refuse:step1_authorship:explicit_met_implicit_miss",
+      "armed_lock_refuse:step1_authorship:points_as_grid",
+      "armed_prefer_authorship_with_topology_law",
+      "armed_structural_topology:hard_prefer_gaps",
+      "armed_structural_topology:step1_authorship.structural_success",
+      "armed_structural_topology:structural_success"
+    ],
+    "topology_axis_armed": true
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "dual_cell_meshlibrary_placement",
+  "live_weld_greenlit": true,
+  "completed": "2026-10-04T23:58:00Z"
+}

@@ -1,0 +1,231 @@
+# Armed Prefer packet — operator GREENLIGHT + LAUNCH FACTORY (ticket 2)
+# Craft-visual Prefer landed (module lane). Terrain3D deferred. Depends on craft_core Prefer landed.
+# zone_ownership.module ONLY — preflight extracts all zone_ownership values as required paths.
+
+schema_version: 1
+status: disarmed_failed_altitude
+disarmed_at: '2026-10-02T19:21:45Z'
+disarm_reason: failed_altitude_metrics_only__tutorial_ladder_pivot
+do_not_implement: true
+sp_review: passed
+sp_review_passed_at: 2026-10-02T03:55:37Z
+launch_word: WELD
+armed_at: '2026-10-02T03:25:00Z'
+greenlit_at: '2026-10-02T03:25:00Z'
+factory_greenlit: false
+claim_class: staging
+do_not_auto_dispatch: true
+operator_go: false
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_townscaper_craft_visual
+slice_id: alpha0_townscaper_craft_visual_r1
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d6
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_townscaper_craft_visual_r1.md
+depends_on: alpha0_townscaper_craft_core_r1
+depends_on_status: prefer_landed
+sp_review: passed
+sp_review_passed_at: 2026-10-02T03:55:37Z
+next_in_chain: alpha0_townscaper_df_depth_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_craft_visual_reskin_dual_meshlibrary_variants
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    cohesive: COHESIVE-VISION-ART-DIRECTION
+    visual_bar: Visual-Factory-Direction-Stylized-Low-Poly
+    card: townscaper-click-add-world-element
+    law: craft_hot_wheels_tile_authorship_only__reskin_dual_variants__no_raw_cell_only__terrain3d_absent_or_hard_disabled
+    do_not_reblend_layers: true
+    terrain3d_deferred: true
+    preserve_dual_meshlibrary_variants: true
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: 'Stock GridMap (or equivalent) dual-grid craft: interaction cell commit
+      under mouse; visual/module form neighbor-derived (corner-typed dual path), not
+      raw-cell-only mesh authority. Re-skin existing MeshLibrary variants (Full/Corner/Edge/Diagonal/InverseCorner+Empty)
+      to stylized low-poly — do not collapse masks to one cube. Terrain3D Prefer feed
+      is OUT OF SCOPE this ticket (deferred later).'
+    never: Camera-center aim; cam recenter on place/remove; Terrain3D host visible/mutating
+      under craft; height-paint/feed callable from craft; Tab/feed-on-sparky Terrain3D
+      handoff from craft; single cube mesh for all corner masks; raw-cell-only visual
+      authority replacing logic-point → corner-bitmask
+hard_prefer_gaps:
+- id: stylized_low_poly_read
+  must: placed_dual_tiles_read_stylized_low_poly_not_graybox_developer_cubes
+  refuse:
+  - graybox_only_craft
+  - inspiration_shape_miss
+- id: preserve_dual_variants
+  must: reskin_existing_Full_Corner_Edge_Diagonal_InverseCorner_Empty__variant_ids_still_differ
+  refuse:
+  - inspiration_shape_miss
+  - raw_cell_only_visual
+- id: mouse_lmb_rmb_regression
+  must: lmb_place_rmb_remove_under_mouse_cursor_still_works
+  refuse:
+  - grammar_regress
+  - camera_center_aim
+- id: no_cam_yank_regression
+  must: craft_place_remove_no_camera_recenter
+  refuse: craft_cam_recenter_on_place
+- id: terrain3d_hard_disabled
+  must: terrain3d_host_absent_or_hard_disabled_under_craft__no_height_paint_feed_callable
+  refuse:
+  - craft_terrain_blend
+  - terrain3d_in_scope
+  - terrain3d_leak_f5
+prior_prefer_wins_do_not_regress:
+- id: mouse_aim
+  must: place_ray_from_mouse_cursor
+  refuse: camera_center_aim
+- id: no_cam_recenter
+  must: craft_place_remove_tiles_only_no_camera_recenter
+  refuse: craft_cam_recenter_on_place
+- id: dual_grid_grammar
+  must: interaction_grid_cell_commit__neighbor_derived_visual_module_path
+  refuse:
+  - inspiration_shape_miss
+  - raw_cell_only_visual
+- id: terrain3d_hard_disabled
+  must: terrain3d_host_absent_or_hard_disabled_under_craft
+  refuse:
+  - craft_terrain_blend
+  - terrain3d_in_scope
+palette_cap:
+  rule: small_craft_tile_set_only__no_full_biome_atlas
+  refuse: biome_atlas_scope_creep
+  no_df_depth_expansion: true
+receipt_must:
+- cite_Visual-Factory-Direction-Stylized-Low-Poly
+- prove_dual_variant_meshlibrary_ids_still_differ_after_reskin
+adc_tac_posture:
+  schedule_as_drops_under_this_ticket_if_needed: true
+  do_not_expand_into_df_depth: true
+terrain3d_posture:
+  deferred_later: true
+  files_may_remain_on_disk: true
+  craft_path_must: absent_or_hard_disabled_not_callable_not_armed
+  refuse_armed_under_craft:
+  - Terrain3DAuthority
+  - height_paint
+  - height_stamp
+  - feed_on_sparky
+  - Tab_to_Terrain3D_handoff
+host_touch_budget:
+  default_raise_to: 1200
+  prefer_trim_into: Systems/
+  never_waive: prefer_authorship_pass
+  escalate_to_operator_if_budget_blocks_prefer_proof: true
+camera:
+  craft_phase: tile_authorship_only_no_recenter_on_place_vtt_planar_ortho
+  refuse: craft_cam_recenter_on_place
+  refuse_also: camera_center_aim
+  sparky_bindings: off_this_ticket
+ask_fidelity:
+  ask_id: alpha0_townscaper_craft_visual
+  done_when: 'F5: placed dual-grid tiles read stylized low-poly (not graybox developer
+    cubes); LMB place / RMB remove under mouse still work; no cam yank; dual neighbor
+    variants still distinct; Terrain3D still absent/hard-disabled under craft.'
+  forbidden_substitutes:
+  - inspiration_shape_miss
+  - graybox_only_craft
+  - raw_cell_only_visual
+  - craft_cam_recenter_on_place
+  - craft_terrain_blend
+  - terrain3d_in_scope
+  - terrain3d_leak_f5
+  - camera_center_aim
+  - grammar_regress
+  - biome_atlas_scope_creep
+  - verify_mcp_only
+  - fidelity_miss
+  - engine_pattern_miss
+  claim_class: staging
+operator_attest: F5_only
+ban: verify_mcp_only
+zone_ownership:
+  module:
+  - scenes/**
+  - Systems/**
+  - Core/**
+  - Camera/**
+  - Player/**
+armed_required_paths:
+- scenes/**
+- Systems/**
+- Core/**
+- Camera/**
+- Player/**
+lanes_expected:
+- module
+lanes_if_needed:
+- presentation
+- asset
+- techart
+mcp_prep:
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+  note: Cursor user-godot proxy connects only after Godot editor + plugin attach
+on_launch_word_WELD:
+  must_trigger: REAL product-factory / factory-orchestrator eat for craft-visual Prefer
+    — IMPLEMENT_SLICE / factory lanes only (module-primary; asset/techart as drops
+    if needed). Catalog feed id row_ux_world_generation_r1_d6; weld brief / ask fidelity
+    overlay MUST be slice_id alpha0_townscaper_craft_visual_r1.
+  required_path:
+  - Load this armed packet + brief alpha0_townscaper_craft_visual_r1.md
+  - Confirm FEEDSTOCK-SHAPE operator_confirmed + factory_greenlit true
+  - Confirm craft_core Prefer landed (depends_on)
+  - Raise rollout budget target_depth≥6 (d5 cell_complete under craft_core)
+  - product-factory-confirm-slice ux_world_generation dispatch_depth 6
+  - project_id genesis-mythos-master; LIVE slug genesis-mythos-alpha-20260930/genesis-mythos
+  - factory-orchestrator / stage IMPLEMENT_SLICE — module-primary; schedule asset/techart
+    drops only if needed; do not expand into DF depth
+  - Prefer authorship host law + Visual-Factory-Direction + dispatch preflight apply
+  - Quote dual-grid grammar + Hard law (preserve Full/Corner/Edge/Diagonal/InverseCorner+Empty);
+    claim_class staging
+  - Strip/hard-disable Terrain3D from craft path; do not arm feed-on-sparky
+  forbidden:
+  - Freestyle generalPurpose Code-Repos coding
+  - Ad-hoc WorldgenCraft weld outside factory lanes / IMPLEMENT_SLICE
+  - Reviving archived horizon_demo_investor as Success
+  - Terrain3D Prefer proof / Tab feed-on-sparky from craft this ticket
+  - Camera-center aim or cam yank on place
+  - Collapsing all dual masks to a single cube mesh
+  - Replacing logic-point → corner-bitmask with raw-cell-only visual authority
+  - Full biome atlas / DF-depth scope creep
+fresh_chat_instruction: 'WELD — eat armed Prefer alpha0_townscaper_craft_visual_r1
+  via factory-orchestrator / IMPLEMENT_SLICE / factory lanes only (project_id genesis-mythos-master;
+  package pkg_world_shell / ux_world_generation → feed row_ux_world_generation_r1_d6;
+  LIVE genesis-mythos-alpha-20260930/genesis-mythos; load this armed packet + brief
+  as hand-off law). FORBIDDEN: freestyle Code-Repos. Proof F5: stylized low-poly dual
+  tiles (variants still distinct); LMB/RMB under mouse; no cam yank; Terrain3D absent/hard-disabled
+  under craft. Receipt cites Visual-Factory-Direction + dual variant id proof.'
+optional_presentation_paths:
+- project.godot
+- UI/**
+- GameHud.tscn
+lanes_skip_unless_needed:
+- content
+- audio
+- presentation
+- asset
+- techart
+optional_asset_paths:
+- assets/**
+optional_techart_paths:
+- assets/_techart/**
+prefer_landed_at: '2026-10-02T03:46:00Z'
+prefer_land_receipt: factory-overnigh-module-044dde
+sp_review: pending
+prefer_authorship_pass: ok

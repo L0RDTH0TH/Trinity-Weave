@@ -1,0 +1,52 @@
+{
+  "lane_id": "module",
+  "slice_id": "alpha0_stalberg_manual_scale_r1",
+  "weld_slice_id": "alpha0_stalberg_manual_scale_r1",
+  "ask_id": "alpha0_stalberg_manual_scale",
+  "producer_run_id": "sp-tms-20261003",
+  "claim_class": "staging",
+  "prefer_authorship_pass": "ok",
+  "completed_at": "2026-10-03T18:32:16Z",
+  "live_files": [
+    "Core/WorldGen/StalbergQuadKernel.cs",
+    "Systems/DualGridCraftHost.cs",
+    "Camera/CraftPlanarCamRig.cs"
+  ],
+  "manual_limit": {
+    "seed_rings": 5,
+    "seed_verts": 91,
+    "after_quads": 322,
+    "after_verts": 353,
+    "density_lift": "operator_greenlit_2026-10-04_rings5_pull0.12",
+    "density_lift_note": "Prefer tickets historically froze hex19 rings=2; DefaultRingCount now = ProductDensityRingCount",
+    "pull_rate": 0.12,
+    "relax_iters": 90,
+    "spacing": 210.0,
+    "legacy_spacing": 1.15,
+    "mcp_diag": "relaxIters=90 pull=0.12 quads=322 verts=353 seed_rings=5 spacing=210",
+    "prior_manual_hex19": {
+      "seed_rings": 2,
+      "seed_verts": 19,
+      "craft_faces": 52,
+      "craft_verts": 65,
+      "before_quads": 328,
+      "after_quads": 50,
+      "before_verts": 359,
+      "after_verts": 63,
+      "spacing": 3.0,
+      "pull_rate": 0.08
+    },
+    "camera_retune": {
+      "height": 3850,
+      "distance": 875,
+      "reason": "rings 2→5 at spacing 210 ≈2.5× board radius; frame full hex"
+    },
+    "interpretation": "density_lift_rings_plus_large_spacing"
+  },
+  "mcp_evidence_before": "addons/godot_mcp/cache/screenshots/stalberg_manual_scale_before_r5.png",
+  "mcp_evidence_after": "addons/godot_mcp/cache/screenshots/stalberg_manual_scale_r1_spacing3.png",
+  "hex19_success": false,
+  "dual_corner_wired": true,
+  "craft_plane_authority": true,
+  "awaiting_operator_f5": true
+}

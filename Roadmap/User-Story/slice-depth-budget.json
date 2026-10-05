@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "rollout_version": 1,
+  "rows": [
+    {
+      "row_id": "ux_world_generation",
+      "target_depth": 6,
+      "current_depth": 5
+    }
+  ]
+}

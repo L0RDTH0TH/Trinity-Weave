@@ -1,0 +1,19 @@
+{
+  "producer_run_id": "sp-s6c1-manual-greenlight",
+  "slice_id": "alpha0_stalberg_dual_stage6_cell_r1",
+  "ask_id": "alpha0_stalberg_dual_stage6_cell",
+  "compose_path": "slice_producer_judgment",
+  "composed_at": "2026-10-04T04:57:09Z",
+  "factory_greenlit": true,
+  "prefer_concept_required": true,
+  "success_object": "dual_offset_cells",
+  "intent_invariant": "Player edits logic points (primal Vertices); dual cell around a logic point is the Stage-6 polygon of face centroids of faces incident to that point; dual vertices sit at main-face centres; dual edges connect those centroids across shared primal edges (cross main cells — never along main sides).",
+  "conceptual_leg_present": true,
+  "structural_only": false,
+  "harness_fallback": false,
+  "supersedes": "alpha0_stalberg_dual_face_centroid_r1",
+  "goal_image": "Ingest/Final-grid-state.jpg",
+  "bug_image": "Ingest/Screenshot_20261004_003640_YouTube.jpg",
+  "lane_roster": ["module"],
+  "judgment_notes": "Operator GREENLIGHT WELD after F5 proof cyan overlays amber. Prefer SO stays dual_offset_cells. Conceptual leg carries Stage-6 cell/edge identity — DualCell = Stage6DualCellPolygon(V); refuse FaceCornersLocal as dual edges."
+}

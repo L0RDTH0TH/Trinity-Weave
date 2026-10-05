@@ -1,0 +1,39 @@
+---
+title: Mint lock — ux_dm_campaign_creation
+project-id: genesis-mythos-master
+row_id: ux_dm_campaign_creation
+lock_state: bone_pilot_approved_pending_apply
+locked_at: 2026-07-30T04:15:08Z
+apply_after: ux_world_generation
+---
+
+# Mint lock — `ux_dm_campaign_creation`
+
+Bone-pilot **approved** Grok draft. Catalog apply deferred until `ux_world_generation` is walked/locked. Pack focal remains world gen.
+
+## What it is
+
+DM-seat authorship of a **playthrough frame** attached to an existing (or just-attached) **world**.
+
+Owns: tone, bounds, public campaign facts, cast expectations, seam for later gameplay logging.
+
+Does **not** own: persistent world, player characters, NPC authoring, full session-prep UX.
+
+## Public frame facts (PoC minimum)
+
+Always visible to the table once committed: Name, Tone, Character count, Rule set, World, Starting region (soft), Hook sketch, Background integration (structure).
+
+DM-private layers stay privileged.
+
+## Exit / handoff
+
+After commit → **world** or **`ux_dm_session_prep`**. **Not** player character creation.
+
+## Logging / timeline seam
+
+Gameplay event logs may attach to this campaign frame for later session prep / chronicle / continuity — this row does not own full logging UX.
+
+## Friction check
+
+1. Reduces DM friction: yes (clear public slice + attach-to-world + clean exits).
+2. Single plot as product default: **no** (capability contract + alternatives).

@@ -1,0 +1,179 @@
+# Armed Prefer packet — operator GREENLIGHT + LAUNCH FACTORY (ticket 1)
+# Craft-core only. Terrain3D deferred later (disk retention OK; craft path must not arm).
+# zone_ownership.module ONLY — preflight extracts all zone_ownership values as required paths.
+
+schema_version: 1
+status: disarmed_failed_altitude_metrics_only
+disarm_reason: operator_reset_tutorial_s1_occupancy__do_not_audit_as_green
+launch_word: WELD
+armed_at: '2026-10-02T02:30:00Z'
+greenlit_at: '2026-10-02T02:30:00Z'
+factory_greenlit: false
+claim_class: staging
+do_not_auto_dispatch: true
+operator_go: true
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_townscaper_craft_core
+slice_id: alpha0_townscaper_craft_core_r1
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d5
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_townscaper_craft_core_r1.md
+supersedes: alpha0_worldgen_terrain3d_feed_r3
+next_in_chain: alpha0_townscaper_craft_visual_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_craft_authorship_strip_terrain3d_from_craft_path
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    cohesive: COHESIVE-VISION-ART-DIRECTION
+    card: townscaper-click-add-world-element
+    law: craft_hot_wheels_tile_authorship_only__dual_grid_grammar__terrain3d_absent_or_hard_disabled_under_craft
+    do_not_reblend_layers: true
+    terrain3d_deferred: true
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: 'Stock GridMap (or equivalent) dual-grid craft: interaction cell commit
+      under mouse; visual/module form neighbor-derived (corner-typed dual path), not
+      raw-cell-only mesh authority. Terrain3D Prefer feed is OUT OF SCOPE this ticket
+      (deferred later).'
+    never: Camera-center aim; cam recenter on place/remove; Terrain3D host visible/mutating
+      under craft; height-paint/feed callable from craft; Tab/feed-on-sparky Terrain3D
+      handoff from craft; single GridMap cell as sole finished mesh authority with
+      no neighbor-derived path
+hard_prefer_gaps:
+- id: mouse_lmb_rmb
+  must: lmb_place_rmb_remove_under_mouse_cursor_cell_commit
+  refuse: camera_center_aim
+- id: no_cam_yank
+  must: craft_place_remove_no_camera_recenter
+  refuse: craft_cam_recenter_on_place
+- id: dual_grid_grammar
+  must: interaction_grid_cell_commit__neighbor_derived_visual_module_path
+  refuse: inspiration_shape_miss
+- id: terrain3d_hard_disabled
+  must: terrain3d_host_absent_or_hard_disabled_under_craft__no_height_paint_feed_callable
+  refuse:
+  - craft_terrain_blend
+  - terrain3d_in_scope
+  - terrain3d_leak_f5
+prior_prefer_wins_do_not_regress:
+- id: mouse_aim
+  must: place_ray_from_mouse_cursor
+  refuse: camera_center_aim
+- id: no_cam_recenter
+  must: craft_place_remove_tiles_only_no_camera_recenter
+  refuse: craft_cam_recenter_on_place
+terrain3d_posture:
+  deferred_later: true
+  files_may_remain_on_disk: true
+  craft_path_must: absent_or_hard_disabled_not_callable_not_armed
+  refuse_armed_under_craft:
+  - Terrain3DAuthority
+  - height_paint
+  - height_stamp
+  - feed_on_sparky
+  - Tab_to_Terrain3D_handoff
+host_touch_budget:
+  default_raise_to: 1200
+  prefer_trim_into: Systems/
+  never_waive: prefer_authorship_pass
+  escalate_to_operator_if_budget_blocks_prefer_proof: true
+camera:
+  craft_phase: tile_authorship_only_no_recenter_on_place_vtt_planar_ortho
+  refuse: craft_cam_recenter_on_place
+  refuse_also: camera_center_aim
+  sparky_bindings: off_this_ticket
+ask_fidelity:
+  ask_id: alpha0_townscaper_craft_core
+  done_when: 'F5: LMB places under mouse cursor, RMB removes; no cam yank; no camera-center
+    aim; dual-grid interaction grammar readable (cell commit on interaction grid;
+    module/visual path not identical to raw cell only); Terrain3D host absent or hard-disabled
+    under craft; no height-paint/feed path callable from craft phase. Armed Authority,
+    Tab/feed-on-sparky handoff, or callable stamp = fail. Disk retention of Terrain3D
+    files alone ≠ fail.'
+  forbidden_substitutes:
+  - inspiration_shape_miss
+  - craft_cam_recenter_on_place
+  - craft_terrain_blend
+  - terrain3d_in_scope
+  - terrain3d_leak_f5
+  - camera_center_aim
+  - verify_mcp_only
+  - fidelity_miss
+  - engine_pattern_miss
+  claim_class: staging
+operator_attest: F5_only
+ban: verify_mcp_only
+zone_ownership:
+  module:
+  - scenes/**
+  - Systems/**
+  - Core/**
+  - Camera/**
+  - Player/**
+armed_required_paths:
+- scenes/**
+- Systems/**
+- Core/**
+- Camera/**
+- Player/**
+lanes_expected:
+- module
+lanes_if_needed:
+- presentation
+mcp_prep:
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+  note: Cursor user-godot proxy connects only after Godot editor + plugin attach
+on_launch_word_WELD:
+  must_trigger: REAL product-factory / factory-orchestrator eat for craft-core Prefer
+    — IMPLEMENT_SLICE / factory lanes only (module-primary). Catalog feed id row_ux_world_generation_r1_d5;
+    weld brief / ask fidelity overlay MUST be slice_id alpha0_townscaper_craft_core_r1.
+  required_path:
+  - Load this armed packet + brief alpha0_townscaper_craft_core_r1.md
+  - Confirm FEEDSTOCK-SHAPE operator_confirmed + factory_greenlit true
+  - Raise rollout budget target_depth≥5 (d4 cell_complete under scrapped r3)
+  - product-factory-confirm-slice ux_world_generation dispatch_depth 5
+  - project_id genesis-mythos-master; LIVE slug genesis-mythos-alpha-20260930/genesis-mythos
+  - factory-orchestrator / stage IMPLEMENT_SLICE — module-only unless presentation
+    required
+  - Prefer authorship host law + dispatch preflight apply
+  - Quote dual-grid grammar + Hard law; claim_class staging
+  - Strip/hard-disable Terrain3D from craft path; do not arm feed-on-sparky
+  forbidden:
+  - Freestyle generalPurpose Code-Repos coding
+  - Ad-hoc WorldgenCraft weld outside factory lanes / IMPLEMENT_SLICE
+  - Reviving archived horizon_demo_investor as Success
+  - Terrain3D Prefer proof / Tab feed-on-sparky from craft this ticket
+  - Camera-center aim or cam yank on place
+  - Raw-cell-only mesh with no neighbor-derived dual path
+fresh_chat_instruction: 'WELD — eat armed Prefer alpha0_townscaper_craft_core_r1 via
+  factory-orchestrator / IMPLEMENT_SLICE / factory lanes only (project_id genesis-mythos-master;
+  package pkg_world_shell / ux_world_generation → feed row_ux_world_generation_r1_d5;
+  LIVE genesis-mythos-alpha-20260930/genesis-mythos; load this armed packet + brief
+  as hand-off law). FORBIDDEN: freestyle Code-Repos. Proof F5: LMB/RMB under mouse;
+  no cam yank; dual-grid grammar; Terrain3D absent/hard-disabled under craft.'
+optional_presentation_paths:
+- project.godot
+- UI/**
+- GameHud.tscn
+lanes_skip_unless_needed:
+- asset
+- techart
+- content
+- audio
+- presentation
+
+prefer_landed_at: '2026-10-02T03:05:00Z'
+sp_review: pass
+prefer_authorship_pass: ok

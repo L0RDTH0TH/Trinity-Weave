@@ -1,0 +1,154 @@
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-03T17:59:34Z'
+greenlit_at: '2026-10-03T17:59:34Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_quad_kernel
+slice_id: alpha0_stalberg_craft_plane_authority_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 1f
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_craft_plane_authority_r1.md
+prior_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: topology_base_r1_healthy_organic_board__rebind_craft_authority
+next_in_chain: alpha0_stalberg_dual_corner_r1
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: rebind_craft_plane_authority_onto_organic_quad_faces
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    algorithm_cite: Factory-DRB/references/oskar-procedure/02-grid-algorithm.md
+    prior_cite: Factory-DRB/slice-briefs/alpha0_stalberg_topology_base_r1.receipt.md
+    craft: hot_wheels_craft_plane_authority_on_organic_quads
+    terrain3d: out_of_scope_this_step
+    structural_success: OrganicQuadMesh face cells own ray snap paint on a craft lattice
+      graph with vertices edges and faces; kernel intact; Hex19 not Success
+    refuse:
+    - hex19_pick_as_craft_authority
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - skip_dissolve_relax
+    - non_unique_vertices
+    - missing_square_area_force
+    - naive_laplacian_only
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    success_types_preferred:
+    - Core/WorldGen/OrganicQuadMesh.cs
+    - Systems/DualGridCraftHost.cs
+    - Core/WorldGen/ICraftCellAuthority.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Core/WorldGen/Hex19DualOffsetLattice.cs
+    strip_from_success:
+    - hex19_occupancy_tutorial_success
+    - dual_corner_paint
+    - tile_families
+    - connector_modules
+    - craft_visual_art_bind
+    - terrain3d_feed
+matrix_quotes:
+  craft_plane_authority:
+    prefer: OrganicQuadMesh faces own ray→snap→paint / ICraftCellAuthority; kernel
+      board readable; Prefer edges+faces; regenerable; graybox OK; Hex19 not Success.
+    never: hex19_pick_as_craft_authority; hex_scaffold_as_final_mesh; dual_corner
+      paint / tiles / art / Terrain3D / cam yank this step; points_as_grid
+hard_prefer_gaps:
+- id: organic_pick_paint
+  must: TryPickOrganicFace_or_equivalent_and_SetCellFill_on_organic_face_keys
+  refuse:
+  - hex19_pick_as_craft_authority
+  - hex_scaffold_as_final_mesh
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: kernel_preserved
+  must: stalberg_pipeline_intact_readable_board
+  refuse:
+  - skip_dissolve_relax
+  - non_unique_vertices
+  - noodle_edge_clutter
+- id: scope_authority_only
+  must: no_dual_corner_tiles_art_terrain3d_success
+  refuse:
+  - bundle_tutorial_steps
+  - terrain3d_in_scope
+  - dual_overlay_as_grid_kernel
+done_when: 'F5/MCP: picking/painting uses OrganicQuadMesh craft authority (not Hex19
+  Success); kernel board readable; Prefer edges+faces; regenerable; graybox OK; no
+  dual/tiles/art/Terrain3D Success.'
+refuse_codes:
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- skip_dissolve_relax
+- non_unique_vertices
+- missing_square_area_force
+- naive_laplacian_only
+- free_boundary_fold
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- prop_scatter_as_composition
+- bundle_tutorial_steps
+- terrain3d_in_scope
+- craft_terrain_blend
+- terrain3d_leak_f5
+- craft_cam_recenter_on_place
+- verify_mcp_only
+- inspiration_shape_miss
+- fidelity_miss
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_craft_plane_authority_r1
+  require_implicit_bind: true
+  steps:
+  - Load this armed packet + topology_base receipt + Grid-Topology-Host-Law
+  - Emit / verify implicit-intent-bind (structural_success = organic_quad_faces_own_ray_snap_paint__kernel_intact__edges_and_faces)
+  - Rebind ray→snap→paint / ICraftCellAuthority onto OrganicQuadMesh faces; keep kernel
+    intact
+  - Do NOT claim dual_corner paint, tiles, art, Terrain3D, or Hex19 Success
+  - Prefer pass + MCP screenshot evidence; claim_class staging until operator F5
+  - Do NOT Curator push
+fresh_chat_instruction: 'Craft-plane authority greenlit. Prior topology_base_r1. Force-compose
+  or in-session weld: OrganicQuadMesh faces own pick/paint; Hex19 not Success; Prefer
+  edges+faces; then dual_corner_r1 only if this Prefer+staging succeeds. No Curator.'

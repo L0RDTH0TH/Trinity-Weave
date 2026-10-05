@@ -1,0 +1,36 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-31T03:53:03Z'
+lock_state: applied
+bone_pilot_edit: DM WorldCam is DM-seat default; depends_on += collaborative_table_agency;
+  liminal first-class
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Hard-restore envelopes; player FP default; DM WorldCam default; liminal first-class.
+row:
+  id: ux_camera_control_envelopes
+  dimension: player_rail
+  label: Perspective and control envelopes can change and cleanly return
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- players get free third-person orbit as default
+- DM tools exist only as debug infrastructure
+- envelope exits leave soft residual control or wrong perspective
+- camera modes can become permanent without a restore path
+- players may use WorldCam or MapCam as free exploration seats
+alternatives_not_banned:
+- Heavy vs light transition interpolation (comfort) as long as final state is hard-restored
+- Sparse vs frequent override use
+- DM who rarely leaves WorldCam vs frequent MapCam / Sensorium / pilot use
+- Strict rules-only overrides vs session-policy additions (absent proxy, custom visions)
+- Minimal vs rich liminal/unconscious or dominate-victim presentation
+- Thin vs fuller dominate pilot/victim in early builds

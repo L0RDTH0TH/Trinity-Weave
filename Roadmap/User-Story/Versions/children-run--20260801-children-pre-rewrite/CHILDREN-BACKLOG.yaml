@@ -1,0 +1,1485 @@
+schema_version: 1
+project_id: genesis-mythos-master
+note: Pre-rewrite child rows with feedstock residue in summaries
+archived_from: MINT-BACKLOG live children before rewrite stage
+items:
+- id: ux_absent_proxy
+  label: Absent-player proxy
+  dimension: player_rail
+  ux_axis: agency
+  summary: "Delegate pilots an absent PC with explicit handoff when the owner returns.\
+    \ Feedstock: \u2026andidates - label: Soft-power party seizure summary: A living\
+    \ companion removed by law/magic, not HP. - label: Rescue as social contract summary:\
+    \ The table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy\
+    \ / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy Pillars:\
+    \ exploration: (infer from mode) | combat: mentioned in feedstock | roleplay:\
+    \ (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: absent_proxy
+  status: pending
+  catalog_face: inhabit
+  experience_mode: absent_proxy
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_agency_handoff_enter_exit
+  label: Agency enter / exit handoff feel
+  dimension: player_rail
+  ux_axis: agency
+  summary: "Shared choreography when control or perspective transfers and cleanly\
+    \ returns. Feedstock: \u2026ft-power party seizure summary: A living companion\
+    \ removed by law/magic, not HP. - label: Rescue as social contract summary: The\
+    \ table re-forms around getting them back. ## maps_to_taxonomy - absent_proxy\
+    \ / agency_handoff_enter_exit - dm_workbench_lore_gui / wa_faction_hierarchy"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P12-institutional-seizure.md
+  ux_family: agency_handoff_enter_exit
+  status: pending
+  catalog_face: inhabit
+  experience_mode: agency_handoff_enter_exit
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_baseline_fp
+  label: Baseline first-person embodiment
+  dimension: player_rail
+  ux_axis: agency
+  summary: "Default embodied play \u2014 what the human sees and touches in this pillar.\
+    \ Feedstock: # Genesis Mythos Master Goal ## One-line Build an open-source, monetizable,\
+    \ aggressively modular first-person 3D VTT generator that procedurally creates\
+    \ living, collaborative open worlds from shared DM and player intents \u2014 mandatory\
+    \ in-tool session 0, visible world continuity, player-lite legacies and chronicle\
+    \ \u2014 players in fir\u2026 Pillars: exploration: mentioned in feedstock | combat:\
+    \ (infer from mode) | roleplay: (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_embodiment
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_baseline_fp_controls
+  label: Baseline FP controls
+  dimension: player_rail
+  ux_axis: agency
+  summary: "How move, look, and intent issuance feel and where control surfaces sit\
+    \ relative to first-person view. Feedstock: # Genesis Mythos Master Goal ## One-line\
+    \ Build an open-source, monetizable, aggressively modular first-person 3D VTT\
+    \ generator that procedurally creates living, collaborative open worlds from shared\
+    \ DM and player intents \u2014 mandatory in-tool session 0, visible world continuity,\
+    \ player-lite legacies and chronicle \u2014 players in fir\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: baseline_fp_controls
+  status: pending
+  catalog_face: inhabit
+  experience_mode: baseline_fp_controls
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_class_chrome_discovery
+  label: Class / identity chrome discovery
+  dimension: ui_surface
+  ux_axis: class_chrome
+  summary: "How class or identity polish is noticed and used without leaving the embodied\
+    \ moment. Feedstock: \u2026Companions/world notice growth without a banner-only\
+    \ UI. - label: New toy in the next fight summary: Progression that changes the\
+    \ next combat verb, felt immediately. - label: Chrome that grew with you summary:\
+    \ Class identity polish that tracks ordinary advancement. ## maps_to_taxonomy\
+    \ - class_chrome_discovery / combat_cast_feedback - session0_bootstrap / tone_profile_surface\
+    \ - baseline_fp"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-ordinary-progression-rhythm.md
+  ux_family: class_chrome_discovery
+  status: pending
+  catalog_face: inhabit
+  experience_mode: class_chrome_discovery
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_backstory_legacy_integration
+  walk_tier: coverage
+  does_not_mandate:
+  - every backstory forces a mid-game reunion ordeal
+  - legacies are DM-only lore with no player surface
+  - system auto-weaves hooks without DM accept
+  - one identity-pact skin is the product default for legacies
+  - players may auto-write world canon from backstory without DM gate
+  mint_lane: cursor_draft
+  parent_id: ux_backstory_legacy_integration
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_divination_override
+  label: Divination / remote-sense override
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: "Temporary rules-bound departure from baseline FP for remote sensing (scry,\
+    \ clairvoyance, find path, and kin). Feedstock: \u2026n for players and commanding\
+    \ mastery for the DM. - **Players default to first-person** \u2014 immediate,\
+    \ personal, experiential. No casual third-person orbit or free tactical camera\
+    \ for players. - **Perspective overrides** (Scry/Clairvoyance, divination, astral\
+    \ travel, DM-granted visions, unconscious/liminal states, etc.) are **explicit,\
+    \ temporary, rules-bound** departures from baseline FP \u2014 not a permanent\
+    \ camera mode. Overrides use contract-d\u2026 Pillars: exploration: mentioned\
+    \ in feedstock | combat: (infer from mode) | roleplay: (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: divination_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: divination_override
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dm_mapcam
+  label: DM MapCam
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: "Map-fixed orthographic DM rail \u2014 tokens, measurements, fog, LOS adjudication\
+    \ feel. Feedstock: \u2026tool session 0, visible world continuity, player-lite\
+    \ legacies and chronicle \u2014 players in first-person by default with rules-driven\
+    \ perspective and agency envelopes, DMs on a dedicated rail (WorldCam, map-fixed\
+    \ Tabletop MapCam, read-only Sensorium Attach), player lore woven into systemic\
+    \ depth, major structural changes via intentional re-generation, every layer built\
+    \ for community remixing. ## Vision **Perspective split** delivers immersion\u2026\
+    \ Pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay:\
+    \ (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_mapcam
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_dm_session_prep
+  walk_tier: coverage
+  does_not_mandate:
+  - prep must be a separate offline app
+  - players never see any prep residue
+  - all prep material is public by default
+  - prep is a back door around DM gate/retcon on world changes
+  - session prep creates or replaces the world or campaign frame
+  - visibility is only a single whole-table tag with no per-player option
+  - session open is a separate series product noun from prep
+  - one captivity/tavern/jailbreak open is the product default start
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dm_pilot
+  label: DM pilot (agency, not Sensorium)
+  dimension: dm_rail
+  ux_axis: agency
+  summary: "When session/rules put the DM in control of an entity via pilot envelope.\
+    \ Feedstock: \u2026ey see?\u201D \u2014 **no intent/control transfer** on the\
+    \ DM rail. Compare multiple viewpoints for ruling. Operator debug attach uses\
+    \ the same read-only contract. Always **exit back** to prior DM mode (WorldCam\
+    \ or MapCam). - **DM pilot** \u2014 when rules or session policy puts the DM in\
+    \ control of an entity (e.g. NPC dominate, absent PC), that uses the **agency\
+    \ delegation** system (pilot envelope), not Sensorium Attach. DM may pilot with\
+    \ FP from that body\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_pilot
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_early_game
+  walk_tier: coverage
+  does_not_mandate:
+  - first session must teach stolen agency
+  - early game is combat-only onboarding
+  - progression requires a separate series parent from stage bands
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dm_sensorium
+  label: DM Sensorium Attach
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: "Read-only sight bind to an entity \u2014 no intent transfer; adjudicate\
+    \ what they see. Feedstock: \u2026re that lands because the player assembled it.\
+    \ - label: Guide who was the problem summary: Narrator/ally trust collapse without\
+    \ removing player agency. ## maps_to_taxonomy - wa_npc_secrets / canon_pipeline_feel\
+    \ - dm_sensorium / divination_override Pillars: exploration: (infer from mode)\
+    \ | combat: (infer from mode) | roleplay: (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_sensorium
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  notes: lensed_by:ux_dm_session_prep
+  walk_tier: coverage
+  does_not_mandate:
+  - prep must be a separate offline app
+  - players never see any prep residue
+  - all prep material is public by default
+  - prep is a back door around DM gate/retcon on world changes
+  - session prep creates or replaces the world or campaign frame
+  - visibility is only a single whole-table tag with no per-player option
+  - session open is a separate series product noun from prep
+  - one captivity/tavern/jailbreak open is the product default start
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dm_worldcam
+  label: DM WorldCam
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: "Free-flight DM observation rail \u2014 how mastery feels in this pillar.\
+    \ Feedstock: \u2026texture summary: How inhabit/table feel when the map itself\
+    \ is the enemy. - label: Triage under asymmetric power summary: Choosing who to\
+    \ carry when you cannot save the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam\
+    \ - absent_proxy / agency_handoff_enter_exit - quest_pressure_surface / sim_weather_pulse\
+    \ Pillars: exploration: (infer from mode) | combat: mentioned in feedstock | roleplay:\
+    \ (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: dm_observe_rails
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dm_worldcam
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_dm_session_prep
+  walk_tier: coverage
+  does_not_mandate:
+  - prep must be a separate offline app
+  - players never see any prep residue
+  - all prep material is public by default
+  - prep is a back door around DM gate/retcon on world changes
+  - session prep creates or replaces the world or campaign frame
+  - visibility is only a single whole-table tag with no per-player option
+  - session open is a separate series product noun from prep
+  - one captivity/tavern/jailbreak open is the product default start
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dominate_pilot
+  label: Dominate / pilot (controller)
+  dimension: player_rail
+  ux_axis: agency
+  summary: "Dominator pilots the target \u2014 FP and control from the dominated body.\
+    \ Feedstock: # Felt moment (pattern language) Final hours ask **who owns the ending**:\
+    \ sacrifice, transform, free, dominate. Companions react; combat may resolve the\
+    \ social choice or follow it. Party trust under cosmic stakes. Digital D&D\u2019\
+    s version of \u201Cthe table decides what kind of story this was.\u201D ## Spatial\
+    \ / temporal / control Climax a\u2026 Pillars: exploration: (infer from mode)\
+    \ | combat: mentioned in feedstock | roleplay: (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: dominate_pilot
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_pilot
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dominate_victim
+  label: Dominate victim / passenger overlay
+  dimension: player_rail
+  ux_axis: agency
+  summary: "Victim presentation during dominate \u2014 passenger FP, locked input,\
+    \ liminal chrome. Feedstock: \u2026where companions and combat hang on the choice.\
+    \ - label: Party trust under ascension pressure summary: Social contract tested\
+    \ when power offers an exit from humanity. ## maps_to_taxonomy - dominate_pilot\
+    \ / dominate_victim - planar_travel_override - canon_pipeline_feel Pillars: exploration:\
+    \ (infer from mode) | combat: mentioned in feedstock | roleplay: (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P10-endgame-authorship-fork.md
+  ux_family: victim_overlay
+  status: pending
+  catalog_face: inhabit
+  experience_mode: dominate_victim
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_liminal_unconscious
+  label: Liminal / unconscious presentation
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: "Status-bound liminal or unconscious presentation and return to baseline.\
+    \ Feedstock: \u2026un candidates - label: Cure that harms summary: Trusted procedure\
+    \ as betrayal of body and belief. - label: Faith shatter at the machine summary:\
+    \ Identity progression via institutional doubt. ## maps_to_taxonomy - liminal_unconscious\
+    \ / combat_cast_feedback - class_chrome_discovery - session0_bootstrap"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P04-institutional-faith-betrayal.md
+  ux_family: liminal_states
+  status: pending
+  catalog_face: inhabit
+  experience_mode: liminal_unconscious
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_planar_travel_override
+  label: Planar / gate travel override
+  dimension: ui_surface
+  ux_axis: perspective_overrides
+  summary: "How planar travel or gate-like transitions feel as temporary perspective/agency\
+    \ departures. Feedstock: \u2026(victim)** \u2014 dominated PC: presentation policy\
+    \ is spell-bound (e.g. passenger FP with locked input, liminal UI); exact default\
+    \ locked at Phase 5 spell metadata. - **Absent-player proxy** \u2014 session policy\
+    \ allows a delegate (another player or DM) to **pilot** an absent PC with explicit\
+    \ handoff when the owner returns. - **Enter/exit** \u2014 every delegation declares\
+    \ controller, victim presentation, duration, and clean return to `agency: self`\u2026\
+    \ Pillars: exploration: mentioned in feedstock | combat: (infer from mode) | roleplay:\
+    \ (infer from mode)."
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: planar_travel_overrides
+  status: pending
+  catalog_face: inhabit
+  experience_mode: planar_travel_override
+  mode_tier: critical_matrix
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_camera_control_envelopes
+  walk_tier: coverage
+  does_not_mandate:
+  - players get free third-person orbit as default
+  - DM tools exist only as debug infrastructure
+  - envelope exits leave soft residual control or wrong perspective
+  - camera modes can become permanent without a restore path
+  - players may use WorldCam or MapCam as free exploration seats
+  mint_lane: cursor_draft
+  parent_id: ux_camera_control_envelopes
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_combat_cast_feedback
+  label: Combat / cast sensory feedback
+  dimension: ui_surface
+  ux_axis: combat_cast_feedback
+  summary: "Cast and hit sensory response the player notices \u2014 not damage formulas.\
+    \ Feedstock: # Felt moment (pattern language) Phenomenology is not enough until\
+    \ it names **where the body meets the product**. For every major feel (camp talk,\
+    \ flee authorship, moral fork, cast feedback), the catalog must force later pseudo-code\
+    \ to answer: - **Screen region** \u2014 corner chrome, center stage, diegetic\
+    \ world, modal, or off-screen audio - **Persistence** \u2014 always-on identity\
+    \ chrome vs ephemeral prompt vs c\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: combat_cast_feedback
+  status: pending
+  catalog_face: inhabit
+  experience_mode: combat_cast_feedback
+  mode_tier: multi_pillar
+  dnd_pillar: combat
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_combat_play_surface
+  walk_tier: coverage
+  does_not_mandate:
+  - flee is the only correct authored end
+  - combat always resolves to XP loot chrome
+  - combat is a single win/lose elimination pipeline
+  - DM only adjudicates and never inhabits creature roles
+  - player and DM share identical combat control envelopes
+  mint_lane: cursor_draft
+  parent_id: ux_combat_play_surface
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_chronicle_buckets
+  label: Chronicle data buckets
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Keep world ripples, session chronicle, and personal archive distinct in\
+    \ UX. Feedstock: \u2026abel: Side-deal mischief beside sincere pain summary: Continuous\
+    \ fiction holding comedy theft and family grief in one session. ## maps_to_taxonomy\
+    \ - session0_bootstrap / tone_profile_surface - player_lite_lore_gui / chronicle_buckets\
+    \ - agency_handoff_enter_exit"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x60-social-identity-texture.md
+  ux_family: chronicle_buckets
+  status: pending
+  catalog_face: table
+  experience_mode: chronicle_buckets
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_quiet_between_pillars
+  walk_tier: coverage
+  does_not_mandate:
+  - downtime equals BG3 campsite companion UI
+  - quiet is only a long-rest resource refill
+  - quiet is a loading state between pillars
+  - this row owns between-adventures weeks/months calendar downtime
+  - system must force the next combat social or explore beat during quiet
+  mint_lane: cursor_draft
+  parent_id: ux_quiet_between_pillars
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_dm_workbench_lore_gui
+  label: DM workbench lore GUI
+  dimension: dm_rail
+  ux_axis: dm_player_rails
+  summary: "Canon graph, accept/revise intents, faction off-screen, quest-hook integration\
+    \ UI. Feedstock: \u2026since you left\u2026\u201D) \xB7 **Last session** recap\
+    \ \xB7 **My chronicle** (personal notes by session, search) \xB7 optional export/mirror\
+    \ for note-taking players. **Not** timeline editing, contradiction resolution,\
+    \ or sim admin. | | **DM workbench** | Full canon graph, faction/tribe off-screen\
+    \ activity, accept/revise intents, quest integration from active hooks. | Keep\
+    \ three **data buckets** distinct in UX: **world ripples** (system/DM canon) \xB7\
+    \ **session chronic\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: dm_workbench_lore_gui
+  status: pending
+  catalog_face: table
+  experience_mode: dm_workbench_lore_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_dm_session_prep
+  walk_tier: coverage
+  does_not_mandate:
+  - prep must be a separate offline app
+  - players never see any prep residue
+  - all prep material is public by default
+  - prep is a back door around DM gate/retcon on world changes
+  - session prep creates or replaces the world or campaign frame
+  - visibility is only a single whole-table tag with no per-player option
+  - session open is a separate series product noun from prep
+  - one captivity/tavern/jailbreak open is the product default start
+  mint_lane: cursor_draft
+  parent_id: ux_dm_session_prep
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_player_lite_lore_gui
+  label: Player-lite lore GUI
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Intent inbox, Legacies, last-session recap, personal chronicle \u2014\
+    \ not sim admin. Feedstock: \u2026rce, monetizable, aggressively modular first-person\
+    \ 3D VTT generator that procedurally creates living, collaborative open worlds\
+    \ from shared DM and player intents \u2014 mandatory in-tool session 0, visible\
+    \ world continuity, player-lite legacies and chronicle \u2014 players in first-person\
+    \ by default with rules-driven perspective and agency envelopes, DMs on a dedicated\
+    \ rail (WorldCam, map-fixed Tabletop MapCam, read-only Sensorium Attach), player\
+    \ lore wove\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: player_lite_lore_gui
+  status: pending
+  catalog_face: table
+  experience_mode: player_lite_lore_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_quiet_between_pillars
+  walk_tier: coverage
+  does_not_mandate:
+  - downtime equals BG3 campsite companion UI
+  - quiet is only a long-rest resource refill
+  - quiet is a loading state between pillars
+  - this row owns between-adventures weeks/months calendar downtime
+  - system must force the next combat social or explore beat during quiet
+  mint_lane: cursor_draft
+  parent_id: ux_quiet_between_pillars
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_session0_bootstrap
+  label: Session 0 bootstrap feel
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: "In-tool session 0 \u2014 bounds, tone pick, intent propose, table accept/revise.\
+    \ Feedstock: \u2026Goal ## One-line Build an open-source, monetizable, aggressively\
+    \ modular first-person 3D VTT generator that procedurally creates living, collaborative\
+    \ open worlds from shared DM and player intents \u2014 mandatory in-tool session\
+    \ 0, visible world continuity, player-lite legacies and chronicle \u2014 players\
+    \ in first-person by default with rules-driven perspective and agency envelopes,\
+    \ DMs on a dedicated rail (WorldCam, map-fixed Tabletop MapCam, read-o\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: session0_bootstrap
+  status: pending
+  catalog_face: table
+  experience_mode: session0_bootstrap
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_dm_campaign_creation
+  walk_tier: coverage
+  does_not_mandate:
+  - every campaign begins in captivity
+  - offline Microscope play is required before Session 0
+  - starting a campaign must regenerate the whole world
+  - campaign creation's default next step is player character creation
+  - DM is the primary author of player characters after frame bootstrap
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_tone_profile_surface
+  label: Campaign tone profile surface
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: "How the chosen tone biases chrome, previews, and felt world without siloed\
+    \ presets. Feedstock: \u2026ts \u2014 so quests integrate with the world graph,\
+    \ not generic fetch loops. **Collaborative canon & session bootstrap.** - **Session\
+    \ 0 (required, in-tool):** world bootstrap before campaign play \u2014 table bounds,\
+    \ **campaign tone profile** (see below), player intents, DM/table accept or revise\
+    \ canon. Collaborative-history patterns (shared eras, legacies, non-linear threads)\
+    \ are **Microscope-informed** \u2014 see [[Ingest/Microscope PDF]] \u2014 **not**\
+    \ dependent\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: tone_profile_surface
+  status: pending
+  catalog_face: table
+  experience_mode: tone_profile_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_dm_campaign_creation
+  walk_tier: coverage
+  does_not_mandate:
+  - every campaign begins in captivity
+  - offline Microscope play is required before Session 0
+  - starting a campaign must regenerate the whole world
+  - campaign creation's default next step is player character creation
+  - DM is the primary author of player characters after frame bootstrap
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_canon_pipeline_feel
+  label: Canon pipeline feel
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "proposed \u2192 accepted \u2192 hooked \u2192 sim-active as human-facing\
+    \ states. Feedstock: \u2026, legacies, non-linear threads) are **Microscope-informed**\
+    \ \u2014 see [[Ingest/Microscope PDF]] \u2014 **not** dependent on playing a separate\
+    \ RPG. Optional offline history may **import** as a canon bundle (power-user path).\
+    \ - **Canon pipeline:** `proposed \u2192 accepted \u2192 hooked \u2192 sim-active`\
+    \ \u2014 intents become facts, then systemic hooks, then visible ripples and quest\
+    \ pressure. **Campaign tone profiles** \u2014 one session-level vibe that biases\
+    \ every subsystem (Pale\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: canon_pipeline_feel
+  status: pending
+  catalog_face: living_world
+  experience_mode: canon_pipeline_feel
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_economy_resources
+  label: Resource distribution visibility
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "What player/DM can see vs must discover about resources \u2014 not spreadsheet\
+    \ admin by default. Feedstock: \u2026ial/explore. - label: Linger after the fight\
+    \ summary: Authored post-combat social/exploration residue before the next hook.\
+    \ - label: Rest as presence, not only refill summary: Long rest as camp identity\
+    \ layer, not a resource button alone. ## maps_to_taxonomy - session_onboarding\
+    \ / application_shell - player_lite_lore_gui / chronicle_buckets - sim_weather_pulse"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-quiet-between-pillars.md
+  ux_family: economy_resources
+  status: pending
+  catalog_face: living_world
+  experience_mode: economy_resources
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: mentioned in feedstock
+    | roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_economy_trade
+  label: Trade routes / market pressure
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Trade and market pressure as world-continuity surfaces. Feedstock: # Felt\
+    \ moment (pattern language) The party suspects a friend is double-dealing. They\
+    \ **choose to look** (familiar spy, eavesdrop) and catch a disguised meeting.\
+    \ Truth lands: the ally traded sacred secrets for research ambition, then grew\
+    \ to care for the party against the original plan. The table must decide whether\
+    \ to destroy, use, or rehabilitate someone who lied. Players feel clever for connecting\
+    \ threa\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: economy_trade
+  status: pending
+  catalog_face: living_world
+  experience_mode: economy_trade
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_quest_pressure_surface
+  label: Quest pressure from canon
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How hooks appear in play and on the workbench \u2014 not fetch-only tables.\
+    \ Feedstock: \u2026e RPG. Optional offline history may **import** as a canon bundle\
+    \ (power-user path). - **Canon pipeline:** `proposed \u2192 accepted \u2192 hooked\
+    \ \u2192 sim-active` \u2014 intents become facts, then systemic hooks, then visible\
+    \ ripples and quest pressure. **Campaign tone profiles** \u2014 one session-level\
+    \ vibe that biases every subsystem (Palette for *how* the world feels, not plot).\
+    \ Core set (**four only for now**; optional tags/modifiers deferred): | Profile\
+    \ | Vibe (re\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: quest_pressure_surface
+  status: pending
+  catalog_face: living_world
+  experience_mode: quest_pressure_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_faction_goals
+  label: Faction goals / agenda surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Faction goals and pressure as felt by player and DM. Feedstock: # Felt\
+    \ moment (pattern language) The party suspects a friend is double-dealing. They\
+    \ **choose to look** (familiar spy, eavesdrop) and catch a disguised meeting.\
+    \ Truth lands: the ally traded sacred secrets for research ambition, then grew\
+    \ to care for the party against the original plan. The table must decide whether\
+    \ to destroy, use, or rehabilitate someone who lied. Players feel clever for connecting\
+    \ threads \u2014 then responsible for the moral af\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C2-2x97-information-scent-social-agency.md
+  ux_family: wa_faction_goals
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_goals
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_faction_hierarchy
+  label: Faction hierarchy surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Faction structure and ranks as browsable/playable continuity. Feedstock:\
+    \ # Felt moment (pattern language) Early in a digital D&D-like game, two factions\
+    \ ask for your blade. Choosing a side changes **who you fight**, who trusts you\
+    \ at camp, and which story threads stay open. The fork is not a dialogue checkbox\
+    \ only \u2014 the next combat encounter *is* the moral residue. Con\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_faction_hierarchy
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_hierarchy
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_faction_offscreen
+  label: Off-screen faction activity
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Since-you-left deltas and off-screen faction pulse as human-facing continuity.\
+    \ Feedstock: \u2026product**. For every major feel (camp talk, flee authorship,\
+    \ moral fork, cast feedback), the catalog must force later pseudo-code to answer:\
+    \ - **Screen region** \u2014 corner chrome, center stage, diegetic world, modal,\
+    \ or off-screen audio - **Persistence** \u2014 always-on identity chrome vs ephemeral\
+    \ prompt vs camp-only surface - **Input verbs** \u2014 look, approach, interrupt,\
+    \ soft-exit, commit, flee \u2014 not abstract \u201Cinteract\u201D - **Spatial\
+    \ feedback anchor**\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/WB-control-surface-mapping.md
+  ux_family: wa_faction_offscreen
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_offscreen
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_faction_reputation
+  label: Reputation standing surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Reputation and consequence as surfaced to player vs DM. Feedstock: \u2026\
+    giance rewrites the combat cast and camp trust. - label: Incomplete information\
+    \ before blood summary: Deciding with partial truth so regret and authorship coexist.\
+    \ ## maps_to_taxonomy - wa_faction_goals / wa_faction_reputation - baseline_fp\
+    \ / quest_pressure_surface"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_faction_reputation
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_reputation
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_lore_articles
+  label: Lore codex / articles
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "World lore articles as readable continuity distinct from personal chronicle.\
+    \ Feedstock: # Felt moment (pattern language) Mid/late game, the player connects\
+    \ breadcrumbs and learns who the **Chosen / conspiracy** really are \u2014 or\
+    \ that a trusted voice was shaping them. Lore dump feels earned because the player\
+    \ walked the map. Trust in narrator, dream-guide, or ally rewires. Digital cousin\
+    \ to table information scent. ## Spatial / temporal / control Colony / sanctum\
+    \ / dream space. Soft fra\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P07-conspiracy-rewires-trust.md
+  ux_family: wa_lore_articles
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_lore_articles
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_npc_agenda
+  label: NPC agenda / schedule visibility
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Agenda and schedule as human-facing continuity \u2014 not raw sim tables.\
+    \ Feedstock: \u2026DM canon) \xB7 **session chronicle** (table recap) \xB7 **personal\
+    \ archive** (player-owned notes \u2014 may disagree with canon). **The world pulses\
+    \ with life, customization, and balanced agency.** - Layered simulation: weather,\
+    \ NPC agendas, ambient surprises, persistent scars from play \u2014 **weighted\
+    \ by campaign tone profile**. - **DM overwrites:** in-session tweaks (tokens,\
+    \ weather, events, whispers) vs. deliberate re-generation for terrain reshaping\
+    \ or b\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_npc_agenda
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_agenda
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_npc_relations
+  label: NPC relationship web
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How relationships among NPCs/factions are browsed and felt. Feedstock:\
+    \ \u2026summary: Class and backstory felt as conversation, not menu. - label:\
+    \ Quiet between pillars summary: Designed downtime that keeps continuous fiction\
+    \ alive. - label: Who to sit with tonight summary: Soft agency over relationship\
+    \ temperature between quests. ## maps_to_taxonomy - session0_bootstrap / tone_profile_surface\
+    \ - class_chrome_discovery - application_shell / primary_navigation"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: wa_npc_relations
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_relations
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_npc_secrets
+  label: NPC secrets / knowledge gates
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How hidden knowledge is gated and revealed without spoiling authoring\
+    \ vs play. Feedstock: # Felt moment (pattern language) A dungeon is structured\
+    \ as **tests** for a companion\u2019s faith or order. Completing it can force\
+    \ a loyalty crisis: spare or sacrifice a person/secret the companion swore to.\
+    \ Exploration authorship (puzzles, paths) ends in a moral fork the party feels\
+    \ at camp afterward. Consequence lands mid-game, not at credits. ## Spatial /\
+    \ temporal / control Authored trial spaces\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: wa_npc_secrets
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_secrets
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_npc_sheet
+  label: NPC identity sheet feel
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "World Anvil\u2013depth NPC identity surface \u2014 who they are at a glance\
+    \ in play/authoring. Feedstock: \u2026hat ends in loyalty summary: Authored exploration\
+    \ whose boss is a relationship decision. - label: Spare-or-swear companion crisis\
+    \ summary: Party trust rewritten by one mid-campaign choice. ## maps_to_taxonomy\
+    \ - wa_npc_secrets / wa_npc_relations - canon_pipeline_feel - planar_travel_override\
+    \ (threshold metaphors)"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P06-loyalty-trial-authored-space.md
+  ux_family: wa_npc_sheet
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_sheet
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_timelines
+  label: Timeline / era threads
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Eras and non-linear history threads as Microscope-informed continuity\
+    \ UX. Feedstock: \u2026eed) \xB7 **My Legacies** (canon ripples \u2014 tribe status,\
+    \ threads, \u201Csince you left\u2026\u201D) \xB7 **Last session** recap \xB7\
+    \ **My chronicle** (personal notes by session, search) \xB7 optional export/mirror\
+    \ for note-taking players. **Not** timeline editing, contradiction resolution,\
+    \ or sim admin. | | **DM workbench** | Full canon graph, faction/tribe off-screen\
+    \ activity, accept/revise intents, quest integration from active hooks. | Keep\
+    \ three **data buckets** dis\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_timelines
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_timelines
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_worldgen_gui
+  label: Worldgen GUI
+  dimension: world_gen
+  ux_axis: presentation_shells
+  summary: "Collaborative generation dialogue \u2014 propose scaffolds, choose/refine,\
+    \ preview, accept/regenerate. Feedstock: \u2026onflict | | **Grimdark** | Moral\
+    \ gray, harsh consequences (Witcher-like) | Bleak weather bias, costly hope, persistent\
+    \ scars | - **`ToneProfile`** \u2014 one bundled profile per campaign (chosen\
+    \ at session 0), consumed by **world gen**, **weather**, **sim defaults**, **lore/event\
+    \ tone**, and **quest framing** \u2014 not siloed presets per subsystem. - Profiles\
+    \ are **defaults**, not stereotypes; table Palette can veto elements. **Player\
+    \ & DM surfaces.**\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: worldgen_gui
+  status: pending
+  catalog_face: living_world
+  experience_mode: worldgen_gui
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_world_generation
+  walk_tier: coverage
+  does_not_mandate:
+  - one world equals exactly one campaign forever
+  - worldgen is only a Session 0 checkbox with no persistent container
+  - players author the first world
+  - world create forces unconstrained multi-knob fresh-noise every time
+  - world creation's default next step is player character creation
+  mint_lane: cursor_draft
+  parent_id: ux_world_generation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_sim_weather_pulse
+  label: Weather / ambient sim pulse
+  dimension: sim_system
+  ux_axis: agency
+  summary: "Tone-weighted weather and ambient world pulse as felt, not raw tick tables.\
+    \ Feedstock: \u2026l: Triage under asymmetric power summary: Choosing who to carry\
+    \ when you cannot save the day. ## maps_to_taxonomy - baseline_fp / dm_worldcam\
+    \ - absent_proxy / agency_handoff_enter_exit - quest_pressure_surface / sim_weather_pulse"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x39-flee-as-correct-agency.md
+  ux_family: sim_weather_pulse
+  status: pending
+  catalog_face: living_world
+  experience_mode: sim_weather_pulse
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_faction_territory
+  label: Faction territory / influence
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "Territory and influence as map and embodied discovery. Feedstock: \u2026\
+    log and attestation fail path; **PresentationSessionHandle** fields emitted at\
+    \ handoff; `presentation.launch_complete` bus contract; rollback on bootstrap\
+    \ failure. **Out of scope:** PlayRegion viewport mount (**6.1.2** territory);\
+    \ HUD layer stack (**6.1.3** territory); horizon demo spawn (**6.2**); factory\
+    \ vs demo glue (**6.3**); execution-track build pipeline CI wiring (execution-deferred\
+    \ / advisory). ## Behavior **Actors:** Player/operator\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
+  derived_from: pin:1-Projects/genesis-mythos-master/Roadmap/Phase-6-Prototype-Assembly-Testing-and-Iteration/Phase-6-1-Factory-Phase-0-Presentation-Shell/Phase-6-1-1-Launch-Flow-and-DevLeakageGuard-Session-Bootstrap-Roll-up-2026-07-15.md
+  ux_family: wa_faction_territory
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_faction_territory
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_locations
+  label: Location surfaces
+  dimension: world_gen
+  ux_axis: agency
+  summary: "Locations as authoring and discovery surfaces. Feedstock: \u2026ent surprises,\
+    \ persistent scars from play \u2014 **weighted by campaign tone profile**. - **DM\
+    \ overwrites:** in-session tweaks (tokens, weather, events, whispers) vs. deliberate\
+    \ re-generation for terrain reshaping or biome relocation. - Extensibility: swap\
+    \ simulation flavors, visual styles, rule behaviors, and **tone profiles** without\
+    \ breaking cohesion. **Open source and aggressive modularity** \u2014 every system\
+    \ (generation stages, simulation ticks,\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  derived_from: pmg:1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+  ux_family: wa_locations
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_locations
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  pillar_notes: 'exploration: mentioned in feedstock | combat: (infer from mode) |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_maps_vs_embodied
+  label: Maps vs embodied discovery
+  dimension: ui_surface
+  ux_axis: dm_player_rails
+  summary: "When knowledge comes from map chrome vs first-person discovery. Feedstock:\
+    \ \u2026ou at camp, and which story threads stay open. The fork is not a dialogue\
+    \ checkbox only \u2014 the next combat encounter *is* the moral residue. Consequence\
+    \ scent: the world remembers. ## Spatial / temporal / control Split map regions\
+    \ (sanctuary vs hostile camp). Attention on spokespeople then on the battlefield\
+    \ you unlocked. Soft framing via urgency and incomplete information. ## Experience\
+    \ noun candidates - label: Moral fork that schedule\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_maps_vs_embodied
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_maps_vs_embodied
+  mode_tier: multi_pillar
+  dnd_pillar: exploration
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_wa_npc_dialogue_hooks
+  label: NPC dialogue / roleplay hooks
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How dialogue and roleplay hooks surface in the moment of play. Feedstock:\
+    \ \u2026Felt moment (pattern language) Early in a digital D&D-like game, two factions\
+    \ ask for your blade. Choosing a side changes **who you fight**, who trusts you\
+    \ at camp, and which story threads stay open. The fork is not a dialogue checkbox\
+    \ only \u2014 the next combat encounter *is* the moral residue. Consequence scent:\
+    \ the world remembers. ## Spatial / temporal / control Split map regions (sanctuary\
+    \ vs hostile camp). Attention on spokespeople then o\u2026"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P01-moral-fork-with-combat.md
+  ux_family: wa_npc_dialogue_hooks
+  status: pending
+  catalog_face: living_world
+  experience_mode: wa_npc_dialogue_hooks
+  mode_tier: multi_pillar
+  dnd_pillar: roleplay
+  pillar_notes: 'exploration: (infer from mode) | combat: mentioned in feedstock |
+    roleplay: (infer from mode)'
+  notes: lensed_by:ux_mid_game
+  walk_tier: coverage
+  does_not_mandate:
+  - mid game requires a companion romance track
+  - mid game must center a single conspiracy reveal
+  - progression requires a separate series parent from stage bands
+  - session prep replaces the mid power-band contract
+  - one CR/BG mid-arc skin is the product default
+  mint_lane: cursor_draft
+  parent_id: ux_mid_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_application_shell
+  label: Application shell / layout chrome
+  dimension: ui_surface
+  ux_axis: presentation_shells
+  summary: "Baseline shell \u2014 screen regions, chrome placement, layout mapping\
+    \ for any product. Feedstock: \u2026ction alive. - label: Who to sit with tonight\
+    \ summary: Soft agency over relationship temperature between quests. ## maps_to_taxonomy\
+    \ - session0_bootstrap / tone_profile_surface - class_chrome_discovery - application_shell\
+    \ / primary_navigation"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: application_shell
+  status: pending
+  catalog_face: surfaces
+  experience_mode: application_shell
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_mental_stat_interpretation
+  walk_tier: coverage
+  does_not_mandate:
+  - mental stats unlock a single romance dialogue tree
+  - low mental stats hide all social information
+  - cues auto-reveal facts without a check or roleplay
+  - mental-stat cues are DM-only with no player-facing affordance
+  - one insight beat is the only product presentation
+  mint_lane: cursor_draft
+  parent_id: ux_mental_stat_interpretation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_primary_navigation
+  label: Primary navigation / wayfinding
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How users move between major areas \u2014 menus, routes, breadcrumbs,\
+    \ spatial wayfinding. Feedstock: \u2026abel: Who to sit with tonight summary:\
+    \ Soft agency over relationship temperature between quests. ## maps_to_taxonomy\
+    \ - session0_bootstrap / tone_profile_surface - class_chrome_discovery - application_shell\
+    \ / primary_navigation"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/BG-P02-camp-social-layer.md
+  ux_family: primary_navigation
+  status: pending
+  catalog_face: flows
+  experience_mode: primary_navigation
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_early_game
+  walk_tier: coverage
+  does_not_mandate:
+  - first session must teach stolen agency
+  - early game is combat-only onboarding
+  - progression requires a separate series parent from stage bands
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_session_onboarding
+  label: Session / onboarding bootstrap
+  dimension: session_bootstrap
+  ux_axis: session0_identity_art
+  summary: "First-run or session-start rituals \u2014 setup, preferences, identity\
+    \ tone before core use. Feedstock: \u2026en recovery reveals emotional injury.\
+    \ - label: Logistics of a missing seat summary: How the table reconfigures roles\
+    \ without a recruit screen. ## maps_to_taxonomy - absent_proxy / agency_handoff_enter_exit\
+    \ - session_onboarding / primary_navigation - chronicle_buckets"
+  conceptual_pin: 1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  derived_from: actual_play:1-Projects/genesis-mythos-master/Roadmap/User-Story/Actual-Play-Feedstock/moments/CR-C1-1x85-party-fracture.md
+  ux_family: session_onboarding
+  status: pending
+  catalog_face: flows
+  experience_mode: session_onboarding
+  mode_tier: shared_chrome
+  dnd_pillar: shared
+  notes: lensed_by:ux_dm_campaign_creation
+  walk_tier: coverage
+  does_not_mandate:
+  - every campaign begins in captivity
+  - offline Microscope play is required before Session 0
+  - starting a campaign must regenerate the whole world
+  - campaign creation's default next step is player character creation
+  - DM is the primary author of player characters after frame bootstrap
+  mint_lane: cursor_draft
+  parent_id: ux_dm_campaign_creation
+  depth_band: 1
+  supplement: true
+  coverage_slot: true
+- id: ux_content_authoring_surface
+  label: Content authoring surface
+  dimension: ui_surface
+  ux_axis: agency
+  summary: "How operators or users create, edit, and publish content \u2014 distinct\
+    \ from read-only consumption. Feedstock: \u2026synthesis \u2014 L5 remint after\
+    \ contaminated artifact wipe (CTO brief) **Audience:** CTO \u2014 timeline and\
+    \ governance risk after intentional User-Story wipe and goal-authority supersession;\
+    \ what must be proven before fresh L5 authoring and `l5_manual_gate`. **Phase:**\
+    \ `conceptual_deepen`; vault-known: `Roadmap/User-Story/` tree **wiped** per remint\
+    \ (`gmm-remint-l5-20260627T231800Z`); prior factory run `7e3881b91953` **superseded**;\
+    \ conceptual roadma\u2026"
+  conceptual_pin: Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
+  derived_from: research:Ingest/Agent-Research/2026-06-28-influence-conceptual-deepen-gmm-003106Z.md
+  ux_family: content_authoring_surface
+  status: pending
+  catalog_face: content
+  experience_mode: content_authoring_surface
+  mode_tier: multi_pillar
+  dnd_pillar: shared
+  pillar_notes: 'exploration: (infer from mode) | combat: (infer from mode) | roleplay:
+    (infer from mode)'
+  notes: lensed_by:ux_early_game
+  walk_tier: coverage
+  does_not_mandate:
+  - first session must teach stolen agency
+  - early game is combat-only onboarding
+  - progression requires a separate series parent from stage bands
+  mint_lane: cursor_draft
+  parent_id: ux_early_game
+  depth_band: 1
+  supplement: true
+  coverage_slot: true

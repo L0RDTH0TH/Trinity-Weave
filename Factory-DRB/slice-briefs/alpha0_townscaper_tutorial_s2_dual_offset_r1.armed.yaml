@@ -1,0 +1,150 @@
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-03T05:56:59Z'
+greenlit_at: '2026-10-03T05:56:59Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_townscaper_tutorial
+slice_id: alpha0_townscaper_tutorial_s2_dual_offset_r1
+series_id: alpha0_townscaper_tutorial_r1
+tutorial_step: 2
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_townscaper_tutorial_s2_dual_offset_r1.md
+depends_on: alpha0_townscaper_tutorial_s1_occupancy_r1
+keep_s1: true
+next_in_chain: alpha0_townscaper_tutorial_s3_connector_modules_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_dual_half_offset_quads_update_four_dual_toggle_graybox_attempt2
+prefer_authorship: true
+step1_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/Hex19OccupancyLattice.cs
+  - Core/WorldGen/Hex19DualOffsetLattice.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - PlayRegion.cs
+  - Player/CraftFocusAnchor.cs
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Ingest/Resources/Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    craft: hot_wheels_tile_authorship_only
+    terrain3d: fed_consumer_out_of_scope_this_step
+    structural_success: hex19_lattice_graph__vertices_plus_neighbor_edges_plus_faces_cells
+    refuse:
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+  step2_dual_offset:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    law: dual_cells_half_step_offset__four_explicit_corner_reads__update_four_DualCellsTouching__unique_duals_not_19x4_spray__dual_overlay_toggle__inherit_s1__no_connectors_art_terrain3d
+    structural_success: unique_dual_quads_span_four_occupancy_corners__DualCellsTouching_returns_4__TileFamilyIndex_0to5__IsHalfStepOffset
+    refuse:
+    - skip_dual_offset
+    - bitmask_equals_townscaper
+    - prop_scatter_as_composition
+    - colored_props_as_modules
+    - bundle_tutorial_steps
+    - art_before_mass
+    - grammar_regress
+    - markers_only_dual
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: "Unique dual half-offset quads spanning four occupancy corners; DualCellsTouching\
+      \ update-four; TileFamilyIndex graybox; dual overlay + D toggle; inherit hex-19\
+      \ lattice graph + ghost + G toggle; NOT 19\xD74 marker spray; Terrain3D OUT."
+    never: Skip dual offset; markers-only dual; per-occupancy spray as dual; connectors/art/Terrain3D;
+      bundle s3-s6; cam yank; dual always-on with no toggle; s1-only topology Prefer
+      green
+hard_prefer_gaps:
+- id: dual_half_offset
+  must: dual_cells_offset_half_step_from_occupancy_lattice
+  refuse:
+  - skip_dual_offset
+- id: update_four
+  must: one_occupancy_edit_calls_DualCellsTouching_refresh_exactly_four_dual_cells
+  refuse:
+  - prop_scatter_as_composition
+  - bitmask_equals_townscaper
+  - skip_dual_offset
+  - markers_only_dual
+- id: dual_overlay_toggle
+  must: dual_overlay_visible_and_independently_toggleable
+  refuse:
+  - grammar_regress
+- id: inherit_s1
+  must: hex19_lattice_graph_ghost_occupancy_toggle_lmb_rmb_no_cam_yank
+  refuse:
+  - points_as_grid
+  - grammar_regress
+- id: terrain3d_hard_disabled
+  must: terrain3d_absent_or_hard_disabled_under_craft
+  refuse:
+  - craft_terrain_blend
+  - terrain3d_in_scope
+  - terrain3d_leak_f5
+- id: no_connectors_art
+  must: graybox_structure_proof_only
+  refuse:
+  - colored_props_as_modules
+  - art_before_mass
+  - bundle_tutorial_steps
+done_when: 'F5: one occupancy edit updates four dual slots; dual half-step offset
+  + 4-corner reads; dual overlay + dual toggle; occupancy toggle still works; s1 paint/ghost
+  intact; no Terrain3D; graybox OK'
+refuse_codes:
+- skip_dual_offset
+- bitmask_equals_townscaper
+- prop_scatter_as_composition
+- colored_props_as_modules
+- bundle_tutorial_steps
+- art_before_mass
+- grammar_regress
+- points_as_grid
+- count_equals_topology
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- terrain3d_in_scope
+- terrain3d_leak_f5
+- verify_mcp_only
+- inspiration_shape_miss
+- fidelity_miss
+- markers_only_dual
+dispatch:
+  must_trigger: "factory-orchestrator IMPLEMENT_SLICE \u2014 module lane only"
+  overlay_must: alpha0_townscaper_tutorial_s2_dual_offset_r1
+  require_implicit_bind: true
+  steps:
+  - Load armed packet + brief + dual-grid grammar
+  - Confirm FEEDSTOCK-SHAPE
+  - Force-compose module CDP + fresh bind
+  - Stage IMPLEMENT_SLICE with armed_packet_path
+  - Weld LIVE dual half-offset + update-four + dual toggle; keep s1
+  - Prefer re-run; claim_class staging until operator F5
+  - Do NOT open s3-s6; do NOT Curator push
+fresh_chat_instruction: s2 attempt 2 armed. Force-compose s2 (module CDP + fresh bind),
+  stage IMPLEMENT_SLICE with armed_packet_path, EAT module lane. Dual = unique half-offset
+  quads + DualCellsTouching update-four + four-corner family; NOT markers spray. Keep
+  s1. No connectors/art/Terrain3D/s3-s6. Staging until F5. No Curator.
+attempt: 2
+superseded_producer_run_id: sp-s2dual-a-eb9041
+producer_run_id: sp-s2dual2-35fcaa

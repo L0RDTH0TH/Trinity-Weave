@@ -1,0 +1,137 @@
+# Stack domain registry v1 — PMG-derived Tech Stack BOM (fresh search; POC = museum only)
+# Canonical: Factory-DRB/Stack-Domain-Registry-v1.yaml
+# Manifest rows reference stack_domain_id from this file.
+
+schema_version: 1
+registry_id: stack-domain-registry-v1
+project_id: genesis-mythos-master
+pmg_ref: 1-Projects/genesis-mythos-master/genesis-mythos-master-goal.md
+museum_index_ref: 1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md
+vetting_policy: fresh_candidate_search
+poc_canonical: false
+interop_gate_required: true
+foundation_map_ref: Factory-DRB/Stack-Foundation-Map-v1.yaml
+currency_pass_at: "2026-07-21"
+
+domains:
+  - id: world_gen_pipeline
+    title: World generation pipeline
+    description: Seed parsing → terrain → biome → POI → entity → simulation bootstrap; staged DAG.
+    spine_interface: IWorldGenStage
+    research_domain_id: world_gen_vetting
+    baseline_required: true
+    interop_pairs: [procedural_maps, procedural_terrain, simulation_tick]
+    poc_museum_refs:
+      - GMM-Godot-Prototype-History#prototype-a-godot-native
+      - GMM-Godot-Prototype-History#prototype-b-azgaar-fmg-terrain
+    operator_question: Which external pipeline stages (libraries, addons, services) fit Godot 4.6.3 .NET and interoperate with map + terrain + sim?
+    currency_checked_at: "2026-07-21"
+
+  - id: procedural_maps
+    title: Procedural maps (2D authority)
+    description: Map generation authority, export format, handoff contract to terrain/world state.
+    spine_interface: IMapGenAuthority
+    research_domain_id: procedural_maps_vetting
+    baseline_required: true
+    interop_pairs: [world_gen_pipeline, procedural_terrain]
+    poc_museum_refs:
+      - 3-Resources/genesis-mythos-master/audit--map_maker_audit_2025-12-25
+    operator_question: Fresh candidates for 2D map proc — not Azgaar-by-default; prove export → downstream consumer.
+    currency_checked_at: "2026-07-21"
+
+  - id: procedural_terrain
+    title: Procedural terrain (3D)
+    description: Heightfield/mesh terrain, streaming, bake from map handoff, runtime admission.
+    spine_interface: ITerrainAuthority
+    research_domain_id: procedural_terrain_vetting
+    baseline_required: true
+    interop_pairs: [procedural_maps, world_gen_pipeline]
+    poc_museum_refs:
+      - 3-Resources/genesis-mythos-master/Code-Exhibit/terrain3d-heightmap-import-exhibit-2026-05-30-1615
+    operator_question: Fresh terrain stack candidates — interoperability with chosen map authority required.
+    currency_checked_at: "2026-07-21"
+
+  - id: character_creation
+    title: Character creation
+    description: Character data model, creation UI host, persistence, handoff to rules/sim. Pathfinder 1e (PF1) first-plugin posture (pending content remint; was SRD 5.1).
+    spine_interface: ICharacterCreationHost
+    research_domain_id: character_creation_vetting
+    baseline_required: true
+    interop_pairs: [rules_engine, intent_lore_loop]
+    poc_museum_refs:
+      - 3-Resources/genesis-mythos-master/audit--current_state_report
+    operator_question: Native C# vs hosted UI; fresh candidates with rules/intent interop proof.
+    currency_checked_at: "2026-09-29"
+    conceptual_decision_record: Roadmap/Conceptual-Decision-Records/rules-base-pathfinder-pf1-2026-09-29.md
+
+  - id: rules_engine
+    title: Rules engine (Pathfinder 1e (PF1))
+    description: Rules-as-plugins on Godot host; IDiceRoller → skizzerz/DiceRoller; PF1 first plugin (supersedes SRD 5.1 CC-BY).
+    spine_interface: IRulesPluginHost
+    research_domain_id: rules_engine_vetting
+    baseline_required: true
+    interop_pairs: [simulation_tick, character_creation, intent_lore_loop]
+    poc_museum_refs:
+      - 5-Attachments/Code-Repos/genesis-mythos-demo/Systems/RuleStub.cs
+    operator_question: Fresh rules framework candidates — not demo RuleStub as canon.
+    currency_checked_at: "2026-09-29"
+    conceptual_decision_record: Roadmap/Conceptual-Decision-Records/rules-base-pathfinder-pf1-2026-09-29.md
+
+  - id: simulation_tick
+    title: Living simulation tick
+    description: Tick-scoped sim, event bus, state stores decoupled from rendering.
+    spine_interface: ISimTickHost
+    research_domain_id: simulation_vetting
+    baseline_required: true
+    interop_pairs: [rules_engine, world_gen_pipeline, intent_lore_loop]
+    poc_museum_refs:
+      - 3-Resources/genesis-mythos-master/Code-Exhibit/world-streamer-singleton-spine-exhibit-2026-05-30-1615
+    operator_question: Fresh sim/tick architecture candidates with measured tick budget on Linux.
+    currency_checked_at: "2026-07-21"
+
+  - id: intent_lore_loop
+    title: Intent / lore population loop
+    description: Intent parser, resolver, lore → systemic hooks (reputation, events, environment).
+    spine_interface: IIntentResolver
+    research_domain_id: intent_lore_vetting
+    baseline_required: true
+    interop_pairs: [world_gen_pipeline, rules_engine, simulation_tick]
+    poc_museum_refs:
+      - 5-Attachments/Code-Repos/genesis-mythos-demo/Systems/IntentHandler.cs
+    operator_question: Fresh intent pipeline candidates; prove hook injection into world/sim without hardcoded story.
+    currency_checked_at: "2026-07-21"
+
+  - id: perspective_camera
+    title: Perspective & camera (Sparky)
+    description: FP + DM free-cam + ortho; camera interpolator; PMG Sparky behavior.
+    spine_interface: ICameraRig
+    research_domain_id: perspective_camera_vetting
+    baseline_required: true
+    interop_pairs: [simulation_tick]
+    poc_museum_refs:
+      - Factory-DRB/perspective-stack-v1
+    operator_question: Fresh camera stack candidates (Phantom is one option, not locked); welded + operational proof.
+    currency_checked_at: "2026-07-21"
+
+  - id: regional_modules
+    title: Regional / module factory host
+    description: RegionalState ModuleFactory, module admission, regional persistence seams.
+    spine_interface: IRegionalModuleHost
+    research_domain_id: regional_modules_vetting
+    baseline_required: true
+    interop_pairs: [world_gen_pipeline, simulation_tick]
+    poc_museum_refs: []
+    operator_question: Module host pattern candidates for replaceable regional logic.
+    currency_checked_at: "2026-07-21"
+
+  - id: ci_tooling
+    title: CI & test harness
+    description: Linux headless Godot 4.6.3 .NET + GdUnit4Net (godot-gdunit-labs); gdUnit4 6.1.x / api 5.x / adapter 3.0.0 / Test.Sdk 18.0.0; interop smokes.
+    spine_interface: null
+    research_domain_id: ci_tooling
+    baseline_required: true
+    interop_pairs: []
+    poc_museum_refs:
+      - 3-Resources/genesis-mythos-master/Godot-CSharp-Best-Practices/institute-godot-full-research-1-12-gmm-2026-06-09
+    operator_question: CI must run interop smokes as domains lock — not continue-on-error stubs.
+    currency_checked_at: "2026-07-21"

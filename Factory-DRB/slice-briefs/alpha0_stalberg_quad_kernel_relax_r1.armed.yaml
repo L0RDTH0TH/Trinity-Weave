@@ -1,0 +1,219 @@
+# Armed Prefer packet — Stålberg organic all-quad kernel RELAX / squarify algorithm fidelity.
+# Approach stays: seed → tri → dissolve → subdivide → relax → flatten.
+# Prior visual_r1 (sp-sqkv-29460a) = staging planar/opaque; may be incomplete on topology/relax.
+# Grok + Lerg (https://youtu.be/Jm3pLya3d9c): area-based square relax + unique hashed topology.
+# GREENLIGHT WELD operator 2026-10-03T07:59:01Z. Staging until F5 readable squarified board.
+
+schema_version: 1
+status: failed_altitude_relax_squarify_fail
+armed_at: '2026-10-03T07:59:01Z'
+greenlit_at: '2026-10-03T07:59:01Z'
+law_amended_at: '2026-10-03T07:59:01Z'
+failed_altitude_at: '2026-10-03T08:15:00Z'
+factory_greenlit: false
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_quad_kernel
+slice_id: alpha0_stalberg_quad_kernel_relax_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 1c
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_relax_r1.md
+prior_slice_id: alpha0_stalberg_quad_kernel_visual_r1
+prior_producer_run_id: sp-sqkv-29460a
+prior_note: visual_r1_staging_may_be_incomplete_algorithm_fidelity
+prior_weld_altitude: failed_altitude_relax_squarify_fail
+supersedes_authority: alpha0_stalberg_quad_kernel_visual_r1
+authority_parked_at: alpha0_stalberg_quad_kernel_relax_r2
+next_in_chain: alpha0_stalberg_quad_kernel_relax_r2
+mcp_screenshot_at_weld: none
+mcp_audit_screenshot: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/_evidence/stalberg_relax_r1_f5_audit.png
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_relax_squarify_algorithm_fidelity
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    lerg_cite: Factory-DRB/references/lerg-townscaper-godot/README.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    algorithm_cite: Factory-DRB/references/oskar-procedure/02-grid-algorithm.md
+    algorithm_concept_cite: Factory-DRB/references/oskar-procedure/01-concept.md
+    algorithm_upstream: https://github.com/kai-denrei/oskar-procedure
+    algorithm_seed_variant: Variant_B_hex_lattice_preferred
+    relax_variant: Variant_A_closest_square_area_based
+    craft: hot_wheels_grid_kernel_only
+    terrain3d: out_of_scope_this_step
+    structural_success: organic_all_quad_planar_board__unique_topology__area_square_relax__readable_f5
+    refuse:
+    - non_unique_vertices
+    - relax_before_quad_only
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - relax_step_too_hard
+    - noodle_edge_clutter
+    - wireframe_spaghetti
+    - extruded_prism_as_quad_board
+    - unbounded_z_jitter
+    - nonplanar_face_soup
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - skip_dissolve_relax
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+  kernel_occupancy:
+    law: seed_hex__triangulate__dissolve_to_quads__subdivide_all_faces_to_quads__unique_topology_hash__area_square_relax_boundary_pin_clamp__reweld__flatten__render_coherent_quad_surface
+    replace_live_assumption: naive_laplacian_or_non_unique_verts_or_extrusion_before_2d_as_stalberg_success
+    success_types_preferred:
+    - Core/WorldGen/StalbergQuadKernel.cs
+    - Core/WorldGen/OrganicQuadMesh.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Core/WorldGen/Hex19DualOffsetLattice.cs
+    strip_from_success:
+    - extruded_prism_display
+    - additive_overlapping_wire_volumes
+    - dual_corner_paint
+    - tile_families
+    - connector_modules
+    - craft_visual_art_bind
+    - points_only_markers
+    - hex19_occupancy_tutorial_success
+    - dual_overlay_on_hex_scaffold
+    - naive_laplacian_only_relax
+matrix_quotes:
+  stalberg_quad_kernel_relax:
+    prefer: 'Same pipeline (seed→tri→dissolve→subdivide→relax); unique position-hashed
+      topology; area-based closest-square relax (small step, clamp, boundary pin,
+      re-weld); F5 primary = readable planar irregular all-quad field; regenerable;
+      graybox OK; no extrusion before 2D stable.'
+    never: 'non_unique_vertices; relax_before_quad_only; naive_laplacian_only; missing_square_area_force;
+      free_boundary_fold; extrusion_before_2d_stable; relax_step_too_hard; noodle/prism
+      soup; hex_scaffold_as_final_mesh; dual_overlay_as_grid_kernel; skip_dissolve_relax;
+      points-only; tutorial/tiles/art/Terrain3D Success'
+hard_prefer_gaps:
+- id: unique_topology
+  must: position_hashed_singleton_vertices_edges_faces
+  refuse:
+  - non_unique_vertices
+  - points_as_grid
+  - count_equals_topology
+- id: area_square_relax
+  must: ideal_side_from_avg_face_area_half_diagonal_closest_square
+  refuse:
+  - missing_square_area_force
+  - naive_laplacian_only
+- id: soft_constrained_relax
+  must: small_step_force_clamp_boundary_pin_reweld
+  refuse:
+  - relax_step_too_hard
+  - free_boundary_fold
+- id: pipeline_order
+  must: dissolve_subdivide_before_relax_quad_only
+  refuse:
+  - relax_before_quad_only
+  - skip_dissolve_relax
+- id: planar_before_extrusion
+  must: flatten_2d_stable_before_any_extrusion_language
+  refuse:
+  - extrusion_before_2d_stable
+  - extruded_prism_as_quad_board
+  - unbounded_z_jitter
+- id: readable_quad_graph
+  must: clean_quad_edge_graph_without_spaghetti
+  refuse:
+  - noodle_edge_clutter
+  - wireframe_spaghetti
+- id: regenerable
+  must: operator_can_regenerate_new_planar_quad_field
+- id: scope_kernel_only
+  must: no_dual_paint_no_tiles_no_art_no_terrain3d_success
+  refuse:
+  - bundle_tutorial_steps
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: >-
+  F5: readable planar irregular all-quad mesh after area-based square relax on
+  unique hashed topology; clean edges (no noodle spikes); boundary stable; pipeline
+  order intact; regenerable; graybox OK; no dual-paint/art/Terrain3D Success
+refuse_codes:
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- relax_step_too_hard
+- noodle_edge_clutter
+- wireframe_spaghetti
+- extruded_prism_as_quad_board
+- unbounded_z_jitter
+- nonplanar_face_soup
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- prop_scatter_as_composition
+- bundle_tutorial_steps
+- terrain3d_in_scope
+- craft_terrain_blend
+- terrain3d_leak_f5
+- verify_mcp_only
+- infinite_rect_as_hex19
+- craft_cam_recenter_on_place
+- inspiration_shape_miss
+- fidelity_miss
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_quad_kernel_relax_r1
+  require_implicit_bind: true
+  steps:
+  - Load this armed packet + brief + Grid-Topology-Host-Law + oskar 02 + Lerg cite
+  - Emit / verify implicit-intent-bind (structural_success = organic_all_quad_planar_board__unique_topology__area_square_relax__readable_f5)
+  - Weld unique topology + area-based square relax; keep pipeline; no extrusion before 2D stable
+  - Do NOT claim dual paint, tiles, connectors, Hex19 tutorial Success, or approach rewrite
+  - Write staging receipt; claim_class staging until operator F5
+  - Do NOT Curator push
+fresh_chat_instruction: >-
+  Stålberg quad kernel RELAX fidelity greenlit. Approach from r1 stays. visual_r1
+  may be incomplete. Force-compose (module lane only + fresh bind), IMPLEMENT_SLICE
+  with armed_packet_path. Success = F5 readable planar irregular all-quad board
+  after unique-topology area-square relax; Prefer fails non_unique_vertices /
+  missing_square_area_force / naive_laplacian_only / free_boundary_fold /
+  extrusion_before_2d_stable plus prior visual/kernel refuses. No dual paint,
+  tiles, art, or Terrain3D this step.
+grok_diagnosis_summary: >-
+  Noodle mess ≈ failed/missing relaxation/squarifying on still-triangular or
+  poorly-merged mesh, OR broken shared topology (non-unique verts → duplicate
+  edges → relax pulls apart → spikes). Fix: position-hash Vertex/Edge/Face;
+  merge→subdivide→area-based square relax (50–200 iters, step 0.05–0.15, clamp,
+  boundary pin, re-weld); never relax before quad-only; never naïve Laplacian-only;
+  never extrude before 2D stable. Lerg pipeline https://youtu.be/Jm3pLya3d9c.

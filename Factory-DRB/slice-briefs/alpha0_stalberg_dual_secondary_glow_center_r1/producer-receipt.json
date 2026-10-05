@@ -1,0 +1,23 @@
+{
+  "producer_run_id": "sp-dsgc1-manual-greenlight",
+  "slice_id": "alpha0_stalberg_dual_secondary_glow_center_r1",
+  "ask_id": "alpha0_stalberg_dual_secondary_glow_center",
+  "compose_path": "slice_producer_judgment",
+  "composed_at": "2026-10-04T07:08:00Z",
+  "factory_greenlit": true,
+  "prefer_concept_required": true,
+  "success_object": "dual_offset_cells",
+  "intent_invariant": "Stage-6 DualCell identity (OwnedDualCellKeys=one; dual verts=face centroids; dual edges centroid\u2013centroid) remains lattice wire/topology; pick/glow/populate centers on the secondary grid \u2014 nearest face-centroid dual vert \u2014 via SmallCornerQuadsAroundFace(F) (typically 4 pie sectors meeting at the coral/cyan secondary locus); SmallCornerQuadsAround(V) primary-star is not Prefer Success; Stage-6 wire kept; refuse primary_star_glow_as_success / primary_face_as_dual / stage6_union_as_single_glow_tile.",
+  "conceptual_leg_present": true,
+  "structural_only": false,
+  "harness_fallback": false,
+  "keeps_geometry": "alpha0_stalberg_dual_stage6_cell_r1",
+  "contract": "C_secondary_glow_center_keep_stage6_wire_small_corner_units",
+  "goal_image": "Ingest/Final-grid-state.jpg",
+  "bug_image": "Ingest/Screenshot from 2026-10-04 01-19-00.png",
+  "annotate_proof": "Ingest/Screenshot from 2026-10-04 01-19-00.png",
+  "lane_roster": [
+    "module"
+  ],
+  "judgment_notes": "Operator GREENLIGHT WELD: center glow on secondary face-centroid dual verts; keep Stage-6 wire + small-corner units; no MeshLibrary models."
+}

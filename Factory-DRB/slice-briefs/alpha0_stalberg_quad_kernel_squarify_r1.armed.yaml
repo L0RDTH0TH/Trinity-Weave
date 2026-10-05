@@ -1,0 +1,178 @@
+# Armed Prefer packet — Stage 5 Oskar rotate-90 average squarify (replace Variant A closest-square).
+# GREENLIGHT WELD operator 2026-10-04T16:29:00Z. Staging until operator F5 vs single-grid-section.jpg.
+# Knobs: rings=5 pull≈0.12 iters≈80 spacing=210; boundary pins + force clamp kept.
+
+schema_version: 1
+status: greenlit_weld
+armed_at: '2026-10-04T16:29:00Z'
+greenlit_at: '2026-10-04T16:29:00Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_quad_kernel_squarify
+slice_id: alpha0_stalberg_quad_kernel_squarify_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 1h
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_squarify_r1.md
+prior_slice_id: alpha0_stalberg_quad_kernel_relax_r2
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: LIVE RelaxTowardSquares is Variant A closest-square (atan); operator wants rotate-90 average vs diamond field
+goal_image: Ingest/single-grid-section.jpg
+goal_image_note: organic all-quad hex patch — flowing squares not diamonds
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: stage5_rotate90_average_squarify_replace_closest_square
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: organic_all_quad_planar_board
+relax_variant: rotate90_average_squarify
+replaces_relax_variant: Variant_A_closest_square_atan
+structural_success: Stage 5 RelaxTowardSquares uses Oskar rotate-90 average squarify (corner←centre → ±90 align → average → rotate targets → pull; incident avg + clamp + boundary pins); rings=5 pull≈0.12 iters≈80 spacing=210; F5 organic all-quad vs single-grid-section.jpg — not diamond_lock_hex_seed / closest_square_as_organic_success.
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    lerg_cite: Factory-DRB/references/lerg-townscaper-godot/README.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    algorithm_cite: Factory-DRB/references/oskar-procedure/02-grid-algorithm.md
+    algorithm_upstream: https://github.com/kai-denrei/oskar-procedure
+    algorithm_seed_variant: Variant_B_hex_lattice_preferred
+    relax_variant: rotate90_average_squarify
+    replaces_relax_variant: Variant_A_closest_square_atan
+    craft: hot_wheels_grid_kernel_only
+    terrain3d: out_of_scope_this_step
+    structural_success: organic_all_quad_planar_board__rotate90_average_squarify__readable_f5
+    knobs:
+      rings: 5
+      spacing: 210.0
+      relax_iters: 80
+      pull: 0.12
+      force_clamp_side_fraction: 0.25
+    refuse:
+    - closest_square_as_organic_success
+    - diamond_lock_hex_seed
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - relax_step_too_hard
+    - relax_before_quad_only
+    - non_unique_vertices
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - wireframe_spaghetti
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - skip_dissolve_relax
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - verify_mcp_only
+    - inspiration_shape_miss
+    - fidelity_miss
+  kernel_occupancy:
+    law: seed_hex__triangulate__dissolve__subdivide__rotate90_average_squarify_boundary_pin_clamp__reweld__flatten
+    replace_live_assumption: variant_a_closest_square_atan_as_organic_success
+    success_types_preferred:
+    - Core/WorldGen/StalbergQuadKernel.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Core/WorldGen/Hex19DualOffsetLattice.cs
+matrix_quotes:
+  stalberg_quad_kernel_squarify:
+    prefer: 'Stage 5 = Oskar rotate-90 average squarify (not atan closest-square);
+      area half-diagonal scale; boundary pin + force clamp; soft pull; F5 organic
+      all-quad hex board vs single-grid-section.jpg.'
+    never: 'closest_square_as_organic_success; diamond_lock_hex_seed; naive_laplacian_only;
+      free_boundary_fold; relax_step_too_hard; Hex19/dual/Terrain3D Success this step'
+hard_prefer_gaps:
+- id: rotate90_average_squarify
+  must: corner_centre_vectors_align_pm90_average_rotate_targets_pull_incident_avg
+  refuse:
+  - closest_square_as_organic_success
+  - diamond_lock_hex_seed
+  - naive_laplacian_only
+- id: area_side_scale
+  must: scale_avg_to_area_half_diagonal
+  refuse:
+  - missing_square_area_force
+- id: soft_constrained_relax
+  must: small_step_force_clamp_boundary_pin_reweld
+  refuse:
+  - relax_step_too_hard
+  - free_boundary_fold
+- id: pipeline_order
+  must: dissolve_subdivide_before_relax_quad_only
+  refuse:
+  - relax_before_quad_only
+  - skip_dissolve_relax
+- id: readable_organic_quads
+  must: organic_flowing_quads_not_diamond_field
+  refuse:
+  - diamond_lock_hex_seed
+  - noodle_edge_clutter
+done_when: >-
+  Prefer concept ok; LIVE Stage 5 is rotate-90 average squarify replacing Variant A;
+  F5 WorldgenCraft organic all-quad hex board vs Ingest/single-grid-section.jpg
+  (not diamond field); pins/clamp/rings=5/pull≈0.12/iters≈80/spacing=210 kept;
+  staging until operator F5
+refuse_codes:
+- closest_square_as_organic_success
+- diamond_lock_hex_seed
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- relax_step_too_hard
+- relax_before_quad_only
+- non_unique_vertices
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- wireframe_spaghetti
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- verify_mcp_only
+- inspiration_shape_miss
+- fidelity_miss
+- terrain3d_in_scope
+- bundle_tutorial_steps
+dispatch:
+  must_trigger: GREENLIGHT WELD — module lane Stage 5 only
+  overlay_must: alpha0_stalberg_quad_kernel_squarify_r1
+  require_implicit_bind: true
+  steps:
+  - Load this armed packet + brief + oskar 02 + Prefer/Grid topology law
+  - Emit implicit-intent-bind (structural_success = rotate90_average_squarify)
+  - Replace RelaxTowardSquares Variant A with rotate-90 average; keep pins/clamp/knobs
+  - MCP regen WorldgenCraft + screenshot vs single-grid-section.jpg when possible
+  - Staging receipt; claim_class staging until operator F5
+  - Curator local snapshot only — do NOT enable git.push_enabled
+fresh_chat_instruction: >-
+  GREENLIGHT WELD squarify_r1. Replace LIVE Stage 5 closest-square (atan) with
+  Oskar rotate-90 average squarify. Success = organic all-quad vs
+  Ingest/single-grid-section.jpg; refuse diamond_lock_hex_seed /
+  closest_square_as_organic_success / naive_laplacian_only. Keep boundary pins,
+  force clamp, rings=5, pull≈0.12, iters≈80, spacing=210. No Curator push
+  (git.push_enabled stays false).

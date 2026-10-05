@@ -1,0 +1,170 @@
+[gd_scene load_steps=2 format=3 uid="uid://gm_launch_shell_wg"]
+
+[ext_resource type="Script" path="res://LaunchShell.cs" id="1_script"]
+
+[node name="LaunchShell" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.08, 1)
+
+[node name="Atmosphere" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18, 0.12, 0.08, 0.35)
+mouse_filter = 2
+
+[node name="DegradationBanner" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="Margin" type="MarginContainer" parent="DegradationBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="DegradationLabel" type="Label" parent="DegradationBanner/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.55, 1)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+text = "Degraded mode"
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuFrame" type="PanelContainer" parent="Center"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(420, 0)
+
+[node name="Margin" type="MarginContainer" parent="Center/MenuFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="VBox" type="VBoxContainer" parent="Center/MenuFrame/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.62, 1)
+theme_override_font_sizes/font_size = 34
+text = "Genesis Mythos"
+horizontal_alignment = 1
+
+[node name="Accent" type="Label" parent="Center/MenuFrame/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.58, 0.32, 1)
+theme_override_font_sizes/font_size = 12
+text = "◆ MAIN · WORLDGEN ◆"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.76, 0.82, 1)
+theme_override_font_sizes/font_size = 14
+text = "DM creates the first living world — table can shape; players do not author it."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CreateWorldButton" type="Button" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Create World"
+
+[node name="PlayButton" type="Button" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enter Craft"
+
+[node name="SettingsButton" type="Button" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Controls"
+
+[node name="SettingsPanel" type="PanelContainer" parent="Center/MenuFrame/Margin/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin" type="MarginContainer" parent="Center/MenuFrame/Margin/VBox/SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="SettingsBody" type="Label" parent="Center/MenuFrame/Margin/VBox/SettingsPanel/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(340, 0)
+autowrap_mode = 3
+text = "Controls"
+
+[node name="WorldgenHost" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.45, 0.5, 0.58, 1)
+theme_override_font_sizes/font_size = 11
+text = "Genesis Mythos · ux_worldgen_gui · claim_class staging"
+horizontal_alignment = 1

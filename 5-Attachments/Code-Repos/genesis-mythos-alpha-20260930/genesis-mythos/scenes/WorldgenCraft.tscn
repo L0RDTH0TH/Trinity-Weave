@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq8worldgencraft01"]
+
+[ext_resource type="Script" path="res://Systems/WorldgenCraft.cs" id="1_worldgen"]
+[ext_resource type="Script" path="res://Systems/DualGridCraftHost.cs" id="2_dual"]
+[ext_resource type="PackedScene" path="res://Camera/CraftPlanarCamRig.tscn" id="3_craftcam"]
+[ext_resource type="PackedScene" path="res://Camera/SparkyDmFreeCamRig.tscn" id="4_sparky"]
+[ext_resource type="Script" path="res://Player/CraftFocusAnchor.cs" id="5_focus"]
+
+[node name="WorldgenCraft" type="Node3D"]
+script = ExtResource("1_worldgen")
+
+[node name="DualGridCraftHost" type="Node3D" parent="."]
+script = ExtResource("2_dual")
+
+[node name="CraftFocusAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+script = ExtResource("5_focus")
+
+[node name="CraftPlanarCamRig" parent="." instance=ExtResource("3_craftcam")]
+
+[node name="SparkyDmFreeCamRig" parent="." instance=ExtResource("4_sparky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 12)
+process_mode = 4
+visible = false

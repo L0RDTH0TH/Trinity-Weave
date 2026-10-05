@@ -1,0 +1,301 @@
+schema_version: 1
+status: wrong_success_superseded_by_terrain_tile_r1
+armed_at: '2026-10-04T19:58:20Z'
+greenlit_at: '2026-10-04T19:58:20Z'
+factory_greenlit: false
+live_weld_greenlit: false
+ask_success: false
+superseded_by: alpha0_stalberg_dual_terrain_tile_r1
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_art_style_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2n
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_art_style_r1.md
+prior_slice_id: alpha0_stalberg_dual_mesh_fit_r1
+keeps_geometry_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: mesh_fit_r1 bilinear warp to SmallCornerQuad.Corners assumed Prefer-ok
+  on trajectory; this altitude restyles dual MeshLibrary / sector pieces to cream
+  quarter-platform YT look (shared cream albedo + soft under-glow; silhouette families
+  kept); light craft-plane water/env tint; craft-cam pitch is SEPARATE LIVE action
+  (not Prefer Success). Refuse stretch_as_variant / gray_ramp_only / FaceCornersLocal
+  / primary_face_as_dual / terrain3d_in_scope / cam_tilt_as_art_prefer_success.
+depends_on: alpha0_stalberg_dual_mesh_fit_r1
+prefer_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+next_in_chain: null
+density_lift: live_rings_5_spacing_210
+goal_image: Ingest/Screenshot_20261004_003640_YouTube.jpg
+evidence_dir: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/_evidence/
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: cream_quarter_platform_art_style_on_mesh_fit
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+contract: C_cream_quarter_platform_art_style_on_mesh_fit
+intent_invariant: Stage-6 DualCell identity remains lattice wire/topology; pick/glow
+  centers on secondary face centroids via SmallCornerQuadsAroundFace; dual populate
+  slots place four corner/sector pieces selected by corner-config (empty/edge/corner/full
+  + rot/mirror) warped/skinned onto SmallCornerQuad.Corners (mesh_fit KEEP) and restyled
+  as cream quarter-platforms (shared cream albedo + soft under-glow; silhouette carries
+  family — refuse gray_ramp_only); light craft-plane water/env tint OK; craft-cam
+  pitch tilt is separate LIVE (not Prefer Success); refuse stretch_as_variant / FaceCornersLocal
+  / primary_face_as_dual / Terrain3D / Hex19 Success; rings=5 spacing=210 + squarify
+  kept.
+structural_success: Corner-config selects discrete family piece-sets (empty/edge/corner/full
+  + rot/mirror) as four cream quarter/sector meshes on secondary-centered SmallCornerQuads;
+  each piece footprint remains vertex-warped/skinned to SmallCornerQuad.Corners; cream
+  stylized elevated platforms with soft under-glow; Stage-6 dual edges + secondary
+  glow + squarify Stage 5 + rings=5 spacing=210 preserved; Prefer edges+faces+cells;
+  refuse stretch_as_variant / gray_ramp_only / primary_face_as_dual / FaceCornersLocal
+  / terrain3d_in_scope / cam_tilt_as_art_prefer_success.
+path_position: dual_mesh_fit_r1 Prefer-ok → this cream art-style Prefer → later terrain
+  blend / density polish (not this ticket)
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+  - Camera/CraftPlanarCamRig.cs
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    goal_image: Ingest/Screenshot_20261004_003640_YouTube.jpg
+    structural_success: Cream quarter-platform restyle of four mesh-fit sector pieces
+      on SmallCornerQuad secondary dual corners; Stage-6 wire + secondary glow + squarify
+      + rings=5/spacing=210 + bilinear mesh_fit preserved; Prefer edges+faces.
+    refuse:
+    - stretch_as_variant
+    - gray_ramp_only
+    - primary_face_as_dual
+    - face_corners_local_as_dual_edges
+    - primary_star_glow_as_success
+    - stage6_union_as_single_glow_tile
+    - over_neighbor_paint
+    - inspiration_shape_miss
+    - skip_dual_offset
+    - prop_scatter_as_composition
+    - bitmask_equals_townscaper
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - dual_overlay_as_grid_kernel
+    - non_unique_vertices
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+    - cam_tilt_as_art_prefer_success
+    - verify_mcp_only
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  secondary_glow_center:
+    law: SmallCornerQuadsAroundFace_secondary_centroid_pick_glow
+    preserved: true
+  stage6_wire:
+    law: dual_verts_face_centroids__dual_edges_centroid_centroid
+    preserved: true
+  squarify_stage5:
+    law: rotate_90_average_squarify
+    preserved: true
+  mesh_fit:
+    law: bilinear_uv_skin_to_SmallCornerQuad_Corners
+    preserved: true
+    prior_altitude: alpha0_stalberg_dual_mesh_fit_r1
+  dual_visual:
+    law: cream_quarter_platform_art_on_mesh_fit__not_stretch_not_gray_ramp
+    success_types_preferred:
+    - Systems/DualGridCraftHost.cs
+    - assets/craft/dual_grid/
+    pipeline_ok_either:
+    - blender_to_meshlibrary
+    - cream_material_override_on_mesh_fit_sectors
+    pipeline_preferred: blender_to_meshlibrary
+    meshlibrary_assets:
+    - assets/craft/dual_grid/craft_dual_Empty.glb
+    - assets/craft/dual_grid/craft_dual_Edge.glb
+    - assets/craft/dual_grid/craft_dual_Corner.glb
+    - assets/craft/dual_grid/craft_dual_Full.glb
+    require_discrete_library_place: true
+    require_mesh_fit_secondary_corners: true
+    require_cream_quarter_platform_style: true
+    require_neighborhood_cardinality_gate: true
+    require_secondary_slot_host: true
+    refuse_substitute:
+    - DualFamilyColor_gray_ramp_only
+    - FaceCornersLocal_CommitDualFamilyMesh_stretch
+    - non_uniform_Scale_as_variant
+    - Library_null_with_same_plate_mesh
+    - primary_face_as_dual
+    - rigid_uniform_scale_cube_as_mesh_fit
+    - cam_tilt_as_art_prefer_success
+    families_minimum:
+    - empty
+    - edge
+    - corner
+    - full
+    transform_ok:
+    - rotation
+    - mirror
+    - vertex_bilinear_warp_to_small_corner_quad
+    - uniform_height_scale
+    - shared_cream_albedo_plus_emission_underglow
+    transform_refuse:
+    - non_uniform_scale
+    - stretch_as_variant
+    - face_corners_local_as_dual_edges
+    - albedo_ramp_as_family
+    prior_altitude: alpha0_stalberg_dual_mesh_fit_r1
+  camera_separate_live:
+    law: CraftPlanarCamRig_pitch_35_55_not_prefer_success
+    note: Camera tilt shipped same session as separate LIVE craft-cam change
+matrix_quotes:
+  dual_art_style_cream_quarters:
+    prefer: Cream quarter-platform restyle of mesh-fit sector pieces on SmallCornerQuad;
+      Stage-6 + secondary glow + squarify + rings=5/spacing=210 + bilinear mesh_fit
+      stay.
+    never: stretch_as_variant; gray_ramp_only; FaceCornersLocal; primary_face_as_dual;
+      Hex19/Terrain3D Success; cam tilt as Prefer Success
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_art_style
+  must: cream_quarter_platform_on_mesh_fit_secondary_corners
+  refuse:
+  - stretch_as_variant
+  - gray_ramp_only
+  - primary_face_as_dual
+  - face_corners_local_as_dual_edges
+  - over_neighbor_paint
+  - inspiration_shape_miss
+  - skip_dual_offset
+  - cam_tilt_as_art_prefer_success
+- id: priors_preserved
+  must: stage6_wire_secondary_glow_squarify_rings5_spacing210_mesh_fit_discrete_family_ids
+  refuse:
+  - primary_star_glow_as_success
+  - stage6_union_as_single_glow_tile
+  - hex19_pick_as_craft_authority
+- id: scope_art_style_only
+  must: no_terrain3d_worldbuilder_no_hex19_success
+  refuse:
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: 'F5: cream quarter/sector pieces on secondary small-corner slots (mesh_fit
+  hug kept); elevated above teal craft-plane water; soft under-glow OK; families still
+  silhouette-distinct; Stage-6 + secondary glow + squarify + rings=5 spacing=210;
+  Prefer refuses stretch/gray_ramp/FaceCornersLocal/primary_face_as_dual/Terrain3D;
+  cam pitch separate LIVE; regenerable.'
+refuse_codes:
+- stretch_as_variant
+- gray_ramp_only
+- primary_face_as_dual
+- face_corners_local_as_dual_edges
+- primary_star_glow_as_success
+- stage6_union_as_single_glow_tile
+- over_neighbor_paint
+- inspiration_shape_miss
+- skip_dual_offset
+- prop_scatter_as_composition
+- bitmask_equals_townscaper
+- points_as_grid
+- count_equals_topology
+- hex_scaffold_as_final_mesh
+- hex19_pick_as_craft_authority
+- dual_overlay_as_grid_kernel
+- non_unique_vertices
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- cam_tilt_as_art_prefer_success
+- verify_mcp_only
+do_not_waive:
+- Terrain3D_prefer_proof
+- count_equals_topology
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- dual_centre_on_logic_as_half_step_proof
+- dual_overlay_as_grid_kernel
+- dual_rebind_cardinal_wrong_locus
+- ephemeral_edge_key_as_topology
+- explicit_met_implicit_miss
+- extruded_prism_as_quad_board
+- extrusion_before_2d_stable
+- face_block_neighborhood
+- face_corners_local_as_dual_edges
+- face_proxy_dual
+- free_boundary_fold
+- gray_ramp_only
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- indexed_lists_as_graph
+- infinite_rect_as_hex19
+- inset_face_corners_as_dual
+- inspiration_shape_miss
+- intent_collapsed_to_mechanics
+- missing_square_area_force
+- naive_laplacian_only
+- non_unique_vertices
+- nonplanar_face_soup
+- noodle_edge_clutter
+- over_neighbor_paint
+- owned_only_glow
+- points_as_grid
+- prefer_authorship_pass
+- primary_face_as_dual
+- primary_star_glow_as_success
+- proxy_substitution
+- relax_before_quad_only
+- relax_step_too_hard
+- skip_dissolve_relax
+- skip_dual_offset
+- stage6_union_as_single_glow_tile
+- stamp_as_dual
+- stretch_as_variant
+- support_face_index_as_dual_success
+- unbounded_z_jitter
+- unstable_dual_neighborhood
+- vertex_neighbor_as_dual_corner
+- wireframe_spaghetti
+- cam_tilt_as_art_prefer_success
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_art_style_r1
+  require_implicit_bind: true
+  steps:
+  - GREENLIGHT — cream quarter-platform art style on mesh_fit sectors
+  - Load armed packet + Prefer § C.1 + Grid-Topology dual silhouette law
+  - Restyle MeshLibrary / materials to cream elevated quarters + soft under-glow
+  - Light craft-plane water/env tint; document Terrain3D later
+  - Preserve mesh_fit bilinear, Stage-6, secondary glow, squarify, rings=5 spacing=210
+  - Prefer concept pass; claim_class staging until F5
+  - Curator local snapshot only (git.push_enabled false); no Curator push enable
+fresh_chat_instruction: GREENLIT armed_ready_to_stage. Cream quarter-platform art
+  on mesh_fit sectors. Cam pitch is separate LIVE. Keep Stage-6 / secondary glow /
+  squarify / rings=5 spacing=210 / bilinear mesh_fit / discrete family ids. Curator
+  local only. claim_class staging until F5.
+prefer_ok_at: '2026-10-04T20:03:34Z'

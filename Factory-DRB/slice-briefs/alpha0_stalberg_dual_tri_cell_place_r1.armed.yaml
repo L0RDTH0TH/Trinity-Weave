@@ -1,0 +1,418 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-05T00:33:00Z'
+greenlit_at: '2026-10-05T00:33:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2u
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_tri_cell_place_r1.md
+prior_slice_id: alpha0_stalberg_dual_owned_only_paint_r1
+keeps_geometry_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+keeps_materials_slice_id: alpha0_stalberg_dual_terrain_tile_r1
+keeps_snap_slice_id: alpha0_stalberg_dual_primary_vertex_place_r1
+keeps_seat_slice_id: alpha0_stalberg_dual_owned_cell_place_r1
+keeps_coverage_frame_slice_id: alpha0_stalberg_dual_whole_cell_orient_r1
+keeps_owned_only_paint_slice_id: alpha0_stalberg_dual_owned_only_paint_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+supersedes_n3_place_skip:
+- alpha0_stalberg_dual_owned_only_paint_r1
+keeps_owned_only_paint:
+- alpha0_stalberg_dual_owned_only_paint_r1
+keeps_coverage_orient:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+keeps_seat_polarity:
+- alpha0_stalberg_dual_owned_cell_place_r1
+keeps_snap_polarity:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+prior_note: owned-only Full KEEP; SUPERSEDE silent EnsureStage6/OccupancyCorners ==4-only
+  skip for DualCorners.Length==3; MeshFit barycentric triangle; OccupancyCorners n=3 bit
+  map; Z-fight/FullYBias/seizure DEFERRED.
+depends_on: alpha0_stalberg_dual_owned_only_paint_r1
+prefer_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+next_in_chain: null
+density_lift: live_rings_5_spacing_210
+goal_image: Ingest/nature-pack.png
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: dual_tri_cell_place
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_cell_meshlibrary_placement
+place_polarity: owned_dual_cell_tri_cell_place
+contract: C_dual_tri_cell_place
+intent_invariant: Townscaper DualCell place for triangular Stage-6 cells — editable V with
+  OwnedDualCell DualCorners.Length==3 places one Full owned-only on that DualCell; ghost
+  (>=3) and paint agree; OccupancyCorners length-3 bit map (bit_i=CardinalNeighbors_i ↔
+  DualCorners_i) with no soft_take_4 pad; MeshFit barycentric (or equiv) for n=3; n=4
+  dual-edge frame KEEP; owned-only KEEP; primary-V snap KEEP; Empty skip; dual plus; Stage-6;
+  valence-5 non-editable; terrain + squarify + rings=5 spacing=210 KEEP; Z-fight / FullYBias
+  / seizure decks DEFERRED (not this slice Success).
+structural_success: TryPickOrganicCorner(V) first KEEP; LMB FlipOrganicCorner(V); EnsureStage6
+  accepts DualCorners.Length==3 or ==4; OccupancyCorners length matches DualCorners (3 or 4)
+  with no soft pad; owner-on → Full owned-only; MeshFitToDualEdgeFrame n=4 KEEP + triangle
+  barycentric n=3; ghost Stage6CornersLocal length>=3 KEEP; HighlightOwnedDualCells DualCell
+  keys; Empty skip; dual plus; Prefer lattice vertices+edges+faces/cells; refuse
+  silent_ghost_without_place_n3 / soft_take_4 / valence_5_editable / neighbor_corner_spray_as_place
+  / sector_pie_as_dual_cell_tile / corners_eq4_only_meshfit.
+path_position: owned_only_paint KEEP → this tri-cell n=3 place GREENLIGHT WELD LIVE → F5
+  (visuals deferred)
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    goal_image: Ingest/nature-pack.png
+    structural_success: TryPickOrganicCorner(V) first KEEP; LMB FlipOrganicCorner(V); EnsureStage6
+      accepts DualCorners.Length==3 or ==4; OccupancyCorners length matches DualCorners (3 or
+      4) with no soft pad; owner-on → Full owned-only; MeshFitToDualEdgeFrame n=4 KEEP + triangle
+      barycentric n=3; ghost Stage6CornersLocal length>=3 KEEP; HighlightOwnedDualCells DualCell
+      keys; Empty skip; dual plus; Prefer lattice vertices+edges+faces/cells; refuse
+      silent_ghost_without_place_n3 / soft_take_4 / valence_5_editable / neighbor_corner_spray_as_place
+      / sector_pie_as_dual_cell_tile / corners_eq4_only_meshfit.
+    success_object: dual_cell_meshlibrary_placement
+    refuse: &id001
+    - silent_ghost_without_place_n3
+    - soft_take_4
+    - valence_5_editable
+    - neighbor_corner_spray_as_place
+    - update_four_cross_as_success
+    - sector_pie_as_dual_cell_tile
+    - corners_eq4_only_meshfit
+    - expand_only_paint_as_success
+    - neighbor_dual_as_owned_place
+    - secondary_face_snap_as_place
+    - secondary_glow_center_as_place_target
+    - ocean_fill_all_empty_slots
+    - face_stamp_as_dual_populate
+    - sector_pie_as_product
+    - world_yaw_as_dual_edge_frame
+    - corner_wedge_as_whole_dual_cell
+    - plinth_as_terrain
+    - blob_as_module
+    - metrics_only_glb_drop
+    - prop_scatter_as_composition
+    - stretch_as_variant
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - procedural_only_as_success
+    - verify_mcp_only
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - primary_face_as_dual
+    - face_corners_local_as_dual_edges
+    - stage6_union_as_single_glow_tile
+    - over_neighbor_paint
+    - skip_dual_offset
+    - stamp_as_dual
+    - bitmask_equals_townscaper
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - dual_overlay_as_grid_kernel
+    - non_unique_vertices
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+    - unstable_dual_neighborhood
+    - explicit_met_implicit_miss
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  primary_vertex_place:
+    law: TryPickOrganicCorner_FlipOrganicCorner_OwnedDualCell_Empty_skip
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: primary_vertex_dual_cell_place
+    snap_kept: true
+    refuse_substitute:
+    - secondary_glow_center_as_place_target
+    - secondary_face_snap_as_place
+    - ocean_fill_all_empty_slots
+    - face_stamp_as_dual_populate
+  owned_dual_cell_place:
+    law: occupancy_includes_owner_UpdateFour_DualCellsTouching_ghost_eq_paint
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: owned_dual_cell_place
+    seat_kept: true
+    update_four: DualCellsTouching
+    valence_5_editable: false
+    refuse_substitute:
+    - expand_only_paint_as_success
+    - neighbor_dual_as_owned_place
+    - sector_pie_as_dual_cell_tile
+    - soft_take_4
+  dual_whole_cell_edge_frame:
+    law: OccupancyCorners_Stage6_aligned_owner_on_Full_dual_edge_fit
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: owned_dual_cell_whole_cell_edge_frame
+    coverage_frame_kept: true
+    occupancy_corners: OccupancyCorners
+    occupancy_bit_map_quad: bit_i_equals_DualCorners_i_sample_CardinalNeighbors_i
+    occupancy_bit_map_tri: bit0_1_2_CardinalNeighbors_0_1_2_DualCorners_0_1_2_no_soft_pad
+    owner_centre_full: true
+    edge0: c0_to_c1
+    update_four: DualCellsTouching
+    valence_5_editable: false
+    refuse_substitute:
+    - sector_pie_as_dual_cell_tile
+    - world_yaw_as_dual_edge_frame
+    - corner_wedge_as_whole_dual_cell
+    - SmallCornerQuad_pie_host
+    - soft_take_4
+  dual_owned_only_paint:
+    law: owned_only_nonempty_meshlibrary_full_coverage_keep_neighbor_empty_unless_owner_on
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: owned_dual_cell_owned_only_paint
+    owned_only_place: true
+    owner_centre_full_kept: true
+    neighbor_corner_deferred: true
+    update_four_recompute_ok: true
+    update_four_place_success: false
+    zfight_harden_full: deferred_later_slice
+    valence_5_editable: false
+    refuse_substitute:
+    - neighbor_corner_spray_as_place
+    - update_four_cross_as_success
+    - sector_pie_as_dual_cell_tile
+    - corner_wedge_as_whole_dual_cell
+    - world_yaw_as_dual_edge_frame
+  dual_tri_cell_place:
+    law: DualCorners_length_3_EnsureStage6_place_Full_owned_only_OccupancyCorners_n3_MeshFit_barycentric
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: owned_dual_cell_tri_cell_place
+    dual_corners_n3_place: true
+    occupancy_corners_n3: true
+    soft_take_4: false
+    mesh_fit_triangle_barycentric: true
+    ghost_ge3_kept: true
+    owned_only_kept: true
+    visuals_deferred:
+    - zfight
+    - full_y_bias_as_success
+    - seizure_decks
+    valence_5_editable: false
+    refuse_substitute:
+    - silent_ghost_without_place_n3
+    - soft_take_4
+    - valence_5_editable
+    - neighbor_corner_spray_as_place
+    - sector_pie_as_dual_cell_tile
+    - corners_eq4_only_meshfit
+  secondary_glow_center:
+    law: SmallCornerQuadsAroundFace_secondary_centroid_glow_debug_only
+    preserved: false
+    populate_not_glow: true
+    place_target: false
+    note: glow debug toggle OK; not LMB place Success
+  stage6_wire:
+    law: dual_verts_face_centroids_plus_markers__no_dual_cell_edges
+    preserved: true
+  squarify_stage5:
+    law: rotate_90_average_squarify
+    preserved: true
+  dual_object_identity:
+    success_object_required: dual_cell_meshlibrary_placement
+    law: one_meshlibrary_item_per_stage6_dual_cell_not_sector_pie
+  dual_visual:
+    law: terrain_materials_keep__host_owned_only_full_paint_tri_and_quad
+    require_discrete_library_place: true
+    require_mesh_fit_secondary_corners: false
+    require_stage6_dual_cell_host: true
+    require_cream_quarter_platform_style: false
+    require_terrain_tile_read: true
+    require_neighborhood_cardinality_gate: true
+    require_secondary_slot_host: false
+    require_empty_skip_ocean: true
+    require_ghost_paint_same_owned_dual: true
+    require_whole_dual_cell_full_on_owner: true
+    require_owned_only_nonempty_place: true
+    require_neighbor_empty_unless_owner_on: true
+    require_occupancy_corners_stage6_aligned: true
+    require_dual_edge_frame_fit: true
+    require_tri_dual_cell_place: true
+    require_occupancy_corners_n3: true
+    require_no_soft_take_4: true
+    require_zfight_harden_full: false
+    meshlibrary_assets:
+    - assets/craft/dual_grid/craft_dual_Empty.glb
+    - assets/craft/dual_grid/craft_dual_Edge.glb
+    - assets/craft/dual_grid/craft_dual_Corner.glb
+    - assets/craft/dual_grid/craft_dual_Full.glb
+    - assets/craft/dual_grid/craft_dual_Diagonal.glb
+    - assets/craft/dual_grid/craft_dual_InverseCorner.glb
+    families_minimum:
+    - empty
+    - edge
+    - corner
+    - full
+    - diagonal
+    - inverse_corner
+    transform_ok:
+    - rotation_in_dual_edge_frame
+    - mirror
+    - vertex_bilinear_warp_to_stage6_corners
+    - vertex_barycentric_warp_to_stage6_triangle
+    - uniform_height_scale
+    transform_refuse:
+    - non_uniform_scale
+    - stretch_as_variant
+    - world_k90_then_pie_warp
+    - sector_pie_as_dual_cell_tile
+    - world_yaw_as_dual_edge_frame
+    - ocean_fill_all_empty_slots
+    - neighbor_corner_spray_as_place
+    - soft_take_4
+    - silent_ghost_without_place_n3
+    - corners_eq4_only_meshfit
+matrix_quotes:
+  dual_tri_cell_place:
+    prefer: LMB editable V DualCorners==3 → one Full on OwnedDualCell(V); ghost>=3 agree;
+      OccupancyCorners n=3 no soft pad; MeshFit barycentric; owned-only/snap/Empty/quad frame
+      KEEP; valence-5 non-editable; visuals deferred.
+    never: silent ghost-without-place on n=3; soft_take_4 pad; valence_5 editable; neighbor
+      Corner spray; sector_pie host; corners==4-only MeshFit
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_tri_cell_place
+  must: dualcorners_n3_full_owned_only_occupancy_n3_meshfit_barycentric
+  refuse:
+  - silent_ghost_without_place_n3
+  - soft_take_4
+  - valence_5_editable
+  - neighbor_corner_spray_as_place
+  - sector_pie_as_dual_cell_tile
+  - corners_eq4_only_meshfit
+  - ocean_fill_all_empty_slots
+  - secondary_face_snap_as_place
+- id: priors_preserved
+  must: owned_only_stage6_geometry_squarify_rings5_spacing210_terrain_primary_v_snap_seat_coverage_frame
+  refuse:
+  - stage6_union_as_single_glow_tile
+  - hex19_pick_as_craft_authority
+- id: scope_host_placement_only
+  must: no_zfight_claim_no_terrain3d_coastline_deferred
+  refuse:
+  - terrain3d_in_scope
+  - metrics_only_glb_drop
+  - seizure_coplanar_deck_as_success
+done_when: 'F5: LMB editable V DualCorners==3 → one Full on OwnedDualCell(V); ghost and paint
+  agree; MeshFit triangle; OccupancyCorners n=3 no soft pad; owned-only KEEP; Empty skip;
+  dual plus; Stage-6 + terrain + squarify + rings=5 KEEP; valence-5 non-placeable; Prefer refuses
+  silent_ghost_without_place_n3 / soft_take_4 / valence_5_editable / neighbor_corner_spray_as_place
+  / sector_pie_as_dual_cell_tile. No Z-fight claim.'
+refuse_codes: *id001
+do_not_waive:
+- Terrain3D_prefer_proof
+- silent_ghost_without_place_n3
+- soft_take_4
+- valence_5_editable
+- neighbor_corner_spray_as_place
+- update_four_cross_as_success
+- corners_eq4_only_meshfit
+- expand_only_paint_as_success
+- neighbor_dual_as_owned_place
+- secondary_face_snap_as_place
+- secondary_glow_center_as_place_target
+- ocean_fill_all_empty_slots
+- face_stamp_as_dual_populate
+- sector_pie_as_product
+- sector_pie_as_dual_cell_tile
+- world_yaw_as_dual_edge_frame
+- corner_wedge_as_whole_dual_cell
+- bitmask_equals_townscaper
+- blob_as_module
+- count_equals_topology
+- craft_cam_recenter_on_place
+- craft_phase_terrain3d_deform
+- craft_terrain_blend
+- dual_centre_on_logic_as_half_step_proof
+- dual_overlay_as_grid_kernel
+- dual_rebind_cardinal_wrong_locus
+- ephemeral_edge_key_as_topology
+- explicit_met_implicit_miss
+- extruded_prism_as_quad_board
+- extrusion_before_2d_stable
+- face_block_neighborhood
+- face_corners_local_as_dual_edges
+- face_proxy_dual
+- free_boundary_fold
+- gray_ramp_only
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- indexed_lists_as_graph
+- infinite_rect_as_hex19
+- inset_face_corners_as_dual
+- inspiration_shape_miss
+- intent_collapsed_to_mechanics
+- metrics_only_glb_drop
+- missing_square_area_force
+- naive_laplacian_only
+- non_unique_vertices
+- nonplanar_face_soup
+- noodle_edge_clutter
+- over_neighbor_paint
+- owned_only_glow
+- plinth_as_terrain
+- points_as_grid
+- prefer_authorship_pass
+- primary_face_as_dual
+- procedural_only_as_success
+- prop_scatter_as_composition
+- proxy_substitution
+- relax_before_quad_only
+- relax_step_too_hard
+- skip_dissolve_relax
+- skip_dual_offset
+- stage6_union_as_single_glow_tile
+- stamp_as_dual
+- stretch_as_variant
+- support_face_index_as_dual_success
+- terrain3d_in_scope
+- unbounded_z_jitter
+- unstable_dual_neighborhood
+- verify_mcp_only
+- vertex_neighbor_as_dual_corner
+- wireframe_spaghetti
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane DualGridCraftHost
+  overlay_must: alpha0_stalberg_dual_tri_cell_place_r1
+  require_implicit_bind: true
+  steps:
+  - GREENLIGHT WELD LIVE — DualCorners n=3 Full owned-only place + OccupancyCorners n=3 + MeshFit triangle
+  - Prefer concept on dual_cell_meshlibrary_placement (tri-cell place)
+  - Keep owned-only / snap / seat / Empty / plus / terrain / Stage-6 / squarify / rings=5
+  - Defer Z-fight / FullYBias / seizure decks
+  - claim_class staging until F5; Curator skip if mass rules dirty; git.push_enabled false
+fresh_chat_instruction: GREENLIT tri DualCell place. Owned-only KEEP. F5 n=3 place bar. Visuals
+  deferred. Curator local only if safe.
+prefer_ok_at: '2026-10-05T00:33:00Z'

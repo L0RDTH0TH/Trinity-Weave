@@ -1,0 +1,184 @@
+schema_version: 1
+status: failed_altitude_partial_visual_fidelity
+armed_at: '2026-10-03T19:03:07Z'
+greenlit_at: '2026-10-03T19:03:07Z'
+prefer_ok_at: '2026-10-03T19:12:00Z'
+factory_greenlit: false
+claim_class: failed_altitude
+superseded_by: alpha0_stalberg_dual_visual_r2
+altitude_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_visual_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2b
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_visual_r1.md
+prior_slice_id: alpha0_stalberg_manual_scale_r1
+logic_prior_slice_id: alpha0_stalberg_dual_corner_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: dual_corner_logic_prefer_ok_but_gray_ramp_only__manual_scale_preserved__visual_fidelity_next
+depends_on: alpha0_stalberg_dual_corner_r1
+next_in_chain: null
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: bind_dual_visual_meshlibrary_fidelity
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: Corner-config selects shape-distinct dual mesh variants
+      (empty/edge/corner/full + rotation/mirror) via MeshLibrary or approved
+      shape-distinct graybox stand-ins; Prefer edges+faces; organic craft plane
+      + dual-corner four-cell logic preserved at manual scale rings=2 spacing=3.0
+    refuse:
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - skip_dual_offset
+    - prop_scatter_as_composition
+    - bitmask_equals_townscaper
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - dual_overlay_as_grid_kernel
+    - non_unique_vertices
+    - relax_before_quad_only
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_corner:
+    law: logic_points_at_organic_quad_corners__click_flips__rebuild_four_dual_cells
+    preserved: true
+    not_product_ask_success: true
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+  dual_visual:
+    law: corner_config_selects_shape_distinct_mesh_variants__not_gray_albedo_ramp
+    success_types_preferred:
+    - Systems/DualGridCraftHost.cs
+    - assets/craft/dual_grid/
+    pipeline_ok_either:
+    - blender_to_meshlibrary
+    - approved_shape_distinct_graybox_standins
+    refuse_substitute:
+    - DualFamilyColor_gray_ramp_only
+    - Library_null_with_same_plate_mesh
+    families_minimum:
+    - empty
+    - edge
+    - corner
+    - full
+    transform_ok:
+    - rotation
+    - mirror
+    ticket_spec_gap_note: dual_corner_r1_said_graybox_OK_without_requiring_variant_geometry
+matrix_quotes:
+  dual_visual_meshlibrary:
+    prefer: Four corner types of each dual cell select MeshLibrary entry (or
+      shape-distinct graybox) plus rotation/mirror; empty/edge/corner/full readable
+      by silhouette; organic underlay + craft authority + dual-corner logic stay;
+      Prefer edges+faces; manual rings=2 spacing=3.0.
+    never: gray_ramp_only; Library null with one plate + DualFamilyColor; points_as_grid;
+      skip_dual; Hex19 Success; Terrain3D/art polish/cam yank/density lift this Prefer
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_visual_variants
+  must: corner_config_to_shape_distinct_mesh_variant
+  refuse:
+  - gray_ramp_only
+  - inspiration_shape_miss
+  - skip_dual_offset
+- id: kernel_and_logic_preserved
+  must: organic_underlay_craft_authority_dual_corner_four_cell_manual_scale
+  refuse:
+  - hex19_pick_as_craft_authority
+  - noodle_edge_clutter
+  - non_unique_vertices
+- id: scope_visual_fidelity_only
+  must: no_density_lift_no_terrain3d_no_art_bind_no_hex19_success
+  refuse:
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: 'F5: corner flip rebuilds up to four dual cells with shape-distinct
+  empty/edge/corner/full (+rot/mirror) from corner config — not gray albedo ramp;
+  Prefer has_edges + has_faces_or_cells; organic + craft authority + dual-corner
+  logic preserved; rings=2 spacing=3.0; regenerable; Blender→MeshLibrary OR approved
+  shape-distinct graybox stand-ins.'
+refuse_codes:
+- gray_ramp_only
+- inspiration_shape_miss
+- skip_dual_offset
+- prop_scatter_as_composition
+- bitmask_equals_townscaper
+- points_as_grid
+- count_equals_topology
+- hex_scaffold_as_final_mesh
+- hex19_pick_as_craft_authority
+- dual_overlay_as_grid_kernel
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_visual_r1
+  require_implicit_bind: true
+  steps:
+  - GREENLIGHT WELD received — bind + IMPLEMENT_SLICE module lane
+  - Load this armed packet + Townscaper dual grammar + Grid-Topology + Prefer host law
+  - Bind corner-config → MeshLibrary or shape-distinct graybox; refuse gray_ramp_only
+  - Preserve organic underlay, craft-plane authority, dual-corner four-cell, manual scale
+  - Prefer pass + MCP shot; claim_class staging until operator F5
+  - Do NOT Curator push; do NOT claim dual_corner ask_success
+fresh_chat_instruction: 'GREENLIT armed_ready_to_stage. Dual visual / MeshLibrary
+  fidelity — corner-config → shape-distinct variants; refuse gray_ramp_only. Keep
+  organic + dual logic + rings=2 spacing=3.0. No Curator. claim_class staging until F5.'

@@ -1,0 +1,23 @@
+{
+  "producer_run_id": "sp-dgn1-small-corner-revise",
+  "slice_id": "alpha0_stalberg_dual_glow_neighborhood_r1",
+  "ask_id": "alpha0_stalberg_dual_glow_neighborhood",
+  "compose_path": "slice_producer_judgment",
+  "composed_at": "2026-10-04T06:37:05Z",
+  "factory_greenlit": true,
+  "prefer_concept_required": true,
+  "success_object": "dual_offset_cells",
+  "intent_invariant": "Stage-6 wire kept; SmallCornerQuadsAround(V) glow/populate; corners V/mid/centroid/mid; refuse stage6_union_as_single_glow_tile",
+  "conceptual_leg_present": true,
+  "structural_only": false,
+  "harness_fallback": false,
+  "keeps_geometry": "alpha0_stalberg_dual_stage6_cell_r1",
+  "contract": "B_small_corner_quads_glow_keep_stage6_wire",
+  "goal_image": "Ingest/Final-grid-state.jpg",
+  "bug_image": "Ingest/Screenshot from 2026-10-04 01-19-00.png",
+  "annotate_proof": "Ingest/Screenshot from 2026-10-04 01-19-00.png",
+  "lane_roster": [
+    "module"
+  ],
+  "judgment_notes": "Operator clarify mid-flight: glow unit = small primary-cut corner quads, not Stage-6 union or neighbor DualCells. Prefer concept re-ok after revise."
+}

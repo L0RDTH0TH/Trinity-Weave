@@ -1,0 +1,154 @@
+# Armed Prefer packet — lattice-graph law (points ≠ grid).
+# Prior hex-19 point-cloud weld = failed_altitude points_as_grid. Rect weld also invalid.
+# No YAML word-gate: the operator kicks off a re-eat in chat; staging is never latched here.
+
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-02T19:35:00Z'
+greenlit_at: '2026-10-02T19:35:00Z'
+law_amended_at: '2026-10-02T21:00:00Z'
+go_latch_reverted_at: '2026-10-03T03:45:00Z'
+factory_greenlit: true
+claim_class: staging
+f5_invalidated: true
+f5_invalidated_reason: points_as_grid__hex19_point_cloud_not_lattice_graph
+prior_weld_altitude: failed_altitude_points_as_grid
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_townscaper_tutorial
+slice_id: alpha0_townscaper_tutorial_s1_occupancy_r1
+series_id: alpha0_townscaper_tutorial_r1
+tutorial_step: 1
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_townscaper_tutorial_s1_occupancy_r1.md
+resets:
+  - alpha0_townscaper_craft_core_r1
+  - alpha0_townscaper_tutorial_s1_attest
+supersedes_altitude:
+  - alpha0_townscaper_craft_visual_r1
+  - alpha0_townscaper_craft_visual_r2
+  - alpha0_townscaper_craft_core_r1
+  - hex19_point_cloud_weld_2026-10-02
+next_in_chain: alpha0_townscaper_tutorial_s2_dual_offset_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_hex19_lattice_graph_ghost_grid_toggle_strip_dual_visual_success
+step1_authorship: true
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Systems/DualGridCraftHost.cs
+    - Systems/WorldgenCraft.cs
+    - scenes/WorldgenCraft.tscn
+    - PlayRegion.cs
+    - Player/CraftFocusAnchor.cs
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+    - implementation_factory_loop
+    - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  # Preferred dict shape for the step-1 lock (bare bool → step1_authorship_bool_underspecified).
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Ingest/Resources/Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    craft: hot_wheels_tile_authorship_only
+    terrain3d: fed_consumer_out_of_scope_this_step
+    structural_success: hex19_lattice_graph__vertices_plus_neighbor_edges_plus_faces_cells
+    refuse:
+      - points_as_grid
+      - count_equals_topology
+      - explicit_met_implicit_miss
+      - craft_cam_recenter_on_place
+      - craft_terrain_blend
+  step1_occupancy:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law: hex19_lattice_graph__vertices_edges_faces__placement_ghost_on_cell__occupancy_toggle__no_dual_visual__no_terrain3d
+    replace_live_assumption: point_cloud_or_unbounded_rect_with_hex_lattice_graph
+    strip_from_success:
+      - dual_meshlibrary_variants
+      - connector_modules
+      - craft_visual_art_bind
+      - points_only_markers
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: 'Hex-19 lattice graph (vertices+edges+faces/cells); ghost snaps to cell; occupancy lattice toggle; LMB/RMB under mouse; graybox OK; Terrain3D OUT OF SCOPE.'
+    never: 'Point cloud / N floating markers as grid Success; unbounded/rect GridMap as hex-19; cam yank; Terrain3D under craft; dual/connector/art as this step Success; bundle tutorial steps 2–5'
+hard_prefer_gaps:
+  - id: hex19_lattice_graph
+    must: fixed_hex_scaffold_19_vertices_with_neighbor_edges_and_faces_cells
+    refuse:
+      - points_as_grid
+      - count_equals_topology
+      - infinite_rect_as_hex19
+  - id: placement_ghost
+    must: shadow_ghost_preview_on_cell_under_cursor_before_commit
+    refuse: inspiration_shape_miss
+  - id: occupancy_grid_toggle
+    must: operator_show_hide_occupancy_lattice_vertices_edges_faces
+    note: dual_overlay_toggle_stubbed_or_hidden_until_s2
+  - id: mouse_lmb_rmb
+    must: lmb_place_rmb_remove_under_mouse_cursor_occupancy_cell
+    refuse: camera_center_aim
+  - id: no_cam_yank
+    must: craft_place_remove_no_camera_recenter
+    refuse: craft_cam_recenter_on_place
+  - id: occupancy_only
+    must: lattice_graph_graybox_ok__no_dual_visual_success
+    refuse:
+      - bitmask_equals_townscaper
+      - prop_scatter_as_composition
+      - bundle_tutorial_steps
+  - id: terrain3d_hard_disabled
+    must: terrain3d_host_absent_or_hard_disabled_under_craft
+    refuse:
+      - craft_terrain_blend
+      - terrain3d_in_scope
+      - terrain3d_leak_f5
+done_when: 'F5: hex-19 lattice graph (vertices+edges+faces); ghost on cell; occupancy toggle; LMB/RMB under mouse; no cam yank; no Terrain3D; graybox OK; dual toggle stubbed OK'
+refuse_codes:
+  - points_as_grid
+  - count_equals_topology
+  - prop_scatter_as_composition
+  - bitmask_equals_townscaper
+  - skip_dual_offset
+  - procedural_only_as_success
+  - terrain3d_in_scope
+  - boil_the_ocean_df
+  - verify_mcp_only
+  - bundle_tutorial_steps
+  - craft_cam_recenter_on_place
+  - craft_terrain_blend
+  - terrain3d_leak_f5
+  - infinite_rect_as_hex19
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_townscaper_tutorial_s1_occupancy_r1
+  require_implicit_bind: true
+  steps:
+    - Load this armed packet + brief (lattice-graph law) + Grid-Topology-Host-Law
+    - Confirm FEEDSTOCK-SHAPE operator_confirmed
+    - Emit / verify implicit-intent-bind artifact before Code-Repos
+    - Replace point-cloud / rect occupancy with hex lattice graph; ghost on cell; occupancy toggle; strip dual/connector Success
+    - Write staging receipt; claim_class staging until operator F5
+    - Do NOT open s2–s6 weld; do NOT Curator push
+fresh_chat_instruction: >-
+  s1 occupancy is armed and stageable. When the operator kicks off a re-eat in
+  chat: force-compose s1 (module lane only CDP + fresh implicit-intent bind),
+  stage IMPLEMENT_SLICE with armed_packet_path injected, then EAT-QUEUE the
+  module lane. Success = F5 hex-19 LATTICE GRAPH (19 vertices + neighbor edges
+  + faces/cells), ghost snaps to a cell, occupancy lattice toggle, LMB/RMB
+  under mouse, no cam yank, no Terrain3D; graybox OK. Points-only fails closed
+  on points_as_grid / count_equals_topology / explicit_met_implicit_miss —
+  these are non-waivable (Prefer topology seat, enforced post-lane on LIVE).
+  No dual visual Success, no s2-s6 weld, no Curator push. Prior point-cloud F5
+  is invalidated.

@@ -1,0 +1,31 @@
+{
+  "sites": [
+    {
+      "id": "birdcruncher_cave_feast",
+      "name": "Birdcruncher Cave — Feast Platform",
+      "kind": "hub",
+      "blurb": "Struct Part 1 hub: feast platform, lanterns, benches. Listen / snatch / explore before leaving for the campsite.",
+      "spawn_eye": [0.0, 1.65, 8.0],
+      "dm_eye": [0.0, 16.0, 11.0],
+      "theme": "cave_feast"
+    },
+    {
+      "id": "sczarni_campsite",
+      "name": "Sczarni Campsite Approach",
+      "kind": "encounter",
+      "blurb": "Struct Part 2: dusk approach — Creep (Stealth), Fight scrap, Explore wagon cover.",
+      "spawn_eye": [0.0, 1.65, 6.0],
+      "dm_eye": [2.0, 14.0, 8.0],
+      "theme": "campsite_dusk"
+    },
+    {
+      "id": "bestest_truffle_field",
+      "name": "Bestest Truffle Field",
+      "kind": "landmark",
+      "blurb": "Struct Part 3 gather site: Perception / Ride intents + Explore clearing. Squealy Nord hooks for DM RP.",
+      "spawn_eye": [0.0, 1.65, -3.0],
+      "dm_eye": [0.0, 14.0, 4.0],
+      "theme": "clearing"
+    }
+  ]
+}

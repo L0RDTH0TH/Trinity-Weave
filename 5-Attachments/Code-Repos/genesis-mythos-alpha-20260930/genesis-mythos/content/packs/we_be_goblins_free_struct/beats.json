@@ -1,0 +1,174 @@
+{
+  "skill_check": {
+    "id": "sneak_sczarni_camp",
+    "title": "Creep up on the campsite",
+    "skill_id": "stealth",
+    "skill_fallback_label": "Stealth",
+    "dc": 14,
+    "blurb": "PF1-shaped d20+Stealth vs DC 14. Seat-routed."
+  },
+  "skirmish": {
+    "id": "sczarni_bandit_scrap",
+    "title": "Campsite scrap",
+    "blurb": "PF1-shaped short exchange vs bandit placeholder.",
+    "enemy": {
+      "id": "sczarni_bandit",
+      "name": "Sczarni Bandit (struct)",
+      "hp": 10,
+      "hp_max": 10,
+      "attack_mod": 3,
+      "damage": "1d6",
+      "ac": 14,
+      "initiative_mod": 3
+    }
+  },
+  "stages": [
+    {
+      "id": "part1_feast",
+      "site_id": "birdcruncher_cave_feast",
+      "title": "Part 1 — Birdcruncher Feast",
+      "explore_blurb": "Struct hub: Birdcruncher cave feast platform. Minions bring snacks; four goblin chiefs are expected to be entertained. Placeholder geometry — walk the path, note lanterns and benches.",
+      "require_intent_before_advance": true,
+      "intents": [
+        {
+          "id": "listen_minions",
+          "kind": "skill",
+          "verb": "Listen",
+          "title": "Overhear Birdcruncher gossip",
+          "skill_id": "perception",
+          "skill_fallback_label": "Perception",
+          "dc": 12,
+          "blurb": "Catch which hunters never returned from the Bestest Truffle Field."
+        },
+        {
+          "id": "snatch_snack",
+          "kind": "skill",
+          "verb": "Snatch",
+          "title": "Snatch a feast scrap",
+          "skill_id": "sleight_of_hand",
+          "skill_fallback_label": "Sleight of Hand",
+          "dc": 13,
+          "blurb": "Pocket a snack without the tribe noticing (struct DC)."
+        },
+        {
+          "id": "explore_feast",
+          "kind": "explore",
+          "verb": "Explore",
+          "title": "Walk the feast platform",
+          "blurb": "Trace the path from spawn pad toward the cave lip and scrap clearing. No roll — seat context only."
+        }
+      ]
+    },
+    {
+      "id": "part2_campsite",
+      "site_id": "sczarni_campsite",
+      "title": "Part 2 — Sczarni Campsite",
+      "explore_blurb": "Struct encounter: dusk approach to Sczarni wagons and dogs. Creep, then scrap if spotted. DM seat sees called checks and camp relationship hooks.",
+      "require_intent_before_advance": true,
+      "intents": [
+        {
+          "id": "sneak_sczarni_camp",
+          "kind": "skill",
+          "verb": "Creep",
+          "title": "Creep up on the campsite",
+          "skill_id": "stealth",
+          "skill_fallback_label": "Stealth",
+          "dc": 14,
+          "blurb": "PF1-shaped d20+Stealth vs DC 14."
+        },
+        {
+          "id": "sczarni_bandit_scrap",
+          "kind": "skirmish",
+          "verb": "Fight",
+          "title": "Campsite scrap",
+          "blurb": "Short PF1-shaped exchange vs bandit placeholder.",
+          "enemy": {
+            "id": "sczarni_bandit",
+            "name": "Sczarni Bandit (struct)",
+            "hp": 10,
+            "hp_max": 10,
+            "attack_mod": 3,
+            "damage": "1d6",
+            "ac": 14,
+            "initiative_mod": 3
+          }
+        },
+        {
+          "id": "explore_camp",
+          "kind": "explore",
+          "verb": "Explore",
+          "title": "Scout wagon cover",
+          "blurb": "Note dusk colors, enemy pad, and approach path. No roll."
+        }
+      ]
+    },
+    {
+      "id": "part3_truffles",
+      "site_id": "bestest_truffle_field",
+      "title": "Part 3 — Bestest Truffle Field",
+      "explore_blurb": "Struct landmark: Bestest Truffle Field clearing. Gather what the tribe needs; Squealy Nord hooks apply for DM RP.",
+      "require_intent_before_advance": false,
+      "intents": [
+        {
+          "id": "sniff_truffles",
+          "kind": "skill",
+          "verb": "Gather",
+          "title": "Sniff out Bestest Truffles",
+          "skill_id": "perception",
+          "skill_fallback_label": "Perception",
+          "dc": 15,
+          "blurb": "Find the prized fungus before rival sniffers (struct)."
+        },
+        {
+          "id": "ride_nord_hint",
+          "kind": "skill",
+          "verb": "Ride",
+          "title": "Keep pace with Squealy Nord",
+          "skill_id": "ride",
+          "skill_fallback_label": "Ride",
+          "dc": 12,
+          "blurb": "Stay mounted / directed while Nord squeals toward truffles."
+        },
+        {
+          "id": "explore_field",
+          "kind": "explore",
+          "verb": "Explore",
+          "title": "Walk the clearing",
+          "blurb": "Circle the dirt ring and stump landmarks. No roll."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "npc_id": "squealy_nord",
+      "label": "Squealy Nord",
+      "disposition": "ally",
+      "history": "Poog's animal companion; was with the missing truffle hunt party.",
+      "rp_hooks": [
+        "squeals when truffles nearby",
+        "flees fire"
+      ]
+    },
+    {
+      "npc_id": "birdcruncher_minions",
+      "label": "Birdcruncher tribe",
+      "disposition": "loyal_fearful",
+      "history": "Made the four goblins chieftains; desperate to entertain them.",
+      "rp_hooks": [
+        "offer snacks",
+        "panic if chiefs threaten to leave"
+      ]
+    },
+    {
+      "npc_id": "sczarni_bandits",
+      "label": "Sczarni camp",
+      "disposition": "hostile",
+      "history": "Killed hunters near Bestest Truffle Field; camped with dogs and wagons.",
+      "rp_hooks": [
+        "shout about goblins",
+        "use cover behind wagons"
+      ]
+    }
+  ]
+}

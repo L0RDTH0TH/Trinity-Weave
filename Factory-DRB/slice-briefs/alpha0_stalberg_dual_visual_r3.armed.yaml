@@ -1,0 +1,276 @@
+schema_version: 1
+status: staging_prefer_ok_awaiting_operator_f5
+armed_at: '2026-10-04T19:02:28Z'
+greenlit_at: '2026-10-04T19:02:28Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_visual_r3
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2l
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_visual_r3.md
+prior_slice_id: alpha0_stalberg_dual_secondary_glow_center_r1
+logic_prior_slice_id: alpha0_stalberg_dual_visual_r2
+keeps_geometry_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: secondary_glow_center + squarify foundation assumed green on operator
+  trajectory; bind Blender MeshLibrary models onto secondary-centered small-corner
+  dual slots; refuse stretch_as_variant / gray_ramp_only / primary_face_as_dual.
+depends_on: alpha0_stalberg_dual_secondary_glow_center_r1
+prefer_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+next_in_chain: null
+density_lift: live_rings_5_spacing_210
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_live: 5
+  product_density_spacing_live: 210.0
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: bind_dual_visual_meshlibrary_models_secondary_slots
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+contract: C_meshlibrary_models_on_secondary_small_corner_slots
+intent_invariant: Stage-6 DualCell identity remains lattice wire/topology; pick/glow
+  centers on secondary face centroids via SmallCornerQuadsAroundFace; dual populate
+  slots bind corner-config to discrete MeshLibrary items (empty/edge/corner/full +
+  rot/mirror) via translate+yaw(+uniform scale only); refuse stretch_as_variant /
+  gray_ramp_only / primary_face_as_dual; rings=5 spacing=210 + squarify Stage 5 kept.
+structural_success: Corner-config on the dual-offset lattice selects discrete MeshLibrary
+  item ids (empty/edge/corner/full + rot/mirror) for secondary-centered small-corner
+  dual cells; place = translate + yaw (+uniform scale only); Blender craft_dual_*.glb
+  path preferred; Stage-6 dual edges (centroid–centroid) + face-centroid dual verts
+  + secondary glow + squarify Stage 5 + rings=5 spacing=210 preserved; Prefer edges+faces+cells;
+  refuse stretch_as_variant / gray_ramp_only / primary_face_as_dual.
+path_position: secondary_glow_center_r1 kept → this MeshLibrary models Prefer → next
+  art-bind / density polish later
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Core/WorldGen/OrganicMeshGraph.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: Corner-config selects discrete MeshLibrary silhouettes (empty/edge/corner/full
+      + rot/mirror) on secondary-centered small-corner dual cells of the dual-offset
+      lattice via translate+yaw(+uniform scale only); Stage-6 dual edges + face-centroid
+      verts + secondary glow + squarify Stage 5 + rings=5 spacing=210 preserved; Prefer
+      edges+faces.
+    refuse:
+    - stretch_as_variant
+    - gray_ramp_only
+    - primary_face_as_dual
+    - over_neighbor_paint
+    - inspiration_shape_miss
+    - skip_dual_offset
+    - stage6_union_as_single_glow_tile
+    - primary_star_glow_as_success
+    - prop_scatter_as_composition
+    - bitmask_equals_townscaper
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - dual_overlay_as_grid_kernel
+    - non_unique_vertices
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+    - verify_mcp_only
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  secondary_glow_center:
+    law: SmallCornerQuadsAroundFace_secondary_centroid_pick_glow
+    preserved: true
+  stage6_wire:
+    law: dual_verts_face_centroids__dual_edges_centroid_centroid
+    preserved: true
+  squarify_stage5:
+    law: rotate_90_average_squarify
+    preserved: true
+  dual_visual:
+    law: discrete_meshlibrary_silhouettes__blender_path_preferred__not_stretch_not_gray_ramp
+    success_types_preferred:
+    - Systems/DualGridCraftHost.cs
+    - assets/craft/dual_grid/
+    pipeline_ok_either:
+    - blender_to_meshlibrary
+    - approved_discrete_shape_distinct_graybox_standins
+    pipeline_preferred: blender_to_meshlibrary
+    meshlibrary_assets:
+    - assets/craft/dual_grid/craft_dual_Empty.glb
+    - assets/craft/dual_grid/craft_dual_Edge.glb
+    - assets/craft/dual_grid/craft_dual_Corner.glb
+    - assets/craft/dual_grid/craft_dual_Full.glb
+    require_discrete_library_place: true
+    require_neighborhood_cardinality_gate: true
+    require_secondary_slot_host: true
+    refuse_substitute:
+    - DualFamilyColor_gray_ramp_only
+    - FaceCornersLocal_CommitDualFamilyMesh_stretch
+    - non_uniform_Scale_as_variant
+    - Library_null_with_same_plate_mesh
+    - primary_face_as_dual
+    families_minimum:
+    - empty
+    - edge
+    - corner
+    - full
+    transform_ok:
+    - rotation
+    - mirror
+    - uniform_scale
+    transform_refuse:
+    - non_uniform_scale
+    - face_warp_elongation
+    prior_failed_altitude: alpha0_stalberg_dual_visual_r1
+matrix_quotes:
+  dual_visual_meshlibrary_models:
+    prefer: Corner-config → discrete MeshLibrary silhouettes on secondary-centered
+      small-corner slots; translate+yaw(+uniform scale); Blender→MeshLibrary; Stage-6
+      + secondary glow + squarify + rings=5/spacing=210 stay.
+    never: stretch_as_variant; gray_ramp_only; primary_face_as_dual; face-warped elongation;
+      Hex19/Terrain3D/art/cam yank as Success
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_visual_meshlibrary
+  must: discrete_meshlibrary_item_per_family_on_secondary_small_corner_slots
+  refuse:
+  - stretch_as_variant
+  - gray_ramp_only
+  - primary_face_as_dual
+  - over_neighbor_paint
+  - inspiration_shape_miss
+  - skip_dual_offset
+- id: priors_preserved
+  must: stage6_wire_secondary_glow_squarify_rings5_spacing210
+  refuse:
+  - primary_star_glow_as_success
+  - stage6_union_as_single_glow_tile
+  - hex19_pick_as_craft_authority
+- id: scope_visual_models_only
+  must: no_terrain3d_no_art_bind_no_hex19_success
+  refuse:
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: 'F5: secondary-centered small-corner slots show discrete empty/edge/corner/full
+  MeshLibrary silhouettes via translate+yaw(+uniform scale); Stage-6 wire + secondary
+  glow + squarify + rings=5 spacing=210 preserved; Prefer refuses stretch_as_variant
+  + gray_ramp_only + primary_face_as_dual; regenerable.'
+refuse_codes:
+- stretch_as_variant
+- gray_ramp_only
+- primary_face_as_dual
+- over_neighbor_paint
+- inspiration_shape_miss
+- skip_dual_offset
+- stage6_union_as_single_glow_tile
+- primary_star_glow_as_success
+- prop_scatter_as_composition
+- bitmask_equals_townscaper
+- points_as_grid
+- count_equals_topology
+- hex_scaffold_as_final_mesh
+- hex19_pick_as_craft_authority
+- dual_overlay_as_grid_kernel
+- non_unique_vertices
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+do_not_waive:
+- Terrain3D_prefer_proof
+- count_equals_topology
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- dual_centre_on_logic_as_half_step_proof
+- dual_overlay_as_grid_kernel
+- dual_rebind_cardinal_wrong_locus
+- ephemeral_edge_key_as_topology
+- explicit_met_implicit_miss
+- extruded_prism_as_quad_board
+- extrusion_before_2d_stable
+- face_block_neighborhood
+- face_corners_local_as_dual_edges
+- face_proxy_dual
+- free_boundary_fold
+- gray_ramp_only
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- indexed_lists_as_graph
+- infinite_rect_as_hex19
+- inset_face_corners_as_dual
+- inspiration_shape_miss
+- intent_collapsed_to_mechanics
+- missing_square_area_force
+- naive_laplacian_only
+- non_unique_vertices
+- nonplanar_face_soup
+- noodle_edge_clutter
+- over_neighbor_paint
+- owned_only_glow
+- points_as_grid
+- prefer_authorship_pass
+- primary_face_as_dual
+- primary_star_glow_as_success
+- proxy_substitution
+- relax_before_quad_only
+- relax_step_too_hard
+- skip_dissolve_relax
+- skip_dual_offset
+- stage6_union_as_single_glow_tile
+- stamp_as_dual
+- stretch_as_variant
+- support_face_index_as_dual_success
+- unbounded_z_jitter
+- unstable_dual_neighborhood
+- vertex_neighbor_as_dual_corner
+- wireframe_spaghetti
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_visual_r3
+  require_implicit_bind: true
+  steps:
+  - GREENLIGHT — MeshLibrary models on secondary small-corner slots
+  - Load armed packet + Prefer § C.1 + Grid-Topology dual silhouette law
+  - Bind craft_dual_*.glb into MeshLibrary; place = translate+yaw(+uniform scale)
+  - Preserve Stage-6 wire, secondary glow, squarify, rings=5 spacing=210
+  - Prefer concept pass; claim_class staging until F5
+  - Curator local snapshot only (git.push_enabled false); no Curator push enable
+fresh_chat_instruction: GREENLIT armed_ready_to_stage. MeshLibrary models on secondary-centered
+  small-corner dual slots. Blender→MeshLibrary preferred. Keep Stage-6 / secondary
+  glow / squarify / rings=5 spacing=210. Curator local only. claim_class staging until
+  F5.
+prefer_ok_at: '2026-10-04T19:10:00Z'

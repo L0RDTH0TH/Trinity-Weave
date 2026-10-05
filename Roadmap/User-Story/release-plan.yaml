@@ -1,0 +1,27 @@
+# active_wave_complete iff EVERY package in active_wave meets
+# all exit_criteria[] AND its fidelity target (stub|playable|polish).
+# Partial packages or unfinished lane_batches do not satisfy the wave.
+#
+# Fidelity one-liners (CDR + Factory-Vocabulary):
+#   stub     — structure/contracts; not a real session beat
+#   playable — named beat end-to-end without builder workarounds
+#   polish   — playable + exit_criteria UX/edge/presentation bar
+#
+# Seed only — does not invent pins/L5. Package stays pending until Loop 2 readiness.
+schema_version: 1
+active_wave: alpha
+waves:
+  - id: alpha
+    order: 1
+    packages:
+      - id: pkg_world_shell
+        catalog_row_ids:
+          - ux_world_generation
+        fidelity: playable
+        exit_criteria:
+          - "DM can create (table can shape) a persistent living world container"
+        requires:
+          conceptual_pins: true
+          execution_pins: true
+          l5: true
+        status: pending

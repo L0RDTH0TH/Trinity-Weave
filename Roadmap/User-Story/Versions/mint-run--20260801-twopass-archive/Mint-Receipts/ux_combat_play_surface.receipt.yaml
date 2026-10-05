@@ -1,0 +1,45 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-31T03:34:21Z'
+lock_state: applied
+bone_pilot_edit: depends_on += collaborative_table_agency + early_game; PoC answers
+  recorded
+poc_answers:
+  poc_paths: fight + flee/disengage + parley named in first cut
+  non_win_opener: either player verb or DM offer
+  creature_chrome_depth: minimal chrome in PoC; voice tools thin; deepen in coverage
+  movement_envelope: locked at series altitude as readable range/free-inside capability;
+    advanced terrain deformation is coverage
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Authorship menu of combat ends; dual-seat surface; DM inhabits creatures;
+    not flee-only law.
+row:
+  id: ux_combat_play_surface
+  dimension: ui_surface
+  label: Combat can resolve by authored paths including non-win ends
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_collaborative_table_agency
+  - ux_early_game
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- flee is the only correct authored end
+- combat always resolves to XP loot chrome
+- combat is a single win/lose elimination pipeline
+- DM only adjudicates and never inhabits creature roles
+- player and DM share identical combat control envelopes
+alternatives_not_banned:
+- Lethal-default tables vs non-lethal-friendly tables
+- Flee with chase vs clean disengage
+- Parley mid-fight vs only before blows land
+- Sparse authored ends vs many stake levers
+- XP/loot present vs progression mostly elsewhere
+- Heavy vs light creature chrome in early builds
+- System-default music only vs frequent DM-queued tracks

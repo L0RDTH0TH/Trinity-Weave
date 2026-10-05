@@ -1,0 +1,44 @@
+{
+  "slice_id": "alpha0_stalberg_dual_rebind_r1",
+  "producer_run_id": "sp-drr1-3b82e5",
+  "composed_at": "2026-10-04T02:36:28Z",
+  "compose_path": "slice_producer_judgment",
+  "force_compose": true,
+  "lane_roster": ["module"],
+  "factory_greenlit": true,
+  "prefer_concept_required": true,
+  "success_object": "dual_offset_cells",
+  "intent_invariant": "Player edits logic points; dual cells are the half-offset quads whose corners are those shared Vertex refs.",
+  "conceptual_leg": {
+    "project_end_state": "Authorable irregular dual-grid craft plane on organic all-quad board.",
+    "end_state": "Authorable irregular dual-grid craft plane — dual ownership on MeshGraph incidence; click logic point → stable ≤4 dual_offset_cells; dual_visual later.",
+    "path_position": "primal_graph_r1 (MeshGraph landed, F5 neighbor still wrong) → this dual rebind incidence-only → next dual_visual_r3",
+    "intent_invariant": "Player edits logic points; dual cells are the half-offset quads whose corners are those shared Vertex refs.",
+    "success_object": "dual_offset_cells",
+    "structural_success": "DualCellsTouching/OwnedDualCellKeys/UpdateFour via Vertex.Faces / DualCell.CornerVertices; corners = MeshGraph Vertex singletons; Prefer concept ok",
+    "prefer_concept_required": true,
+    "factory_greenlit": true
+  },
+  "missions": {
+    "module": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_rebind_r1/missions/module.md"
+  },
+  "zone_paths": [
+    "Core/WorldGen/OrganicDualOffsetLattice.cs",
+    "Core/WorldGen/OrganicMeshGraph.cs",
+    "Core/WorldGen/StalbergQuadKernel.cs",
+    "Core/WorldGen/OrganicQuadMesh.cs",
+    "Systems/DualGridCraftHost.cs",
+    "Systems/WorldgenCraft.cs",
+    "scenes/WorldgenCraft.tscn"
+  ],
+  "refuse": [
+    "primary_face_as_dual",
+    "face_proxy_dual",
+    "support_face_index_as_dual_success",
+    "face_scan_proxy_neighborhood",
+    "soft_take_4",
+    "valence_drop_editable",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics"
+  ]
+}

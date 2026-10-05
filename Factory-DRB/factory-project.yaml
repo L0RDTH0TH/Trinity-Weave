@@ -1,0 +1,189 @@
+schema_version: 1
+project_id: genesis-mythos-master
+game_repo_path: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos
+feed_authority: vault_roadmap
+execution_roadmap_ref: 1-Projects/genesis-mythos-master/Roadmap/
+release_tier: closed_alpha
+factory_bootstrap:
+  gates_before_slices: true
+  bootstrap_waiver: true
+  require_weave_track_coupled: true
+  bootstrap_waiver_reason: operator_half_b_greenlit_staging_first_weld_2026-10-01
+factory_greenlit: true
+active_series_id: alpha0_stalberg_grid_kernel_r1
+armed_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+armed_ask_id: alpha0_stalberg_dual_visual
+armed_packet: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_tri_cell_place_r1.armed.yaml
+slice_factory_greenlit: true
+greenlit_at: '2026-10-05T00:33:00Z'
+armed_slice_stageable: true
+armed_status: live_weld_landed_staging_awaiting_f5
+density_lift: live_rings_5_spacing_210
+dual_visual_ask_success: armed_staging_prefer_until_operator_f5
+superseded_snap_polarity_slices:
+- alpha0_stalberg_dual_cell_lookup_yaw_r1
+- alpha0_stalberg_dual_secondary_glow_center_r1
+superseded_paint_polarity_slices:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+superseded_coverage_orient_slices:
+- alpha0_stalberg_dual_owned_cell_place_r1
+superseded_incomplete_yaw_slices:
+- alpha0_stalberg_dual_cell_lookup_yaw_r1
+superseded_paint_scope_slices:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+superseded_n3_place_skip_slices:
+- alpha0_stalberg_dual_owned_only_paint_r1
+keeps_owned_only_paint_slices:
+- alpha0_stalberg_dual_owned_only_paint_r1
+keeps_snap_polarity_slices:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+keeps_seat_polarity_slices:
+- alpha0_stalberg_dual_owned_cell_place_r1
+keeps_coverage_frame_slices:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+aborted_superseded_slices:
+- alpha0_stalberg_dual_rebind_r1
+manual_limit_seed_rings: 2
+manual_limit_spacing: 3.0
+manual_limit_note: enlarge_world_spacing_not_cell_count
+git:
+  push_enabled: false
+  curator_forbidden: true
+failed_altitude_metrics_only:
+- alpha0_townscaper_craft_visual_r1
+- alpha0_townscaper_craft_visual_r2
+- alpha0_townscaper_craft_core_r1
+partial_wrong_object_altitude:
+- alpha0_stalberg_dual_neighborhood_r1
+- alpha0_stalberg_dual_lattice_r1
+failed_altitude_visual_execution:
+- alpha0_stalberg_quad_kernel_r1
+- alpha0_stalberg_dual_visual_r1
+failed_altitude_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+stalberg_kernel_altitude_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_r1.receipt.md
+active_craft_chain:
+- alpha0_stalberg_quad_kernel_r1
+- alpha0_stalberg_quad_kernel_visual_r1
+- alpha0_stalberg_quad_kernel_relax_r1
+- alpha0_stalberg_topology_base_r1
+- alpha0_stalberg_craft_plane_authority_r1
+- alpha0_stalberg_dual_corner_r1
+- alpha0_stalberg_manual_scale_r1
+- alpha0_stalberg_dual_visual_r1
+- alpha0_stalberg_dual_visual_r2
+- alpha0_stalberg_dual_neighborhood_r1
+separate_tutorial_ladder:
+- alpha0_townscaper_tutorial_s1_occupancy_r1
+- alpha0_townscaper_tutorial_s2_dual_offset_r1
+- alpha0_townscaper_tutorial_s3_connector_modules_r1
+- alpha0_townscaper_tutorial_s4_module_selection_r1
+- alpha0_townscaper_tutorial_s5_genesis_adapt_r1
+- alpha0_townscaper_tutorial_s6_art_bind_r1
+parked_non_authority:
+- row_ux_world_generation_r1_d6
+- alpha0_townscaper_tutorial_s2_dual_offset_r1
+- alpha0_stalberg_quad_kernel_visual_r1
+depth_frozen_until_kernel_clears:
+- alpha0_townscaper_df_depth_r1
+scrapped_for_this_round:
+- alpha0_worldgen_dualgrid_sparky_r1
+- alpha0_worldgen_terrain3d_feed_r3
+- alpha0_worldgen_terrain3d_feed_r2
+- alpha0_worldgen_terrain3d_feed_r1
+disarmed_visual_packets:
+- alpha0_townscaper_craft_visual_r1.armed.yaml
+- alpha0_townscaper_craft_visual_r2.armed.yaml
+- alpha0_townscaper_craft_core_r1.armed.yaml
+invalidated_attest:
+- alpha0_townscaper_tutorial_s1_attest
+terrain3d_posture: deferred_later_files_may_remain_on_live_not_armed_on_craft_path
+prefer_round_pivot_at: '2026-10-03T07:59:01Z'
+prefer_round_note: dual_neighborhood_r1_greenlit__implement_stable_four_cell_ownership
+weld_launched_at: '2026-10-05T00:33:00Z'
+weld_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+chained_eat:
+  enabled: true
+  sequence:
+  - alpha0_stalberg_craft_plane_authority_r1
+  - alpha0_stalberg_dual_corner_r1
+  - alpha0_stalberg_manual_scale_r1
+  - alpha0_stalberg_dual_visual_r1
+  - alpha0_stalberg_dual_visual_r2
+  - alpha0_stalberg_dual_neighborhood_r1
+  - alpha0_stalberg_dual_lattice_r1
+  - alpha0_stalberg_dual_lattice_r2
+  - alpha0_stalberg_primal_graph_r1
+  - alpha0_stalberg_dual_rebind_r1
+  - alpha0_stalberg_dual_face_centroid_r1
+  - alpha0_stalberg_dual_glow_neighborhood_r1
+  - alpha0_stalberg_dual_secondary_glow_center_r1
+  - alpha0_stalberg_dual_visual_r3
+  - alpha0_stalberg_dual_cell_lookup_yaw_r1
+  - alpha0_stalberg_dual_primary_vertex_place_r1
+  - alpha0_stalberg_dual_owned_cell_place_r1
+  - alpha0_stalberg_dual_whole_cell_orient_r1
+  - alpha0_stalberg_dual_owned_only_paint_r1
+  - alpha0_stalberg_dual_tri_cell_place_r1
+  stop_if_prior_fails: true
+  staging_prefer_ok_means: candidate_only
+  concept_prefer_required_for_dual_authorship_advance: true
+  ticket1_status: staging_prefer_ok_candidate
+  ticket2_status: staging_prefer_ok_candidate
+  ticket3_status: staging_prefer_ok_candidate
+  ticket4_status: failed_altitude_partial_visual_fidelity
+  ticket5_status: paused_awaiting_concept_prefer
+  ticket6_status: staging_prefer_ok_candidate_wrong_object_partial
+  ticket7_status: superseded_partial_wrong_object_by_r2
+  ticket7b_status: staging_prefer_ok_awaiting_operator_f5
+  ticket7c_status: f5_confirmed_neighbor_still_wrong__meshgraph_landed
+  ticket7d_status: aborted_superseded_by_geometry_rethink
+  ticket7e_status: staging_prefer_ok_awaiting_operator_f5
+  ticket8_status: greenlit_weld_staging_prefer_awaiting_operator_f5
+  chain_stopped: false
+  chain_stop_reason: ''
+  chain_reopen_for_r2_at: '2026-10-03T23:54:41Z'
+  chain_reopen_for_r2_reason: harness_proof_ok__intent_validates_gates_shipped__operator_write_prime_eat_dual_lattice_r2
+  chain_reopened_at: '2026-10-03T20:22:00Z'
+  chain_reopen_reason: operator_f5_confirmed_unstable_dual_neighborhood__pause_dual_visual
+  chain_paused_at: '2026-10-04T00:00:00Z'
+  chain_pause_note: dual_tri_cell_place_r1 GREENLIGHT WELD — DualCorners n=3 Full owned-only
+    place; OccupancyCorners n=3 no soft_take_4; MeshFit barycentric; Z-fight deferred;
+    owned-only KEEP; git.push_enabled remains false.
+  chain_reopen_for_dual_rebind_at: '2026-10-04T02:34:56Z'
+  chain_reopen_for_dual_rebind_reason: operator_f5_confirmed_neighbor_still_wrong_after_primal_graph__greenlight_dual_rebind_r1
+  chain_reopen_for_dual_face_centroid_at: '2026-10-04T03:23:09Z'
+  chain_reopen_for_dual_face_centroid_reason: operator_greenlight_weld_face_centroid_duals_after_geometry_rethink__abort_dual_rebind
+  ticket7f_status: staging_prefer_ok__f5_assumed_green_operator_trajectory
+  ticket_dual_cell_lookup_yaw_status: incomplete_yaw_superseded_by_whole_cell_orient
+  ticket_dual_primary_vertex_place_status: snap_keep__paint_polarity_superseded_by_owned_cell_place
+  ticket_dual_owned_cell_place_status: seat_keep__coverage_orient_superseded_by_whole_cell_orient
+  ticket_dual_whole_cell_orient_status: coverage_frame_keep__paint_scope_superseded_by_owned_only_paint
+  ticket_dual_owned_only_paint_status: owned_only_keep__n3_place_skip_superseded_by_tri_cell_place
+  ticket_dual_tri_cell_place_status: live_weld_landed_staging_awaiting_operator_f5
+last_staging_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_tri_cell_place_r1.receipt.md
+draft_authority_product_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+draft_authority_slice_id: prefer_intent_validates_gates_r1
+prefer_audit_dual_visual_r1: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+prefer_track:
+  track_id: prefer_authorship_harden_track_r1
+  umbrella_slice_id: prefer_intent_validates_gates_r1
+  nested_companion_slice_id: prefer_dual_object_identity_r1
+  audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  factory_greenlit: true
+  status: greenlit_prefer_weave
+  greenlit_at: '2026-10-04T00:00:00Z'
+  note: Prefer/weave GREENLIGHT shipped; Genesis dual LIVE reopened for dual_face_centroid_r1 Stage-6
+    Prefer
+prefer_track_draft:
+  track_id: prefer_authorship_harden_track_r1
+  umbrella_slice_id: prefer_intent_validates_gates_r1
+  nested_companion_slice_id: prefer_dual_object_identity_r1
+  audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  factory_greenlit: true
+  status: superseded_by_prefer_track
+  note: retained key for readers; authority is prefer_track
+armed_status_note: armed dual_owned_only_paint_r1 greenlit weld; LMB → one Full on OwnedDualCell(V)
+  only; neighbors Empty unless owner-on; coastline Corner deferred; Z-fight harden Full tops;
+  coverage Full + dual-edge frame KEEP from whole_cell_orient; seat KEEP; primary-V snap KEEP;
+  Empty skip; dual plus; Stage-6 + terrain + squarify + rings=5/spacing=210; valence-5 non-editable;
+  claim_class staging until F5; git.push_enabled false

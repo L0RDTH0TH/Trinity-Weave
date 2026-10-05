@@ -1,0 +1,14 @@
+{
+  "slice_id": "alpha0_stalberg_dual_lattice_r2",
+  "lane": "module",
+  "producer_run_id": "sp-tdlr2-a29d70",
+  "prefer_path": "concept",
+  "concept_prefer_ok": true,
+  "success_object": "dual_offset_cells",
+  "dotnet_build": "succeeded",
+  "trinity_sha": "eebe46f4a4a682e94c26ab475bbf482d83e8d12e",
+  "prefer_main_sha": "3aced2f5156acceeaf633e41eff7368a35331e82",
+  "claim_class": "staging",
+  "curator": false,
+  "completed": "2026-10-04T00:07:30Z"
+}
