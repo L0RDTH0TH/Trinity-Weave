@@ -2048,11 +2048,15 @@ def authorship_overlay_markdown(*, slice_id: str = "") -> str:
         "- **No** camera recenter on place\n"
         "- **No proxy override:** host_touch_budget / shell seats / bootstrap stubs "
         "cannot pass or waive these product Prefer seats\n"
-        "- **Hostile Prefer (Gate B)** before any Success claim (staging or KEEP); "
-        "mechanical Gate A alone never greens\n"
+        "- **Hostile Prefer (Gate B₁)** before any Success claim (staging or KEEP) "
+        "pre-GREENLIGHT; mechanical Gate A alone never greens "
+        "(`map_fidelity_hostile_ok`)\n"
+        "- **Weld intent (Gate B₂)** after weld LIVE — Prefer Success vs Play-path; "
+        "logs/tags cannot acquit; never rewrite Prefer "
+        "(`weld_intent_hostile_ok`)\n"
         "- **Chat default = factory;** hotfix / LIVE Prefer skip requires explicit "
         "operator yes + `factory_bypass: true` ack quote — never `factory_greenlit: true` "
-        "on bypass\n\n"
+        "on bypass; greenlit without B₂ = fail\n\n"
         "### Durable negative examples (fail closed)\n"
         f"{neg}\n"
     )
@@ -2223,6 +2227,20 @@ def run_prefer_authorship_pass(
         )
         violations.extend(map_fid.violations)
         warnings.extend(map_fid.warnings)
+    else:
+        prefer_result = load_prefer_result(vault_root, slice_id)
+
+    # Gate B₂ — weld intent hostile (post-weld). Latch when LIVE / greenlit claimed.
+    # Logs cannot acquit; bypass without greenlit skips; never rewrites Prefer.
+    from .prefer_weld_intent import validate_weld_intent_latch
+
+    weld_intent = validate_weld_intent_latch(
+        armed if isinstance(armed, dict) else None,
+        prefer_result=prefer_result if isinstance(prefer_result, dict) else None,
+    )
+    if weld_intent.applicable:
+        violations.extend(weld_intent.violations)
+        warnings.extend(weld_intent.warnings)
 
     # Bind fidelity (post-lane): the entry-seat rewrite must still hold.
     from .implicit_intent_bind import check_implicit_intent_bind
