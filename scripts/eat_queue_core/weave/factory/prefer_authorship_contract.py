@@ -146,6 +146,38 @@ NEGATIVE_EXAMPLES: tuple[dict[str, str], ...] = (
             "without surviving conceptual leg (success_object + invariant)"
         ),
     },
+    {
+        "id": "plinth_as_terrain",
+        "refuse": "plinth_as_terrain",
+        "summary": (
+            "Single rounded block / low-vert Full / one-material sage-cream plinth "
+            "sold as land/water terrain tile Success"
+        ),
+    },
+    {
+        "id": "blob_as_module",
+        "refuse": "blob_as_module",
+        "summary": (
+            "Organic cream underlay / cream fill remains the readable craft surface "
+            "instead of discrete land/water dual terrain tiles"
+        ),
+    },
+    {
+        "id": "metrics_only_glb_drop",
+        "refuse": "metrics_only_glb_drop",
+        "summary": (
+            "GLB file exists / MeshLibrary id present / AABB distinct sold as "
+            "terrain-tile Success (metrics-only altitude)"
+        ),
+    },
+    {
+        "id": "procedural_only_as_success",
+        "refuse": "procedural_only_as_success",
+        "summary": (
+            "Runtime ArrayMesh / Blender primitives claimed as final craft visual "
+            "without authored terrain-tile asset bind"
+        ),
+    },
 )
 
 WORLDGEN_SLICE_MARKERS: tuple[str, ...] = (
@@ -160,6 +192,14 @@ WORLDGEN_SLICE_MARKERS: tuple[str, ...] = (
     "stalberg",
     "organic_quad",
     "quad_kernel",
+    # PLACE / craft Prefer-product markers (map rows + authorship seats)
+    "craft_plane",
+    "dual_place",
+    "dual_coast",
+    "owned_cell_place",
+    "tri_cell_place",
+    "place_coast",
+    "place_update",
 )
 
 # Patterns that indicate craft-cam recenter / focus yank on place (structural heuristics).
@@ -215,6 +255,13 @@ PRODUCT_PREFER_DO_NOT_WAIVE: tuple[str, ...] = (
     "free_boundary_fold",
     "extrusion_before_2d_stable",
     "relax_step_too_hard",
+    "plinth_as_terrain",
+    "sector_pie_as_dual_cell_tile",
+    "face_stamp_as_dual_populate",
+    "world_yaw_as_dual_edge_frame",
+    "blob_as_module",
+    "metrics_only_glb_drop",
+    "procedural_only_as_success",
 )
 
 # Intent-validates-gates Prefer — non-waivable parent + collapse class.
@@ -351,6 +398,17 @@ _DUAL_VISUAL_SIGNALS: tuple[tuple[str, re.Pattern[str]], ...] = (
             r"\b(?:MaxDualCellsPerLogicFlip|ProveNeighborhoodCardinality|"
             r"DualCellsPerLogicFlip\s*=\s*4|update_four_cap\s*=\s*4)\b|"
             r"refuse\s*=\s*over_neighbor_paint|refuse=over_neighbor_paint",
+            re.I,
+        ),
+    ),
+    # Mesh-fit altitude — bilinear skin to SmallCornerQuad (not Scale stretch).
+    (
+        "mesh_fit_secondary_corners",
+        re.compile(
+            r"\bMeshFitToSmallCornerQuad\b|"
+            r"mesh_fit_to_secondary_corners|"
+            r"vertex_bilinear_warp_to_small_corner_quad|"
+            r"BilinearCorner\b",
             re.I,
         ),
     ),
@@ -1037,7 +1095,7 @@ def armed_requires_dual_lattice(armed: dict[str, Any] | None) -> bool:
 def armed_requires_dual_object_identity(armed: dict[str, Any] | None) -> bool:
     """Organic dual Prefer altitudes that must prove OrganicDualOffsetLattice object identity.
 
-    Covers neighborhood / lattice / visual / dual-corner. Excludes Hex19 tutorial
+    Covers neighborhood / lattice / visual / dual-corner / terrain-tile. Excludes Hex19 tutorial
     ``step2_dual_offset`` (markers dual — still uses ``skip_dual_offset`` seat).
     """
     return (
@@ -1045,6 +1103,7 @@ def armed_requires_dual_object_identity(armed: dict[str, Any] | None) -> bool:
         or armed_requires_dual_visual(armed)
         or armed_requires_dual_neighborhood(armed)
         or armed_requires_dual_lattice(armed)
+        or armed_requires_dual_terrain_tile(armed)
         or (
             isinstance(armed, dict)
             and isinstance(armed.get("locks"), dict)
@@ -1377,9 +1436,88 @@ def dual_success_object_is_lattice_cell(success_object: str) -> bool:
             "dual_lattice_cell",
             "dual_offset_cells",
             "dual_offset_cell",
+            "dual_offset_terrain_tile",
+            "dual_cell_meshlibrary_placement",
+            "dual_cell_lookup_yaw",
             "half_step_dual",
         )
     )
+
+
+def dual_success_object_is_terrain_tile(success_object: str) -> bool:
+    """True when named success_object is dual-offset terrain tile (land/water read)."""
+    s = (success_object or "").lower().replace("-", "_")
+    return "dual_offset_terrain_tile" in s or s.endswith("terrain_tile")
+
+
+def armed_requires_dual_terrain_tile(armed: dict[str, Any] | None) -> bool:
+    """True when Prefer requires land/water terrain-tile read (not cream plinth)."""
+    armed = armed if isinstance(armed, dict) else {}
+    locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+    dtt = locks.get("dual_terrain_tile")
+    if isinstance(dtt, dict) and bool(dtt):
+        return True
+    so = str(armed.get("success_object") or "").lower().replace("-", "_")
+    if dual_success_object_is_terrain_tile(so):
+        return True
+    step1 = locks.get("step1_authorship") if isinstance(locks.get("step1_authorship"), dict) else {}
+    so1 = str(step1.get("success_object") or "").lower().replace("-", "_")
+    if dual_success_object_is_terrain_tile(so1):
+        return True
+    blob = " ".join(
+        [
+            str(armed.get("slice_id") or ""),
+            str(armed.get("mode") or ""),
+            str(armed.get("contract") or ""),
+            str(armed.get("done_when") or ""),
+        ]
+    ).lower()
+    return "terrain_tile" in blob or "dual_offset_terrain_tile" in blob
+
+
+def armed_claims_cream_plinth_success(armed: dict[str, Any] | None) -> bool:
+    """True when armed packet still names cream quarter-platform / plinth as Success."""
+    armed = armed if isinstance(armed, dict) else {}
+    locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+    dv = locks.get("dual_visual") if isinstance(locks.get("dual_visual"), dict) else {}
+    if dv.get("require_cream_quarter_platform_style") is True:
+        return True
+    blob = " ".join(
+        [
+            str(armed.get("mode") or ""),
+            str(armed.get("contract") or ""),
+            str(armed.get("structural_success") or ""),
+            str(armed.get("done_when") or ""),
+            str((locks.get("step1_authorship") or {}).get("structural_success") or "")
+            if isinstance(locks.get("step1_authorship"), dict)
+            else "",
+            str(dv.get("law") or ""),
+        ]
+    ).lower()
+    tells = (
+        "cream_quarter",
+        "cream quarter",
+        "quarter_platform",
+        "quarter-platform",
+        "require_cream_quarter_platform_style",
+    )
+    return any(t in blob for t in tells)
+
+
+# Dual-terrain-tile Prefer — land/water read; refuse cream plinth / metrics-only GLB.
+DUAL_TERRAIN_TILE_DO_NOT_WAIVE: tuple[str, ...] = (
+    "plinth_as_terrain",
+    "blob_as_module",
+    "metrics_only_glb_drop",
+    "procedural_only_as_success",
+    "inspiration_shape_miss",
+    "prop_scatter_as_composition",
+    "gray_ramp_only",
+    "stretch_as_variant",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics",
+    "verify_mcp_only",
+)
 
 
 def armed_requires_dual_visual(armed: dict[str, Any] | None) -> bool:
@@ -1733,6 +1871,9 @@ def scan_dual_visual_evidence(game_repo: Path) -> dict[str, Any]:
     evidence["has_discrete_library_place"] = any(
         s.startswith("discrete_library_place:") for s in sigs
     )
+    evidence["has_mesh_fit_secondary_corners"] = any(
+        s.startswith("mesh_fit_secondary_corners:") for s in sigs
+    )
     evidence["has_neighborhood_cardinality_gate"] = any(
         s.startswith("neighborhood_cardinality_gate:") for s in sigs
     )
@@ -1906,7 +2047,12 @@ def authorship_overlay_markdown(*, slice_id: str = "") -> str:
         "- **No** craft-view Terrain3D blend / deform\n"
         "- **No** camera recenter on place\n"
         "- **No proxy override:** host_touch_budget / shell seats / bootstrap stubs "
-        "cannot pass or waive these product Prefer seats\n\n"
+        "cannot pass or waive these product Prefer seats\n"
+        "- **Hostile Prefer (Gate B)** before any Success claim (staging or KEEP); "
+        "mechanical Gate A alone never greens\n"
+        "- **Chat default = factory;** hotfix / LIVE Prefer skip requires explicit "
+        "operator yes + `factory_bypass: true` ack quote — never `factory_greenlit: true` "
+        "on bypass\n\n"
         "### Durable negative examples (fail closed)\n"
         f"{neg}\n"
     )
@@ -2053,6 +2199,30 @@ def run_prefer_authorship_pass(
     # Intent-validates-gates: authorship/dual armed packets require intent + object class.
     conceptual_fields = resolve_authorship_conceptual_fields(armed, step1_lock)
     violations.extend(authorship_armed_missing_required_fields(armed, step1_lock))
+
+    # Ticket-map Prefer fidelity (WORLD/GEN/VIS/LOOP/PACK/PLACE/…) — Gate A
+    # mechanical. Hostile Prefer (Gate B) required on staging AND KEEP for any
+    # Prefer-applicable product slice. Mechanical-shape alone never greens.
+    # See prefer_map_fidelity.py · Prefer-Authorship-Host-Law §C.3.
+    from .prefer_map_fidelity import (
+        armed_requires_hostile_prefer,
+        armed_requires_ticket_map_fidelity,
+        load_prefer_result,
+        validate_armed_map_fidelity,
+    )
+
+    if armed_requires_ticket_map_fidelity(armed) or armed_requires_hostile_prefer(
+        armed
+    ):
+        prefer_result = load_prefer_result(vault_root, slice_id)
+        map_fid = validate_armed_map_fidelity(
+            vault_root,
+            armed,
+            prefer_result=prefer_result,
+            require_hostile_for_keep=True,
+        )
+        violations.extend(map_fid.violations)
+        warnings.extend(map_fid.warnings)
 
     # Bind fidelity (post-lane): the entry-seat rewrite must still hold.
     from .implicit_intent_bind import check_implicit_intent_bind
@@ -2212,6 +2382,42 @@ def run_prefer_authorship_pass(
                 "conceptual_fields": conceptual_fields,
             }
 
+    # Dual-terrain-tile Prefer — re-object cream plinth Success; require refuse codes.
+    if armed_requires_dual_terrain_tile(armed) or armed_claims_cream_plinth_success(armed):
+        so = conceptual_fields.get("success_object") or ""
+        claimed_so = str(armed.get("success_object") or so)
+        if armed_claims_cream_plinth_success(armed):
+            violations.append("plinth_as_terrain:cream_quarter_platform_named_as_success")
+            violations.append("blob_as_module:cream_readable_surface_as_module")
+            violations.append("metrics_only_glb_drop:cream_or_aabb_altitude")
+            violations.append("proxy_substitution:cream_plinth_as_terrain_tile")
+            violations.append("intent_collapsed_to_mechanics:cream_quarter_contract")
+        if armed_requires_dual_terrain_tile(armed):
+            if not dual_success_object_is_terrain_tile(claimed_so):
+                violations.append(
+                    f"proxy_substitution:success_object_not_dual_offset_terrain_tile:{claimed_so}"
+                )
+                violations.append(
+                    f"intent_collapsed_to_mechanics:success_object_proxy:{claimed_so}"
+                )
+            locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
+            dtt = (
+                locks.get("dual_terrain_tile")
+                if isinstance(locks.get("dual_terrain_tile"), dict)
+                else {}
+            )
+            # LIVE plinth mesh scan deferred until gold sixpack lands (concept Prefer).
+            if not dtt.get("defer_live_mesh_plinth_scan") and not dtt.get(
+                "awaiting_gold_sixpack"
+            ):
+                if repo is not None:
+                    full_glb = repo / "assets/craft/dual_grid/craft_dual_Full.glb"
+                    if full_glb.is_file() and full_glb.stat().st_size < 24_000:
+                        violations.append(
+                            f"plinth_as_terrain:full_glb_bytes_lt_24k:{full_glb.stat().st_size}"
+                        )
+                        violations.append("metrics_only_glb_drop:small_full_glb_proxy")
+
     # do_not_waive product Prefer seats must remain listed when Prefer overlay present.
     do_not_waive = job.get("do_not_waive") or []
     if isinstance(do_not_waive, str):
@@ -2247,6 +2453,17 @@ def run_prefer_authorship_pass(
                 violations.append(
                     "prefer_overlay_missing_do_not_waive_dual_codes:"
                     + ",".join(missing_dual_visual)
+                )
+        if armed_requires_dual_terrain_tile(armed):
+            missing_terrain = [
+                c
+                for c in DUAL_TERRAIN_TILE_DO_NOT_WAIVE
+                if c not in {str(x) for x in do_not_waive}
+            ]
+            if missing_terrain:
+                violations.append(
+                    "prefer_overlay_missing_do_not_waive_terrain_tile_codes:"
+                    + ",".join(missing_terrain)
                 )
         if (
             armed_requires_dual_neighborhood(armed)

@@ -70,7 +70,16 @@ class LaneAgentSpec:
                 f"- **waive_shell_era_seats:** `{job.get('waive_shell_era_seats')}` "
                 f"(shell-era only — **cannot** silence prefer_authorship_pass)\n"
                 f"- ClassDB Terrain3D Prefer required — Multimesh/graybox-only = fail `graybox_only_world`\n"
-                f"- Quote Matrix Dual-grid Prefer/Never; claim_class staging; ban `verify_mcp_only`\n\n"
+                f"- Quote Matrix Dual-grid Prefer/Never; claim_class staging; ban `verify_mcp_only`\n"
+                f"- **Hostile Prefer (Gate B)** required before any Success claim "
+                f"(staging or KEEP) — mechanical Gate A alone never greens; "
+                f"`VALIDATE prefer_map_fidelity` → `map_fidelity_hostile_ok`\n"
+                f"- Operator F5 = feel / intended behavior, not Prefer shape; "
+                f"Gate B blocks `intent_collapsed_to_mechanics`\n"
+                f"- **Chat default = factory.** Before hotfix / direct LIVE skip of "
+                f"Prefer: STOP and ASK operator to skip factory; only on explicit yes; "
+                f"receipt `factory_bypass: true` + ack quote; never stamp "
+                f"`factory_greenlit: true` on bypass\n\n"
             )
             if slice_requires_prefer_authorship(slice_id, job):
                 prefer_block += authorship_overlay_markdown(slice_id=slice_id) + "\n"
