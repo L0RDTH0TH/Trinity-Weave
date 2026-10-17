@@ -34,10 +34,15 @@ from eat_queue_core.weave.factory.factory_pq_stage import (
     factory_lane_entries_from_dispatch,
 )
 from eat_queue_core.weave.factory.prefer_authorship_contract import (
+    DUAL_TERRAIN_TILE_DO_NOT_WAIVE,
     DUAL_VISUAL_DO_NOT_WAIVE,
+    INTENT_VALIDATES_DO_NOT_WAIVE,
     NEGATIVE_EXAMPLES,
     PRODUCT_PREFER_DO_NOT_WAIVE,
+    armed_claims_cream_plinth_success,
+    armed_requires_dual_terrain_tile,
     authorship_overlay_markdown,
+    dual_success_object_is_terrain_tile,
     dual_visual_violations_from_evidence,
     resolve_step1_lock,
     run_prefer_authorship_pass,
@@ -1101,6 +1106,254 @@ public static class OrganicDualOffsetLattice
         }
         self.assertTrue(armed_requires_dual_lattice(armed))
 
+class IntentValidatesGatesPreferTests(unittest.TestCase):
+    """prefer_intent_validates_gates — success_object + proxy_substitution class."""
+
+    _WRONG_OBJECT_HOST = DualLatticePreferHardenTests._PRIMARY_FACE_HOST
+    _LATTICE_HOST = DualLatticePreferHardenTests._LATTICE_HOST
+    _LATTICE_TYPE = DualLatticePreferHardenTests._LATTICE_TYPE
+
+    def test_do_not_waive_includes_proxy_substitution_class(self) -> None:
+        for code in ("proxy_substitution", "intent_collapsed_to_mechanics"):
+            self.assertIn(code, PRODUCT_PREFER_DO_NOT_WAIVE)
+            self.assertIn(code, INTENT_VALIDATES_DO_NOT_WAIVE)
+        refuses = {ex["refuse"] for ex in NEGATIVE_EXAMPLES}
+        self.assertIn("proxy_substitution", refuses)
+        self.assertIn("intent_collapsed_to_mechanics", refuses)
+
+    def test_armed_missing_success_object_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _seed_prefer_vault(
+                root, lattice=_LATTICE_GRAPH_LATTICE, host=_LATTICE_GRAPH_HOST
+            )
+            write_implicit_intent_bind(
+                root,
+                slice_id=SLICE_S1,
+                project_id=PROJECT_ID,
+                explicit_ask="hex-19 occupancy grid with 19 points",
+            )
+            briefs = root / f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs"
+            briefs.mkdir(parents=True)
+            armed_rel = (
+                f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{SLICE_S1}.armed.yaml"
+            )
+            (root / armed_rel).write_text(
+                yaml.dump(
+                    {
+                        "slice_id": SLICE_S1,
+                        "prefer_authorship": True,
+                        "locks": {
+                            "step1_authorship": {
+                                "structural_success": "hex19 lattice graph",
+                                # success_object intentionally omitted
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            result = run_prefer_authorship_pass(
+                root,
+                game_repo_rel="game",
+                job={**_prefer_job(), "armed_packet_path": armed_rel},
+            )
+            self.assertFalse(result.ok, result.detail)
+            self.assertTrue(
+                any("armed_packet_missing_success_object" in v for v in result.little_val.anti_pattern_violations),
+                result.little_val.anti_pattern_violations,
+            )
+
+    def test_wrong_object_host_fails_prefer(self) -> None:
+        """r1-shaped primary-face host must Prefer-fail (lattice + invariant seat)."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cite = root / (
+                "Ingest/Resources/"
+                "Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md"
+            )
+            cite.parent.mkdir(parents=True)
+            cite.write_text("# cite\n", encoding="utf-8")
+            repo = root / "game"
+            (repo / "Systems").mkdir(parents=True)
+            (repo / "Core/WorldGen").mkdir(parents=True)
+            (repo / "Systems/DualGridCraftHost.cs").write_text(
+                self._WRONG_OBJECT_HOST, encoding="utf-8"
+            )
+            (repo / "Core/WorldGen/Hex19OccupancyLattice.cs").write_text(
+                _LATTICE_GRAPH_LATTICE, encoding="utf-8"
+            )
+            slice_id = "alpha0_stalberg_dual_neighborhood_r1"
+            write_implicit_intent_bind(
+                root,
+                slice_id=slice_id,
+                project_id=PROJECT_ID,
+                explicit_ask="stable dual neighborhood ownership",
+                structural_success=(
+                    "half-step dual lattice cells whose corners are logic points"
+                ),
+            )
+            briefs = root / f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs"
+            briefs.mkdir(parents=True)
+            armed_rel = (
+                f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
+            )
+            (root / armed_rel).write_text(
+                yaml.dump(
+                    {
+                        "slice_id": slice_id,
+                        "mode": "fix_dual_neighborhood_stable_four_cell_ownership",
+                        "prefer_authorship": True,
+                        "refuse_codes": [
+                            "primary_face_as_dual",
+                            "unstable_dual_neighborhood",
+                            "stamp_as_dual",
+                            "proxy_substitution",
+                        ],
+                        "locks": {
+                            "step1_authorship": {
+                                "structural_success": (
+                                    "Dual cells are half-offset quads whose corners "
+                                    "are logic points the player edits"
+                                ),
+                                "success_object": "organic_dual_offset_lattice_cell",
+                                "intent_invariant": (
+                                    "Player edits logic points; dual cells are the "
+                                    "half-offset quads whose corners are those points."
+                                ),
+                            },
+                            "dual_neighborhood": {"law": "stable"},
+                            "dual_visual": {"deferred": True},
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            result = run_prefer_authorship_pass(
+                root,
+                game_repo_rel="game",
+                job={
+                    "slice_id": slice_id,
+                    "project_id": PROJECT_ID,
+                    "prefer_proof": "dual_neighborhood",
+                    "armed_packet_path": armed_rel,
+                    "do_not_waive": list(PRODUCT_PREFER_DO_NOT_WAIVE),
+                },
+            )
+            violations = result.little_val.anti_pattern_violations
+            self.assertFalse(result.ok, result.detail)
+            self.assertTrue(
+                any(v.startswith("primary_face_as_dual") for v in violations), violations
+            )
+            self.assertTrue(
+                any(v.startswith("proxy_substitution") for v in violations), violations
+            )
+
+    def test_lattice_plus_invariant_host_passes(self) -> None:
+        """Intent-aligned dual lattice host Prefer-passes."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cite = root / (
+                "Ingest/Resources/"
+                "Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md"
+            )
+            cite.parent.mkdir(parents=True)
+            cite.write_text("# cite\n", encoding="utf-8")
+            repo = root / "game"
+            (repo / "Systems").mkdir(parents=True)
+            (repo / "Core/WorldGen").mkdir(parents=True)
+            (repo / "Systems/DualGridCraftHost.cs").write_text(
+                self._LATTICE_HOST, encoding="utf-8"
+            )
+            (repo / "Core/WorldGen/OrganicDualOffsetLattice.cs").write_text(
+                self._LATTICE_TYPE, encoding="utf-8"
+            )
+            (repo / "Core/WorldGen/Hex19OccupancyLattice.cs").write_text(
+                _LATTICE_GRAPH_LATTICE, encoding="utf-8"
+            )
+            # Avoid "stalberg" in slice_id — that arms organic-quad Prefer seats.
+            slice_id = "prefer_dual_object_identity_r1"
+            armed = {
+                "slice_id": slice_id,
+                "mode": "fix_dual_lattice_half_step_offset_ownership",
+                "prefer_authorship": True,
+                "refuse_codes": [
+                    "primary_face_as_dual",
+                    "unstable_dual_neighborhood",
+                    "proxy_substitution",
+                    "points_as_grid",
+                    "count_equals_topology",
+                    "explicit_met_implicit_miss",
+                ],
+                "locks": {
+                    "step1_authorship": {
+                        "structural_success": (
+                            "Dual cells are half-offset quads whose corners "
+                            "are logic points the player edits"
+                        ),
+                        "success_object": "organic_dual_offset_lattice_cell",
+                        "intent_invariant": (
+                            "Player edits logic points; dual cells are the "
+                            "half-offset quads whose corners are those points."
+                        ),
+                        "refuse": [
+                            "primary_face_as_dual",
+                            "points_as_grid",
+                            "count_equals_topology",
+                            "explicit_met_implicit_miss",
+                        ],
+                    },
+                    "dual_lattice": {"law": "half_step"},
+                    "dual_visual": {"deferred": True},
+                },
+            }
+            write_implicit_intent_bind(
+                root,
+                slice_id=slice_id,
+                project_id=PROJECT_ID,
+                explicit_ask="half-step dual lattice ownership",
+                structural_success=(
+                    "half-step dual lattice cells whose corners are logic points"
+                ),
+                refuse=[
+                    "primary_face_as_dual",
+                    "points_as_grid",
+                    "count_equals_topology",
+                    "explicit_met_implicit_miss",
+                ],
+                armed=armed,
+            )
+            briefs = root / f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs"
+            briefs.mkdir(parents=True)
+            armed_rel = (
+                f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
+            )
+            (root / armed_rel).write_text(yaml.dump(armed), encoding="utf-8")
+            result = run_prefer_authorship_pass(
+                root,
+                game_repo_rel="game",
+                job={
+                    "slice_id": slice_id,
+                    "project_id": PROJECT_ID,
+                    "prefer_proof": "dual_lattice",
+                    "prefer_authorship": True,
+                    "armed_packet_path": armed_rel,
+                    "do_not_waive": list(PRODUCT_PREFER_DO_NOT_WAIVE),
+                },
+            )
+            violations = result.little_val.anti_pattern_violations
+            for code in (
+                "primary_face_as_dual",
+                "proxy_substitution",
+                "intent_collapsed_to_mechanics",
+                "armed_packet_missing_success_object",
+            ):
+                self.assertFalse(
+                    any(v.startswith(code) for v in violations), violations
+                )
+            self.assertTrue(result.ok, result.detail)
+
+
 class EatLivenessHelperTests(unittest.TestCase):
     def test_escalation_requires_exit(self) -> None:
         from eat_queue_core.weave.factory.factory_lane_runner import (
@@ -1123,3 +1376,150 @@ class EatLivenessHelperTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class DualTerrainTilePreferHardenTests(unittest.TestCase):
+    """prefer_dual_terrain_tile_authorship — cream plinth Prefer-fail; terrain object Prefer-pass."""
+
+    def test_do_not_waive_includes_terrain_tile_codes(self) -> None:
+        for code in (
+            "plinth_as_terrain",
+            "blob_as_module",
+            "metrics_only_glb_drop",
+            "procedural_only_as_success",
+        ):
+            self.assertIn(code, PRODUCT_PREFER_DO_NOT_WAIVE)
+            self.assertIn(code, DUAL_TERRAIN_TILE_DO_NOT_WAIVE)
+        refuses = {ex["refuse"] for ex in NEGATIVE_EXAMPLES}
+        self.assertIn("plinth_as_terrain", refuses)
+        self.assertIn("metrics_only_glb_drop", refuses)
+        self.assertTrue(dual_success_object_is_terrain_tile("dual_offset_terrain_tile"))
+        self.assertTrue(
+            armed_requires_dual_terrain_tile(
+                {"success_object": "dual_offset_terrain_tile"}
+            )
+        )
+
+    def test_cream_plinth_packet_fails_prefer(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cite = root / (
+                "Ingest/Resources/"
+                "Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md"
+            )
+            cite.parent.mkdir(parents=True)
+            cite.write_text("# cite\n", encoding="utf-8")
+            repo = root / "game"
+            (repo / "Systems").mkdir(parents=True)
+            (repo / "Core/WorldGen").mkdir(parents=True)
+            host = DualLatticePreferHardenTests._LATTICE_HOST
+            (repo / "Systems/DualGridCraftHost.cs").write_text(host, encoding="utf-8")
+            (repo / "Core/WorldGen/Hex19OccupancyLattice.cs").write_text(
+                "class Hex19OccupancyLattice { void BuildEdges() {} void BuildCells() {} }\n",
+                encoding="utf-8",
+            )
+            (repo / "Core/WorldGen/OrganicDualOffsetLattice.cs").write_text(
+                "class OrganicDualOffsetLattice { void Build() {} }\n",
+                encoding="utf-8",
+            )
+            slice_id = "alpha0_stalberg_dual_art_style_r1"
+            write_implicit_intent_bind(
+                root,
+                slice_id=slice_id,
+                project_id=PROJECT_ID,
+                explicit_ask="cream quarter platform art style",
+                structural_success="cream quarter-platform restyle of mesh-fit sector pieces",
+            )
+            briefs = root / f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs"
+            briefs.mkdir(parents=True)
+            armed_rel = (
+                f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
+            )
+            armed = {
+                "slice_id": slice_id,
+                "mode": "cream_quarter_platform_art_style_on_mesh_fit",
+                "contract": "C_cream_quarter_platform_art_style_on_mesh_fit",
+                "prefer_authorship": True,
+                "success_object": "dual_offset_cells",
+                "structural_success": "cream quarter-platform restyle",
+                "refuse_codes": list(DUAL_TERRAIN_TILE_DO_NOT_WAIVE)
+                + [
+                    "points_as_grid",
+                    "count_equals_topology",
+                    "explicit_met_implicit_miss",
+                    "primary_face_as_dual",
+                    "skip_dual_offset",
+                ],
+                "locks": {
+                    "step1_authorship": {
+                        "structural_success": "cream quarter-platform restyle",
+                        "success_object": "dual_offset_cells",
+                        "refuse": [
+                            "points_as_grid",
+                            "count_equals_topology",
+                            "explicit_met_implicit_miss",
+                        ],
+                    },
+                    "dual_visual": {
+                        "law": "cream_quarter_platform_art_on_mesh_fit",
+                        "require_cream_quarter_platform_style": True,
+                    },
+                    "topology_law": "Grid-Topology-Host-Law",
+                },
+            }
+            (root / armed_rel).write_text(yaml.dump(armed), encoding="utf-8")
+            self.assertTrue(armed_claims_cream_plinth_success(armed))
+            result = run_prefer_authorship_pass(
+                root,
+                game_repo_rel="game",
+                job={
+                    "slice_id": slice_id,
+                    "project_id": PROJECT_ID,
+                    "prefer_authorship": True,
+                    "armed_packet_path": armed_rel,
+                    "do_not_waive": list(PRODUCT_PREFER_DO_NOT_WAIVE),
+                },
+            )
+            self.assertFalse(result.ok, result.detail)
+            viols = result.little_val.anti_pattern_violations
+            self.assertTrue(any(v.startswith("plinth_as_terrain") for v in viols), viols)
+
+    def test_terrain_tile_packet_object_identity_helpers(self) -> None:
+        """Concept Prefer object identity — full LIVE organic scan covered by vault Prefer run."""
+        armed = {
+            "slice_id": "alpha0_stalberg_dual_terrain_tile_r1",
+            "mode": "dual_offset_terrain_tile_land_water_read",
+            "contract": "C_dual_offset_terrain_tile_land_water_read",
+            "prefer_authorship": True,
+            "success_object": "dual_offset_terrain_tile",
+            "structural_success": (
+                "Corner-config selects discrete dual MeshLibrary terrain tiles "
+                "with vertices+edges+faces readable as land/water lattice cells"
+            ),
+            "locks": {
+                "step1_authorship": {
+                    "structural_success": (
+                        "vertices edges faces dual offset terrain tile land/water"
+                    ),
+                    "success_object": "dual_offset_terrain_tile",
+                },
+                "dual_terrain_tile": {
+                    "law": "land_water_terrain_tile",
+                    "awaiting_gold_sixpack": True,
+                    "defer_live_mesh_plinth_scan": True,
+                },
+                "dual_visual": {"deferred": True},
+            },
+        }
+        self.assertTrue(armed_requires_dual_terrain_tile(armed))
+        self.assertFalse(armed_claims_cream_plinth_success(armed))
+        self.assertTrue(
+            dual_success_object_is_terrain_tile(str(armed["success_object"]))
+        )
+        cream = {
+            "mode": "cream_quarter_platform_art_style_on_mesh_fit",
+            "contract": "C_cream_quarter_platform_art_style_on_mesh_fit",
+            "locks": {
+                "dual_visual": {"require_cream_quarter_platform_style": True}
+            },
+        }
+        self.assertTrue(armed_claims_cream_plinth_success(cream))

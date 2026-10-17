@@ -59,6 +59,7 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 |----------|--------|
 | Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
+| Gate B₂ weld intent (Prefer vs LIVE) | `Docs/Gate-B2-Weld-Intent-Hostile.md` + `Docs/Skills/prefer-weld-intent-validate/` · project Prefer law on `project/<id>` |
 | Live queue / Watcher / vault notes | Unavailable — ask for paste or fulfill |
 
 ## Hard limits
@@ -78,3 +79,7 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | `meat-suit-entry/` | Bone pilot hub |
 | `weave/components/*.yaml` | Locked cards |
 | `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — pack emit / receipt validate) |
+| `Docs/Gate-B2-Weld-Intent-Hostile.md` | **Gate B₂** rubric + three Grok guards + validator shape |
+| `Docs/Skills/prefer-weld-intent-validate/` | Published B₂ hostile skill |
+| `scripts/prefer_weld_intent_check.py` | B₂ CLI / receipt latch |
+| `weave/host-weld/pilots/` | Chat latch / factory default (trialing) |

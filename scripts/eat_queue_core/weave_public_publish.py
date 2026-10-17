@@ -53,6 +53,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md",
     "3-Resources/Second-Brain/Docs/Half-B-Alpha-0-Implementation-Receipt.md",
     "3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md",
+    "3-Resources/Second-Brain/Docs/Gate-B2-Weld-Intent-Hostile.md",
     "3-Resources/Second-Brain/Docs/catalog-mint/",
     "3-Resources/Second-Brain/Docs/meat-suit-entry/",
     ".technical/weave/components/",
@@ -60,7 +61,12 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     ".technical/weave/trinity-partition-registry.yaml",
     ".technical/weave/host-weld/manifest.yaml",
     ".technical/weave/host-weld/live/",
+    ".technical/weave/host-weld/pilots/",
     ".cursor/rules/always/host-weld-bridge.mdc",
+    # Mapped to Docs/Skills/ — vault `.cursor/skills/` stays forbidden as a prefix.
+    ".cursor/skills/prefer-weld-intent-validate/",
+    "scripts/prefer_weld_intent_check.py",
+    "scripts/prefer_map_fidelity_check.py",
     "scripts/eat_queue_core/weave/",
     "scripts/eat_queue_core/weave_public_publish.py",
     "scripts/eat_queue_core/weave_observability.py",
@@ -93,6 +99,9 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_grok_guards.py",
     "scripts/eat_queue_core/tests/test_grok_bridge.py",
     "scripts/eat_queue_core/tests/test_pseudo_clock.py",
+    "scripts/eat_queue_core/tests/test_prefer_weld_intent.py",
+    "scripts/eat_queue_core/tests/test_prefer_map_fidelity.py",
+    "scripts/eat_queue_core/tests/test_prefer_authorship_host_law.py",
 )
 
 
@@ -204,7 +213,12 @@ def _export_map_path(vault_path: Path, vault_root: Path) -> str:
         return rel.replace(".technical/weave/", "weave/", 1)
     if rel == ".cursor/rules/always/host-weld-bridge.mdc":
         return "Docs/Rules/host-weld-bridge.mdc"
+    # Explicit allowlisted skills → Docs/Skills/ (never ship raw `.cursor/skills/` paths).
+    if rel.startswith(".cursor/skills/prefer-weld-intent-validate"):
+        return "Docs/Skills/" + rel[len(".cursor/skills/") :]
     if rel.startswith("scripts/eat_queue_core/"):
+        return rel
+    if rel.startswith("scripts/") and rel.endswith(".py"):
         return rel
     return rel
 
