@@ -55,11 +55,14 @@ Pass only if **all** are true:
 4. Proof tags / factory logs / KEEP headers — **indictment only**; they **cannot** pass. Piggyback fixture with `piggyback_place_v1` Success / KEEP header = **fail**.
 5. MCP/Godot optional; `verify_mcp_only` = refuse.
 6. You do **not** rewrite Prefer Success to fit what shipped (Guard 3). Prefer-lie → operator call, not validator rewrite.
+7. **Stamp alone never passes.** `weld_intent_hostile_ok: true` / nested `{ok: true}` without a valid `weld_intent_evidence` behavior pack = **fail**.
+8. **Place-class required keys.** For place / PLACE-product / dual_place markers, every place behavior key must be **present and true** (missing `update_four_ran` = fail). Unknown Prefer class = fail-closed.
+9. **Bypass** only when `factory_bypass: true` **and** non-empty `factory_bypass_ack` / `operator_bypass_ack` / `operator_ack`. Bypass + `factory_greenlit: true` = fail.
 
 ## Grok guards (binding)
 
 1. **Logs cannot acquit.**
-2. **Latch sees skipped-factory welds** — Success / ready-for-F5 / KEEP / greenlit without `weld_intent_hostile_ok` = hard fail. Bypass only `factory_bypass: true` + ack; bypass must never say greenlit.
+2. **Latch sees skipped-factory welds** — Success / ready-for-F5 / KEEP / greenlit without B₂ stamp **and** behavior evidence = hard fail. Bypass only `factory_bypass: true` + ack quote; bypass must never say greenlit.
 3. **B₂ does not edit the picture.**
 
 ## Output
@@ -76,7 +79,18 @@ Write/update `{slice_id}.prefer-result.json` fields (**additive** — do not cle
     "pass_basis": "behavior",
     "map_fidelity_hostile_ok": true
   },
-  "weld_intent_evidence": { }
+  "weld_intent_evidence": {
+    "prefer_class": "place",
+    "pass_basis": "behavior",
+    "behavior": {
+      "same_seat_ghost_eq_commit": true,
+      "update_four_ran": true,
+      "coast_gate_ran": true,
+      "full_survives_neighbor_rebuild": true,
+      "prefer_refuses_not_violated_in_live": true
+    },
+    "tags_are_not_pass_evidence": true
+  }
 }
 ```
 

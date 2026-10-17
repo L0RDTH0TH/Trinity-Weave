@@ -35,7 +35,7 @@ Before a chat hotfix / direct LIVE skip of Prefer:
 
 1. **STOP** and **ASK** the operator explicitly whether to skip the factory.
 2. Bypass **only** on explicit yes.
-3. Receipt: `factory_bypass: true` + quote the operator ack.
+3. Receipt: `factory_bypass: true` + non-empty `factory_bypass_ack` / `operator_bypass_ack` / `operator_ack` quote (flag alone does not skip B₂).
 4. **Never** stamp `factory_greenlit: true` on bypass — greenlit is factory-path only.
 
 Hostile Prefer (Gate B) is required on every Prefer Success claim (staging and KEEP). Operator F5 = feel / intended behavior, not mechanical Prefer shape. See [[Prefer-Authorship-Host-Law]] §C.3 + Chat default factory · [[Prefer-Map-Fidelity-Automation-Plan]].

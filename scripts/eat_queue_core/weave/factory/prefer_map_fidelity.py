@@ -436,10 +436,12 @@ def keep_latch_allowed(
     *,
     prefer_result: dict[str, Any] | None = None,
     operator_f5_ok: bool = False,
+    evidence_pack: dict[str, Any] | None = None,
 ) -> MapFidelityResult:
-    """Gate C/D helper — KEEP only if mechanical A (when map) + hostile B + operator F5.
+    """Gate C/D helper — KEEP only if mechanical A (when map) + B₁ + B₂ (when welded) + F5.
 
     Operator F5 validates intended behavior/feel — not mechanical Prefer shape.
+    Post-weld / greenlit KEEP also requires Gate B₂ behavior evidence (not stamp alone).
     """
     pr = prefer_result
     if pr is None:
@@ -452,4 +454,34 @@ def keep_latch_allowed(
     if not operator_f5_ok:
         result.violations.append("map_fidelity:operator_f5_required_for_keep")
         result.ok = False
+
+    # Gate B₂ — when LIVE weld / greenlit claimed, KEEP needs behavior evidence.
+    from .prefer_weld_intent import (
+        claims_factory_greenlit,
+        extract_chat_receipt_blob,
+        live_weld_claimed,
+        scan_chat_hotfix_receipt,
+        validate_weld_intent_latch,
+    )
+
+    if live_weld_claimed(armed_keep, pr) or claims_factory_greenlit(armed_keep, pr):
+        chat = extract_chat_receipt_blob(armed_keep, pr)
+        if isinstance(chat, str) and chat.strip():
+            chat_scan = scan_chat_hotfix_receipt(
+                chat, prefer_result=pr, armed=armed_keep, evidence_pack=evidence_pack
+            )
+            if chat_scan.applicable and chat_scan.violations:
+                result.violations.extend(chat_scan.violations)
+                result.ok = False
+        receipt_dict = chat if isinstance(chat, dict) else None
+        b2 = validate_weld_intent_latch(
+            armed_keep,
+            prefer_result=pr,
+            receipt=receipt_dict,
+            evidence_pack=evidence_pack,
+        )
+        if b2.applicable and b2.violations:
+            result.violations.extend(b2.violations)
+            result.ok = False
+        result.violations = sorted(set(result.violations))
     return result

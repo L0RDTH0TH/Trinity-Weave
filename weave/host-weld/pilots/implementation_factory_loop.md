@@ -191,10 +191,10 @@ Before a chat hotfix / direct LIVE skip of Prefer:
 
 1. **STOP** and **ASK** the operator explicitly whether to skip the factory.
 2. Bypass **only** on explicit yes.
-3. Receipt: `factory_bypass: true` + quote the operator ack.
+3. Receipt: `factory_bypass: true` + non-empty `factory_bypass_ack` / `operator_bypass_ack` / `operator_ack` quote (flag alone does not skip B₂).
 4. **Never** stamp `factory_greenlit: true` on bypass — greenlit is factory-path only.
-5. Chat receipts claiming greenlit / LIVE Success without `weld_intent_hostile_ok` → hard fail (Gate B₂ latch).
+5. Chat receipts claiming greenlit / LIVE Success without B₂ stamp **and** behavior evidence pack → hard fail (Gate B₂ latch). Bare stamp without evidence fails.
 
 **Gate B₁** (`map_fidelity_hostile_ok` / `prefer_map_fidelity`) — required on every Prefer Success claim (staging and KEEP) **before** GREENLIGHT.
-**Gate B₂** (`weld_intent_hostile_ok` / `prefer_weld_intent`) — after weld LIVE; Prefer Success painting brief vs LIVE Play-path behavior; logs/tags indict only; B₂ does not rewrite Prefer Success.
+**Gate B₂** (`weld_intent_hostile_ok` / `prefer_weld_intent`) — after weld LIVE; Prefer Success painting brief vs LIVE Play-path behavior; logs/tags indict only; stamp alone never passes (need `weld_intent_evidence`); place missing required behavior keys fails; B₂ does not rewrite Prefer Success.
 Operator F5 = feel / intended behavior, not Prefer shape or proof tags. See [[Prefer-Authorship-Host-Law]] §C.3 + Chat default factory · [[Prefer-Map-Fidelity-Automation-Plan]].

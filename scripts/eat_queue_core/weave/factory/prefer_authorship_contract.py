@@ -2231,13 +2231,29 @@ def run_prefer_authorship_pass(
         prefer_result = load_prefer_result(vault_root, slice_id)
 
     # Gate B₂ — weld intent hostile (post-weld). Latch when LIVE / greenlit claimed.
-    # Logs cannot acquit; bypass without greenlit skips; never rewrites Prefer.
-    from .prefer_weld_intent import validate_weld_intent_latch
-
-    weld_intent = validate_weld_intent_latch(
-        armed if isinstance(armed, dict) else None,
-        prefer_result=prefer_result if isinstance(prefer_result, dict) else None,
+    # Logs cannot acquit; bare stamp without behavior evidence fails; bypass skip
+    # only with non-empty operator ack quote; chat/hotfix receipts scanned when
+    # embedded on armed/prefer-result; never rewrites Prefer.
+    from .prefer_weld_intent import (
+        extract_chat_receipt_blob,
+        scan_chat_hotfix_receipt,
+        validate_weld_intent_latch,
     )
+
+    armed_dict = armed if isinstance(armed, dict) else None
+    prefer_dict = prefer_result if isinstance(prefer_result, dict) else None
+    chat_receipt = extract_chat_receipt_blob(armed_dict, prefer_dict)
+    if isinstance(chat_receipt, str) and chat_receipt.strip():
+        weld_intent = scan_chat_hotfix_receipt(
+            chat_receipt, prefer_result=prefer_dict, armed=armed_dict
+        )
+    else:
+        receipt_dict = chat_receipt if isinstance(chat_receipt, dict) else None
+        weld_intent = validate_weld_intent_latch(
+            armed_dict,
+            prefer_result=prefer_dict,
+            receipt=receipt_dict,
+        )
     if weld_intent.applicable:
         violations.extend(weld_intent.violations)
         warnings.extend(weld_intent.warnings)

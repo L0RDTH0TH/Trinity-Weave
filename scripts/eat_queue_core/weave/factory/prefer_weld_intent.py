@@ -14,10 +14,13 @@ Grok guards (binding):
 2. **Latch sees skipped-factory welds.** Staging Success / ready-for-F5 / KEEP /
    ask_success without ``weld_intent_hostile_ok`` when LIVE weld is claimed (or
    receipt claims success / greenlit) = hard fail — including chat receipts that
-   never called the pipeline. Skip only explicit ``factory_bypass`` + operator
-   ack; bypass receipt must **never** say greenlit.
+   never called the pipeline. Skip only explicit ``factory_bypass`` + non-empty
+   operator ack quote; bypass receipt must **never** say greenlit.
 3. **B₂ does not edit the picture.** Validator must not rewrite Prefer Success
    to fit what shipped. Prefer-lie is an operator call.
+
+Stamp alone never passes: ``weld_intent_hostile_ok: true`` without a valid
+behavior evidence pack (pass_basis behavior + required keys) fails closed.
 
 Cite: Prefer-Authorship-Host-Law §C.3 B₂ · Prefer-Map-Fidelity-Automation-Plan.
 """
@@ -68,6 +71,60 @@ PLACE_BEHAVIOR_KEYS: tuple[str, ...] = (
     "prefer_refuses_not_violated_in_live",
 )
 
+# Non-place product Prefer — minimal behavior keys (fail-closed if class unknown).
+GENERIC_PRODUCT_BEHAVIOR_KEYS: tuple[str, ...] = (
+    "play_path_matches_prefer_success",
+    "prefer_refuses_not_violated_in_live",
+)
+
+BEHAVIOR_KEYS_BY_CLASS: dict[str, tuple[str, ...]] = {
+    "place": PLACE_BEHAVIOR_KEYS,
+    "dual_place": PLACE_BEHAVIOR_KEYS,
+    "place_product": PLACE_BEHAVIOR_KEYS,
+    "place-product": PLACE_BEHAVIOR_KEYS,
+    "owned_cell_place": PLACE_BEHAVIOR_KEYS,
+    "tri_cell_place": PLACE_BEHAVIOR_KEYS,
+    "place_coast": PLACE_BEHAVIOR_KEYS,
+    "place_update": PLACE_BEHAVIOR_KEYS,
+    "dual_coast": PLACE_BEHAVIOR_KEYS,
+    "generic": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "product": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "worldgen": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "gen": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "vis": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "loop": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "pack": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "desk": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+}
+
+_PLACE_INFER_MARKERS: tuple[str, ...] = (
+    "place_product",
+    "place-product",
+    "dual_place",
+    "owned_cell_place",
+    "tri_cell_place",
+    "place_coast",
+    "place_update",
+    "dual_coast",
+    "place_",
+    "_place",
+    "-place",
+    "place-",
+)
+
+_BYPASS_ACK_KEYS: tuple[str, ...] = (
+    "factory_bypass_ack",
+    "operator_bypass_ack",
+    "operator_ack",
+)
+
+_CHAT_RECEIPT_KEYS: tuple[str, ...] = (
+    "chat_hotfix_receipt",
+    "hotfix_receipt",
+    "factory_receipt",
+    "bypass_receipt",
+)
+
 # Evidence modes that must never count as pass.
 _FORBIDDEN_PASS_MODES: frozenset[str] = frozenset(
     {
@@ -111,7 +168,7 @@ class WeldIntentResult:
 
 
 def weld_intent_hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
-    """True only when Gate B₂ stamped ``weld_intent_hostile_ok: true``."""
+    """True when Gate B₂ stamp field is set (necessary, not sufficient)."""
     if not isinstance(prefer_result, dict):
         return False
     if prefer_result.get("weld_intent_hostile_ok") is True:
@@ -120,12 +177,36 @@ def weld_intent_hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
     return isinstance(nested, dict) and nested.get("ok") is True
 
 
-def is_factory_bypass(armed: dict[str, Any] | None, receipt: dict[str, Any] | None = None) -> bool:
-    """Explicit factory_bypass + no greenlit claim."""
+def has_factory_bypass_flag(
+    armed: dict[str, Any] | None, receipt: dict[str, Any] | None = None
+) -> bool:
     for blob in (armed, receipt):
         if isinstance(blob, dict) and blob.get("factory_bypass") is True:
             return True
     return False
+
+
+def factory_bypass_ack_quote(
+    armed: dict[str, Any] | None, receipt: dict[str, Any] | None = None
+) -> str:
+    """Non-empty operator ack quote required for bypass skip."""
+    for blob in (armed, receipt):
+        if not isinstance(blob, dict):
+            continue
+        for key in _BYPASS_ACK_KEYS:
+            val = blob.get(key)
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+    return ""
+
+
+def is_factory_bypass(
+    armed: dict[str, Any] | None, receipt: dict[str, Any] | None = None
+) -> bool:
+    """Explicit factory_bypass + non-empty operator ack quote."""
+    return has_factory_bypass_flag(armed, receipt) and bool(
+        factory_bypass_ack_quote(armed, receipt)
+    )
 
 
 def claims_factory_greenlit(
@@ -223,6 +304,63 @@ def requires_weld_intent_hostile(
     )
 
 
+def resolve_prefer_behavior_class(
+    armed: dict[str, Any] | None = None,
+    pack: dict[str, Any] | None = None,
+    prefer_result: dict[str, Any] | None = None,
+) -> str:
+    """Return prefer behavior class: place / known class / unknown (fail-closed)."""
+    for blob in (pack, armed, prefer_result):
+        if not isinstance(blob, dict):
+            continue
+        for key in ("prefer_class", "behavior_class", "object_class"):
+            raw = str(blob.get(key) or "").strip().lower()
+            if not raw:
+                continue
+            if raw in BEHAVIOR_KEYS_BY_CLASS:
+                return raw
+            if "place" in raw:
+                return "place"
+            return raw
+    hay = " ".join(
+        [
+            str((armed or {}).get("slice_id") or ""),
+            str((armed or {}).get("ticket_map_id") or ""),
+            str((armed or {}).get("ask_id") or ""),
+            str((prefer_result or {}).get("slice_id") or ""),
+            str((pack or {}).get("prefer_success") or ""),
+        ]
+    ).lower()
+    if any(m in hay for m in _PLACE_INFER_MARKERS) or re.search(
+        r"(?:^|[^a-z])place(?:[^a-z]|$)", hay
+    ):
+        return "place"
+    # Ticket-map prefixes without explicit class → map to coarse class.
+    tid = str((armed or {}).get("ticket_map_id") or "").strip().lower()
+    for prefix, cls in (
+        ("place", "place"),
+        ("gen", "gen"),
+        ("world", "worldgen"),
+        ("vis", "vis"),
+        ("loop", "loop"),
+        ("pack", "pack"),
+        ("desk", "desk"),
+    ):
+        if tid.startswith(prefix):
+            return cls
+    return "unknown"
+
+
+def required_behavior_keys_for_class(prefer_class: str) -> tuple[str, ...] | None:
+    """Keys required for class, or None when class is unknown / undefined."""
+    cls = (prefer_class or "").strip().lower()
+    if cls in BEHAVIOR_KEYS_BY_CLASS:
+        return BEHAVIOR_KEYS_BY_CLASS[cls]
+    if "place" in cls:
+        return PLACE_BEHAVIOR_KEYS
+    return None
+
+
 def build_evidence_pack(
     *,
     prefer_success: str = "",
@@ -236,13 +374,14 @@ def build_evidence_pack(
     string_match_hits: list[str] | None = None,
     mcp_attest_only: bool = False,
     notes: str = "",
+    prefer_class: str = "",
 ) -> dict[str, Any]:
     """Build B₂ evidence pack. Tags/logs/KEEP headers are **indictment-only**.
 
     Document for operators / validators: ``tags_are_not_pass_evidence: true``.
     Passing evidence must live under ``behavior`` with ``pass_basis: behavior``.
     """
-    return {
+    pack: dict[str, Any] = {
         "prefer_success": prefer_success or "",
         "prefer_refuses": list(prefer_refuses or []),
         "files_touched": list(files_touched or []),
@@ -260,6 +399,9 @@ def build_evidence_pack(
         "notes": notes or "",
         "b2_must_not_rewrite_prefer_success": True,
     }
+    if prefer_class:
+        pack["prefer_class"] = str(prefer_class).strip().lower()
+    return pack
 
 
 def _collect_indict_tags(pack: dict[str, Any]) -> set[str]:
@@ -271,12 +413,47 @@ def _collect_indict_tags(pack: dict[str, Any]) -> set[str]:
     return out
 
 
-def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
+def _extract_evidence_pack(
+    prefer_result: dict[str, Any] | None,
+    evidence_pack: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    """Resolve structured evidence — never accept ok:true alone as the pack."""
+    if isinstance(evidence_pack, dict) and evidence_pack:
+        return evidence_pack
+    if not isinstance(prefer_result, dict):
+        return None
+    direct = prefer_result.get("weld_intent_evidence")
+    if isinstance(direct, dict) and direct:
+        return direct
+    nested = prefer_result.get("weld_intent_hostile")
+    if isinstance(nested, dict):
+        nested_ev = nested.get("evidence") or nested.get("weld_intent_evidence")
+        if isinstance(nested_ev, dict) and nested_ev:
+            return nested_ev
+        behavior = nested.get("behavior")
+        if isinstance(behavior, dict) and behavior:
+            return build_evidence_pack(
+                prefer_success=str(nested.get("prefer_success") or ""),
+                behavior=behavior,
+                pass_basis=str(nested.get("pass_basis") or ""),
+                prefer_class=str(nested.get("prefer_class") or ""),
+                proof_tags=list(nested.get("proof_tags") or []),
+            )
+    return None
+
+
+def evaluate_behavior_evidence(
+    pack: dict[str, Any] | None,
+    *,
+    armed: dict[str, Any] | None = None,
+    prefer_result: dict[str, Any] | None = None,
+) -> WeldIntentResult:
     """Mechanical fail-closed checks on an evidence pack (no Prefer rewrite).
 
     Honest place-shaped behavior can pass this seat; piggyback / string-match /
-    tag-as-pass / MCP-only cannot. Hostile LLM (skill) still stamps
-    ``weld_intent_hostile_ok`` for the full rubric.
+    tag-as-pass / MCP-only / missing required keys cannot. Hostile LLM (skill)
+    still stamps ``weld_intent_hostile_ok`` for the full rubric — stamp alone
+    never acquits without this pack.
     """
     if not isinstance(pack, dict) or not pack:
         return WeldIntentResult(
@@ -285,10 +462,30 @@ def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
             violations=["weld_intent:missing_evidence_pack"],
         )
 
+    # Bare {ok: true} / stamp-shaped dict is not structured behavior evidence.
+    behavior_candidate = pack.get("behavior") if isinstance(pack.get("behavior"), dict) else None
+    pass_basis_candidate = str(pack.get("pass_basis") or "").strip().lower()
+    stamp_only_keys = {
+        "ok",
+        "weld_intent_hostile_ok",
+        "verdict",
+        "summary",
+        "map_fidelity_hostile_ok",
+    }
+    if set(pack.keys()) <= stamp_only_keys or (
+        pack.get("ok") is True and not behavior_candidate and not pass_basis_candidate
+    ):
+        return WeldIntentResult(
+            ok=False,
+            applicable=True,
+            violations=["weld_intent:stamp_alone_not_evidence"],
+            evidence_pack=pack,
+        )
+
     violations: list[str] = []
     warnings: list[str] = []
 
-    pass_basis = str(pack.get("pass_basis") or "").strip().lower()
+    pass_basis = pass_basis_candidate
     if pass_basis in _FORBIDDEN_PASS_MODES:
         violations.append(f"weld_intent:forbidden_pass_basis:{pass_basis}")
 
@@ -305,10 +502,11 @@ def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
         # Prefer-word → method-name string match as pass = B₂ fail.
         violations.append("weld_intent:string_match_as_pass")
 
-    if pass_basis in {"", "proof_tag", "factory_log", "keep_header"} and not pack.get(
-        "behavior"
-    ):
-        violations.append("weld_intent:no_behavior_evidence")
+    if pass_basis != "behavior":
+        if pass_basis in {"", "proof_tag", "factory_log", "keep_header"}:
+            violations.append("weld_intent:no_behavior_evidence")
+        else:
+            violations.append("weld_intent:pass_basis_must_be_behavior")
 
     tags = _collect_indict_tags(pack)
     piggy = tags & PIGGYBACK_INDICT_TAGS
@@ -318,18 +516,32 @@ def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
             "weld_intent:piggyback_indict:" + ",".join(sorted(piggy))
         )
 
-    behavior = pack.get("behavior") if isinstance(pack.get("behavior"), dict) else {}
-    # Piggyback-shaped LIVE: update_four / coast skipped, or ghost≠commit.
-    if behavior.get("update_four_ran") is False:
-        violations.append("weld_intent:update_four_skipped")
-    if behavior.get("coast_gate_ran") is False:
-        violations.append("weld_intent:coast_gate_skipped")
-    if behavior.get("same_seat_ghost_eq_commit") is False:
-        violations.append("weld_intent:ghost_seat_neq_commit")
-    if behavior.get("full_survives_neighbor_rebuild") is False:
-        violations.append("weld_intent:neighbor_rebuild_deletes_full")
-    if behavior.get("prefer_refuses_not_violated_in_live") is False:
-        violations.append("weld_intent:prefer_refuse_violated_in_live")
+    behavior = behavior_candidate or {}
+    prefer_class = resolve_prefer_behavior_class(armed, pack, prefer_result)
+    required = required_behavior_keys_for_class(prefer_class)
+    if required is None:
+        violations.append(f"weld_intent:unknown_prefer_class_fail_closed:{prefer_class or 'unknown'}")
+    else:
+        for key in required:
+            if key not in behavior:
+                violations.append(f"weld_intent:behavior_key_missing:{key}")
+            elif behavior.get(key) is not True:
+                # Missing/false both fail — place cannot omit update_four_ran.
+                if behavior.get(key) is False:
+                    alias = {
+                        "update_four_ran": "weld_intent:update_four_skipped",
+                        "coast_gate_ran": "weld_intent:coast_gate_skipped",
+                        "same_seat_ghost_eq_commit": "weld_intent:ghost_seat_neq_commit",
+                        "full_survives_neighbor_rebuild": "weld_intent:neighbor_rebuild_deletes_full",
+                        "prefer_refuses_not_violated_in_live": "weld_intent:prefer_refuse_violated_in_live",
+                        "play_path_matches_prefer_success": "weld_intent:play_path_mismatch",
+                    }.get(key)
+                    if alias:
+                        violations.append(alias)
+                    else:
+                        violations.append(f"weld_intent:behavior_key_not_true:{key}")
+                else:
+                    violations.append(f"weld_intent:behavior_key_not_true:{key}")
 
     # Logs claiming Success while behavior missing/false — cannot acquit.
     indict = pack.get("indictment_only") if isinstance(pack.get("indictment_only"), dict) else {}
@@ -340,37 +552,10 @@ def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
     ) or any(re.search(r"\bkeep\b", str(x), re.I) for x in keep_headers)
     if log_claims_success and (
         not behavior
-        or any(behavior.get(k) is False for k in PLACE_BEHAVIOR_KEYS)
+        or (required and any(behavior.get(k) is not True for k in required))
         or piggy
     ):
         violations.append("weld_intent:logs_cannot_acquit")
-
-    # Honest place-shaped: all behavior keys true + pass_basis behavior → mechanical ok.
-    if (
-        not violations
-        and pass_basis == "behavior"
-        and behavior
-        and all(behavior.get(k) is True for k in PLACE_BEHAVIOR_KEYS)
-    ):
-        return WeldIntentResult(
-            ok=True,
-            applicable=True,
-            evidence_pack=pack,
-            warnings=warnings,
-        )
-
-    if not violations and pass_basis == "behavior" and behavior:
-        # Partial behavior without full place checklist — still need hostile stamp;
-        # mechanical seat allows non-place packs when no fail codes fired.
-        return WeldIntentResult(
-            ok=True,
-            applicable=True,
-            evidence_pack=pack,
-            warnings=warnings,
-        )
-
-    if not violations and not behavior:
-        violations.append("weld_intent:no_behavior_evidence")
 
     return WeldIntentResult(
         ok=not violations,
@@ -379,6 +564,24 @@ def evaluate_behavior_evidence(pack: dict[str, Any] | None) -> WeldIntentResult:
         warnings=sorted(set(warnings)),
         evidence_pack=pack,
     )
+
+
+def extract_chat_receipt_blob(
+    armed: dict[str, Any] | None = None,
+    prefer_result: dict[str, Any] | None = None,
+    receipt: dict[str, Any] | str | None = None,
+) -> dict[str, Any] | str | None:
+    """Pull embedded chat/hotfix receipt from armed / prefer_result when present."""
+    if receipt is not None:
+        return receipt
+    for blob in (armed, prefer_result):
+        if not isinstance(blob, dict):
+            continue
+        for key in _CHAT_RECEIPT_KEYS:
+            val = blob.get(key)
+            if isinstance(val, (dict, str)) and val:
+                return val
+    return None
 
 
 def validate_weld_intent_latch(
@@ -390,10 +593,14 @@ def validate_weld_intent_latch(
 ) -> WeldIntentResult:
     """Refuse Success / ready-for-F5 / KEEP / greenlit without B₂ when weld claimed.
 
-    Bypass without greenlit is allowed (skip). Bypass + greenlit = hard fail.
+    Bypass skip only with ``factory_bypass: true`` **and** non-empty operator ack
+    quote. Bypass + greenlit = hard fail. Bare ``weld_intent_hostile_ok: true``
+    without a valid behavior evidence pack = hard fail.
     Does **not** rewrite Prefer Success fields.
     """
-    bypass = is_factory_bypass(armed, receipt)
+    bypass_flag = has_factory_bypass_flag(armed, receipt)
+    ack = factory_bypass_ack_quote(armed, receipt)
+    bypass = bypass_flag and bool(ack)
     greenlit = claims_factory_greenlit(armed, prefer_result, receipt)
     welded = live_weld_claimed(armed, prefer_result, receipt)
     success = success_altitude_claimed(armed, prefer_result, receipt)
@@ -401,10 +608,13 @@ def validate_weld_intent_latch(
     violations: list[str] = []
     warnings: list[str] = []
 
-    if bypass and greenlit:
+    if bypass_flag and greenlit:
         violations.append("weld_intent:bypass_must_not_claim_greenlit")
 
-    if bypass and not greenlit:
+    if bypass_flag and not ack:
+        violations.append("weld_intent:bypass_missing_operator_ack")
+
+    if bypass and not greenlit and not violations:
         return WeldIntentResult(
             ok=True,
             applicable=False,
@@ -417,25 +627,35 @@ def validate_weld_intent_latch(
     # Prefer draft / unwelded staging (e.g. PLACE awaiting B₁) → not applicable.
     needs = bool(welded or greenlit)
     if not needs:
+        # Bypass flag without ack on non-weld path still fails closed.
+        if violations:
+            return WeldIntentResult(
+                ok=False,
+                applicable=True,
+                live_weld_claimed=welded,
+                bypass=False,
+                violations=sorted(set(violations)),
+                warnings=sorted(set(warnings)),
+            )
         return WeldIntentResult(
             ok=True, applicable=False, live_weld_claimed=False, bypass=bypass
         )
 
-    # Staging Success / ready-for-F5 / KEEP / greenlit without B₂ when welded.
+    # Staging Success / ready-for-F5 / KEEP / greenlit without B₂ stamp when welded.
     if (success or greenlit) and not weld_intent_hostile_ok(prefer_result):
         violations.append("weld_intent:hostile_required_before_success")
     if greenlit and not weld_intent_hostile_ok(prefer_result):
-        if "weld_intent:hostile_required_before_success" not in violations:
-            violations.append("weld_intent:greenlit_without_b2")
-        elif "weld_intent:greenlit_without_b2" not in violations:
-            # Greenlit path also tagged for scanners / Watcher join.
+        if "weld_intent:greenlit_without_b2" not in violations:
             violations.append("weld_intent:greenlit_without_b2")
 
-    pack = evidence_pack
-    if pack is None and isinstance(prefer_result, dict):
-        pack = prefer_result.get("weld_intent_evidence")
-    if isinstance(pack, dict) and pack:
-        beh = evaluate_behavior_evidence(pack)
+    # Stamp alone never passes — require structured behavior evidence pack.
+    pack = _extract_evidence_pack(prefer_result, evidence_pack)
+    if not isinstance(pack, dict) or not pack:
+        violations.append("weld_intent:missing_evidence_pack")
+    else:
+        beh = evaluate_behavior_evidence(
+            pack, armed=armed, prefer_result=prefer_result
+        )
         violations.extend(beh.violations)
         warnings.extend(beh.warnings)
         pack = beh.evidence_pack or pack
@@ -455,11 +675,14 @@ def scan_chat_hotfix_receipt(
     receipt: dict[str, Any] | str | None,
     *,
     prefer_result: dict[str, Any] | None = None,
+    armed: dict[str, Any] | None = None,
+    evidence_pack: dict[str, Any] | None = None,
 ) -> WeldIntentResult:
-    """Chat / hotfix receipt scanner — fail greenlit-without-B₂.
+    """Chat / hotfix receipt scanner — fail greenlit-without-B₂ / bare stamps.
 
     Accepts a dict receipt or markdown/YAML frontmatter text.
-    Bypass without greenlit → ok (not applicable). Never rewrites Prefer.
+    Bypass without greenlit → ok (not applicable) only with ack quote.
+    Never rewrites Prefer.
     """
     parsed: dict[str, Any] = {}
     if isinstance(receipt, dict):
@@ -474,7 +697,10 @@ def scan_chat_hotfix_receipt(
         )
 
     return validate_weld_intent_latch(
-        None, prefer_result=prefer_result, receipt=parsed
+        armed,
+        prefer_result=prefer_result,
+        receipt=parsed,
+        evidence_pack=evidence_pack,
     )
 
 
@@ -504,6 +730,9 @@ def _parse_receipt_blob(text: str) -> dict[str, Any]:
     out: dict[str, Any] = {}
     for key in (
         "factory_bypass",
+        "factory_bypass_ack",
+        "operator_bypass_ack",
+        "operator_ack",
         "factory_greenlit",
         "live_weld_landed",
         "claim_class",
@@ -511,6 +740,7 @@ def _parse_receipt_blob(text: str) -> dict[str, Any]:
         "ask_success",
         "ready_for_f5",
         "proof_tag",
+        "weld_intent_hostile_ok",
     ):
         mm = re.search(rf"^{key}:\s*(.+)$", raw, re.M | re.I)
         if not mm:
@@ -546,10 +776,16 @@ def post_weld_keep_latch(
     pr = prefer_result if isinstance(prefer_result, dict) else {}
     armed_keep = dict(armed or {})
     armed_keep["claim_class"] = "ask_success"
+    chat = extract_chat_receipt_blob(armed_keep, pr, receipt)
+    receipt_dict: dict[str, Any] | None = None
+    if isinstance(chat, dict):
+        receipt_dict = chat
+    elif isinstance(chat, str) and chat.strip():
+        receipt_dict = _parse_receipt_blob(chat)
     result = validate_weld_intent_latch(
         armed_keep,
         prefer_result=pr,
-        receipt=receipt,
+        receipt=receipt_dict,
         evidence_pack=evidence_pack,
     )
     if map_fidelity_hostile_required and not map_hostile_ok(pr):

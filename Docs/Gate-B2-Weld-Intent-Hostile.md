@@ -1,7 +1,7 @@
 ---
 title: Gate B₂ — Weld intent hostile (Grok public brief)
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-17
 audience: grok_github_integration
 ---
 
@@ -37,8 +37,18 @@ Queue / Task: `VALIDATE` with `params.validation_type: prefer_weld_intent`.
 ## Grok guards (binding)
 
 1. **Logs cannot acquit.** Proof tags / factory logs / KEEP headers may **indict only** — never pass. Piggyback fixture with `piggyback_place_v1` Success / KEEP header → B₂ **fail**.
-2. **Latch sees skipped-factory welds.** Staging Success / ready-for-F5 / KEEP / greenlit without `weld_intent_hostile_ok` when LIVE claimed = hard fail (including chat receipts). Bypass only `factory_bypass: true` + operator ack quote; bypass must **never** say `factory_greenlit: true`.
+2. **Latch sees skipped-factory welds.** Staging Success / ready-for-F5 / KEEP / greenlit without B₂ stamp **and** valid behavior evidence when LIVE claimed = hard fail (including chat receipts). Bypass only `factory_bypass: true` **and** non-empty `factory_bypass_ack` / `operator_bypass_ack` / `operator_ack`; bypass must **never** say `factory_greenlit: true`.
 3. **B₂ does not edit the picture.** Prefer-lie is an operator call — validator must **not** rewrite Prefer Success to fit what shipped.
+
+## Closed stops (2026-10-17 — Grok re-validate)
+
+| Hole | Close |
+|------|--------|
+| Hand-stamped `weld_intent_hostile_ok: true` with no evidence pack | **Fail** — `weld_intent:missing_evidence_pack` / `stamp_alone_not_evidence` |
+| Partial place `behavior` omitting keys (e.g. no `update_four_ran`) | **Fail** — `weld_intent:behavior_key_missing:*` (missing ≠ pass) |
+| `factory_bypass: true` without ack quote | **Fail** — `weld_intent:bypass_missing_operator_ack` (no B₂ skip) |
+| Bypass + `factory_greenlit: true` | **Fail** — `weld_intent:bypass_must_not_claim_greenlit` |
+| Unknown Prefer class | **Fail-closed** — `weld_intent:unknown_prefer_class_fail_closed` |
 
 ## Rubric (fail closed)
 
@@ -52,6 +62,8 @@ Pass only if **all** are true:
 4. Proof tags / factory logs / KEEP headers — indictment only; they **cannot** pass.
 5. MCP/Godot optional; `verify_mcp_only` = refuse.
 6. Do **not** rewrite Prefer Success (Guard 3).
+7. Stamp field alone never passes — require `weld_intent_evidence` with `pass_basis: behavior` and class-required keys all **present and true**.
+8. Place / PLACE-product / dual_place: require full place checklist (`same_seat_ghost_eq_commit`, `update_four_ran`, `coast_gate_ran`, `full_survives_neighbor_rebuild`, `prefer_refuses_not_violated_in_live`).
 
 ## Harness (on `main`)
 
@@ -81,6 +93,20 @@ Stamp field: `weld_intent_hostile_ok: true` (additive on `{slice}.prefer-result.
 - `Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md` — ticket map
 - `Factory-DRB/slice-briefs/alpha0_stalberg_dual_place_product_r1.prefer-result.json` — PLACE-product still awaiting B₁ (`weld_intent_hostile_ok: false`)
 
+## Wiring (harness)
+
+| Path | B₂ seat |
+|------|---------|
+| `run_prefer_authorship_pass` | `validate_weld_intent_latch` (+ embedded `chat_hotfix_receipt` / `hotfix_receipt` via `scan_chat_hotfix_receipt`) |
+| `keep_latch_allowed` | B₁ + B₂ when LIVE/greenlit + operator F5 |
+| `post_weld_keep_latch` | B₁ + B₂ + F5 |
+| CLI `--receipt` | `scan_chat_hotfix_receipt` |
+| `review_pass_runner` → `prefer_authorship_pass` | inherits authorship latch |
+
 ## Chat default factory
 
-DEFAULT for chat that touches Prefer / factory / LIVE: Prefer → A → B₁ → greenlight → weld → **B₂** → F5. Before skipping factory: STOP and ASK; only on explicit yes; receipt `factory_bypass: true` + ack; never greenlit on bypass.
+DEFAULT for chat that touches Prefer / factory / LIVE: Prefer → A → B₁ → greenlight → weld → **B₂** → F5. Before skipping factory: STOP and ASK; only on explicit yes; receipt `factory_bypass: true` + ack quote field; never greenlit on bypass.
+
+## Residual gap (honest)
+
+Free-form chat Success that never touches armed yaml, prefer-result, `prefer_authorship_pass`, KEEP latch, or `prefer_weld_intent_check --receipt` is still outside the harness. Host-law / pilots require agents to run the latch or CLI on those claims; the mechanical seat cannot intercept arbitrary chat text that was never written to a receipt field.
