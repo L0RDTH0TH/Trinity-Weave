@@ -1,0 +1,117 @@
+{
+  "ok": true,
+  "map_fidelity_mechanical_ok": true,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "verdict": "pending",
+    "summary": "Gate A mechanical green; Gate B hostile Prefer (VALIDATE prefer_map_fidelity) required before KEEP",
+    "checked_ticket_map_id": "WORLD-propose",
+    "gate_a_ok": true
+  },
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass_propose_feed_debt",
+    "detail": "concept_packet_carries_ticket_map_id_structural_success_w1_w3_propose_feed_and_world_gen_do_not_waive"
+  },
+  "detail": "operator_parked_effect_deferred_to_gen_refuse_salt_only_f5_ask_success",
+  "applicable": true,
+  "negative_examples": [
+    "hotkey_as_product_ux",
+    "config_meta_without_effect",
+    "stub_as_hours",
+    "map_job_name_only",
+    "explicit_met_implicit_miss",
+    "intent_collapsed_to_mechanics",
+    "menu_only_propose_as_success",
+    "scaffold_meta_without_gen_effect",
+    "proxy_substitution",
+    "verify_mcp_only",
+    "gen_tone_biomes_pack_not_this_debt"
+  ],
+  "warnings": [
+    "claim_class_staging",
+    "do_not_keep",
+    "operator_parked",
+    "effect_deferred_to_gen",
+    "refuse_ask_success_on_salt_only_f5",
+    "do_not_arm_gen_tone",
+    "do_not_arm_gen_biomes",
+    "do_not_arm_pack_save_load",
+    "prior_propose_menu_only_KEEP-debt_superseded",
+    "no_generate_button_readd",
+    "freeze_salt_f5_debt_loop",
+    "next_world_pointer_GEN-terrain-product",
+    "next_world_armed_false"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldScaffoldProposal.cs",
+      "Core/WorldGen/WorldProposeFeedContract.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs",
+      "UI/WorldgenGui.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldScaffoldProposal.cs",
+      "Core/WorldGen/WorldProposeFeedContract.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_absent": [],
+    "w1_accept_feeds_gen": true,
+    "w2_revise_changes_salt": true,
+    "w3_reject_clears_feed": true,
+    "menu_only_barred": true,
+    "generate_button_absent": true
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "map_law_bind_ok_propose_feed",
+    "applicable": true,
+    "ticket_map_id": "WORLD-propose",
+    "structural_success_includes_weld_proofs": true,
+    "success_object_player_visible": true,
+    "play_path": "LaunchShell_or_WorldgenCraft"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "scaffold_accept_feeds_gen_pass",
+  "ticket_map_id": "WORLD-propose",
+  "live_weld_greenlit": true,
+  "claim_class": "staging",
+  "disposition": "nursery_parked_effect_deferred_to_gen",
+  "keep": false,
+  "ask_success": false,
+  "operator_parked": true,
+  "effect_deferred_to_gen": true,
+  "refuse_ask_success_on": "salt_only_f5",
+  "next_world_armed": false,
+  "next_world_pointer": "GEN-terrain-product",
+  "completed": "2026-10-16T00:19:45Z",
+  "parked_at": "2026-10-16T03:34:58Z",
+  "slice_id": "alpha0_world_propose_feed_r1",
+  "series_step": "1c_propose_feed",
+  "prior_incomplete": "alpha0_world_propose_r1_menu_only_KEEP-debt",
+  "selection": "operator_park_stubs_effect_deferred_to_gen",
+  "not_selected": "GEN-tone",
+  "welds_required": ["W1", "W2", "W3"],
+  "debt_notes": {
+    "1b": "KEEP-debt_proof_moves_to_W2_GEN-terrain-product",
+    "1c": "nursery_parked_effect_deferred_to_gen",
+    "1d": "nursery_parked_effect_deferred_to_gen",
+    "1e": "KEEP-debt_parked"
+  },
+  "live_weld_landed": true,
+  "welds_landed": {
+    "W1": true,
+    "W2": true,
+    "W3": true
+  }
+}

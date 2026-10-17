@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "slice_id": "row_ux_world_generation_r1_d1",
+  "producer_run_id": "sp-weld-pro-1be97b",
+  "sib_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d1.md",
+  "waves": [
+    {
+      "wave": 1,
+      "parallel": true,
+      "lanes": [
+        "module",
+        "presentation"
+      ]
+    }
+  ],
+  "lane_missions": {
+    "module": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d1/missions/module.md",
+      "ux_bullet_ids": [
+        "UX-1"
+      ],
+      "blocked_by": []
+    },
+    "presentation": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d1/missions/presentation.md",
+      "ux_bullet_ids": [],
+      "blocked_by": []
+    }
+  }
+}

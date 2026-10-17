@@ -1,0 +1,186 @@
+# Scrapped Prefer packet — DO NOT WELD.
+# Combined Prefer retired 2026-10-01 — Terrain3D deferred later.
+# Active chain: alpha0_townscaper_craft_core_r1 → craft_visual → df_depth
+
+schema_version: 1
+status: scrapped_disarmed
+launch_word: WELD
+armed_at: "2026-10-01T22:44:43Z"
+greenlit_at: "2026-10-01T18:43:00Z"
+factory_greenlit: false
+claim_class: staging
+do_not_auto_dispatch: true
+operator_go: false
+superseded_by: alpha0_townscaper_craft_core_r1
+scrapped_reason: combined_townscaper_terrain3d_prefer_retired_terrain3d_deferred_later
+
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_worldgen_terrain3d_feed
+slice_id: alpha0_worldgen_terrain3d_feed_r3
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d4
+parent_prefer: alpha0_worldgen_terrain3d_feed_r2
+parent_factory_feed: row_ux_world_generation_r1_d3
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_worldgen_terrain3d_feed_r3.md
+supersedes: alpha0_worldgen_terrain3d_feed_r2
+project_id: genesis-mythos-master
+
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: SCRAPPED_do_not_weld
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+    - implementation_factory_loop
+    - product_factory_pipeline
+  step1_authorship:
+    yt: "https://www.youtube.com/watch?v=Y19Mw5YsgjI"
+    vault_cite: Ingest/Resources/Townscaper-Dual-Grid-Authorship-YT-Y19Mw5YsgjI-2026-10-01.md
+    cohesive: COHESIVE-VISION-ART-DIRECTION
+    card: townscaper-click-add-world-element
+    law: craft_hot_wheels_tile_authorship_only__terrain3d_real_car_fed_under_sparky
+    do_not_reblend_layers: true
+
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: >-
+      Terrain3D (or existing Prefer terrain) as world/height authority + stock GridMap
+      (or equivalent stock grid) as craft cell overlay — one craft cell data authority
+    never: >-
+      Second parallel terrain or physics authority; custom voxel engine for this ticket;
+      GridMap (or other) as a second height/terrain authority beside Terrain3D;
+      blending Terrain3D height deformation into craft-tile authorship view
+  terrain_maps_never: >-
+      Second terrain authority; Gaea GridMap/TileMap as 3D terrain authority
+
+hard_prefer_gaps:
+  - id: no_cam_recenter
+    must: craft_place_remove_tiles_only_no_camera_recenter
+    refuse: craft_cam_recenter_on_place
+  - id: no_craft_terrain_blend
+    must: craft_view_flat_dual_grid_tiles_only_townscaper
+    refuse: craft_terrain_blend
+  - id: terrain3d_fed_layer
+    must: terrain3d_updates_on_sparky_enter_and_or_explicit_feed_from_tile_map
+    refuse: unfed_terrain_under_sparky
+    fail_visible: graybox_only_world_under_sparky
+
+prior_prefer_wins_do_not_regress:
+  - id: mouse_aim
+    must: place_and_stamp_ray_from_mouse_cursor
+    refuse: camera_center_aim
+  - id: sparky_without_g
+    must: tab_sparky_without_requiring_g_seed
+    refuse: sparky_requires_g_seed
+
+terrain3d_feed:
+  host_under: WorldgenCraft / DualGridCraftHost
+  canonical_stamp: stamp_oasis_desert
+  craft_place_must: dual_grid_tile_add_remove_only_no_live_terrain_blend_under_craft
+  feed_when:
+    - sparky_enter
+    - explicit_feed_from_tile_map
+  sparky: consumer_only_no_g_gate_sees_terrain3d_derived_from_tiles
+  craft_view: hot_wheels_toys_only
+  fail_visible: graybox_models_alone_without_Terrain3D_mesh_update_under_sparky
+  vendor_already_on_disk: true
+  lanes_expected:
+    - module
+  lanes_if_needed:
+    - presentation  # only if project.godot / HUD wiring required for gaps
+  skip_unless_adc_tac_needed:
+    - asset
+    - techart
+
+host_touch_budget:
+  default_raise_to: 1200
+  prefer_trim_into: Systems/
+  never_waive: Terrain3D_prefer_proof
+  escalate_to_operator_if_budget_blocks_prefer_proof: true
+
+camera:
+  craft_phase: tile_authorship_only_no_recenter_on_place
+  post_world: god_mode_sparky_consumer_only_without_g_seed_gate
+  refuse: sparky_as_terrain_author
+  refuse_also: craft_cam_recenter_on_place
+
+ask_fidelity:
+  ask_id: alpha0_worldgen_terrain3d_feed
+  done_when: >-
+    (1) Craft place/remove tiles only with no camera recenter; mouse-cursor aim retained;
+    (2) Craft view does not deform checker/craft grid into Terrain3D heights;
+    (3) Terrain3D updates as fed layer on Sparky enter and/or explicit feed from tile map
+    so Sparky sees Terrain3D derived from tiles; Tab sparky without G retained;
+    Matrix Dual-grid Prefer/Never quoted; entry remains res://scenes/WorldgenCraft.tscn
+  forbidden_substitutes:
+    - inspiration_shape_miss
+    - fidelity_miss
+    - engine_pattern_miss
+    - verify_mcp_only
+    - parallel_terrain_engine
+    - graybox_only_world
+    - camera_center_aim
+    - sparky_requires_g_seed
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+    - unfed_terrain_under_sparky
+  claim_class: staging
+
+operator_attest: F5_three_layer_split_gaps_plus_prior_wins
+ban: verify_mcp_only
+
+zone_ownership:
+  module:
+    - scenes/**
+    - addons/terrain_3d/**
+    - Systems/**
+    - Core/**
+    - Camera/**
+    - Player/**
+  presentation_if_needed:
+    - project.godot
+    - UI/**
+    - GameHud.tscn
+
+mcp_prep:
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+  note: Cursor user-godot proxy connects only after Godot editor + plugin attach
+
+on_launch_word_WELD:
+  must_trigger: >-
+    REAL product-factory / factory-orchestrator eat for this Prefer rework —
+    IMPLEMENT_SLICE / factory lanes only (module-primary). Catalog feed id
+    row_ux_world_generation_r1_d4 after budget raise; weld brief / ask fidelity
+    overlay MUST be slice_id alpha0_worldgen_terrain3d_feed_r3.
+  required_path:
+    - Load this armed packet + brief alpha0_worldgen_terrain3d_feed_r3.md
+    - Confirm FEEDSTOCK-SHAPE operator_confirmed + factory_greenlit true
+    - Raise rollout budget target_depth≥4 (row_depth_complete at d3)
+    - product-factory-confirm-slice ux_world_generation dispatch_depth 4
+    - project_id genesis-mythos-master; LIVE slug genesis-mythos-alpha-20260930/genesis-mythos
+    - factory-orchestrator / stage IMPLEMENT_SLICE — module-only unless
+      presentation touch required for HUD/hint wiring; skip asset/techart
+    - Quote Dual-grid Prefer/Never; cite step-1 YT + Hot-Wheels-vs-car; claim_class staging
+    - Do not waive Terrain3D/sparky feed proof; host_touch_budget raise or trim to Systems/
+    - Do not reopen chargen/seats/tricam; do not re-blend craft+Terrain3D under craft view
+  forbidden:
+    - Freestyle generalPurpose Code-Repos coding
+    - Ad-hoc Terrain3D weld outside factory lanes / IMPLEMENT_SLICE
+    - Reviving archived horizon_demo_investor as Success
+    - Chargen / seats / tricam reopen
+    - Waiving Terrain3D Prefer proof for touch-budget theater
+    - Re-blending Hot Wheels craft mesh with Terrain3D heights under craft cam
+
+fresh_chat_instruction: >-
+  WELD — eat armed Prefer rework alpha0_worldgen_terrain3d_feed_r3 via
+  factory-orchestrator / IMPLEMENT_SLICE / factory lanes only (project_id
+  genesis-mythos-master; package pkg_world_shell / ux_world_generation → feed
+  row_ux_world_generation_r1_d4; LIVE genesis-mythos-alpha-20260930/genesis-mythos;
+  load this armed packet + brief as hand-off law). FORBIDDEN: freestyle Code-Repos.
+  Proof F5: no cam recenter · no craft Terrain3D blend · Terrain3D fed on Sparky/explicit;
+  keep mouse aim · Tab sparky without G.

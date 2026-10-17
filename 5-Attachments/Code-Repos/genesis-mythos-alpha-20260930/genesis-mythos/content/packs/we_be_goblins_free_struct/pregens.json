@@ -1,0 +1,112 @@
+{
+  "pregens": [
+    {
+      "id": "reta_bigbad",
+      "name": "Reta",
+      "ancestry_label": "Goblin (struct pregen)",
+      "hp": 30,
+      "hp_max": 30,
+      "attack_mod": 6,
+      "damage": "1d4+4",
+      "ac": 18,
+      "skills": [
+        {
+          "id": "stealth",
+          "label": "Stealth",
+          "mod": 12
+        },
+        {
+          "id": "perception",
+          "label": "Perception",
+          "mod": 5
+        },
+        {
+          "id": "ride",
+          "label": "Ride",
+          "mod": 10
+        }
+      ]
+    },
+    {
+      "id": "poog_of_zarongel",
+      "name": "Poog",
+      "ancestry_label": "Goblin (struct pregen)",
+      "hp": 28,
+      "hp_max": 28,
+      "attack_mod": 5,
+      "damage": "1d6+1",
+      "ac": 16,
+      "skills": [
+        {
+          "id": "stealth",
+          "label": "Stealth",
+          "mod": 8
+        },
+        {
+          "id": "perception",
+          "label": "Perception",
+          "mod": 6
+        },
+        {
+          "id": "heal",
+          "label": "Heal",
+          "mod": 7
+        }
+      ]
+    },
+    {
+      "id": "mogmurch",
+      "name": "Mogmurch",
+      "ancestry_label": "Goblin (struct pregen)",
+      "hp": 26,
+      "hp_max": 26,
+      "attack_mod": 5,
+      "damage": "1d6+2",
+      "ac": 17,
+      "skills": [
+        {
+          "id": "craft_alchemy",
+          "label": "Craft (alchemy)",
+          "mod": 9
+        },
+        {
+          "id": "stealth",
+          "label": "Stealth",
+          "mod": 9
+        },
+        {
+          "id": "perception",
+          "label": "Perception",
+          "mod": 4
+        }
+      ]
+    },
+    {
+      "id": "chuffy_lickwound",
+      "name": "Chuffy",
+      "ancestry_label": "Goblin (struct pregen)",
+      "hp": 27,
+      "hp_max": 27,
+      "attack_mod": 6,
+      "damage": "1d4+3",
+      "ac": 17,
+      "skills": [
+        {
+          "id": "stealth",
+          "label": "Stealth",
+          "mod": 11
+        },
+        {
+          "id": "sleight_of_hand",
+          "label": "Sleight of Hand",
+          "mod": 10
+        },
+        {
+          "id": "perception",
+          "label": "Perception",
+          "mod": 5
+        }
+      ]
+    }
+  ]
+}

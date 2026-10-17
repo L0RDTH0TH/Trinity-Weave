@@ -1,0 +1,158 @@
+# Armed Prefer packet — Stålberg organic all-quad grid kernel (pipeline, not dual-on-hex).
+# Final F5 primary surface = irregular quads after seed → tri → dissolve → subdivide → relax.
+# Dual paint / tiles / art = out of scope this step.
+# Greenlit via operator GREENLIGHT WELD (chat kickoff; no YAML word-gate). Staging until F5.
+
+schema_version: 1
+status: failed_altitude_visual_execution_fail
+armed_at: '2026-10-03T07:05:00Z'
+greenlit_at: '2026-10-03T07:11:44Z'
+law_amended_at: '2026-10-03T07:11:44Z'
+factory_greenlit: false
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_quad_kernel
+slice_id: alpha0_stalberg_quad_kernel_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_r1.md
+prior_weld_altitude: failed_altitude_visual_execution_fail
+approach_status: intact
+next_in_chain: alpha0_stalberg_quad_kernel_visual_r1
+authority_parked_at: alpha0_stalberg_quad_kernel_visual_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: new_stalberg_organic_all_quad_mesh_via_pipeline
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  # Prefer NEW kernel types as Success owners — do not treat Hex19* as this ask's Success type.
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    algorithm_cite: Factory-DRB/references/oskar-procedure/02-grid-algorithm.md
+    algorithm_concept_cite: Factory-DRB/references/oskar-procedure/01-concept.md
+    algorithm_upstream: https://github.com/kai-denrei/oskar-procedure
+    algorithm_seed_variant: Variant_B_hex_lattice_preferred
+    craft: hot_wheels_grid_kernel_only
+    terrain3d: out_of_scope_this_step
+    structural_success: organic_all_quad_mesh__seed_tri_dissolve_subdivide_relax
+    refuse:
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - skip_dissolve_relax
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - craft_cam_recenter_on_place
+    - craft_terrain_blend
+  kernel_occupancy:
+    law: seed_hex_or_poisson__triangulate__dissolve_to_quads__subdivide_all_faces_to_quads__relax__render_quad_faces
+    replace_live_assumption: hex19_scaffold_or_dual_overlay_on_hex_as_stalberg_success
+    success_types_preferred:
+    - Core/WorldGen/StalbergQuadKernel.cs
+    - Core/WorldGen/OrganicQuadMesh.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    - Core/WorldGen/Hex19DualOffsetLattice.cs
+    strip_from_success:
+    - dual_corner_paint
+    - tile_families
+    - connector_modules
+    - craft_visual_art_bind
+    - points_only_markers
+    - hex19_occupancy_tutorial_success
+    - dual_overlay_on_hex_scaffold
+matrix_quotes:
+  stalberg_quad_kernel:
+    prefer: 'Seed → triangulate → dissolve → subdivide to 100% quads → relax; F5 primary
+      surface = irregular all-quad mesh; regenerable; graybox OK; Terrain3D OUT OF
+      SCOPE; new Core/WorldGen kernel types own Success.'
+    never: 'hex_scaffold_as_final_mesh (hex occupancy/scaffold remains F5 primary);
+      dual_overlay_as_grid_kernel (quads only as dual overlay on hex fill); skip_dissolve_relax
+      (quads without dissolve+subdivide+relax on generative path); points-only; tutorial
+      s1/s2 Success; Hex19* as this Success type; tiles/art/connectors this step'
+hard_prefer_gaps:
+- id: all_quad_mesh
+  must: final_faces_are_quads_after_subdivide
+  refuse:
+  - hex_scaffold_as_final_mesh
+  - points_as_grid
+  - count_equals_topology
+- id: pipeline_not_overlay
+  must: seed_tri_dissolve_subdivide_relax_in_code
+  refuse:
+  - dual_overlay_as_grid_kernel
+  - skip_dissolve_relax
+  - hex_scaffold_as_final_mesh
+- id: organic_relax
+  must: relaxed_irregular_quad_shapes_visible_on_f5
+  refuse:
+  - hex_scaffold_as_final_mesh
+  - skip_dissolve_relax
+- id: regenerable
+  must: operator_can_regenerate_new_quad_field
+- id: scope_kernel_only
+  must: no_dual_paint_no_tiles_no_art_no_terrain3d_success
+  refuse:
+  - bundle_tutorial_steps
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: >-
+  F5: irregular all-quad mesh (seed→tri→dissolve→subdivide→relax); hex not primary;
+  regenerable; graybox OK; no dual-paint/art/Terrain3D Success
+refuse_codes:
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- prop_scatter_as_composition
+- bundle_tutorial_steps
+- terrain3d_in_scope
+- craft_terrain_blend
+- terrain3d_leak_f5
+- verify_mcp_only
+- infinite_rect_as_hex19
+- craft_cam_recenter_on_place
+- inspiration_shape_miss
+- fidelity_miss
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_quad_kernel_r1
+  require_implicit_bind: true
+  steps:
+  - Load this armed packet + brief + Grid-Topology-Host-Law + oskar vault cites (02 pipeline)
+  - Emit / verify implicit-intent-bind (structural_success = organic_all_quad_mesh__seed_tri_dissolve_subdivide_relax)
+  - Implement seed → tri → dissolve → subdivide → relax → render quads on new kernel types
+  - Do NOT claim dual paint, tiles, connectors, Hex19 tutorial Success, or overlay-on-hex as Success
+  - Write staging receipt; claim_class staging until operator F5
+  - Do NOT Curator push
+fresh_chat_instruction: >-
+  Stålberg quad kernel is draft until greenlit. When operator GREENLIGHT WELD:
+  force-compose this slice (module lane only + fresh bind), stage IMPLEMENT_SLICE
+  with armed_packet_path injected, EAT-QUEUE module lane. Success = F5 irregular
+  all-quad mesh from seed→tri→dissolve→subdivide→relax; regenerable; hex scaffold
+  must not remain primary; dual overlay on hex is not Success. Prefer fails
+  hex_scaffold_as_final_mesh / dual_overlay_as_grid_kernel / skip_dissolve_relax /
+  points_as_grid. New Core/WorldGen kernel types preferred. No dual paint, tiles,
+  art, or Terrain3D this step.

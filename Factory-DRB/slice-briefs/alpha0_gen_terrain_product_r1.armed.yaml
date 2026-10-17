@@ -1,0 +1,181 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-15T23:10:00Z'
+composed_at: '2026-10-15T23:10:00Z'
+prefer_amended_at: '2026-10-16T00:50:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T00:50:00Z'
+claim_class: staging
+cell_count_dial_amended: true
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_gen_terrain_product
+slice_id: alpha0_gen_terrain_product_r1
+series_id: alpha0_world_builder_r1
+series_step: gen_terrain_product
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_gen_terrain_product_r1.md
+prior_world_slice_id: alpha0_gen_terrain_r1
+prior_world_note: GEN-terrain_2a_T-hotkey_INCOMPLETE_superseded_keep_callable_accel_only_do_not_KEEP
+prior_blank_open_disposition: F5_FAIL_incomplete_blank_Create_World_Open_amended_lane_split
+prior_generate_button_disposition: Generate_button_product_ux_struck
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: staging_propose_feed_awaiting_f5
+keeps_world_s0_intents_slice_id: alpha0_world_s0_optional_lore_r1
+keeps_world_s0_fidelity: staging_optional_lore_salts_gen_when_present
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+do_not_arm_next: GEN-biomes
+next_world_armed: false
+prior_note: >-
+  Prefer amend: Cell count dial sister to Cell size (W2). Create World Open auto-gen;
+  Enter Craft empty until place (1g manual only); regen = dials + re-Open; Key.T accel only.
+  Generate button stays struck. 2a incomplete/superseded. No KEEP. No GEN-biomes/GEN-tone/PACK arm.
+  next_world_armed false.
+depends_on: alpha0_world_parity_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: gen_terrain_product_w1_w5
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: GEN-terrain-product
+success_object: generated_land_water_height_rivers_from_ui
+contract: C_gen_terrain_product_w1_w5
+exemplar_altitude: azgaar_options_open_readable_map
+exemplar_not: azgaar_js_port_or_webview
+hands: townscaper_dual_grid_only
+intent_invariant: >-
+  First generate that is a product: knobs change the world, Create World Open
+  auto-gens from bias+dials (no Generate button product control), land/water/height/rivers
+  are readable on the dual grid. Owns self-populate. Create World → Open auto-runs
+  the same gen pass from bias+dials (world already generated; refuse empty Create
+  World Open / blank amber). Enter Craft = empty amber until operator places
+  (1g empty-enter applies to this lane ONLY). Regen = dials change + re-Open /
+  session rebind. Key.T accel only — never product Success. Not MINI-hours. Not GEN-biomes.
+  Cell count dial (sister to Cell size) changes board cell budget / seed rings — visually
+  obvious more/fewer cells on Open (not meta-only).
+structural_success: >-
+  First generate that is a product: knobs change the world, Create World Open
+  auto-gens from bias+dials (no Generate button product control), land/water/height/rivers
+  are readable on the dual grid. Owns self-populate.
+  Create World → Open auto-runs ApplyGenTerrainPass / RunGenTerrainGenerate from
+  bound bias+dials so the world is already generated (Azgaar altitude; refuse
+  empty_create_world_open / blank amber Open). Enter Craft opens empty amber until
+  operator places (1g empty-enter KEEP applies to Enter Craft / manual peer ONLY —
+  not Create World). No Generate / Generate (regen) product button — refuse
+  generate_button_as_product_ux. Regen = dials change + re-Open / session rebind.
+  Key.T may remain accel only — never product Success (refuse hotkey_as_product_ux).
+  W1 No Generate product button; Create World Open is the gen surface; regen via re-Open.
+  W2 Cell size, cell count, rivers, climate, wildness change the pass (not meta-only).
+  Cell size → landform frequency; Cell count → seed rings / board cell budget
+  (higher → more cells / denser footprint; lower → fewer; remesh before paint; seed includes dial).
+  W3 Land vs water dual-grid occupancy from that pass (Create World auto; Enter Craft empty until place).
+  W4 Height reads in craft view.
+  W5 Rivers dial > 0 readable watercourse; dial 0 not.
+welds:
+  W1: no_generate_button_create_world_open_is_gen_surface_regen_via_reopen
+  W2: dials_change_pass_incl_cell_count_rings
+  W3: land_water_dualgrid_create_world_auto_enter_craft_empty_until_place
+  W4: height_reads_in_craft
+  W5: rivers_dial_watercourse
+path_position: 1a KEEP-real · 1b/1c/1d/1e KEEP-debt · 1f/1g KEEP-real · 2a INCOMPLETE
+  superseded → this GEN-terrain-product Prefer amend kill Generate button → LIVE W1–W5
+  → F5 → GEN-tone next (not armed yet)
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/GenTerrainContract.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - UI/WorldgenCraftControls.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  module_keep_empty_enter:
+  - Systems/WorldgenCraft.cs
+do_not_waive:
+  - generate_button_as_product_ux
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+  - gen_fill_as_craft_enter
+  - empty_create_world_open
+  - verify_mcp_only
+  - terrain3d_in_scope
+  - undo_empty_enter_1g
+  - azgaar_js_port_as_success
+  - gen_biomes_as_terrain_success
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  empty_enter_sibling: enter_craft_manual_lane_only_do_not_undo_1g
+  create_world_auto_gen: create_world_open_auto_run_gen_pass
+  generate_button_struck: true
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  gen_terrain_2a: incomplete_superseded_callable_accel_only
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      First generate that is a product: knobs change the world, Create World Open
+      auto-gens from bias+dials (no Generate button product control),
+      land/water/height/rivers are readable on the dual grid. Owns self-populate.
+      Create World → Open auto-runs gen from bias+dials. Enter Craft empty until place.
+      Regen = dials + re-Open. Key.T accel only — never Success.
+      W2 includes Cell count sister dial (seed rings / cell budget, not meta-only).
+    success_object: generated_land_water_height_rivers_from_ui
+    refuse:
+    - generate_button_as_product_ux
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - proxy_substitution
+    - gen_fill_as_craft_enter
+    - empty_create_world_open
+    - verify_mcp_only
+    - terrain3d_in_scope
+done_when: >-
+  F5 only after W1–W5: Create World Open already populated; Enter Craft empty until place;
+  no Generate button; regen via dials+re-Open; dials change dual-grid land/water/height/rivers;
+  Cell count low vs high → obvious more/fewer cells on Open (sister to Cell size);
+  Key.T accel only. MCP ≠ Success. Partial = staging incomplete.
+  No KEEP without operator F5. Do not arm GEN-biomes / GEN-tone / PACK-save-load.
+operator_prompt: >-
+  Prefer amend: Cell count dial sister to Cell size (W2). LIVE weld landed staging.
+  Do not KEEP. Do not arm GEN-biomes/GEN-tone/PACK. Do not claim ask_success without F5.
+  Create World Open still auto-gens. Enter Craft empty until place. Generate button stays struck.
+  next_world_armed false.

@@ -1,0 +1,8 @@
+track_status: coupled
+track_status_updated_at: '2026-10-01T18:41:47Z'
+track_status_reason: operator_half_b_greenlit_2026-10-01_await_WELD
+schema_version: 1
+product_welds: []
+project_id: genesis-mythos-master
+live_slug: genesis-mythos-alpha-20260930/genesis-mythos
+note: Coupled for Half-B factory path; do_not_auto_dispatch until WELD

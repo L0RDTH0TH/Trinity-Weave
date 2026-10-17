@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slice_id": "row_ux_world_generation_r1_d6",
+  "producer_run_id": "sp-craft-vis-032901",
+  "sib_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d6.md",
+  "waves": [
+    {
+      "wave": 1,
+      "parallel": false,
+      "lanes": [
+        "module"
+      ]
+    }
+  ],
+  "lane_missions": {
+    "module": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d6/missions/module.md",
+      "ux_bullet_ids": [
+        "UX-1",
+        "UX-3",
+        "UX-5",
+        "UX-7"
+      ],
+      "blocked_by": [],
+      "prefer_authorship_injected": true
+    },
+    "presentation": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d6/missions/presentation.md",
+      "ux_bullet_ids": [
+        "UX-2",
+        "UX-4",
+        "UX-6",
+        "UX-8"
+      ],
+      "blocked_by": [
+        "module"
+      ],
+      "prefer_authorship_injected": true,
+      "deferred": true
+    }
+  },
+  "deferred_lanes": {
+    "presentation": "skip unless HUD / MeshLibrary UI wiring required \u2014 Prefer craft-visual owned by module MeshLibrary reskin",
+    "asset": "schedule as drop under this ticket only if real ADC needed \u2014 else skip (no full biome atlas)",
+    "techart": "schedule as drop under this ticket only if real TAC needed \u2014 else skip"
+  },
+  "half_b_overlay": "alpha0_townscaper_craft_visual_r1",
+  "thin_prefer": true,
+  "ask_id": "alpha0_townscaper_craft_visual",
+  "parent_factory_feed": "row_ux_world_generation_r1_d5"
+}

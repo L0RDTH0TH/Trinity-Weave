@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass",
+    "detail": ""
+  },
+  "detail": "prefer_authorship_pass_ok",
+  "applicable": true,
+  "negative_examples": [
+    "campaign_attach_as_world_create_success",
+    "campaign_owns_world",
+    "empty_campaigns_as_defect",
+    "tone_profile_campaign_bind_as_world_create",
+    "gen_fill_as_empty_campaigns",
+    "parity_as_empty_campaigns",
+    "full_canon_ingest_as_stub_success",
+    "full_glb_meshfit",
+    "y_bias_as_zfight_fix",
+    "verify_mcp_only",
+    "terrain3d_in_scope",
+    "townscaper_product_done",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics"
+  ],
+  "warnings": [
+    "campaign_attach_deferred_not_done",
+    "world_parity_not_this_weld"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldEmptyCampaignsContract.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "Core/WorldGen/WorldCanonImportStub.cs",
+      "LaunchShell.cs",
+      "LaunchShell.tscn",
+      "Systems/DualGridCraftHost.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldEmptyCampaignsContract.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "LaunchShell.cs"
+    ],
+    "required_live_files_absent": [],
+    "brush_keep": true,
+    "single_deck_full_keep": true,
+    "launch_shell_main_path": true,
+    "import_peer_entry_keep": true,
+    "campaigns_empty_lawful": true,
+    "world_owns_self": true,
+    "campaign_attach_deferred": true,
+    "missing_axes": []
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "empty_campaigns_contract": true,
+    "play_path": "LaunchShell",
+    "ownership": "world_owns_self_campaigns_guest"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "world_owns_self_campaigns_guest_contract",
+  "live_weld_greenlit": true,
+  "completed": "2026-10-15T22:00:00Z",
+  "slice_id": "alpha0_world_empty_campaigns_r1",
+  "series_step": "1f",
+  "ticket_map": "WORLD-empty-campaigns",
+  "prior_keep": "1e_WORLD-import_KEEP_ask_success",
+  "selection": "map_section_1_WORLD-empty-campaigns_after_WORLD-import",
+  "not_selected": "WORLD-parity_deferred",
+  "keeps": "1a_1b_1c_1d_soft_1e_import_stub_2u_2w_2x_2y_bits_2z_2aa_coast_emit_LIVE_single_deck_Full"
+}

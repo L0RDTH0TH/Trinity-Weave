@@ -1,0 +1,131 @@
+{
+  "ok": true,
+  "map_fidelity_mechanical_ok": true,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "verdict": "pending",
+    "summary": "Gate A mechanical green; Gate B hostile Prefer (VALIDATE prefer_map_fidelity) required before KEEP",
+    "checked_ticket_map_id": "WORLD-s0-intents",
+    "gate_a_ok": true
+  },
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass_world_s0_optional_lore_f5_fail_amend",
+    "detail": "concept_packet_carries_ticket_map_id_structural_success_optional_lore_capture_salts_gen_and_world_gen_do_not_waive"
+  },
+  "detail": "operator_parked_effect_deferred_to_gen_refuse_salt_only_f5_ask_success",
+  "applicable": true,
+  "prefer_amended": true,
+  "f5_fail": {
+    "operator": "It no launch",
+    "prior_tip": "72cc1a6cb143e4680515481b31bce77df8bf74cd",
+    "root_cause": "WorldgenGui_AddLoreField_Action_string_to_LineEdit_TextChanged_CS0029_build_fail",
+    "fix": "wrap_TextChanged_lambda_dotnet_build_0_errors",
+    "mcp_verify": "run_scene LaunchShell.tscn started=true after fix"
+  },
+  "negative_examples": [
+    "hotkey_as_product_ux",
+    "config_meta_without_effect",
+    "stub_as_hours",
+    "map_job_name_only",
+    "explicit_met_implicit_miss",
+    "intent_collapsed_to_mechanics",
+    "accept_gate_as_packaging_success",
+    "campaign_table_prep_as_world_seeds",
+    "expand_s0_as_debt_close",
+    "delete_optional_capture_as_packaging",
+    "proxy_substitution",
+    "verify_mcp_only",
+    "gen_tone_biomes_pack_not_this_debt"
+  ],
+  "warnings": [
+    "claim_class_staging",
+    "do_not_keep",
+    "operator_parked",
+    "effect_deferred_to_gen",
+    "refuse_ask_success_on_salt_only_f5",
+    "do_not_arm_gen_tone",
+    "do_not_arm_gen_biomes",
+    "do_not_arm_pack_save_load",
+    "packaging_prior_retained",
+    "do_not_expand_s0",
+    "do_not_unpark_world_import",
+    "f5_fail_amended_cs0029",
+    "freeze_salt_f5_debt_loop",
+    "next_world_pointer_GEN-terrain-product",
+    "next_world_armed_false"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldSession0IntentBoard.cs",
+      "Core/WorldGen/WorldSession0Intent.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "LaunchShell.cs",
+      "UI/WorldgenGui.cs",
+      "Systems/WorldgenCraft.cs",
+      "Systems/DualGridCraftHost.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldSession0IntentBoard.cs",
+      "UI/WorldgenGui.cs",
+      "Core/WorldGen/GenTerrainService.cs"
+    ],
+    "required_live_files_absent": [],
+    "optional_lore_fields_after_accept": true,
+    "empty_lore_open_lawful": true,
+    "lore_salt_mixed_into_gen_seed": true,
+    "generate_button_absent": true,
+    "brush_keep": true,
+    "lineedit_textchanged_cs0029_fixed": true,
+    "dotnet_build_errors": 0
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "map_law_bind_ok_world_s0_optional_lore",
+    "applicable": true,
+    "ticket_map_id": "WORLD-s0-intents",
+    "structural_success_includes_weld_proofs": true,
+    "success_object_player_visible": true,
+    "play_path": "LaunchShell_or_WorldgenCraft"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "optional_lore_capture_salts_gen_when_present",
+  "ticket_map_id": "WORLD-s0-intents",
+  "live_weld_greenlit": true,
+  "claim_class": "staging",
+  "disposition": "nursery_parked_effect_deferred_to_gen",
+  "keep": false,
+  "ask_success": false,
+  "operator_parked": true,
+  "effect_deferred_to_gen": true,
+  "refuse_ask_success_on": "salt_only_f5",
+  "next_world_armed": false,
+  "next_world_pointer": "GEN-terrain-product",
+  "completed": "2026-10-16T02:25:00Z",
+  "parked_at": "2026-10-16T03:34:58Z",
+  "slice_id": "alpha0_world_s0_optional_lore_r1",
+  "series_step": "1d_optional_lore",
+  "prior_incomplete": "alpha0_world_s0_intents_packaging_r1_overshoot_ui_gone",
+  "selection": "operator_park_stubs_effect_deferred_to_gen",
+  "not_selected": "WORLD-import_parked_GEN-tone",
+  "welds_required": ["L1", "L2", "L3"],
+  "debt_notes": {
+    "1b": "staging_paid_with_proof_GEN_W2_cell_count_F5_confirmed",
+    "1c": "nursery_parked_effect_deferred_to_gen",
+    "1d": "nursery_parked_effect_deferred_to_gen",
+    "1e": "KEEP-debt_parked"
+  },
+  "live_weld_landed": true,
+  "live_weld_this_pass": true,
+  "welds_landed": {
+    "L1": true,
+    "L2": true,
+    "L3": true
+  }
+}

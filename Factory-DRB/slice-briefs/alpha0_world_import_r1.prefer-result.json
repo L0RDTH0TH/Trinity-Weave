@@ -1,0 +1,76 @@
+{
+  "ok": true,
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass",
+    "detail": ""
+  },
+  "detail": "prefer_authorship_pass_ok",
+  "applicable": true,
+  "negative_examples": [
+    "full_canon_ingest_as_stub_success",
+    "import_nested_in_create_world",
+    "campaign_attach_on_world_create",
+    "silent_import_noop",
+    "expand_s0_as_import",
+    "gen_fill_as_import",
+    "orphan_import_off_play_path",
+    "full_glb_meshfit",
+    "y_bias_as_zfight_fix",
+    "verify_mcp_only",
+    "terrain3d_in_scope",
+    "townscaper_product_done",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics"
+  ],
+  "warnings": [
+    "full_canon_ingest_barred_scaffolding_only"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldCanonImportStub.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "LaunchShell.cs",
+      "LaunchShell.tscn",
+      "Systems/DualGridCraftHost.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldCanonImportStub.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "LaunchShell.cs",
+      "LaunchShell.tscn"
+    ],
+    "required_live_files_absent": [],
+    "brush_keep": true,
+    "single_deck_full_keep": true,
+    "launch_shell_main_path": true,
+    "import_peer_entry_on_play_path": true,
+    "full_ingest_barred": true,
+    "missing_axes": []
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "import_stub": true,
+    "play_path": "LaunchShell"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "world_import_play_path_stub_entry",
+  "live_weld_greenlit": true,
+  "completed": "2026-10-15T21:42:00Z",
+  "slice_id": "alpha0_world_import_r1",
+  "series_step": "1e",
+  "ticket_map": "WORLD-import",
+  "prior_keep": "1d_WORLD-s0-intents_KEEP_soft",
+  "selection": "map_section_1_WORLD-import_after_WORLD-s0-intents",
+  "keeps": "1a_1b_1c_ask_success_1d_KEEP_soft_2u_2w_2x_2y_bits_2z_2aa_coast_emit_LIVE_single_deck_Full",
+  "full_canon_ingest": "barred_this_slice",
+  "disposition": "KEEP_ask_success",
+  "operator_f5_closed": "2026-10-15T21:49:00Z"
+}

@@ -1,0 +1,99 @@
+schema_version: 1
+status: KEEP_ask_success
+armed_at: '2026-10-15T21:42:00Z'
+greenlit_at: '2026-10-15T21:42:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: ask_success
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_import
+slice_id: alpha0_world_import_r1
+series_id: alpha0_world_builder_r1
+series_step: 1e
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_import_r1.md
+prior_keep_slice_id: alpha0_world_s0_intents_r1
+prior_keep_disposition: KEEP_soft
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_bounds_slice_id: alpha0_world_bounds_r1
+keeps_world_propose_slice_id: alpha0_world_propose_r1
+keeps_world_s0_intents_slice_id: alpha0_world_s0_intents_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+prior_note: 1d WORLD-s0-intents KEEP soft (operator soft-success close; framing debt
+  noted — do not expand s0). Brush §0 closed at 2z. Highest-priority §1 next =
+  WORLD-import (series 1e) Prefer + Play-path stub; full canon ingest barred.
+depends_on: alpha0_world_s0_intents_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_import_power_user_stub
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: world_import_play_path_stub_entry
+contract: C_world_import_power_user_stub
+ticket_map: WORLD-import
+intent_invariant: 'WORLD-import: LaunchShell peer Import World entry for PMG power-user
+  world/offline-history canon bundle path; stub acknowledges scaffolding; full
+  canon ingest barred this slice; not nested in Create World; no campaign attach;
+  brush Full single-deck KEEP; LaunchShell main path.'
+structural_success: LaunchShell shows Import World peer to Create World; press shows
+  visible stub status barring full ingest; Create World KEEP path unchanged;
+  DualGridCraftHost place path unchanged; campaigns empty.
+path_position: 1a WORLD-new KEEP → 1b WORLD-bounds KEEP → 1c WORLD-propose KEEP →
+  1d WORLD-s0-intents KEEP soft → this WORLD-import GREENLIGHT WELD LIVE → F5 →
+  WORLD-empty-campaigns / deeper ingest
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/WorldCanonImportStub.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+  - UI/WorldgenGui.cs
+  - UI/WorldgenGui.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    feedstock_cite: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/dual-grid-nested-placetile-world-authorship.md
+    structural_success: Visible Import World peer entry on Play path; stub bars full
+      canon ingest; Create World KEEP; no campaign attach; brush KEEP.
+    success_object: world_import_play_path_stub_entry
+    refuse:
+    - full_canon_ingest_as_stub_success
+    - import_nested_in_create_world
+    - campaign_attach_on_world_create
+    - silent_import_noop
+    - expand_s0_as_import
+    - gen_fill_as_import
+    - orphan_import_off_play_path
+    - full_glb_meshfit
+    - y_bias_as_zfight_fix
+    - verify_mcp_only
+    - terrain3d_in_scope
+    - townscaper_product_done
+done_when: 'F5 only: LaunchShell Import World peer visible → press → stub banner/status
+  bars full canon ingest; Create World still works; campaigns empty; Full single-deck
+  KEEP. MCP ≠ Success. Full ingest Done = out.'
+operator_prompt: >-
+  WELD — eat armed Prefer alpha0_world_import_r1 via LaunchShell Import World stub.
+  Do not claim ask_success or full canon ingest Done without operator F5.
+  Do not expand WORLD-s0-intents. Do not nest import inside Create World.

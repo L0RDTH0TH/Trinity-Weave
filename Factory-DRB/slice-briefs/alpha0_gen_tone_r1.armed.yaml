@@ -1,0 +1,173 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-16T04:05:00Z'
+composed_at: '2026-10-16T04:05:00Z'
+prefer_authored_at: '2026-10-16T04:05:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T04:05:00Z'
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_gen_tone
+slice_id: alpha0_gen_tone_r1
+series_id: alpha0_world_builder_r1
+series_step: gen_tone
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_gen_tone_r1.md
+prior_product_slice_id: alpha0_gen_terrain_product_r2
+prior_product_ticket: GEN-terrain-product
+prior_product_disposition: operator_f5_pass_knobs_change_gen_r2
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_s0_intents_slice_id: alpha0_world_s0_dm_lore_honesty_r1
+keeps_world_s0_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+do_not_arm_next: PACK-save-load
+do_not_arm_also: GEN-biomes
+next_world_armed: false
+prior_note: >-
+  Operator F5 pass on GEN-terrain-product r2 (knobs change gen). GEN-tone arms bias
+  landform: same dials-derived seed, two biases → different land/water/rivers/relief.
+  Create World Open auto-gen; Enter Craft empty; Generate button struck; nursery salts
+  parked; PACK / GEN-biomes unarmed. No KEEP.
+depends_on: alpha0_gen_terrain_product_r2
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: gen_tone_same_seed_two_biases
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: GEN-tone
+success_object: bias_reshapes_land_water_rivers_relief
+contract: C_gen_tone_same_seed_two_biases
+hands: townscaper_dual_grid_only
+intent_invariant: >-
+  Same dials (same dials-derived seed when scaffold/lore salts absent), two Create
+  World biases, different world you can see: land shape and/or river/climate outcome
+  and/or relief. Stored bias with identical board = refuse. Bias drives altitude /
+  land-water / rivers / relief — not meta-only, not salt-hash with same silhouette.
+  Create World Open auto-gens; Enter Craft empty until place; no Generate button;
+  nursery salt stubs stay parked; PACK / GEN-biomes unarmed.
+structural_success: >-
+  Same seed, two biases, different world. Same dials (same dials-derived seed when
+  scaffold/lore salts absent), two Create World biases (e.g. High Fantasy vs Grimdark),
+  visibly different world on the dual grid: land share / land shape / river feel / relief.
+  BiasLandform modulates sea, continent frequency/anisotropy, detail/fragment,
+  relief amp, river width/runoff — applied in GenTerrainService / ApplyGenTerrainPass.
+  DeriveSeed uses dials (+ parked scaffold/lore salts) only; bias is not hashed into
+  seed (same dials ⇒ same seed; landform alone reshapes). Stored bias with identical
+  board = refuse. Bias salt-hash with same silhouette = refuse. Create World → Open
+  auto-runs the pass (refuse empty_create_world_open / blank amber). Enter Craft
+  opens empty amber until place (1g). No Generate button. Nursery propose/lore salts
+  stay parked. Do not arm PACK-save-load or GEN-biomes.
+f5_expected_behavior: >-
+  Create World → pick High Fantasy → leave dials fixed mid → Reject scaffold / skip
+  lore so salts stay clear → Open → note land share, coast silhouette, rivers, relief.
+  New world → same dials → Grimdark → same salt path → Open → board obviously differs
+  (land share / breakup / river feel / relief). Identical boards = FAIL. Blank amber
+  Open = FAIL. Enter Craft empty until place. No Generate button.
+welds:
+  T1: bias_landform_modulates_sea_continent_relief_rivers
+  T2: same_dials_seed_bias_not_hashed
+  T3: high_vs_grimdark_stranger_visible_difference
+  T4: create_world_open_auto_enter_craft_empty_no_generate
+  T5: nursery_salts_parked_pack_biomes_unarmed
+path_position: 1a KEEP-real · 1b/1c/1d nursery parked · 1e KEEP-debt · 1f/1g KEEP-real ·
+  GEN-terrain-product r2 F5 pass → GEN-tone r1 staging awaiting F5 → PACK next (unarmed)
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/GenToneContract.cs
+  - Core/WorldGen/GenTerrainContract.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - UI/WorldgenGui.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  module_keep_empty_enter:
+  - Systems/WorldgenCraft.cs
+do_not_waive:
+  - stored_bias_identical_board
+  - bias_salt_hash_same_silhouette
+  - config_meta_without_effect
+  - generate_button_as_product_ux
+  - hotkey_as_product_ux
+  - empty_create_world_open
+  - gen_fill_as_craft_enter
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+  - verify_mcp_only
+  - pack_save_load_not_armed
+  - gen_biomes_not_armed
+  - nursery_salt_stubs_stay_parked
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  empty_enter_sibling: enter_craft_manual_lane_only_do_not_undo_1g
+  create_world_auto_gen: create_world_open_auto_run_gen_pass
+  generate_button_struck: true
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  gen_terrain_product_feedstock: alpha0_gen_terrain_product_r2
+  pack_armed: false
+  gen_biomes_armed: false
+  nursery_salts_parked: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Same seed, two biases, different world. Same dials, two Create World biases,
+      visibly different world on the dual grid: land share / land shape / river feel /
+      relief. BiasLandform drives sea/continent/relief/rivers in GenTerrainService.
+      Same dials-derived seed; bias not seed salt only. Create World Open auto-gens;
+      Enter Craft empty; no Generate button.
+    success_object: bias_reshapes_land_water_rivers_relief
+    refuse:
+    - stored_bias_identical_board
+    - bias_salt_hash_same_silhouette
+    - config_meta_without_effect
+    - generate_button_as_product_ux
+    - hotkey_as_product_ux
+    - empty_create_world_open
+    - verify_mcp_only
+    - pack_save_load_not_armed
+    - gen_biomes_not_armed
+done_when: >-
+  F5 only: High Fantasy vs Grimdark (same dials, clear salts) → boards obviously differ
+  in land/water/rivers/relief; blank amber FAIL; Enter Craft empty; no Generate button;
+  MCP ≠ Success. No KEEP without operator F5. Do not arm PACK / GEN-biomes.
+operator_prompt: >-
+  GEN-tone r1 Prefer + LIVE bias landform welded staging. Do not KEEP. Do not arm PACK
+  or GEN-biomes. Do not claim ask_success without F5. Create World Open still auto-gens.
+  Enter Craft empty. Generate button stays struck. Nursery salts stay parked.
+  next_world_armed false.

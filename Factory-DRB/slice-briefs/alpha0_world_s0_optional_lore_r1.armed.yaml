@@ -1,0 +1,153 @@
+schema_version: 1
+status: nursery_parked_effect_deferred_to_gen
+operator_parked: true
+effect_deferred_to_gen: true
+refuse_ask_success_on: salt_only_f5
+parked_at: '2026-10-16T03:34:58Z'
+armed_at: '2026-10-16T01:34:03Z'
+composed_at: '2026-10-16T01:34:03Z'
+prefer_amended_at: '2026-10-16T02:25:00Z'
+prefer_amended: true
+f5_fail_note: operator_it_no_launch_CS0029_TextChanged_fixed
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T01:34:03Z'
+live_weld_note: optional_lore_fields_after_accept_scaffold_lore_salt_when_filled_empty_skip_ok_textchanged_cs0029_fixed
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_s0_optional_lore
+slice_id: alpha0_world_s0_optional_lore_r1
+series_id: alpha0_world_builder_r1
+series_step: 1d_optional_lore
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_s0_optional_lore_r1.md
+prior_world_slice_id: alpha0_world_s0_intents_packaging_r1
+prior_world_note: >-
+  packaging_overshoot_removed_capture_UI; this Prefer restores optional lore
+  capture that salts gen when present; packaging off-critical-path law retained
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: staging_propose_feed_awaiting_f5
+keeps_world_s0_intents_slice_id: alpha0_world_s0_intents_packaging_r1
+keeps_world_s0_fidelity: staging_packaging_plus_optional_lore
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+next_in_chain: null
+do_not_arm_next: GEN-tone
+next_world_armed: false
+prior_note: >-
+  1d honesty: packaging correctly removed Accept≥1 gate but deleted optional
+  capture UI. Restore Player/DM/Shared lore fields (skip-ok). Filled lines salt
+  Create World Open gen like propose-feed. No KEEP. No expand s0. No unpark 1e.
+  No forward MAP. Generate button stays absent.
+depends_on: alpha0_world_s0_intents_packaging_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_s0_optional_lore
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: WORLD-s0-intents
+success_object: optional_lore_capture_salts_gen_when_present
+contract: C_world_s0_optional_lore
+intent_invariant: >-
+  World seeds that bias what the world is (not campaign attach). Optional lore
+  capture on Create World after Accept scaffold — empty Open still works
+  (skip-ok, never Accept≥1). When filled, lore salts Create World Open gen like
+  propose-feed. Packaging off critical path retained. Do not expand. Not KEEP /
+  not ask_success until operator F5 + Gate B hostile Prefer.
+structural_success: >-
+  World seeds that bias what the world is (not campaign attach). Player-visible
+  proof: optional Player/DM/Shared lore fields after Accept scaffold (capture UI
+  restored, not deleted); empty fields Open never blocks (skip-ok); filled lore
+  salts Create World Open gen (seed/hash land-water effect like propose-feed).
+  Refuse accept_gate_as_packaging_success, delete_optional_capture_as_packaging,
+  campaign_table_prep_as_world_seeds, and expand_s0_as_debt_close. Prior
+  packaging Prefer retained for off-critical-path law. Do not arm GEN-tone /
+  GEN-biomes / PACK-save-load. Do not re-add Generate button. Do not unpark
+  WORLD-import. Not KEEP / not ask_success until operator F5.
+welds:
+  L1: optional_lore_fields_visible_after_accept_scaffold
+  L2: empty_lore_open_never_blocks_skip_ok
+  L3: filled_lore_salts_create_world_open_gen
+path_position: 1a KEEP-real · 1b staging paid-with-proof · 1c propose-feed staging ·
+  1d this staging optional lore · 1e parked · GEN-terrain-product staging ·
+  do not arm GEN-tone
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - UI/WorldgenGui.cs
+  - Core/WorldGen/WorldSession0IntentBoard.cs
+  - Core/WorldGen/WorldSession0Intent.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Systems/WorldgenCraft.cs
+  - Systems/DualGridCraftHost.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+do_not_waive:
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - accept_gate_as_packaging_success
+  - campaign_table_prep_as_world_seeds
+  - expand_s0_as_debt_close
+  - delete_optional_capture_as_packaging
+  - proxy_substitution
+  - verify_mcp_only
+  - gen_tone_biomes_pack_not_this_debt
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  prior_packaging: alpha0_world_s0_intents_packaging_r1
+  no_generate_button_readd: true
+  do_not_unpark_world_import: true
+  do_not_expand_s0: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      World seeds that bias what the world is (not campaign attach). Optional
+      lore capture salts gen when present; empty skip-ok. Do not expand.
+    success_object: optional_lore_capture_salts_gen_when_present
+    refuse:
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - accept_gate_as_packaging_success
+    - delete_optional_capture_as_packaging
+    - expand_s0_as_debt_close
+    - verify_mcp_only
+done_when: >-
+  F5 only: Create World → bias → dials → Propose/Accept → optional lore → Open
+  empty works; Open with lore text salts gen (visible land/water or lore salt).
+  Enter Craft empty. Auto-gen runs. MCP ≠ Success. No KEEP without F5 + Gate B.
+  Do not arm GEN-tone / GEN-biomes / PACK-save-load. Do not re-add Generate
+  button. Do not unpark WORLD-import.
+operator_prompt: >-
+  Prefer + LIVE optional lore honesty restore for WORLD-s0-intents (1d).
+  claim_class staging. Do not KEEP. Do not expand s0. Do not arm forward MAP.
+  next_world_armed false.

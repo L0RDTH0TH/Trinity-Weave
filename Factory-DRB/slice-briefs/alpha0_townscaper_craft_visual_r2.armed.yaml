@@ -1,0 +1,154 @@
+# Armed Prefer packet — operator GO craft_visual r2 (asset factory greenlit)
+# Rework r1 operator F5 FAIL (procedural debug ArrayMesh). Real ADC + module MeshLibrary bind.
+
+schema_version: 1
+status: disarmed_failed_altitude
+disarmed_at: '2026-10-02T19:21:45Z'
+disarm_reason: failed_altitude_metrics_only__tutorial_ladder_pivot
+do_not_implement: true
+operator_pause_at: '2026-10-02T05:14:00Z'
+operator_pause_reason: gathering_reference_images_townscaper_and_model_pack
+operator_pause_cleared_at: '2026-10-02T05:27:00Z'
+operator_resume: true
+adc_exported_at: '2026-10-02T05:48:26Z'
+crash_recovery_at: '2026-10-02T05:51:00Z'
+crash_recovery_note: prior_subagent_dead_mid_export__resumed_townscaper_density_rework_no_curator
+refs_path: 1-Projects/genesis-mythos-master/Factory-DRB/references/craft-visual-r2/
+refs_filed:
+  - nature-pack-eye-test-isometric.png
+  - nature-pack-aerial-silhouette.png
+  - model-pack-craft-toys-palette.png
+  - townscaper-screenshot.jpg
+refs_law:
+  townscaper_screenshot: craft_density__toy_town__hot_wheels_authorship_eye_test__not_sea_grid_clone
+weld_eat_blocked: true
+launch_word: WELD
+armed_at: '2026-10-02T05:10:00Z'
+greenlit_at: '2026-10-02T05:10:00Z'
+factory_greenlit: false
+claim_class: staging
+do_not_auto_dispatch: true
+operator_go: false
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_townscaper_craft_visual
+slice_id: alpha0_townscaper_craft_visual_r2
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d6
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_townscaper_craft_visual_r2.md
+depends_on: alpha0_townscaper_craft_core_r1
+depends_on_status: prefer_landed
+reworks: alpha0_townscaper_craft_visual_r1
+next_in_chain: alpha0_townscaper_df_depth_r1
+block_until_f5_green:
+  - alpha0_townscaper_df_depth_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: asset_meshlibrary_bind_dual_grid_craft_visual_r2
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    cohesive: COHESIVE-VISION-ART-DIRECTION
+    visual_bar: Visual-Factory-Direction-Stylized-Low-Poly
+    law: asset_meshlibrary_not_procedural_success__craft_hot_wheels__terrain3d_absent
+    do_not_reblend_layers: true
+    terrain3d_deferred: true
+    preserve_dual_meshlibrary_variants: true
+hard_prefer_gaps:
+- id: asset_bound_meshlibrary
+  must: dual_grid_craft_meshlibrary_loaded_from_res_assets_craft_dual_grid
+  refuse:
+  - procedural_only_as_success
+  - graybox_only_craft
+- id: stylized_low_poly_read
+  must: placed_dual_tiles_read_stylized_low_poly_not_debug_candy
+  refuse:
+  - inspiration_shape_miss
+  - graybox_only_craft
+- id: preserve_dual_variants
+  must: Full_Corner_Edge_Diagonal_InverseCorner_Empty_variant_ids_still_differ
+  refuse:
+  - inspiration_shape_miss
+  - raw_cell_only_visual
+- id: mouse_lmb_rmb_regression
+  must: lmb_place_rmb_remove_under_mouse_cursor_still_works
+  refuse:
+  - grammar_regress
+  - camera_center_aim
+- id: no_cam_yank_regression
+  must: craft_place_remove_no_camera_recenter
+  refuse: craft_cam_recenter_on_place
+- id: terrain3d_hard_disabled
+  must: terrain3d_host_absent_or_hard_disabled_under_craft
+  refuse:
+  - craft_terrain_blend
+  - terrain3d_in_scope
+- id: craft_hud_chrome_cleanup
+  must: no_sparky_terrain3d_raise_as_height_active_affordances_in_craft_hud
+  refuse:
+  - inspiration_shape_miss
+receipt_must:
+- cite_Visual-Factory-Direction-Stylized-Low-Poly
+- list_asset_paths_under_res_assets_craft_dual_grid
+- prove_dual_variant_meshlibrary_ids_still_differ
+- prove_module_loads_asset_library_not_procedural_only
+adc_tac_posture:
+  schedule_asset_and_module_required: true
+  bootstrap_stubs_refused: true
+  do_not_expand_into_df_depth: true
+mcp_prep:
+  blender_mcp: required_open
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+zone_ownership:
+  module:
+  - scenes/**
+  - Systems/**
+  - Core/**
+  - Camera/**
+  - Player/**
+  - UI/**
+  asset:
+  - assets/craft/**
+  techart:
+  - assets/_techart/craft/**
+lanes_expected:
+- asset
+- module
+lanes_if_needed:
+- techart
+- presentation
+ask_fidelity:
+  ask_id: alpha0_townscaper_craft_visual
+  done_when: 'F5: placed dual-grid tiles show asset-bound stylized low-poly meshes (not debug candy); LMB/RMB under mouse; no cam yank; variants distinct; Terrain3D hard-disabled; craft HUD without sparky/Terrain3D/raise hints.'
+  forbidden_substitutes:
+  - procedural_only_as_success
+  - graybox_only_craft
+  - inspiration_shape_miss
+  - grammar_regress
+  - terrain3d_in_scope
+  - biome_atlas_scope_creep
+  - verify_mcp_only
+  claim_class: staging
+operator_attest: F5_only
+ban: verify_mcp_only
+on_launch_word_WELD:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — asset + module lanes (techart if needed)
+  required_path:
+  - Load armed packet + brief alpha0_townscaper_craft_visual_r2.md
+  - Blender MCP author/export six variants to res://assets/craft/dual_grid/
+  - Godot MCP bind MeshLibrary on DualGridCraftHost
+  - prefer_authorship + SP review drain
+  - Public Trinity sync project/genesis-mythos-master only — NO Curator
+  forbidden:
+  - procedural_only_as_success
+  - curator_snapshot
+  - verify_mcp_only

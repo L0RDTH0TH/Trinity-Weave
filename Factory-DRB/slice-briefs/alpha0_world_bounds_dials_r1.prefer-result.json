@@ -1,0 +1,110 @@
+{
+  "ok": true,
+  "map_fidelity_mechanical_ok": true,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "verdict": "pending",
+    "summary": "Gate A mechanical green; Gate B hostile Prefer (VALIDATE prefer_map_fidelity) required before KEEP",
+    "checked_ticket_map_id": "WORLD-bounds",
+    "gate_a_ok": true
+  },
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass_world_bounds_dials_debt",
+    "detail": "concept_packet_carries_ticket_map_id_structural_success_dials_change_gen_w2_paid_and_world_gen_do_not_waive"
+  },
+  "detail": "prefer_concept_ok_world_bounds_dials_cell_count_amended_staging_paid_with_proof_awaiting_f5",
+  "cell_count_dial_amended": true,
+  "applicable": true,
+  "negative_examples": [
+    "hotkey_as_product_ux",
+    "config_meta_without_effect",
+    "stub_as_hours",
+    "map_job_name_only",
+    "explicit_met_implicit_miss",
+    "intent_collapsed_to_mechanics",
+    "feedstock_only_as_bounds_success",
+    "grid_unchanged_by_design_as_success",
+    "proxy_substitution",
+    "verify_mcp_only",
+    "gen_tone_biomes_pack_not_this_debt"
+  ],
+  "warnings": [
+    "claim_class_staging",
+    "do_not_keep",
+    "do_not_arm_gen_tone",
+    "do_not_arm_gen_biomes",
+    "do_not_arm_pack_save_load",
+    "prior_bounds_feedstock_only_KEEP-debt_superseded",
+    "proof_owned_by_GEN-terrain-product_W2",
+    "prefer_only_no_new_LIVE",
+    "no_generate_button_readd",
+    "awaiting_operator_f5_dial_open",
+    "next_world_armed_false"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldBoundsDials.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "LaunchShell.cs",
+      "UI/WorldgenGui.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldBoundsDials.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "LaunchShell.cs",
+      "UI/WorldgenGui.cs"
+    ],
+    "required_live_files_absent": [],
+    "w2_dials_change_pass": true,
+    "feedstock_only_barred": true,
+    "generate_button_absent": true
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "map_law_bind_ok_world_bounds_dials_paid_w2",
+    "applicable": true,
+    "ticket_map_id": "WORLD-bounds",
+    "structural_success_includes_weld_proofs": true,
+    "success_object_player_visible": true,
+    "play_path": "LaunchShell_or_WorldgenCraft",
+    "proof_owner": "alpha0_gen_terrain_product_r1",
+    "proof_weld": "W2"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "dials_change_create_world_open_gen",
+  "ticket_map_id": "WORLD-bounds",
+  "live_weld_greenlit": true,
+  "claim_class": "staging",
+  "disposition": "staging",
+  "keep": false,
+  "ask_success": false,
+  "next_world_armed": false,
+  "completed": "2026-10-16T00:36:00Z",
+  "slice_id": "alpha0_world_bounds_dials_r1",
+  "series_step": "1b_bounds_dials",
+  "prior_incomplete": "alpha0_world_bounds_r1_feedstock_only_KEEP-debt",
+  "selection": "operator_close_more_debt_WORLD-bounds_dials",
+  "not_selected": "GEN-tone",
+  "welds_required": ["W2"],
+  "debt_notes": {
+    "1b": "this_slice_staging_paid_with_proof_GEN_W2",
+    "1c": "staging_propose_feed_awaiting_f5",
+    "1d": "KEEP-debt_packaging_off_critical_path",
+    "1e": "KEEP-debt_parked"
+  },
+  "live_weld_landed": true,
+  "live_weld_this_pass": false,
+  "welds_landed": {
+    "W2": true
+  }
+}

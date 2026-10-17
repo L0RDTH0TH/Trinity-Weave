@@ -1,0 +1,12 @@
+{
+  "schema_id": "pf1_check_v0",
+  "plugin_id": "pathfinder_pf1",
+  "demo_binder": "demo_ruleset_pf1",
+  "probe": {
+    "mode": "check",
+    "roll": "1d20",
+    "modifier": 3,
+    "dc": 10,
+    "outcomes": ["rule_demo_pass", "rule_demo_fail"]
+  }
+}

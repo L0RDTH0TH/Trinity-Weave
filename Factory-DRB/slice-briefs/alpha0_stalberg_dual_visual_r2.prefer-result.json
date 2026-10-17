@@ -1,0 +1,50 @@
+{
+  "slice_id": "alpha0_stalberg_dual_visual_r2",
+  "ok": true,
+  "detail": "prefer_authorship_pass_ok",
+  "violations": [],
+  "topology_evidence": {
+    "has_edges": true,
+    "has_faces_or_cells": true,
+    "dual_visual": {
+      "repo_present": true,
+      "files_scanned": [
+        "Systems/DualGridCraftHost.cs"
+      ],
+      "dual_visual_signals": [
+        "discrete_library_place:Systems/DualGridCraftHost.cs",
+        "dual_visual_family_enum:Systems/DualGridCraftHost.cs",
+        "family_empty_edge_corner_full:Systems/DualGridCraftHost.cs",
+        "neighborhood_cardinality_gate:Systems/DualGridCraftHost.cs",
+        "prove_dual_visual:Systems/DualGridCraftHost.cs",
+        "shape_distinct_builder:Systems/DualGridCraftHost.cs",
+        "shape_distinct_meshlibrary:Systems/DualGridCraftHost.cs"
+      ],
+      "gray_ramp_tells": [],
+      "stretch_tells": [],
+      "over_neighbor_tells": [],
+      "has_shape_distinct": true,
+      "has_four_families": true,
+      "has_prove_dual_visual": true,
+      "has_discrete_library_place": true,
+      "has_neighborhood_cardinality_gate": true,
+      "gray_ramp_only": false,
+      "stretch_as_variant": false,
+      "over_neighbor_paint": false
+    }
+  },
+  "do_not_waive_sample": [
+    "Terrain3D_prefer_proof",
+    "prefer_authorship_pass",
+    "craft_cam_recenter_on_place",
+    "craft_terrain_blend",
+    "points_as_grid",
+    "count_equals_topology",
+    "explicit_met_implicit_miss",
+    "infinite_rect_as_hex19",
+    "stretch_as_variant",
+    "over_neighbor_paint"
+  ],
+  "completed": "2026-10-03T19:37:22Z",
+  "producer_run_id": "sp-tdv-r2-20261003"
+}

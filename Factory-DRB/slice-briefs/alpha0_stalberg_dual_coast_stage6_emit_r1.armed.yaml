@@ -1,0 +1,249 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-15T19:51:59Z'
+greenlit_at: '2026-10-15T19:51:59Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2aa
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_coast_stage6_emit_r1.md
+prior_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_geometry_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+keeps_materials_slice_id: alpha0_stalberg_dual_terrain_tile_r1
+keeps_snap_slice_id: alpha0_stalberg_dual_primary_vertex_place_r1
+keeps_seat_slice_id: alpha0_stalberg_dual_owned_cell_place_r1
+keeps_coverage_frame_slice_id: alpha0_stalberg_dual_whole_cell_orient_r1
+keeps_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_place_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+supersedes_meshfit_coast:
+- alpha0_stalberg_dual_coast_strip_water_r1
+keeps_place_coast_bits:
+- alpha0_stalberg_dual_place_coast_r1
+keeps_update_four:
+- alpha0_stalberg_dual_update_four_recompute_r1
+keeps_single_deck_emit:
+- alpha0_stalberg_dual_single_deck_emit_r1
+keeps_tri_cell_place:
+- alpha0_stalberg_dual_tri_cell_place_r1
+keeps_coverage_orient:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+keeps_seat_polarity:
+- alpha0_stalberg_dual_owned_cell_place_r1
+keeps_snap_polarity:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+next_in_chain: null
+prior_note: 2z strip-water KEEP/ask_success — MeshFit coast path SUPERSEDED by Stage-6
+  land-only emit; bit map / UpdateFour / Empty ClearDualSlot / Full single-deck KEEP.
+depends_on: alpha0_stalberg_dual_coast_strip_water_r1
+prefer_audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+density_lift: live_rings_5_spacing_210
+goal_image: Ingest/nature-pack.png
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: dual_coast_stage6_emit
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_cell_meshlibrary_placement
+place_polarity: owned_dual_cell_place_coast_stage6_emit
+contract: C_dual_coast_stage6_emit
+ticket_map: PLACE-coast-stage6-emit
+intent_invariant: 'PLACE-coast-stage6-emit: Edge/Corner/Diagonal/InverseCorner emit
+  land-only Stage-6 decks from OccupancyCorners bits (no MeshFit GLB); land albedo
+  skips Terrain_Water; Empty ClearDualSlot amber KEEP; Full EmitFullSingleDeckFromStage6
+  KEEP; bits→family KEEP; refuse glb_meshfit_coast_as_success / blue_water_as_coast_success
+  / y_bias / Townscaper Done.'
+structural_success: DualGridCraftHost EmitCoastLandOnlyFromStage6 from occupancy bits;
+  MapOccupancyBitsToCoastFamily KEEP; EmitFullSingleDeckFromStage6 KEEP; ClearDualSlot Empty KEEP;
+  MeshFit coast path SUPERSEDED.
+path_position: 2z KEEP → this Stage-6 coast emit GREENLIGHT WELD LIVE → F5
+zone_ownership:
+  module:
+  - Systems/DualGridCraftHost.cs
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+  - assets/craft/dual_grid/
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    goal_image: Ingest/nature-pack.png
+    structural_success: Coast families emit land-only Stage-6 from occupancy bits; bit
+      map KEEP; Full single-deck KEEP; Empty ClearDualSlot KEEP; Prefer lattice vertices+edges+faces/cells.
+    success_object: dual_cell_meshlibrary_placement
+    refuse:
+    - glb_meshfit_coast_as_success
+    - blue_water_as_coast_success
+    - y_bias_as_zfight_fix
+    - weak_full_ybias_as_harden
+    - full_glb_meshfit
+    - seizure_coplanar_deck_as_success
+    - silent_ghost_without_place_n3
+    - soft_take_4
+    - valence_5_editable
+    - update_four_cross_as_success
+    - owned_only_empty_coast_as_success
+    - sector_pie_as_dual_cell_tile
+    - corners_eq4_only_meshfit
+    - expand_only_paint_as_success
+    - ocean_fill_all_empty_slots
+    - plinth_as_terrain
+    - blob_as_module
+    - verify_mcp_only
+    - proxy_substitution
+    - terrain3d_in_scope
+    - inspiration_shape_miss
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_coast_stage6_emit:
+    law: emit_coast_land_only_from_stage6_occupancy_bits_no_meshfit_glb
+    success_object: dual_cell_meshlibrary_placement
+    place_polarity: owned_dual_cell_place_coast_stage6_emit
+    place_coast: true
+    coast_stage6_land_emit: true
+    coast_strip_terrain_water: true
+    owned_only_coastline_deferred: false
+    update_four_sample_recompute_kept: true
+    place_coast_bits_kept: true
+    single_deck_full_kept: true
+    tri_cell_place_kept: true
+    valence_5_editable: false
+    refuse_substitute:
+    - glb_meshfit_coast_as_success
+    - blue_water_as_coast_success
+    - y_bias_as_zfight_fix
+    - full_glb_meshfit
+    - soft_take_4
+  dual_coast_strip_water:
+    law: meshfit_skip_terrain_water_on_non_empty_coast_families
+    kept_as_prior: true
+    meshfit_coast_superseded: true
+  dual_place_coast:
+    law: owner_on_Full_owner_off_bits_to_coast_family_Edge_Corner_Diagonal_InverseCorner
+    kept_bits: true
+    meshfit_water_superseded: true
+  dual_update_four_recompute:
+    law: DualCellsTouching_owned_plus_DualCellsSampling_OccupancyCorners
+    kept: true
+  dual_single_deck_emit:
+    law: EmitFullSingleDeckFromStage6_no_glb_meshfit_no_ybias
+    kept: true
+  dual_tri_cell_place:
+    law: DualCorners_length_3_EnsureStage6_place_Full
+    kept: true
+  dual_visual:
+    law: terrain_materials_keep__stage6_coast_land_emit
+    require_discrete_library_place: true
+    require_stage6_dual_cell_host: true
+    require_terrain_tile_read: true
+    require_empty_skip_ocean: true
+    require_coast_stage6_land_emit: true
+    require_coast_strip_terrain_water: true
+    require_ghost_paint_same_owned_dual: true
+    require_whole_dual_cell_full_on_owner: true
+    require_place_coast_bits_family: true
+    require_occupancy_corners_stage6_aligned: true
+    require_tri_dual_cell_place: true
+    require_no_soft_take_4: true
+    meshlibrary_assets:
+    - assets/craft/dual_grid/craft_dual_Empty.glb
+    - assets/craft/dual_grid/craft_dual_Edge.glb
+    - assets/craft/dual_grid/craft_dual_Corner.glb
+    - assets/craft/dual_grid/craft_dual_Full.glb
+    - assets/craft/dual_grid/craft_dual_Diagonal.glb
+    - assets/craft/dual_grid/craft_dual_InverseCorner.glb
+matrix_quotes:
+  dual_coast_stage6_emit:
+    prefer: Occupancy bits → Stage-6 land-only coast silhouette; Empty amber KEEP; Full single-deck KEEP.
+    never: MeshFit GLB coast as Success; continuous blue blob; Y-bias; MeshFit Full; Townscaper Done; MCP-only
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_coast_stage6_emit
+  must: stage6_land_emit_from_occupancy_bits_no_meshfit_glb
+  refuse:
+  - glb_meshfit_coast_as_success
+  - blue_water_as_coast_success
+  - y_bias_as_zfight_fix
+  - full_glb_meshfit
+  - verify_mcp_only
+- id: priors_preserved
+  must: bits_update_four_single_deck_tri_place_stage6_squarify_rings5_strip_water_law
+  refuse:
+  - y_bias_as_zfight_fix
+  - silent_ghost_without_place_n3
+- id: scope_host_brush_only
+  must: no_townscaper_done_no_terrain3d_no_world_star
+  refuse:
+  - terrain3d_in_scope
+done_when: 'F5: coast DualCells show Stage-6 land silhouettes without MeshFit GLB /
+  without continuous Terrain_Water blue blob; Empty clear-to-amber; owned Full single-deck;
+  bits→family KEEP; Prefer refuses glb_meshfit_coast_as_success.'
+refuse_codes:
+- glb_meshfit_coast_as_success
+- blue_water_as_coast_success
+- y_bias_as_zfight_fix
+- weak_full_ybias_as_harden
+- full_glb_meshfit
+- seizure_coplanar_deck_as_success
+- silent_ghost_without_place_n3
+- soft_take_4
+- valence_5_editable
+- owned_only_empty_coast_as_success
+- update_four_cross_as_success
+- verify_mcp_only
+- proxy_substitution
+- inspiration_shape_miss
+- terrain3d_in_scope
+- plinth_as_terrain
+- gray_ramp_only
+gates:
+- prefer_authorship_pass
+- feedstock_shape_v1
+live_files:
+- Systems/DualGridCraftHost.cs
+operator_f5:
+  scene: res://scenes/WorldgenCraft.tscn
+  pass_signals:
+  - coast_stage6_land_silhouette
+  - no_meshfit_glb_coast
+  - empty_clear_to_amber
+  - owned_full_single_deck
+  - bits_family_kept
+  - ghost_cyan_hover_only
+  fail_signals:
+  - continuous_blue_water_coast
+  - meshfit_glb_coast_dependency
+  - y_bias_full_return
+  - glb_meshfit_full
+  - townscaper_done_claim
+coast_stage6_land_emit: true
+coast_strip_terrain_water: true
+place_coast: true
+owned_only_coastline_deferred: false

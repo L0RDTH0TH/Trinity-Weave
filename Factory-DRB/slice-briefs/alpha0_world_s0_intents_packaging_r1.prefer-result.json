@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "map_fidelity_mechanical_ok": true,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "verdict": "pending",
+    "summary": "Gate A mechanical green; Gate B hostile Prefer (VALIDATE prefer_map_fidelity) required before KEEP",
+    "checked_ticket_map_id": "WORLD-s0-intents",
+    "gate_a_ok": true
+  },
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass_world_s0_intents_packaging",
+    "detail": "concept_packet_carries_ticket_map_id_structural_success_world_seeds_optional_off_critical_path_and_world_gen_do_not_waive"
+  },
+  "detail": "prefer_concept_ok_world_s0_intents_packaging_live_seam_staging_awaiting_f5",
+  "applicable": true,
+  "negative_examples": [
+    "hotkey_as_product_ux",
+    "config_meta_without_effect",
+    "stub_as_hours",
+    "map_job_name_only",
+    "explicit_met_implicit_miss",
+    "intent_collapsed_to_mechanics",
+    "accept_gate_as_packaging_success",
+    "campaign_table_prep_as_world_seeds",
+    "expand_s0_as_debt_close",
+    "proxy_substitution",
+    "verify_mcp_only",
+    "gen_tone_biomes_pack_not_this_debt"
+  ],
+  "warnings": [
+    "claim_class_staging",
+    "do_not_keep",
+    "do_not_arm_gen_tone",
+    "do_not_arm_gen_biomes",
+    "do_not_arm_pack_save_load",
+    "prior_s0_soft_KEEP_KEEP-debt_superseded",
+    "do_not_expand_s0",
+    "do_not_unpark_world_import",
+    "minimal_live_skip_intents_phase",
+    "awaiting_operator_f5_create_world_open_without_intents",
+    "next_world_armed_false"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/WorldSession0IntentBoard.cs",
+      "Core/WorldGen/WorldSession0Intent.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "LaunchShell.cs",
+      "UI/WorldgenGui.cs",
+      "Systems/DualGridCraftHost.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/WorldSession0IntentBoard.cs",
+      "UI/WorldgenGui.cs",
+      "LaunchShell.cs"
+    ],
+    "required_live_files_absent": [],
+    "intents_phase_skipped_on_accept_scaffold": true,
+    "can_open_world_without_accepted": true,
+    "generate_button_absent": true,
+    "brush_keep": true
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "map_law_bind_ok_world_s0_intents_packaging",
+    "applicable": true,
+    "ticket_map_id": "WORLD-s0-intents",
+    "structural_success_includes_weld_proofs": true,
+    "success_object_player_visible": true,
+    "play_path": "LaunchShell_or_WorldgenCraft"
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "world_seeds_optional_off_create_world_path",
+  "ticket_map_id": "WORLD-s0-intents",
+  "live_weld_greenlit": true,
+  "claim_class": "staging",
+  "disposition": "nursery_parked_effect_deferred_to_gen",
+  "keep": false,
+  "ask_success": false,
+  "operator_parked": true,
+  "effect_deferred_to_gen": true,
+  "refuse_ask_success_on": "salt_only_f5",
+  "next_world_armed": false,
+  "next_world_pointer": "GEN-terrain-product",
+  "completed": "2026-10-16T00:58:11Z",
+  "parked_at": "2026-10-16T03:34:58Z",
+  "slice_id": "alpha0_world_s0_intents_packaging_r1",
+  "series_step": "1d_packaging",
+  "prior_incomplete": "alpha0_world_s0_intents_r1_soft_KEEP_KEEP-debt",
+  "selection": "operator_park_stubs_effect_deferred_to_gen",
+  "not_selected": "WORLD-import_parked_GEN-tone",
+  "welds_required": ["P1", "P2", "P3"],
+  "debt_notes": {
+    "1b": "staging_paid_with_proof_GEN_W2_cell_count_F5_confirmed",
+    "1c": "nursery_parked_effect_deferred_to_gen",
+    "1d": "nursery_parked_effect_deferred_to_gen",
+    "1e": "KEEP-debt_parked"
+  },
+  "live_weld_landed": true,
+  "live_weld_this_pass": true,
+  "welds_landed": {
+    "P1": true,
+    "P2": true,
+    "P3": true
+  }
+}

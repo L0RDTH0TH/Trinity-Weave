@@ -1,0 +1,24 @@
+{
+  "slice_id": "alpha0_pack_save_load_r1",
+  "ask_id": "alpha0_pack_save_load",
+  "ticket_map_id": "PACK-save-load",
+  "claim_class": "staging",
+  "prefer_authorship_pass": "ok",
+  "prefer_path": "concept",
+  "concept_prefer_ok": true,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "pending": true,
+    "note": "Gate B hostile Prefer required before KEEP — staging only this pass"
+  },
+  "success_object": "quit_reload_same_generated_world_board",
+  "live_weld_landed": true,
+  "operator_f5_fail": "map_persisted_terrain_died_regened_on_load",
+  "f5_fail_fix": "persist_organic_seed_remesh_on_load",
+  "keep": false,
+  "ask_success": false,
+  "operator_f5_confirmed": false,
+  "do_not_arm": ["GEN-biomes"],
+  "completed_at": "2026-10-16T04:55:00Z"
+}

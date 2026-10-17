@@ -1,0 +1,141 @@
+schema_version: 1
+status: staging_prefer_ok_awaiting_operator_f5
+armed_at: '2026-10-03T18:32:16Z'
+greenlit_at: '2026-10-03T18:32:16Z'
+prefer_ok_at: '2026-10-03T18:35:00Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_manual_scale
+slice_id: alpha0_stalberg_manual_scale_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 1g
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_manual_scale_r1.md
+prior_slice_id: alpha0_stalberg_dual_corner_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: dual_corner_and_craft_plane_prefer_ok__dial_seed_rings_to_hex19_manual
+depends_on: alpha0_stalberg_dual_corner_r1
+next_in_chain: alpha0_stalberg_dual_visual_r1
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  cite: Hex19OccupancyLattice centre+2 rings
+  product_density_rings_deferred: 5
+  spacing: 3.0
+  legacy_dense_spacing: 1.15
+  seed_hull_diameter_approx: 12.0
+  enlarge_world_not_cell_count: true
+matrix_quotes_note: scale_physical_spacing_not_rings
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: manual_cell_budget_enlarged_world_spacing
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: OrganicQuadMesh lattice graph at hex-19 seed scale with vertices
+      edges and face cells; craft-plane authority; dual-corner four-cell update wired;
+      Prefer edges and faces visible
+    refuse:
+    - points_as_grid
+    - count_equals_topology
+    - hex_scaffold_as_final_mesh
+    - hex19_pick_as_craft_authority
+    - skip_dual_offset
+    - non_unique_vertices
+    - relax_before_quad_only
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - dual_overlay_as_grid_kernel
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_corner:
+    law: logic_points_at_organic_quad_corners__click_flips__rebuild_four_dual_cells
+    preserved: true
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+matrix_quotes:
+  manual_scale:
+    prefer: Seed rings=2 (19 verts hex footprint); organic pipeline intact; Prefer
+      edges+faces; craft authority + dual-corner four-cell still wired; graybox OK.
+    never: Hex19 point-cloud Success; XOR antipode; abandon organic kernel; density
+      lift this Prefer; points_as_grid; Terrain3D/art/cam yank
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: manual_footprint
+  must: seed_rings_eq_2_hex19_footprint
+  refuse:
+  - hex_scaffold_as_final_mesh
+- id: pipeline_preserved
+  must: injective_topo_craft_authority_dual_corner_four_cell
+  refuse:
+  - skip_dual_offset
+  - hex19_pick_as_craft_authority
+  - non_unique_vertices
+done_when: 'F5: small readable irregular all-quad board (seed rings=2 / hex-19 footprint);
+  Prefer has_edges + has_faces_or_cells; craft pick on OrganicQuadMesh; dual-corner
+  four-cell still wired; density lift deferred; regenerable; graybox OK.'
+refuse_codes:
+- points_as_grid
+- count_equals_topology
+- hex_scaffold_as_final_mesh
+- hex19_pick_as_craft_authority
+- skip_dual_offset
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- dual_overlay_as_grid_kernel
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_manual_scale_r1
+  require_implicit_bind: true
+  steps:
+  - Set StalbergQuadKernel.DefaultRingCount=2 (hex-19 seed)
+  - Keep craft-plane authority + dual-corner four-cell
+  - Prefer pass + MCP before/after density shots
+  - Document density_lift deferred until ask_success
+  - Do NOT Curator push
+fresh_chat_instruction: 'Manual scale — rings=2 hex-19 seed footprint. Prefer edges/faces.
+  Keep organic kernel + craft authority + dual-corner. Density lift deferred. No Curator.'

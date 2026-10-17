@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3]
+
+; Side-by-side visual compare: Prefer Player (ours) at x=-2, tutorial at x=+2.
+; Overview camera is current so both capsules/labels are visible.
+; For FPS feel, F6 FpsSanity.tscn or FpsSanityTutorial.tscn instead.
+; See res://dev/README-FpsCompare.md
+
+[ext_resource type="Script" path="res://src/Genesis/Perspective/FpsSanityCompare.cs" id="0_script"]
+[ext_resource type="PackedScene" uid="uid://dvd4nrsou1idk" path="res://player/Player.tscn" id="1_ours"]
+[ext_resource type="PackedScene" path="res://player/PlayerTutorial.tscn" id="2_tut"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(40, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(40, 0.2, 40)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_prefer_viz"]
+radius = 0.35
+height = 1.7
+
+[node name="FpsSanityCompare" type="Node3D"]
+script = ExtResource("0_script")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OverviewCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.8660254, -0.25, 0.4330127, 0, 0.8660254, 0.5, -0.5, -0.4330127, 0.75, 0, 6, 10)
+current = true
+fov = 60.0
+
+[node name="PlayerOurs" parent="." instance=ExtResource("1_ours")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+
+[node name="Camera3D" parent="PlayerOurs" index="1"]
+current = false
+
+[node name="PreferVizMesh" type="MeshInstance3D" parent="PlayerOurs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+mesh = SubResource("CapsuleMesh_prefer_viz")
+
+[node name="LabelOurs" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.6, 0)
+text = "Prefer (ours)
+body yaw + cam pitch"
+font_size = 48
+modulate = Color(0.4, 0.85, 1, 1)
+billboard = 1
+outline_size = 8
+
+[node name="PlayerTutorial" parent="." instance=ExtResource("2_tut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+
+[node name="Camera3D" parent="PlayerTutorial/Head" index="0"]
+current = false
+
+[node name="LabelTutorial" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3.6, 0)
+text = "Tutorial
+Head pivot + cam pitch"
+font_size = 48
+modulate = Color(1, 0.75, 0.35, 1)
+billboard = 1
+outline_size = 8

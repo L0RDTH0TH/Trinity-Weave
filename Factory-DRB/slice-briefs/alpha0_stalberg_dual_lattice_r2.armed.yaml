@@ -1,0 +1,290 @@
+# Armed Prefer packet — dual lattice r2: half-step ownership + conceptual leg.
+# Supersedes dual_lattice_r1 (staging Prefer / symbols-only; no concept Prefer).
+# GREENLIT 2026-10-03T23:54:41Z — factory_greenlit true; armed_ready_to_stage.
+# Prefer concept path required (object identity + invariant). No staging-only chain-advance.
+
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-03T23:54:41Z'
+greenlit_at: '2026-10-03T23:54:41Z'
+law_amended_at: '2026-10-03T23:54:41Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_lattice
+slice_id: alpha0_stalberg_dual_lattice_r2
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2e
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_lattice_r2.md
+prior_slice_id: alpha0_stalberg_dual_lattice_r1
+prior_note: dual_lattice_r1_superseded__staging_prefer_symbols_without_concept_prefer
+supersedes: alpha0_stalberg_dual_lattice_r1
+logic_prior_slice_id: alpha0_stalberg_dual_corner_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+depends_on: alpha0_stalberg_craft_plane_authority_r1
+next_in_chain: alpha0_stalberg_dual_visual_r3   # only after concept Prefer + operator F5
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: fix_dual_lattice_half_step_offset_ownership
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+intent_invariant: >-
+  Player edits logic points; dual cells are the half-offset quads whose corners
+  are those points.
+structural_success: >-
+  Dual cells are half-offset quads whose corners are logic points the player edits;
+  click logic point updates/highlights only those dual_offset_cells (≤4); stable;
+  cyan on d_* dual tiles not primary-face 2×2.
+end_state: >-
+  Craft-plane north star: player edits logic points; ownership graph is the half-step
+  dual lattice (dual_offset_cells); dual_visual and density ride this graph later.
+path_position: >-
+  last green wrong-object = neighborhood r1 primary faces → this = half-step dual
+  lattice ownership → next = dual_visual on correct graph
+
+conceptual_leg:
+  project_end_state: >-
+    Player paints logic points on the organic craft plane; living ownership is the
+    half-step dual lattice — dual_offset_cells whose corners are those points.
+  end_state: >-
+    Craft-plane north star: logic-point edits own dual_offset_cells; cyan on d_*
+    half-offset tiles; dual_visual later on this graph.
+  path_position: >-
+    last green wrong-object = neighborhood r1 primary faces → this = half-step dual
+    lattice ownership → next = dual_visual on correct graph
+  intent_invariant: >-
+    Player edits logic points; dual cells are the half-offset quads whose corners
+    are those points.
+  success_object: dual_offset_cells
+  structural_success: >-
+    Dual cells are half-offset quads whose corners are logic points the player edits;
+    OwnedDualCellKeys / DualCellsTouching on OrganicDualOffsetLattice; highlight on
+    d_* Varignon tiles; Prefer concept ok (object identity + invariant).
+
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  intent_validates_gates:
+    law: Prefer-Authorship-Host-Law_C.2
+    success_object: dual_offset_cells
+    structural_success: >-
+      Dual cells are half-offset quads whose corners are logic points the player edits
+  dual_object_identity:
+    law: organic_dual_offset_lattice_cell_identity
+    success_object: dual_offset_cells
+    success_object_required: dual_offset_cells
+    intent_invariant: >-
+      Player edits logic points; dual cells are the half-offset quads whose corners
+      are those points.
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    success_object: dual_offset_cells
+    intent_invariant: >-
+      Player edits logic points; dual cells are the half-offset quads whose corners
+      are those points.
+    end_state: >-
+      Craft-plane north star: logic-point edits own dual_offset_cells on half-step
+      dual lattice; dual_visual deferred.
+    path_position: >-
+      last green wrong-object = neighborhood r1 primary faces → this = half-step dual
+      lattice ownership → next = dual_visual on correct graph
+    structural_success: >-
+      True dual lattice ownership — dual_offset_cells are half-step offset
+      OrganicDualOffsetLattice faces (four logic corners each); click logic point
+      updates/highlights only dual cells listing that point as a corner (≤4);
+      stable every repeat; cyan on d_* dual tiles not primary-face 2×2;
+      organic + craft authority + rings=2 spacing=3.0 preserved; Prefer concept ok
+    refuse:
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - primary_face_as_dual
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - stamp_as_dual
+    - skip_dual_offset
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - hex19_pick_as_craft_authority
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - non_unique_vertices
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_neighborhood:
+    law: >-
+      logic_point_P_owns_exactly_the_dual_lattice_cells_whose_corners_include_P;
+      interior_count_equals_4; set_stable; debug_highlight_on_dual_cells_not_primary_faces
+    success_types_preferred:
+    - Core/WorldGen/OrganicDualOffsetLattice.cs
+    - Systems/DualGridCraftHost.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    refuse_substitute:
+    - primary_organic_face_neighborhood_as_dual
+    - org_face_index_as_dual_cell_id_without_dual_lattice
+  dual_lattice:
+    law: >-
+      OrganicDualOffsetLattice half-step offset; DualCellsTouching; IsHalfStepOffset;
+      dual keys d_* not OrganicQuadMesh face indices as Success; success_object dual_offset_cells
+    refuse:
+    - primary_face_as_dual
+    - skip_dual_offset
+    - proxy_substitution
+  dual_visual:
+    deferred: true
+    note: do_not_evaluate_empty_edge_corner_full_until_dual_lattice_concept_green
+
+matrix_quotes:
+  dual_lattice_half_step:
+    prefer: >-
+      Intent: Player edits logic points; dual cells are the half-offset quads whose
+      corners are those points. success_object=dual_offset_cells. Click P → ≤4 d_*
+      dual cells; cyan on Varignon tiles; rings=2 spacing=3.0.
+    never: >-
+      proxy_substitution; primary_face_as_dual; cyan 2×2 of organic faces as dual
+      Success; staging Prefer alone as chain-advance; stamp_as_dual; Hex19 Success;
+      density; Terrain3D; dual_visual ask_success this Prefer
+
+hard_prefer_gaps:
+- id: dual_lattice_not_primary_faces
+  must: organic_dual_offset_lattice_half_step_dual_keys
+  refuse:
+  - primary_face_as_dual
+  - skip_dual_offset
+  - proxy_substitution
+- id: concept_prefer_object_identity
+  must: success_object_dual_offset_cells_plus_intent_invariant_aligned
+  refuse:
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+- id: stable_four_cell_ownership
+  must: interior_logic_point_owns_exactly_four_dual_cells_identical_every_click
+  refuse:
+  - unstable_dual_neighborhood
+  - over_neighbor_paint
+- id: dual_not_stamp
+  must: dual_cells_defined_by_shared_logic_corners_not_independent_occupancy_tiles
+  refuse:
+  - stamp_as_dual
+- id: debug_legible_dual
+  must: f5_highlight_shows_owned_dual_lattice_cells_d_star_not_primary_face_2x2
+- id: priors_preserved
+  must: organic_underlay_craft_authority_manual_scale
+  refuse:
+  - hex19_pick_as_craft_authority
+  - noodle_edge_clutter
+- id: scope_lattice_only
+  must: no_dual_visual_ask_success_no_density_no_terrain3d_no_chain_without_concept
+  refuse:
+  - terrain3d_in_scope
+  - gray_ramp_only
+
+done_when: >-
+  Prefer concept ok (object identity + invariant; not staging Prefer alone):
+  repeated click on the same interior logic point always highlights and updates
+  the same ≤4 dual_offset_cells (d_* half-step keys); highlight is not a primary
+  yellow-wire face 2×2; organic board + craft authority + rings=2 spacing=3.0
+  intact; regenerable. Dual-visual variant polish out of scope.
+
+refuse_codes:
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- hex19_pick_as_craft_authority
+- gray_ramp_only
+- inspiration_shape_miss
+- non_unique_vertices
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+
+do_not_waive:
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- gray_ramp_only
+- inspiration_shape_miss
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_lattice_r2
+  require_implicit_bind: true
+  require_concept_prefer: true
+  steps:
+  - Operator GREENLIGHT WELD received — factory_greenlit true
+  - Harness proof: primary-face host Prefer-fails; lattice+invariant Prefer-passes
+  - Slice Producer compose with full conceptual leg (judgment path)
+  - Weld LIVE OrganicDualOffsetLattice ownership + host highlight/prove (r2 tags)
+  - Prefer concept ok — refuse proxy_substitution / primary_face_as_dual / staging-only advance
+  - MCP cyan on d_* dual tiles; repeat click stable
+  - Do NOT advance dual-visual ask_success this Prefer
+  - Write staging receipt; claim_class staging until operator F5
+  - Do NOT Curator push
+
+fresh_chat_instruction: >-
+  GREENLIT r2. Dual-lattice Prefer concept — success_object dual_offset_cells;
+  invariant: Player edits logic points; dual cells are the half-offset quads whose
+  corners are those points. Cyan on d_* ≤4; refuse primary_face_as_dual /
+  proxy_substitution. No dual-visual art. No Curator. No chain-advance without
+  concept Prefer.

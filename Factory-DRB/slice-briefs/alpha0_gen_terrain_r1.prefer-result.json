@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass",
+    "detail": ""
+  },
+  "detail": "prefer_authorship_pass_ok",
+  "applicable": true,
+  "negative_examples": [
+    "gen_fill_as_craft_enter",
+    "full_natural_gen_stack_as_done",
+    "df_hours_as_this_slice_done",
+    "gen_biomes_as_terrain_success",
+    "gen_history_as_terrain_success",
+    "townscaper_done_as_gen_success",
+    "campaign_attach_as_world_create_success",
+    "undo_empty_enter_1g",
+    "verify_mcp_only",
+    "terrain3d_in_scope",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics"
+  ],
+  "warnings": [
+    "height_contract_stub_not_vis_height_done",
+    "full_erosion_stack_later",
+    "df_hours_loop_later",
+    "empty_enter_1g_must_remain"
+  ],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/GenTerrainContract.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "Core/WorldGen/WorldPackage.cs",
+      "Core/WorldGen/WorldPackageSession.cs",
+      "LaunchShell.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs",
+      "UI/WorldgenCraftControls.cs"
+    ],
+    "required_live_files_present": [
+      "Core/WorldGen/GenTerrainContract.cs",
+      "Core/WorldGen/GenTerrainService.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs",
+      "LaunchShell.cs"
+    ],
+    "required_live_files_absent": [],
+    "empty_enter_keep": true,
+    "explicit_generate": true,
+    "height_stub": true,
+    "land_water_paint": true,
+    "rivers_dial": true,
+    "campaigns_empty_lawful": true,
+    "launch_shell_main_path": true,
+    "missing_axes": []
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "gen_terrain_contract": true,
+    "play_path": "LaunchShell",
+    "explicit_invoke": "Key.T",
+    "empty_enter_keep": true
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "gen_terrain_dualgrid_height_starter",
+  "live_weld_greenlit": true,
+  "completed": "2026-10-15T22:16:00Z",
+  "slice_id": "alpha0_gen_terrain_r1",
+  "series_step": "2a",
+  "ticket_map": "GEN-terrain",
+  "prior_keep": "1g_WORLD-parity_empty_enter_folded",
+  "selection": "map_section_2_GEN-terrain_first_after_1g",
+  "not_selected": "GEN-biomes_GEN-history",
+  "keeps": "1a_1b_1c_1d_soft_1e_1f_1g_empty_enter_2u_2w_2x_2y_bits_2z_2aa_coast_emit_LIVE_single_deck_Full"
+}

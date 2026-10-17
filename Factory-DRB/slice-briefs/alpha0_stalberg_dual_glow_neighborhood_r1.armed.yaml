@@ -1,0 +1,372 @@
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-04T06:37:05Z'
+greenlit_at: '2026-10-04T06:37:05Z'
+law_amended_at: '2026-10-04T06:44:02Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_glow_neighborhood
+slice_id: alpha0_stalberg_dual_glow_neighborhood_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2j
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_glow_neighborhood_r1.md
+prior_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+keeps_geometry_slice_id: alpha0_stalberg_dual_stage6_cell_r1
+prior_note: 'stage6_cell_r1 Prefer-concept''d DualCell = Stage-6 around V and cyan crosses amber, but
+  HighlightOwnedDualCells used OwnedDualCellKeys only (always-1). Annotate Screenshot from 2026-10-04
+  01-19-00.png requires degree-dependent expand neighbour glow: 2 edge-ish / 4 interior.'
+logic_prior_slice_id: alpha0_stalberg_primal_graph_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+depends_on: alpha0_stalberg_dual_stage6_cell_r1
+next_in_chain: alpha0_stalberg_dual_visual_r3
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+bug_image: Ingest/Screenshot from 2026-10-04 01-19-00.png
+annotate_proof: Ingest/Screenshot from 2026-10-04 01-19-00.png
+goal_image_note: graph-family compare; F5 bar = expand glow 2 edge / 4 interior; cyan still crosses amber;
+  spheres at face centres
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: stage6_wire_small_corner_quads_glow
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+contract: B_small_corner_quads_glow_keep_stage6_wire
+intent_invariant: Player edits logic points (primal Vertices); Stage-6 DualCell identity (OwnedDualCellKeys=one;
+  dual verts=face centroids; dual edges centroid–centroid) remains lattice wire/topology; pick/glow/populate
+  uses SmallCornerQuadsAround(V) — degree-many primary-edge-carved corner sectors (typically 2 edge /
+  4 interior), each corners V, mid(incident edge), faceCentroid(F), mid(other incident edge); Stage-6
+  polygon is the union of those pieces and must not be a single glow/fill tile; refuse primary_face_as_dual
+  / stage6_union_as_single_glow_tile.
+structural_success: OwnedDualCellKeys(V)=one Stage-6 wire cell when ≥3 faces; SmallCornerQuadsAround(V)=primary-cut
+  corner sectors (edge≈2, interior≈4); highlight/populate uses small quads not Stage-6 union; cyan crosses
+  amber; Prefer concept ok; refuse stage6_union_as_single_glow_tile / primary_face_as_dual / owned_only_glow
+  / hex19_always_4 / soft_take_4.
+end_state: Authorable irregular dual-grid craft plane — Stage-6 dual_offset_cells with degree-dependent
+  expand glow matching annotate; dual_visual later.
+path_position: stage6_cell_r1 geometry kept → this expand-glow neighborhood → next dual_visual_r3
+conceptual_leg:
+  project_end_state: Authorable irregular dual-grid craft plane on organic all-quad board.
+  end_state: Authorable irregular dual-grid craft plane — Stage-6 dual_offset_cells with degree-dependent
+    expand glow matching annotate; dual_visual later.
+  path_position: stage6_cell_r1 geometry kept → this expand-glow neighborhood → next dual_visual_r3
+  intent_invariant: Player edits logic points (primal Vertices); Stage-6 DualCell identity (OwnedDualCellKeys=one;
+    dual verts=face centroids; dual edges centroid–centroid) remains lattice wire/topology; pick/glow/populate
+    uses SmallCornerQuadsAround(V) — degree-many primary-edge-carved corner sectors (typically 2 edge
+    / 4 interior), each corners V, mid(incident edge), faceCentroid(F), mid(other incident edge); Stage-6
+    polygon is the union of those pieces and must not be a single glow/fill tile; refuse primary_face_as_dual
+    / stage6_union_as_single_glow_tile.
+  success_object: dual_offset_cells
+  structural_success: OwnedDualCellKeys(V)=one Stage-6 wire cell when ≥3 faces; SmallCornerQuadsAround(V)=primary-cut
+    corner sectors (edge≈2, interior≈4); highlight/populate uses small quads not Stage-6 union; cyan crosses
+    amber; Prefer concept ok; refuse stage6_union_as_single_glow_tile / primary_face_as_dual / owned_only_glow
+    / hex19_always_4 / soft_take_4.
+  prefer_concept_required: true
+  goal_image: Ingest/Final-grid-state.jpg
+  bug_image: Ingest/Screenshot from 2026-10-04 01-19-00.png
+  annotate_proof: Ingest/Screenshot from 2026-10-04 01-19-00.png
+  goal_image_note: glow cardinality 2 edge / 4 interior; cyan crosses amber
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Core/WorldGen/OrganicMeshGraph.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  intent_validates_gates:
+    law: Prefer-Authorship-Host-Law_C.2
+    success_object: dual_offset_cells
+    structural_success: OwnedDualCellKeys(V)=one Stage-6 wire cell when ≥3 faces; SmallCornerQuadsAround(V)=primary-cut
+      corner sectors (edge≈2, interior≈4); highlight/populate uses small quads not Stage-6 union; cyan
+      crosses amber; Prefer concept ok; refuse stage6_union_as_single_glow_tile / primary_face_as_dual
+      / owned_only_glow / hex19_always_4 / soft_take_4.
+    refuse:
+    - stage6_union_as_single_glow_tile
+  dual_offset_cells:
+    law: stage6_expand_dual_neighbor_glow_degree_dependent
+    success_object: dual_offset_cells
+    success_object_required: dual_offset_cells
+    intent_invariant: Player edits logic points (primal Vertices); Stage-6 DualCell identity (OwnedDualCellKeys=one;
+      dual verts=face centroids; dual edges centroid–centroid) remains lattice wire/topology; pick/glow/populate
+      uses SmallCornerQuadsAround(V) — degree-many primary-edge-carved corner sectors (typically 2 edge
+      / 4 interior), each corners V, mid(incident edge), faceCentroid(F), mid(other incident edge); Stage-6
+      polygon is the union of those pieces and must not be a single glow/fill tile; refuse primary_face_as_dual
+      / stage6_union_as_single_glow_tile.
+    refuse:
+    - stage6_union_as_single_glow_tile
+    - owned_only_glow
+    - glow_owned_only_when_expand_intent
+    - max_owned_1_as_glow_success
+    - hex19_always_4
+    - soft_take_4
+    - soft_pad_expand_to_4
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+    - dual_centre_on_logic_as_half_step_proof
+    - face_scan_proxy_neighborhood
+    - valence_drop_editable
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    structural_success: OwnedDualCellKeys(V)=one Stage-6 wire cell when ≥3 faces; SmallCornerQuadsAround(V)=primary-cut
+      corner sectors (edge≈2, interior≈4); highlight/populate uses small quads not Stage-6 union; cyan
+      crosses amber; Prefer concept ok; refuse stage6_union_as_single_glow_tile / primary_face_as_dual
+      / owned_only_glow / hex19_always_4 / soft_take_4.
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    investigation_cite: Factory-DRB/slice-briefs/alpha0_stalberg_dual_geometry_rethink_investigation.md
+    terminology_cite: Untitled.md
+    goal_image: Ingest/Final-grid-state.jpg
+    bug_image: Ingest/Screenshot from 2026-10-04 01-19-00.png
+    annotate_proof: Ingest/Screenshot from 2026-10-04 01-19-00.png
+    success_object: dual_offset_cells
+    structural_success: OwnedDualCellKeys(V)=one Stage-6 wire cell when ≥3 faces; SmallCornerQuadsAround(V)=primary-cut
+      corner sectors (edge≈2, interior≈4); highlight/populate uses small quads not Stage-6 union; cyan
+      crosses amber; Prefer concept ok; refuse stage6_union_as_single_glow_tile / primary_face_as_dual
+      / owned_only_glow / hex19_always_4 / soft_take_4.
+    refuse:
+    - stage6_union_as_single_glow_tile
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - owned_only_glow
+    - glow_owned_only_when_expand_intent
+    - max_owned_1_as_glow_success
+    - hex19_always_4
+    - soft_take_4
+    - soft_pad_expand_to_4
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+    - dual_centre_on_logic_as_half_step_proof
+    - face_scan_proxy_neighborhood
+    - valence_drop_editable
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - stamp_as_dual
+    - skip_dual_offset
+    - indexed_lists_as_graph
+    - ephemeral_edge_key_as_topology
+    - non_unique_vertices
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - hex19_pick_as_craft_authority
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  mesh_graph_preserved:
+    prior: alpha0_stalberg_primal_graph_r1
+    note: MeshGraph remains primal ownership surface; this Prefer Success is dual_offset_cells expand-glow
+      cardinality on Stage-6 identity.
+  dual_neighborhood:
+    law: SmallCornerQuadsAround(V)=glow/populate unit (edge≈2, interior≈4); Stage-6 DualCell optional
+      wire identity; refuse stage6_union_as_single_glow_tile
+    refuse_substitute:
+    - stage6_union_as_single_glow_tile
+    - owned_only_glow
+    - glow_owned_only_when_expand_intent
+    - max_owned_1_as_glow_success
+    - hex19_always_4
+    - soft_take_4
+    - soft_pad_expand_to_4
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - support_face_index_as_dual_success
+    - face_scan_proxy_neighborhood
+    - soft_take_4_as_stable_neighborhood
+    - valence_drop_editable
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+  dual_lattice:
+    keeps_geometry: alpha0_stalberg_dual_stage6_cell_r1
+    note: Stage-6 DualCell identity unchanged; this Prefer is expand-glow / UpdateFour neighborhood cardinality
+      only
+  dual_visual:
+    deferred: true
+    note: do_not_evaluate_until_dual_glow_neighborhood_concept_and_operator_f5
+matrix_quotes:
+  expand_glow_neighborhood:
+    prefer: 'Intent: Stage-6 DualCell identity kept; SmallCornerQuadsAround glow/populate set is degree-dependent
+      (edge≈2, interior≈4) matching annotate Screenshot from 2026-10-04 01-19-00.png; OwnedDualCellKeys=one;
+      cyan crosses amber; rings=2 spacing=3.0; success_object=dual_offset_cells.'
+    never: owned_only_glow; MaxOwned=1 sold as glow Success; hex19_always_4 soft pad; soft_take_4; CornerVertices
+      as dual corners; primary_face_as_dual; revert Stage-6 to face-as-dual; FaceCornersLocal dual edges;
+      density; Terrain3D; dual_visual ask_success this Prefer
+hard_prefer_gaps:
+- id: keep_stage6_dual_cell_identity
+  must: owned_dual_cell_keys_exactly_one_stage6_cell_per_editable_logic_vertex
+  refuse:
+  - primary_face_as_dual
+  - face_block_neighborhood
+  - dual_rebind_cardinal_wrong_locus
+- id: small_corner_quads_glow_degree
+  must: small_corner_quads_around_v_edge_2_interior_4_not_stage6_union
+  refuse:
+  - stage6_union_as_single_glow_tile
+  - owned_only_glow
+  - glow_owned_only_when_expand_intent
+  - max_owned_1_as_glow_success
+  - hex19_always_4
+  - soft_take_4
+  - soft_pad_expand_to_4
+  - primary_face_as_dual
+- id: dual_edges_centroid_centroid_kept
+  must: dual_wireframe_edges_connect_face_centroids_crossing_main_cells
+  refuse:
+  - primary_face_as_dual
+  - face_corners_local_as_dual_edges
+- id: concept_prefer_object_identity
+  must: success_object_dual_offset_cells_plus_expand_glow_intent_invariant
+  refuse:
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+  - owned_only_glow
+- id: dual_verts_at_face_centroids
+  must: dual_vertices_are_primal_face_centroids_spheres_stay
+  refuse:
+  - dual_centre_on_logic_as_half_step_proof
+  - vertex_neighbor_as_dual_corner
+- id: priors_preserved
+  must: organic_underlay_craft_authority_manual_scale_meshgraph_rings2_spacing3_craft_cam
+  refuse:
+  - hex19_pick_as_craft_authority
+- id: scope_glow_neighborhood_only
+  must: no_dual_visual_ask_success_no_density_no_terrain3d_no_geometry_revert
+  refuse:
+  - terrain3d_in_scope
+  - gray_ramp_only
+done_when: 'Prefer concept ok: Stage-6 wire kept; SmallCornerQuadsAround glow edge≈2 interior≈4 matching
+  annotate; not Stage-6 union as single glow tile; cyan crosses amber.'
+refuse_codes:
+- stage6_union_as_single_glow_tile
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- owned_only_glow
+- glow_owned_only_when_expand_intent
+- max_owned_1_as_glow_success
+- hex19_always_4
+- soft_take_4
+- soft_pad_expand_to_4
+- primary_face_as_dual
+- inset_face_corners_as_dual
+- face_corners_local_as_dual_edges
+- face_block_neighborhood
+- face_proxy_dual
+- support_face_index_as_dual_success
+- vertex_neighbor_as_dual_corner
+- dual_rebind_cardinal_wrong_locus
+- dual_centre_on_logic_as_half_step_proof
+- face_scan_proxy_neighborhood
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- hex19_pick_as_craft_authority
+- gray_ramp_only
+- inspiration_shape_miss
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+do_not_waive:
+- stage6_union_as_single_glow_tile
+- face_block_neighborhood
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- owned_only_glow
+- glow_owned_only_when_expand_intent
+- hex19_always_4
+- soft_take_4
+- primary_face_as_dual
+- inset_face_corners_as_dual
+- face_corners_local_as_dual_edges
+- face_proxy_dual
+- support_face_index_as_dual_success
+- face_scan_proxy_neighborhood
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- gray_ramp_only
+- inspiration_shape_miss
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+- vertex_neighbor_as_dual_corner
+- dual_rebind_cardinal_wrong_locus
+- dual_centre_on_logic_as_half_step_proof
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_glow_neighborhood_r1
+  require_implicit_bind: true
+  require_concept_prefer: true
+  steps:
+  - Operator GREENLIGHT WELD received — factory_greenlit true
+  - Slice Producer compose with full conceptual leg (judgment path)
+  - Weld LIVE ExpandDualNeighborKeys + highlight/UpdateFour glow path; keep Stage-6 identity
+  - Prefer concept ok — refuse stage6_union_as_single_glow_tile / owned_only_glow / hex19_always_4 / soft_take_4
+  - F5 / MCP glow 2/4; cyan crosses amber; Trinity push; staging until F5
+fresh_chat_instruction: Half-B IMPLEMENT_SLICE alpha0_stalberg_dual_glow_neighborhood_r1 — Stage-6 wire
+  kept; SmallCornerQuadsAround highlight/populate (edge≈2, interior≈4); corners V/mid/centroid/mid; refuse
+  stage6_union_as_single_glow_tile; Prefer concept; curator snapshot after weld.

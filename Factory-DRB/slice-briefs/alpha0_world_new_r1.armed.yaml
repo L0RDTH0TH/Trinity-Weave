@@ -1,0 +1,38 @@
+schema_version: 1
+status: KEEP_ask_success
+armed_at: '2026-10-15T20:05:00Z'
+greenlit_at: '2026-10-15T20:05:00Z'
+amended_at: '2026-10-15T20:18:00Z'
+closed_at: '2026-10-15T20:21:00Z'
+operator_f5: success
+disposition: KEEP
+claim_class: ask_success
+factory_greenlit: true
+live_weld_greenlit: true
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_new
+slice_id: alpha0_world_new_r1
+series_id: alpha0_world_builder_r1
+series_step: 1a
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_new_r1.md
+prior_brush_closed_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+next_in_chain: alpha0_world_bounds_r1
+depends_on: alpha0_stalberg_dual_coast_strip_water_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_new_gen_bias
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: world_package_session0_open
+contract: C_world_new_gen_bias
+ticket_map: WORLD-new
+path_position: 2z KEEP → 1a WORLD-new KEEP/ask_success → 1b WORLD-bounds
+done_when: 'Operator F5 SUCCESS closed KEEP — LaunchShell Create World four biases craft.'
+operator_prompt: >-
+  CLOSED KEEP. Active Prefer is alpha0_world_bounds_r1 (1b WORLD-bounds).

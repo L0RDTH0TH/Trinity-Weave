@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "slice_id": "row_ux_world_generation_r1_d2",
+  "producer_run_id": "sp-overnigh-1f9b7c",
+  "sib_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d2.md",
+  "package_id": "pkg_world_shell",
+  "wave": "alpha",
+  "fidelity": "stub",
+  "half_b_overlay": "alpha0_worldgen_terrain3d_feed_r1",
+  "thin_prefer": true,
+  "ask_id": "alpha0_worldgen_terrain3d_feed",
+  "waves": [
+    {
+      "wave": 1,
+      "parallel": false,
+      "lanes": [
+        "module"
+      ]
+    }
+  ],
+  "lane_missions": {
+    "module": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d2/missions/module.md",
+      "ux_bullet_ids": [
+        "UX-1",
+        "UX-2",
+        "UX-3",
+        "UX-4",
+        "UX-5"
+      ],
+      "blocked_by": []
+    },
+    "presentation": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d2/missions/presentation.md",
+      "ux_bullet_ids": [],
+      "blocked_by": [],
+      "deferred": true
+    }
+  },
+  "deferred_lanes": {
+    "presentation": "skip \u2014 project.godot already enables terrain_3d; no shell chrome in this Prefer unless plugin/main_scene required",
+    "asset": "skip \u2014 Terrain3D vendored; no ADC art pass",
+    "techart": "skip \u2014 no TAC material pass this Prefer"
+  }
+}

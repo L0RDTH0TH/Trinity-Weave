@@ -1,0 +1,33 @@
+{
+  "slice_id": "alpha0_stalberg_dual_visual_r1",
+  "ask_id": "alpha0_stalberg_dual_visual",
+  "lane": "module",
+  "producer_run_id": "sp-tdv-20261003",
+  "claim_class": "staging",
+  "prefer_authorship_pass": "ok",
+  "completed": "2026-10-03T19:12:00Z",
+  "mesh_library_source": "approved_shape_distinct_graybox_standins_empty_edge_corner_full",
+  "families": ["empty", "edge", "corner", "full"],
+  "refuse": ["gray_ramp_only"],
+  "preserved": [
+    "organic_underlay",
+    "craft_plane_authority",
+    "dual_corner_four_cell",
+    "manual_scale_rings_2_spacing_3_0"
+  ],
+  "out_of_scope": [
+    "density_lift",
+    "terrain3d",
+    "hex19_success",
+    "art_polish",
+    "cam_yank"
+  ],
+  "mcp_evidence": [
+    "addons/godot_mcp/cache/screenshots/stalberg_dual_visual_r1_a.png",
+    "addons/godot_mcp/cache/screenshots/stalberg_dual_visual_r1_b.png"
+  ],
+  "vault_evidence": [
+    "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/_evidence/stalberg_dual_visual_r1_a.png",
+    "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/_evidence/stalberg_dual_visual_r1_b.png"
+  ]
+}

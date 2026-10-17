@@ -1,0 +1,369 @@
+# Armed Prefer packet — Stage-6 dual cell/edge identity rebind.
+# GREENLIT 2026-10-04T04:57:09Z — factory_greenlit true; armed_ready_to_stage.
+# Prefer concept path required (object identity + Stage-6 cell/edge invariant).
+# Supersedes alpha0_stalberg_dual_face_centroid_r1 (Prefer ok; LIVE FaceCornersLocal / face-as-dual).
+
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-04T04:57:09Z'
+greenlit_at: '2026-10-04T04:57:09Z'
+law_amended_at: '2026-10-04T04:57:09Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_stage6_cell
+slice_id: alpha0_stalberg_dual_stage6_cell_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2i
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_stage6_cell_r1.md
+prior_slice_id: alpha0_stalberg_dual_face_centroid_r1
+supersedes_slice_id: alpha0_stalberg_dual_face_centroid_r1
+prior_note: >-
+  dual_face_centroid_r1 Prefer-concept'd Stage-6 invariant but LIVE kept DualCell
+  1:1 with Face + FaceCornersLocal inset rings; F5 cyan overlays amber
+  (Screenshot_20261004_003640_YouTube.jpg) — primary_face_as_dual / wrong dual-edge
+logic_prior_slice_id: alpha0_stalberg_primal_graph_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+depends_on: alpha0_stalberg_dual_face_centroid_r1
+next_in_chain: alpha0_stalberg_dual_visual_r3
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+bug_image: Ingest/Screenshot_20261004_003640_YouTube.jpg
+goal_image_note: >-
+  graph-family compare vs Final-grid-state (organic hex boundary + irregular
+  quads) — not art parity; F5 bar = cyan dual edges cross amber main cells
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: stage6_dual_cell_around_logic_vertex_centroid_edges
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+intent_invariant: >-
+  Player edits logic points (primal Vertices); dual cell around a logic point is
+  the Stage-6 polygon of face centroids of faces incident to that point; dual
+  vertices sit at main-face centres; dual edges connect those centroids across
+  shared primal edges (cross main cells — never along main sides).
+structural_success: >-
+  DualCell identity = Stage6DualCellPolygon(V) owned by logic Vertex V; dual verts
+  = face centroids; dual edges = centroid–centroid only (no FaceCornersLocal as
+  dual edges); OwnedDualCellKeys(V)=one Stage-6 cell; DualCellsTouching neighbours
+  = dual cells sharing a dual edge; cyan crosses amber; Prefer concept ok.
+end_state: >-
+  Authorable irregular dual-grid craft plane — Stage-6 dual_offset_cells with
+  correct edge/cell identity around logic points; dual_visual later.
+path_position: >-
+  primal_graph_r1 → dual_rebind aborted → dual_face_centroid Prefer-ok/LIVE-wrong
+  → this Stage-6 cell/edge rebind → next dual_visual_r3
+
+conceptual_leg:
+  project_end_state: >-
+    Authorable irregular dual-grid craft plane on organic all-quad board.
+  end_state: >-
+    Authorable irregular dual-grid craft plane — Stage-6 dual_offset_cells with
+    correct edge/cell identity around logic points; dual_visual later.
+  path_position: >-
+    primal_graph_r1 → dual_rebind aborted → dual_face_centroid Prefer-ok/LIVE-wrong
+    → this Stage-6 cell/edge rebind → next dual_visual_r3
+  intent_invariant: >-
+    Player edits logic points (primal Vertices); dual cell around a logic point is
+    the Stage-6 polygon of face centroids of faces incident to that point; dual
+    vertices sit at main-face centres; dual edges connect those centroids across
+    shared primal edges (cross main cells — never along main sides).
+  success_object: dual_offset_cells
+  structural_success: >-
+    DualCell = Stage-6 cell-around-V; dual edges centroid–centroid; refuse
+    primary_face_as_dual / inset_face_corners_as_dual / face_corners_local_as_dual_edges;
+    Prefer concept ok.
+  prefer_concept_required: true
+  goal_image: Ingest/Final-grid-state.jpg
+  bug_image: Ingest/Screenshot_20261004_003640_YouTube.jpg
+  goal_image_note: graph-family compare — cyan must cross amber, not overlay
+
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Core/WorldGen/OrganicMeshGraph.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  intent_validates_gates:
+    law: Prefer-Authorship-Host-Law_C.2
+    success_object: dual_offset_cells
+    structural_success: >-
+      Player edits logic points (primal Vertices); dual cell around a logic point
+      is the Stage-6 polygon of face centroids of faces incident to that point;
+      dual vertices sit at main-face centres; dual edges connect those centroids
+      across shared primal edges (cross main cells — never along main sides).
+  dual_offset_cells:
+    law: stage6_dual_cell_around_logic_vertex_centroid_edges
+    success_object: dual_offset_cells
+    success_object_required: dual_offset_cells
+    intent_invariant: >-
+      Player edits logic points (primal Vertices); dual cell around a logic point is
+      the Stage-6 polygon of face centroids of faces incident to that point; dual
+      vertices sit at main-face centres; dual edges connect those centroids across
+      shared primal edges (cross main cells — never along main sides).
+    refuse:
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+    - dual_centre_on_logic_as_half_step_proof
+    - face_scan_proxy_neighborhood
+    - soft_take_4
+    - valence_drop_editable
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    investigation_cite: Factory-DRB/slice-briefs/alpha0_stalberg_dual_geometry_rethink_investigation.md
+    terminology_cite: Untitled.md
+    goal_image: Ingest/Final-grid-state.jpg
+    bug_image: Ingest/Screenshot_20261004_003640_YouTube.jpg
+    success_object: dual_offset_cells
+    structural_success: >-
+      DualCell = Stage6DualCellPolygon(V); OwnedDualCellKeys(V)=one; dual edges
+      centroid–centroid only; no FaceCornersLocal dual wire/paint; cyan crosses amber;
+      Prefer concept ok
+    refuse:
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+    - dual_centre_on_logic_as_half_step_proof
+    - face_scan_proxy_neighborhood
+    - soft_take_4
+    - valence_drop_editable
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - stamp_as_dual
+    - skip_dual_offset
+    - indexed_lists_as_graph
+    - ephemeral_edge_key_as_topology
+    - non_unique_vertices
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - hex19_pick_as_craft_authority
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  mesh_graph_preserved:
+    prior: alpha0_stalberg_primal_graph_r1
+    note: >-
+      MeshGraph remains primal ownership surface; this Prefer Success is
+      dual_offset_cells via Stage-6 cell-around-V (not re-claiming organic_mesh_graph SO).
+  dual_neighborhood:
+    law: >-
+      OwnedDualCellKeys(V) = one Stage-6 dual cell owned by logic V; DualCellsTouching
+      neighbours = dual cells sharing a dual edge; cyan = Stage-6 polygon + centroid
+      edges only; refuse FaceCornersLocal / face-as-dual / four inset face duals as 2×2
+    refuse_substitute:
+    - primary_face_as_dual
+    - inset_face_corners_as_dual
+    - face_corners_local_as_dual_edges
+    - face_block_neighborhood
+    - support_face_index_as_dual_success
+    - face_scan_proxy_neighborhood
+    - soft_take_4_as_stable_neighborhood
+    - valence_drop_editable
+    - vertex_neighbor_as_dual_corner
+    - dual_rebind_cardinal_wrong_locus
+  dual_lattice:
+    supersedes: alpha0_stalberg_dual_face_centroid_r1
+    note: >-
+      DualCell identity rebind — Stage-6 cell-around-V; dual edges between face
+      centroids only; FaceCornersLocal inset rings are not dual Success
+  dual_visual:
+    deferred: true
+    note: do_not_evaluate_until_dual_stage6_cell_concept_and_operator_f5
+
+matrix_quotes:
+  stage6_cell_edge:
+    prefer: >-
+      Intent: Player edits logic points (primal Vertices); dual cell around a logic
+      point is the Stage-6 polygon of face centroids of faces incident to that point;
+      dual vertices sit at main-face centres; dual edges connect those centroids
+      across shared primal edges (cross main cells). success_object=dual_offset_cells.
+      OwnedDualCellKeys=one Stage-6 cell; cyan crosses amber; rings=2 spacing=3.0.
+    never: >-
+      primary_face_as_dual; inset_face_corners_as_dual; face_corners_local_as_dual_edges;
+      FaceCornersLocal sold as dual edges; four inset face duals as 2×2; face fill
+      as dual tile; staging Prefer alone as chain-advance; Hex19 Success; density;
+      Terrain3D; dual_visual ask_success this Prefer; art parity with Final-grid-state
+
+hard_prefer_gaps:
+- id: dual_cell_stage6_around_v
+  must: dual_cell_identity_is_stage6_polygon_owned_by_logic_vertex
+  refuse:
+  - primary_face_as_dual
+  - inset_face_corners_as_dual
+  - face_corners_local_as_dual_edges
+- id: dual_edges_centroid_centroid
+  must: dual_wireframe_edges_connect_face_centroids_crossing_main_cells
+  refuse:
+  - primary_face_as_dual
+  - face_corners_local_as_dual_edges
+  - face_block_neighborhood
+- id: owned_one_dual_per_logic
+  must: owned_dual_cell_keys_exactly_one_stage6_cell_per_editable_logic_vertex
+  refuse:
+  - face_block_neighborhood
+  - soft_take_4
+  - over_neighbor_paint
+- id: concept_prefer_object_identity
+  must: success_object_dual_offset_cells_plus_stage6_cell_edge_intent_invariant
+  refuse:
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+  - primary_face_as_dual
+- id: dual_verts_at_face_centroids
+  must: dual_vertices_are_primal_face_centroids_spheres_stay
+  refuse:
+  - dual_centre_on_logic_as_half_step_proof
+  - vertex_neighbor_as_dual_corner
+- id: priors_preserved
+  must: organic_underlay_craft_authority_manual_scale_meshgraph_rings2_spacing3_craft_cam
+  refuse:
+  - hex19_pick_as_craft_authority
+- id: scope_stage6_cell_only
+  must: no_dual_visual_ask_success_no_density_no_terrain3d_no_chain_without_concept
+  refuse:
+  - terrain3d_in_scope
+  - gray_ramp_only
+
+done_when: >-
+  Prefer concept ok (object identity + Stage-6 cell/edge invariant; not staging Prefer
+  alone): DualCell = Stage6DualCellPolygon(V) owned by logic V; OwnedDualCellKeys(V)=one;
+  wireframe dual edges = face-centroid spheres connected across main cells (cyan crosses
+  amber); no FaceCornersLocal as dual edges; populated dual tile centered on intersection
+  with multi-hue segments; MeshGraph + craft authority + rings=2 spacing=3.0 intact.
+  Dual-visual variant polish out of scope.
+
+refuse_codes:
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- inset_face_corners_as_dual
+- face_corners_local_as_dual_edges
+- face_block_neighborhood
+- face_proxy_dual
+- support_face_index_as_dual_success
+- vertex_neighbor_as_dual_corner
+- dual_rebind_cardinal_wrong_locus
+- dual_centre_on_logic_as_half_step_proof
+- face_scan_proxy_neighborhood
+- soft_take_4
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- hex19_pick_as_craft_authority
+- gray_ramp_only
+- inspiration_shape_miss
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+
+do_not_waive:
+- face_block_neighborhood
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- inset_face_corners_as_dual
+- face_corners_local_as_dual_edges
+- face_proxy_dual
+- support_face_index_as_dual_success
+- face_scan_proxy_neighborhood
+- soft_take_4
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- gray_ramp_only
+- inspiration_shape_miss
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+- vertex_neighbor_as_dual_corner
+- dual_rebind_cardinal_wrong_locus
+- dual_centre_on_logic_as_half_step_proof
+
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_stage6_cell_r1
+  require_implicit_bind: true
+  require_concept_prefer: true
+  steps:
+  - Operator GREENLIGHT WELD received — factory_greenlit true
+  - Slice Producer compose with full conceptual leg (judgment path)
+  - Weld LIVE OrganicDualOffsetLattice DualCell = Stage-6 cell-around-V; host wire/paint/prove
+  - Prefer concept ok — refuse primary_face_as_dual / inset_face_corners_as_dual / FaceCornersLocal dual edges
+  - F5 / MCP cyan crosses amber; one dual tile per logic point; Trinity push; staging until F5
+
+fresh_chat_instruction: >-
+  Half-B IMPLEMENT_SLICE alpha0_stalberg_dual_stage6_cell_r1 — DualCell =
+  Stage6DualCellPolygon(V) owned by logic V; dual edges centroid–centroid only
+  (cyan crosses amber); stop FaceCornersLocal as dual edges; OwnedDualCellKeys=one;
+  Prefer concept (dual_offset_cells + Stage-6 cell/edge invariant); rings=2 spacing=3.0
+  MeshGraph; curator snapshot after weld.

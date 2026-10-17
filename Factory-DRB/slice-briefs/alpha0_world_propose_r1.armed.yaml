@@ -1,0 +1,95 @@
+schema_version: 1
+status: keep_ask_success
+armed_at: '2026-10-15T20:40:00Z'
+greenlit_at: '2026-10-15T20:40:00Z'
+closed_at: '2026-10-15T21:06:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: keep
+operator_f5_confirmed: true
+disposition: KEEP_ask_success
+next_slice_id: alpha0_world_s0_intents_r1
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_propose
+slice_id: alpha0_world_propose_r1
+series_id: alpha0_world_builder_r1
+series_step: 1c
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_propose_r1.md
+prior_keep_slice_id: alpha0_world_bounds_r1
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: alpha0_world_s0_intents_r1
+prior_note: Closed KEEP/ask_success (operator F5 SUCCESS — menu flow; scaffold dual-grid
+  deferred by design). Next greenlight = WORLD-s0-intents 1d.
+depends_on: alpha0_world_bounds_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_propose_scaffold_loop
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: world_scaffold_propose_accept_loop
+contract: C_world_propose_scaffold_loop
+ticket_map: WORLD-propose
+intent_invariant: 'WORLD-propose: tool proposes a readable scaffold from bias+dials;
+  DM accepts, rejects, or revises (Propose again / Revise) — not one-shot noise;
+  Accept binds scaffold onto package; brush Full single-deck KEEP; LaunchShell main path.'
+structural_success: LaunchShell Create World reaches Propose phase with a visible scaffold
+  card; DM can Reject or Propose again or Revise then Accept; package opens with
+  accepted scaffold metas; DualGridCraftHost place path unchanged.
+path_position: 1a WORLD-new KEEP → 1b WORLD-bounds KEEP → this WORLD-propose GREENLIGHT
+  WELD LIVE → F5 → WORLD-s0-intents
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - UI/WorldgenGui.cs
+  - UI/WorldgenGui.tscn
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Core/WorldGen/WorldBoundsDials.cs
+  - Core/WorldGen/WorldScaffoldProposal.cs
+  - Core/WorldGen/WorldGenBias.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    feedstock_cite: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/dual-grid-nested-placetile-world-authorship.md
+    structural_success: Visible propose scaffold on Play path; DM accept/reject/revise
+      loop; package binds accepted scaffold; brush KEEP.
+    success_object: world_scaffold_propose_accept_loop
+    refuse:
+    - oneshot_propose_as_success
+    - gen_fill_as_world_propose
+    - orphan_propose_off_play_path
+    - accept_without_proposed_scaffold
+    - pastoral_scaffold_as_world_new
+    - campaign_tone_hardlock
+    - full_glb_meshfit
+    - y_bias_as_zfight_fix
+    - verify_mcp_only
+    - terrain3d_in_scope
+    - townscaper_product_done
+done_when: 'F5 only: Create World → bias → dials → Propose scaffold → visible card
+  → Reject or Propose again or Revise ≥1 → Accept → craft with world_id+gen_bias+dials+scaffold;
+  campaigns empty; Full single-deck KEEP. MCP ≠ Success.'
+operator_prompt: >-
+  WELD — eat armed Prefer alpha0_world_propose_r1 via LaunchShell WORLD-propose path.
+  Do not claim ask_success without operator F5.

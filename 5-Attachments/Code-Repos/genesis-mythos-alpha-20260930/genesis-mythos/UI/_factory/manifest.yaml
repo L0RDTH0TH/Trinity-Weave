@@ -1,0 +1,124 @@
+schema_version: 1
+contract_type: PDC
+slice_id: row_ux_world_generation_r1_d1
+weld_slice_id: alpha0_worldgen_dualgrid_sparky_r1
+lane_id: presentation
+ux_bullet_ids:
+- UX-1
+producer_run_id: sp-weld-pro-1be97b
+drops:
+- drop_id: pdc-alpha0_worldgen_dualgrid_sparky_r1-presentation-e81a1527
+  path: UI/_factory/.bootstrap_drop_alpha0_worldgen
+  slice_id: alpha0_worldgen_dualgrid_sparky_r1
+  lane_id: presentation
+  receipt_id: bootstrap-half-b-greenlit-20261001
+  license_spdx: CC0-1.0
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-7a00cd6b
+  path: UI/WorldgenCraftControls.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: PDC craft chrome for module consume (PlayRegion instances); mouse_filter
+    Ignore
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-fea3aa69
+  path: UI/WorldgenCraftControls.cs
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: "Reflective craft banner \u2014 AlphaFactoryLog Flow_Launch / Anti_DevOnlyHUD;\
+    \ no sim"
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-wg-gui-tscn
+  path: UI/WorldgenGui.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: "ux_worldgen_gui host \u2014 propose/refine/preview/accept/regenerate dialogue"
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-wg-gui-cs
+  path: UI/WorldgenGui.cs
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: Presentation-only intents; seat refuse for player authoring; AlphaFactoryLog
+    boundaries
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-ed80eaad
+  path: LaunchShell.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: "Fantasy UI framed menu \u2014 Create World \u2192 ux_worldgen_gui; Enter\
+    \ Craft \u2192 PlayRegion"
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-e8736403
+  path: LaunchShell.cs
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: CDC gate + WorldgenGui host + persistent GameHud; Flow_Launch / Anti_DevOnlyHUD
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-a8d7eb50
+  path: GameHud.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: "Player-facing HUD \u2014 mode strip + craft/help panels (Ignore mouse)"
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-438430a0
+  path: UI/GameHud.cs
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: Tone-aware craft hint from accepted scaffold meta; no sim
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-8f31f044
+  path: UI/_factory/.bootstrap_drop_row_ux_world_generation
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: Row bootstrap marker for depth-1 presentation lane
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-main-scene
+  path: project.godot
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: sp-weld-pro-1be97b-presentation
+  license_spdx: CC0-1.0
+  notes: "main_scene \u2192 LaunchShell.tscn (launch path contract)"
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-06259696
+  path: UI/**
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: mcp-41dbda5d3eb2
+  license_spdx: CC0-1.0
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-a7feab18
+  path: LaunchShell.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: mcp-41dbda5d3eb2
+  license_spdx: CC0-1.0
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-c6346995
+  path: LaunchShell.cs
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: mcp-41dbda5d3eb2
+  license_spdx: CC0-1.0
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-4c0396d2
+  path: GameHud.tscn
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: mcp-41dbda5d3eb2
+  license_spdx: CC0-1.0
+- drop_id: pdc-row_ux_world_generation_r1_d1-presentation-d16d7339
+  path: project.godot
+  slice_id: row_ux_world_generation_r1_d1
+  lane_id: presentation
+  receipt_id: mcp-41dbda5d3eb2
+  license_spdx: CC0-1.0
+generated_by_receipt_id: mcp-41dbda5d3eb2
+license_spdx: CC0-1.0
+ai_generated_content_policy: operator_review_required
+depends_on_cdc: cdc-alpha0_worldgen_dualgrid_sparky_r1-content-6a0017c7
+updated_at: '2026-10-01T20:29:20Z'

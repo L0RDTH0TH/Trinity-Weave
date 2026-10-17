@@ -1,0 +1,113 @@
+schema_version: 1
+status: keep_ask_success
+armed_at: '2026-10-15T21:06:00Z'
+greenlit_at: '2026-10-15T21:06:00Z'
+closed_at: '2026-10-15T21:42:18Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: keep
+operator_f5_confirmed: true
+disposition: KEEP_ask_success
+soft_success: true
+soft_success_class: framing_examples_altitude_debt
+next_slice_id: alpha0_world_import_r1
+next_slice_armed: true
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_s0_intents
+slice_id: alpha0_world_s0_intents_r1
+series_id: alpha0_world_builder_r1
+series_step: 1d
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_s0_intents_r1.md
+prior_keep_slice_id: alpha0_world_propose_r1
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_bounds_slice_id: alpha0_world_bounds_r1
+keeps_world_propose_slice_id: alpha0_world_propose_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: WORLD-import
+prior_note: Closed KEEP/ask_success soft (operator F5 soft SUCCESS — flow works;
+  framing/examples/altitude debt remains). Next pointer = WORLD-import (not armed;
+  sibling owns next Prefer weld cut).
+depends_on: alpha0_world_propose_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_s0_intents_collaborative
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: session0_intent_proposed_accepted_board
+contract: C_world_s0_intents_collaborative
+ticket_map: WORLD-s0-intents
+intent_invariant: 'WORLD-s0-intents: world seeds that bias what the world is (not
+  campaign attach / session prep); collaborative proposed→accepted board on Create
+  World path; Open world had ≥1 accepted in this ship; campaigns remain empty;
+  brush Full single-deck KEEP; LaunchShell main path.'
+soft_success_problem: 'Shipped packaging confused operator — vague adventure-hook
+  seed examples + Session 0/player-DM seat framing + Accept≥1 gate on Create World
+  felt like campaign/table prep. Intent remains world seeds. Follow-up: better seed
+  copy and/or make intents optional/off Create World critical path. Do not claim
+  campaign integration; WORLD-empty-campaigns remains later guest.'
+structural_success: LaunchShell Create World reaches Session 0 intents after Accept scaffold;
+  DM can Propose seed / Accept / Reject intents then Open world with ≥1 accepted;
+  package opens with accepted intent metas; DualGridCraftHost place path unchanged.
+path_position: 1a WORLD-new KEEP → 1b WORLD-bounds KEEP → 1c WORLD-propose KEEP →
+  this WORLD-s0-intents KEEP soft → next WORLD-import (not armed)
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - UI/WorldgenGui.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Core/WorldGen/WorldSession0Intent.cs
+  - Core/WorldGen/WorldSession0IntentBoard.cs
+  - Core/WorldGen/WorldScaffoldProposal.cs
+  - Core/WorldGen/WorldBoundsDials.cs
+  - Core/WorldGen/WorldGenBias.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+  layout_deferred_sibling:
+  - UI/WorldgenGui.tscn
+  - LaunchShell.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    feedstock_cite: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/dual-grid-nested-placetile-world-authorship.md
+    structural_success: Visible Session 0 intents on Play path; proposed→accepted loop;
+      package binds ≥1 accepted intent; brush KEEP; not wizard-only.
+    success_object: session0_intent_proposed_accepted_board
+    refuse:
+    - open_world_without_accepted_intent
+    - dm_wizard_only_as_s0
+    - gen_fill_as_s0_intents
+    - orphan_intents_off_play_path
+    - oneshot_propose_as_success
+    - campaign_tone_hardlock
+    - full_glb_meshfit
+    - y_bias_as_zfight_fix
+    - verify_mcp_only
+    - terrain3d_in_scope
+    - townscaper_product_done
+    - campaign_integration_as_s0_success
+done_when: 'F5 soft SUCCESS: Create World → bias → dials → scaffold accept → Session 0
+  intents → Accept ≥1 → Open world with world_id+gen_bias+dials+scaffold+intents;
+  campaigns empty; Full single-deck KEEP. Framing/examples debt noted — not cleared.
+  MCP ≠ Success.'
+operator_prompt: >-
+  CLOSED KEEP/ask_success soft — do not re-arm this slice. Next Prefer weld cut is
+  sibling-owned (pointer WORLD-import). Do not claim campaign integration.

@@ -1,0 +1,110 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-15T22:03:00Z'
+greenlit_at: '2026-10-15T22:03:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_parity
+slice_id: alpha0_world_parity_r1
+series_id: alpha0_world_builder_r1
+series_step: 1g
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_parity_r1.md
+prior_keep_slice_id: alpha0_world_empty_campaigns_r1
+prior_keep_disposition: KEEP_ask_success
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_bounds_slice_id: alpha0_world_bounds_r1
+keeps_world_propose_slice_id: alpha0_world_propose_r1
+keeps_world_s0_intents_slice_id: alpha0_world_s0_intents_r1
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+prior_note: 1f WORLD-empty-campaigns KEEP/ask_success (operator F5). Brush §0 closed
+  at 2z. Highest-priority §1 next = WORLD-parity (series 1g) Prefer + peer law on Play
+  path; closes §1 before GEN-terrain / §2. Not selecting GEN-terrain as 2a this weld.
+depends_on: alpha0_world_empty_campaigns_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_parity_authorship_peers
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: procedural_manual_craft_peer_contract
+contract: C_world_parity_authorship_peers
+ticket_map: WORLD-parity
+intent_invariant: 'WORLD-parity: full procedural (Create World propose/scaffold) and
+  full manual craft (Enter Craft dual-grid brush) are first-class peers on the Play
+  path; neither demoted; both open empty craft (amber board; no showcase Fulls / no
+  auto-import fill); GEN-fill and Townscaper Done are barred as this ticket Success;
+  GEN fill ≠ craft-enter Success (GEN-* owns self-populate later); empty campaigns
+  remain lawful; no campaign attach on create; brush place tools KEEP; LaunchShell
+  main path.'
+structural_success: LaunchShell frames Create World and Enter Craft as peer authorship
+  lanes with equal chrome; both open empty amber craft; place tools KEEP; parity metas
+  bind on both Play paths; HUD shows peer/lane; empty campaigns KEEP; Import stub KEEP
+  (explicit I/menu); DualGridCraftHost showcase seed gated off enter; no GEN-fill or
+  Townscaper Done claim.
+craft_enter_empty: true
+gen_fill_as_craft_enter: barred
+path_position: 1a–1e KEEP → 1f WORLD-empty-campaigns KEEP → this WORLD-parity GREENLIGHT
+  WELD LIVE → F5 → §1 complete → GEN-terrain / §2 later
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/WorldParityContract.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Core/WorldGen/WorldCanonImportStub.cs
+  - Core/WorldGen/WorldEmptyCampaignsContract.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+  - UI/WorldgenGui.cs
+  - UI/WorldgenGui.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    feedstock_cite: Roadmap/User-Story/Inspiration-UX-Feedstock/cards/dual-grid-nested-placetile-world-authorship.md
+    structural_success: Visible procedural↔manual peer law on Play path; equal chrome;
+      parity metas/HUD; empty campaigns KEEP; no GEN-fill / Townscaper Done as Success;
+      brush KEEP.
+    success_object: procedural_manual_craft_peer_contract
+    refuse:
+    - gen_fill_as_parity_success
+    - townscaper_done_as_parity_success
+    - procedural_only_as_success
+    - manual_demoted_as_toy
+    - campaign_attach_as_world_create_success
+    - empty_campaigns_as_defect
+    - full_canon_ingest_as_stub_success
+    - full_glb_meshfit
+    - y_bias_as_zfight_fix
+    - verify_mcp_only
+    - terrain3d_in_scope
+done_when: 'F5 only: LaunchShell WORLD-parity peer framing → Create World (procedural)
+  and Enter Craft (manual) both first-class → HUD shows parity/lane; campaigns=0 lawful;
+  Import KEEP; Full single-deck KEEP. MCP ≠ Success. GEN-fill / Townscaper Done = out.'
+operator_prompt: >-
+  WELD — eat armed Prefer alpha0_world_parity_r1 via procedural↔manual peer law on
+  LaunchShell / WorldPackage. Do not claim ask_success, GEN-fill Done, or Townscaper
+  Done without operator F5. Do not pick GEN-terrain as this weld. Do not attach campaigns
+  on Create World.

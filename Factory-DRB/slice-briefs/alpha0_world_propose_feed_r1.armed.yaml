@@ -1,0 +1,134 @@
+schema_version: 1
+status: nursery_parked_effect_deferred_to_gen
+operator_parked: true
+effect_deferred_to_gen: true
+refuse_ask_success_on: salt_only_f5
+parked_at: '2026-10-16T03:34:58Z'
+armed_at: '2026-10-16T00:19:45Z'
+composed_at: '2026-10-16T00:19:45Z'
+prefer_amended_at: '2026-10-16T00:19:45Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T00:19:45Z'
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_propose_feed
+slice_id: alpha0_world_propose_feed_r1
+series_id: alpha0_world_builder_r1
+series_step: 1c_propose_feed
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_propose_feed_r1.md
+prior_world_slice_id: alpha0_world_propose_r1
+prior_world_note: KEEP-debt_menu_only_superseded_by_propose_feed_do_not_KEEP
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_r1
+keeps_world_propose_fidelity: staging_propose_feed_awaiting_f5
+keeps_world_s0_intents_slice_id: alpha0_world_s0_optional_lore_r1
+keeps_world_s0_fidelity: staging_optional_lore_salts_gen_when_present
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+next_in_chain: null
+do_not_arm_next: GEN-tone
+next_world_armed: false
+prior_note: >-
+  Debt residual after GEN-terrain-product. Prior WORLD-propose KEEP was menu-only
+  (KEEP-debt). Accept must feed gen pass. No KEEP. No GEN-tone/biomes/PACK.
+  Generate button stays absent. next_world_armed false.
+depends_on: alpha0_gen_terrain_product_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_propose_feed_w1_w3
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: WORLD-propose
+success_object: scaffold_accept_feeds_gen_pass
+contract: C_world_propose_feed_w1_w3
+intent_invariant: >-
+  Tool proposes a scaffold; DM accepts, rejects, or revises. Accept/reject/revise
+  must change a scaffold the generator or the board actually uses. Menu-only ≠ Success.
+structural_success: >-
+  Tool proposes a scaffold; DM accepts, rejects, or revises. Accept/reject/revise
+  must change a scaffold the generator or the board actually uses. Menu-only ≠ Success.
+  W1 Accept binds scaffold GenFeedSalt and coast/ridge axes into Create World Open
+  ApplyGenTerrainPass / GenTerrainService.Compute so land/water differs by scaffold.
+  W2 Propose again / Revise mints a new GenFeedSalt → visibly different land/water on Open.
+  W3 Reject clears feed salt; Accept after Reject requires a new Propose.
+  Refuse menu_only_propose_as_success and scaffold_meta_without_gen_effect.
+  Do not arm GEN-tone / GEN-biomes / PACK-save-load. Do not re-add Generate button.
+welds:
+  W1: accept_binds_scaffold_feed_salt_into_gen_pass
+  W2: propose_again_or_revise_changes_gen_feed_salt
+  W3: reject_clears_scaffold_feed_until_new_propose
+path_position: 1a KEEP-real · 1b KEEP-debt · 1c this propose-feed staging → F5 ·
+  1d packaging · 1e parked · GEN-terrain-product staging · do not arm GEN-tone
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - UI/WorldgenGui.cs
+  - Core/WorldGen/WorldScaffoldProposal.cs
+  - Core/WorldGen/WorldProposeFeedContract.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+do_not_waive:
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - menu_only_propose_as_success
+  - scaffold_meta_without_gen_effect
+  - proxy_substitution
+  - verify_mcp_only
+  - gen_tone_biomes_pack_not_this_debt
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  prior_propose_menu_only: KEEP-debt_superseded
+  no_generate_button_readd: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Tool proposes a scaffold; DM accepts, rejects, or revises. Accept binds
+      GenFeedSalt into Create World gen pass. Propose again / Revise changes salt.
+      Reject clears feed. Menu-only ≠ Success.
+    success_object: scaffold_accept_feeds_gen_pass
+    refuse:
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - menu_only_propose_as_success
+    - scaffold_meta_without_gen_effect
+    - verify_mcp_only
+done_when: >-
+  F5 only after W1–W3: Accept→Open reflects scaffold feed; Revise→Open different
+  land/water; Reject clears until new Propose. MCP ≠ Success. No KEEP without F5.
+  Do not arm GEN-tone / GEN-biomes / PACK-save-load. Do not re-add Generate button.
+operator_prompt: >-
+  Prefer for WORLD-propose feed debt. LIVE weld landed staging. Do not KEEP.
+  Do not arm forward MAP. Do not re-add Generate button. next_world_armed false.

@@ -1,0 +1,159 @@
+schema_version: 1
+status: nursery_parked_effect_deferred_to_gen
+operator_parked: true
+effect_deferred_to_gen: true
+refuse_ask_success_on: salt_only_f5
+parked_at: '2026-10-16T03:34:58Z'
+armed_at: '2026-10-16T02:55:00Z'
+composed_at: '2026-10-16T02:55:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T02:55:00Z'
+live_weld_note: >-
+  demote_Player_freeform_keep_DM_and_Shared_table_note_stub_pc_attach_later
+  salt_dm_plus_shared_textchanged_lambda_retained
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_world_s0_dm_lore_honesty
+slice_id: alpha0_world_s0_dm_lore_honesty_r1
+series_id: alpha0_world_builder_r1
+series_step: 1d_dm_lore_honesty
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_s0_dm_lore_honesty_r1.md
+prior_world_slice_id: alpha0_world_s0_optional_lore_r1
+prior_world_note: >-
+  optional lore restored Player/DM/Shared; Player freeform is wrong execution
+  (PC typing into world create). Demote Player; keep DM; Shared stays as
+  table/world note; stub copy for later friends/sheets attach.
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: staging_propose_feed_awaiting_f5
+keeps_world_s0_intents_slice_id: alpha0_world_s0_optional_lore_r1
+keeps_world_s0_fidelity: staging_optional_lore_plus_dm_honesty
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+next_in_chain: null
+do_not_arm_next: GEN-tone
+next_world_armed: false
+prior_note: >-
+  UI honesty debt on 1d optional lore. Remove fake Player freeform. Keep DM
+  lore field. Shared may stay as world-table note. Stub: PCs attach later from
+  friends/sheets (CAMP-roster-attach / RULE-pc-legality parked — do not build).
+  Salt from DM (+ Shared). No KEEP. No friends list. No legality engine. No
+  forward MAP. Generate button stays absent. 1e stays parked.
+depends_on: alpha0_world_s0_optional_lore_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: world_s0_dm_lore_honesty
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: WORLD-s0-intents
+success_object: dm_optional_lore_no_fake_player_freeform
+contract: C_world_s0_dm_lore_honesty
+intent_invariant: >-
+  World seeds that bias what the world is (not campaign/PC attach). Optional
+  lore after Accept scaffold is DM (+ Shared table note) only — no Player
+  freeform. Empty Open skip-ok. Filled DM/Shared salts Create World Open gen.
+  Stub copy only for later friends/sheets PC attach. Do not expand. Not KEEP /
+  not ask_success until operator F5 + Gate B hostile Prefer.
+structural_success: >-
+  World seeds that bias what the world is (not campaign/PC attach). Player-visible
+  proof: optional lore after Accept scaffold shows DM freeform (Shared may remain
+  as table/world note); no Player freeform LineEdit; stub copy that player chars
+  attach later from friends/sheets (not a working friends list); empty Open never
+  blocks; filled DM/Shared lore salts Create World Open gen. Refuse
+  fake_player_freeform_as_pc_attach, friends_list_as_this_debt,
+  pc_legality_engine_as_this_debt, and expand_s0_as_debt_close. Prior optional
+  lore Prefer retained. Do not arm GEN-tone / GEN-biomes / PACK-save-load /
+  CAMP-roster-attach / RULE-pc-legality. Do not re-add Generate button. Do not
+  unpark WORLD-import. Not KEEP / not ask_success until operator F5.
+welds:
+  H1: no_player_freeform_dm_field_present
+  H2: stub_copy_pcs_attach_later_from_friends_sheets
+  H3: salt_dm_shared_empty_skip_ok_textchanged_compiles
+path_position: 1a KEEP-real · 1b staging paid-with-proof · 1c propose-feed staging ·
+  1d this staging dm lore honesty · 1e parked · GEN-terrain-product staging ·
+  do not arm GEN-tone
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - UI/WorldgenGui.cs
+  - Core/WorldGen/WorldSession0IntentBoard.cs
+  - Core/WorldGen/WorldSession0Intent.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Systems/WorldgenCraft.cs
+  - Systems/DualGridCraftHost.cs
+  module_keep:
+  - Systems/DualGridCraftHost.cs
+do_not_waive:
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - fake_player_freeform_as_pc_attach
+  - friends_list_as_this_debt
+  - pc_legality_engine_as_this_debt
+  - campaign_table_prep_as_world_seeds
+  - expand_s0_as_debt_close
+  - proxy_substitution
+  - verify_mcp_only
+  - gen_tone_biomes_pack_not_this_debt
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  prior_optional_lore: alpha0_world_s0_optional_lore_r1
+  deferred_camp_roster_attach: true
+  deferred_rule_pc_legality: true
+  no_generate_button_readd: true
+  do_not_unpark_world_import: true
+  do_not_expand_s0: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      DM optional lore only (Shared table note OK); no Player freeform; stub
+      later PC attach; salt when filled; empty skip-ok. Do not expand.
+    success_object: dm_optional_lore_no_fake_player_freeform
+    refuse:
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - fake_player_freeform_as_pc_attach
+    - friends_list_as_this_debt
+    - pc_legality_engine_as_this_debt
+    - verify_mcp_only
+done_when: >-
+  F5 only: Create World → bias → dials → Propose/Accept → optional lore shows
+  DM (+ Shared) without Player freeform; stub about later friends/sheets
+  attach; empty Open works; DM text salts gen. Enter Craft empty. Auto-gen
+  runs. MCP ≠ Success. No KEEP without F5 + Gate B. Do not arm GEN-tone /
+  GEN-biomes / PACK / friends / legality. Do not re-add Generate button. Do
+  not unpark WORLD-import.
+operator_prompt: >-
+  Prefer + LIVE DM lore UI honesty for WORLD-s0-intents (1d). claim_class
+  staging. Do not KEEP. Do not implement CAMP-roster-attach / RULE-pc-legality.
+  Do not arm forward MAP. next_world_armed false.

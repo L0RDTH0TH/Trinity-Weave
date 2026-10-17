@@ -1,0 +1,177 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5_after_organic_seed_fix
+armed_at: '2026-10-16T04:25:00Z'
+composed_at: '2026-10-16T04:25:00Z'
+prefer_authored_at: '2026-10-16T04:25:00Z'
+operator_f5_fail_at: '2026-10-16T04:51:00Z'
+f5_fail_fix_at: '2026-10-16T04:55:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T04:25:00Z'
+claim_class: staging
+operator_f5_fail_note: map_persisted_terrain_died_regened_on_load_organic_seed_not_persisted
+f5_fail_fix: persist_organic_seed_remesh_on_load
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_pack_save_load
+slice_id: alpha0_pack_save_load_r1
+series_id: alpha0_world_builder_r1
+series_step: pack_save_load
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_pack_save_load_r1.md
+prior_product_slice_id: alpha0_gen_tone_r1
+prior_product_ticket: GEN-tone
+prior_product_disposition: operator_f5_pass_bias_landform_working
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_s0_intents_slice_id: alpha0_world_s0_dm_lore_honesty_r1
+keeps_world_s0_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+do_not_arm_next: GEN-biomes
+next_world_armed: false
+prior_note: >-
+  Operator F5 pass on GEN-tone (bias landform working). PACK-save-load arms quit/reload
+  of the same generated world (+ hand edit) via real user:// pack file. Create World Open
+  auto-gen; Enter Craft empty; Generate button struck; nursery salts parked; 1e Import
+  parked; GEN-biomes unarmed. No KEEP.
+depends_on: alpha0_gen_tone_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: pack_save_load_quit_reload_same_board
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: PACK-save-load
+success_object: quit_reload_same_generated_world_board
+contract: C_pack_save_load_quit_reload_same_board
+hands: townscaper_dual_grid_only
+persist_path: user://worldgen/world_package_v1.json
+intent_invariant: >-
+  Quit and reload the same generated world, including a hand edit. Persist bias, dials,
+  and gen occupancy/height/rivers to a real user:// pack file; Load World restores the
+  same board facts (land/water silhouette / counts). Blank amber or lost world after load
+  = refuse. Create World Open auto-gens; Enter Craft empty until place; no Generate button;
+  GEN-tone BiasLandform retained; nursery salts parked; GEN-biomes unarmed.
+structural_success: >-
+  Quit and reload the same generated world, including a hand edit. Pull forward once
+  GEN-terrain-product + one editable fact exist. Persist writes real pack under
+  user://worldgen/world_package_v1.json with bias, dials, gen corner land/water, heights,
+  rivers (not a fake toast). Load World restores package + board after quit/reload —
+  same land/water silhouette / counts (hand edit survives). Blank amber after load or
+  lost world = refuse. Create World → Open auto-gens from GEN-tone BiasLandform + dials
+  (refuse empty_create_world_open). Enter Craft opens empty amber until place (1g).
+  No Generate button. Nursery propose/lore salts stay parked. 1e Import stays parked
+  (Load World owns quit/reload). Do not arm GEN-biomes.
+f5_expected_behavior: >-
+  Create World → bias + dials → Open → note land/water silhouette. Optional: place one
+  dual cell / make one edit. F5 Save (pack must include organic_seed). Quit or reload
+  session. Load World → same silhouette / counts — NOT a new auto-gen and NOT scrambled
+  vertices on a fresh organic remesh. Lost world, blank amber, or different landmass after
+  load = FAIL. Enter Craft empty path still empty for new craft. No Generate button.
+  Pre-fix packs without organic_seed must be re-saved after Open.
+welds:
+  P1: real_user_data_pack_persist_bias_dials_gen_board
+  P2: load_world_restores_same_silhouette_counts
+  P3: hand_edit_survives_reload
+  P4: create_world_open_auto_enter_craft_empty_no_generate
+  P5: nursery_salts_import_parked_gen_biomes_unarmed
+path_position: 1a KEEP-real · 1b/1c/1d nursery parked · 1e KEEP-debt · 1f/1g KEEP-real ·
+  GEN-terrain-product r2 F5 · GEN-tone r1 F5 pass → PACK-save-load r1 staging awaiting F5 →
+  GEN-biomes next (unarmed)
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/PackSaveLoadContract.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - Core/WorldGen/GenToneContract.cs
+  - UI/WorldgenGui.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  module_keep_empty_enter:
+  - Systems/WorldgenCraft.cs
+do_not_waive:
+  - blank_amber_after_load
+  - lost_world_after_load
+  - fake_toast_as_save
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - generate_button_as_product_ux
+  - empty_create_world_open
+  - gen_fill_as_craft_enter
+  - proxy_substitution
+  - verify_mcp_only
+  - gen_biomes_not_armed
+  - nursery_salt_stubs_stay_parked
+  - world_import_full_ingest_parked_until_pack
+  - organic_remesh_without_persisted_seed_as_restore
+  - autodgen_after_pack_load
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  empty_enter_sibling: enter_craft_manual_lane_only_do_not_undo_1g
+  create_world_auto_gen: create_world_open_auto_run_gen_pass
+  generate_button_struck: true
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  gen_tone_feedstock: alpha0_gen_tone_r1
+  pack_armed: true
+  gen_biomes_armed: false
+  nursery_salts_parked: true
+  world_import_parked: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Quit and reload the same generated world, including a hand edit. Real user:// pack
+      persists bias/dials/gen board; Load World restores same land/water silhouette / counts.
+      Blank amber or lost world after load = refuse. Create World Open auto-gens; Enter Craft
+      empty; no Generate button.
+    success_object: quit_reload_same_generated_world_board
+    refuse:
+    - blank_amber_after_load
+    - lost_world_after_load
+    - fake_toast_as_save
+    - generate_button_as_product_ux
+    - hotkey_as_product_ux
+    - empty_create_world_open
+    - verify_mcp_only
+    - gen_biomes_not_armed
+done_when: >-
+  F5 only: Create World → Open → note land/water → optional edit → F5 Save → quit/reload →
+  Load World → same board facts; blank/lost = FAIL; Enter Craft empty; no Generate button;
+  MCP ≠ Success. No KEEP without operator F5. Do not arm GEN-biomes.
+operator_prompt: >-
+  PACK-save-load r1 Prefer + LIVE pack persist/restore welded staging. Do not KEEP. Do not
+  arm GEN-biomes. Do not claim ask_success without F5. Create World Open still auto-gens.
+  Enter Craft empty. Generate button stays struck. Nursery salts stay parked. 1e Import
+  parked. next_world_armed false.

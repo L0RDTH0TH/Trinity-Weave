@@ -1,0 +1,40 @@
+{
+  "slice_id": "alpha0_stalberg_dual_place_product_r1",
+  "ask_id": "alpha0_stalberg_dual_visual",
+  "ticket_map_id": "PLACE-product",
+  "claim_class": "staging",
+  "prefer_authorship_pass": "pending",
+  "prefer_path": "concept",
+  "concept_prefer_ok": false,
+  "map_fidelity_hostile_ok": false,
+  "map_fidelity_hostile": {
+    "ok": false,
+    "pending": true,
+    "note": "Gate B₁ Prefer hostile required before any staging Success / greenlight — thickened Success draft authorship only; factory_greenlit false"
+  },
+  "weld_intent_hostile_ok": false,
+  "weld_intent_hostile": {
+    "ok": false,
+    "pending": true,
+    "note": "Gate B₂ post-weld — smoke after B₁ → GREENLIGHT → weld LIVE; PLACE unwelded; tags≠pass; B₂ must not rewrite Prefer Success"
+  },
+  "success_object": "grey_ghost_lmb_permanent_opaque_full_plate",
+  "structural_success_thickened": true,
+  "thickened_bars": [
+    "same_seat_ghost_and_opaque_full",
+    "owned_update_four_and_coast_gate_still_run",
+    "refuse_piggyback_skip_update_four_false",
+    "neighbor_rebuild_must_not_delete_full",
+    "biome_assign_probe_pack_stay_not_own_gen_biomes"
+  ],
+  "factory_greenlit": false,
+  "live_weld_landed": false,
+  "keep": false,
+  "ask_success": false,
+  "operator_f5_confirmed": false,
+  "do_not_arm": ["GEN-sites"],
+  "prior_recovery": "alpha0_place_thrash_rollback_r1",
+  "completed_at": null,
+  "authored_at": "2026-10-16T21:12:37Z",
+  "thickened_at": "2026-10-16T22:08:18Z"
+}

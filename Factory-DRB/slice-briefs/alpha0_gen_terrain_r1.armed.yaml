@@ -1,0 +1,82 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-15T22:16:00Z'
+greenlit_at: '2026-10-15T22:16:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_gen_terrain
+slice_id: alpha0_gen_terrain_r1
+series_id: alpha0_world_builder_r1
+series_step: 2a
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_gen_terrain_r1.md
+prior_world_slice_id: alpha0_world_parity_r1
+prior_world_note: empty_craft_enter_folded_into_1g_KEEP_do_not_undo
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_bounds_slice_id: alpha0_world_bounds_r1
+keeps_world_propose_slice_id: alpha0_world_propose_r1
+keeps_world_s0_intents_slice_id: alpha0_world_s0_intents_r1
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+prior_note: 1g WORLD-parity folded empty craft enter (KEEP). §2 first = GEN-terrain
+  (series 2a) Prefer + explicit Generate land/water/height stub from dials/bias. Not
+  selecting GEN-biomes/history. Full natural-gen erosion stack / DF-hours later.
+depends_on: alpha0_world_parity_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: gen_terrain_explicit_populate
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+success_object: gen_terrain_dualgrid_height_starter
+contract: C_gen_terrain_explicit_populate
+ticket_map: GEN-terrain
+intent_invariant: 'GEN-terrain: after world/craft open empty (1g KEEP), explicit Generate
+  (T) paints dual-grid land/water from dials+bias and records height contract stub
+  (+ river corridors); never silent fill on craft enter; not DF-hours Done; not full
+  natural-gen stack Done; not GEN-biomes/history; campaigns empty; no Townscaper Done.'
+structural_success: GenTerrainService computes land/water/height/rivers; DualGridCraftHost.ApplyGenTerrainPass
+  applies only on explicit invoke; WorldgenCraft Key.T wires Generate; empty-enter arm
+  unchanged except clearing gen state; LaunchShell/HUD hints empty→T→populate; schema
+  v8 metas; LaunchShell main path.
+path_position: 1a–1f KEEP → 1g WORLD-parity empty-enter KEEP → this GEN-terrain GREENLIGHT
+  WELD LIVE → F5 → GEN-biomes later
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/GenTerrainContract.cs
+  - Core/WorldGen/GenTerrainService.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - UI/WorldgenCraftControls.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  module_keep_empty_enter:
+  - Systems/DualGridCraftHost.cs
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  empty_enter_sibling: do_not_undo_1g
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md

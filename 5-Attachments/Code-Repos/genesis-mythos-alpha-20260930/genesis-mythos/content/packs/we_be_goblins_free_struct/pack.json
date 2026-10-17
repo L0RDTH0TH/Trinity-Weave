@@ -1,0 +1,13 @@
+{
+  "pack_id": "we_be_goblins_free_struct",
+  "title": "We Be Goblins Free \u2014 structured cartridge",
+  "subtitle": "PDF-derived structure from vault Ingest/PZO9500-9E_WeBeGoblinsFree.pdf \u00b7 operator IP rules \u00b7 NOT Paizo prose",
+  "ruleset_bind": "pathfinder_pf1",
+  "release_stage": "alpha_0",
+  "honesty": "Structured adventure packet only. No licensed adventure prose in tree. Placeholder geometry. Offline. claim_class staging; factory_greenlit false.",
+  "source_pdf": "Ingest/PZO9500-9E_WeBeGoblinsFree.pdf",
+  "default_site_id": "birdcruncher_cave_feast",
+  "pregens_file": "pregens.json",
+  "sites_file": "sites.json",
+  "beats_file": "beats.json"
+}

@@ -1,0 +1,327 @@
+operator_kill_at: 2026-10-04T03:13:23Z
+superseded_by: alpha0_stalberg_dual_geometry_rethink_investigation
+# Armed Prefer packet — dual ownership on MeshGraph incidence (neighbor placement).
+# GREENLIT 2026-10-04T02:34:56Z — factory_greenlit true; armed_ready_to_stage.
+# Prefer concept path required (object identity + invariant). No staging-only chain-advance.
+# Operator F5 after primal_graph_r1: MeshGraph landed; neighbor cluster still wrong.
+
+schema_version: 1
+status: aborted_superseded_by_geometry_rethink
+armed_at: '2026-10-04T02:34:56Z'
+greenlit_at: '2026-10-04T02:34:56Z'
+law_amended_at: '2026-10-04T02:34:56Z'
+factory_greenlit: false
+claim_class: aborted
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_rebind
+slice_id: alpha0_stalberg_dual_rebind_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2g
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_rebind_r1.md
+prior_slice_id: alpha0_stalberg_primal_graph_r1
+prior_note: >-
+  primal_graph_r1 concept ok MeshGraph landed; operator F5 confirmed neighbor
+  cluster still wrong (same wrong cluster feel) → dual incidence rebind
+logic_prior_slice_id: alpha0_stalberg_primal_graph_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+depends_on: alpha0_stalberg_primal_graph_r1
+next_in_chain: alpha0_stalberg_dual_face_centroid_r1
+superseded_next: alpha0_stalberg_dual_face_centroid_r1
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: fix_dual_ownership_cardinal_not_face_block_2x2
+prefer_authorship: true
+prefer_concept_required: true
+lane: module
+success_object: dual_offset_cells
+intent_invariant: >-
+  Player edits logic points; dual cells are the half-offset quads whose corners
+  are those shared Vertex refs — cardinal (N/E/S/W) around the point, never a
+  primary-face 2×2 block.
+structural_success: >-
+  Dual cells are vertex-centered (owner logic Vertex; corners = edge-neighbor
+  Vertex refs); DualCellsTouching/OwnedDualCellKeys/UpdateFour yield the cardinal
+  dual set around the clicked point — not a primary-face 2×2 plate block; cyan =
+  those duals only; identical on repeat; Prefer concept ok.
+end_state: >-
+  Authorable irregular dual-grid craft plane — cardinal dual_offset_cells around
+  logic points; dual_visual later.
+path_position: >-
+  primal_graph_r1 (MeshGraph landed, F5 neighbor still wrong / face-block feel) →
+  this cardinal dual rebind → next dual_visual_r3
+
+conceptual_leg:
+  project_end_state: >-
+    Authorable irregular dual-grid craft plane on organic all-quad board.
+  end_state: >-
+    Authorable irregular dual-grid craft plane — cardinal dual_offset_cells around
+    logic points; dual_visual later.
+  path_position: >-
+    primal_graph_r1 (MeshGraph landed, F5 neighbor still wrong / face-block feel) →
+    this cardinal dual rebind → next dual_visual_r3
+  intent_invariant: >-
+    Player edits logic points; dual cells are the half-offset quads whose corners
+    are those shared Vertex refs — cardinal (N/E/S/W) around the point, never a
+    primary-face 2×2 block.
+  success_object: dual_offset_cells
+  structural_success: >-
+    Vertex-centered duals; DualCellsTouching = cardinal edge-neighbor duals;
+    refuse face_block_neighborhood / primary_face_as_dual; Prefer concept ok.
+
+zone_ownership:
+  module:
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+  - Core/WorldGen/OrganicMeshGraph.cs
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  intent_validates_gates:
+    law: Prefer-Authorship-Host-Law_C.2
+    success_object: dual_offset_cells
+    structural_success: >-
+      Player edits logic points; dual cells are the half-offset quads whose
+      corners are those shared Vertex refs
+  dual_offset_cells:
+    law: dual_ownership_cardinal_vertex_centered_not_face_block
+    success_object: dual_offset_cells
+    success_object_required: dual_offset_cells
+    intent_invariant: >-
+      Player edits logic points; dual cells are the half-offset quads whose corners
+      are those shared Vertex refs — cardinal (N/E/S/W) around the point, never a
+      primary-face 2×2 block.
+    refuse:
+    - primary_face_as_dual
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - face_scan_proxy_neighborhood
+    - soft_take_4
+    - valence_drop_editable
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    success_object: dual_offset_cells
+    structural_success: >-
+      DualCellsTouching/OwnedDualCellKeys/UpdateFour = cardinal edge-neighbor duals
+      around the logic Vertex (N/E/S/W); corners = MeshGraph Vertex singletons;
+      refuse face_block_neighborhood / primary_face_as_dual; Prefer concept ok
+    refuse:
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - primary_face_as_dual
+    - face_block_neighborhood
+    - face_proxy_dual
+    - support_face_index_as_dual_success
+    - face_scan_proxy_neighborhood
+    - soft_take_4
+    - valence_drop_editable
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - stamp_as_dual
+    - skip_dual_offset
+    - indexed_lists_as_graph
+    - ephemeral_edge_key_as_topology
+    - non_unique_vertices
+    - points_as_grid
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - hex19_pick_as_craft_authority
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  mesh_graph_preserved:
+    prior: alpha0_stalberg_primal_graph_r1
+    note: >-
+      MeshGraph remains ownership surface for primal; this Prefer Success is
+      dual_offset_cells via incidence rebind (not re-claiming organic_mesh_graph SO).
+  dual_neighborhood:
+    law: >-
+      DualCellsTouching / OwnedDualCellKeys / UpdateFour* = cardinal dual set
+      around the logic Vertex (edge-neighbor vertex-centered duals); cyan = those
+      only; repeat click identical ≤4 keys; refuse face-block 2×2 / primary_face_as_dual
+    refuse_substitute:
+    - support_face_index_as_dual_success
+    - face_block_neighborhood
+    - face_scan_proxy_neighborhood
+    - soft_take_4_as_stable_neighborhood
+    - valence_drop_editable
+    - primary_face_as_dual
+  dual_lattice:
+    preserved_prior: alpha0_stalberg_dual_lattice_r2
+    note: half-step dual retained; ownership rebound to cardinal vertex-centered duals
+  dual_visual:
+    deferred: true
+    note: do_not_evaluate_until_dual_rebind_concept_and_operator_f5
+
+matrix_quotes:
+  dual_incidence_rebind:
+    prefer: >-
+      Intent: Player edits logic points; dual cells are the half-offset quads whose
+      corners are those shared Vertex refs — cardinal (N/E/S/W) around the point,
+      never a primary-face 2×2 block. success_object=dual_offset_cells.
+      DualCellsTouching/OwnedDualCellKeys/UpdateFour = edge-neighbor duals;
+      cyan those duals only; rings=2 spacing=3.0.
+    never: >-
+      primary_face_as_dual; face_block_neighborhood; face_proxy_dual; SupportFaceIndex
+      Success; face-scan neighborhood; soft Take(4); valence_drop_editable;
+      staging Prefer alone as chain-advance; Hex19 Success; density; Terrain3D;
+      dual_visual ask_success this Prefer
+
+hard_prefer_gaps:
+- id: dual_cardinal_not_face_block
+  must: dual_cells_touching_cardinal_edge_neighbor_duals_not_primary_face_2x2
+  refuse:
+  - face_block_neighborhood
+  - primary_face_as_dual
+  - face_scan_proxy_neighborhood
+  - support_face_index_as_dual_success
+  - soft_take_4
+- id: concept_prefer_object_identity
+  must: success_object_dual_offset_cells_plus_intent_invariant_aligned
+  refuse:
+  - intent_collapsed_to_mechanics
+  - proxy_substitution
+  - primary_face_as_dual
+- id: dual_corners_are_vertex_refs
+  must: dual_cell_corners_are_shared_organic_mesh_graph_vertex_singletons
+  refuse:
+  - primary_face_as_dual
+  - face_proxy_dual
+  - proxy_substitution
+- id: valence_residue_does_not_break_neighbors
+  must: valence_gt4_does_not_drop_editable_or_corrupt_neighbor_sets
+  refuse:
+  - valence_drop_editable
+  - unstable_dual_neighborhood
+  - over_neighbor_paint
+- id: cyan_owned_duals_only
+  must: highlight_and_update_four_identical_le_4_dual_keys_on_repeat_click
+  refuse:
+  - unstable_dual_neighborhood
+  - over_neighbor_paint
+- id: priors_preserved
+  must: organic_underlay_craft_authority_manual_scale_meshgraph_rings2_spacing3
+  refuse:
+  - hex19_pick_as_craft_authority
+- id: scope_dual_rebind_only
+  must: no_dual_visual_ask_success_no_density_no_terrain3d_no_chain_without_concept
+  refuse:
+  - terrain3d_in_scope
+  - gray_ramp_only
+
+done_when: >-
+  Prefer concept ok (object identity + invariant; not staging Prefer alone):
+  DualCellsTouching / OwnedDualCellKeys / UpdateFour* yield cardinal duals around
+  the logic Vertex (N/E/S/W) — never a primary-face 2×2 plate block; dual corners
+  are MeshGraph Vertex singletons; MCP cyan = cardinal set, identical on repeat;
+  organic + MeshGraph + craft authority + rings=2 spacing=3.0 intact.
+  Dual-visual variant polish out of scope.
+
+refuse_codes:
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- face_block_neighborhood
+- face_proxy_dual
+- support_face_index_as_dual_success
+- face_scan_proxy_neighborhood
+- soft_take_4
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- hex19_pick_as_craft_authority
+- gray_ramp_only
+- inspiration_shape_miss
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+
+do_not_waive:
+- face_block_neighborhood
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- face_proxy_dual
+- support_face_index_as_dual_success
+- face_scan_proxy_neighborhood
+- soft_take_4
+- valence_drop_editable
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- gray_ramp_only
+- inspiration_shape_miss
+- hex19_pick_as_craft_authority
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- skip_dissolve_relax
+- indexed_lists_as_graph
+- ephemeral_edge_key_as_topology
+- non_unique_vertices
+
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_rebind_r1
+  require_implicit_bind: true
+  require_concept_prefer: true
+  steps:
+  - Operator GREENLIGHT WELD received — factory_greenlit true
+  - Slice Producer compose with full conceptual leg (judgment path)
+  - Weld LIVE DualCellsTouching/OwnedDualCellKeys/UpdateFour incidence-only + valence residue
+  - Prefer concept ok — refuse primary_face_as_dual / face_scan_proxy / soft_take_4 / valence_drop_editable
+  - MCP repeat-click identical ≤4 dual keys; Trinity push project; staging until F5
+
+fresh_chat_instruction: >-
+  Half-B IMPLEMENT_SLICE alpha0_stalberg_dual_rebind_r1 — vertex-centered cardinal
+  duals (corners = edge-neighbor Vertex refs); DualCellsTouching = N/E/S/W around
+  logic point; refuse primary-face 2×2 / face_block_neighborhood; Prefer concept
+  (dual_offset_cells + cardinal invariant); rings=2 spacing=3.0 MeshGraph; no Curator.

@@ -1,0 +1,107 @@
+{
+  "slice_id": "alpha0_stalberg_craft_plane_authority_r1",
+  "ok": true,
+  "detail": "prefer_authorship_pass_ok",
+  "violations": [],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/Hex19DualOffsetLattice.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs",
+      "Core/WorldGen/ICraftCellAuthority.cs",
+      "Core/WorldGen/OrganicQuadMesh.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_present": [
+      "Systems/DualGridCraftHost.cs",
+      "Core/WorldGen/Hex19OccupancyLattice.cs"
+    ],
+    "required_live_files_absent": [],
+    "edge_signals": [
+      "edge_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "edge_collection:Systems/DualGridCraftHost.cs",
+      "line_primitive:Core/WorldGen/OrganicQuadMesh.cs",
+      "line_primitive:Systems/DualGridCraftHost.cs",
+      "neighbor_api:Core/WorldGen/Hex19OccupancyLattice.cs"
+    ],
+    "face_cell_signals": [
+      "cell_builder:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "cell_builder:Systems/DualGridCraftHost.cs",
+      "cell_entity:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "corner_api:Core/WorldGen/Hex19OccupancyLattice.cs",
+      "corner_api:Systems/DualGridCraftHost.cs",
+      "face_collection:Core/WorldGen/OrganicQuadMesh.cs",
+      "face_collection:Systems/DualGridCraftHost.cs",
+      "face_collection:Systems/WorldgenCraft.cs"
+    ],
+    "point_signals": [],
+    "has_edges": true,
+    "has_faces_or_cells": true,
+    "points_only": false,
+    "missing_axes": [],
+    "organic_quad_kernel": {
+      "repo_present": true,
+      "files_scanned": [
+        "Core/WorldGen/OrganicQuadMesh.cs",
+        "Core/WorldGen/StalbergQuadKernel.cs",
+        "Systems/DualGridCraftHost.cs",
+        "Systems/WorldgenCraft.cs"
+      ],
+      "required_organic_files_present": [
+        "Core/WorldGen/StalbergQuadKernel.cs",
+        "Core/WorldGen/OrganicQuadMesh.cs",
+        "Systems/DualGridCraftHost.cs"
+      ],
+      "required_organic_files_absent": [],
+      "pipeline_signals": [
+        "area_side:Core/WorldGen/StalbergQuadKernel.cs",
+        "boundary_pin:Core/WorldGen/StalbergQuadKernel.cs",
+        "clamp_force:Core/WorldGen/StalbergQuadKernel.cs",
+        "dissolve:Core/WorldGen/StalbergQuadKernel.cs",
+        "flatten:Core/WorldGen/OrganicQuadMesh.cs",
+        "flatten:Systems/DualGridCraftHost.cs",
+        "get_or_add:Core/WorldGen/StalbergQuadKernel.cs",
+        "position_hash:Core/WorldGen/StalbergQuadKernel.cs",
+        "prove:Systems/DualGridCraftHost.cs",
+        "regenerate:Systems/DualGridCraftHost.cs",
+        "regenerate:Systems/WorldgenCraft.cs",
+        "relax:Core/WorldGen/StalbergQuadKernel.cs",
+        "reweld:Core/WorldGen/StalbergQuadKernel.cs",
+        "seed:Core/WorldGen/StalbergQuadKernel.cs",
+        "subdivide:Core/WorldGen/StalbergQuadKernel.cs",
+        "triangulate:Core/WorldGen/StalbergQuadKernel.cs",
+        "unique_topo:Core/WorldGen/StalbergQuadKernel.cs"
+      ],
+      "hex_scaffold_signals": [],
+      "dual_as_kernel_signals": [],
+      "noodle_render_signals": [],
+      "has_seed": true,
+      "has_triangulate": true,
+      "has_dissolve": true,
+      "has_subdivide": true,
+      "has_relax": true,
+      "has_flatten": true,
+      "has_regenerate": true,
+      "has_unique_topo": true,
+      "has_get_or_add": true,
+      "has_position_hash": true,
+      "has_area_side": true,
+      "has_clamp_force": true,
+      "has_boundary_pin": true,
+      "has_reweld": true,
+      "has_organic_root": true,
+      "ensure_host_builds_organic": true,
+      "ensure_host_builds_hex_scaffold": false,
+      "ensure_host_builds_dual_overlay": false,
+      "has_try_pick_organic_face": true,
+      "has_organic_face_cell": true,
+      "hex19_snap_in_try_pick_hex": false,
+      "hex19_snap_in_try_pick_organic": false,
+      "set_cell_fill_uses_organic": true
+    }
+  },
+  "completed": "2026-10-03T18:04:05Z",
+  "producer_run_id": "sp-tcpa-20261003"
+}

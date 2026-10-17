@@ -1,0 +1,19 @@
+{
+  "slice_id": "alpha0_stalberg_dual_face_centroid_r1",
+  "producer_run_id": "sp-fcr1-4205d9",
+  "lanes": [
+    {
+      "lane": "module",
+      "zone_paths": [
+        "Core/WorldGen/OrganicDualOffsetLattice.cs",
+        "Core/WorldGen/OrganicMeshGraph.cs",
+        "Core/WorldGen/StalbergQuadKernel.cs",
+        "Core/WorldGen/OrganicQuadMesh.cs",
+        "Systems/DualGridCraftHost.cs",
+        "Systems/WorldgenCraft.cs",
+        "scenes/WorldgenCraft.tscn"
+      ],
+      "mission": "Rewrite OrganicDualOffsetLattice to Stage-6 face-centroid duals; fix IsHalfStepOffset Hex19 polarity; host highlight/update-four."
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+schema_version: 1
+project_id: genesis-mythos-master
+game_repo_path: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos
+feed_authority: vault_roadmap
+execution_roadmap_ref: 1-Projects/genesis-mythos-master/Roadmap/
+release_tier: closed_alpha
+factory_bootstrap:
+  gates_before_slices: true
+  bootstrap_waiver: true
+  require_weave_track_coupled: true
+  bootstrap_waiver_reason: operator_half_b_greenlit_staging_first_weld_2026-10-01
+factory_greenlit: true
+active_series_id: alpha0_world_builder_r1
+brush_series_id: alpha0_stalberg_grid_kernel_r1
+brush_section_0_closed: true
+brush_section_0_closed_at: alpha0_stalberg_dual_coast_strip_water_r1
+# Historical last world-product arm (GEN-terrain-product) — recovery now is PLACE-product Prefer draft (not armed for weld).
+prior_armed_slice_id: alpha0_gen_terrain_product_r1
+prior_armed_ask_id: alpha0_gen_terrain_product
+prior_armed_packet: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_gen_terrain_product_r1.armed.yaml
+active_recovery: PLACE-product
+active_recovery_slice_id: alpha0_stalberg_dual_place_product_r1
+active_recovery_packet: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_place_product_r1.armed.yaml
+active_recovery_disposition: prefer_draft_awaiting_gate_a_b
+armed_slice_id: null
+armed_ask_id: null
+armed_packet: null
+keeps_world_new_slices:
+- alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slices:
+- alpha0_world_bounds_r1
+keeps_world_bounds_fidelity: KEEP-debt
+keeps_world_propose_slices:
+- alpha0_world_propose_r1
+keeps_world_propose_fidelity: KEEP-debt
+keeps_world_s0_intents_slices:
+- alpha0_world_s0_intents_r1
+keeps_world_s0_fidelity: KEEP-debt_packaging
+keeps_world_import_slices:
+- alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slices:
+- alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+incomplete_superseded_gen_terrain_2a_slices:
+- alpha0_gen_terrain_r1
+slice_factory_greenlit: true
+greenlit_at: '2026-10-15T23:10:00Z'
+world_s0_intents_closed_at: '2026-10-15T21:42:18Z'
+world_import_closed_at: '2026-10-15T21:49:00Z'
+world_empty_campaigns_closed_at: '2026-10-15T22:00:00Z'
+armed_slice_stageable: false
+armed_status: recovery_place_product_prefer_draft_awaiting_gate_a_b
+prior_keep_soft_slice: alpha0_world_s0_intents_r1
+next_world_pointer: GEN-biomes
+next_world_armed: false
+selection_choice: place_product_prefer_before_gen_biomes_f5
+do_not_arm: GEN-sites
+freeze_no_keep_product_success:
+- WORLD-bounds
+- WORLD-propose
+- WORLD-import
+- GEN-terrain
+- GEN-tone
+- PACK-save-load
+- GEN-biomes
+- PLACE-product
+debt_notes:
+  world_bounds_1b: KEEP-debt_proof_moves_to_GEN-terrain-product_W2
+  world_propose_1c: KEEP-debt_menu_only_not_success
+  world_s0_intents_1d: KEEP-debt_packaging_off_critical_path_until_GEN_consumes
+  world_import_1e: KEEP-debt_parked_until_save_load
+  gen_terrain_2a: INCOMPLETE_superseded_callable_only
+  place_product: prefer_draft_thickened_success_awaiting_gate_a_b
+  gen_biomes: staging_awaiting_f5_after_place_honest_gate_b_required
+density_lift: live_rings_5_spacing_210
+dual_visual_ask_success: brush_section_0_closed_2z_keep
+keeps_coast_strip_water_slices:
+- alpha0_stalberg_dual_coast_strip_water_r1
+parked_coast_stage6_emit_slices:
+- alpha0_stalberg_dual_coast_stage6_emit_r1
+superseded_zfight_harden_slices:
+- alpha0_stalberg_dual_zfight_harden_r1
+superseded_snap_polarity_slices:
+- alpha0_stalberg_dual_cell_lookup_yaw_r1
+- alpha0_stalberg_dual_secondary_glow_center_r1
+superseded_paint_polarity_slices:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+superseded_coverage_orient_slices:
+- alpha0_stalberg_dual_owned_cell_place_r1
+superseded_incomplete_yaw_slices:
+- alpha0_stalberg_dual_cell_lookup_yaw_r1
+superseded_paint_scope_slices:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+superseded_n3_place_skip_slices:
+- alpha0_stalberg_dual_owned_only_paint_r1
+superseded_owned_only_coastline_deferral_slices:
+- alpha0_stalberg_dual_owned_only_paint_r1
+superseded_place_coast_meshfit_water_slices:
+- alpha0_stalberg_dual_place_coast_r1
+superseded_meshfit_coast_slices:
+- alpha0_stalberg_dual_coast_strip_water_r1
+keeps_place_coast_bits_slices:
+- alpha0_stalberg_dual_place_coast_r1
+keeps_snap_polarity_slices:
+- alpha0_stalberg_dual_primary_vertex_place_r1
+keeps_seat_polarity_slices:
+- alpha0_stalberg_dual_owned_cell_place_r1
+keeps_coverage_frame_slices:
+- alpha0_stalberg_dual_whole_cell_orient_r1
+aborted_superseded_slices:
+- alpha0_stalberg_dual_rebind_r1
+manual_limit_seed_rings: 2
+manual_limit_spacing: 3.0
+manual_limit_note: enlarge_world_spacing_not_cell_count
+git:
+  push_enabled: false
+  curator_forbidden: true
+failed_altitude_metrics_only:
+- alpha0_townscaper_craft_visual_r1
+- alpha0_townscaper_craft_visual_r2
+- alpha0_townscaper_craft_core_r1
+partial_wrong_object_altitude:
+- alpha0_stalberg_dual_neighborhood_r1
+- alpha0_stalberg_dual_lattice_r1
+failed_altitude_visual_execution:
+- alpha0_stalberg_quad_kernel_r1
+- alpha0_stalberg_dual_visual_r1
+failed_altitude_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+stalberg_kernel_altitude_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_quad_kernel_r1.receipt.md
+active_craft_chain:
+- alpha0_stalberg_quad_kernel_r1
+- alpha0_stalberg_quad_kernel_visual_r1
+- alpha0_stalberg_quad_kernel_relax_r1
+- alpha0_stalberg_topology_base_r1
+- alpha0_stalberg_craft_plane_authority_r1
+- alpha0_stalberg_dual_corner_r1
+- alpha0_stalberg_manual_scale_r1
+- alpha0_stalberg_dual_visual_r1
+- alpha0_stalberg_dual_visual_r2
+- alpha0_stalberg_dual_neighborhood_r1
+separate_tutorial_ladder:
+- alpha0_townscaper_tutorial_s1_occupancy_r1
+- alpha0_townscaper_tutorial_s2_dual_offset_r1
+- alpha0_townscaper_tutorial_s3_connector_modules_r1
+- alpha0_townscaper_tutorial_s4_module_selection_r1
+- alpha0_townscaper_tutorial_s5_genesis_adapt_r1
+- alpha0_townscaper_tutorial_s6_art_bind_r1
+parked_non_authority:
+- row_ux_world_generation_r1_d6
+- alpha0_townscaper_tutorial_s2_dual_offset_r1
+- alpha0_stalberg_quad_kernel_visual_r1
+depth_frozen_until_kernel_clears:
+- alpha0_townscaper_df_depth_r1
+scrapped_for_this_round:
+- alpha0_worldgen_dualgrid_sparky_r1
+- alpha0_worldgen_terrain3d_feed_r3
+- alpha0_worldgen_terrain3d_feed_r2
+- alpha0_worldgen_terrain3d_feed_r1
+disarmed_visual_packets:
+- alpha0_townscaper_craft_visual_r1.armed.yaml
+- alpha0_townscaper_craft_visual_r2.armed.yaml
+- alpha0_townscaper_craft_core_r1.armed.yaml
+invalidated_attest:
+- alpha0_townscaper_tutorial_s1_attest
+terrain3d_posture: deferred_later_files_may_remain_on_live_not_armed_on_craft_path
+prefer_round_pivot_at: '2026-10-03T07:59:01Z'
+prefer_round_note: dual_neighborhood_r1_greenlit__implement_stable_four_cell_ownership
+weld_launched_at: '2026-10-15T23:10:00Z'
+weld_slice_id: alpha0_gen_biomes_r1
+prior_weld_slice_id: alpha0_gen_terrain_product_r1
+prior_incomplete_slice_id: alpha0_gen_terrain_r1
+recovery_note: >-
+  2026-10-16 place thrash rolled back to 2675d22; active_recovery PLACE-product
+  Prefer draft (thickened Grok Success bar: same-seat, update-four+coast still
+  run, neighbor must not delete Full, biomes stay not owned); GEN-biomes F5 after
+  place honest; do not arm GEN-sites; no weld this authorship pass.
+chained_eat:
+  enabled: true
+  sequence:
+  - alpha0_stalberg_craft_plane_authority_r1
+  - alpha0_stalberg_dual_corner_r1
+  - alpha0_stalberg_manual_scale_r1
+  - alpha0_stalberg_dual_visual_r1
+  - alpha0_stalberg_dual_visual_r2
+  - alpha0_stalberg_dual_neighborhood_r1
+  - alpha0_stalberg_dual_lattice_r1
+  - alpha0_stalberg_dual_lattice_r2
+  - alpha0_stalberg_primal_graph_r1
+  - alpha0_stalberg_dual_rebind_r1
+  - alpha0_stalberg_dual_face_centroid_r1
+  - alpha0_stalberg_dual_glow_neighborhood_r1
+  - alpha0_stalberg_dual_secondary_glow_center_r1
+  - alpha0_stalberg_dual_visual_r3
+  - alpha0_stalberg_dual_cell_lookup_yaw_r1
+  - alpha0_stalberg_dual_primary_vertex_place_r1
+  - alpha0_stalberg_dual_owned_cell_place_r1
+  - alpha0_stalberg_dual_whole_cell_orient_r1
+  - alpha0_stalberg_dual_owned_only_paint_r1
+  - alpha0_stalberg_dual_tri_cell_place_r1
+  - alpha0_stalberg_dual_zfight_harden_r1
+  - alpha0_stalberg_dual_single_deck_emit_r1
+  - alpha0_stalberg_dual_update_four_recompute_r1
+  - alpha0_stalberg_dual_place_coast_r1
+  - alpha0_stalberg_dual_coast_strip_water_r1
+  stop_if_prior_fails: true
+  staging_prefer_ok_means: candidate_only
+  concept_prefer_required_for_dual_authorship_advance: true
+  ticket1_status: staging_prefer_ok_candidate
+  ticket2_status: staging_prefer_ok_candidate
+  ticket3_status: staging_prefer_ok_candidate
+  ticket4_status: failed_altitude_partial_visual_fidelity
+  ticket5_status: paused_awaiting_concept_prefer
+  ticket6_status: staging_prefer_ok_candidate_wrong_object_partial
+  ticket7_status: superseded_partial_wrong_object_by_r2
+  ticket7b_status: staging_prefer_ok_awaiting_operator_f5
+  ticket7c_status: f5_confirmed_neighbor_still_wrong__meshgraph_landed
+  ticket7d_status: aborted_superseded_by_geometry_rethink
+  ticket7e_status: staging_prefer_ok_awaiting_operator_f5
+  ticket8_status: greenlit_weld_staging_prefer_awaiting_operator_f5
+  chain_stopped: false
+  chain_stop_reason: ''
+  chain_reopen_for_r2_at: '2026-10-03T23:54:41Z'
+  chain_reopen_for_r2_reason: harness_proof_ok__intent_validates_gates_shipped__operator_write_prime_eat_dual_lattice_r2
+  chain_reopened_at: '2026-10-03T20:22:00Z'
+  chain_reopen_reason: operator_f5_confirmed_unstable_dual_neighborhood__pause_dual_visual
+  chain_paused_at: '2026-10-04T00:00:00Z'
+  chain_pause_note: world_s0_intents_r1 KEEP/ask_success soft — 1a/1b/1c/1d WORLD KEEP;
+    1d soft framing/examples altitude debt noted; brush §0 closed (2z KEEP; 2w VIS-zfight
+    KEEP; 2v SUPERSEDED; 2aa coast emit KEEP LIVE parked); armed WORLD-import 1e sibling;
+    git.push_enabled remains false.
+  chain_reopen_for_dual_rebind_at: '2026-10-04T02:34:56Z'
+  chain_reopen_for_dual_rebind_reason: operator_f5_confirmed_neighbor_still_wrong_after_primal_graph__greenlight_dual_rebind_r1
+  chain_reopen_for_dual_face_centroid_at: '2026-10-04T03:23:09Z'
+  chain_reopen_for_dual_face_centroid_reason: operator_greenlight_weld_face_centroid_duals_after_geometry_rethink__abort_dual_rebind
+  ticket7f_status: staging_prefer_ok__f5_assumed_green_operator_trajectory
+  ticket_dual_cell_lookup_yaw_status: incomplete_yaw_superseded_by_whole_cell_orient
+  ticket_dual_primary_vertex_place_status: snap_keep__paint_polarity_superseded_by_owned_cell_place
+  ticket_dual_owned_cell_place_status: seat_keep__coverage_orient_superseded_by_whole_cell_orient
+  ticket_dual_whole_cell_orient_status: coverage_frame_keep__paint_scope_superseded_by_owned_only_paint
+  ticket_dual_owned_only_paint_status: coastline_deferral_superseded_by_place_coast__place_full_on_owned_keep
+  ticket_dual_tri_cell_place_status: ask_success_keep
+  ticket_dual_zfight_harden_status: f5_fail_superseded_by_single_deck_emit
+  ticket_dual_single_deck_emit_status: ask_success_keep
+  ticket_dual_update_four_recompute_status: ask_success_keep_operator_move_on
+  ticket_dual_place_coast_status: f5_fail_superseded_by_coast_strip_water__bit_map_keep
+  ticket_dual_coast_strip_water_status: ask_success_keep
+  ticket_dual_coast_stage6_emit_status: landed_keep_live_operator_altitude_shift_to_world_new
+  ticket_world_new_status: ask_success_keep
+  ticket_world_bounds_status: ask_success_keep
+  ticket_world_propose_status: ask_success_keep
+  ticket_world_s0_intents_status: ask_success_keep_soft_framing_debt
+  ticket_world_import_status: live_weld_landed_staging_awaiting_operator_f5
+last_staging_receipt: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_world_s0_intents_r1.receipt.md
+draft_authority_product_slice_id: alpha0_world_import_r1
+draft_authority_slice_id: prefer_intent_validates_gates_r1
+prefer_audit_dual_visual_r1: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-dual_visual_r1-stretch-pattern-2026-10-03.md
+prefer_track:
+  track_id: prefer_authorship_harden_track_r1
+  umbrella_slice_id: prefer_intent_validates_gates_r1
+  nested_companion_slice_id: prefer_dual_object_identity_r1
+  audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  factory_greenlit: true
+  status: greenlit_prefer_weave
+  greenlit_at: '2026-10-04T00:00:00Z'
+  note: Prefer/weave GREENLIGHT shipped; Genesis dual LIVE reopened for dual_face_centroid_r1
+    Stage-6 Prefer
+prefer_track_draft:
+  track_id: prefer_authorship_harden_track_r1
+  umbrella_slice_id: prefer_intent_validates_gates_r1
+  nested_companion_slice_id: prefer_dual_object_identity_r1
+  audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  factory_greenlit: true
+  status: superseded_by_prefer_track
+  note: retained key for readers; authority is prefer_track
+armed_status_note: >-
+  2026-10-16 recovery sync — active_recovery PLACE-product Prefer draft
+  (alpha0_stalberg_dual_place_product_r1 thickened Success); no current armed weld
+  slice; prior world arm GEN-terrain-product / last weld GEN-biomes retained as
+  history; next_world_pointer GEN-biomes · next_world_armed false; do not arm
+  GEN-sites; GEN-biomes F5 after place honest; Gate B required before staging
+  Success/KEEP; freeze no KEEP on PLACE-product / GEN-biomes; brush §0 closed;
+  git.push_enabled false (direct Trinity export push OK for Grok).
+keeps_tri_cell_place_slices:
+- alpha0_stalberg_dual_tri_cell_place_r1
+keeps_update_four_slices:
+- alpha0_stalberg_dual_update_four_recompute_r1
+superseded_visuals_deferred_slices:
+- alpha0_stalberg_dual_tri_cell_place_r1
+- alpha0_stalberg_dual_owned_only_paint_r1
+superseded_zfight_harden_by_single_deck:
+- alpha0_stalberg_dual_zfight_harden_r1
+keeps_single_deck_emit_slices:
+- alpha0_stalberg_dual_single_deck_emit_r1
+keeps_coast_strip_water_ask_success_slices:
+- alpha0_stalberg_dual_coast_strip_water_r1
+parked_no_f5_coast_stage6_emit_slices:
+- alpha0_stalberg_dual_coast_stage6_emit_r1

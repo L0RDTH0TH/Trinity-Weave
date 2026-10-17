@@ -1,0 +1,14 @@
+{
+  "plugin_id": "pathfinder_pf1",
+  "edition": "pathfinder_1e",
+  "display_name": "Pathfinder 1e (first plugin)",
+  "check_schema": "check_schema.json",
+  "tables": [
+    "tables/abilities.json",
+    "tables/skills.json",
+    "tables/conditions.json"
+  ],
+  "demo_binder": "demo/demo_check_schema.json",
+  "dice_host": "IDiceRoller",
+  "notes": "Proof-loop content scaffold — host stays ruleset-agnostic. NOT full campaign ship."
+}

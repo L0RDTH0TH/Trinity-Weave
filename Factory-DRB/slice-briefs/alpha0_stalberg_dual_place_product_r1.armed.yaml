@@ -1,0 +1,163 @@
+schema_version: 1
+status: prefer_draft_awaiting_gate_a_b
+armed_at: null
+composed_at: '2026-10-16T21:12:37Z'
+prefer_authored_at: '2026-10-16T21:12:37Z'
+prefer_thickened_at: '2026-10-16T22:08:18Z'
+factory_greenlit: false
+live_weld_greenlit: false
+live_weld_landed: false
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_visual
+slice_id: alpha0_stalberg_dual_place_product_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: place_product
+catalog_row_id: ux_craft_place
+package_id: pkg_craft_brush
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_place_product_r1.md
+prior_recovery_slice_id: alpha0_place_thrash_rollback_r1
+supersedes_thrash_slice_id: alpha0_stalberg_dual_piggyback_ghost_place_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+prior_world_slice_id: alpha0_gen_biomes_r1
+prior_world_disposition: staging_awaiting_f5_after_place_honest
+next_in_chain: null
+do_not_arm_next: GEN-sites
+next_world_armed: false
+prior_note: >-
+  Place thrash (SeatPolygon/stamp/Cull/piggyback) surgically rolled back to
+  Trinity 2675d22 FlipOrganicCorner baseline. This Prefer restores one recovery
+  step: meaning-minimal place product feel with same-seat commit, owned
+  update-four + coast gate still running, and neighbor rebuild that does not
+  delete the Full. GEN-biomes assign/probe/pack stay intact — this ticket does
+  not own GEN-biomes. Do not arm GEN-sites. Never KEEP in draft. No GREENLIGHT
+  this authorship pass.
+depends_on: alpha0_place_thrash_rollback_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: place_product_ghost_to_opaque_full
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: PLACE-product
+success_object: grey_ghost_lmb_permanent_opaque_full_plate
+contract: C_place_product_ghost_to_opaque_full
+hands: townscaper_dual_grid_only
+intent_invariant: >-
+  Grey ghost under cursor previews the Full plate; LMB commits a permanent opaque
+  Full on the same seat that stays after mouse leave and neighbor rebuild. Owned
+  update-four and coast gate still run on LMB place — piggyback-skip /
+  update_four=false is refuse. Intent/feel product — not wording-minimal
+  SeatPolygon/stamp/Cull/piggyback mechanics. Brush KEEP 2u–2z retained; 2aa parked.
+  Biome assign/probe/pack stay; this ticket does not own GEN-biomes. GEN-sites
+  unarmed; GEN-biomes F5 waits on honest place.
+structural_success: >-
+  One recovery step — grey ghost → LMB → permanent opaque Full plate on the same
+  seat. On Enter Craft empty board, hovering a primary vertex shows a grey ghost
+  footprint at the owned dual seat; LMB places a permanent opaque Full plate on
+  that same seat (ghost seat == commit seat) that remains visible after mouse
+  leave / highlight restore; neighbor rebuild must not delete that Full; owned
+  update-four and coast gate still run on LMB place (piggyback-skip /
+  update_four=false on LMB place is refuse); RMB clears. Ghost preview matches
+  commit seat (no cam recenter; no Terrain3D). Refuse wording-minimal substitutes
+  (SeatPolygon-as-success, piggyback-as-success, CullMode-as-success,
+  log-tag-as-success, neighbor-delete papered over as Success). Create World Open /
+  GEN-biomes assign·probe·pack / PACK organic_seed remain intact and are not this
+  Prefer's Success — this ticket does not own GEN-biomes. Do not arm GEN-sites.
+  claim_class staging until Gate B + F5. Never KEEP in draft.
+f5_expected_behavior: >-
+  Enter Craft → grey ghost under cursor on primary V → LMB → opaque Full plate on
+  the same seat stays after mouse leave and after neighbor rebuild. Owned
+  update-four + coast gate visibly still run (no piggyback-skip / update_four=false
+  on place). RMB clears. Fail if ghost works but commit vanishes, commit seat ≠
+  ghost seat, neighbor rebuild deletes the Full, update-four/coast are skipped on
+  LMB, or feel is still broken / confetti / tip lies. MCP ≠ Success. No KEEP
+  without operator F5. Biome probe/pack still work; GEN-biomes not this Success.
+welds:
+  P1: grey_ghost_preview_owned_dual_seat
+  P2: lmb_commits_permanent_opaque_full_same_seat
+  P3: plate_survives_mouse_leave_highlight_restore
+  P4: owned_update_four_and_coast_gate_still_run_on_lmb
+  P5: neighbor_rebuild_must_not_delete_full
+  P6: rmb_clears_seat_no_cam_recenter
+  P7: refuse_piggyback_skip_update_four_false_wording_minimal
+path_position: brush §0 KEEP-real (2z close; 2aa parked) · place thrash rolled back →
+  PLACE-product Prefer draft (thickened Success) → Gate A+B → greenlight → weld → F5 → then GEN-biomes F5
+zone_ownership:
+  presentation:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - Core/WorldGen/OrganicDualOffsetLattice.cs
+do_not_waive:
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - piggyback_as_place_success
+  - piggyback_skip_update_four
+  - update_four_false_on_lmb_place
+  - seat_polygon_as_place_success
+  - cull_mode_as_place_success
+  - ghost_seat_neq_commit_seat
+  - neighbor_rebuild_deletes_full
+  - verify_mcp_only
+  - gen_biomes_as_place_success
+  - gen_sites_not_armed
+  - place_keep_without_f5
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  empty_enter_sibling: enter_craft_manual_lane_only_do_not_undo_1g
+  gen_sites_armed: false
+  gen_biomes_owned_by_this_ticket: false
+  gen_biomes_awaiting_f5_after_place: true
+  place_thrash_rolled_back: true
+  factory_greenlit_this_pass: false
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Grey ghost → LMB → permanent opaque Full on the same seat; owned update-four
+      + coast gate still run; neighbor rebuild must not delete that Full. Refuse
+      piggyback-skip / update_four=false / SeatPolygon/Cull as Success. Biome
+      assign/probe/pack stay; ticket does not own GEN-biomes. Brush KEEP retained.
+      GEN-sites unarmed. Staging until Gate B + F5. Never KEEP in draft.
+    success_object: grey_ghost_lmb_permanent_opaque_full_plate
+    refuse:
+    - intent_collapsed_to_mechanics
+    - piggyback_as_place_success
+    - piggyback_skip_update_four
+    - update_four_false_on_lmb_place
+    - seat_polygon_as_place_success
+    - cull_mode_as_place_success
+    - ghost_seat_neq_commit_seat
+    - neighbor_rebuild_deletes_full
+    - gen_biomes_as_place_success
+    - hotkey_as_product_ux
+    - verify_mcp_only
+    - place_keep_without_f5
+    - gen_sites_not_armed
+done_when: >-
+  Gate A+B pass; operator greenlight; LIVE weld; F5 only: grey ghost → LMB →
+  permanent opaque Full stays on same seat; update-four + coast still run;
+  neighbor rebuild does not delete Full; RMB clears; MCP ≠ Success; no KEEP
+  without F5; do not arm GEN-sites; GEN-biomes F5 only after place honest.
+operator_prompt: >-
+  PLACE-product Prefer draft only (thickened Success). No GREENLIGHT. No weld
+  this pass. Run Gate A then Gate B before any staging Success claim. After place
+  F5, GEN-biomes remains next world F5 (still not KEEP; do not arm GEN-sites).

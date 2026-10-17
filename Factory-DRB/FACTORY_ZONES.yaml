@@ -1,0 +1,38 @@
+# Factory zones — game repo topology (Module integrates via drops only)
+schema_version: 1
+project_id: genesis-mythos-master
+game_repo_path: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos
+
+zones:
+  asset:
+    write: ["assets/**", "!assets/_techart/**"]
+  techart:
+    write: ["assets/_techart/**"]
+  content:
+    write: ["content/**"]
+  presentation:
+    # Shell UI + project.godot host touch (plugin enable / main_scene — narrow)
+    write:
+      - "UI/**"
+      - "LaunchShell.tscn"
+      - "LaunchShell.cs"
+      - "GameHud.tscn"
+      - "project.godot"
+  audio:
+    write: ["audio/**"]
+  module:
+    # WorldgenCraft + Terrain3D vendor carve-out + core systems
+    write:
+      - "Systems/**"
+      - "Core/**"
+      - "Player/**"
+      - "Camera/**"
+      - "PlayRegion.tscn"
+      - "PlayRegion.cs"
+      - "scenes/**"
+      - "addons/terrain_3d/**"
+
+cross_zone_forbidden: true
+max_depth_below_zone: 4
+# Preflight (host law): armed required paths must ⊆ union(lane zone_write ∪ zones write).
+# See Factory-DRB/Prefer-Authorship-Host-Law.md · factory_dispatch_preflight.

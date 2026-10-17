@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "little_val": {
+    "little_val_ok": true,
+    "anti_pattern_violations": [],
+    "run_id": "prefer_authorship_pass",
+    "detail": ""
+  },
+  "detail": "prefer_authorship_pass_ok",
+  "applicable": true,
+  "negative_examples": [
+    "blue_water_as_coast_success",
+    "y_bias_as_zfight_fix",
+    "full_glb_meshfit",
+    "craft_cam_recenter_on_place",
+    "owned_only_empty_coast_as_success",
+    "update_four_cross_as_success",
+    "expand_only_paint_as_success",
+    "seizure_coplanar_deck_as_success",
+    "points_as_grid",
+    "verify_mcp_only",
+    "proxy_substitution",
+    "intent_collapsed_to_mechanics"
+  ],
+  "warnings": [],
+  "topology_evidence": {
+    "repo_present": true,
+    "files_scanned": [
+      "Core/WorldGen/OrganicDualOffsetLattice.cs",
+      "Systems/DualGridCraftHost.cs",
+      "Systems/WorldgenCraft.cs"
+    ],
+    "required_live_files_present": [
+      "Systems/DualGridCraftHost.cs",
+      "Core/WorldGen/OrganicDualOffsetLattice.cs"
+    ],
+    "required_live_files_absent": [],
+    "edge_signals": [
+      "neighbor_api:Core/WorldGen/OrganicDualOffsetLattice.cs"
+    ],
+    "face_cell_signals": [
+      "cell_entity:Systems/DualGridCraftHost.cs",
+      "corner_api:Systems/DualGridCraftHost.cs"
+    ],
+    "point_signals": [
+      "logic_points:Systems/DualGridCraftHost.cs"
+    ],
+    "has_edges": true,
+    "has_faces_or_cells": true,
+    "points_only": false,
+    "missing_axes": []
+  },
+  "bind": {
+    "ok": true,
+    "violations": [],
+    "detail": "implicit_bind_ok",
+    "applicable": true,
+    "topology_rewrite": true,
+    "topology_axis_armed": true
+  },
+  "concept_prefer_ok": true,
+  "prefer_path": "concept",
+  "success_object": "dual_cell_meshlibrary_placement",
+  "live_weld_greenlit": true,
+  "completed": "2026-10-15T19:28:20Z",
+  "slice_id": "alpha0_stalberg_dual_coast_strip_water_r1",
+  "series_step": "2z",
+  "ticket_map": "PLACE-coast-strip-water",
+  "supersedes": "2y_meshfit_terrain_water",
+  "keeps": "2y_bit_map_update_four_empty_clear_full_single_deck"
+}

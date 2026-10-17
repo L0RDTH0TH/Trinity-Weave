@@ -1,0 +1,32 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T20:12:38Z'
+lock_state: applied
+q2: player-facing, stat-gated hints that a roll path exists; DM can trigger
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Cue = invitation to a check path; not reveal; not DM-only channel.
+row:
+  id: ux_mental_stat_interpretation
+  dimension: ui_surface
+  label: Mental stats surface available read paths not only sheet numbers
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- mental stats unlock a single romance dialogue tree
+- low mental stats hide all social information
+- cues auto-reveal facts without a check or roleplay
+- mental-stat cues are DM-only with no player-facing affordance
+- one insight beat is the only product presentation
+alternatives_not_banned:
+- Subtle diegetic cue vs strong highlight
+- Always-on stat aura vs cue only when DM or system arms it
+- Shared party cues vs strictly per-player vision
+- Sparse cues vs frequent mental-stat texture

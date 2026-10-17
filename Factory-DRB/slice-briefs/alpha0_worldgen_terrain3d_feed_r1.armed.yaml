@@ -1,0 +1,131 @@
+# Armed packet — one word away from REAL factory eat.
+# DO NOT auto-dispatch. Launch word: WELD.
+# factory_greenlit: true — operator greenlight 2026-10-01; wait for WELD.
+# Thin Prefer after alpha0_worldgen_dualgrid_sparky_r1 POC.
+
+schema_version: 1
+status: armed
+launch_word: WELD
+armed_at: "2026-10-01T21:04:12Z"
+greenlit_at: "2026-10-01T18:43:00Z"
+factory_greenlit: true
+claim_class: staging
+do_not_auto_dispatch: true
+
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_worldgen_terrain3d_feed
+slice_id: alpha0_worldgen_terrain3d_feed_r1
+catalog_row_id: ux_world_generation
+factory_feed_slice_id: row_ux_world_generation_r1_d2
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_worldgen_terrain3d_feed_r1.md
+supersedes: alpha0_worldgen_dualgrid_sparky_r1
+project_id: genesis-mythos-master
+
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: update_thin_prefer
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+    - implementation_factory_loop
+    - product_factory_pipeline
+
+matrix_quotes:
+  dual_grid_world_craft:
+    prefer: >-
+      Terrain3D (or existing Prefer terrain) as world/height authority + stock GridMap
+      (or equivalent stock grid) as craft cell overlay — one craft cell data authority
+    never: >-
+      Second parallel terrain or physics authority; custom voxel engine for this ticket;
+      GridMap (or other) as a second height/terrain authority beside Terrain3D
+  terrain_maps_never: >-
+      Second terrain authority; Gaea GridMap/TileMap as 3D terrain authority
+
+terrain3d_feed:
+  host_under: WorldgenCraft / DualGridCraftHost
+  canonical_stamp: stamp_oasis_desert
+  stamp_must: push_height_region_into_Terrain3D_data
+  sparky: consumer_only
+  fail_visible: graybox_models_alone_without_Terrain3D_mesh_update
+  vendor_already_on_disk: true
+  lanes_expected:
+    - module
+  lanes_if_needed:
+    - presentation  # only if project.godot plugin/main_scene touch required
+  skip_unless_adc_tac_needed:
+    - asset
+    - techart
+
+camera:
+  craft_phase: already_landed_r1_do_not_relitigate
+  post_world: god_mode_sparky_consumer_only
+  refuse: sparky_as_terrain_author
+
+ask_fidelity:
+  ask_id: alpha0_worldgen_terrain3d_feed
+  done_when: >-
+    Terrain3D host armed under WorldgenCraft / DualGridCraftHost (ClassDB Prefer,
+    not Multimesh-only Success); stamp_oasis_desert writes height/region into
+    Terrain3D so mesh visibly updates; Sparky inspect/fly consumes that Terrain3D
+    mesh (consumer-only); Matrix Dual-grid Prefer/Never quoted; entry remains
+    res://scenes/WorldgenCraft.tscn
+  forbidden_substitutes:
+    - inspiration_shape_miss
+    - fidelity_miss
+    - engine_pattern_miss
+    - verify_mcp_only
+    - parallel_terrain_engine
+    - graybox_only_world
+  claim_class: staging
+
+operator_attest: F5_stamp_Terrain3D_update_then_sparky_flies_mesh
+ban: verify_mcp_only
+
+zone_ownership:
+  module:
+    - scenes/**
+    - addons/terrain_3d/**
+    - Systems/**
+    - Core/**
+  presentation_if_needed:
+    - project.godot
+
+mcp_prep:
+  godot_mcp_primary: required_on_6505_6506
+  godot_editor: required_open_on_live_project
+  note: Cursor user-godot proxy connects only after Godot editor + plugin attach
+
+on_launch_word_WELD:
+  must_trigger: >-
+    REAL product-factory / factory-orchestrator eat for this ticket —
+    IMPLEMENT_SLICE / factory lanes only (module-primary). Catalog feed id
+    row_ux_world_generation_r1_d2; weld brief / ask fidelity overlay MUST be
+    slice_id alpha0_worldgen_terrain3d_feed_r1 (this packet + brief).
+  required_path:
+    - Load this armed packet + brief alpha0_worldgen_terrain3d_feed_r1.md
+    - Confirm FEEDSTOCK-SHAPE operator_confirmed + factory_greenlit true
+    - Raise rollout budget target_depth≥2 if row_depth_complete at d1
+    - product-factory-confirm-slice ux_world_generation dispatch_depth 2
+    - project_id genesis-mythos-master; LIVE slug genesis-mythos-alpha-20260930/genesis-mythos
+    - factory-orchestrator / stage IMPLEMENT_SLICE — module-only unless
+      project.godot presentation touch required; skip asset/techart unless ADC/TAC needed
+    - Quote Dual-grid Prefer/Never; claim_class staging; factory_greenlit true
+    - Do not waive Terrain3D proof; may waive shell-era seats if out of scope
+  forbidden:
+    - Freestyle generalPurpose Code-Repos coding
+    - Ad-hoc Terrain3D weld outside factory lanes / IMPLEMENT_SLICE
+    - Reviving archived horizon_demo_investor as Success
+    - Full biome matrix / ADC art pass / chargen as Success for this Prefer
+    - Auto-dispatch before operator speaks WELD (do_not_auto_dispatch true)
+
+fresh_chat_instruction: >-
+  WELD — eat armed slice alpha0_worldgen_terrain3d_feed_r1 via factory-orchestrator /
+  IMPLEMENT_SLICE / factory lanes only (project_id genesis-mythos-master; package
+  pkg_world_shell / ux_world_generation → feed row_ux_world_generation_r1_d2; LIVE
+  genesis-mythos-alpha-20260930/genesis-mythos; load this armed packet + brief as
+  hand-off law). FORBIDDEN: freestyle Code-Repos weld. Proof: F5 stamp → Terrain3D
+  updates → sparky flies that mesh.

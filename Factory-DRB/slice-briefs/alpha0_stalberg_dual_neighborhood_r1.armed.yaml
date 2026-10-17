@@ -1,0 +1,195 @@
+# Armed Prefer packet — dual-neighborhood / dual-graph diagnostic + fix
+# Prior dual_visual r1/r2 assumed stable four-cell ownership; operator F5 sequence
+# proved same logic point can yield different neighbor sets. Fix graph first.
+# GREENLIT 2026-10-03T20:37:43Z — factory_greenlit true; armed_ready_to_stage.
+# Validation 2026-10-03: suspicion CONFIRMED (code + MCP overlay); see brief.
+
+schema_version: 1
+status: staging_prefer_ok_awaiting_operator_f5
+armed_at: '2026-10-03T20:37:43Z'
+greenlit_at: '2026-10-03T20:37:43Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_neighborhood
+slice_id: alpha0_stalberg_dual_neighborhood_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2c
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_neighborhood_r1.md
+prior_slice_id: alpha0_stalberg_dual_visual_r2
+logic_prior_slice_id: alpha0_stalberg_dual_corner_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: dual_visual_premature__operator_f5_proved_unstable_neighborhood_same_point_different_sets
+depends_on: alpha0_stalberg_craft_plane_authority_r1
+next_in_chain: alpha0_stalberg_dual_visual_r3   # only after neighborhood green
+density_lift: deferred_until_pipeline_ask_success
+manual_limit:
+  seed_rings: 2
+  seed_verts: 19
+  spacing: 3.0
+  enlarge_world_not_cell_count: true
+  product_density_rings_deferred: 5
+goal_image: Ingest/Final-grid-state.jpg
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: fix_dual_neighborhood_stable_four_cell_ownership
+prefer_authorship: true
+lane: module
+
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Stable dual-graph ownership — each interior logic point owns exactly four
+      dual cells; set identical on every repeated click; only those cells update;
+      debug highlight makes ownership visible on F5; organic + craft authority +
+      manual scale preserved
+    refuse:
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - stamp_as_dual
+    - points_as_grid
+    - count_equals_topology
+    - hex19_pick_as_craft_authority
+    - gray_ramp_only
+    - inspiration_shape_miss
+    - skip_dual_offset
+    - non_unique_vertices
+    - noodle_edge_clutter
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  craft_plane_authority:
+    law: ray_snap_paint_and_ICraftCellAuthority_occupancy_on_OrganicQuadMesh_faces_not_Hex19
+    preserved: true
+  dual_neighborhood:
+    law: >-
+      logic_point_P_owns_exactly_the_dual_cells_whose_corners_include_P;
+      interior_count_equals_4; set_stable_across_repeated_clicks; debug_highlight_required
+    success_types_preferred:
+    - Systems/DualGridCraftHost.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    refuse_substitute:
+    - independent_occupancy_stamps
+    - neighborhood_depends_on_prior_clicks
+    - more_than_four_dual_cells_from_interior_point
+  dual_visual:
+    deferred: true
+    note: do_not_evaluate_empty_edge_corner_full_until_neighborhood_green
+
+matrix_quotes:
+  dual_neighborhood_stable:
+    prefer: >-
+      Click logic point P → exactly the dual cells that have P as a corner update
+      (≤4 interior); same P always yields the same set; debug highlight shows the
+      set; organic underlay and craft-plane authority stay; rings=2 spacing=3.0.
+    never: >-
+      unstable_dual_neighborhood; over_neighbor_paint; stamp_as_dual;
+      points_as_grid; Hex19 Success; density lift; Terrain3D; dual_visual ask_success
+      this Prefer
+
+hard_prefer_gaps:
+- id: stable_four_cell_ownership
+  must: interior_logic_point_owns_exactly_four_dual_cells_identical_every_click
+  refuse:
+  - unstable_dual_neighborhood
+  - over_neighbor_paint
+- id: dual_not_stamp
+  must: dual_cells_defined_by_shared_logic_corners_not_independent_occupancy_tiles
+  refuse:
+  - stamp_as_dual
+- id: debug_legible
+  must: f5_highlight_shows_owned_dual_cells_on_click
+- id: priors_preserved
+  must: organic_underlay_craft_authority_manual_scale
+  refuse:
+  - hex19_pick_as_craft_authority
+  - noodle_edge_clutter
+- id: scope_neighborhood_only
+  must: no_meshlibrary_art_no_density_no_terrain3d_no_dual_visual_ask_success
+  refuse:
+  - terrain3d_in_scope
+  - gray_ramp_only
+
+done_when: >-
+  F5: repeated click on the same interior logic point always highlights and
+  updates the same ≤4 dual cells; different points own different stable sets;
+  no independent stamp scatter; organic board + craft authority + rings=2
+  spacing=3.0 intact; regenerable; Prefer has_edges + has_faces_or_cells.
+  Dual-visual variant polish is out of scope this Prefer.
+
+refuse_codes:
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- points_as_grid
+- count_equals_topology
+- hex19_pick_as_craft_authority
+- gray_ramp_only
+- inspiration_shape_miss
+- skip_dual_offset
+- non_unique_vertices
+- noodle_edge_clutter
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+
+do_not_waive:
+- Terrain3D_prefer_proof
+- prefer_authorship_pass
+- craft_cam_recenter_on_place
+- craft_terrain_blend
+- points_as_grid
+- count_equals_topology
+- explicit_met_implicit_miss
+- infinite_rect_as_hex19
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- stamp_as_dual
+- skip_dual_offset
+- gray_ramp_only
+- inspiration_shape_miss
+- hex19_pick_as_craft_authority
+
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_neighborhood_r1
+  require_implicit_bind: true
+  steps:
+  - Operator GREENLIGHT WELD received — factory_greenlit true
+  - Load this armed packet + Townscaper dual grammar + Grid-Topology + Prefer host law
+  - Implement / prove stable dual-cell ownership per logic point; add debug highlight
+  - Refuse unstable set, >4 interior updates, stamp-as-dual
+  - Preserve organic underlay, craft-plane authority, manual scale
+  - Do NOT advance dual-visual empty/edge/corner/full this Prefer
+  - Write staging receipt; claim_class staging until operator F5
+  - Do NOT Curator push
+
+fresh_chat_instruction: >-
+  GREENLIT. Dual-neighborhood Prefer — stable four-cell ownership per logic
+  point; debug highlight required; refuse unstable_dual_neighborhood,
+  stamp_as_dual, over_neighbor_paint. Keep organic + craft authority + rings=2
+  spacing=3.0. No dual-visual art this Prefer. No Curator.

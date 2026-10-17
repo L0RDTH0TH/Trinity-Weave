@@ -1,0 +1,5 @@
+product_id: genesis-mythos-master
+versioning:
+  bom_revision: 1
+  bom_schema_version: 2
+  product_version: closed_alpha

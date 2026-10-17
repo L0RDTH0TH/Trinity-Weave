@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "slice_id": "row_ux_world_generation_r1_d5",
+  "producer_run_id": "sp-sp-craft-2aae0f",
+  "sib_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d5.md",
+  "waves": [
+    {
+      "wave": 1,
+      "parallel": false,
+      "lanes": [
+        "module"
+      ]
+    }
+  ],
+  "lane_missions": {
+    "module": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d5/missions/module.md",
+      "ux_bullet_ids": [
+        "UX-1",
+        "UX-3",
+        "UX-5",
+        "UX-7"
+      ],
+      "blocked_by": [],
+      "prefer_authorship_injected": true
+    },
+    "presentation": {
+      "mission_path": "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/row_ux_world_generation_r1_d5/missions/presentation.md",
+      "ux_bullet_ids": [
+        "UX-2",
+        "UX-4",
+        "UX-6",
+        "UX-8"
+      ],
+      "blocked_by": [
+        "module"
+      ],
+      "prefer_authorship_injected": true,
+      "deferred": true
+    }
+  },
+  "deferred_lanes": {
+    "presentation": "skip unless HUD / project.godot wiring required \u2014 Prefer craft-core gaps owned by module",
+    "asset": "skip \u2014 no ADC art pass",
+    "techart": "skip \u2014 no TAC material pass this Prefer"
+  },
+  "half_b_overlay": "alpha0_townscaper_craft_core_r1",
+  "thin_prefer": true,
+  "ask_id": "alpha0_townscaper_craft_core"
+}

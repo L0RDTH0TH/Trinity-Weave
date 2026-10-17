@@ -1,0 +1,151 @@
+schema_version: 1
+status: armed_ready_to_stage
+armed_at: '2026-10-03T18:07:30Z'
+greenlit_at: '2026-10-03T18:07:30Z'
+factory_greenlit: true
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_stalberg_dual_corner
+slice_id: alpha0_stalberg_dual_corner_r1
+series_id: alpha0_stalberg_grid_kernel_r1
+series_step: 2
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_stalberg_dual_corner_r1.md
+prior_slice_id: alpha0_stalberg_craft_plane_authority_r1
+kernel_foundation_slice_id: alpha0_stalberg_topology_base_r1
+prior_note: craft_plane_authority_must_succeed_first__topology_base_is_kernel_foundation
+depends_on: alpha0_stalberg_craft_plane_authority_r1
+next_in_chain: alpha0_stalberg_dual_visual_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://scenes/WorldgenCraft.tscn
+mode: bind_dual_corner_on_organic_quads
+prefer_authorship: true
+lane: module
+zone_ownership:
+  module:
+  - Core/WorldGen/StalbergQuadKernel.cs
+  - Core/WorldGen/OrganicQuadMesh.cs
+  - Core/WorldGen/ICraftCellAuthority.cs
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  - scenes/WorldgenCraft.tscn
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    lerg_yt: https://youtu.be/Jm3pLya3d9c
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: OrganicQuadMesh lattice graph with vertices edges and face
+      cells; dual-corner logic points flip; four incident dual cells rebuild; Prefer
+      edges and faces visible
+    refuse:
+    - points_as_grid
+    - count_equals_topology
+    - prop_scatter_as_composition
+    - skip_dual_offset
+    - inspiration_shape_miss
+    - non_unique_vertices
+    - relax_before_quad_only
+    - naive_laplacian_only
+    - missing_square_area_force
+    - free_boundary_fold
+    - extrusion_before_2d_stable
+    - noodle_edge_clutter
+    - hex_scaffold_as_final_mesh
+    - dual_overlay_as_grid_kernel
+    - hex19_pick_as_craft_authority
+    - terrain3d_in_scope
+    - craft_cam_recenter_on_place
+  dual_corner:
+    law: logic_points_at_organic_quad_corners_or_dual_offset__click_flips_point__rebuild_four_dual_cells_from_corner_types
+    not_product_ask_success: true
+    success_types_preferred:
+    - Core/WorldGen/OrganicQuadMesh.cs
+    - Systems/DualGridCraftHost.cs
+    not_success_types:
+    - Core/WorldGen/Hex19OccupancyLattice.cs
+    strip_from_success:
+    - points_only_markers
+    - single_box_for_every_cell
+    - hex19_occupancy_tutorial_success
+    - terrain3d_feed
+    - art_bind
+    - connector_module_families
+  step2_dual_offset:
+    law: organic_quad_corner_logic_points__four_incident_dual_cells_rebuild
+    on_organic: true
+matrix_quotes:
+  dual_corner_on_stalberg:
+    prefer: Organic all-quad board remains primary; logic points at corners (or dual
+      offset); LMB/RMB flips point type; four dual cells that share the point rebuild
+      from corner types; Prefer sees edges + faces; graybox dual variants OK.
+    never: points_as_grid; count_equals_topology; single mesh id for every cell; skip
+      dual; Hex19 point cloud as Success; extrusion / Terrain3D / art / cam yank this
+      step
+hard_prefer_gaps:
+- id: graph_topology
+  must: vertices_plus_edges_plus_faces_cells
+  refuse:
+  - points_as_grid
+  - count_equals_topology
+- id: dual_update
+  must: four_dual_cells_rebuild_on_point_flip
+  refuse:
+  - skip_dual_offset
+  - inspiration_shape_miss
+- id: kernel_preserved
+  must: organic_quad_board_still_readable_after_dual_bind
+  refuse:
+  - noodle_edge_clutter
+  - non_unique_vertices
+- id: scope_dual_corner_only
+  must: no_tile_families_no_art_no_terrain3d_success
+  refuse:
+  - terrain3d_in_scope
+  - prop_scatter_as_composition
+done_when: 'F5: readable irregular all-quad board + dual cells that correctly change
+  when a corner/logic point is flipped; Prefer topology seat reports has_edges + has_faces_or_cells;
+  no points-only markers; regenerable; graybox OK; no art/Terrain3D/cam-yank Success.'
+refuse_codes:
+- points_as_grid
+- count_equals_topology
+- prop_scatter_as_composition
+- skip_dual_offset
+- inspiration_shape_miss
+- non_unique_vertices
+- relax_before_quad_only
+- naive_laplacian_only
+- missing_square_area_force
+- free_boundary_fold
+- extrusion_before_2d_stable
+- noodle_edge_clutter
+- hex_scaffold_as_final_mesh
+- dual_overlay_as_grid_kernel
+- hex19_pick_as_craft_authority
+- terrain3d_in_scope
+- craft_cam_recenter_on_place
+- verify_mcp_only
+dispatch:
+  must_trigger: factory-orchestrator IMPLEMENT_SLICE — module lane only
+  overlay_must: alpha0_stalberg_dual_corner_r1
+  require_implicit_bind: true
+  steps:
+  - ONLY after craft_plane_authority_r1 Prefer+staging success
+  - Load this armed packet + Grid-Topology-Host-Law + Townscaper dual-grid grammar
+  - Bind dual-corner logic + four-cell rebuild onto live OrganicQuadMesh; keep kernel
+    intact
+  - Prefer pass + MCP shot; claim_class staging until operator F5
+  - Do NOT Curator push
+fresh_chat_instruction: 'DRAFT until craft_plane_authority_r1 succeeds. Then greenlight:
+  dual cells update from corner flips + Prefer edges/faces. Refuse points_as_grid
+  and kernel refuses. No art/Terrain3D/cam yank.'

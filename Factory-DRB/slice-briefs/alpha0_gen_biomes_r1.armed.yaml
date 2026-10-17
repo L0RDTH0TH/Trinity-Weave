@@ -1,0 +1,175 @@
+schema_version: 1
+status: live_weld_landed_staging_awaiting_f5
+armed_at: '2026-10-16T05:15:00Z'
+composed_at: '2026-10-16T05:15:00Z'
+prefer_authored_at: '2026-10-16T05:15:00Z'
+factory_greenlit: true
+live_weld_greenlit: true
+live_weld_landed: true
+live_weld_landed_at: '2026-10-16T05:15:00Z'
+claim_class: staging
+umbrella_ask_id: alpha_architecture_half_b
+ask_id: alpha0_gen_biomes
+slice_id: alpha0_gen_biomes_r1
+series_id: alpha0_world_builder_r1
+series_step: gen_biomes
+catalog_row_id: ux_world_generation
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_gen_biomes_r1.md
+prior_product_slice_id: alpha0_pack_save_load_r1
+prior_product_ticket: PACK-save-load
+prior_product_disposition: operator_f5_pass_demo_quality_ok
+keeps_world_new_slice_id: alpha0_world_new_r1
+keeps_world_new_fidelity: KEEP-real
+keeps_world_bounds_slice_id: alpha0_world_bounds_dials_r1
+keeps_world_bounds_fidelity: staging_paid_with_proof_GEN_W2
+keeps_world_propose_slice_id: alpha0_world_propose_feed_r1
+keeps_world_propose_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_s0_intents_slice_id: alpha0_world_s0_dm_lore_honesty_r1
+keeps_world_s0_fidelity: nursery_parked_effect_deferred_to_gen
+keeps_world_import_slice_id: alpha0_world_import_r1
+keeps_world_import_fidelity: KEEP-debt_parked
+keeps_world_empty_campaigns_slice_id: alpha0_world_empty_campaigns_r1
+keeps_world_empty_campaigns_fidelity: KEEP-real
+keeps_world_parity_slice_id: alpha0_world_parity_r1
+keeps_world_parity_fidelity: KEEP-real
+keeps_brush_single_deck_emit_slice_id: alpha0_stalberg_dual_single_deck_emit_r1
+keeps_brush_tri_cell_place_slice_id: alpha0_stalberg_dual_tri_cell_place_r1
+keeps_brush_update_four_slice_id: alpha0_stalberg_dual_update_four_recompute_r1
+keeps_brush_coast_bits_slice_id: alpha0_stalberg_dual_place_coast_r1
+keeps_brush_strip_water_slice_id: alpha0_stalberg_dual_coast_strip_water_r1
+keeps_brush_coast_stage6_landed_slice_id: alpha0_stalberg_dual_coast_stage6_emit_r1
+next_in_chain: null
+do_not_arm_next: GEN-sites
+next_world_armed: false
+prior_note: >-
+  Operator F5 pass on PACK-save-load (demo quality OK). GEN-biomes arms land biomes
+  with mechanical tags (move/difficult) and visible material tints after terrain gen.
+  Create World Open auto-gen; Enter Craft empty; Generate button struck; nursery salts
+  parked; GEN-sites unarmed. No KEEP.
+depends_on: alpha0_pack_save_load_r1
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+worldgen_entry_scene: res://LaunchShell.tscn
+craft_scene: res://scenes/WorldgenCraft.tscn
+mode: gen_biomes_tags_and_look
+prefer_authorship: true
+prefer_concept_required: true
+lane: presentation
+ticket_map_id: GEN-biomes
+success_object: biomes_mechanical_tags_visible_material
+contract: C_gen_biomes_tags_and_look
+hands: townscaper_dual_grid_only
+intent_invariant: >-
+  Biomes with mechanical tags. No creatures. Each biome has a tag that changes at
+  least one readout (movement or difficult ground) and a visible material or family
+  difference. String-on-a-cell alone = refuse. Create World Open auto-gens; Enter
+  Craft empty until place; no Generate button; PACK save/load retained; GEN-sites
+  unarmed; nursery salts parked.
+structural_success: >-
+  Biomes with mechanical tags. No creatures. After terrain gen (Create World Open),
+  assign biomes to land cells from altitude/climate/bias dials. At least two land
+  biomes readable at craft cam via material/color tint difference (Plains/Forest/
+  Highland/Marsh/Desert). Each biome exposes a mechanical tag that changes move
+  cost and/or difficult-terrain readout; hover/HUD probe shows biome name + tag;
+  tags differ across biomes. String-on-a-cell alone = refuse. Identical look all
+  land = refuse. Water vs land stays clear. PACK save/load (organic_seed) still
+  restores board including biomes. Create World → Open auto-runs (refuse
+  empty_create_world_open). Enter Craft opens empty amber until place (1g). No
+  Generate button. Nursery propose/lore salts stay parked. Do not arm GEN-sites.
+f5_expected_behavior: >-
+  Create World → bias + dials mid → Open → see at least two biome looks on land
+  (not one flat material). Hover land: HUD/hint shows biome name + tag; tags differ
+  so move cost / difficult readout changes (e.g. Plains move:1 vs Forest
+  difficult+move:2). Water vs land still clear. F5 Save → Load World still restores
+  board. Blank amber or string-only with identical look = FAIL. Enter Craft empty.
+  No Generate button.
+welds:
+  B1: biomes_assigned_after_terrain_from_altitude_climate
+  B2: two_plus_land_biome_material_tints_at_craft_cam
+  B3: mechanical_tag_changes_move_or_difficult_probe
+  B4: create_world_open_auto_enter_craft_empty_no_generate_pack_ok
+  B5: nursery_salts_parked_gen_sites_unarmed_no_creatures
+path_position: 1a KEEP-real · 1b/1c/1d nursery parked · 1e KEEP-debt · 1f/1g KEEP-real ·
+  GEN-terrain-product r2 F5 · GEN-tone r1 F5 · PACK-save-load r1 F5 → GEN-biomes r1
+  staging awaiting F5 → GEN-sites next (unarmed)
+zone_ownership:
+  presentation:
+  - LaunchShell.cs
+  - LaunchShell.tscn
+  - Core/WorldGen/GenBiomesContract.cs
+  - Core/WorldGen/GenBiomeService.cs
+  - Core/WorldGen/PackSaveLoadContract.cs
+  - Core/WorldGen/GenToneContract.cs
+  - Core/WorldGen/WorldPackage.cs
+  - Core/WorldGen/WorldPackageSession.cs
+  - UI/WorldgenGui.cs
+  module_gen_apply:
+  - Systems/DualGridCraftHost.cs
+  - Systems/WorldgenCraft.cs
+  module_keep_empty_enter:
+  - Systems/WorldgenCraft.cs
+do_not_waive:
+  - string_on_cell_alone_as_biome
+  - identical_look_all_land_biomes
+  - creatures_as_biome_success
+  - hotkey_as_product_ux
+  - config_meta_without_effect
+  - stub_as_hours
+  - map_job_name_only
+  - explicit_met_implicit_miss
+  - intent_collapsed_to_mechanics
+  - generate_button_as_product_ux
+  - empty_create_world_open
+  - gen_fill_as_craft_enter
+  - proxy_substitution
+  - verify_mcp_only
+  - gen_sites_not_armed
+  - nursery_salt_stubs_stay_parked
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  prefer_law: Prefer-Authorship-Host-Law
+  empty_enter_sibling: enter_craft_manual_lane_only_do_not_undo_1g
+  create_world_auto_gen: create_world_open_auto_run_gen_pass
+  generate_button_struck: true
+  map_law: World-Builder-Mini-Game-Ticket-Map
+  pack_save_load_feedstock: alpha0_pack_save_load_r1
+  gen_tone_feedstock: alpha0_gen_tone_r1
+  pack_armed: false
+  gen_biomes_armed: true
+  gen_sites_armed: false
+  nursery_salts_parked: true
+  world_import_parked: true
+  step1_authorship:
+    vault_cite: Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Biomes with mechanical tags. No creatures. Land biomes from altitude/climate
+      with visible material tint and move/difficult tags; hover probe shows name+tag;
+      ≥2 looks; string-only refuse. Create World Open auto-gens; Enter Craft empty;
+      no Generate button; PACK retained; GEN-sites unarmed.
+    success_object: biomes_mechanical_tags_visible_material
+    refuse:
+    - string_on_cell_alone_as_biome
+    - identical_look_all_land_biomes
+    - creatures_as_biome_success
+    - generate_button_as_product_ux
+    - hotkey_as_product_ux
+    - empty_create_world_open
+    - verify_mcp_only
+    - gen_sites_not_armed
+done_when: >-
+  F5 only: Create World → Open → ≥2 biome looks on land → hover name+tag with
+  differing move/difficult → water vs land clear → Save/Load still restores board;
+  blank/string-only FAIL; Enter Craft empty; no Generate button; MCP ≠ Success.
+  No KEEP without operator F5. Do not arm GEN-sites.
+operator_prompt: >-
+  GEN-biomes r1 Prefer + LIVE welded staging. Do not KEEP. Do not arm GEN-sites.
+  Do not claim ask_success without F5. Create World Open still auto-gens. Enter
+  Craft empty. Generate button stays struck. Nursery salts stay parked. PACK
+  organic_seed save/load retained. next_world_armed false.
