@@ -1,0 +1,937 @@
+"""Vault-wide ticket-map schema — discover, parse, filter, sort.
+
+Cite: 3-Resources/Second-Brain/Docs/Ticket-Map-Schema.md
+"""
+
+from __future__ import annotations
+
+import json
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Iterable
+
+import yaml
+
+DEFAULT_TICKET_MAP_REL = (
+    "1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md"
+)
+
+TICKET_STATUSES = frozenset({"open", "f5_good", "deferred", "superseded"})
+MAP_STATUSES = frozenset({"active", "deferred", "complete"})
+HIDDEN_TICKET_STATUSES = frozenset({"deferred", "superseded"})
+SELECTABLE_TICKET_STATUS = "open"
+GREYED_TICKET_STATUS = "f5_good"
+
+_FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.S)
+
+# Canonical: | `id` | status | job | notes |
+_ROW_STATUS_RE = re.compile(
+    r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
+    r"\s*`?(?P<status>open|f5_good|deferred|superseded)`?\s*\|"
+    r"\s*(?P<job>[^|]*?)\s*\|"
+    r"\s*(?P<notes>[^|]*?)\s*\|\s*$",
+    re.M | re.I,
+)
+
+# Legacy 3-col: | `id` | job | notes |  (no status token in col2)
+_ROW_LEGACY_RE = re.compile(
+    r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
+    r"\s*(?P<job>[^|]*?)\s*\|"
+    r"\s*(?P<notes>[^|]*?)\s*\|\s*$",
+    re.M,
+)
+
+# 4-col fidelity tables: | `id` | fidelity | job | proof |
+_ROW_FIDELITY_RE = re.compile(
+    r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
+    r"\s*(?P<fidelity>[^|]*?)\s*\|"
+    r"\s*(?P<job>[^|]*?)\s*\|"
+    r"\s*(?P<notes>[^|]*?)\s*\|\s*$",
+    re.M,
+)
+
+_HEADER_SKIP = frozenset(
+    {
+        "ticket",
+        "product job",
+        "notes",
+        "status",
+        "fidelity",
+        "welds",
+        "player-visible proof",
+        "keep only if",
+        "row",
+        "was",
+        "now",
+    }
+)
+
+
+@dataclass
+class MapTicketRow:
+    ticket_map_id: str
+    product_job: str
+    welds: str
+    status: str = "open"
+    source_line: str = ""
+
+    @property
+    def proof_blob(self) -> str:
+        return f"{self.product_job} {self.welds}".strip()
+
+    @property
+    def notes(self) -> str:
+        return self.welds
+
+
+@dataclass
+class TicketMapDoc:
+    path: Path
+    rel_path: str
+    map_id: str
+    title: str
+    project_id: str
+    map_status: str
+    created: str = ""
+    updated: str = ""
+    active_recovery: str = ""
+    active_recovery_slice: str = ""
+    tickets: dict[str, MapTicketRow] = field(default_factory=dict)
+    ticket_order: list[str] = field(default_factory=list)
+    frontmatter: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def sort_key(self) -> str:
+        return self.updated or self.created or "1970-01-01"
+
+    def map_rank(self, ticket_map_id: str) -> int:
+        try:
+            return self.ticket_order.index(ticket_map_id)
+        except ValueError:
+            return 10_000
+
+
+@dataclass
+class LivePickerRow:
+    """One Prefer armed packet joined to a map ticket row.
+
+    System still resolves by ticket_map_id; the list may show multiple rows
+    (r1/r2/…) so the operator sees each weld iteration.
+
+    ``map_fidelity_hostile_ok`` is Gate B₁ from ``*.prefer-result.json``
+    (cached at join time). Launchable requires map Status ``open`` **and**
+    B₁ true — Prefer drafts are not factory tickets until B₁ passes.
+    """
+
+    ticket: MapTicketRow
+    slice_id: str
+    armed_path: str
+    armed: dict[str, Any]
+    mtime: float = 0.0
+    map_fidelity_hostile_ok: bool = False
+
+    @property
+    def ticket_map_id(self) -> str:
+        return self.ticket.ticket_map_id
+
+    @property
+    def status(self) -> str:
+        return self.ticket.status
+
+    @property
+    def launchable(self) -> bool:
+        return (
+            (self.ticket.status or "").lower() == SELECTABLE_TICKET_STATUS
+            and self.map_fidelity_hostile_ok is True
+        )
+
+    @property
+    def b1_pending(self) -> bool:
+        """Open Prefer-linked row that has not passed Gate B₁ (draft)."""
+        return (
+            (self.ticket.status or "").lower() == SELECTABLE_TICKET_STATUS
+            and self.map_fidelity_hostile_ok is not True
+        )
+
+    @property
+    def trail(self) -> bool:
+        return (self.ticket.status or "").lower() == GREYED_TICKET_STATUS
+
+
+def prefer_b1_ok(
+    vault_root: Path,
+    slice_id: str,
+    armed_path: str | Path,
+) -> bool:
+    """Gate B₁ fail-closed for factory launch.
+
+    True only when ``slice-briefs/<slice_id>.prefer-result.json`` exists and
+    ``map_fidelity_hostile_ok`` is exactly ``true``. Missing file or any other
+    value → False (Prefer is still a draft for launch purposes).
+    """
+    vault_root = vault_root.resolve()
+    ap = Path(armed_path)
+    if not ap.is_absolute():
+        ap = vault_root / ap
+    sid = (slice_id or "").strip()
+    if not sid:
+        return False
+    pr = ap.parent / f"{sid}.prefer-result.json"
+    if not pr.is_file():
+        return False
+    try:
+        data = json.loads(pr.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError, ValueError):
+        return False
+    if not isinstance(data, dict):
+        return False
+    return data.get("map_fidelity_hostile_ok") is True
+
+
+def _parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
+    m = _FRONTMATTER_RE.match(text or "")
+    if not m:
+        return {}, text or ""
+    try:
+        data = yaml.safe_load(m.group(1)) or {}
+    except yaml.YAMLError:
+        data = {}
+    if not isinstance(data, dict):
+        data = {}
+    body = text[m.end() :]
+    return data, body
+
+
+def infer_ticket_status(job: str, notes: str) -> str:
+    blob = f"{job} {notes}".lower()
+    # Active Prefer / staging work wins over incidental "superseded" mentions
+    # (e.g. "piggyback SUPERSEDED" on an open recovery ticket).
+    if any(
+        x in blob
+        for x in (
+            "prefer draft",
+            "awaiting gate",
+            "gate a+b pending",
+            "staging awaiting f5",
+            "claim_class: staging",
+            "claim_class staging",
+        )
+    ):
+        return "open"
+    if any(
+        x in blob
+        for x in (
+            "*(superseded)*",
+            "incomplete / superseded",
+            "f5 fail superseded",
+            "status: superseded",
+            "**incomplete**",
+        )
+    ) or re.search(r"\bsuperseded by\b", blob):
+        return "superseded"
+    if notes.strip().lower().startswith("*(superseded)*") or job.strip().lower().startswith(
+        "*(superseded)*"
+    ):
+        return "superseded"
+    if any(
+        x in blob
+        for x in (
+            "nursery parked",
+            "keep-debt",
+            "keep debt",
+            "do not implement",
+            "effect deferred",
+            "parked until",
+            "stay parked",
+            "**parked**",
+            "parked —",
+        )
+    ):
+        return "deferred"
+    if any(
+        x in blob
+        for x in (
+            "keep-real",
+            "operator f5 pass",
+            "ask_success",
+            "keep / ask_success",
+        )
+    ):
+        return "f5_good"
+    if "staging" in blob and "keep-real" not in blob:
+        return "open"
+    return "open"
+
+
+def parse_ticket_map_rows(map_text: str) -> dict[str, MapTicketRow]:
+    """Parse markdown tables into ticket_map_id → MapTicketRow (last wins)."""
+    rows, _order = parse_ticket_map_rows_ordered(map_text)
+    return rows
+
+
+def parse_ticket_map_rows_ordered(
+    map_text: str,
+) -> tuple[dict[str, MapTicketRow], list[str]]:
+    """Parse tables; return rows + first-seen ticket order (map concordance)."""
+    rows: dict[str, MapTicketRow] = {}
+    order: list[str] = []
+    body = map_text or ""
+    _, body_only = _parse_frontmatter(body)
+    scan = body_only if body_only != body or body.startswith("---") else body
+
+    def _skip_job(job: str) -> bool:
+        j = job.strip().lower()
+        return j in _HEADER_SKIP or j in {"product job", "fidelity", "was", "now"}
+
+    def _put(tid: str, row: MapTicketRow) -> None:
+        if tid not in rows:
+            order.append(tid)
+        rows[tid] = row
+
+    for m in _ROW_STATUS_RE.finditer(scan):
+        tid = m.group("id").strip()
+        status = m.group("status").strip().lower()
+        job = " ".join(m.group("job").split())
+        notes = " ".join(m.group("notes").split())
+        if _skip_job(job) or status not in TICKET_STATUSES:
+            continue
+        _put(
+            tid,
+            MapTicketRow(
+                ticket_map_id=tid,
+                product_job=job,
+                welds=notes,
+                status=status,
+                source_line=m.group(0)[:200],
+            ),
+        )
+
+    for m in _ROW_FIDELITY_RE.finditer(scan):
+        tid = m.group("id").strip()
+        if tid in rows:
+            continue
+        fidelity = " ".join(m.group("fidelity").split())
+        job = " ".join(m.group("job").split())
+        notes = " ".join(m.group("notes").split())
+        if fidelity.lower() in TICKET_STATUSES:
+            continue
+        if _skip_job(job) or fidelity.lower() in {"fidelity", "status", "was"}:
+            continue
+        if job.lower() in {"keep", "staging, generate = t"} and "keep-real" not in notes.lower():
+            pass
+        status = infer_ticket_status(fidelity + " " + job, notes)
+        _put(
+            tid,
+            MapTicketRow(
+                ticket_map_id=tid,
+                product_job=job if len(job) > 12 else f"{fidelity} {job}".strip(),
+                welds=notes,
+                status=status,
+                source_line=m.group(0)[:200],
+            ),
+        )
+
+    for m in _ROW_LEGACY_RE.finditer(scan):
+        tid = m.group("id").strip()
+        if tid in rows:
+            continue
+        job = " ".join(m.group("job").split())
+        notes = " ".join(m.group("notes").split())
+        if _skip_job(job):
+            continue
+        if job.lower() in TICKET_STATUSES:
+            continue
+        status = infer_ticket_status(job, notes)
+        _put(
+            tid,
+            MapTicketRow(
+                ticket_map_id=tid,
+                product_job=job,
+                welds=notes,
+                status=status,
+                source_line=m.group(0)[:200],
+            ),
+        )
+
+    return rows, order
+
+
+def load_ticket_map_doc(
+    path: Path,
+    *,
+    vault_root: Path | None = None,
+    require_flag: bool = True,
+) -> TicketMapDoc | None:
+    path = path.resolve()
+    if not path.is_file():
+        return None
+    text = path.read_text(encoding="utf-8", errors="replace")
+    fm, _ = _parse_frontmatter(text)
+    ticket_map_flag = bool(fm.get("ticket_map"))
+    name_hint = "Ticket-Map" in path.name or "ticket-map" in path.name.lower()
+    if require_flag and not ticket_map_flag and not name_hint:
+        return None
+
+    rel = str(path)
+    if vault_root is not None:
+        try:
+            rel = str(path.relative_to(vault_root.resolve()))
+        except ValueError:
+            rel = path.name
+
+    title = str(fm.get("title") or path.stem)
+    map_id = str(fm.get("map_id") or path.stem).strip()
+    project_id = str(fm.get("project-id") or fm.get("project_id") or "").strip()
+    map_status = str(fm.get("map_status") or fm.get("status") or "active").strip().lower()
+    if map_status not in MAP_STATUSES:
+        # legacy status: active on note
+        map_status = "active" if map_status in {"active", "staging", ""} else (
+            "deferred" if map_status == "deferred" else "active"
+        )
+
+    tickets, ticket_order = parse_ticket_map_rows_ordered(text)
+    return TicketMapDoc(
+        path=path,
+        rel_path=rel.replace("\\", "/"),
+        map_id=map_id,
+        title=title,
+        project_id=project_id,
+        map_status=map_status,
+        created=str(fm.get("created") or "")[:32],
+        updated=str(fm.get("updated") or fm.get("created") or "")[:32],
+        active_recovery=str(fm.get("active_recovery") or "").strip(),
+        active_recovery_slice=str(fm.get("active_recovery_slice") or "").strip(),
+        tickets=tickets,
+        ticket_order=ticket_order,
+        frontmatter=fm,
+    )
+
+
+def discover_ticket_maps(
+    vault_root: Path,
+    *,
+    include_deferred_maps: bool = False,
+) -> list[TicketMapDoc]:
+    """Find conforming ticket maps under 1-Projects and 3-Resources.
+
+    Requires frontmatter ``ticket_map: true`` (schema Docs alone do not qualify).
+    """
+    vault_root = vault_root.resolve()
+    found: dict[str, TicketMapDoc] = {}
+    roots = [
+        vault_root / "1-Projects",
+        vault_root / "3-Resources",
+    ]
+    skip_name_bits = (
+        ".receipt",
+        "sync-conflict",
+        "Ticket-Map-Schema",
+    )
+    for root in roots:
+        if not root.is_dir():
+            continue
+        for path in root.rglob("*.md"):
+            if any(p.startswith(".") for p in path.parts):
+                continue
+            name = path.name
+            if any(b in name for b in skip_name_bits):
+                continue
+            try:
+                text_head = path.read_text(encoding="utf-8", errors="replace")[:6000]
+            except OSError:
+                continue
+            # Frontmatter flag only — avoid filename false positives
+            if "ticket_map:" not in text_head[:800]:
+                continue
+            fm, _ = _parse_frontmatter(text_head)
+            if not fm.get("ticket_map"):
+                continue
+            doc = load_ticket_map_doc(path, vault_root=vault_root, require_flag=True)
+            if doc is None:
+                continue
+            if not doc.frontmatter.get("ticket_map"):
+                continue
+            if doc.map_status == "deferred" and not include_deferred_maps:
+                continue
+            found[doc.rel_path] = doc
+
+    docs = list(found.values())
+    docs.sort(key=lambda d: d.sort_key, reverse=True)
+    return docs
+
+
+def filter_tickets_for_picker(
+    tickets: Iterable[MapTicketRow],
+    *,
+    show_hidden: bool = False,
+) -> list[MapTicketRow]:
+    """Legacy map-row filter (open + f5_good). Prefer build_live_picker_rows."""
+    out: list[MapTicketRow] = []
+    for t in tickets:
+        st = (t.status or "open").lower()
+        if st in HIDDEN_TICKET_STATUSES and not show_hidden:
+            continue
+        out.append(t)
+    out.sort(
+        key=lambda t: (
+            0 if t.status == SELECTABLE_TICKET_STATUS else 1,
+            t.ticket_map_id,
+        )
+    )
+    return out
+
+
+_MD_BOLD_RE = re.compile(r"\*\*([^*]+)\*\*")
+_MD_CODE_RE = re.compile(r"`([^`]+)`")
+
+
+def strip_job_markup(job: str) -> str:
+    """Remove light markdown so picker lines stay scannable."""
+    text = _MD_BOLD_RE.sub(r"\1", job or "")
+    text = _MD_CODE_RE.sub(r"\1", text)
+    return " ".join(text.split())
+
+
+def format_picker_ticket_label(
+    ticket: MapTicketRow,
+    *,
+    recovery_id: str = "",
+    id_width: int = 22,
+    job_max: int = 56,
+    slice_id: str = "",
+    slice_width: int = 0,
+) -> str:
+    """Id-first picker line: ★, ticket id, optional slice, short prose.
+
+    Example: ``★ PLACE-product  ·  alpha0_…_r1  ·  Grey ghost → LMB…``
+    ``f5_good`` trail rows prefix ``[f5_good]`` (primary visual trail).
+    """
+    job = strip_job_markup(ticket.product_job)
+    if len(job) > job_max:
+        job = job[: max(1, job_max - 1)] + "…"
+    star = "★ " if recovery_id and ticket.ticket_map_id == recovery_id else "  "
+    tid = ticket.ticket_map_id.ljust(id_width)
+    st = (ticket.status or SELECTABLE_TICKET_STATUS).lower()
+    slice_bit = ""
+    if slice_id:
+        sw = slice_width or len(slice_id)
+        slice_bit = f"  ·  {slice_id.ljust(sw)}"
+    mid = f"{tid}{slice_bit}  ·  {job}"
+    if st == GREYED_TICKET_STATUS:
+        return f"{star}[f5_good] {mid}"
+    if st in HIDDEN_TICKET_STATUSES:
+        return f"{star}[{st}] {mid}"
+    return f"{star}{mid}"
+
+
+def format_live_picker_label(
+    row: LivePickerRow,
+    *,
+    recovery_id: str = "",
+    id_width: int = 22,
+    slice_width: int = 0,
+    job_max: int = 48,
+) -> str:
+    return format_picker_ticket_label(
+        row.ticket,
+        recovery_id=recovery_id,
+        id_width=id_width,
+        job_max=job_max,
+        slice_id=row.slice_id,
+        slice_width=slice_width,
+    )
+
+
+def tickets_newest_first(
+    tickets: list[MapTicketRow],
+    *,
+    recovery_id: str = "",
+) -> list[MapTicketRow]:
+    """Prefer recovery first among open; then open before f5_good; stable id reverse as proxy for recent."""
+    def key(t: MapTicketRow) -> tuple:
+        is_recovery = 1 if recovery_id and t.ticket_map_id == recovery_id else 0
+        open_rank = 1 if t.status == SELECTABLE_TICKET_STATUS else 0
+        return (is_recovery, open_rank, t.ticket_map_id)
+
+    return sorted(tickets, key=key, reverse=True)
+
+
+def _slice_briefs_dirs(vault_root: Path, project_id: str) -> list[Path]:
+    candidates: list[Path] = []
+    if not project_id:
+        return candidates
+    primary = vault_root / "1-Projects" / project_id / "Factory-DRB" / "slice-briefs"
+    if primary.is_dir():
+        candidates.append(primary)
+    proj = vault_root / "1-Projects" / project_id
+    if proj.is_dir():
+        for p in proj.rglob("slice-briefs"):
+            if p.is_dir() and p not in candidates:
+                candidates.append(p)
+    return candidates
+
+
+_WIKI_LINK_RE = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]+)?\]\]")
+
+
+def iter_armed_prefers(
+    vault_root: Path,
+    *,
+    project_id: str,
+) -> list[tuple[str, str, Path, dict[str, Any], float]]:
+    """Scan project slice-briefs for *.armed.yaml that declare ticket_map_id.
+
+    Returns list of (ticket_map_id, slice_id, armed_path, armed_dict, mtime).
+    """
+    vault_root = vault_root.resolve()
+    out: list[tuple[str, str, Path, dict[str, Any], float]] = []
+    for briefs in _slice_briefs_dirs(vault_root, project_id):
+        for armed_path in briefs.glob("*.armed.yaml"):
+            try:
+                raw = yaml.safe_load(armed_path.read_text(encoding="utf-8")) or {}
+            except (OSError, yaml.YAMLError):
+                continue
+            if not isinstance(raw, dict):
+                continue
+            tid = str(raw.get("ticket_map_id") or "").strip()
+            if not tid:
+                continue
+            sid = str(raw.get("slice_id") or armed_path.name.replace(".armed.yaml", "")).strip()
+            try:
+                mtime = armed_path.stat().st_mtime
+            except OSError:
+                mtime = 0.0
+            out.append((tid, sid, armed_path, raw, mtime))
+    return out
+
+
+def _armed_index_by_slice(
+    vault_root: Path, project_id: str
+) -> dict[str, tuple[Path, dict[str, Any], float]]:
+    """slice_id → (armed_path, armed_dict, mtime) for all armed packets."""
+    vault_root = vault_root.resolve()
+    idx: dict[str, tuple[Path, dict[str, Any], float]] = {}
+    for briefs in _slice_briefs_dirs(vault_root, project_id):
+        for armed_path in briefs.glob("*.armed.yaml"):
+            try:
+                raw = yaml.safe_load(armed_path.read_text(encoding="utf-8")) or {}
+            except (OSError, yaml.YAMLError):
+                continue
+            if not isinstance(raw, dict):
+                continue
+            sid = str(raw.get("slice_id") or armed_path.name.replace(".armed.yaml", "")).strip()
+            if not sid:
+                continue
+            try:
+                mtime = armed_path.stat().st_mtime
+            except OSError:
+                mtime = 0.0
+            idx[sid] = (armed_path, raw, mtime)
+    return idx
+
+
+def _wiki_slice_ids(blob: str) -> list[str]:
+    out: list[str] = []
+    for m in _WIKI_LINK_RE.finditer(blob or ""):
+        name = m.group(1).strip()
+        if name.endswith(".receipt"):
+            continue
+        # Prefer slice notes are usually the bare slice_id
+        if name and name not in out:
+            out.append(name)
+    return out
+
+
+def build_live_picker_rows(
+    vault_root: Path,
+    map_doc: TicketMapDoc,
+    *,
+    show_hidden: bool = False,
+) -> list[LivePickerRow]:
+    """Map ∩ Prefer: armed packets linked to this map.
+
+    Link paths:
+    1) ``ticket_map_id`` on armed.yaml matches a map row
+    2) Map Notes/job wiki-link to a slice whose ``*.armed.yaml`` exists
+       (covers older Prefer that omit ticket_map_id)
+
+    - Launchable: map Status ``open`` **and** Gate B₁
+      (``map_fidelity_hostile_ok: true`` in prefer-result.json).
+    - Default list: omit open Prefer drafts that fail B₁ (not yet tickets).
+    - With ``show_hidden`` / ``--all-tickets``: may include B₁-pending opens
+      (caller disables them); ``f5_good`` trail unchanged.
+    - Primary trail: map Status ``f5_good`` Prefer-linked rows (greyed).
+    - Multiple armed slices per id → multiple list rows (same ticket_map_id).
+    - Naked map rows without Prefer do not appear.
+    """
+    vault_root = vault_root.resolve()
+    by_slice = _armed_index_by_slice(vault_root, map_doc.project_id)
+    # (ticket_map_id, slice_id) → LivePickerRow
+    joined: dict[tuple[str, str], LivePickerRow] = {}
+
+    def _add(map_row: MapTicketRow, sid: str, armed_path: Path, armed: dict, mtime: float) -> None:
+        st = (map_row.status or "open").lower()
+        if st in HIDDEN_TICKET_STATUSES and not show_hidden:
+            return
+        if st not in {SELECTABLE_TICKET_STATUS, GREYED_TICKET_STATUS} and not show_hidden:
+            return
+        b1 = prefer_b1_ok(vault_root, sid, armed_path)
+        # Prefer + Gate A + B₁ = ticket. Open without B₁ is draft — omit by default.
+        if st == SELECTABLE_TICKET_STATUS and not b1 and not show_hidden:
+            return
+        key = (map_row.ticket_map_id, sid)
+        if key in joined:
+            return
+        rel = str(armed_path.relative_to(vault_root)).replace("\\", "/")
+        # Ensure launch resolve sees ticket_map_id even on legacy armed
+        armed_view = dict(armed)
+        if not str(armed_view.get("ticket_map_id") or "").strip():
+            armed_view["ticket_map_id"] = map_row.ticket_map_id
+        joined[key] = LivePickerRow(
+            ticket=map_row,
+            slice_id=sid,
+            armed_path=rel,
+            armed=armed_view,
+            mtime=mtime,
+            map_fidelity_hostile_ok=b1,
+        )
+
+    for tid, sid, armed_path, armed, mtime in iter_armed_prefers(
+        vault_root, project_id=map_doc.project_id
+    ):
+        map_row = map_doc.tickets.get(tid)
+        if map_row is None:
+            continue
+        _add(map_row, sid, armed_path, armed, mtime)
+
+    # Wiki-link join from map Notes (legacy Prefer without ticket_map_id field)
+    for map_row in map_doc.tickets.values():
+        blob = f"{map_row.product_job} {map_row.welds}"
+        for link in _wiki_slice_ids(blob):
+            hit = by_slice.get(link)
+            if hit is None:
+                continue
+            armed_path, armed, mtime = hit
+            sid = str(armed.get("slice_id") or link).strip()
+            # If armed declares a different ticket_map_id, trust armed (already joined)
+            declared = str(armed.get("ticket_map_id") or "").strip()
+            if declared and declared != map_row.ticket_map_id:
+                continue
+            _add(map_row, sid, armed_path, armed, mtime)
+
+    live = list(joined.values())
+    recovery = map_doc.active_recovery or ""
+
+    def sort_key(row: LivePickerRow) -> tuple:
+        st = (row.status or "").lower()
+        is_recovery = 1 if recovery and row.ticket_map_id == recovery else 0
+        if st == SELECTABLE_TICKET_STATUS:
+            band = 2
+        elif st == GREYED_TICKET_STATUS:
+            band = 1
+        else:
+            band = 0
+        return (
+            band,
+            is_recovery,
+            -map_doc.map_rank(row.ticket_map_id),
+            row.mtime,
+        )
+
+    live.sort(key=sort_key, reverse=True)
+    return live
+
+
+def prefer_dict_from_live_row(
+    vault_root: Path,
+    row: LivePickerRow,
+) -> dict[str, Any]:
+    """Build resolve_prefer-shaped dict from an already-joined live row."""
+    vault_root = vault_root.resolve()
+    out: dict[str, Any] = {
+        "slice_id": row.slice_id,
+        "armed_path": row.armed_path,
+        "prefer_result_path": "",
+        "brief_path": "",
+        "armed": row.armed,
+        "prefer_result": None,
+        "warnings": [],
+    }
+    armed_path = vault_root / row.armed_path
+    brief = armed_path.parent / f"{row.slice_id}.md"
+    if brief.is_file():
+        out["brief_path"] = str(brief.relative_to(vault_root)).replace("\\", "/")
+    pr = armed_path.parent / f"{row.slice_id}.prefer-result.json"
+    if pr.is_file():
+        out["prefer_result_path"] = str(pr.relative_to(vault_root)).replace("\\", "/")
+        try:
+            out["prefer_result"] = json.loads(pr.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError, ValueError):
+            out["prefer_result"] = None
+    return out
+
+
+def resolve_prefer_for_ticket(
+    vault_root: Path,
+    *,
+    project_id: str,
+    ticket_map_id: str,
+    slice_hint: str = "",
+) -> dict[str, Any]:
+    """Join Prefer under project slice-briefs. Returns paths + loaded dicts."""
+    vault_root = vault_root.resolve()
+    out: dict[str, Any] = {
+        "slice_id": "",
+        "armed_path": "",
+        "prefer_result_path": "",
+        "brief_path": "",
+        "armed": None,
+        "prefer_result": None,
+        "warnings": [],
+    }
+    if not project_id:
+        out["warnings"].append("missing_project_id")
+        return out
+
+    matches: list[tuple[str, Path, dict[str, Any], float]] = []
+    for tid, sid, armed_path, raw, mtime in iter_armed_prefers(
+        vault_root, project_id=project_id
+    ):
+        if tid == ticket_map_id or (slice_hint and sid == slice_hint):
+            matches.append((sid, armed_path, raw, mtime))
+
+    if not matches and slice_hint:
+        for briefs in _slice_briefs_dirs(vault_root, project_id):
+            ap = briefs / f"{slice_hint}.armed.yaml"
+            if ap.is_file():
+                try:
+                    raw = yaml.safe_load(ap.read_text(encoding="utf-8")) or {}
+                except (OSError, yaml.YAMLError):
+                    raw = {}
+                if isinstance(raw, dict):
+                    try:
+                        mtime = ap.stat().st_mtime
+                    except OSError:
+                        mtime = 0.0
+                    matches.append((slice_hint, ap, raw, mtime))
+
+    if not matches:
+        out["warnings"].append("prefer_missing")
+        return out
+
+    exact_tid = [
+        m for m in matches if str(m[2].get("ticket_map_id") or "") == ticket_map_id
+    ]
+    pool = exact_tid or matches
+    if slice_hint:
+        by_slice = [m for m in pool if m[0] == slice_hint]
+        if by_slice:
+            pool = by_slice
+    if len(pool) > 1 and not slice_hint:
+        out["warnings"].append(f"ambiguous_prefer_matches:{len(pool)}")
+    # Newest armed wins when ambiguous
+    pool.sort(key=lambda m: m[3], reverse=True)
+    sid, armed_path, armed, _mtime = pool[0]
+    live = LivePickerRow(
+        ticket=MapTicketRow(ticket_map_id, "", "", "open"),
+        slice_id=sid,
+        armed_path=str(armed_path.relative_to(vault_root)).replace("\\", "/"),
+        armed=armed,
+        mtime=_mtime,
+    )
+    return prefer_dict_from_live_row(vault_root, live)
+
+
+def build_factory_weld_prompt(
+    *,
+    map_doc: TicketMapDoc,
+    ticket: MapTicketRow,
+    prefer: dict[str, Any],
+) -> str:
+    """Emit FACTORY WELD launch text for clipboard."""
+    armed = prefer.get("armed") if isinstance(prefer.get("armed"), dict) else {}
+    pr = prefer.get("prefer_result") if isinstance(prefer.get("prefer_result"), dict) else {}
+    slice_id = prefer.get("slice_id") or map_doc.active_recovery_slice or ""
+    live = str(armed.get("live_write_target") or "")
+    do_not_arm = armed.get("do_not_arm_next") or armed.get("do_not_arm") or pr.get("do_not_arm") or []
+    if isinstance(do_not_arm, str):
+        do_not_arm = [do_not_arm]
+    b1 = pr.get("map_fidelity_hostile_ok")
+    b2 = pr.get("weld_intent_hostile_ok")
+    greenlit = armed.get("factory_greenlit") or pr.get("factory_greenlit")
+    welded = armed.get("live_weld_landed") or pr.get("live_weld_landed")
+
+    warnings = list(prefer.get("warnings") or [])
+    prefer_note = ""
+    if "prefer_missing" in warnings:
+        prefer_note = "Prefer missing — compose Prefer first (Gate A/B₁ before GREENLIGHT)."
+    elif warnings:
+        prefer_note = "Warnings: " + ", ".join(warnings)
+
+    status_lines = [
+        f"- map: {map_doc.title} (`{map_doc.map_id}`) project-id={map_doc.project_id} map_status={map_doc.map_status}",
+        f"- ticket_map_id: `{ticket.ticket_map_id}` status={ticket.status}",
+        f"- slice_id: `{slice_id or '(none)'}`",
+        f"- Prefer armed: {prefer.get('armed_path') or '(none)'}",
+        f"- B₁ map_fidelity_hostile_ok: {b1!r}",
+        f"- B₂ weld_intent_hostile_ok: {b2!r}",
+        f"- factory_greenlit: {greenlit!r} live_weld_landed: {welded!r}",
+        f"- live_write_target: {live or '(from Prefer / factory-project)'}",
+        f"- do_not_arm: {do_not_arm or '(none)'}",
+    ]
+    if prefer_note:
+        status_lines.append(f"- NOTE: {prefer_note}")
+
+    job = ticket.product_job
+    return f"""FACTORY WELD — {ticket.ticket_map_id}
+
+Path (binding, in order — do not skip):
+1) Prefer authorship / Gate A (mechanical packet; map optional unless ticket_map_id set)
+2) Gate B₁ Prefer hostile → map_fidelity_hostile_ok: true
+   STOP if B₁ fails. Do not greenlight. Do not weld.
+3) STOP for operator GREENLIGHT WELD (explicit). No weld without it.
+4) Weld LIVE (factory path only — named live_write_target)
+5) Gate B₂ weld intent hostile → weld_intent_hostile_ok: true
+   Evidence = behavior (required keys for ticket class). Tags/logs may indict, never acquit.
+   Bare weld_intent_hostile_ok stamp = fail. B₂ must not rewrite Prefer Success.
+   STOP if B₂ fails → rework weld, re-run B₂. Do not ask for F5.
+6) STOP for operator F5 (feel). No KEEP / ask_success / next_world_armed without F5.
+7) After F5 pass: stamp map ticket Status → f5_good; bump map updated.
+   KEEP / pointer only if A + B₁ + B₂ + F5 (and map law).
+
+Defaults:
+- Default factory. Chat LIVE hotfix = STOP and ASK \"Skip factory Prefer+hostile and weld in chat?\"
+  Bypass only on explicit yes + factory_bypass: true + factory_bypass_ack quote.
+  Never factory_greenlit on bypass.
+- Ticket map optional unless ticket_map_id is set (this launch has ticket_map_id).
+- Do not arm: {", ".join(str(x) for x in do_not_arm) if do_not_arm else "(see Prefer)"}.
+
+This run:
+- map_id: {map_doc.map_id}
+- map path: {map_doc.rel_path}
+- ticket_map_id: {ticket.ticket_map_id}
+- product job: {job}
+- slice / Prefer: {prefer.get("brief_path") or prefer.get("armed_path") or "(compose Prefer)"}
+- live target: {live or "(resolve from Prefer)"}
+- out of scope: do not advance unrelated map pointers; do not arm listed do_not_arm
+
+Status snapshot:
+{chr(10).join(status_lines)}
+"""
+
+
+# Back-compat alias for prefer_map_fidelity imports
+def load_ticket_map_rows(
+    vault_root: Path,
+    *,
+    map_rel: str | None = None,
+) -> dict[str, MapTicketRow]:
+    rel = (map_rel or DEFAULT_TICKET_MAP_REL).strip().lstrip("/")
+    path = vault_root / rel
+    if not path.is_file():
+        return {}
+    doc = load_ticket_map_doc(path, vault_root=vault_root, require_flag=False)
+    if doc is not None:
+        return doc.tickets
+    return parse_ticket_map_rows(path.read_text(encoding="utf-8", errors="replace"))

@@ -20,8 +20,11 @@ from typing import Any
 
 import yaml
 
-DEFAULT_TICKET_MAP_REL = (
-    "1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md"
+from .ticket_map_schema import (
+    DEFAULT_TICKET_MAP_REL,
+    MapTicketRow,
+    load_ticket_map_rows,
+    parse_ticket_map_rows,
 )
 
 # Prefer packets for MAP rows (WORLD / GEN / VIS / LOOP / PACK / PLACE / DESK)
@@ -103,25 +106,6 @@ _SUCCESS_CLAIM_CLASSES: frozenset[str] = frozenset(
         "",
     }
 )
-
-_TICKET_ROW_RE = re.compile(
-    r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
-    r"\s*(?P<job>[^|]*?)\s*\|"
-    r"\s*(?P<welds>[^|]*?)\s*\|\s*$",
-    re.M,
-)
-
-
-@dataclass
-class MapTicketRow:
-    ticket_map_id: str
-    product_job: str
-    welds: str
-
-    @property
-    def proof_blob(self) -> str:
-        return f"{self.product_job} {self.welds}".strip()
-
 
 @dataclass
 class MapFidelityResult:
@@ -220,30 +204,6 @@ def armed_requires_hostile_prefer(armed: dict[str, Any] | None) -> bool:
             armed.get("claim_class") is not None or armed.get("success_object")
         )
     return False
-
-
-def parse_ticket_map_rows(map_text: str) -> dict[str, MapTicketRow]:
-    """Parse markdown table rows with ticket id in backticks (3+ columns)."""
-    rows: dict[str, MapTicketRow] = {}
-    for m in _TICKET_ROW_RE.finditer(map_text or ""):
-        tid = m.group("id").strip()
-        job = " ".join(m.group("job").split())
-        welds = " ".join(m.group("welds").split())
-        # Skip pure fidelity tables that repeat id without a real job
-        if job.lower() in {"product job", "fidelity", "was", "now", "ticket"}:
-            continue
-        rows[tid] = MapTicketRow(ticket_map_id=tid, product_job=job, welds=welds)
-    return rows
-
-
-def load_ticket_map_rows(
-    vault_root: Path, *, map_rel: str | None = None
-) -> dict[str, MapTicketRow]:
-    rel = (map_rel or DEFAULT_TICKET_MAP_REL).strip().lstrip("/")
-    path = vault_root / rel
-    if not path.is_file():
-        return {}
-    return parse_ticket_map_rows(path.read_text(encoding="utf-8", errors="replace"))
 
 
 def _norm(s: str) -> str:
