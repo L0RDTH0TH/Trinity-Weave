@@ -30,7 +30,7 @@ alwaysApply: true
 These remain under `.cursor/rules/` until operator promotes compiled law:
 
 - `.cursor/rules/agents/execution-safety-blacklist.mdc` — delete → trash, no shell `rm`
-- `.cursor/rules/agents/curator-mandatory-backup.mdc` — post-edit Curator snapshot tail
+- `.cursor/rules/agents/curator-mandatory-backup.txt` — **inactive** (was `.mdc`; renamed so Cursor does not alwaysApply). Private Curator snapshot is operator-only; agents sync **Trinity / Grok public** only
 - `.cursor/rules/always/watcher-result-append.mdc` — Watcher-Result line format
 
 Doctrine digest for execution gates: **`.technical/weave/host-weld/live/safety.md`** (from locked `host_execution_safety_contract` meta).
