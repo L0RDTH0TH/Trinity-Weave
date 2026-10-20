@@ -89,7 +89,11 @@ def load_factory_project(
     if not isinstance(shortcuts, list):
         shortcuts = legacy.get("forbidden_shortcuts") or []
 
-    return {
+    runtime = manifest.get("ticket_map_runtime")
+    if not isinstance(runtime, dict):
+        runtime = None
+
+    out: dict[str, Any] = {
         "schema_version": manifest.get("schema_version") or 1,
         "project_id": pid,
         "game_repo_path": str(_pick("game_repo_path")).strip("/"),
@@ -103,7 +107,20 @@ def load_factory_project(
         "forbidden_shortcuts": list(shortcuts),
         "legacy_alpha_queue_ref": legacy_rel,
         "manifest_path": str(manifest_path.relative_to(vault_root)) if manifest_path.is_file() else "",
+        # Eat / Prefer latches — pass through from manifest (false until operator GREENLIGHT).
+        "factory_greenlit": manifest.get("factory_greenlit") is True,
+        "slice_factory_greenlit": manifest.get("slice_factory_greenlit") is True,
+        "armed_slice_id": manifest.get("armed_slice_id"),
+        "armed_ask_id": manifest.get("armed_ask_id"),
+        "armed_status": manifest.get("armed_status"),
+        "active_recovery": manifest.get("active_recovery"),
     }
+    if runtime is not None:
+        out["ticket_map_runtime"] = runtime
+    prefer_track = manifest.get("prefer_track")
+    if isinstance(prefer_track, dict):
+        out["prefer_track"] = prefer_track
+    return out
 
 
 __all__ = [

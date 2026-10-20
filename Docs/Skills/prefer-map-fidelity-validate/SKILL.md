@@ -36,10 +36,12 @@ Pass only if **all** are true:
 1. `structural_success` is the MAP **product job + weld proofs** (when mapped), not a thinner rewrite that keeps the ticket name.
 2. `success_object` names a **player-visible** Play-path outcome on the project’s LIVE entry (from `factory-project.yaml` → `game_repo_path` + Prefer `live_write_target` / Play scene). Refuse `contract_bound` / `meta_written` / `hotkey_bound`. Do not require WorldgenCraft unless that is the Prefer’s Play path.
 3. A stranger one-liner of Success matches the MAP job / Prefer intent on that Play path. Metas / HUD / taught hotkeys do not count.
-4. Required `do_not_waive` includes (when map Prefer): `hotkey_as_product_ux`, `config_meta_without_effect`, `stub_as_hours`, `map_job_name_only`, `explicit_met_implicit_miss`, `intent_collapsed_to_mechanics` — plus any map-local codes the Prefer arms.
+4. Required `do_not_waive` includes (when map Prefer): `hotkey_as_product_ux`, `config_meta_without_effect`, `stub_as_hours`, `map_job_name_only`, `explicit_met_implicit_miss`, `intent_collapsed_to_mechanics`, plus session-prep codes when on `world-builder-session-prep`: `separate_wiki_as_prep`, `campaign_unscoped`, `rail_collapsed`, `inherited_prior_keep`, `hidden_default_dial`, `old_host_as_new_product`.
 5. Refuse wording-minimal / `intent_collapsed_to_mechanics` — Gate B blocks before greenlight.
 6. Inspiration altitude (Azgaar / Townscaper / FG / etc.) is **only** when the Prefer cites that exemplar — not a default for every ticket.
 7. Partial hit → **staging incomplete**, never KEEP. Staging without hostile → **fail** (not warning).
+8. **`behavior_keys` (3–8) for non-place Prefers:** each key must be a stranger-watchable claim from that MAP row’s product job (Play-path verbs the GM can see). Reject compile/file/menu meta keys (`file_exists`, `compiles`, `menu_opens`, `contract_bound`) even if length ≥ 3 — those fail B₁ here so B₂ cannot green the wrong picture.
+9. Do **not** treat project `factory_greenlit: true` as Prefer Success. Project greenlit stays false until operator GREENLIGHTS a welded slice.
 
 ## Operator F5 (not this skill)
 

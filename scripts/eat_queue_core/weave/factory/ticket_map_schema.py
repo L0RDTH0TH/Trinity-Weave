@@ -14,13 +14,8 @@ from typing import Any, Iterable
 
 import yaml
 
-# Deprecated dead hardwire — do not use as law. Prefer
-# :func:`resolve_active_ticket_map_rel` (factory-project.yaml → discovery).
-# Kept only so older callers/tests that still import the name do not crash.
-LEGACY_STRANDED_TICKET_MAP_REL = (
-    "1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md"
-)
-DEFAULT_TICKET_MAP_REL = LEGACY_STRANDED_TICKET_MAP_REL  # alias; resolve_* wins
+# No product-map filename hardwire. Active map = factory-project.yaml
+# ticket_map_runtime → :func:`resolve_active_ticket_map_rel` (fail-closed on None).
 
 TICKET_STATUSES = frozenset({"open", "f5_good", "deferred", "superseded"})
 MAP_STATUSES = frozenset({"active", "deferred", "complete"})
