@@ -309,7 +309,25 @@ def resolve_prefer_behavior_class(
     pack: dict[str, Any] | None = None,
     prefer_result: dict[str, Any] | None = None,
 ) -> str:
-    """Return prefer behavior class: place / known class / unknown (fail-closed)."""
+    """Return prefer behavior class: place / known class / unknown (fail-closed).
+
+    Class must be **explicit** (``prefer_class`` / ``behavior_class`` /
+    ``object_class``) or a **prefix** of ``ticket_map_id`` (``place-`` /
+    ``gen-`` / …). Substring inference is forbidden — ``WB-auth-place`` must
+    not inherit dual-grid place keys unless ``prefer_class: place`` is set.
+    """
+    _PLACE_ALIASES = frozenset(
+        {
+            "place",
+            "dual_place",
+            "place_product",
+            "place-product",
+            "owned_cell_place",
+            "tri_cell_place",
+            "place_coast",
+            "place_update",
+        }
+    )
     for blob in (pack, armed, prefer_result):
         if not isinstance(blob, dict):
             continue
@@ -319,43 +337,94 @@ def resolve_prefer_behavior_class(
                 continue
             if raw in BEHAVIOR_KEYS_BY_CLASS:
                 return raw
-            if "place" in raw:
+            if raw in _PLACE_ALIASES:
                 return "place"
             return raw
-    hay = " ".join(
-        [
-            str((armed or {}).get("slice_id") or ""),
-            str((armed or {}).get("ticket_map_id") or ""),
-            str((armed or {}).get("ask_id") or ""),
-            str((prefer_result or {}).get("slice_id") or ""),
-            str((pack or {}).get("prefer_success") or ""),
-        ]
-    ).lower()
-    if any(m in hay for m in _PLACE_INFER_MARKERS) or re.search(
-        r"(?:^|[^a-z])place(?:[^a-z]|$)", hay
-    ):
-        return "place"
-    # Ticket-map prefixes without explicit class → map to coarse class.
+    # Prefix-only fallback on ticket_map_id (start of id), never mid-string.
     tid = str((armed or {}).get("ticket_map_id") or "").strip().lower()
     for prefix, cls in (
-        ("place", "place"),
-        ("gen", "gen"),
-        ("world", "worldgen"),
-        ("vis", "vis"),
-        ("loop", "loop"),
-        ("pack", "pack"),
-        ("desk", "desk"),
+        ("place-", "place"),
+        ("place_", "place"),
+        ("gen-", "gen"),
+        ("gen_", "gen"),
+        ("world-", "worldgen"),
+        ("world_", "worldgen"),
+        ("vis-", "vis"),
+        ("vis_", "vis"),
+        ("loop-", "loop"),
+        ("loop_", "loop"),
+        ("pack-", "pack"),
+        ("pack_", "pack"),
+        ("desk-", "desk"),
+        ("desk_", "desk"),
     ):
         if tid.startswith(prefix):
             return cls
+    # Legacy slice_id markers only when they are place-product Prefer ids —
+    # not when ticket_map_id merely contains the letters "place".
+    slice_id = str((armed or {}).get("slice_id") or "").strip().lower()
+    if any(m in slice_id for m in _PLACE_INFER_MARKERS) and not tid.startswith(
+        ("wb-", "wb_", "camp-", "dial-", "rail-", "prep-", "pf-")
+    ):
+        if "place" in slice_id and (
+            "stalberg" in slice_id or "dual_" in slice_id or "townscaper" in slice_id
+        ):
+            return "place"
     return "unknown"
 
 
-def required_behavior_keys_for_class(prefer_class: str) -> tuple[str, ...] | None:
-    """Keys required for class, or None when class is unknown / undefined."""
+def _declared_behavior_keys(
+    armed: dict[str, Any] | None,
+    pack: dict[str, Any] | None,
+    prefer_result: dict[str, Any] | None,
+) -> tuple[str, ...] | None:
+    """Prefer-authored behavior keys (3–8). Producer booleans alone are not enough."""
+    for blob in (pack, armed, prefer_result):
+        if not isinstance(blob, dict):
+            continue
+        raw = blob.get("behavior_keys") or blob.get("prefer_behavior_keys")
+        if isinstance(raw, (list, tuple)) and len(raw) >= 3:
+            keys = [str(x).strip() for x in raw if str(x).strip()]
+            if len(keys) >= 3:
+                return tuple(keys[:8])
+    return None
+
+
+def required_behavior_keys_for_class(
+    prefer_class: str,
+    *,
+    armed: dict[str, Any] | None = None,
+    pack: dict[str, Any] | None = None,
+    prefer_result: dict[str, Any] | None = None,
+) -> tuple[str, ...] | None:
+    """Keys required for class, or None when class is unknown / undefined.
+
+    Non-place product classes **must** declare ``behavior_keys`` (3–8) on the
+    Prefer / evidence pack. The two generic checkboxes alone are not sufficient.
+    Dual-grid ``place`` class keeps PLACE_BEHAVIOR_KEYS unless overridden.
+    """
+    declared = _declared_behavior_keys(armed, pack, prefer_result)
     cls = (prefer_class or "").strip().lower()
-    if cls in BEHAVIOR_KEYS_BY_CLASS:
+    if cls in {"place", "dual_place", "place_product", "place-product"} or (
+        "place" in cls and cls in BEHAVIOR_KEYS_BY_CLASS
+    ):
+        return declared or PLACE_BEHAVIOR_KEYS
+    if declared:
+        return declared
+    if cls in BEHAVIOR_KEYS_BY_CLASS and cls not in {
+        "generic",
+        "product",
+        "worldgen",
+        "gen",
+        "vis",
+        "loop",
+        "pack",
+        "desk",
+    }:
         return BEHAVIOR_KEYS_BY_CLASS[cls]
+    # generic / worldgen / unknown without declared keys → fail closed (None)
+    if cls in BEHAVIOR_KEYS_BY_CLASS:
+        return None  # forces Prefer to author behavior_keys
     if "place" in cls:
         return PLACE_BEHAVIOR_KEYS
     return None
@@ -518,9 +587,33 @@ def evaluate_behavior_evidence(
 
     behavior = behavior_candidate or {}
     prefer_class = resolve_prefer_behavior_class(armed, pack, prefer_result)
-    required = required_behavior_keys_for_class(prefer_class)
+    required = required_behavior_keys_for_class(
+        prefer_class,
+        armed=armed,
+        pack=pack,
+        prefer_result=prefer_result,
+    )
     if required is None:
-        violations.append(f"weld_intent:unknown_prefer_class_fail_closed:{prefer_class or 'unknown'}")
+        if prefer_class in {
+            "generic",
+            "product",
+            "worldgen",
+            "gen",
+            "vis",
+            "loop",
+            "pack",
+            "desk",
+            "unknown",
+            "",
+        }:
+            violations.append(
+                "weld_intent:behavior_keys_must_be_declared:"
+                f"{prefer_class or 'unknown'}"
+            )
+        else:
+            violations.append(
+                f"weld_intent:unknown_prefer_class_fail_closed:{prefer_class or 'unknown'}"
+            )
     else:
         for key in required:
             if key not in behavior:

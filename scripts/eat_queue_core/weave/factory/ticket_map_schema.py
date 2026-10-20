@@ -8,14 +8,19 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
 import yaml
 
-DEFAULT_TICKET_MAP_REL = (
+# Deprecated dead hardwire — do not use as law. Prefer
+# :func:`resolve_active_ticket_map_rel` (factory-project.yaml → discovery).
+# Kept only so older callers/tests that still import the name do not crash.
+LEGACY_STRANDED_TICKET_MAP_REL = (
     "1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md"
 )
+DEFAULT_TICKET_MAP_REL = LEGACY_STRANDED_TICKET_MAP_REL  # alias; resolve_* wins
 
 TICKET_STATUSES = frozenset({"open", "f5_good", "deferred", "superseded"})
 MAP_STATUSES = frozenset({"active", "deferred", "complete"})
@@ -116,8 +121,9 @@ class TicketMapDoc:
 class LivePickerRow:
     """One Prefer armed packet joined to a map ticket row.
 
-    System still resolves by ticket_map_id; the list may show multiple rows
-    (r1/r2/…) so the operator sees each weld iteration.
+    System still resolves by ticket_map_id; open drafts may list multiple
+    slices (r1/r2/…). Trail (``f5_good``) collapses to one row per ticket —
+    the Prefer with the latest F5/close timestamp — sorted newest-first.
 
     ``map_fidelity_hostile_ok`` is Gate B₁ from ``*.prefer-result.json``
     (cached at join time). Launchable requires map Status ``open`` **and**
@@ -130,6 +136,8 @@ class LivePickerRow:
     armed: dict[str, Any]
     mtime: float = 0.0
     map_fidelity_hostile_ok: bool = False
+    # Unix epoch for trail sort (operator F5 / completed / closed); 0 if unknown
+    trail_at: float = 0.0
 
     @property
     def ticket_map_id(self) -> str:
@@ -157,6 +165,98 @@ class LivePickerRow:
     @property
     def trail(self) -> bool:
         return (self.ticket.status or "").lower() == GREYED_TICKET_STATUS
+
+
+def _parse_iso_epoch(value: Any) -> float:
+    """Best-effort ISO-8601 → UTC epoch seconds; 0 if unparseable."""
+    if value is None:
+        return 0.0
+    s = str(value).strip()
+    if not s:
+        return 0.0
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+    try:
+        dt = datetime.fromisoformat(s)
+    except ValueError:
+        return 0.0
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.timestamp()
+
+
+def prefer_trail_at(
+    vault_root: Path,
+    slice_id: str,
+    armed_path: str | Path,
+    armed: dict[str, Any] | None = None,
+    *,
+    fallback_mtime: float = 0.0,
+) -> float:
+    """When this Prefer step closed for trail ordering (newest first).
+
+    Preference (prefer-result then armed): ``operator_f5_at`` → ``completed_at``
+    → ``closed_at`` → ``greenlit_at`` → ``armed_at``, then file mtime.
+    Do **not** prefer raw mtime over historical armed stamps — touching an
+    armed file for ``ticket_map_id`` must not float a KEEP above a newer F5.
+    """
+    vault_root = vault_root.resolve()
+    ap = Path(armed_path)
+    if not ap.is_absolute():
+        ap = vault_root / ap
+    armed = armed if isinstance(armed, dict) else {}
+    result: dict[str, Any] = {}
+    sid = (slice_id or "").strip()
+    if sid:
+        pr = ap.parent / f"{sid}.prefer-result.json"
+        if pr.is_file():
+            try:
+                data = json.loads(pr.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError, ValueError):
+                data = None
+            if isinstance(data, dict):
+                result = data
+    receipt_fm: dict[str, str] = {}
+    if sid:
+        receipt = ap.parent / f"{sid}.receipt.md"
+        if receipt.is_file():
+            try:
+                head = receipt.read_text(encoding="utf-8")[:4000]
+            except OSError:
+                head = ""
+            for key in (
+                "operator_f5_at",
+                "completed_at",
+                "closed_at",
+                "greenlit_at",
+                "armed_at",
+            ):
+                m = re.search(rf"(?m)^{key}:\s*['\"]?([^\n'\"]+)", head)
+                if m:
+                    receipt_fm[key] = m.group(1).strip()
+
+    def _from_sources(key: str) -> float:
+        for src in (result, armed, receipt_fm):
+            epoch = _parse_iso_epoch(src.get(key) if isinstance(src, dict) else None)
+            if epoch > 0:
+                return epoch
+        return 0.0
+
+    # Close/F5 stamps beat greenlit/armed (receipt may hold F5 after weld greenlit)
+    for key in ("operator_f5_at", "completed_at", "closed_at"):
+        epoch = _from_sources(key)
+        if epoch > 0:
+            return epoch
+    for key in ("greenlit_at", "armed_at"):
+        epoch = _from_sources(key)
+        if epoch > 0:
+            return epoch
+    if fallback_mtime > 0:
+        return float(fallback_mtime)
+    try:
+        return float(ap.stat().st_mtime)
+    except OSError:
+        return 0.0
 
 
 def prefer_b1_ok(
@@ -662,7 +762,9 @@ def build_live_picker_rows(
     - With ``show_hidden`` / ``--all-tickets``: may include B₁-pending opens
       (caller disables them); ``f5_good`` trail unchanged.
     - Primary trail: map Status ``f5_good`` Prefer-linked rows (greyed).
-    - Multiple armed slices per id → multiple list rows (same ticket_map_id).
+    - Trail collapses to **one Prefer per ticket_map_id** (latest F5/close).
+    - Trail order = steps taken: **newest F5 first** (not map tip→tail grouping).
+    - Open seats may still list multiple armed slices (draft revisions).
     - Naked map rows without Prefer do not appear.
     """
     vault_root = vault_root.resolve()
@@ -688,6 +790,9 @@ def build_live_picker_rows(
         armed_view = dict(armed)
         if not str(armed_view.get("ticket_map_id") or "").strip():
             armed_view["ticket_map_id"] = map_row.ticket_map_id
+        trail_at = prefer_trail_at(
+            vault_root, sid, armed_path, armed_view, fallback_mtime=mtime
+        )
         joined[key] = LivePickerRow(
             ticket=map_row,
             slice_id=sid,
@@ -695,6 +800,7 @@ def build_live_picker_rows(
             armed=armed_view,
             mtime=mtime,
             map_fidelity_hostile_ok=b1,
+            trail_at=trail_at,
         )
 
     for tid, sid, armed_path, armed, mtime in iter_armed_prefers(
@@ -720,24 +826,34 @@ def build_live_picker_rows(
                 continue
             _add(map_row, sid, armed_path, armed, mtime)
 
-    live = list(joined.values())
+    # Trail = one Prefer per ticket (latest close); open keeps multi-slice drafts.
+    by_ticket_trail: dict[str, LivePickerRow] = {}
+    open_rows: list[LivePickerRow] = []
+    other_rows: list[LivePickerRow] = []
+    for row in joined.values():
+        st = (row.status or "").lower()
+        if st == GREYED_TICKET_STATUS:
+            prev = by_ticket_trail.get(row.ticket_map_id)
+            if prev is None or row.trail_at >= prev.trail_at:
+                by_ticket_trail[row.ticket_map_id] = row
+        elif st == SELECTABLE_TICKET_STATUS:
+            open_rows.append(row)
+        else:
+            other_rows.append(row)
+
+    live = open_rows + list(by_ticket_trail.values()) + other_rows
     recovery = map_doc.active_recovery or ""
 
     def sort_key(row: LivePickerRow) -> tuple:
         st = (row.status or "").lower()
         is_recovery = 1 if recovery and row.ticket_map_id == recovery else 0
         if st == SELECTABLE_TICKET_STATUS:
-            band = 2
-        elif st == GREYED_TICKET_STATUS:
-            band = 1
-        else:
-            band = 0
-        return (
-            band,
-            is_recovery,
-            -map_doc.map_rank(row.ticket_map_id),
-            row.mtime,
-        )
+            # Open / recovery first; tip→tail among opens
+            return (2, is_recovery, -map_doc.map_rank(row.ticket_map_id), row.mtime, 0.0)
+        if st == GREYED_TICKET_STATUS:
+            # History: newest F5/close first (steps taken, reverse chrono)
+            return (1, 0, row.trail_at, -map_doc.map_rank(row.ticket_map_id), row.mtime)
+        return (0, 0, 0.0, -map_doc.map_rank(row.ticket_map_id), row.mtime)
 
     live.sort(key=sort_key, reverse=True)
     return live
@@ -849,7 +965,7 @@ def build_factory_weld_prompt(
     ticket: MapTicketRow,
     prefer: dict[str, Any],
 ) -> str:
-    """Emit FACTORY WELD launch text for clipboard."""
+    """Emit FACTORY GREENLIGHT WELD launch text for clipboard."""
     armed = prefer.get("armed") if isinstance(prefer.get("armed"), dict) else {}
     pr = prefer.get("prefer_result") if isinstance(prefer.get("prefer_result"), dict) else {}
     slice_id = prefer.get("slice_id") or map_doc.active_recovery_slice or ""
@@ -884,7 +1000,7 @@ def build_factory_weld_prompt(
         status_lines.append(f"- NOTE: {prefer_note}")
 
     job = ticket.product_job
-    return f"""FACTORY WELD — {ticket.ticket_map_id}
+    return f"""FACTORY GREENLIGHT WELD — {ticket.ticket_map_id}
 
 Path (binding, in order — do not skip):
 1) Prefer authorship / Gate A (mechanical packet; map optional unless ticket_map_id set)
@@ -921,13 +1037,90 @@ Status snapshot:
 """
 
 
-# Back-compat alias for prefer_map_fidelity imports
+def resolve_active_ticket_map_rel(
+    vault_root: Path,
+    *,
+    project_id: str | None = None,
+    ticket_map_id: str | None = None,
+) -> str | None:
+    """Resolve vault-relative path of the active ticket map (no product hardwire).
+
+    Order:
+    1. ``factory-project.yaml`` → ``ticket_map_runtime.map_note`` (or ``map_path``)
+    2. ``ticket_map_runtime.map_id`` matched via :func:`discover_ticket_maps`
+    3. Sole active map under the project (or vault-wide if one)
+    4. If ``ticket_map_id`` is set, the active map that contains that row
+    5. ``None`` — caller fail-closes (never invent a mini-game path)
+    """
+    vault_root = vault_root.resolve()
+    tid = (ticket_map_id or "").strip()
+
+    # 1–2: project manifest socket
+    try:
+        from .factory_project import load_factory_project
+
+        boot = load_factory_project(vault_root, project_id)
+    except Exception:
+        boot = {}
+    runtime = boot.get("ticket_map_runtime") if isinstance(boot, dict) else None
+    if isinstance(runtime, dict):
+        note = str(
+            runtime.get("map_note") or runtime.get("map_path") or ""
+        ).strip().lstrip("/")
+        if note and (vault_root / note).is_file():
+            return note
+        want_id = str(runtime.get("map_id") or "").strip()
+        if want_id:
+            for doc in discover_ticket_maps(vault_root):
+                if doc.map_id == want_id:
+                    return doc.rel_path
+
+    # 3: sole active map (project-scoped when possible)
+    docs = discover_ticket_maps(vault_root)
+    pid = str(
+        (boot.get("project_id") if isinstance(boot, dict) else None)
+        or project_id
+        or ""
+    ).strip()
+    if pid:
+        scoped = [
+            d
+            for d in docs
+            if d.rel_path.startswith(f"1-Projects/{pid}/")
+            or str(d.frontmatter.get("project-id") or "") == pid
+        ]
+        if len(scoped) == 1:
+            return scoped[0].rel_path
+        docs = scoped or docs
+    if len(docs) == 1:
+        return docs[0].rel_path
+
+    # 4: ticket id → owning active map
+    if tid:
+        for doc in docs:
+            if tid in doc.tickets or tid.replace("_", "-") in doc.tickets:
+                return doc.rel_path
+    return None
+
+
 def load_ticket_map_rows(
     vault_root: Path,
     *,
     map_rel: str | None = None,
+    project_id: str | None = None,
+    ticket_map_id: str | None = None,
 ) -> dict[str, MapTicketRow]:
-    rel = (map_rel or DEFAULT_TICKET_MAP_REL).strip().lstrip("/")
+    """Load ticket rows from an explicit map path or the active project map."""
+    vault_root = vault_root.resolve()
+    rel = (map_rel or "").strip().lstrip("/")
+    if not rel:
+        rel = resolve_active_ticket_map_rel(
+            vault_root,
+            project_id=project_id,
+            ticket_map_id=ticket_map_id,
+        ) or ""
+    if not rel:
+        return {}
     path = vault_root / rel
     if not path.is_file():
         return {}

@@ -1,4 +1,4 @@
-"""Vault-wide ticket-map schema + FACTORY WELD prompt (no project hardcode)."""
+"""Vault-wide ticket-map schema + FACTORY GREENLIGHT WELD prompt (no project hardcode)."""
 
 from __future__ import annotations
 
@@ -143,7 +143,7 @@ def test_prefer_join_and_prompt():
     assert prefer["slice_id"] == "alpha_open_r1"
     assert prefer["armed"] is not None
     prompt = build_factory_weld_prompt(map_doc=alpha, ticket=ticket, prefer=prefer)
-    assert "FACTORY WELD — ALPHA-open" in prompt
+    assert "FACTORY GREENLIGHT WELD — ALPHA-open" in prompt
     assert "Gate B₁" in prompt and "Gate B₂" in prompt
     assert "alpha_open_r1" in prompt
     assert "GREENLIGHT WELD" in prompt
@@ -183,26 +183,28 @@ def test_picker_label_id_first_strips_markup():
     assert grey.index("WORLD-new") < grey.index("DM opens")
 
 
-def test_world_builder_map_loads_if_present():
+def test_session_prep_map_loads_if_present():
     vault = Path(__file__).resolve().parents[3]
     wb = (
         vault
-        / "1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Mini-Game-Ticket-Map.md"
+        / "1-Projects/genesis-mythos-master/Factory-DRB/"
+        "World-Builder-Session-Prep-Ticket-Map.md"
     )
     if not wb.is_file():
         return
     doc = load_ticket_map_doc(wb, vault_root=vault, require_flag=True)
     assert doc is not None
     assert doc.frontmatter.get("ticket_map") is True
-    assert "PLACE-product" in doc.tickets
-    assert doc.tickets["PLACE-product"].status == "open"
-    assert doc.tickets["LOOP-undo"].status == "open"
-    assert doc.tickets["WORLD-propose"].status == "deferred"
-    assert doc.tickets["WORLD-new"].status == "f5_good"
-    live = build_live_picker_rows(vault, doc)
-    live_ids = {r.ticket_map_id for r in live}
-    assert "PLACE-product" in live_ids
-    # Naked map rows without Prefer do not appear
-    assert "LOOP-undo" not in live_ids
-    assert any(r.trail for r in live)
-    assert any(r.launchable and r.ticket_map_id == "PLACE-product" for r in live)
+    assert doc.map_id == "world-builder-session-prep"
+    assert "WB-polygon-substrate" in doc.tickets
+    assert doc.tickets["WB-polygon-substrate"].status == "open"
+    from eat_queue_core.weave.factory.ticket_map_schema import (
+        resolve_active_ticket_map_rel,
+    )
+
+    rel = resolve_active_ticket_map_rel(vault, project_id="genesis-mythos-master")
+    assert rel and rel.endswith("World-Builder-Session-Prep-Ticket-Map.md")
+    rows_via = __import__(
+        "eat_queue_core.weave.factory.ticket_map_schema", fromlist=["load_ticket_map_rows"]
+    ).load_ticket_map_rows(vault, ticket_map_id="WB-polygon-substrate")
+    assert "WB-polygon-substrate" in rows_via

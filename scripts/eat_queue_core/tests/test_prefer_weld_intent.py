@@ -288,3 +288,23 @@ def test_unknown_prefer_class_fail_closed():
     result = evaluate_behavior_evidence(pack)
     assert result.ok is False
     assert any("unknown_prefer_class_fail_closed" in v for v in result.violations)
+
+
+def test_wb_auth_place_does_not_inherit_dual_grid_place_class():
+    """Substring 'place' in ticket id must not force PLACE-product B₂ keys."""
+    from eat_queue_core.weave.factory.prefer_weld_intent import (
+        resolve_prefer_behavior_class,
+    )
+
+    assert (
+        resolve_prefer_behavior_class({"ticket_map_id": "WB-auth-place"}) == "unknown"
+    )
+    assert (
+        resolve_prefer_behavior_class(
+            {"ticket_map_id": "WB-auth-place", "prefer_class": "place"}
+        )
+        == "place"
+    )
+    assert (
+        resolve_prefer_behavior_class({"ticket_map_id": "PLACE-product"}) == "place"
+    )

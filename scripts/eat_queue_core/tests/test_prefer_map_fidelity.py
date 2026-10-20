@@ -27,13 +27,26 @@ SAMPLE_MAP = textwrap.dedent(
 
 
 def _map_vault(tmp_path: Path) -> Path:
-    rel = Path(
+    """Fixture vault: ticket map + factory-project socket (no harness hardwire)."""
+    drb = tmp_path / "1-Projects/genesis-mythos-master/Factory-DRB"
+    drb.mkdir(parents=True, exist_ok=True)
+    map_rel = (
         "1-Projects/genesis-mythos-master/Factory-DRB/"
-        "World-Builder-Mini-Game-Ticket-Map.md"
+        "World-Builder-Session-Prep-Ticket-Map.md"
     )
-    full = tmp_path / rel
-    full.parent.mkdir(parents=True, exist_ok=True)
-    full.write_text(SAMPLE_MAP, encoding="utf-8")
+    map_body = (
+        "---\nticket_map: true\nmap_id: fixture-session-prep\n"
+        "map_status: active\nproject-id: genesis-mythos-master\n---\n"
+        + SAMPLE_MAP
+    )
+    (tmp_path / map_rel).write_text(map_body, encoding="utf-8")
+    (drb / "factory-project.yaml").write_text(
+        "project_id: genesis-mythos-master\n"
+        "ticket_map_runtime:\n"
+        f"  map_id: fixture-session-prep\n"
+        f"  map_note: {map_rel}\n",
+        encoding="utf-8",
+    )
     return tmp_path
 
 

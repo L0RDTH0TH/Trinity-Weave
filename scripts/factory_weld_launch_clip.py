@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ticket-map battery — arrow-key Map→Ticket picker → FACTORY WELD clipboard.
+"""Ticket-map battery — arrow-key Map→Ticket picker → FACTORY GREENLIGHT WELD clipboard.
 
 Vault-wide: any conforming ticket_map (see Docs/Ticket-Map-Schema.md).
 Not project-specific.
@@ -150,13 +150,10 @@ def _pick_live_ticket(
                 )
             )
         elif row.trail:
-            choices.append(
-                Choice(
-                    title=label,
-                    value=row,
-                    disabled="F5 trail — browse only (same ticket_map_id)",
-                )
-            )
+            # Keep trail selectable so history stays visible (questionary
+            # disabled= greys often look "missing" in terminals). Caller
+            # must refuse FACTORY GREENLIGHT WELD when trail is chosen.
+            choices.append(Choice(title=label, value=row))
         else:
             choices.append(
                 Choice(title=label, value=row, disabled=row.status or "hidden")
@@ -169,11 +166,29 @@ def _pick_live_ticket(
             file=sys.stderr,
         )
 
-    return questionary.select(
-        "Prefer∩map (id · slice; open+B₁=launch; f5_good=trail):",
-        choices=choices,
-        use_arrow_keys=True,
-    ).ask()
+    # Loop: trail / non-launch picks stay visible but do not emit a weld prompt.
+    while True:
+        picked = questionary.select(
+            "Prefer∩map (id · slice; open+B₁=launch; [f5_good]=trail history):",
+            choices=choices,
+            use_arrow_keys=True,
+        ).ask()
+        if picked is None:
+            return None
+        if picked.launchable:
+            return picked
+        if picked.trail:
+            print(
+                f"Trail (not launchable): {picked.ticket_map_id} · {picked.slice_id} "
+                f"— Status f5_good. Pick an open+B₁ row to weld, or Ctrl+C to exit.",
+                file=sys.stderr,
+            )
+            continue
+        print(
+            f"Not launchable: {picked.ticket_map_id} status={picked.status} "
+            f"b1={picked.map_fidelity_hostile_ok}. Pick another.",
+            file=sys.stderr,
+        )
 
 
 def _resolve_map_by_id(vault: Path, map_id: str) -> TicketMapDoc | None:
@@ -221,7 +236,7 @@ def _pick_live_for_ticket_id(
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="FACTORY WELD launch prompt → clipboard")
+    ap = argparse.ArgumentParser(description="FACTORY GREENLIGHT WELD launch prompt → clipboard")
     ap.add_argument("--vault-root", type=Path, default=None)
     ap.add_argument("--map", dest="map_id", default="", help="map_id skip map picker")
     ap.add_argument("--ticket-map-id", default="", help="ticket id skip ticket picker")
@@ -315,6 +330,13 @@ def main(argv: list[str] | None = None) -> int:
             "do not GREENLIGHT until Gate B₁ passes.",
             file=sys.stderr,
         )
+    elif live is not None and live.trail:
+        print(
+            f"Trail only: {ticket.ticket_map_id} · {live.slice_id} (Status f5_good) — "
+            "no FACTORY GREENLIGHT WELD clipboard. Re-run and pick an open+B₁ row to launch.",
+            file=sys.stderr,
+        )
+        return 2
     elif ticket.status != SELECTABLE_TICKET_STATUS:
         print(
             f"Selected ticket status={ticket.status} (not open) — "

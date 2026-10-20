@@ -7,7 +7,8 @@ success_object, and incomplete do_not_waive.
 Hostile Prefer (Gate B) is required on **every** Prefer-applicable Success
 claim — staging **and** KEEP. Mechanical-shape alone must never green.
 
-Cite: Prefer-Authorship-Host-Law §C.3 · World-Builder-Mini-Game-Ticket-Map.
+Cite: Prefer-Authorship-Host-Law §C.3 · active ticket map via
+factory-project.yaml ``ticket_map_runtime`` / discovery (no product hardwire).
 """
 
 from __future__ import annotations
@@ -21,10 +22,10 @@ from typing import Any
 import yaml
 
 from .ticket_map_schema import (
-    DEFAULT_TICKET_MAP_REL,
     MapTicketRow,
     load_ticket_map_rows,
     parse_ticket_map_rows,
+    resolve_active_ticket_map_rel,
 )
 
 # Prefer packets for MAP rows (WORLD / GEN / VIS / LOOP / PACK / PLACE / DESK)
@@ -36,6 +37,13 @@ PRODUCT_MAP_DO_NOT_WAIVE: tuple[str, ...] = (
     "map_job_name_only",
     "explicit_met_implicit_miss",
     "intent_collapsed_to_mechanics",
+    # session-prep / clean-slate map (world-builder-session-prep)
+    "separate_wiki_as_prep",
+    "campaign_unscoped",
+    "rail_collapsed",
+    "inherited_prior_keep",
+    "hidden_default_dial",
+    "old_host_as_new_product",
 )
 # Back-compat alias for callers / tests.
 WORLD_GEN_MAP_DO_NOT_WAIVE: tuple[str, ...] = PRODUCT_MAP_DO_NOT_WAIVE
@@ -49,7 +57,8 @@ SUCCESS_OBJECT_DENY: tuple[str, ...] = (
     "chrome_only",
 )
 
-# Ticket-map id / mode prefixes — WORLD/GEN plus PLACE / craft / VIS / LOOP / PACK / DESK.
+# Ticket-map id / mode prefixes — product-agnostic families (old + session-prep).
+# Prefer always sets ticket_map_id; prefixes only catch Prefer-on without an id.
 MAP_TICKET_PREFIXES: tuple[str, ...] = (
     "world_",
     "gen_",
@@ -66,6 +75,29 @@ MAP_TICKET_PREFIXES: tuple[str, ...] = (
     "desk_",
     "desk-",
     "mini_hours",
+    # world-builder-session-prep families
+    "wb-",
+    "wb_",
+    "camp-",
+    "camp_",
+    "dial-",
+    "dial_",
+    "rail-",
+    "rail_",
+    "prep-",
+    "prep_",
+    "pf-",
+    "pf_",
+    "cont-",
+    "cont_",
+    "proof-",
+    "proof_",
+    "cam-",
+    "cam_",
+    "ctrl-",
+    "ctrl_",
+    "weld-",
+    "weld_",
 )
 
 # Align with prefer_authorship_contract.WORLDGEN_SLICE_MARKERS + PLACE / craft / dual.
@@ -252,7 +284,12 @@ def _run_gate_a_mechanical(
         violations.append("map_fidelity:missing_ticket_map_id")
         return ""
 
-    rows = load_ticket_map_rows(vault_root, map_rel=map_rel)
+    resolved_rel = map_rel or resolve_active_ticket_map_rel(
+        vault_root, ticket_map_id=tid
+    )
+    rows = load_ticket_map_rows(
+        vault_root, map_rel=resolved_rel, ticket_map_id=tid
+    )
     if not rows:
         violations.append("map_fidelity:ticket_map_unreadable_or_missing")
         return tid

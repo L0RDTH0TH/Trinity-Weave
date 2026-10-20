@@ -38,6 +38,16 @@ active_recovery_slice: <slice_id>
 
 Markdown with `ticket_map: true` under `1-Projects/**` and `3-Resources/**`. Filename `*Ticket-Map*.md` is optional hint only.
 
+## Active map socket (harness)
+
+Gate A / `load_ticket_map_rows` resolve the map from the project — **not** a hardcoded product filename:
+
+1. `1-Projects/<project-id>/Factory-DRB/factory-project.yaml` → `ticket_map_runtime.map_note` or `map_id`
+2. Else sole active discovered map for that project
+3. Else the active map that contains `ticket_map_id`
+
+Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
+
 ## Ticket rows (canonical)
 
 ```markdown
@@ -82,7 +92,7 @@ Stamp path: Gate B₁ (`VALIDATE prefer_map_fidelity`) writes `map_fidelity_host
    - map Notes/job wiki-links a slice that has `*.armed.yaml` (legacy Prefer without the field).
 4. Load Gate B₁ from `<slice_id>.prefer-result.json` (`prefer_b1_ok`); default list **omits** open rows that fail B₁.
 5. List in map order; `active_recovery` ★ first among launchable.
-6. **`f5_good` Prefer-linked rows are the primary grey trail** (browse, not launch).
+6. **`f5_good` Prefer-linked rows are the primary grey trail** (browse, not launch). One Prefer per ticket (latest F5/close). Trail order = **steps taken, newest first** (`operator_f5_at` / `completed_at` / `closed_at`), not map tip→tail grouping.
 7. Multiple Prefer slices (r1/r2/…) on the **same** `ticket_map_id` → **multiple list rows** when each is B₁-ready (or under `--all-tickets`); launch still resolves that one id + chosen `slice_id`.
 8. Naked map rows with no Prefer do **not** appear.
 
