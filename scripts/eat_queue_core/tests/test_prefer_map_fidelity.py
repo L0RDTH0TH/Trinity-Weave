@@ -66,6 +66,13 @@ def _good_armed() -> dict:
         ),
         "welds": {"W1": "a", "W2": "b", "W3": "c", "W4": "d", "W5": "e"},
         "do_not_waive": list(WORLD_GEN_MAP_DO_NOT_WAIVE),
+        # Unsectioned fixture → whole map is one section.
+        "out_of_scope_ticket_ids": ["GEN-biomes", "PLACE-coast"],
+        "behavior_keys": [
+            "generate_control_changes_land_water",
+            "river_dial_moves_watercourse",
+            "height_reads_on_dual_grid",
+        ],
     }
 
 
@@ -187,3 +194,97 @@ def test_keep_latch_requires_hostile_and_f5(tmp_path: Path):
         operator_f5_ok=True,
     )
     assert r2.ok is True, r2.violations
+
+
+def _live_vault() -> Path:
+    vault = Path(__file__).resolve().parents[3]
+    assert (vault / "3-Resources/Second-Brain-Config.md").is_file()
+    return vault
+
+
+def test_fat_polygon_job_consumes_siblings_fails():
+    """Regression: Prefer that describes living/flight/dials fails on this map.
+
+    Uses the live world-builder-session-prep map as fixture (not a hardcoded ticket).
+    """
+    from eat_queue_core.weave.factory.prefer_map_fidelity import (
+        PRODUCT_MAP_DO_NOT_WAIVE,
+        validate_armed_map_fidelity,
+    )
+    from eat_queue_core.weave.factory.ticket_map_schema import (
+        load_ticket_map_rows,
+        resolve_active_ticket_map_rel,
+        section_open_neighbor_ids,
+    )
+
+    vault = _live_vault()
+    rel = resolve_active_ticket_map_rel(
+        vault, project_id="genesis-mythos-master", ticket_map_id="WB-polygon-substrate"
+    )
+    assert rel and "Session-Prep" in rel
+    rows = load_ticket_map_rows(vault, map_rel=rel, ticket_map_id="WB-polygon-substrate")
+    oos = section_open_neighbor_ids(rows, "WB-polygon-substrate")
+    assert "WB-sim-clock" in oos or "WB-world-container" in oos
+
+    fat = {
+        "ticket_map_id": "WB-polygon-substrate",
+        "prefer_authorship": True,
+        "claim_class": "staging",
+        "success_object": "living_world_with_flight_and_dials",
+        "structural_success": (
+            "A GM can see and point at a living world made of low-fidelity polygon solids "
+            "and can read occupancy, hierarchy, and control surfaces during both deep "
+            "authoring and live flight. The world clock advances. Dials change density. "
+            "WorldCam flies the board."
+        ),
+        "out_of_scope_ticket_ids": oos,
+        "do_not_waive": list(PRODUCT_MAP_DO_NOT_WAIVE),
+        "behavior_keys": [
+            "living_world_ticks_unobserved",
+            "live_flight_reads_control_surfaces",
+            "occupancy_hierarchy_visible",
+        ],
+    }
+    result = validate_armed_map_fidelity(
+        vault, fat, prefer_result={"map_fidelity_hostile_ok": True}
+    )
+    assert result.ok is False, result.violations
+    assert any("job_consumes_sibling" in v for v in result.violations), result.violations
+
+
+def test_narrow_polygon_prefer_passes_gate_a():
+    from eat_queue_core.weave.factory.prefer_map_fidelity import (
+        PRODUCT_MAP_DO_NOT_WAIVE,
+        validate_armed_map_fidelity,
+    )
+    from eat_queue_core.weave.factory.ticket_map_schema import (
+        load_ticket_map_rows,
+        resolve_active_ticket_map_rel,
+        section_open_neighbor_ids,
+    )
+
+    vault = _live_vault()
+    rel = resolve_active_ticket_map_rel(
+        vault, project_id="genesis-mythos-master", ticket_map_id="WB-polygon-substrate"
+    )
+    rows = load_ticket_map_rows(vault, map_rel=rel, ticket_map_id="WB-polygon-substrate")
+    oos = section_open_neighbor_ids(rows, "WB-polygon-substrate")
+    job = rows["WB-polygon-substrate"].product_job
+    armed = {
+        "ticket_map_id": "WB-polygon-substrate",
+        "prefer_authorship": True,
+        "claim_class": "staging",
+        "success_object": "point_at_polygon_stays_same_solid",
+        "structural_success": job,
+        "out_of_scope_ticket_ids": oos,
+        "do_not_waive": list(PRODUCT_MAP_DO_NOT_WAIVE),
+        "behavior_keys": [
+            "point_selects_polygon_solid",
+            "selected_solid_unchanged_after_point",
+            "board_shows_low_fidelity_polygons",
+        ],
+    }
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
+    )
+    assert result.ok is True, result.violations

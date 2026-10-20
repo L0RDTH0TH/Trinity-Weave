@@ -2,6 +2,7 @@
 name: prefer-map-fidelity-validate
 description: >-
   Hostile Prefer validation (Gate B₁) — MAP job+proofs vs armed Prefer packet.
+  Prefer must bind this row and must not consume a sibling open row's job.
   Use for VALIDATE prefer_map_fidelity or before any Prefer Success claim
   (staging or KEEP) on Prefer-applicable product slices.
   Does not replace Gate B₂ weld intent (prefer_weld_intent) or operator F5.
@@ -12,36 +13,38 @@ description: >-
 ## When
 
 - Queue / Task: `VALIDATE` with `params.validation_type: prefer_map_fidelity`
-- Before **any** Prefer `claim_class` Success altitude (`staging`, `staging_awaiting_f5`, `ask_success` / KEEP) on Prefer-applicable product slices
+- After Ticketment draft (`prefer-ticketment-draft`) and Gate A green
+- Before **any** Prefer `claim_class` Success altitude on Prefer-applicable product slices
 - Mechanical Gate A alone must **never** green Success to the operator
 
 ## Inputs
 
-1. **Active ticket MAP** — resolve from `1-Projects/<project-id>/Factory-DRB/factory-project.yaml` → `ticket_map_runtime.map_note` / `map_id`, else discovery of the project’s sole `ticket_map: true` + `map_status: active` note. Do **not** hardcode a product map filename. Row for `ticket_map_id` on that map.
-2. Armed packet: `{slice_id}.armed.yaml` (must set `ticket_map_id` for map Prefers)
-3. Prefer brief + `prefer-result.json` if present
-4. Gate A CLI (must already be green when Gate A applies):
+1. **Ticketment bundle** for `ticket_map_id` (same load as Ticketment — section neighbors out of scope)
+2. **Active ticket MAP** — `factory-project.yaml` → `ticket_map_runtime` (no hardcoded product map filename)
+3. Armed packet: `{slice_id}.armed.yaml`
+4. Prefer brief + `prefer-result.json` if present
+5. Gate A CLI (must already be green when Gate A applies):
 
 ```bash
 PYTHONPATH=scripts python3 scripts/prefer_map_fidelity_check.py \
   --armed 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/<slice>.armed.yaml
 ```
 
-If Gate A exits non-zero → verdict **fail** (do not soft-pass). Prefer-product slices without `ticket_map_id` may be Gate-B-only; still fail closed if hostile is missing.
+If Gate A exits non-zero → verdict **fail** (do not soft-pass).
 
 ## Rubric (fail closed)
 
 Pass only if **all** are true:
 
-1. `structural_success` is the MAP **product job + weld proofs** (when mapped), not a thinner rewrite that keeps the ticket name.
-2. `success_object` names a **player-visible** Play-path outcome on the project’s LIVE entry (from `factory-project.yaml` → `game_repo_path` + Prefer `live_write_target` / Play scene). Refuse `contract_bound` / `meta_written` / `hotkey_bound`. Do not require WorldgenCraft unless that is the Prefer’s Play path.
-3. A stranger one-liner of Success matches the MAP job / Prefer intent on that Play path. Metas / HUD / taught hotkeys do not count.
-4. Required `do_not_waive` includes (when map Prefer): `hotkey_as_product_ux`, `config_meta_without_effect`, `stub_as_hours`, `map_job_name_only`, `explicit_met_implicit_miss`, `intent_collapsed_to_mechanics`, plus session-prep codes when on `world-builder-session-prep`: `separate_wiki_as_prep`, `campaign_unscoped`, `rail_collapsed`, `inherited_prior_keep`, `hidden_default_dial`, `old_host_as_new_product`.
-5. Refuse wording-minimal / `intent_collapsed_to_mechanics` — Gate B blocks before greenlight.
-6. Inspiration altitude (Azgaar / Townscaper / FG / etc.) is **only** when the Prefer cites that exemplar — not a default for every ticket.
-7. Partial hit → **staging incomplete**, never KEEP. Staging without hostile → **fail** (not warning).
-8. **`behavior_keys` (3–8) for non-place Prefers:** each key must be a stranger-watchable claim from that MAP row’s product job (Play-path verbs the GM can see). Reject compile/file/menu meta keys (`file_exists`, `compiles`, `menu_opens`, `contract_bound`) even if length ≥ 3 — those fail B₁ here so B₂ cannot green the wrong picture.
-9. Do **not** treat project `factory_greenlit: true` as Prefer Success. Project greenlit stays false until operator GREENLIGHTS a welded slice.
+1. **Own row bind.** `structural_success` matches **this** MAP product job (necessary). Narrowing after sibling words are removed is **correct**. A thinner rewrite of *this* row is not a fail.
+2. **No sibling swallow.** Prefer success / `behavior_keys` must not overlap any other **open** map row’s job more than they overlap this row. If they describe a different open ticket → **fail** (`job_consumes_sibling`). This is the regression that matters.
+3. `out_of_scope_ticket_ids` present and equal to same-section open neighbors from the map (Gate A already checks; B₁ re-checks intent).
+4. `success_object` names a **player-visible** Play-path outcome on the project’s LIVE entry. Refuse `contract_bound` / `meta_written` / `hotkey_bound`.
+5. Required `do_not_waive` includes product-map codes plus session-prep codes on `world-builder-session-prep`.
+6. `behavior_keys` (3–8 for non-place): stranger-watchable claims from **this** row. Reject `file_exists`, `compiles`, `menu_opens`, and the two generic B₂ booleans alone.
+7. Inspiration altitude (Azgaar / Townscaper / FG / etc.) **only** when the Prefer cites that exemplar.
+8. Partial hit → **staging incomplete**, never KEEP. Staging without hostile → **fail**.
+9. Do **not** treat project `factory_greenlit: true` as Prefer Success.
 
 ## Operator F5 (not this skill)
 
@@ -59,17 +62,18 @@ Write/update `{slice_id}.prefer-result.json` fields:
     "verdict": "pass|fail",
     "summary": "one sentence",
     "checked_ticket_map_id": "WB-polygon-substrate",
-    "gate_a_ok": true
+    "gate_a_ok": true,
+    "sibling_consume_ok": true
   }
 }
 ```
 
-On fail: `map_fidelity_hostile_ok: false` and list which proofs were collapsed.
+On fail: `map_fidelity_hostile_ok: false` and name which sibling job was swallowed.
 
 ## Not your job
 
 - Welding LIVE code
-- Gate B₂ weld intent after LIVE weld (`prefer-weld-intent-validate` / `weld_intent_hostile_ok`)
-- Operator F5 of the running game
-- Advancing map recovery pointers without operator F5
-- Stamping `factory_greenlit: true` on chat factory-bypass receipts
+- Gate B₂ (`prefer-weld-intent-validate`)
+- Operator F5
+- Quietly rewriting Prefer Success to fit LIVE — send sibling hits back to Ticketment
+- Stamping `factory_greenlit: true` on bypass

@@ -67,8 +67,10 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     # Mapped to Docs/Skills/ — vault `.cursor/skills/` stays forbidden as a prefix.
     ".cursor/skills/prefer-weld-intent-validate/",
     ".cursor/skills/prefer-map-fidelity-validate/",
+    ".cursor/skills/prefer-ticketment-draft/",
     "scripts/prefer_weld_intent_check.py",
     "scripts/prefer_map_fidelity_check.py",
+    "scripts/prefer_ticketment_bundle.py",
     "scripts/factory_weld_launch_clip.py",
     "scripts/eat_queue_core/weave/",
     "scripts/eat_queue_core/weave_public_publish.py",

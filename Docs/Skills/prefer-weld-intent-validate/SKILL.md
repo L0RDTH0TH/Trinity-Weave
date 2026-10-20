@@ -32,10 +32,11 @@ description: >-
 ## Inputs
 
 1. Prefer Success + refuses (Prefer brief / armed packet) — **read-only**; do **not** rewrite
-2. LIVE change set / files touched under Code-Repos
-3. Evidence pack from harness `build_evidence_pack` (behavior checklist)
-4. Optional MCP/Godot probes — **evidence only**, never sole pass (`verify_mcp_only` refuse)
-5. Gate B₁ already green when Prefer-applicable
+2. **Ticketment bundle** for `ticket_map_id` (same section neighbors / out_of_scope as draft) — so B₂ sees “you are here”
+3. LIVE change set / files touched under Code-Repos
+4. Evidence pack from harness `build_evidence_pack` (behavior checklist)
+5. Optional MCP/Godot probes — **evidence only**, never sole pass (`verify_mcp_only` refuse)
+6. Gate B₁ already green when Prefer-applicable
 
 ```bash
 PYTHONPATH=scripts python3 scripts/prefer_weld_intent_check.py \
@@ -58,6 +59,7 @@ Pass only if **all** are true:
 7. **Stamp alone never passes.** `weld_intent_hostile_ok: true` / nested `{ok: true}` without a valid `weld_intent_evidence` behavior pack = **fail**.
 8. **Place-class required keys.** For place / PLACE-product / dual_place markers, every place behavior key must be **present and true** (missing `update_four_ran` = fail). Unknown Prefer class = fail-closed.
 9. **Bypass** only when `factory_bypass: true` **and** non-empty `factory_bypass_ack` / `operator_bypass_ack` / `operator_ack`. Bypass + `factory_greenlit: true` = fail.
+10. **Sibling job in LIVE.** If Play-path behavior demonstrates another open map row’s product job (from the Ticketment neighbor list / map-wide open siblings) more than this Prefer’s row → **fail**. Do not rewrite Prefer Success; send back to Ticketment.
 
 ## Grok guards (binding)
 

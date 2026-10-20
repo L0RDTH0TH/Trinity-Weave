@@ -75,6 +75,8 @@ class MapTicketRow:
     welds: str
     status: str = "open"
     source_line: str = ""
+    # Nearest ``##`` heading above the table row (empty if none).
+    section_heading: str = ""
 
     @property
     def proof_blob(self) -> str:
@@ -83,6 +85,11 @@ class MapTicketRow:
     @property
     def notes(self) -> str:
         return self.welds
+
+    @property
+    def section_key(self) -> str:
+        """Section bucket for Ticketment neighbors; whole-map when unsectioned."""
+        return (self.section_heading or "").strip() or "__map__"
 
 
 @dataclass
@@ -365,6 +372,20 @@ def parse_ticket_map_rows(map_text: str) -> dict[str, MapTicketRow]:
     return rows
 
 
+_SECTION_HEADING_RE = re.compile(r"^##\s+(.+?)\s*$", re.M)
+
+
+def _section_heading_at(scan: str, pos: int) -> str:
+    """Nearest ``##`` heading at or before ``pos`` (empty if none)."""
+    heading = ""
+    for m in _SECTION_HEADING_RE.finditer(scan):
+        if m.start() <= pos:
+            heading = m.group(1).strip()
+        else:
+            break
+    return heading
+
+
 def parse_ticket_map_rows_ordered(
     map_text: str,
 ) -> tuple[dict[str, MapTicketRow], list[str]]:
@@ -399,6 +420,7 @@ def parse_ticket_map_rows_ordered(
                 welds=notes,
                 status=status,
                 source_line=m.group(0)[:200],
+                section_heading=_section_heading_at(scan, m.start()),
             ),
         )
 
@@ -424,6 +446,7 @@ def parse_ticket_map_rows_ordered(
                 welds=notes,
                 status=status,
                 source_line=m.group(0)[:200],
+                section_heading=_section_heading_at(scan, m.start()),
             ),
         )
 
@@ -446,10 +469,31 @@ def parse_ticket_map_rows_ordered(
                 welds=notes,
                 status=status,
                 source_line=m.group(0)[:200],
+                section_heading=_section_heading_at(scan, m.start()),
             ),
         )
 
     return rows, order
+
+
+def section_open_neighbor_ids(
+    rows: dict[str, MapTicketRow],
+    ticket_map_id: str,
+) -> list[str]:
+    """Other ``open`` tickets in the same section (sorted). Map-wide if unsectioned."""
+    tid = (ticket_map_id or "").strip()
+    row = rows.get(tid) or rows.get(tid.replace("_", "-"))
+    if row is None:
+        return []
+    key = row.section_key
+    out = [
+        r.ticket_map_id
+        for r in rows.values()
+        if r.section_key == key
+        and (r.status or "").lower() == SELECTABLE_TICKET_STATUS
+        and r.ticket_map_id != row.ticket_map_id
+    ]
+    return sorted(out)
 
 
 def load_ticket_map_doc(

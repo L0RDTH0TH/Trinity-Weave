@@ -516,6 +516,7 @@ def evaluate_behavior_evidence(
     *,
     armed: dict[str, Any] | None = None,
     prefer_result: dict[str, Any] | None = None,
+    vault_root: Path | None = None,
 ) -> WeldIntentResult:
     """Mechanical fail-closed checks on an evidence pack (no Prefer rewrite).
 
@@ -636,6 +637,55 @@ def evaluate_behavior_evidence(
                 else:
                     violations.append(f"weld_intent:behavior_key_not_true:{key}")
 
+    # Sibling swallow — LIVE / Prefer claim must not demonstrate another open row.
+    if vault_root is not None and isinstance(armed, dict):
+        tid = str(armed.get("ticket_map_id") or "").strip()
+        if tid:
+            try:
+                from .prefer_map_fidelity import (
+                    claim_text_from_armed,
+                    sibling_job_consume_violations,
+                )
+                from .ticket_map_schema import (
+                    SELECTABLE_TICKET_STATUS,
+                    load_ticket_map_rows,
+                    resolve_active_ticket_map_rel,
+                )
+
+                rel = resolve_active_ticket_map_rel(vault_root, ticket_map_id=tid)
+                rows = load_ticket_map_rows(
+                    vault_root, map_rel=rel, ticket_map_id=tid
+                )
+                own = rows.get(tid) or rows.get(tid.replace("_", "-"))
+                if own is not None:
+                    siblings = {
+                        sid: srow
+                        for sid, srow in rows.items()
+                        if sid != own.ticket_map_id
+                        and (srow.status or "").lower() == SELECTABLE_TICKET_STATUS
+                    }
+                    claim = " ".join(
+                        [
+                            claim_text_from_armed(armed),
+                            str(pack.get("prefer_success") or ""),
+                            " ".join(
+                                str(k)
+                                for k, v in (behavior or {}).items()
+                                if v is True
+                            ),
+                        ]
+                    )
+                    violations.extend(
+                        sibling_job_consume_violations(
+                            claim,
+                            own.product_job,
+                            siblings,
+                            prefix="weld_intent:job_consumes_sibling",
+                        )
+                    )
+            except Exception:
+                pass
+
     # Logs claiming Success while behavior missing/false — cannot acquit.
     indict = pack.get("indictment_only") if isinstance(pack.get("indictment_only"), dict) else {}
     log_excerpts = indict.get("factory_log_excerpts") or []
@@ -683,6 +733,7 @@ def validate_weld_intent_latch(
     prefer_result: dict[str, Any] | None = None,
     receipt: dict[str, Any] | None = None,
     evidence_pack: dict[str, Any] | None = None,
+    vault_root: Path | None = None,
 ) -> WeldIntentResult:
     """Refuse Success / ready-for-F5 / KEEP / greenlit without B₂ when weld claimed.
 
@@ -747,7 +798,10 @@ def validate_weld_intent_latch(
         violations.append("weld_intent:missing_evidence_pack")
     else:
         beh = evaluate_behavior_evidence(
-            pack, armed=armed, prefer_result=prefer_result
+            pack,
+            armed=armed,
+            prefer_result=prefer_result,
+            vault_root=vault_root,
         )
         violations.extend(beh.violations)
         warnings.extend(beh.warnings)

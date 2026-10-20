@@ -1,11 +1,11 @@
 """Ticket-map Prefer fidelity — mechanical Gate A + hostile Gate B latch.
 
-Prefer Success must equal the ticket MAP row's product job + weld proofs when a
-map row is armed. Mechanical harness catches missing fields, deny-listed
-success_object, and incomplete do_not_waive.
+Prefer Success must bind to **this** map row's product job (and weld proofs when
+present). It must **not** consume a sibling open row's job more than its own.
 
-Hostile Prefer (Gate B) is required on **every** Prefer-applicable Success
-claim — staging **and** KEEP. Mechanical-shape alone must never green.
+Mechanical Gate A: fields, deny-list, do_not_waive, ``out_of_scope_ticket_ids``
+(section neighbors), sibling-overlap. Hostile Prefer (Gate B₁) is still required
+on every Prefer-applicable Success claim — staging and KEEP.
 
 Cite: Prefer-Authorship-Host-Law §C.3 · active ticket map via
 factory-project.yaml ``ticket_map_runtime`` / discovery (no product hardwire).
@@ -23,9 +23,11 @@ import yaml
 
 from .ticket_map_schema import (
     MapTicketRow,
+    SELECTABLE_TICKET_STATUS,
     load_ticket_map_rows,
     parse_ticket_map_rows,
     resolve_active_ticket_map_rel,
+    section_open_neighbor_ids,
 )
 
 # Prefer packets for MAP rows (WORLD / GEN / VIS / LOOP / PACK / PLACE / DESK)
@@ -242,23 +244,210 @@ def _norm(s: str) -> str:
     return re.sub(r"\s+", " ", (s or "").strip().lower())
 
 
+# Content tokens for sibling-overlap (map-generic; no product word lists).
+_STOPWORDS: frozenset[str] = frozenset(
+    {
+        "a",
+        "an",
+        "the",
+        "and",
+        "or",
+        "of",
+        "to",
+        "in",
+        "on",
+        "at",
+        "for",
+        "as",
+        "is",
+        "be",
+        "by",
+        "with",
+        "from",
+        "that",
+        "this",
+        "these",
+        "those",
+        "when",
+        "while",
+        "where",
+        "which",
+        "who",
+        "whom",
+        "into",
+        "onto",
+        "over",
+        "under",
+        "than",
+        "then",
+        "them",
+        "they",
+        "their",
+        "there",
+        "here",
+        "have",
+        "has",
+        "had",
+        "having",
+        "been",
+        "being",
+        "will",
+        "can",
+        "could",
+        "should",
+        "would",
+        "may",
+        "might",
+        "must",
+        "does",
+        "did",
+        "doing",
+        "done",
+        "not",
+        "no",
+        "nor",
+        "only",
+        "also",
+        "both",
+        "each",
+        "every",
+        "any",
+        "all",
+        "same",
+        "other",
+        "another",
+        "such",
+        "via",
+        "per",
+        "its",
+        "it",
+        "one",
+        "two",
+        "gm",
+        "player",
+        "foundation",
+        "weld",
+        "prep",
+        "without",
+        "within",
+        "across",
+        "against",
+        "during",
+        "after",
+        "before",
+        "between",
+        "using",
+        "used",
+        "use",
+        "able",
+        "allowed",
+        "still",
+        "keep",
+        "keeps",
+        "kept",
+        "open",
+        "opens",
+        "make",
+        "makes",
+        "made",
+        "see",
+        "sees",
+        "seen",
+        "read",
+        "reads",
+        "readable",
+    }
+)
+
+
+def content_tokens(text: str) -> frozenset[str]:
+    """Significant lowercase tokens for overlap (len>3, not stopwords)."""
+    words = re.findall(r"[a-z0-9][a-z0-9_-]{3,}", _norm(text))
+    return frozenset(w for w in words if w not in _STOPWORDS)
+
+
+def jaccard_overlap(a: str, b: str) -> float:
+    ta, tb = content_tokens(a), content_tokens(b)
+    if not ta or not tb:
+        return 0.0
+    inter = len(ta & tb)
+    union = len(ta | tb)
+    return inter / union if union else 0.0
+
+
+def claim_text_from_armed(armed: dict[str, Any]) -> str:
+    """Prefer claim surface for sibling checks (success + behavior keys)."""
+    parts = [
+        str(armed.get("structural_success") or armed.get("intent_invariant") or ""),
+        str(armed.get("success_object") or ""),
+    ]
+    keys = armed.get("behavior_keys") or armed.get("prefer_behavior_keys") or []
+    if isinstance(keys, (list, tuple)):
+        parts.extend(str(k) for k in keys)
+    elif isinstance(keys, str):
+        parts.append(keys)
+    return " ".join(parts)
+
+
+def sibling_job_consume_violations(
+    claim: str,
+    own_job: str,
+    open_siblings: dict[str, MapTicketRow],
+    *,
+    prefix: str = "map_fidelity:job_consumes_sibling",
+) -> list[str]:
+    """Fail when claim overlaps a sibling open job more than its own job."""
+    own_score = jaccard_overlap(claim, own_job)
+    violations: list[str] = []
+    for sid, srow in sorted(open_siblings.items()):
+        sib_score = jaccard_overlap(claim, srow.product_job)
+        # Strict: sibling beat own. Also catch near-ties when sibling is rich
+        # and own_score is weak (claim barely binds this row).
+        if sib_score > own_score + 1e-9:
+            violations.append(f"{prefix}:{sid}")
+        elif sib_score >= 0.22 and own_score < 0.12 and sib_score >= own_score:
+            violations.append(f"{prefix}:{sid}")
+    return violations
+
+
+def behavior_key_sibling_violations(
+    keys: list[str],
+    own_job: str,
+    open_siblings: dict[str, MapTicketRow],
+) -> list[str]:
+    """Each behavior key must match this job better than any sibling job."""
+    violations: list[str] = []
+    for key in keys:
+        k = str(key).strip()
+        if not k:
+            continue
+        # Meta keys never count as stranger-watchable product evidence.
+        meta = {
+            "file_exists",
+            "compiles",
+            "menu_opens",
+            "contract_bound",
+            "meta_written",
+            "hotkey_bound",
+            "play_path_matches_prefer_success",
+            "prefer_refuses_not_violated_in_live",
+        }
+        if k.lower() in meta:
+            violations.append(f"map_fidelity:behavior_key_meta:{k}")
+            continue
+        own_score = jaccard_overlap(k.replace("_", " "), own_job)
+        for sid, srow in sorted(open_siblings.items()):
+            sib_score = jaccard_overlap(k.replace("_", " "), srow.product_job)
+            if sib_score > own_score + 1e-9 and sib_score >= 0.15:
+                violations.append(f"map_fidelity:behavior_key_consumes_sibling:{sid}:{k}")
+    return violations
+
+
 def _proof_tokens(welds: str) -> list[str]:
-    """Extract W1 / W2 … tokens and a few keywords for containment checks."""
+    """Extract W1 / W2 … tokens when the map row actually lists them."""
     tokens: list[str] = []
     for m in re.finditer(r"\bW[1-9]\b", welds or "", re.I):
         tokens.append(m.group(0).upper())
-    for kw in (
-        "generate",
-        "dial",
-        "height",
-        "river",
-        "land",
-        "water",
-        "control",
-        "hotkey",
-    ):
-        if kw in (welds or "").lower():
-            tokens.append(kw)
     return tokens
 
 
@@ -301,25 +490,76 @@ def _run_gate_a_mechanical(
     if row is None:
         violations.append(f"map_fidelity:ticket_map_id_not_on_map:{tid}")
         return tid
+    tid = row.ticket_map_id
 
     structural = str(
         armed.get("structural_success") or armed.get("intent_invariant") or ""
     )
-    if len(structural.strip()) < 40:
+    if len(structural.strip()) < 24:
         violations.append("map_fidelity:structural_success_too_thin")
 
-    job_norm = _norm(row.product_job)
-    struct_norm = _norm(structural)
-    job_stem = re.sub(r"\*+", "", job_norm)
-    job_stem = re.sub(r"^\(superseded\)\s*", "", job_stem)
-    words = [w for w in job_stem.split() if len(w) > 3][:10]
-    if words:
-        hits = sum(1 for w in words if w in struct_norm)
-        if hits < max(3, len(words) // 3):
+    # Own-row bind (necessary). Narrowing OK — do not require fat whole-map prose.
+    own_score = jaccard_overlap(structural, row.product_job)
+    if own_score < 0.12 and len(content_tokens(row.product_job)) >= 3:
+        # Fallback: distinctive own tokens present in structural.
+        own_toks = content_tokens(row.product_job)
+        sib_union: set[str] = set()
+        for sid, srow in rows.items():
+            if sid == tid or (srow.status or "").lower() != SELECTABLE_TICKET_STATUS:
+                continue
+            sib_union |= set(content_tokens(srow.product_job))
+        distinctive = own_toks - sib_union
+        check = distinctive or own_toks
+        struct_toks = content_tokens(structural)
+        hits = len(check & struct_toks)
+        if hits < max(2, (len(check) + 2) // 3):
             violations.append(
                 "map_fidelity:structural_success_misses_map_product_job"
             )
 
+    # Section neighbors must be declared out_of_scope (config off the map).
+    expected_oos = section_open_neighbor_ids(rows, tid)
+    raw_oos = armed.get("out_of_scope_ticket_ids")
+    if raw_oos is None:
+        violations.append("map_fidelity:missing_out_of_scope_ticket_ids")
+    else:
+        if isinstance(raw_oos, str):
+            got = [raw_oos.strip()] if raw_oos.strip() else []
+        elif isinstance(raw_oos, (list, tuple)):
+            got = sorted({str(x).strip() for x in raw_oos if str(x).strip()})
+        else:
+            got = []
+            violations.append("map_fidelity:out_of_scope_ticket_ids_bad_type")
+        if got != expected_oos:
+            violations.append(
+                "map_fidelity:out_of_scope_ticket_ids_mismatch:"
+                + ",".join(expected_oos[:12])
+            )
+
+    # Sibling swallow — map-wide open rows (not only section).
+    open_siblings = {
+        sid: srow
+        for sid, srow in rows.items()
+        if sid != tid and (srow.status or "").lower() == SELECTABLE_TICKET_STATUS
+    }
+    claim = claim_text_from_armed(armed)
+    violations.extend(
+        sibling_job_consume_violations(claim, row.product_job, open_siblings)
+    )
+
+    keys_raw = armed.get("behavior_keys") or armed.get("prefer_behavior_keys") or []
+    if isinstance(keys_raw, str):
+        keys_list = [keys_raw]
+    elif isinstance(keys_raw, (list, tuple)):
+        keys_list = [str(x) for x in keys_raw]
+    else:
+        keys_list = []
+    if keys_list:
+        violations.extend(
+            behavior_key_sibling_violations(keys_list, row.product_job, open_siblings)
+        )
+
+    struct_norm = _norm(structural)
     for tok in _proof_tokens(row.welds):
         if tok.startswith("W") and tok[1:].isdigit():
             if tok.lower() not in struct_norm and tok not in structural:
@@ -465,7 +705,10 @@ def keep_latch_allowed(
         chat = extract_chat_receipt_blob(armed_keep, pr)
         if isinstance(chat, str) and chat.strip():
             chat_scan = scan_chat_hotfix_receipt(
-                chat, prefer_result=pr, armed=armed_keep, evidence_pack=evidence_pack
+                chat,
+                prefer_result=pr,
+                armed=armed_keep,
+                evidence_pack=evidence_pack,
             )
             if chat_scan.applicable and chat_scan.violations:
                 result.violations.extend(chat_scan.violations)
@@ -476,6 +719,7 @@ def keep_latch_allowed(
             prefer_result=pr,
             receipt=receipt_dict,
             evidence_pack=evidence_pack,
+            vault_root=vault_root,
         )
         if b2.applicable and b2.violations:
             result.violations.extend(b2.violations)
