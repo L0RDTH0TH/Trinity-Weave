@@ -443,8 +443,8 @@ def sync_weave_public_export(
     if legacy_bp.exists():
         shutil.rmtree(legacy_bp)
 
-    # Pass 4 bar: no Half-B greenlit / genesis-mythos-alpha generate law on main tip.
-    # Allowlist omits these; prune stale copies left from older publishes.
+    # Pass 4 bar: prune stale product-mode Alpha docs left from older publishes.
+    # Allowlist omits them; main tip must not instruct product-mode generate law.
     for stale in (
         "Docs/Half-B-Alpha-Mode.md",
         "Docs/Half-B-Alpha-0-Implementation-Receipt.md",
