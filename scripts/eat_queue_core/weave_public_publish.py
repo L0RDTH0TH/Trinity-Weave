@@ -116,6 +116,7 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_harness_product_denylist.py",
     "scripts/eat_queue_core/tests/test_bindings_resolve.py",
     "scripts/eat_queue_core/tests/test_proof_runner.py",
+    "scripts/eat_queue_core/tests/test_blank_project_contract_eat.py",
 )
 
 
@@ -441,6 +442,19 @@ def sync_weave_public_export(
     legacy_bp = export_root / "Docs" / "bone-pilot"
     if legacy_bp.exists():
         shutil.rmtree(legacy_bp)
+
+    # Pass 4 bar: no Half-B greenlit / genesis-mythos-alpha generate law on main tip.
+    # Allowlist omits these; prune stale copies left from older publishes.
+    for stale in (
+        "Docs/Half-B-Alpha-Mode.md",
+        "Docs/Half-B-Alpha-0-Implementation-Receipt.md",
+        "Docs/Half-B-Alpha-Archive-Receipt-20260930.md",
+        "Docs/Half-B-Factory-Personas.md",
+    ):
+        stale_path = export_root / stale
+        if stale_path.is_file():
+            stale_path.unlink()
+            copied.append(f"pruned:{stale}")
 
     # Post-sync forbidden scan on all export files
     all_paths: list[str] = []
