@@ -141,3 +141,12 @@ def factory_drb_rel(project_id: str, *parts: str) -> str:
     base = f"1-Projects/{pid}/Factory-DRB"
     cleaned = [str(p).strip("/") for p in parts if str(p).strip("/")]
     return base if not cleaned else base + "/" + "/".join(cleaned)
+
+
+def queue_lane(vault_root: Path, project_id: str) -> str:
+    """Sole queue/lane id from identity.yaml — no harness lane literals."""
+    raw = resolve(vault_root, project_id, "identity", "queue_lane")
+    lane = str(raw or "").strip()
+    if not lane:
+        raise BindingMissingError(BINDING_MISSING, "bindings:identity:queue_lane_empty")
+    return lane

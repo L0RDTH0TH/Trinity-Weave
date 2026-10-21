@@ -75,7 +75,7 @@ def build_slice_producer_agent_prompt(vault_root: Path, entry: dict[str, Any]) -
     eid = str(entry.get("id") or "")
     project_id = str(handoff.get("project_id") or "")
     slice_id = str(handoff.get("slice_id") or "")
-    lane = str(handoff.get("queue_lane") or "godot")
+    lane = str(handoff.get("queue_lane") or "")
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     ph = handoff.get("persona_handoff")
     persona_block = format_persona_block(ph if isinstance(ph, dict) else {})
@@ -181,7 +181,7 @@ def run_slice_producer_agent(
         }
 
     params = _entry_params(entry)
-    lane = str(entry.get("queue_lane") or params.get("queue_lane") or "godot")
+    lane = str(entry.get("queue_lane") or params.get("queue_lane") or "")
     ph = params.get("persona_handoff") if isinstance(params.get("persona_handoff"), dict) else {}
     persona_id = str(ph.get("active_persona_id") or "") or None
 

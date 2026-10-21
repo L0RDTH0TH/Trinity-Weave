@@ -10,7 +10,7 @@ from typing import Any
 
 import yaml
 
-from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS
+from .operator_feedback import DEFAULT_FEEDBACK_REL, required_playtest_ids
 from .product_kinesthetic_honesty import row_is_protected_override
 
 # game repo from bindings.game_repo_path only
@@ -211,6 +211,7 @@ def ingest_playtest_session(
     session_path: Path | None = None,
     write_feedback: bool = True,
     feedback_rel: str = DEFAULT_FEEDBACK_REL,
+    project_id: str | None = None,
 ) -> PlaytestIngestResult:
     repo = _game_repo(vault_root)
     session = session_path or _latest_session(repo)
@@ -236,7 +237,7 @@ def ingest_playtest_session(
     manifest = _load_session_manifest(session)
     aggregated = _aggregate_by_checklist(session_rows)
     suggestions: list[dict[str, Any]] = []
-    for cid in KINESTHETIC_CHECKLIST_IDS:
+    for cid in (required_playtest_ids(vault_root, project_id) if project_id else ()):
         if cid not in aggregated:
             continue
         sug = _build_suggestion(cid, aggregated[cid], session, vault_root, manifest)

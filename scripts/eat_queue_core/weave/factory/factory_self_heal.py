@@ -243,7 +243,7 @@ def handle_seat_failure_escalation(
     game_repo_rel: str = "",
     job: dict[str, Any] | None = None,
     run_id: str | None = None,
-    queue_lane: str = "godot",
+    queue_lane: str = "",
 ) -> dict[str, Any]:
     """
     Run self-heal chain; L2 failures append escalation log.

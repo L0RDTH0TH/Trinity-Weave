@@ -22,28 +22,6 @@ rules:
     legacy_archive_path: always/core-guardrails.mdc
     note: Surgical digest of locked execution-safety meta; not a paste of archived rules.
 
-pilots:
-  implementation_factory_loop:
-    status: trialing
-    path: .technical/weave/host-weld/pilots/implementation_factory_loop.md
-    trinity_refs:
-      - engine_stock_authority
-      - ask_fidelity
-      - implementation_segment_charter
-      - implementation_gate_catalog
-      - implementation_handoff_tunnel
-      - mcp_postedit_validator
-      - cursor_engine_mcp_loop
-    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit true (operator 2026-10-01)
-
-  product_factory_pipeline:
-    status: trialing
-    path: .technical/weave/host-weld/pilots/product_factory_pipeline.md
-    trinity_refs:
-      - product_factory_pipeline
-      - product_factory_operator_path
-      - engine_stock_authority
-      - ask_fidelity
-      - catalog_mint_gate
-      - ux_context_execution_gate
-    note: Half B generate+update; FEEDSTOCK-SHAPE lock required; ask_fidelity; investor archived; stock how; factory_greenlit true (operator 2026-10-01)
+pilots: {}
+# Half-B / product-factory pilots removed from main (Pass 4 bar).
+# Catalog-mint feedstock under Docs/catalog-mint/ is not a violator.

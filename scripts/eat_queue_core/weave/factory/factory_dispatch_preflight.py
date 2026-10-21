@@ -26,26 +26,43 @@ from .project_identity import (
 )
 from .structure_lint import DEFAULT_ZONES_REL, path_matches_zone_write, _in_zone
 
-# Shell-era kinesthetic bars — wrong identity for Prefer worldgen authorship.
-SHELL_ERA_CHECKLIST_IDS: frozenset[str] = frozenset(
-    {
-        "Nav_LookWhileMove_FP",
-        "Nav_LookWhileMove_DM",
-        "Flow_Launch",
-        "Flow_DM_Mode",
-        "Flow_Ortho_Tabletop",
-        "Flow_Chargen",
-        "Flow_Seats",
-        "Flow_Tricam",
-    }
-)
+def _shell_era_checklist_ids(vault_root: Path | None, project_id: str) -> frozenset[str]:
+    """Opaque shell-era ids from proof-catalog only — never baked product tuples."""
+    if vault_root is None or not str(project_id or "").strip():
+        return frozenset()
+    try:
+        from .bindings import resolve_optional
 
-# Allowed under worldgen Prefer (narrow presentation anti-leak only).
-WORLDGEN_ALLOWED_CHECKLIST_IDS: frozenset[str] = frozenset(
-    {
-        "Anti_DevOnlyHUD",
-    }
-)
+        raw = resolve_optional(
+            vault_root, project_id, "proof-catalog", "shell_era_checklist_ids", default=[]
+        )
+    except Exception:
+        return frozenset()
+    if not isinstance(raw, list):
+        return frozenset()
+    return frozenset(str(x).strip() for x in raw if str(x).strip())
+
+
+def _worldgen_allowed_checklist_ids(
+    vault_root: Path | None, project_id: str
+) -> frozenset[str]:
+    if vault_root is None or not str(project_id or "").strip():
+        return frozenset()
+    try:
+        from .bindings import resolve_optional
+
+        raw = resolve_optional(
+            vault_root,
+            project_id,
+            "proof-catalog",
+            "worldgen_allowed_checklist_ids",
+            default=[],
+        )
+    except Exception:
+        return frozenset()
+    if not isinstance(raw, list):
+        return frozenset()
+    return frozenset(str(x).strip() for x in raw if str(x).strip())
 
 
 @dataclass(frozen=True)
@@ -70,9 +87,11 @@ def _load_zones(vault_root: Path, project_id: str | None = None) -> dict[str, An
         vault_root / DEFAULT_ZONES_REL,
     ]
     if project_id:
+        from .bindings import factory_drb_rel
+
         candidates.insert(
             0,
-            vault_root / f"1-Projects/{project_id}/Factory-DRB/FACTORY_ZONES.yaml",
+            vault_root / factory_drb_rel(project_id, "FACTORY_ZONES.yaml"),
         )
     for path in candidates:
         if path.is_file():
@@ -278,16 +297,23 @@ def check_shell_era_checklist_vs_worldgen(
     slice_id: str,
     job: dict[str, Any],
     checklist_ids: list[str] | None = None,
+    vault_root: Path | None = None,
+    project_id: str | None = None,
 ) -> list[str]:
-    """Fail when Prefer worldgen authorship still carries shell-era Nav/Flow seats."""
+    """Fail when Prefer authorship still carries shell-era seats from proof-catalog."""
     if not slice_requires_prefer_authorship(slice_id, job):
+        return []
+    pid = str(project_id or job.get("project_id") or "").strip()
+    shell = _shell_era_checklist_ids(vault_root, pid)
+    allowed = _worldgen_allowed_checklist_ids(vault_root, pid)
+    if not shell:
         return []
     ids = checklist_ids
     if ids is None:
         ids = [str(x) for x in (job.get("checklist_ids") or []) if x]
     violations: list[str] = []
     for cid in ids:
-        if cid in SHELL_ERA_CHECKLIST_IDS and cid not in WORLDGEN_ALLOWED_CHECKLIST_IDS:
+        if cid in shell and cid not in allowed:
             violations.append(f"shell_era_checklist_on_worldgen_prefer:{cid}")
     return violations
 
@@ -331,7 +357,11 @@ def run_factory_dispatch_preflight(
         )
     violations.extend(
         check_shell_era_checklist_vs_worldgen(
-            slice_id=slice_id, job=job, checklist_ids=checklist_ids
+            slice_id=slice_id,
+            job=job,
+            checklist_ids=checklist_ids,
+            vault_root=vault_root,
+            project_id=pid or None,
         )
     )
     from .implicit_intent_bind import check_implicit_intent_bind

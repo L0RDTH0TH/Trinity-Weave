@@ -15,7 +15,7 @@ from .kinesthetic_probes import run_and_sync_probes, run_kinesthetic_probes
 from .lane_charters import validate_six_lane_charters
 from .operator_feedback import (
     DEFAULT_FEEDBACK_REL,
-    KINESTHETIC_CHECKLIST_IDS,
+    required_playtest_ids,
     validate_kinesthetic_feedback,
 )
 from .product_kinesthetic_honesty import run_product_kinesthetic_honesty
@@ -71,7 +71,7 @@ def _extract_checklist_ids_from_drb(path: Path) -> set[str]:
     text = path.read_text(encoding="utf-8")
     m = re.search(r"```yaml\s+(.*?)```", text, re.DOTALL)
     if not m:
-        return {cid for cid in KINESTHETIC_CHECKLIST_IDS if f"id: {cid}" in text or f"| `{cid}`" in text}
+        return set()
     block = yaml.safe_load(m.group(1))
     items: list[Any] = []
     if isinstance(block, dict) and isinstance(block.get("checklist"), list):
@@ -143,14 +143,15 @@ def run_surface_pass(
     nav_ids = _extract_checklist_ids_from_drb(paths["nav"])
     launch_ids = _extract_checklist_ids_from_drb(paths["launch"])
     declared = nav_ids | launch_ids
+    playtest_ids = required_playtest_ids(vault_root, project_id or "") if project_id else ()
     if lane_seat and checklist_ids is not None:
         coverage = {cid: cid in declared for cid in checklist_ids}
         for cid in checklist_ids:
             if cid not in declared:
                 violations.append(f"checklist_id_not_in_drb:{cid}")
-    elif not lane_seat:
-        coverage = {cid: cid in declared for cid in KINESTHETIC_CHECKLIST_IDS}
-        for cid in KINESTHETIC_CHECKLIST_IDS:
+    elif not lane_seat and playtest_ids:
+        coverage = {cid: cid in declared for cid in playtest_ids}
+        for cid in playtest_ids:
             if cid not in declared:
                 violations.append(f"checklist_id_not_in_drb:{cid}")
     else:
@@ -186,7 +187,7 @@ def run_surface_pass(
             )
         feedback_v = validate_kinesthetic_feedback(
             vault_root,
-            required_ids=KINESTHETIC_CHECKLIST_IDS,
+            required_ids=required_playtest_ids(vault_root, project_id or ""),
         )
         violations.extend(feedback_v)
 

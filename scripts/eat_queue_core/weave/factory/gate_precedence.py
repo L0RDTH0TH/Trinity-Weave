@@ -35,7 +35,6 @@ PASS_TIERS: dict[str, GateTier] = {
     "juice_pass": GateTier.C,
     "extensibility_pass": GateTier.C,
     "release_readiness_pass": GateTier.D,
-    "closed_alpha_release_readiness_pass": GateTier.D,
     "playtest_gate": GateTier.B,
 }
 
@@ -75,7 +74,7 @@ def evaluate_precedence(pass_results: dict[str, bool]) -> PrecedenceVerdict:
     if tier_a_fail:
         violations.append(f"tier_a_fail:{tier_a_fail}")
 
-    rollup_names = ("release_readiness_pass", "closed_alpha_release_readiness_pass")
+    rollup_names = ("release_readiness_pass",)
     rollup_ok = any(pass_results.get(n) for n in rollup_names if n in pass_results)
     surface_ok = pass_results.get("surface_pass", pass_results.get("usability_pass", False))
 

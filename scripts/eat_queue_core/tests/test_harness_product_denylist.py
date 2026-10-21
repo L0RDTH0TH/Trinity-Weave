@@ -37,6 +37,28 @@ PASS2_TOKENS: tuple[str, ...] = (
     "SLICE_LANE_CHECKLISTS",
 )
 
+
+# Pass 4 — eat-path fail-closed; same commit that deletes these from production.
+PASS4_TOKENS: tuple[str, ...] = (
+    "Flow_Launch",
+    "Nav_LookWhileMove_FP",
+    "Nav_LookWhileMove_DM",
+    "Flow_DM_Mode",
+    "Flow_Ortho_Tabletop",
+    "Terrain3D",
+    "DualGrid",
+    "points_as_grid",
+    "Y19Mw5YsgjI",
+    "GameHud",
+    "Hot Wheels",
+    "godot_4_6_3_dotnet",
+    "KINESTHETIC_CHECKLIST_IDS",
+    "YT_CANONICAL",
+    "WORLDGEN_SLICE_MARKERS",
+    "run_closed_alpha_release_readiness_pass",
+    "resolve_godot_binary",
+)
+
 # Structural — engine/path product shapes outside the one bindings path helper.
 STRUCTURAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("res_uri", re.compile(r"res://")),
@@ -95,6 +117,33 @@ class HarnessProductDenylistTests(unittest.TestCase):
             hits,
             [],
             "Pass-2 denylist tokens still in production:\n" + "\n".join(hits),
+        )
+
+
+    def test_pass4_tokens_absent_from_production(self) -> None:
+        hits: list[str] = []
+        for path in _iter_production_py():
+            text = path.read_text(encoding="utf-8", errors="replace")
+            rel = path.relative_to(SCRIPTS_ROOT).as_posix()
+            for tok in PASS4_TOKENS:
+                if tok in text:
+                    hits.append(f"{rel}:{tok}")
+        # Lane default: production must not default queue/lane to "godot".
+        lane_pat = re.compile(
+            r'(?:queue_lane|lane)\s*=\s*"godot"|default\s*=\s*"godot"|or\s+"godot"'
+        )
+        for path in _iter_production_py():
+            text = path.read_text(encoding="utf-8", errors="replace")
+            rel = path.relative_to(SCRIPTS_ROOT).as_posix()
+            # Parallel-track enumerations in trinity_* are infrastructure, not factory lane defaults.
+            if rel.startswith("weave/trinity_"):
+                continue
+            for m in lane_pat.finditer(text):
+                hits.append(f"{rel}:godot_lane_default:{m.group(0)}")
+        self.assertEqual(
+            hits,
+            [],
+            "Pass-4 denylist tokens still in production:\n" + "\n".join(hits),
         )
 
     def test_structural_product_shapes_absent(self) -> None:

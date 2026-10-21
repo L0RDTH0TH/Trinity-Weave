@@ -2252,7 +2252,7 @@ def cmd_implementation_eat(vault_root: Path, args: argparse.Namespace) -> int:
     from .layer1_implementation import run_layer1_implementation_pass
     from .lane_status_board import write_lane_status_board
 
-    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    lane = str(getattr(args, "lane", None) or "").strip().lower()
     try:
         if bool(getattr(args, "replay_seats", False)):
             from .weave.factory.factory_lane_recovery import replay_factory_lane_by_job_id
@@ -3144,7 +3144,7 @@ def cmd_catalog_mint_receipt_validate(vault_root: Path, args: argparse.Namespace
 def cmd_slice_producer_eat(vault_root: Path, args: argparse.Namespace) -> int:
     from .layer1_slice_producer import run_layer1_slice_producer_pass
 
-    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    lane = str(getattr(args, "lane", None) or "").strip().lower()
     try:
         out = run_layer1_slice_producer_pass(
             vault_root,
@@ -3168,7 +3168,7 @@ def cmd_slice_producer_eat(vault_root: Path, args: argparse.Namespace) -> int:
 def cmd_roadmap_factory_eat(vault_root: Path, args: argparse.Namespace) -> int:
     from .layer1_roadmap_factory import run_layer1_roadmap_factory_pass
 
-    lane = str(getattr(args, "lane", "godot") or "godot").strip().lower()
+    lane = str(getattr(args, "lane", None) or "").strip().lower()
     try:
         out = run_layer1_roadmap_factory_pass(
             vault_root,
@@ -4770,7 +4770,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         action="store_true",
         help="With --replay-seats: run seats only without mark_lane_complete / slice rollup",
     )
-    ie.set_defaults(func=cmd_implementation_eat, lane="godot")
+    ie.set_defaults(func=cmd_implementation_eat, lane="")
 
     spe = sub.add_parser(
         "slice_producer_eat",
@@ -4790,7 +4790,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         action="store_true",
         help="Run agent -p for SLICE_PRODUCER_* before validation (default when not --harness-fallback)",
     )
-    spe.set_defaults(func=cmd_slice_producer_eat, lane="godot")
+    spe.set_defaults(func=cmd_slice_producer_eat, lane="")
 
     wr = sub.add_parser(
         "warning_ledger_rollup",
@@ -5032,7 +5032,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     add_parallel(rfe)
     rfe.add_argument("--max-entries", type=int, default=3)
     rfe.add_argument("--dry-run", action="store_true")
-    rfe.set_defaults(func=cmd_roadmap_factory_eat, lane="godot")
+    rfe.set_defaults(func=cmd_roadmap_factory_eat, lane="")
 
     rop = sub.add_parser(
         "roadmap_organize_paths",

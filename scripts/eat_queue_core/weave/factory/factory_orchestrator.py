@@ -377,10 +377,19 @@ def _finalize_orchestrator_dispatch(
         vault_root, job_dicts, game_repo_rel=game_repo_rel, parallel_enabled=parallel
     )
 
+    _qlane = str(queue.get("queue_lane") or "").strip()
+    _pid = str(queue.get("project_id") or "").strip()
+    if not _qlane and _pid:
+        try:
+            from .bindings import queue_lane as bind_queue_lane
+
+            _qlane = bind_queue_lane(vault_root, _pid)
+        except Exception:
+            _qlane = ""
     for job in allowed_jobs:
         append_factory_event(
             vault_root,
-            "godot",
+            _qlane,
             "dispatch_job",
             run_id=run_id,
             factory_lane=str(job.get("lane_id")),

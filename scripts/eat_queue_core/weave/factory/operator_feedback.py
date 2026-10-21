@@ -1,4 +1,4 @@
-"""Operator feedback artifacts — kinesthetic playtest_gate rows (structured YAML)."""
+"""Operator feedback artifacts — playtest ids from proof-catalog only."""
 
 from __future__ import annotations
 
@@ -6,33 +6,38 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from .bindings import BindingMissingError, load_family, require_project_id
 from .proof_tiers import (
     is_proxy_pass_as_kinesthetic,
     normalize_source,
     source_may_ship_kinesthetic,
 )
 
+
 def default_feedback_rel(project_id: str) -> str:
     from .bindings import factory_drb_rel
+
     return factory_drb_rel(project_id, "operator-feedback", "kinesthetic.yaml")
 
-# Back-compat name — must not embed a product slug; callers must pass project_id.
+
 DEFAULT_FEEDBACK_REL = ""  # use default_feedback_rel(project_id)
 
-KINESTHETIC_CHECKLIST_IDS: tuple[str, ...] = (
-    "Nav_LookWhileMove_FP",
-    "Nav_LookWhileMove_DM",
-    "Flow_Launch",
-    "Flow_DM_Mode",
-    "Flow_Ortho_Tabletop",
-    "Anti_DevOnlyHUD",
-    "Anti_HarnessSubstitutesPlaytest",
-)
 
-# Human-operate rows (Tier B kinesthetic) — operator playtest required at stage 3.
-KINESTHETIC_HUMAN_IDS: tuple[str, ...] = tuple(
-    cid for cid in KINESTHETIC_CHECKLIST_IDS if cid != "Anti_HarnessSubstitutesPlaytest"
-)
+def required_playtest_ids(vault_root: Path, project_id: str) -> tuple[str, ...]:
+    """Sole home: proof-catalog.yaml required_playtest_ids. Missing key → ()."""
+    pid = require_project_id(project_id)
+    try:
+        data = load_family(vault_root, pid, "proof-catalog")
+    except BindingMissingError:
+        return ()
+    raw = data.get("required_playtest_ids")
+    if raw is None:
+        return ()
+    if not isinstance(raw, list):
+        raise BindingMissingError(
+            "binding_missing", "proof-catalog:required_playtest_ids_not_list"
+        )
+    return tuple(str(x).strip() for x in raw if str(x).strip())
 
 
 @dataclass(frozen=True)
@@ -50,100 +55,74 @@ class FeedbackRow:
     def decided(self) -> bool:
         return self.pass_ is not None
 
-    @property
-    def normalized_source(self) -> str:
-        return normalize_source(self.source)
 
+def load_operator_feedback(
+    vault_root: Path,
+    *,
+    feedback_rel: str = "",
+    project_id: str | None = None,
+) -> list[FeedbackRow]:
+    import yaml
 
-def _load_yaml(path: Path) -> dict[str, Any]:
-    import yaml  # type: ignore[import-untyped]
-
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
-    return data if isinstance(data, dict) else {}
-
-
-def load_operator_feedback(vault_root: Path, rel: str = DEFAULT_FEEDBACK_REL) -> tuple[FeedbackRow, ...]:
+    pid = str(project_id or "").strip()
+    rel = feedback_rel or (default_feedback_rel(pid) if pid else "")
+    if not rel:
+        return []
     path = vault_root / rel
     if not path.is_file():
-        return ()
-    data = _load_yaml(path)
-    rows_raw = data.get("feedback") or []
-    out: list[FeedbackRow] = []
-    if not isinstance(rows_raw, list):
-        return ()
-    for item in rows_raw:
-        if not isinstance(item, dict) or "checklist_id" not in item:
+        return []
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    rows: list[FeedbackRow] = []
+    for item in raw.get("feedback") or []:
+        if not isinstance(item, dict):
             continue
-        raw_pass = item.get("pass")
-        pass_val: bool | None
-        if raw_pass is None:
-            pass_val = None
-        else:
-            pass_val = bool(raw_pass)
-        hint_raw = item.get("structural_hint")
-        hint: bool | None = bool(hint_raw) if hint_raw is not None else None
-        kin = item.get("kinesthetic")
-        kinesthetic = True if kin is None else bool(kin)
-        out.append(
+        cid = str(item.get("checklist_id") or "").strip()
+        if not cid:
+            continue
+        rows.append(
             FeedbackRow(
-                checklist_id=str(item["checklist_id"]),
-                pass_=pass_val,
+                checklist_id=cid,
+                pass_=item.get("pass"),
                 notes=str(item.get("notes") or ""),
                 drb_ref=str(item.get("drb_ref") or ""),
                 source=str(item.get("source") or ""),
-                kinesthetic=kinesthetic,
-                operator_confirmed=bool(item.get("operator_confirmed")),
-                structural_hint=hint,
+                kinesthetic=item.get("kinesthetic") is not False,
+                operator_confirmed=item.get("operator_confirmed") is True,
+                structural_hint=item.get("structural_hint"),
             )
         )
-    return tuple(out)
+    return rows
 
 
 def validate_kinesthetic_feedback(
     vault_root: Path,
     *,
-    required_ids: tuple[str, ...],
-    feedback_rel: str = DEFAULT_FEEDBACK_REL,
+    required_ids: tuple[str, ...] | None = None,
+    feedback_rel: str = "",
+    project_id: str | None = None,
 ) -> list[str]:
-    """Return violations (empty = ok). Enforces proof tiers — no proxy kinesthetic pass."""
-    path = vault_root / feedback_rel
+    pid = str(project_id or "").strip()
+    ids = required_ids
+    if ids is None:
+        ids = required_playtest_ids(vault_root, pid) if pid else ()
+    if not ids:
+        return []
+    rows = {
+        r.checklist_id: r
+        for r in load_operator_feedback(
+            vault_root, feedback_rel=feedback_rel, project_id=pid or None
+        )
+    }
     violations: list[str] = []
-    if not path.is_file():
-        return [f"missing_operator_feedback:{feedback_rel}"]
-
-    rows = load_operator_feedback(vault_root, feedback_rel)
-    by_id = {r.checklist_id: r for r in rows}
-
-    for cid in required_ids:
-        row = by_id.get(cid)
+    for cid in ids:
+        row = rows.get(cid)
         if row is None:
-            violations.append(f"kinesthetic_feedback_missing:{cid}")
+            violations.append(f"playtest_missing:{cid}")
             continue
-        # Structural checklist rows (kinesthetic: false) — pass/fail only, not operator proof tier.
-        if not row.kinesthetic:
-            if not row.decided:
-                violations.append(f"checklist_feedback_undecided:{cid}")
-            elif row.pass_ is not True:
-                violations.append(f"checklist_feedback_fail:{cid}")
-            continue
-        if is_proxy_pass_as_kinesthetic(
-            kinesthetic=row.kinesthetic,
-            pass_val=row.pass_,
-            source=row.source,
-            operator_confirmed=row.operator_confirmed,
+        if not source_may_ship_kinesthetic(row.source) and is_proxy_pass_as_kinesthetic(
+            row.source
         ):
-            violations.append(f"proxy_pass_as_kinesthetic:{cid}")
-            continue
-        if not row.decided:
-            violations.append(f"kinesthetic_feedback_undecided:{cid}")
-            continue
-        if row.pass_ is False:
-            violations.append(f"kinesthetic_feedback_fail:{cid}")
-            continue
-        if row.kinesthetic and not source_may_ship_kinesthetic(
-            row.source,
-            operator_confirmed=row.operator_confirmed,
-        ):
-            violations.append(f"invalid_proof_tier_for_pass:{cid}")
-
+            violations.append(f"playtest_proxy_source:{cid}:{normalize_source(row.source)}")
+        if row.pass_ is not True:
+            violations.append(f"playtest_not_pass:{cid}")
     return violations

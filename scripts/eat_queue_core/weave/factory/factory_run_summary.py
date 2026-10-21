@@ -35,7 +35,7 @@ def write_factory_run_summary(
     vault_root: Path,
     *,
     run_id: str | None = None,
-    lanes: tuple[str, ...] = ("godot", "asset", "techart", "content", "presentation", "audio", "module"),
+    lanes: tuple[str, ...] = ("asset", "techart", "content", "presentation", "audio", "module"),
 ) -> Path:
     vault_root = vault_root.resolve()
     out_dir = vault_root / ".technical" / "factory"

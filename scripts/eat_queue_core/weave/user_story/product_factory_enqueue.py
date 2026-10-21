@@ -124,7 +124,7 @@ def flush_pending_enqueues(
     *,
     project_id: str,
     pending: list[dict[str, Any]],
-    lane: str = "godot",
+    lane: str = "",
     run_id: str,
 ) -> list[dict[str, Any]]:
     """Write pending_enqueues from conductor tick to lane PQ."""

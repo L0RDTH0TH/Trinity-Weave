@@ -172,7 +172,7 @@ def persist_replay_outcome(vault_root: Path, result: dict[str, Any]) -> None:
             entry_id=eid,
             slice_id=str(result.get("slice_id") or ""),
             lane_id=str(result.get("lane_id") or ""),
-            queue_lane="godot",
+            queue_lane="",
             run_id=result.get("run_id"),
             chain_id=result.get("chain_id"),
         )

@@ -34,7 +34,12 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 1 | `ab3f217` | Resolver + Pass-1 denylist + fail-closed Family A (fixture-proven) |
 | 2 | `5ebe2d0` | `proof_runner`; delete `LANE_ADAPTER` / baked checklists; `half_b` purge; Pass-2 denylist |
 | 3 | `46183b0` (+ project `b847329`) | `host_law` evaluator; Half-B docs off main allowlist; Genesis bindings consumer on `project/genesis-mythos-master` |
+| 4 | *(this tip)* | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
 
 ## Genesis is a consumer
 
 Harness tests use a blank **fixture-project** id synthesized in tests — not Genesis. Genesis bindings on `project/genesis-mythos-master` are data that **uses** the schema after `main` is green.
+
+## Pass 4 tip claim
+
+After Pass 4 the factory can **refuse a demo injection**. It does **not** claim a working production line from feedstock to a Genesis capability. Feedstock→Genesis remains a later fixture, then r2 — not this publish. No GREENLIGHT.

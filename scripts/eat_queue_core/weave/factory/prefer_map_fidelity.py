@@ -102,7 +102,7 @@ MAP_TICKET_PREFIXES: tuple[str, ...] = (
     "weld_",
 )
 
-# Align with prefer_authorship_contract.WORLDGEN_SLICE_MARKERS + PLACE / craft / dual.
+# Align with host-law / Prefer class PLACE|craft|dual signals (no baked markers).
 PREFER_PRODUCT_SLICE_MARKERS: tuple[str, ...] = (
     "worldgen",
     "terrain3d_feed",

@@ -337,7 +337,7 @@ def handle_roadmap_factory_entry(vault_root: Path, entry: dict[str, Any]) -> dic
     if mode == "ROADMAP_FACTORY_STAGE_FACTORY":
         from ...goal_authority_io import load_goal_authority
 
-        lane = str(params.get("queue_lane") or entry.get("queue_lane") or "godot")
+        lane = str(params.get("queue_lane") or entry.get("queue_lane") or "")
         packet = load_goal_authority(vault_root, lane, require_confirmed=False) or {
             "project_id": project_id,
             "planner_hints": {

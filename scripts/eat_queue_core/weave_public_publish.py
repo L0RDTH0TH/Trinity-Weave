@@ -51,7 +51,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
     "3-Resources/Second-Brain/Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md",
-    # Half-B product docs leave main allowlist (Pass 3) — live on project branch only.
+    # Product-mode docs stay off main allowlist (Pass 3/4) — project branch only.
     "3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md",
     "3-Resources/Second-Brain/Docs/Gate-B2-Weld-Intent-Hostile.md",
     "3-Resources/Second-Brain/Docs/Ticket-Map-Schema.md",

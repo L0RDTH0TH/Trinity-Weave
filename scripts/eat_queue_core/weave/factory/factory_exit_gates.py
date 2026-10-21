@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .factory_little_val import FactoryLittleValResult
-from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS, load_operator_feedback, validate_kinesthetic_feedback
+from .operator_feedback import DEFAULT_FEEDBACK_REL, required_playtest_ids, load_operator_feedback, validate_kinesthetic_feedback
 from .playtest_session_ingest import ingest_playtest_session
 from .review_pass_runner import ReviewPassResult
 
@@ -41,15 +41,16 @@ def run_operator_confirm_all_kinesthetic_gate(
     vault_root: Path,
     *,
     feedback_rel: str = DEFAULT_FEEDBACK_REL,
+    project_id: str | None = None,
     **_: Any,
 ) -> ReviewPassResult:
     """Ship rollup gate — all kinesthetic checklist rows decided and shippable."""
     rows = load_operator_feedback(vault_root, feedback_rel)
     required = tuple(
-        r.checklist_id for r in rows if r.kinesthetic and r.checklist_id in KINESTHETIC_CHECKLIST_IDS
+        r.checklist_id for r in rows if r.kinesthetic and project_id and r.checklist_id in required_playtest_ids(vault_root, project_id)
     )
     if not required:
-        required = tuple(cid for cid in KINESTHETIC_CHECKLIST_IDS)
+        required = tuple(cid for cid in required_playtest_ids(vault_root, project_id)) if project_id else ()
 
     violations = validate_kinesthetic_feedback(vault_root, required_ids=required, feedback_rel=feedback_rel)
     ok = len(violations) == 0

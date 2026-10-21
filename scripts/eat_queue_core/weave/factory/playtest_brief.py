@@ -10,7 +10,7 @@ from typing import Any
 import yaml
 
 from .factory_orchestrator import DEFAULT_QUEUE_REL, load_alpha_queue
-from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS, load_operator_feedback
+from .operator_feedback import DEFAULT_FEEDBACK_REL, required_playtest_ids, load_operator_feedback
 
 BRIEF_DIR_REL = ""
 GAME_CHECKLIST_REL = ".technical/weave/kinesthetic_checklist.yaml"
@@ -56,7 +56,8 @@ def _load_checklist_items(vault_root: Path) -> list[dict[str, Any]]:
         if isinstance(items, list):
             return [x for x in items if isinstance(x, dict) and x.get("id")]
 
-    return [{"id": cid, "kinesthetic": True, "hypothesis": ""} for cid in KINESTHETIC_CHECKLIST_IDS]
+    # No baked playtest ids — Prefer/map must name probes via proof-catalog.
+    return []
 
 
 def _slice_record(vault_root: Path, slice_id: str, queue_rel: str) -> dict[str, Any]:
@@ -71,7 +72,7 @@ def write_playtest_brief(
     vault_root: Path,
     *,
     slice_id: str,
-    queue_lane: str = "godot",
+    queue_lane: str = "",
     slice_exit_gates_pass: bool = False,
     slice_exit_gate_summary: dict[str, Any] | None = None,
     receipt_id: str | None = None,
@@ -158,7 +159,7 @@ cd /path/to/Second-Brain
 
 # 3 — Review suggestions, then confirm rows you accept
 PYTHONPATH=scripts python3 -m eat_queue_core.weave.factory.cli operator-confirm --vault-root . --list
-PYTHONPATH=scripts python3 -m eat_queue_core.weave.factory.cli operator-confirm --vault-root . --checklist-id Flow_Launch --pass true --confirm
+PYTHONPATH=scripts python3 -m eat_queue_core.weave.factory.cli operator-confirm --vault-root . --checklist-id <playtest-id> --pass true --confirm
 ```
 
 ## Slice exit gate status

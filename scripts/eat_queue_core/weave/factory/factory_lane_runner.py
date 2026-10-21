@@ -257,24 +257,35 @@ def run_factory_lane_job(
             "error": "project_id_missing",
             "segment": "IMPLEMENT_SLICE",
         }
+    from .bindings import BindingMissingError, game_repo_path as bind_game_repo
+    from .bindings import resolve as bind_resolve
+
     engine_adapter = str(params.get("engine_adapter") or "").strip()
     if not engine_adapter:
         try:
-            from .bindings import resolve as bind_resolve
-
             engine_adapter = str(
                 bind_resolve(vault_root, project_id, "engine", "adapter_id") or ""
             ).strip()
-        except Exception:
-            engine_adapter = ""
+        except BindingMissingError as exc:
+            return {
+                "ok": False,
+                "id": eid,
+                "error": exc.code,
+                "detail": exc.detail,
+                "segment": "IMPLEMENT_SLICE",
+            }
     repo_rel = str(params.get("repo_path") or "").strip()
     if not repo_rel:
         try:
-            from .bindings import game_repo_path as bind_game_repo
-
             repo_rel = bind_game_repo(vault_root, project_id)
-        except Exception:
-            repo_rel = ""
+        except BindingMissingError as exc:
+            return {
+                "ok": False,
+                "id": eid,
+                "error": exc.code,
+                "detail": exc.detail,
+                "segment": "IMPLEMENT_SLICE",
+            }
     if not repo_rel:
         return {
             "ok": False,

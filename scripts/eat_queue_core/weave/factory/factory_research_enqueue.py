@@ -29,7 +29,7 @@ _EXTERNAL_QUERY_TEMPLATES: dict[str, list[str]] = {
         "fantasy map generator open source API export heightmap JSON Godot",
     ],
     "procedural_terrain": [
-        "Godot 4.6 Terrain3D alternatives C# procedural terrain streaming",
+        "engine terrain streaming alternatives procedural mesh",
         "heightmap to 3D terrain Godot 4 open source MIT",
     ],
     "character_creation": [

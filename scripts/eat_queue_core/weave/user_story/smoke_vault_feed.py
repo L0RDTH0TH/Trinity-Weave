@@ -63,7 +63,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Smoke test vault_roadmap factory feed")
     parser.add_argument("--vault-root", type=Path, default=Path.cwd())
     add_project_id_argument(parser, required=True)
-    parser.add_argument("--lane", default="godot")
+    parser.add_argument("--lane", default="")
     parser.add_argument("--row-id", default="", help="Loop 3 catalog row (smoke override)")
     parser.add_argument("--dispatch-depth", type=int, default=None, help="Loop 3 dispatch depth")
     parser.add_argument("--dry-run", action="store_true", help="Orchestrator + PQ preview only; no PQ append")

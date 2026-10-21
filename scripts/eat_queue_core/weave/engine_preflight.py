@@ -1,69 +1,54 @@
-"""Engine preflight — MCP, Godot binary, dotnet build baseline."""
+"""Engine preflight — run project build_command argv only; no binary invent.
+
+Empty build_command → no checks that invent Godot/dotnet. Non-empty →
+command_exits_zero style run of that argv in the game repo.
+"""
 
 from __future__ import annotations
 
-import os
-import shutil
-import socket
+import shlex
 import subprocess
 from pathlib import Path
 from typing import Any
-
-
-def _tcp_open(host: str, port: int, timeout: float = 1.5) -> bool:
-    try:
-        with socket.create_connection((host, port), timeout=timeout):
-            return True
-    except OSError:
-        return False
-
-
-def resolve_godot_binary() -> str | None:
-    for candidate in (
-        os.environ.get("GODOT_BIN"),
-        shutil.which("godot"),
-        str(Path.home() / ".local/bin/godot"),
-        str(Path.home() / "Applications/godot-4.6.3-mono/Godot_v4.6.3-stable_mono_linux_x86_64"),
-    ):
-        if candidate and Path(candidate).is_file():
-            return candidate
-    return None
-
-
-def resolve_dotnet_binary() -> str | None:
-    for candidate in (
-        os.environ.get("DOTNET_ROOT"),
-        str(Path.home() / ".dotnet/dotnet"),
-        shutil.which("dotnet"),
-    ):
-        if not candidate:
-            continue
-        p = Path(candidate)
-        if p.is_file():
-            return str(p)
-        dotnet = p / "dotnet"
-        if dotnet.is_file():
-            return str(dotnet)
-    return shutil.which("dotnet")
 
 
 def run_engine_preflight(
     vault_root: Path,
     repo_rel: str,
     *,
-    requires_mcp: bool = True,
-    mcp_port: int = 6505,
-    run_dotnet_build: bool = True,
+    project_id: str | None = None,
+    build_command: str | None = None,
+    requires_mcp: bool = False,
+    mcp_port: int | None = None,
+    run_dotnet_build: bool = False,
 ) -> dict[str, Any]:
-    """Return ok + checks list; does not mutate vault."""
+    """Return ok + checks. Does not search for Godot or invent dotnet builds."""
+    del run_dotnet_build  # legacy kw ignored — use build_command only
     vault_root = vault_root.resolve()
     repo = Path(repo_rel)
     if not repo.is_absolute():
         repo = vault_root / repo
     checks: list[dict[str, Any]] = []
 
-    if requires_mcp:
-        mcp_ok = _tcp_open("127.0.0.1", mcp_port)
+    cmd = (build_command or "").strip()
+    if not cmd and project_id:
+        from .factory.bindings import BindingMissingError, resolve as bind_resolve
+
+        try:
+            cmd = str(
+                bind_resolve(vault_root, project_id, "engine", "build_command") or ""
+            ).strip()
+        except BindingMissingError:
+            raise
+
+    if requires_mcp and mcp_port is not None:
+        import socket
+
+        try:
+            with socket.create_connection(("127.0.0.1", int(mcp_port)), timeout=1.5):
+                mcp_ok = True
+        except OSError:
+            mcp_ok = False
         checks.append(
             {
                 "check": "mcp_websocket",
@@ -71,63 +56,48 @@ def run_engine_preflight(
                 "detail": f"127.0.0.1:{mcp_port}",
             }
         )
-    else:
-        checks.append({"check": "mcp_websocket", "status": "skip", "detail": "not required"})
 
-    godot = resolve_godot_binary()
-    checks.append(
-        {
-            "check": "godot_binary",
-            "status": "pass" if godot else "warn",
-            "detail": godot or "not found",
+    if not cmd:
+        return {
+            "ok": True,
+            "checks": checks
+            + [{"check": "build_command", "status": "skip", "detail": "empty"}],
+            "repo_root": str(repo.relative_to(vault_root))
+            if repo.is_relative_to(vault_root)
+            else str(repo),
+            "build_command": "",
         }
-    )
 
-    dotnet = resolve_dotnet_binary()
-    checks.append(
-        {
-            "check": "dotnet_binary",
-            "status": "pass" if dotnet else "fail",
-            "detail": dotnet or "not found",
-        }
-    )
-
-    pg = repo / "project.godot"
-    checks.append(
-        {
-            "check": "project_godot",
-            "status": "pass" if pg.is_file() else "fail",
-            "path": str(pg.relative_to(vault_root)) if pg.is_file() else str(pg),
-        }
-    )
-
-    if run_dotnet_build and dotnet and (repo / "GenesisMythosDemo.csproj").is_file():
-        try:
-            r = subprocess.run(
-                [dotnet, "build", str(repo / "GenesisMythosDemo.csproj")],
-                cwd=repo,
-                capture_output=True,
-                text=True,
-                timeout=180,
-            )
-            checks.append(
-                {
-                    "check": "dotnet_build_baseline",
-                    "status": "pass" if r.returncode == 0 else "fail",
-                    "exit_code": r.returncode,
-                    "stderr_tail": (r.stderr or "")[-500:],
-                }
-            )
-        except (subprocess.TimeoutExpired, OSError) as e:
-            checks.append({"check": "dotnet_build_baseline", "status": "fail", "error": str(e)})
-    elif run_dotnet_build:
-        checks.append({"check": "dotnet_build_baseline", "status": "skip", "detail": "no csproj"})
+    argv = shlex.split(cmd) if isinstance(cmd, str) else [str(x) for x in cmd]
+    try:
+        proc = subprocess.run(
+            argv,
+            cwd=str(repo),
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
+        ok = proc.returncode == 0
+        checks.append(
+            {
+                "check": "build_command",
+                "status": "pass" if ok else "fail",
+                "argv": argv,
+                "exit_code": proc.returncode,
+                "stderr_tail": (proc.stderr or "")[-500:],
+            }
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        checks.append(
+            {"check": "build_command", "status": "fail", "error": str(exc), "argv": argv}
+        )
 
     failed = [c for c in checks if c.get("status") == "fail"]
     return {
         "ok": len(failed) == 0,
         "checks": checks,
-        "repo_root": str(repo.relative_to(vault_root)) if repo.is_relative_to(vault_root) else str(repo),
-        "godot_binary": godot,
-        "dotnet_binary": dotnet,
+        "repo_root": str(repo.relative_to(vault_root))
+        if repo.is_relative_to(vault_root)
+        else str(repo),
+        "build_command": cmd,
     }

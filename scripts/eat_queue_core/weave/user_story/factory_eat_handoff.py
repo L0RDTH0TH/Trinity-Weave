@@ -95,7 +95,7 @@ def handle_factory_eat_handoff(
     params = entry.get("params") if isinstance(entry.get("params"), dict) else {}
     harness_context = harness_context or bool(params.get("harness_context"))
     project_id = str(entry.get("project_id") or params.get("project_id") or "")
-    lane = str(entry.get("queue_lane") or params.get("queue_lane") or "godot").strip().lower()
+    lane = str(entry.get("queue_lane") or params.get("queue_lane") or "").strip().lower()
 
     pf = load_product_factory(vault_root, project_id) if project_id else {}
     completed = pf.get("completed_phases") or []

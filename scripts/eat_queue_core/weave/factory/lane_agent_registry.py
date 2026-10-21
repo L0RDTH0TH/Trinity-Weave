@@ -69,8 +69,6 @@ class LaneAgentSpec:
                 f"- **do_not_waive:** `{job.get('do_not_waive')}`\n"
                 f"- **waive_shell_era_seats:** `{job.get('waive_shell_era_seats')}` "
                 f"(shell-era only — **cannot** silence prefer_authorship_pass)\n"
-                f"- ClassDB Terrain3D Prefer required — Multimesh/graybox-only = fail `graybox_only_world`\n"
-                f"- Quote Matrix Dual-grid Prefer/Never; claim_class staging; ban `verify_mcp_only`\n"
                 f"- **Hostile Prefer (Gate B₁)** required before any Success claim "
                 f"(staging or KEEP) pre-GREENLIGHT — mechanical Gate A alone never greens; "
                 f"`VALIDATE prefer_map_fidelity` → `map_fidelity_hostile_ok`\n"
@@ -131,10 +129,10 @@ class LaneAgentSpec:
             f"- **No** RESUME_ROADMAP / roadmap deepen\n"
             f"- Module lane: integrate via drops only — never rewrite `assets/` or `content/` roots\n"
             f""
-            f"- `dotnet build` must pass when this lane touches C#\n\n"
+            f"- Build only when engine.yaml build_command is non-empty\n\n"
             f"## Runtime logging (factory bus)\n"
-            f"- Generated C# **must** call `AlphaFactoryLog.Emit` on state transitions, checklist boundaries, and degradation callbacks\n"
-            f"- **Forbidden:** seat-critical events via raw `GD.Print` only (`Degrade_FailVisible` anti-pattern)\n"
+            f"- Emit factory bus logs on state transitions and checklist boundaries\n"
+            f"- **Forbidden:** seat-critical events via raw print-only (fail-visible degrade anti-pattern)\n"
             f"- Map touched checklist IDs to explicit log emissions at boundaries\n\n"
             f"## Report on finish\n"
             f"List every file changed (repo-relative), drop IDs registered, and build result."
@@ -156,8 +154,8 @@ LANE_AGENTS: dict[str, LaneAgentSpec] = {
     "techart": LaneAgentSpec(
         lane_id="techart",
         factory_name="TechArt",
-        engine_adapter="godot_4_6_3_dotnet",
-        mcp_adapter="godot materials/shaders",
+        engine_adapter="from_bindings",
+        mcp_adapter="from_bindings",
         drop_contract="tac",
         produces="Materials, shaders, LOD rules, import presets under assets/_techart/; TAC manifest.",
         consumes=("adc",),
@@ -178,10 +176,10 @@ LANE_AGENTS: dict[str, LaneAgentSpec] = {
     "presentation": LaneAgentSpec(
         lane_id="presentation",
         factory_name="Presentation",
-        engine_adapter="godot_4_6_3_dotnet",
-        mcp_adapter="godot :6505 UI scenes",
+        engine_adapter="from_bindings",
+        mcp_adapter="from_bindings",
         drop_contract="pdc",
-        produces="Control scenes, HUD wiring, entry_scene/GameHud polish; PDC manifest; no sim logic in UI.",
+        produces="Control scenes, HUD wiring, entry polish; PDC manifest; no sim logic in UI.",
         consumes=("cdc",),
         verify_steps=("pdc_manifest_has_drops", "depends_on_cdc", "usability_pass", "structure_pass"),
         default_review_passes=(
@@ -205,16 +203,16 @@ LANE_AGENTS: dict[str, LaneAgentSpec] = {
     "module": LaneAgentSpec(
         lane_id="module",
         factory_name="Module",
-        engine_adapter="godot_4_6_3_dotnet",
-        mcp_adapter="godot :6505",
+        engine_adapter="from_bindings",
+        mcp_adapter="from_bindings",
         drop_contract="",
-        produces="Systems/, Core/ integration glue, play_region runtime; consumes ADC/TAC/CDC/PDC/AuDC drops only.",
+        produces="Systems/, Core/ integration glue, play-region runtime; consumes ADC/TAC/CDC/PDC/AuDC drops only.",
         consumes=("adc", "tac", "cdc", "pdc"),
         verify_steps=(
             "depends_on_drops",
             "module_fit_pass",
             "integration_pass",
-            "dotnet_build",
+            "build_command_when_set",
         ),
         default_review_passes=(
             "interpretation_pass",

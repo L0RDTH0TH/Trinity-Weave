@@ -1,7 +1,7 @@
-"""host-law.yaml evaluator — data rows only; harness does not recognize product cites.
+"""host-law.yaml evaluator — opt-in only via Prefer host_law_ids list.
 
-Entry shape: {id, cite, refuse_code, applies_when}.
-Absent file → not applicable (empty list). No YouTube / dual-grid special cases in Python.
+Empty host_law_ids → no cites, no refuses. Flags like prefer_authorship do not opt in.
+Absent file → not applicable (empty). Harness does not recognize product video ids.
 """
 
 from __future__ import annotations
@@ -29,24 +29,65 @@ def load_host_law_entries(vault_root: Path, project_id: str) -> list[dict[str, A
     return out
 
 
+def host_law_ids_from_job_or_armed(
+    job: dict[str, Any] | None = None,
+    armed: dict[str, Any] | None = None,
+) -> list[str]:
+    """Explicit Prefer opt-in list only."""
+    for blob in (job, armed):
+        if not isinstance(blob, dict):
+            continue
+        raw = blob.get("host_law_ids")
+        if isinstance(raw, list):
+            return [str(x).strip() for x in raw if str(x).strip()]
+    return []
+
+
 def matching_refuse_codes(
     vault_root: Path,
     project_id: str,
     *,
     context: dict[str, Any] | None = None,
 ) -> list[str]:
-    """Return refuse_code values whose applies_when is satisfied by context."""
+    """Refuse codes for entries whose id is in context host_law_ids.
+
+    Empty or missing host_law_ids → []. Prefer flags are ignored.
+    """
     ctx = context or {}
+    wanted_raw = ctx.get("host_law_ids")
+    if not isinstance(wanted_raw, list) or not wanted_raw:
+        return []
+    wanted = {str(x).strip() for x in wanted_raw if str(x).strip()}
+    if not wanted:
+        return []
+
     codes: list[str] = []
     for entry in load_host_law_entries(vault_root, project_id):
-        when = entry.get("applies_when")
-        if when is None:
-            codes.append(str(entry.get("refuse_code") or entry.get("id") or ""))
-            continue
-        if not isinstance(when, dict):
-            continue
-        if all(ctx.get(k) == v for k, v in when.items()):
-            code = str(entry.get("refuse_code") or entry.get("id") or "").strip()
-            if code:
-                codes.append(code)
+        eid = str(entry.get("id") or "").strip()
+        rcode = str(entry.get("refuse_code") or eid).strip()
+        if eid in wanted or rcode in wanted:
+            if rcode:
+                codes.append(rcode)
     return codes
+
+
+def matching_cites(
+    vault_root: Path,
+    project_id: str,
+    *,
+    host_law_ids: list[str] | None = None,
+) -> list[str]:
+    """Cite strings for opted-in host_law ids only."""
+    wanted = {str(x).strip() for x in (host_law_ids or []) if str(x).strip()}
+    if not wanted:
+        return []
+    cites: list[str] = []
+    for entry in load_host_law_entries(vault_root, project_id):
+        eid = str(entry.get("id") or "").strip()
+        rcode = str(entry.get("refuse_code") or "").strip()
+        if eid not in wanted and rcode not in wanted:
+            continue
+        cite = str(entry.get("cite") or "").strip()
+        if cite:
+            cites.append(cite)
+    return cites

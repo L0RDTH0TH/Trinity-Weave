@@ -9,7 +9,7 @@ from typing import Any
 
 import yaml
 
-from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS, load_operator_feedback
+from .operator_feedback import DEFAULT_FEEDBACK_REL, required_playtest_ids, load_operator_feedback
 from .proof_tiers import source_may_ship_kinesthetic
 
 VALID_SOURCES = frozenset({"operator", "playtest_trace"})
@@ -208,11 +208,12 @@ def confirm_all_kinesthetic_operator(
     pass_: bool,
     feedback_rel: str = DEFAULT_FEEDBACK_REL,
     notes: str = "",
+    project_id: str | None = None,
 ) -> OperatorConfirmResult:
     """Bulk operator source confirm for all kinesthetic checklist IDs."""
     total = 0
     ids: list[str] = []
-    for cid in KINESTHETIC_CHECKLIST_IDS:
+    for cid in (required_playtest_ids(vault_root, project_id) if project_id else ()):
         r = confirm_operator_feedback_row(
             vault_root,
             checklist_id=cid,

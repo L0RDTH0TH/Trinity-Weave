@@ -86,12 +86,12 @@ def run_operator_playtest_session(
         from ...goal_authority_io import load_goal_authority
         from .operator_playtest_lifecycle import record_playtest_pass
 
-        packet = load_goal_authority(vault_root, "godot", require_confirmed=False) or {}
+        packet = load_goal_authority(vault_root, "", require_confirmed=False) or {}
         pid = str(packet.get("project_id"))
         lifecycle = record_playtest_pass(
             vault_root,
             pid,
-            "godot",
+            "",
             notes="operator_playtest_session_all_confirmed",
         )
     elif write_feedback and ingest.ok and pending:

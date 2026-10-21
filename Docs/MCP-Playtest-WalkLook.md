@@ -13,7 +13,7 @@ factory_greenlit: false
 
 Ban: “MCP verified walk+look.” Walk+look Done = **operator F5 only** (gate `operator_kinesthetic_walk_look` = **block**).
 
-Canonical patterns: project Execution Docs `Godot-Implementation-Decision-Matrix.md` + `Godot-Stock-Patterns.md`. Half-B PRECONDITIONS: [[Half-B-Alpha-Mode]].
+Canonical patterns: project Execution Docs for engine stock. Playtest preconditions live on the Prefer / map row — not an archived Half-B mode doc.
 
 ## Necessary checks (agent / Godot MCP)
 

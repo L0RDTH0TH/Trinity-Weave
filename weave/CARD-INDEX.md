@@ -1,6 +1,6 @@
 # Trinity card index (auto-generated)
 
-Generated: `2026-10-21T07:43:55Z` — do not hand-edit; regenerated on each `weave_public_sync`.
+Generated: `2026-10-21T23:03:26Z` — do not hand-edit; regenerated on each `weave_public_sync`.
 
 Includes **locked** (`weave/components/`) and **provisional** (`weave/component-proposals/`).
 
@@ -51,7 +51,6 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `architect_pq_planner` | **provisional** | component |  | Architect Pq Planner exists so everyday operation stays understandable: what it protects, when it runs, and what 'done'  |
 | `architect_preflight` | **provisional** | component |  | Architect Preflight exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' f |
 | `architect_touch_apply` | **provisional** | component |  | Architect Apply exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
-| `ask_fidelity` | **provisional** | component |  | Robust anti-substitution law for Half B generate/update. Required hand-off fields ask_id + done_when + forbidden_substit |
 | `catalog_mint` | **provisional** | component |  | Catalog mint is an opt-in three-party session, started only when the bone pilot explicitly instructs mint. Otherwise Gro |
 | `catalog_mint_gate` | **provisional** | component |  | Harness-verified law for PMG → product conductor path. |
 | `catchup_corpus_tunnel` | **provisional** | component |  | Catchup Corpus Tunnel exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' |
@@ -70,7 +69,6 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `decision_matrix_project_records` | **provisional** | component |  | Decision Matrix Project Records exists so everyday operation stays understandable: what it protects, when it runs, and w |
 | `decision_matrix_resolver` | **provisional** | component |  | Decision Matrix Resolver exists so everyday operation stays understandable: what it protects, when it runs, and what 'do |
 | `engine_stock_authority` | **provisional** | component |  | Project-scoped anti-NIH pattern law for genesis-mythos-master implement. More than node types — whole systems. Funnel =  |
-| `factory_output_conduct` | **provisional** | component |  | Factory output honesty card for Product 2 (closed_alpha). Binds slice smokes, LaunchShell → PlayRegion critical path, Co |
 | `factory_product_bom` | **provisional** | component |  | Product Factory BOM evaluator composes existing verifiers into sections (product, roadmap_factory, implementation_factor |
 | `gitforge_config` | **provisional** | component |  | Gitforge Config exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
 | `harness_append_entries` | **provisional** | component |  | Mid-pass discovery needs a legitimate next seat in line — one clean append per ask, same contract every time. Registers  |
@@ -121,9 +119,6 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `headless_overnight` | **provisional** | component |  | Headless Overnight exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' fe |
 | `health_controls` | **provisional** | component |  | Health Controls is the cool-headed path after failure: what to retry, what to skip, what must never be auto-fixed. You g |
 | `hollow_eat_validation` | **provisional** | component |  | Hollow Eat Validation exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' |
-| `implementation_gate_catalog` | **provisional** | component |  | Gate catalog for Half B. Prefer alpha_0 before alpha_1/beta. Staging set — table_front_door, session_roles, module_pack_ |
-| `implementation_handoff_tunnel` | **provisional** | component |  | D→B-style hand-off contract under Alpha / investor mode. Params must carry ask_id + done_when (house bar) for implement/ |
-| `implementation_segment_charter` | **provisional** | component |  | Track C / Half B segment charter. Catalog + release_stage authority; Execution readonly; Code-Repos is generate + update |
 | `ingest_age_scan` | **provisional** | component |  | Ingest Age Scan exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
 | `ingest_autopilot_config` | **provisional** | component |  | Ingest Autopilot Config exists so everyday operation stays understandable: what it protects, when it runs, and what 'don |
 | `institute_migration` | **provisional** | component |  | Institute Migration exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' f |
@@ -156,8 +151,6 @@ Includes **locked** (`weave/components/`) and **provisional** (`weave/component-
 | `pq_headless_cap` | **provisional** | component |  | Pq Headless Cap exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels |
 | `pq_staging` | **provisional** | component |  | Pq Staging exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels like |
 | `prefer_intent_validates_gates` | **provisional** | component |  | Failure family proxy_substitution — intellectual laziness via countable or scanner proxies (points_as_grid, stretch_as_v |
-| `product_factory_operator_path` | **provisional** | component | provisional | Half B operator path. Normative pre-greenlit = select catalog slice or update/fix on current Code-Repos → implement unde |
-| `product_factory_pipeline` | **provisional** | component |  | Half B pipeline law. Catalog + release_stage drive generate and update_existing_exhibit. UX-before-execution loops defer |
 | `product_kinesthetic_honesty` | **provisional** | component |  | Weave honesty core for Product 2+ human-facing operate claims. Mirrors stack_baseline_honesty for player shell, camera,  |
 | `pseudo_clock` | **provisional** | component |  | Pseudo Clock exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' feels li |
 | `queue_neighbor_prep` | **provisional** | component |  | Queue Neighbor Prep exists so everyday operation stays understandable: what it protects, when it runs, and what 'done' f |

@@ -94,23 +94,19 @@ def load_factory_project(
     if not isinstance(runtime, dict):
         runtime = None
 
-    # game_repo_path / archive: identity.yaml only — never merge factory-project / config / legacy.
-    game_repo = ""
-    archive_repo = ""
-    try:
-        from .bindings import game_repo_path as bind_game_repo
-        from .bindings import resolve as bind_resolve
+    # game_repo_path / archive: identity.yaml only — raise, never blank.
+    from .bindings import BindingMissingError, game_repo_path as bind_game_repo
+    from .bindings import resolve as bind_resolve
+    from .bindings import resolve_optional
 
-        game_repo = bind_game_repo(vault_root, pid)
-        try:
-            archive_repo = str(
-                bind_resolve(vault_root, pid, "identity", "archive_path") or ""
-            ).strip().strip("/")
-        except Exception:
-            archive_repo = ""
-    except Exception:
-        game_repo = ""
-        archive_repo = ""
+    game_repo = bind_game_repo(vault_root, pid)
+    try:
+        archive_repo = str(
+            resolve_optional(vault_root, pid, "identity", "archive_path", default="")
+            or ""
+        ).strip().strip("/")
+    except BindingMissingError:
+        raise
 
     out: dict[str, Any] = {
         "schema_version": manifest.get("schema_version") or 1,

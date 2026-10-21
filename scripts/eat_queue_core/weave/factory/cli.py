@@ -16,7 +16,7 @@ from .review_pass_runner import (
     run_pipeline_proof_pass,
     run_stack_operational_pass,
 )
-from .closed_alpha_passes import run_all_closed_alpha_passes
+from .closed_alpha_passes import run_configured_release_passes
 from .factory_output_gate import run_factory_output_gate
 from .kinesthetic_probes import run_and_sync_probes
 from .gate_precedence import evaluate_precedence
@@ -88,7 +88,7 @@ def main(argv: list[str] | None = None) -> int:
 
     pb = sub.add_parser("playtest-brief", help="Write Playtest-Brief for a factory slice (operator handoff)")
     pb.add_argument("--slice-id", type=str, required=True)
-    pb.add_argument("--queue-lane", type=str, default="godot")
+    pb.add_argument("--queue-lane", type=str, default="")
 
     oc = sub.add_parser("operator-confirm", help="Set operator_confirmed + pass on kinesthetic feedback rows")
     oc.add_argument("--list", action="store_true", help="List rows pending operator confirm")
@@ -138,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
         "replay-seats",
         help="Replay lane seats for a jammed factory job without re-running the agent",
     )
-    rs.add_argument("--queue-lane", type=str, default="godot")
+    rs.add_argument("--queue-lane", type=str, default="")
     rs.add_argument("--job-id", type=str, required=True)
     rs.add_argument("--agent-log", type=str, default=None, help="Vault-relative agent telemetry log")
     rs.add_argument(
@@ -327,7 +327,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if r.allowed else 1
 
     if args.cmd == "closed-alpha-passes":
-        out = run_all_closed_alpha_passes(vault)
+        out = run_configured_release_passes(vault, project_id=str(getattr(args, "project_id", "") or ""))
         payload = {
             "all_ok": out["all_ok"],
             "precedence": out["precedence"],

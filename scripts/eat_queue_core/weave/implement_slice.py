@@ -13,7 +13,7 @@ from typing import Any
 from ..host_runner import HostInvokeRequest, rel_log_path, resolve_host_runner
 from ..goal_authority_io import goal_authority_path_for_lane, load_goal_authority
 from ..pseudo_clock import load_knobs
-from .engine_preflight import resolve_godot_binary, run_engine_preflight
+from .engine_preflight import run_engine_preflight
 from .implementation_handoff import build_implementation_handoff
 from .mcp_postedit_validate import run_mcp_postedit_validate
 from .milestone_charter import get_milestone_spec, next_milestone_id
@@ -107,26 +107,15 @@ def run_milestone_verify(
                 }
             )
         elif step_s == "godot_headless_smoke":
-            godot = godot_binary or resolve_godot_binary()
-            if not godot:
-                checks.append({"check": "godot_headless_smoke", "status": "warn", "detail": "no godot"})
-            else:
-                try:
-                    r = subprocess.run(
-                        [godot, "--headless", "--path", str(repo), "--quit-after", "1"],
-                        capture_output=True,
-                        text=True,
-                        timeout=120,
-                    )
-                    checks.append(
-                        {
-                            "check": "godot_headless_smoke",
-                            "status": "pass" if r.returncode == 0 else "fail",
-                            "exit_code": r.returncode,
-                        }
-                    )
-                except (subprocess.TimeoutExpired, OSError) as e:
-                    checks.append({"check": "godot_headless_smoke", "status": "fail", "error": str(e)})
+            # No harness Godot invent — only explicit charter argv via build_command path.
+            checks.append(
+                {
+                    "check": "godot_headless_smoke",
+                    "status": "skip",
+                    "detail": "use engine.build_command only; no binary invent",
+                }
+            )
+            del godot_binary
 
     failed = [c for c in checks if c.get("status") == "fail"]
     return {"ok": len(failed) == 0, "checks": checks}
@@ -304,24 +293,35 @@ def run_implement_slice(
             "hint": "Set entry/params project_id (no silent default)",
             "segment": "IMPLEMENT_SLICE",
         }
+    from .factory.bindings import BindingMissingError, game_repo_path as bind_game_repo
+    from .factory.bindings import resolve as bind_resolve
+
     engine_adapter = str(params.get("engine_adapter") or "").strip()
     if not engine_adapter:
         try:
-            from .factory.bindings import resolve as bind_resolve
-
             engine_adapter = str(
                 bind_resolve(vault_root, project_id, "engine", "adapter_id") or ""
             ).strip()
-        except Exception:
-            engine_adapter = ""
+        except BindingMissingError as exc:
+            return {
+                "ok": False,
+                "id": eid,
+                "error": exc.code,
+                "detail": exc.detail,
+                "segment": "IMPLEMENT_SLICE",
+            }
     repo_rel = str(params.get("repo_path") or "").strip()
     if not repo_rel:
         try:
-            from .factory.bindings import game_repo_path as bind_game_repo
-
             repo_rel = bind_game_repo(vault_root, project_id)
-        except Exception:
-            repo_rel = ""
+        except BindingMissingError as exc:
+            return {
+                "ok": False,
+                "id": eid,
+                "error": exc.code,
+                "detail": exc.detail,
+                "segment": "IMPLEMENT_SLICE",
+            }
     if not repo_rel:
         return {
             "ok": False,
@@ -369,8 +369,8 @@ def run_implement_slice(
         preflight = run_engine_preflight(
             vault_root,
             repo_rel,
-            requires_mcp=requires_mcp,
-            run_dotnet_build=True,
+            project_id=project_id,
+            requires_mcp=False,
         )
         if not preflight.get("ok"):
             return {

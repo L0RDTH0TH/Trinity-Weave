@@ -37,7 +37,7 @@ def _project_id(entry: dict[str, Any]) -> str:
 
 def _queue_lane(entry: dict[str, Any]) -> str:
     params = entry.get("params") if isinstance(entry.get("params"), dict) else {}
-    return str(entry.get("queue_lane") or params.get("queue_lane") or "godot").strip().lower()
+    return str(entry.get("queue_lane") or params.get("queue_lane") or "").strip().lower()
 
 
 def _load_review_doc(vault_root: Path, slice_id: str) -> dict[str, Any] | None:

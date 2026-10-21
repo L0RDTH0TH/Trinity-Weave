@@ -147,7 +147,7 @@ def _agent_enqueue(
     persist_fn,
 ) -> TickResult:
     """Flush pending RESUME / RESEARCH lines to lane PQ."""
-    lane = str(params.get("queue_lane") or "godot")
+    lane = str(params.get("queue_lane") or "")
     written = flush_pending_enqueues(
         vault_root,
         project_id=project_id,
@@ -411,7 +411,7 @@ def tick(
     skip_agent = bool(params.get("skip_agent_enqueue", params.get("dry_run")))
     steps: list[dict[str, Any]] = []
     pending: list[dict[str, Any]] = []
-    lane = str(params.get("queue_lane") or "godot")
+    lane = str(params.get("queue_lane") or "")
 
     goal_packet = params.get("goal_packet") if isinstance(params.get("goal_packet"), dict) else None
     gate_kw = _gate_kwargs(params, goal_packet)

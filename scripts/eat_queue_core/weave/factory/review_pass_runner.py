@@ -211,10 +211,13 @@ PASS_RUNNERS: dict[str, Any] = {
         v, lane_id=kw.get("lane_id"), job=kw.get("job")
     ),
     "factory_output_conduct": lambda v, **kw: run_factory_output_gate(v, mode="block"),
-    "closed_alpha_release_readiness_pass": lambda v, **kw: __import__(
+    # Release rollup uses identity.release_checks only (closed-alpha alias deleted).
+    "release_readiness_pass": lambda v, **kw: __import__(
         "eat_queue_core.weave.factory.closed_alpha_passes",
-        fromlist=["run_closed_alpha_release_readiness_pass"],
-    ).run_closed_alpha_release_readiness_pass(v),
+        fromlist=["run_release_readiness_pass"],
+    ).run_release_readiness_pass(
+        v, project_id=str(kw.get("project_id") or "")
+    ),
     "product_kinesthetic_honesty": lambda v, **kw: _import_review_seats().run_product_kinesthetic_honesty_seat(v, **kw),
     "compliance_pass": lambda v, **kw: _import_review_seats().run_compliance_pass(v, **kw),
     "canon_pass": lambda v, **kw: _import_review_seats().run_canon_pass(v, **kw),

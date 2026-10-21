@@ -30,8 +30,6 @@ touch:
   - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PF1-Ruleset-Content-Scaffold.md
   - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/ENGINE-COMPILE-PACK-stock_godot_fps.md
   - 1-Projects/genesis-mythos-master/Roadmap/Execution/Docs/PIN-stock_godot_fps.md
-  - 3-Resources/Second-Brain/Docs/Half-B-Alpha-Mode.md
-  - 5-Attachments/Code-Repos/genesis-mythos-alpha/
   harness_commands:
   - mcp_postedit_validate
   behavior_signals:

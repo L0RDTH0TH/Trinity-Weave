@@ -33,12 +33,8 @@ CRAFT_CAM_REFUSES: tuple[str, ...] = (
     "craft_terrain_blend",
 )
 
-TOPOLOGY_REFUSES: tuple[str, ...] = (
-    "points_as_grid",
-    "count_equals_topology",
-    "infinite_rect_as_hex19",
-    "prop_scatter_as_composition",
-)
+# Product-named topology refuses live in legacy-refuse.yaml — not baked here.
+TOPOLOGY_REFUSES: tuple[str, ...] = ()
 
 # Back-compat alias — craft cams are no longer unconditional BASE.
 BASE_REFUSES: tuple[str, ...] = MOMENT_BASE_REFUSES + CRAFT_CAM_REFUSES
@@ -409,9 +405,9 @@ def validate_bind_artifact(data: dict[str, Any] | None) -> list[str]:
     success = str(data.get("structural_success") or "")
     # Topology terms required only when topology_rewrite is actually armed.
     if bool(data.get("topology_rewrite")):
-        for code in ("points_as_grid", "count_equals_topology"):
-            if code not in refuse:
-                violations.append(f"implicit_bind_missing_refuse:{code}")
+        # Prefer/job must name topology refuses; harness does not bake product codes.
+        if not refuse:
+            violations.append("implicit_bind_missing_refuse:topology")
         if re.search(r"^\s*\d+\s*points?\s*$", success, re.I):
             violations.append("implicit_bind_points_only_success")
         if not re.search(
@@ -514,5 +510,5 @@ def bind_markdown_overlay(data: dict[str, Any]) -> str:
         f"**Refuse:** {refuses}\n\n"
         f"**Inspiration cites:**\n{cites}\n\n"
         "Meeting the countable proxy without this structural Success → "
-        "`explicit_met_implicit_miss` / `points_as_grid`.\n"
+        "`explicit_met_implicit_miss` / topology refuse.\n"
     )
