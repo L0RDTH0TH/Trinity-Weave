@@ -4,7 +4,9 @@
 
 **Capability:** Grok **cannot** be given the private Second-Brain vault. Trinity-Weave is the public surface so Grok **can** navigate published project material.
 
-**Layout:** **`main`** = Trinity (**the system** — mint law + pack walk queue). **`project/<project_id>`** = **the project being served** (PMG + full `Roadmap/`). Mint uses both.
+**Layout:** **`main`** = Trinity (**the system** — mint law + pack walk queue + **config anti-hardcode harness**). **`project/<project_id>`** = **the project being served** (PMG + full `Roadmap/` + **`Factory-DRB/bindings/`**). Mint uses both.
+
+**Config anti-hardcode (2026-10-21):** Product nouns (engine, lanes, probes, host-law refuses, `game_repo_path`) live in **project** `Factory-DRB/bindings/*.yaml`. Harness on **`main`** only has `scripts/eat_queue_core/weave/factory/bindings.py` (fail-closed resolve), `proof_runner.py` (engine-neutral ops), `host_law.py` (data-row evaluator), and a production denylist test. Do **not** expect Genesis/Godot constants in harness Python. See [Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md](BINDINGS-CONFIG-ANTI-HARDCODE.md).
 
 **Two-pass mint:** **Pass A** = lock `walk_tier: series` only, then Trinity-publish series (**one series noun per turn**). **Pass B** = after `children_greenlit`, validate the **active same-width child batch** via `CHILD-BATCH-STATUS` + `BATCH-DIGEST.md` → one receipt (`_shared/CHILD-BATCH-VALIDATION.md`). Full `WALK.md` only for flagged ids. **World ≠ campaign** — world is the durable container; campaigns (and casts) nest inside it.
 
@@ -51,6 +53,8 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | Question | Where |
 |----------|--------|
 | Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
+| Project engine / lanes / probes / host-law | **`project/<id>`:** `Factory-DRB/bindings/` (`identity`, `engine`, `lanes`, `proof-catalog`, `host-law`, `legacy-refuse`) |
+| Harness resolve / denylist / proof ops | **`main`:** `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `tests/test_harness_product_denylist.py` |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
 | Gate B₂ weld intent (Prefer vs LIVE) | `Docs/Gate-B2-Weld-Intent-Hostile.md` + `Docs/Skills/prefer-weld-intent-validate/` · project Prefer law on `project/<id>` |
 | Live queue / Watcher / vault notes | Unavailable — ask for paste or fulfill |
@@ -72,6 +76,9 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | `meat-suit-entry/` | Bone pilot hub |
 | `weave/components/*.yaml` | Locked cards |
 | `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — pack emit / receipt validate) |
+| `scripts/eat_queue_core/weave/factory/bindings.py` | Fail-closed project bindings resolve (no silent product defaults) |
+| `Factory-DRB/bindings/` on `project/<id>` | Project-owned identity / engine / lanes / proof-catalog / host-law |
+| `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` | Anti-hardcode law + Pass 1–3 publish tips |
 | `Docs/Gate-B2-Weld-Intent-Hostile.md` | **Gate B₂** rubric + three Grok guards + validator shape |
 | `Docs/Skills/prefer-weld-intent-validate/` | Published B₂ hostile skill |
 | `scripts/prefer_weld_intent_check.py` | B₂ CLI / receipt latch |

@@ -50,6 +50,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/GROK-PROJECT-BRIDGE.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
+    "3-Resources/Second-Brain/Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md",
     # Half-B product docs leave main allowlist (Pass 3) — live on project branch only.
     "3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md",
     "3-Resources/Second-Brain/Docs/Gate-B2-Weld-Intent-Hostile.md",
@@ -426,7 +427,11 @@ def sync_weave_public_export(
         if src.is_dir():
             if dest.exists():
                 shutil.rmtree(dest)
-            shutil.copytree(src, dest)
+            shutil.copytree(
+                src,
+                dest,
+                ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"),
+            )
         else:
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dest)
