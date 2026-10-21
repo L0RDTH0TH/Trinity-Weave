@@ -1,24 +1,15 @@
-"""Engine adapter registry — per-lane factory agent tooling (Exhibit A Phase 3)."""
+"""Engine adapter resolve — from project bindings/engine.yaml + lanes.yaml only.
+
+No baked lane→adapter map and no silent vault_only fallback for forgotten lanes.
+"""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
-LANE_ADAPTER: dict[str, str] = {
-    "asset": "blender_mcp",
-    "techart": "godot_4_6_3_dotnet",
-    "content": "vault_only",
-    "presentation": "godot_4_6_3_dotnet",
-    "audio": "vault_only",
-    "module": "godot_4_6_3_dotnet",
-}
-
-ADAPTER_PORTS: dict[str, int | None] = {
-    "blender_mcp": 9876,
-    "godot_4_6_3_dotnet": 6505,
-    "vault_only": None,
-}
+from .bindings import BindingMissingError, load_family, require_project_id
 
 
 @dataclass(frozen=True)
@@ -39,14 +30,48 @@ class AdapterSpec:
         }
 
 
-def adapter_for_lane(lane_id: str) -> AdapterSpec:
-    lane_id = lane_id.strip().lower()
-    adapter_id = LANE_ADAPTER.get(lane_id, "vault_only")
-    port = ADAPTER_PORTS.get(adapter_id)
+def adapter_for_lane(
+    lane_id: str,
+    *,
+    vault_root: Path | None = None,
+    project_id: str | None = None,
+) -> AdapterSpec:
+    """Resolve adapter for a lane from bindings. Missing engine/lanes raises."""
+    lid = lane_id.strip().lower()
+    if vault_root is None or not str(project_id or "").strip():
+        raise BindingMissingError(
+            "binding_missing",
+            "adapter_for_lane:project_id_and_vault_required",
+        )
+    pid = require_project_id(project_id)
+    engine = load_family(vault_root, pid, "engine")
+    lanes = load_family(vault_root, pid, "lanes")
+
+    lane_adapters = lanes.get("lane_adapters")
+    if not isinstance(lane_adapters, dict):
+        lane_adapters = {}
+    adapter_id = str(lane_adapters.get(lid) or engine.get("adapter_id") or "").strip()
+    if not adapter_id:
+        raise BindingMissingError(
+            "binding_missing",
+            f"adapter_for_lane:no_adapter:{lid}",
+        )
+
+    ports = engine.get("ports")
+    if not isinstance(ports, dict):
+        ports = {}
+    port_raw = ports.get(adapter_id)
+    port = int(port_raw) if port_raw is not None and str(port_raw).strip() != "" else None
+
+    flags = engine.get("adapter_flags")
+    if not isinstance(flags, dict):
+        flags = {}
+    af = flags.get(adapter_id) if isinstance(flags.get(adapter_id), dict) else {}
+
     return AdapterSpec(
         adapter_id=adapter_id,
         mcp_port=port,
-        requires_mcp=adapter_id in ("blender_mcp", "godot_4_6_3_dotnet"),
-        run_dotnet_build=adapter_id == "godot_4_6_3_dotnet",
-        run_godot_smoke=adapter_id == "godot_4_6_3_dotnet" and lane_id in ("module", "presentation"),
+        requires_mcp=bool(af.get("requires_mcp")),
+        run_dotnet_build=bool(af.get("run_dotnet_build")),
+        run_godot_smoke=bool(af.get("run_engine_smoke")),
     )

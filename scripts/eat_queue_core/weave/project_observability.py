@@ -141,7 +141,7 @@ def build_project_observability(
             nodes.append({"id": f"l5:{rid}", "kind": "l5", "path": rel})
             edges.append({"from": f"catalog:{rid}", "to": f"l5:{rid}", "kind": "row_to_l5"})
 
-    edges.append({"from": "half_a", "to": "half_b", "kind": "factory_handoff", "note": "Roadmap factory → implementation factory"})
+    edges.append({"from": "half_a", "to": "implementation", "kind": "factory_handoff", "note": "Roadmap factory → implementation factory"})
 
     return {
         "schema_version": 1,

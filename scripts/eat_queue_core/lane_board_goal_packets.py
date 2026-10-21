@@ -56,7 +56,7 @@ def _factory_profile(packet: dict[str, Any]) -> str:
     if fp:
         return fp
     if hints.get("effective_track") == "implementation" or hints.get("feed_authority") == "vault_roadmap":
-        return "half_b"
+        return "implementation"
     if hints.get("product_factory") or hints.get("primary_mode") == "ROADMAP_MODE":
         return "half_a"
     early = packet.get("early_stop_policy") if isinstance(packet.get("early_stop_policy"), dict) else {}

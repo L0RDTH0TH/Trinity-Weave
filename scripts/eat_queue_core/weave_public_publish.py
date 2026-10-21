@@ -115,6 +115,7 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_ticket_map_schema.py",
     "scripts/eat_queue_core/tests/test_harness_product_denylist.py",
     "scripts/eat_queue_core/tests/test_bindings_resolve.py",
+    "scripts/eat_queue_core/tests/test_proof_runner.py",
 )
 
 

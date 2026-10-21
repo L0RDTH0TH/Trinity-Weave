@@ -334,7 +334,7 @@ def compose_slice_briefs_from_packet(
         "implicit_bind_path": bind_path_rel,
         "composed_at": _utc_iso(),
         "persona_attestation": synthetic_persona_attestation(
-            "half_b.slice_producer_pm",
+            "slice_producer_pm",
             [sib_rel, cdp_rel, *mission_paths],
         ),
     }
@@ -378,7 +378,7 @@ def validate_producer_receipt(
     violations.extend(
         validate_persona_attestation(
             receipt.get("persona_attestation"),
-            expected_persona_id="half_b.slice_producer_pm",
+            expected_persona_id="slice_producer_pm",
         )
     )
     violations.extend(

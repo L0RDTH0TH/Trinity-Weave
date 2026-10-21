@@ -147,7 +147,7 @@ def build_weave_posture(
     project_id = _resolve_primary_project(registry, expeditions)
     pf = load_product_factory(vault_root, project_id)
     cell = pf.get("implementation_cell") if isinstance(pf.get("implementation_cell"), dict) else {}
-    half_b = str(cell.get("phase") or "idle")
+    impl_half = str(cell.get("phase") or "idle")
     half_a_phase = str(pf.get("phase") or "idle")
     blocked = str(pf.get("blocked_at") or "") or "—"
     op_loop = pf.get("operator_loop") or "—"
@@ -162,7 +162,7 @@ def build_weave_posture(
     dormant_count = len(registry.dormant.tracks)
     drift = [r.lane for r in registry.rows.values() if r.config_drift]
     primary_pg = next((p for p in registry.projects if p.project_id == project_id), None)
-    half_b_snap = _aggregate_snap(
+    impl_snap = _aggregate_snap(
         [snapshots.get(r.lane) for r in (primary_pg.seats if primary_pg else [])],
         cfg=cfg,
     )
@@ -170,7 +170,7 @@ def build_weave_posture(
     return {
         "system_attention": attention,
         "half_a": {"phase": half_a_phase, "operator_loop": op_loop, "blocked_at": blocked},
-        "half_b": {"phase": half_b, "project_id": project_id},
+        "implementation": {"phase": impl_half, "project_id": project_id},
         "km": km,
         "overnight": {
             "lane": primary_exp.lane if primary_exp else "—",
@@ -187,7 +187,7 @@ def build_weave_posture(
         "institute_snap": _snap(registry, snapshots, "institute"),
         "godot_snap": _snap(registry, snapshots, "godot"),
         "half_a_snap": _snap(registry, snapshots, "godot"),
-        "half_b_snap": half_b_snap,
+        "impl_snap": impl_snap,
     }
 
 
@@ -225,30 +225,30 @@ def render_factory_floor_section(
         f"{_health_dot_band(inst_snap, cfg=cfg)} · {museum_in_use}",
     ]
 
-    primary_pg = next((p for p in registry.projects if p.project_id == posture["half_b"]["project_id"]), None)
+    primary_pg = next((p for p in registry.projects if p.project_id == posture["implementation"]["project_id"]), None)
     has_displayed = bool(registry.displayed_projects)
     if has_displayed and primary_pg:
         half_a_dot = _health_dot_band(posture.get("half_a_snap"), cfg=cfg)
-        half_b_dot = _health_dot_band(posture.get("half_b_snap"), cfg=cfg)
+        impl_dot = _health_dot_band(posture.get("impl_snap"), cfg=cfg)
         lines.extend(
             [
                 "",
-                f"> [!info] Software Warehouse · `{posture['half_b']['project_id']}`",
+                f"> [!info] Software Warehouse · `{posture['implementation']['project_id']}`",
                 f"> **Half A (Roadmap)** · {half_a_dot} · `{posture['half_a']['phase']}` · "
                 f"blocked `{posture['half_a']['blocked_at']}`",
-                f"> **Half B (Implementation)** · {half_b_dot} · `{posture['half_b']['phase']}`",
+                f"> **Half B (Implementation)** · {impl_dot} · `{posture['implementation']['phase']}`",
             ]
         )
     elif has_displayed:
         half_a_dot = _health_dot_band(posture.get("half_a_snap"), cfg=cfg)
-        half_b_dot = _health_dot_band(posture.get("half_b_snap"), cfg=cfg)
+        impl_dot = _health_dot_band(posture.get("impl_snap"), cfg=cfg)
         lines.extend(
             [
                 "",
-                f"> [!info] Software Warehouse · `{posture['half_b']['project_id']}`",
+                f"> [!info] Software Warehouse · `{posture['implementation']['project_id']}`",
                 f"> **Half A (Roadmap)** · {half_a_dot} · `{posture['half_a']['phase']}` · "
                 f"blocked `{posture['half_a']['blocked_at']}`",
-                f"> **Half B (Implementation)** · {half_b_dot} · `{posture['half_b']['phase']}`",
+                f"> **Half B (Implementation)** · {impl_dot} · `{posture['implementation']['phase']}`",
             ]
         )
     else:

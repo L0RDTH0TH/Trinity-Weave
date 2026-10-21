@@ -22,6 +22,21 @@ PASS1_TOKENS: tuple[str, ...] = (
     "DEFAULT_GAME_REPO_REL",
 )
 
+# Pass 2 — only tokens this commit deletes from production.
+# Terrain3D / DualGrid / Sparky / points_as_grid / ClosedAlpha wait for Pass 3
+# (prefer_authorship → host-law data rows).
+PASS2_TOKENS: tuple[str, ...] = (
+    "LaunchShell",
+    "PlayRegion",
+    "half_b",
+    "alpha_core_loop",
+    "LANE_ADAPTER",
+    "cs_type_exists",
+    "main_scene_equals",
+    "KINESTHETIC_IDS",
+    "SLICE_LANE_CHECKLISTS",
+)
+
 # Structural — engine/path product shapes outside the one bindings path helper.
 STRUCTURAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("res_uri", re.compile(r"res://")),
@@ -66,6 +81,20 @@ class HarnessProductDenylistTests(unittest.TestCase):
             hits,
             [],
             "Pass-1 denylist tokens still in production:\n" + "\n".join(hits),
+        )
+
+    def test_pass2_tokens_absent_from_production(self) -> None:
+        hits: list[str] = []
+        for path in _iter_production_py():
+            text = path.read_text(encoding="utf-8", errors="replace")
+            rel = path.relative_to(SCRIPTS_ROOT).as_posix()
+            for tok in PASS2_TOKENS:
+                if tok in text:
+                    hits.append(f"{rel}:{tok}")
+        self.assertEqual(
+            hits,
+            [],
+            "Pass-2 denylist tokens still in production:\n" + "\n".join(hits),
         )
 
     def test_structural_product_shapes_absent(self) -> None:

@@ -572,7 +572,7 @@ def slice_requires_prefer_authorship(slice_id: str, job: dict[str, Any] | None =
         [
             str(slice_id or ""),
             str((job or {}).get("ask_id") or ""),
-            str((job or {}).get("half_b_overlay_slice_id") or ""),
+            str((job or {}).get("overlay_slice_id") or ""),
             str((job or {}).get("catalog_row_id") or ""),
             str((job or {}).get("prefer_proof") or ""),
         ]
@@ -2466,7 +2466,7 @@ def run_prefer_authorship_pass(
         do_not_waive = [do_not_waive]
     product_codes = set(PRODUCT_PREFER_DO_NOT_WAIVE)
     # Soft: only require when Prefer fields present on job.
-    if job.get("prefer_proof") or job.get("armed_packet_path") or job.get("half_b_brief_path"):
+    if job.get("prefer_proof") or job.get("armed_packet_path") or job.get("overlay_brief_path"):
         if not any(str(x) in product_codes or "Terrain3D" in str(x) for x in do_not_waive):
             # Advisory → binding: Prefer overlays must declare do_not_waive product seats.
             violations.append("prefer_overlay_missing_do_not_waive_product_seats")

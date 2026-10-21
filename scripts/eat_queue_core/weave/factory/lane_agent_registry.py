@@ -44,26 +44,26 @@ class LaneAgentSpec:
         drop_manifest = DROP_CONTRACTS.get(self.drop_contract, "")
         mission_block = _mission_first_block(vault_root, job)
         prefer_block = ""
-        half_b_brief = str(job.get("half_b_brief_path") or "")
+        overlay_brief = str(job.get("overlay_brief_path") or "")
         armed_packet = str(job.get("armed_packet_path") or "")
         prefer_proof = str(job.get("prefer_proof") or "")
         ask_id = str(job.get("ask_id") or "")
-        if half_b_brief or armed_packet or prefer_proof:
+        if overlay_brief or armed_packet or prefer_proof:
             from .prefer_authorship_contract import (
                 authorship_overlay_markdown,
                 slice_requires_prefer_authorship,
             )
 
             prefer_excerpt = ""
-            if half_b_brief:
-                bp = vault_root / half_b_brief
+            if overlay_brief:
+                bp = vault_root / overlay_brief
                 if bp.is_file():
                     prefer_excerpt = bp.read_text(encoding="utf-8", errors="replace")[:2800]
             prefer_block = (
                 f"\n## Prefer overlay (hand-off law — MUST load)\n"
                 f"- **ask_id:** `{ask_id or '(see brief)'}`\n"
-                f"- **half_b_overlay_slice_id:** `{job.get('half_b_overlay_slice_id') or ''}`\n"
-                f"- **brief:** `{half_b_brief}`\n"
+                f"- **overlay_slice_id:** `{job.get('overlay_slice_id') or ''}`\n"
+                f"- **brief:** `{overlay_brief}`\n"
                 f"- **armed packet:** `{armed_packet}`\n"
                 f"- **prefer_proof:** {prefer_proof or '(see brief done_when)'}\n"
                 f"- **do_not_waive:** `{job.get('do_not_waive')}`\n"

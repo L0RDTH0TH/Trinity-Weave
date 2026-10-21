@@ -179,7 +179,7 @@ def _write_lane_receipt(
         )
         if zone_v and att_source == "harness":
             paths = [p for p in (wrote_paths or []) if p] or [rel_receipt]
-            att = synthetic_persona_attestation(f"half_b.lane.{lane_id}", paths)
+            att = synthetic_persona_attestation(f"lane_persona.{lane_id}", paths)
     doc = {
         "ok": ok,
         "lane_id": lane_id,
@@ -328,7 +328,7 @@ def run_factory_lane_job(
             k: params[k]
             for k in params
             if k.startswith("depends_on")
-            or k.startswith("half_b_")
+            or k.startswith("overlay_")
             or k
             in (
                 "blocks_parallel_lanes",

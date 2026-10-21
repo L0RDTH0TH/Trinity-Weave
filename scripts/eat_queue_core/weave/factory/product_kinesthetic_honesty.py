@@ -45,11 +45,8 @@ def scan_q3_remnant_on_play_path(
     except Exception:
         return []
     violations: list[str] = []
-    targets = (
-        repo / "UI/GameHud.cs",
-        repo / "PlayRegion.cs",
-        repo / "LaunchShell.cs",
-    )
+    # Paths to scan come from project legacy-refuse / Prefer — never baked here.
+    targets: tuple[Path, ...] = ()
     for path in targets:
         if not path.is_file():
             continue

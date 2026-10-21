@@ -160,7 +160,7 @@ _ROW_GATED_PREFER_FIELDS: tuple[str, ...] = (
 _HALF_B_FORBIDDEN_VALUES: frozenset[str] = frozenset(
     {
         "half-b-weld-brief-template",
-        "alpha_architecture_half_b",
+        "alpha_architecture_implementation",
     }
 )
 

@@ -23,7 +23,7 @@ class OvernightWarehouseContext:
     run_factory_cursor: bool
     run_implementation_cursor: bool
     run_half_a_tick_preflight: bool
-    run_half_b_factory_dispatch: bool
+    run_overlay_factory_dispatch: bool
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -33,7 +33,7 @@ class OvernightWarehouseContext:
             "run_factory_cursor": self.run_factory_cursor,
             "run_implementation_cursor": self.run_implementation_cursor,
             "run_half_a_tick_preflight": self.run_half_a_tick_preflight,
-            "run_half_b_factory_dispatch": self.run_half_b_factory_dispatch,
+            "run_overlay_factory_dispatch": self.run_overlay_factory_dispatch,
             "profile": self.profile.to_dict(),
         }
 
@@ -54,19 +54,19 @@ def resolve_overnight_warehouse(
 
     if implementation_factory_overnight(packet):
         warehouse = warehouse or "software"
-        subfactory = subfactory or "half_b"
+        subfactory = subfactory or "implementation"
     elif product_factory_roadmap_packet(packet):
         warehouse = warehouse or "software"
         subfactory = subfactory or "half_a"
 
     half_a = warehouse == "software" and subfactory == "half_a" and product_factory_roadmap_packet(packet)
-    half_b = warehouse == "software" and (
-        subfactory == "half_b" or implementation_factory_overnight(packet)
+    impl_half = warehouse == "software" and (
+        subfactory == "implementation" or implementation_factory_overnight(packet)
     )
 
     pid = str(packet.get("project_id") or "").strip()
     run_factory = bool(pid and half_a)
-    run_impl = bool(pid and half_b)
+    run_impl = bool(pid and impl_half)
 
     return OvernightWarehouseContext(
         profile=profile,
@@ -76,5 +76,5 @@ def resolve_overnight_warehouse(
         run_factory_cursor=run_factory,
         run_implementation_cursor=run_impl,
         run_half_a_tick_preflight=run_factory,
-        run_half_b_factory_dispatch=half_b and implementation_track_active(packet),
+        run_overlay_factory_dispatch=impl_half and implementation_track_active(packet),
     )

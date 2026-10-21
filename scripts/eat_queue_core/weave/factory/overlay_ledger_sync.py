@@ -21,7 +21,7 @@ def _utc_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def honest_half_b_ledger_sync(vault_root: Path, project_id: str) -> dict[str, Any]:
+def honest_overlay_ledger_sync(vault_root: Path, project_id: str) -> dict[str, Any]:
     """
     Derive Half B completed_phases and playtest park flags from live gates.
 
@@ -44,14 +44,14 @@ def honest_half_b_ledger_sync(vault_root: Path, project_id: str) -> dict[str, An
         if stripped:
             completed = [p for p in completed if p not in _HALF_B_BEATS]
             steps.append(
-                {"step": "honest_half_b_reopen", "stripped": stripped, "reason": handoff_reason}
+                {"step": "honest_overlay_reopen", "stripped": stripped, "reason": handoff_reason}
             )
         if pf.get("playtest_exit_eligible") is True:
             updates["playtest_exit_eligible"] = False
             updates["playtest_exit_session_id"] = ""
             updates["blocked_at"] = "machine:implementation_handoff"
             steps.append(
-                {"step": "honest_half_b_clear_playtest_park", "reason": handoff_reason}
+                {"step": "honest_overlay_clear_playtest_park", "reason": handoff_reason}
             )
     elif pf.get("playtest_exit_eligible") is True:
         from .weld_beat_ready import playtest_attestation_complete
@@ -64,7 +64,7 @@ def honest_half_b_ledger_sync(vault_root: Path, project_id: str) -> dict[str, An
                 completed = [p for p in completed if p not in _HALF_B_BEATS]
                 steps.append(
                     {
-                        "step": "honest_half_b_reopen",
+                        "step": "honest_overlay_reopen",
                         "stripped": stripped,
                         "reason": surface_reason,
                     }
@@ -74,12 +74,12 @@ def honest_half_b_ledger_sync(vault_root: Path, project_id: str) -> dict[str, An
             updates["blocked_at"] = "machine:weld_beat_prep"
             steps.append(
                 {
-                    "step": "honest_half_b_clear_playtest_without_surface",
+                    "step": "honest_overlay_clear_playtest_without_surface",
                     "reason": surface_reason,
                 }
             )
 
-    if updates or any(s.get("step") == "honest_half_b_reopen" for s in steps):
+    if updates or any(s.get("step") == "honest_overlay_reopen" for s in steps):
         save_product_factory(
             vault_root,
             pid,

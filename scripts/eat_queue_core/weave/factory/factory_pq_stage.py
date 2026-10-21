@@ -256,8 +256,8 @@ def factory_lane_entries_from_dispatch(
             lane_params["half_a_provenance"] = half_a_prov
         if armed_rel:
             lane_params["armed_packet_path"] = armed_rel
-            lane_params["half_b_brief_path"] = str(armed.get("brief_path") or sib_path or "")
-            lane_params["half_b_overlay_slice_id"] = str(armed.get("slice_id") or slice_id)
+            lane_params["overlay_brief_path"] = str(armed.get("brief_path") or sib_path or "")
+            lane_params["overlay_slice_id"] = str(armed.get("slice_id") or slice_id)
             ask_id = str(armed.get("ask_id") or "")
             if ask_id:
                 lane_params["ask_id"] = ask_id

@@ -113,17 +113,8 @@ def run_structure_pass(
         return StructurePassResult(False, lv, "game_repo_missing")
 
     if changed_paths is None:
-        changed_paths = (
-            "",
-            "PlayRegion.cs",
-            "",
-            "LaunchShell.cs",
-            "Player/PlayerFP.cs",
-            "Camera/SparkyDmFreeCamRig.cs",
-            "UI/GameHud.cs",
-            "Core/ClosedAlpha/Q3StackCameraSync.cs",
-            "assets/_factory/adc-closed-alpha-env-v1.json",
-        )
+        # No baked product paths — Prefer/job must pass changed_paths.
+        changed_paths = ()
     elif not changed_paths:
         ok = len(violations) == 0
         lv = FactoryLittleValResult(ok, violations, "structure_pass")

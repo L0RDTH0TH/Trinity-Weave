@@ -79,9 +79,9 @@ LANE_PERSONA_VOICE: dict[str, str] = {
 }
 
 HALF_B_PM_COMPOSE = PersonaSpec(
-    persona_id="half_b.slice_producer_pm",
+    persona_id="slice_producer_pm",
     label="Slice Producer PM (compose)",
-    factory_half="half_b",
+    factory_half="implementation",
     factory_phase="pm_compose",
     voice_summary="UX-first PM — crosswalk L5 to lanes, tradeoffs",
     writes="SIB, LMBs, CDP, producer-receipt.json",
@@ -89,9 +89,9 @@ HALF_B_PM_COMPOSE = PersonaSpec(
 )
 
 HALF_B_PM_REVIEW = PersonaSpec(
-    persona_id="half_b.slice_producer_pm",
+    persona_id="slice_producer_pm",
     label="Slice Producer PM (review)",
-    factory_half="half_b",
+    factory_half="implementation",
     factory_phase="pm_review",
     voice_summary="Hostile PM auditor — did lanes honor UX bullets?",
     writes="producer-review.json, rework proposals",
@@ -115,15 +115,15 @@ def persona_id_for_half_a_params(params: dict[str, Any]) -> str | None:
 def persona_spec_for_id(persona_id: str) -> PersonaSpec | None:
     if persona_id in HALF_A_PERSONAS:
         return HALF_A_PERSONAS[persona_id]
-    if persona_id == "half_b.slice_producer_pm":
+    if persona_id == "slice_producer_pm":
         return HALF_B_PM_COMPOSE
-    if persona_id.startswith("half_b.lane."):
+    if persona_id.startswith("lane_persona."):
         lane_id = persona_id.split(".", 2)[-1]
         voice = LANE_PERSONA_VOICE.get(lane_id, "Factory lane discipline per charter")
         return PersonaSpec(
             persona_id=persona_id,
             label=f"Lane {lane_id}",
-            factory_half="half_b",
+            factory_half="implementation",
             factory_phase="lane_implement",
             voice_summary=voice,
             writes="Game repo under zone_write only",
@@ -254,13 +254,13 @@ def merge_persona_into_params(params: dict[str, Any]) -> dict[str, Any]:
         if sib or lmb:
             upstream_pm.append(
                 {
-                    "actor": "half_b.slice_producer_pm",
+                    "actor": "slice_producer_pm",
                     "artifact_paths": [p for p in (sib, lmb) if p],
                     "contract_summary": "SIB/LMB from PM compose",
                 }
             )
         merged["persona_handoff"] = build_persona_envelope(
-            persona_id=f"half_b.lane.{lane_id}",
+            persona_id=f"lane_persona.{lane_id}",
             upstream=upstream_pm,
             interrogation_mode="owner_write",
             half_a_provenance=merged.get("half_a_provenance")
@@ -438,7 +438,7 @@ def validate_persona_attestation(
 
 
 def validate_lane_receipt_persona(lane_receipt: dict[str, Any], *, lane_id: str) -> list[str]:
-    expected = f"half_b.lane.{lane_id}"
+    expected = f"lane_persona.{lane_id}"
     att = lane_receipt.get("lane_persona_attestation")
     return validate_persona_attestation(
         att,
@@ -705,7 +705,7 @@ def merge_lane_persona_attestation(
     receipt_rel_path: str,
 ) -> tuple[dict[str, Any], str]:
     """Prefer valid agent attestation; else harness synthetic."""
-    expected = f"half_b.lane.{lane_id}"
+    expected = f"lane_persona.{lane_id}"
     if agent_out:
         att = extract_lane_attestation_from_agent(agent_out)
         if att:

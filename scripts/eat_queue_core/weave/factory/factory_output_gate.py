@@ -1,4 +1,4 @@
-"""Factory output conduct — product track honesty on LaunchShell → PlayRegion (warn → block ladder)."""
+"""Factory output conduct — product track honesty on LaunchSurface → PlaySurface (warn → block ladder)."""
 
 from __future__ import annotations
 

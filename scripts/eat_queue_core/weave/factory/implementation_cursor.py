@@ -114,9 +114,9 @@ def reconcile_implementation_cursor(
     pid = str(project_id or "").strip()
     drift: list[str] = []
 
-    from .half_b_ledger_sync import honest_half_b_ledger_sync
+    from .overlay_ledger_sync import honest_overlay_ledger_sync
 
-    sync = honest_half_b_ledger_sync(vault_root, pid) if pid else {"steps": []}
+    sync = honest_overlay_ledger_sync(vault_root, pid) if pid else {"steps": []}
 
     packet = goal_packet if isinstance(goal_packet, dict) else {}
     run_id = str(packet.get("run_id") or "")

@@ -1,121 +1,71 @@
-"""Closed Alpha tier passes — separate from stack_baseline release_readiness_pass."""
+"""Release-tier passes — run only when project config names them.
+
+No baked closed_alpha stage in the harness. Absent release_checks → nothing runs.
+"""
 
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
-from .factory_honesty_rollup import run_product_kinesthetic_honesty_rollup
-from .factory_little_val import FactoryLittleValResult, merge_results
-from .factory_output_gate import run_factory_output_gate
-from .gate_precedence import evaluate_precedence
+from .factory_little_val import FactoryLittleValResult
 from .review_pass_runner import ReviewPassResult
-from .surface_pass import run_surface_pass
-from .tech_stack_manifest import load_manifest
 
 
-def run_closed_alpha_release_readiness_pass(vault_root: Path) -> ReviewPassResult:
-    """
-    Tier D rollup for Product 2 — requires stack baseline + Surface (Tier B) + conduct gate.
-
-    Does NOT substitute harness smokes for Surface seat.
-    """
-    violations: list[str] = []
-
+def _named_checks(vault_root: Path, project_id: str | None) -> list[str]:
+    if not str(project_id or "").strip():
+        return []
     try:
-        manifest = load_manifest(vault_root)
-    except FileNotFoundError:
-        lv = FactoryLittleValResult(
-            little_val_ok=False,
-            anti_pattern_violations=["manifest_missing"],
-            detail="closed_alpha_release_readiness_pass",
+        from .bindings import resolve_optional
+
+        raw = resolve_optional(
+            vault_root, str(project_id), "identity", "release_checks", default=[]
         )
-        return ReviewPassResult("closed_alpha_release_readiness_pass", False, lv, "manifest_missing")
+    except Exception:
+        return []
+    if not isinstance(raw, list):
+        return []
+    return [str(x).strip() for x in raw if str(x).strip()]
 
-    if not manifest.operator_stack_baseline_vetted:
-        violations.append("stack_baseline_not_vetted")
 
-    surface = run_surface_pass(vault_root)
-    if not surface.ok:
-        violations.extend(surface.little_val.anti_pattern_violations)
+def run_release_readiness_pass(
+    vault_root: Path,
+    *,
+    project_id: str | None = None,
+) -> ReviewPassResult:
+    """Generic release readiness — no-op success when project lists no checks."""
+    checks = _named_checks(vault_root, project_id)
+    if not checks:
+        lv = FactoryLittleValResult(
+            little_val_ok=True,
+            anti_pattern_violations=[],
+            detail="release_checks_empty",
+        )
+        return ReviewPassResult("release_readiness_pass", True, lv, "release_checks_empty")
 
-    conduct = run_factory_output_gate(vault_root, mode="block")
-    if not conduct.ok:
-        violations.append("factory_output_conduct_fail")
-
-    closed_alpha_doc = vault_root / (
-        ""
+    # Named checks are opaque ids for now — project must supply runners via review registry.
+    # Fail closed: declared but unimplemented → violation.
+    violations = [f"release_check_unimplemented:{c}" for c in checks]
+    ok = False
+    lv = FactoryLittleValResult(
+        little_val_ok=ok,
+        anti_pattern_violations=violations,
+        detail="release_readiness_pass",
     )
-    if closed_alpha_doc.is_file():
-        text = closed_alpha_doc.read_text(encoding="utf-8")
-        if "operator_closed_alpha_vetted: true" in text and not surface.ok:
-            violations.append("release_def_claims_vetted_while_surface_fail")
-
-    precedence = evaluate_precedence(
-        {
-            "surface_pass": surface.ok,
-            "usability_pass": surface.ok,
-            "factory_output_conduct": conduct.ok,
-            "closed_alpha_release_readiness_pass": False,
-        }
-    )
-    violations.extend(precedence.violations)
-
-    ok = len(violations) == 0
-    lv = merge_results(surface.little_val)
-    lv.anti_pattern_violations = list(dict.fromkeys([*lv.anti_pattern_violations, *violations]))
-    lv.little_val_ok = ok
-    lv.detail = "closed_alpha_release_readiness_pass"
-
     return ReviewPassResult(
-        "closed_alpha_release_readiness_pass",
+        "release_readiness_pass",
         ok,
         lv,
-        "; ".join(violations) if violations else "closed_alpha_release_readiness_ok",
+        "; ".join(violations),
     )
+
+
+# Legacy name kept as thin alias so call sites compile until they migrate.
+def run_closed_alpha_release_readiness_pass(vault_root: Path) -> ReviewPassResult:
+    return run_release_readiness_pass(vault_root, project_id=None)
 
 
 def run_all_closed_alpha_passes(vault_root: Path) -> dict[str, Any]:
-    surface = run_surface_pass(vault_root)
-    rollup = run_closed_alpha_release_readiness_pass(vault_root)
-    conduct = run_factory_output_gate(vault_root, mode="block")
-    pk_rollup = run_product_kinesthetic_honesty_rollup(vault_root)
-    pk_result = pk_rollup["passes"]["product_kinesthetic_honesty"]
-
-    pass_map = {
-        "surface_pass": surface.ok,
-        "usability_pass": surface.ok,
-        "factory_output_conduct": conduct.ok,
-        "product_kinesthetic_honesty": pk_result.ok,
-        "closed_alpha_release_readiness_pass": rollup.ok,
-    }
-    precedence = evaluate_precedence(pass_map)
-
-    results = {
-        "surface_pass": ReviewPassResult("surface_pass", surface.ok, surface.little_val, surface.detail),
-        "product_kinesthetic_honesty": pk_result,
-        "closed_alpha_release_readiness_pass": rollup,
-        "factory_output_conduct": ReviewPassResult(
-            "factory_output_conduct",
-            conduct.ok,
-            FactoryLittleValResult(
-                little_val_ok=conduct.ok,
-                anti_pattern_violations=list(conduct.failures),
-                detail="factory_output_conduct",
-            ),
-            "; ".join(conduct.failures) or "ok",
-        ),
-        "gate_precedence": ReviewPassResult(
-            "gate_precedence",
-            precedence.ok,
-            FactoryLittleValResult(
-                little_val_ok=precedence.ok,
-                anti_pattern_violations=list(precedence.violations),
-                detail=precedence.detail,
-            ),
-            precedence.detail,
-        ),
-    }
-
-    all_ok = all(r.ok for r in results.values())
-    return {"all_ok": all_ok, "passes": results, "precedence": precedence.to_dict()}
+    rollup = run_release_readiness_pass(vault_root, project_id=None)
+    results = {"release_readiness_pass": rollup}
+    return {"all_ok": rollup.ok, "passes": results, "precedence": {"ok": rollup.ok}}

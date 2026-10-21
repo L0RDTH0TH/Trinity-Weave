@@ -14,7 +14,7 @@ WAREHOUSE_TOKENS = frozenset({"weave", "knowledge", "software"})
 SUBFACTORY_BY_WAREHOUSE: dict[str, frozenset[str]] = {
     "weave": frozenset({"maintenance", "queue_bus"}),
     "knowledge": frozenset({"library", "museum"}),
-    "software": frozenset({"half_a", "half_b", "re_bench"}),
+    "software": frozenset({"half_a", "implementation", "re_bench"}),
 }
 SESSION_MODES = frozenset({"bootstrap", "resume", "remint", "deepen_only"})
 
@@ -45,7 +45,7 @@ def _infer_profile(packet: dict[str, Any]) -> tuple[str, str, str]:
 
     if str(hints.get("effective_track") or "").lower() == "implementation":
         warehouse = warehouse or "software"
-        subfactory = subfactory or "half_b"
+        subfactory = subfactory or "implementation"
     elif hints.get("product_factory") is True or str(hints.get("factory_profile") or "").lower() in (
         "half_a",
         "roadmap",
@@ -103,7 +103,7 @@ def validate_goal_packet_profile(
         if session == "remint" and hints.get("fresh_greenfield") is True:
             violations.append("deprecated_fresh_greenfield_on_remint")
 
-        if subfactory == "half_b" or str(hints.get("effective_track") or "").lower() == "implementation":
+        if subfactory == "implementation" or str(hints.get("effective_track") or "").lower() == "implementation":
             pf = load_product_factory(vault_root, pid)
             completed = normalize_completed_phases(list(pf.get("completed_phases") or []))
             if FACTORY_STAGED not in completed:
