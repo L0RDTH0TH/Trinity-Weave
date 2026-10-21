@@ -36,9 +36,15 @@ from typing import Any
 import yaml
 
 # Claim altitudes that count as Success / ready-for-F5 / KEEP (need B₂ when welded).
+# Prefer declared behavior_keys must match evidence exactly (no extras) for these.
+_EXACT_BEHAVIOR_KEY_CLASSES: frozenset[str] = frozenset(
+    {"foundation", "contract", "component"}
+)
+
 _SUCCESS_CLAIM_CLASSES: frozenset[str] = frozenset(
     {
         "ask_success",
+        "component",
         "keep",
         "keep_real",
         "success",
@@ -95,6 +101,9 @@ BEHAVIOR_KEYS_BY_CLASS: dict[str, tuple[str, ...]] = {
     "loop": GENERIC_PRODUCT_BEHAVIOR_KEYS,
     "pack": GENERIC_PRODUCT_BEHAVIOR_KEYS,
     "desk": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    # Contract / foundation seats — Prefer behavior_keys are authoritative for B₂.
+    "foundation": GENERIC_PRODUCT_BEHAVIOR_KEYS,
+    "contract": GENERIC_PRODUCT_BEHAVIOR_KEYS,
 }
 
 _PLACE_INFER_MARKERS: tuple[str, ...] = (
@@ -410,7 +419,10 @@ def required_behavior_keys_for_class(
     ):
         return declared or PLACE_BEHAVIOR_KEYS
     if declared:
+        # foundation/contract: one invariant key is enough (moment keeps 3–8 via Gate A).
         return declared
+    if cls in {"foundation", "contract"}:
+        return None  # must declare Prefer behavior_keys
     if cls in BEHAVIOR_KEYS_BY_CLASS and cls not in {
         "generic",
         "product",
@@ -420,6 +432,8 @@ def required_behavior_keys_for_class(
         "loop",
         "pack",
         "desk",
+        "foundation",
+        "contract",
     }:
         return BEHAVIOR_KEYS_BY_CLASS[cls]
     # generic / worldgen / unknown without declared keys → fail closed (None)
@@ -604,6 +618,8 @@ def evaluate_behavior_evidence(
             "loop",
             "pack",
             "desk",
+            "foundation",
+            "contract",
             "unknown",
             "",
         }:
@@ -616,6 +632,17 @@ def evaluate_behavior_evidence(
                 f"weld_intent:unknown_prefer_class_fail_closed:{prefer_class or 'unknown'}"
             )
     else:
+        # Contract/foundation: evidence keys must equal Prefer behavior_keys exactly.
+        if prefer_class in _EXACT_BEHAVIOR_KEY_CLASSES or str(
+            (armed or {}).get("proof_shape") or ""
+        ).strip().lower() == "contract":
+            ev_keys = sorted(str(k) for k in behavior.keys())
+            req_keys = sorted(str(k) for k in required)
+            if ev_keys != req_keys:
+                violations.append(
+                    "weld_intent:behavior_keys_exact_mismatch:"
+                    + f"prefer={','.join(req_keys)};evidence={','.join(ev_keys)}"
+                )
         for key in required:
             if key not in behavior:
                 violations.append(f"weld_intent:behavior_key_missing:{key}")

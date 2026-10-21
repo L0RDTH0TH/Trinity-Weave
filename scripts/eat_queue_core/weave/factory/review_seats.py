@@ -215,9 +215,14 @@ def run_stack_integrate_pass_seat(vault_root: Path, *, dry_run: bool | None = No
     return ReviewPassResult("stack_integrate_pass", r.ok, r.little_val, r.detail)
 
 
-def run_product_kinesthetic_honesty_seat(vault_root: Path, **_: Any) -> ReviewPassResult:
+def run_product_kinesthetic_honesty_seat(vault_root: Path, **kw: Any) -> ReviewPassResult:
     from .product_kinesthetic_honesty import run_product_kinesthetic_honesty
 
-    r = run_product_kinesthetic_honesty(vault_root)
+    job = kw.get("job") if isinstance(kw.get("job"), dict) else {}
+    params = job.get("params") if isinstance(job.get("params"), dict) else {}
+    proof_shape = str(
+        params.get("proof_shape") or job.get("proof_shape") or kw.get("proof_shape") or ""
+    ).strip() or None
+    r = run_product_kinesthetic_honesty(vault_root, proof_shape=proof_shape)
     lv = _lv(r.ok, list(r.violations), r.detail)
     return ReviewPassResult("product_kinesthetic_honesty", r.ok, lv, r.detail)

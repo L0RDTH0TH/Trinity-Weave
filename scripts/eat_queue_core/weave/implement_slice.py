@@ -81,7 +81,7 @@ def run_milestone_verify(
             dotnet_bin = Path(dotnet) / "dotnet" if Path(dotnet).is_dir() else "dotnet"
             try:
                 r = subprocess.run(
-                    [str(dotnet_bin), "build", str(repo / "GenesisMythosDemo.csproj")],
+                    [str(dotnet_bin), "build", str(next(repo.glob("*.csproj"), repo))],
                     cwd=repo,
                     capture_output=True,
                     text=True,
@@ -297,7 +297,25 @@ def run_implement_slice(
     milestone_id = str(params.get("milestone_id") or "").upper()
     project_id = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
     engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
-    repo_rel = str(params.get("repo_path") or "5-Attachments/Code-Repos/genesis-mythos-demo/").rstrip("/") + "/"
+    repo_rel = str(params.get("repo_path") or "").strip()
+    if not repo_rel:
+        # Fail-closed: factory-project.yaml game_repo_path (no genesis-mythos-demo fallback).
+        try:
+            from .factory.factory_project import load_factory_project
+
+            fp = load_factory_project(vault_root, project_id)
+            repo_rel = str((fp or {}).get("game_repo_path") or "").strip()
+        except Exception:
+            repo_rel = ""
+    if not repo_rel:
+        return {
+            "ok": False,
+            "id": eid,
+            "error": "missing_game_repo_path",
+            "hint": "Set params.repo_path or Factory-DRB/factory-project.yaml game_repo_path",
+            "segment": "IMPLEMENT_SLICE",
+        }
+    repo_rel = repo_rel.rstrip("/") + "/"
 
     packet = load_goal_authority(vault_root, lane, require_confirmed=False)
     hints = (packet or {}).get("planner_hints") or {}

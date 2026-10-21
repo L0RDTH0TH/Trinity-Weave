@@ -348,6 +348,77 @@ def run_factory_dispatch_preflight(
     if bind_result.applicable and not bind_result.ok:
         violations.extend(bind_result.violations)
 
+    # Map Prefer eat guards — must run on the live eat path (not Gate A CLI alone).
+    violations.extend(
+        check_map_prefer_eat_guards(
+            vault_root,
+            job=job,
+            project_id=pid or None,
+            checklist_ids=checklist_ids,
+        )
+    )
+
     ok = len(violations) == 0
     detail = "; ".join(violations) if violations else "factory_dispatch_preflight_ok"
     return DispatchPreflightResult(ok=ok, violations=tuple(violations), detail=detail)
+
+
+def check_map_prefer_eat_guards(
+    vault_root: Path,
+    *,
+    job: dict[str, Any],
+    project_id: str | None = None,
+    checklist_ids: list[str] | None = None,
+) -> list[str]:
+    """Fail-closed map Prefer checks at eat entry (proof_shape, Gate A, probes)."""
+    armed = load_armed_packet(vault_root, job)
+    if not armed:
+        return []
+    tid = str(armed.get("ticket_map_id") or job.get("ticket_map_id") or "").strip()
+    if not tid:
+        return []
+
+    violations: list[str] = []
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    if not proof_shape:
+        violations.append("eat_preflight:missing_proof_shape")
+
+    # checklist_ids None on a map eat fails closed (does not mean run every probe).
+    if checklist_ids is None and job.get("checklist_ids") is None:
+        # Prefer may declare checklist_ids on the packet.
+        pref_ids = armed.get("checklist_ids")
+        if pref_ids is None:
+            if proof_shape == "contract":
+                # Contract default = empty list (explicit no shell probes).
+                pass
+            else:
+                violations.append("eat_preflight:map_checklist_ids_none")
+        elif not isinstance(pref_ids, (list, tuple)):
+            violations.append("eat_preflight:map_checklist_ids_bad_type")
+
+    from .prefer_map_fidelity import (
+        launch_scene_from_armed_fields,
+        load_prefer_result,
+        validate_armed_map_fidelity,
+    )
+
+    # Field-only scene resolution — body prose must never set launch_scene.
+    _ = launch_scene_from_armed_fields(armed)
+
+    slice_id = str(job.get("slice_id") or armed.get("slice_id") or "")
+    pr = load_prefer_result(vault_root, slice_id) if slice_id else None
+    fidelity = validate_armed_map_fidelity(
+        vault_root, armed, prefer_result=pr, require_hostile_for_keep=False
+    )
+    # Eat path still requires Gate A mechanical; hostile may be pending.
+    if fidelity.gate_a_applicable and not fidelity.ok:
+        # When only hostile latch is missing, allow through for B₁ staging;
+        # all other Gate A violations block eat.
+        residual = [
+            v
+            for v in fidelity.violations
+            if v != "map_fidelity:hostile_prefer_required_before_success"
+        ]
+        for v in residual:
+            violations.append(f"eat_preflight:{v}")
+    return violations

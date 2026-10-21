@@ -326,7 +326,16 @@ def run_kinesthetic_probes(
     run_smokes: bool = True,
     project_id: str | None = None,
     checklist_ids: tuple[str, ...] | None = None,
+    map_ticket: bool = False,
+    proof_shape: str | None = None,
 ) -> tuple[ProbeResult, ...]:
+    # Map eats: None does **not** mean "run every probe" — fail closed to empty
+    # unless Prefer declared an explicit list (caller passes that list).
+    if map_ticket and checklist_ids is None:
+        checklist_ids = ()
+    if str(proof_shape or "").strip().lower() == "contract" and checklist_ids is None:
+        checklist_ids = ()
+
     repo = _game_repo(vault_root, project_id)
     results: dict[str, ProbeResult] = {
         "Nav_LookWhileMove_FP": _probe_fp_look_move(repo),
@@ -341,10 +350,14 @@ def run_kinesthetic_probes(
     if run_smokes:
         results = _apply_smoke_overrides(repo, results)
 
-    # None = all probes; empty tuple = explicitly no structural seats for this lane/slice.
+    # None = all probes (non-map legacy); empty tuple = explicitly no structural seats.
     if checklist_ids is not None:
         allowed_set = frozenset(checklist_ids)
-        return tuple(results[cid] for cid in KINESTHETIC_IDS if cid in results and cid in allowed_set)
+        return tuple(
+            results[cid]
+            for cid in KINESTHETIC_IDS
+            if cid in results and cid in allowed_set
+        )
     return tuple(results[cid] for cid in KINESTHETIC_IDS if cid in results)
 
 

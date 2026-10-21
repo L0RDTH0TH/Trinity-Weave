@@ -131,6 +131,7 @@ PREFER_PRODUCT_SLICE_MARKERS: tuple[str, ...] = (
 _SUCCESS_CLAIM_CLASSES: frozenset[str] = frozenset(
     {
         "ask_success",
+        "component",
         "keep",
         "keep_real",
         "success",
@@ -140,6 +141,143 @@ _SUCCESS_CLAIM_CLASSES: frozenset[str] = frozenset(
         "",
     }
 )
+
+# Map tickets may only use these claim classes (never staging).
+_MAP_ALLOWED_CLAIM_CLASSES: frozenset[str] = frozenset({"component", "ask_success"})
+
+# Half-B / demo machine fields — Prefer may carry only if the map row names them.
+_ROW_GATED_PREFER_FIELDS: tuple[str, ...] = (
+    "template",
+    "umbrella_ask_id",
+    "prefer_class",
+    "lane",
+    "lane_id",
+    "worldgen_entry_scene",
+    "launch_scene",
+    "catalog_row_id",
+)
+
+_HALF_B_FORBIDDEN_VALUES: frozenset[str] = frozenset(
+    {
+        "half-b-weld-brief-template",
+        "alpha_architecture_half_b",
+    }
+)
+
+# Registered contract classes — Prefer may set without the map row naming them.
+# Worldgen / place / craft / Half-B values still require row naming.
+_ROW_FREE_PREFER_CLASSES: frozenset[str] = frozenset(
+    {"foundation", "contract", "component"}
+)
+
+# Positive weld declaration lines on the row (not mere substring mentions).
+_EXPLICIT_WELD_LINE_RE = re.compile(
+    r"(?m)^\s*W([1-9])\s*[:.—\-]",
+)
+
+# Behavior-key role classification (contract vs moment) — role patterns, not a
+# two-string denylist of example keys.
+_VISIBILITY_KEY_RE = re.compile(
+    r"(?:^sees_|_sees_|^shows_|_shows_|^displays_|_displays_|"
+    r"^watches_|_watches_|^points_at_|_points_at_|"
+    r"_visible$|_watchable$|_shown$|stranger_sees|menu_opens)",
+    re.I,
+)
+_INVARIANT_KEY_RE = re.compile(
+    r"(?:identity|holds|unchanged|survives|persist|invariant|"
+    r"round_?trip|equals?|_eq_|after_|under_|commit)",
+    re.I,
+)
+
+
+def classify_behavior_key_role(key: str) -> str:
+    """Return ``visibility`` | ``invariant`` | ``unknown`` for a behavior key."""
+    k = str(key or "").strip()
+    if not k:
+        return "unknown"
+    # Invariant wins when both match (e.g. pointed_solid_identity_holds).
+    if _INVARIANT_KEY_RE.search(k):
+        return "invariant"
+    if _VISIBILITY_KEY_RE.search(k):
+        return "visibility"
+    return "unknown"
+
+
+def row_explicit_weld_tokens(row: MapTicketRow) -> set[str]:
+    """Weld tokens the row explicitly declares in the **Welds** column.
+
+    Accepts ``W1:`` / ``W1.`` line forms and bare/bold ``W1`` tokens in that
+    dedicated field. Does **not** scan product_job / free Notes (a note saying
+    "do not invent W1" must not authorize W1).
+    """
+    text = str(getattr(row, "welds", "") or "")
+    found = {f"W{m.group(1)}" for m in _EXPLICIT_WELD_LINE_RE.finditer(text)}
+    for m in re.finditer(r"\bW([1-9])\b", text, re.I):
+        found.add(f"W{m.group(1)}")
+    return found
+
+
+def prefer_invented_weld_tokens(armed: dict[str, Any]) -> set[str]:
+    """Weld tokens Prefer invents via welds map or W1–W9 in structural Success."""
+    found: set[str] = set()
+    welds = armed.get("welds")
+    if isinstance(welds, dict):
+        for k in welds:
+            ks = str(k).strip().upper()
+            if re.fullmatch(r"W[1-9]", ks):
+                found.add(ks)
+    structural = str(
+        armed.get("structural_success") or armed.get("intent_invariant") or ""
+    )
+    for m in re.finditer(r"\bW([1-9])\b", structural, re.I):
+        found.add(f"W{m.group(1)}")
+    return found
+
+
+def row_names_field_value(row: MapTicketRow, field: str, value: str) -> bool:
+    """True when the map row text names this field=value (exact token, not alias)."""
+    if not value:
+        return False
+    blob = f"{row.product_job}\n{row.welds}\n".lower()
+    v = str(value).strip().lower()
+    f = str(field).strip().lower()
+    if v in blob and (f in blob or f"`{v}`" in blob or f"[[{v}]]" in blob):
+        return True
+    # Row may name the value alone when it is a ticket-scoped catalog id / scene.
+    if re.search(rf"(?<![a-z0-9_-]){re.escape(v)}(?![a-z0-9_-])", blob):
+        # Require field name nearby for Half-B machine values; bare catalog ids ok.
+        if v in _HALF_B_FORBIDDEN_VALUES or f in {
+            "template",
+            "umbrella_ask_id",
+            "prefer_class",
+            "lane",
+            "lane_id",
+            "worldgen_entry_scene",
+            "launch_scene",
+        }:
+            return f in blob and v in blob
+        return True
+    return False
+
+
+def launch_scene_from_armed_fields(armed: dict[str, Any] | None) -> str:
+    """Resolve launch scene from Prefer **fields** only — never scan body prose."""
+    armed = armed if isinstance(armed, dict) else {}
+    for key in ("launch_scene", "worldgen_entry_scene"):
+        raw = armed.get(key)
+        if raw is not None and str(raw).strip():
+            return str(raw).strip()
+    return ""
+
+
+def lane_id_from_armed_fields(armed: dict[str, Any] | None) -> str:
+    """Resolve lane_id from Prefer **fields** only."""
+    armed = armed if isinstance(armed, dict) else {}
+    for key in ("lane_id", "lane"):
+        raw = armed.get(key)
+        if raw is not None and str(raw).strip():
+            return str(raw).strip()
+    return ""
 
 @dataclass
 class MapFidelityResult:
@@ -590,6 +728,55 @@ def _run_gate_a_mechanical(
         violations.append(
             "map_fidelity:missing_do_not_waive:" + ",".join(missing)
         )
+
+    # --- Map Prefer contract (Ticketment / eat guards) ---
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    if not proof_shape:
+        violations.append("map_fidelity:missing_proof_shape")
+    elif proof_shape not in {"contract", "moment"}:
+        violations.append(f"map_fidelity:invalid_proof_shape:{proof_shape}")
+
+    claim = str(armed.get("claim_class") or "").strip().lower()
+    if claim not in _MAP_ALLOWED_CLAIM_CLASSES:
+        violations.append(
+            f"map_fidelity:map_claim_class_forbidden:{claim or 'empty'}"
+        )
+    elif proof_shape == "contract" and claim != "component":
+        violations.append("map_fidelity:contract_requires_claim_class_component")
+    elif proof_shape == "moment" and claim != "ask_success":
+        violations.append("map_fidelity:moment_requires_claim_class_ask_success")
+
+    invented = prefer_invented_weld_tokens(armed)
+    authorized = row_explicit_weld_tokens(row)
+    for tok in sorted(invented - authorized):
+        violations.append(f"map_fidelity:weld_invented:{tok}")
+
+    for field in _ROW_GATED_PREFER_FIELDS:
+        raw = armed.get(field)
+        if raw is None or str(raw).strip() == "":
+            continue
+        val = str(raw).strip()
+        if (
+            field == "prefer_class"
+            and val.strip().lower() in _ROW_FREE_PREFER_CLASSES
+        ):
+            continue
+        if not row_names_field_value(row, field, val):
+            violations.append(f"map_fidelity:prefer_field_not_on_row:{field}")
+
+    if keys_list:
+        roles = [classify_behavior_key_role(k) for k in keys_list]
+        if proof_shape == "contract":
+            if any(r == "visibility" for r in roles):
+                violations.append("map_fidelity:contract_visibility_key_forbidden")
+            if not any(r == "invariant" for r in roles):
+                violations.append("map_fidelity:contract_missing_invariant_key")
+        elif proof_shape == "moment":
+            if len(keys_list) < 3 or len(keys_list) > 5:
+                violations.append(
+                    f"map_fidelity:moment_behavior_key_count:{len(keys_list)}"
+                )
+
     return tid
 
 

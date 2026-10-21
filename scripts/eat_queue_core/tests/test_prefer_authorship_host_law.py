@@ -230,13 +230,49 @@ def _seed_prefer_vault(root: Path, *, lattice: str, host: str) -> None:
     (repo / "Systems/DualGridCraftHost.cs").write_text(host, encoding="utf-8")
 
 
-def _prefer_job() -> dict:
-    return {
+def _prefer_job(*, armed_packet_path: str | None = None) -> dict:
+    job = {
         "slice_id": SLICE_S1,
         "project_id": PROJECT_ID,
         "prefer_proof": "layer_split",
         "do_not_waive": list(PRODUCT_PREFER_DO_NOT_WAIVE),
     }
+    if armed_packet_path:
+        job["armed_packet_path"] = armed_packet_path
+    return job
+
+
+def _write_topology_armed(
+    root: Path,
+    *,
+    slice_id: str = SLICE_S1,
+    minimal: bool = False,
+) -> str:
+    """Armed packet with topology_law: true so LIVE topology seat still runs."""
+    rel = (
+        f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
+    )
+    path = root / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if minimal:
+        body = (
+            "topology_law: true\nprefer_class: place\nproof_shape: moment\n"
+            f"slice_id: {slice_id}\nprefer_authorship: true\n"
+        )
+    else:
+        body = (
+            "topology_law: true\n"
+            "prefer_class: place\n"
+            "proof_shape: moment\n"
+            f"slice_id: {slice_id}\n"
+            "prefer_authorship: true\n"
+            "structural_success: "
+            "'Hex lattice graph: vertices + edges + faces/cells'\n"
+            "success_object: hex19_occupancy_lattice\n"
+            "claim_class: ask_success\n"
+        )
+    path.write_text(body, encoding="utf-8")
+    return rel
 
 
 class PreferTopologySeatTests(unittest.TestCase):
@@ -246,14 +282,23 @@ class PreferTopologySeatTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             _seed_prefer_vault(root, lattice=_POINTS_ONLY_LATTICE, host=_POINTS_ONLY_HOST)
+            armed_rel = _write_topology_armed(root, minimal=True)
             write_implicit_intent_bind(
                 root,
                 slice_id=SLICE_S1,
                 project_id=PROJECT_ID,
                 explicit_ask="hex-19 occupancy grid with 19 points",
+                structural_success="Hex lattice: vertices + edges + faces/cells",
+                armed={
+                    "topology_law": True,
+                    "prefer_class": "place",
+                    "proof_shape": "moment",
+                },
             )
             result = run_prefer_authorship_pass(
-                root, game_repo_rel="game", job=_prefer_job()
+                root,
+                game_repo_rel="game",
+                job=_prefer_job(armed_packet_path=armed_rel),
             )
             violations = result.little_val.anti_pattern_violations
             self.assertFalse(result.ok, result.detail)
@@ -284,14 +329,32 @@ class PreferTopologySeatTests(unittest.TestCase):
             _seed_prefer_vault(
                 root, lattice=_LATTICE_GRAPH_LATTICE, host=_LATTICE_GRAPH_HOST
             )
+            armed_rel = _write_topology_armed(root)
+            # Prefer-result stamp so Gate B hostile latch does not block topology seat.
+            pr = (
+                root
+                / f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs"
+                / f"{SLICE_S1}.prefer-result.json"
+            )
+            pr.write_text(
+                '{"map_fidelity_hostile_ok": true}\n', encoding="utf-8"
+            )
             write_implicit_intent_bind(
                 root,
                 slice_id=SLICE_S1,
                 project_id=PROJECT_ID,
                 explicit_ask="hex-19 occupancy grid with 19 points",
+                structural_success="Hex lattice: vertices + edges + faces/cells",
+                armed={
+                    "topology_law": True,
+                    "prefer_class": "place",
+                    "proof_shape": "moment",
+                },
             )
             result = run_prefer_authorship_pass(
-                root, game_repo_rel="game", job=_prefer_job()
+                root,
+                game_repo_rel="game",
+                job=_prefer_job(armed_packet_path=armed_rel),
             )
             violations = result.little_val.anti_pattern_violations
             for code in ("points_as_grid", "count_equals_topology", "explicit_met_implicit_miss"):
@@ -1277,6 +1340,10 @@ class IntentValidatesGatesPreferTests(unittest.TestCase):
                 "slice_id": slice_id,
                 "mode": "fix_dual_lattice_half_step_offset_ownership",
                 "prefer_authorship": True,
+                "topology_law": True,
+                "prefer_class": "place",
+                "proof_shape": "moment",
+                "claim_class": "ask_success",
                 "refuse_codes": [
                     "primary_face_as_dual",
                     "unstable_dual_neighborhood",
@@ -1302,6 +1369,7 @@ class IntentValidatesGatesPreferTests(unittest.TestCase):
                             "count_equals_topology",
                             "explicit_met_implicit_miss",
                         ],
+                        "topology_law": True,
                     },
                     "dual_lattice": {"law": "half_step"},
                     "dual_visual": {"deferred": True},
@@ -1329,6 +1397,11 @@ class IntentValidatesGatesPreferTests(unittest.TestCase):
                 f"1-Projects/{PROJECT_ID}/Factory-DRB/slice-briefs/{slice_id}.armed.yaml"
             )
             (root / armed_rel).write_text(yaml.dump(armed), encoding="utf-8")
+            (
+                briefs / f"{slice_id}.prefer-result.json"
+            ).write_text(
+                '{"map_fidelity_hostile_ok": true}\n', encoding="utf-8"
+            )
             result = run_prefer_authorship_pass(
                 root,
                 game_repo_rel="game",

@@ -2270,9 +2270,17 @@ def run_prefer_authorship_pass(
     if bind_check.applicable and not bind_check.ok:
         violations.extend(bind_check.violations)
 
-    # Fail-closed: a Prefer-applicable slice may not carry a bind that disarms the
-    # topology axis. Clean ask wording is not a licence for the seat to go quiet.
-    if bind_check.applicable and bind_check.bind and not bind_check.topology_rewrite:
+    # Fail-closed only when Prefer explicitly armed topology_law: true but bind
+    # claims topology_rewrite false. Contract / non-topology Prefers may disarm.
+    from .implicit_intent_bind import topology_law_armed
+
+    armed_for_topo = load_armed_packet(vault_root, job) if job else {}
+    if (
+        bind_check.applicable
+        and bind_check.bind
+        and topology_law_armed(armed_for_topo)
+        and not bind_check.topology_rewrite
+    ):
         violations.append(f"topology_rewrite_disarmed_on_prefer_slice:{slice_id}")
 
     repo: Path | None = None

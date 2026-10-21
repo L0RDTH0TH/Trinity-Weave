@@ -24,8 +24,11 @@ from .prefer_authorship_contract import (
 BIND_SCHEMA_VERSION = 1
 BIND_FILENAME = "implicit-intent-bind.json"
 
-BASE_REFUSES: tuple[str, ...] = (
-    "inspiration_shape_miss",
+# Moment-only refuse (not appended on proof_shape: contract).
+MOMENT_BASE_REFUSES: tuple[str, ...] = ("inspiration_shape_miss",)
+
+# Place/craft + topology_law only — exact prefer_class, not substring.
+CRAFT_CAM_REFUSES: tuple[str, ...] = (
     "craft_cam_recenter_on_place",
     "craft_terrain_blend",
 )
@@ -37,41 +40,19 @@ TOPOLOGY_REFUSES: tuple[str, ...] = (
     "prop_scatter_as_composition",
 )
 
+# Back-compat alias — craft cams are no longer unconditional BASE.
+BASE_REFUSES: tuple[str, ...] = MOMENT_BASE_REFUSES + CRAFT_CAM_REFUSES
+
 _POINTS_GRID_RE = re.compile(
     r"\b(?:\d+\s*points?|point\s*cloud|hex[- ]?19|hexagonal\s+grid|"
     r"occupancy\s+(?:grid|lattice|markers?)|grid\s+of\s+points)\b",
     re.I,
 )
 
-# Refuse codes that arm the topology axis by law when locked in an armed packet.
-ARMED_TOPOLOGY_REFUSES: tuple[str, ...] = (
-    "points_as_grid",
-    "count_equals_topology",
-    "explicit_met_implicit_miss",
-    "infinite_rect_as_hex19",
-)
+# Deprecated empty: refuse codes no longer arm topology (kept for import stability).
+ARMED_TOPOLOGY_REFUSES: tuple[str, ...] = ()
 
-# Law text that names the lattice axis outright …
-_LATTICE_WORD_RE = re.compile(r"\blattice\b|\btopolog\w*\b|hex[-_ ]?19", re.I)
-# … or spells it out as vertices + edges + faces/cells.
-_VERTEX_WORD_RE = re.compile(r"\bvert(?:ex|ices)\b|\bcorners?\b|\bscaffold\b", re.I)
-_EDGE_WORD_RE = re.compile(r"\bedges?\b|\bneighbou?r\w*\b|\badjacen\w*\b", re.I)
-_FACE_WORD_RE = re.compile(r"\bfaces?\b|\bcells?\b", re.I)
-
-DEFAULT_STRUCTURAL_SUCCESS = (
-    "Hex lattice graph: vertices (scaffold count) + neighbor edges + faces/cells; "
-    "ghost snaps to a cell (or the vertex set that defines it); F5 shows a readable "
-    "hex lattice of cells — not floating disks. Dual MeshLibrary / connectors / art "
-    "out of scope until their ladder steps."
-)
-
-DEFAULT_INSPIRATION_CITES: tuple[str, ...] = (
-    "https://www.youtube.com/watch?v=Y19Mw5YsgjI",
-    "1-Projects/genesis-mythos-master/Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md",
-    "1-Projects/genesis-mythos-master/Factory-DRB/Grid-Topology-Host-Law.md",
-    "1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Authorship-Host-Law.md",
-    "1-Projects/genesis-mythos-master/Roadmap/User-Story/Inspiration-UX-Feedstock/cards/dual-grid-nested-placetile-world-authorship.md",
-)
+PLACE_OR_CRAFT_CLASSES: frozenset[str] = frozenset({"place", "craft"})
 
 
 def _utc_iso() -> str:
@@ -117,31 +98,8 @@ def slice_requires_implicit_bind(slice_id: str, job: dict[str, Any] | None = Non
 
 
 def ask_triggers_topology_rewrite(text: str) -> bool:
+    """Legacy prose detector — does **not** arm topology_rewrite (informational only)."""
     return bool(_POINTS_GRID_RE.search(text or ""))
-
-
-def _law_text(value: Any) -> str:
-    """Flatten a law fragment (str / list / dict) into searchable text."""
-    if value in (None, "", [], {}):
-        return ""
-    if isinstance(value, str):
-        return value
-    try:
-        return json.dumps(value, default=str)
-    except (TypeError, ValueError):
-        return str(value)
-
-
-def _names_lattice_topology(text: str) -> bool:
-    if not text:
-        return False
-    if _LATTICE_WORD_RE.search(text):
-        return True
-    return bool(
-        _VERTEX_WORD_RE.search(text)
-        and _EDGE_WORD_RE.search(text)
-        and _FACE_WORD_RE.search(text)
-    )
 
 
 def _armed_step1_locks(armed: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
@@ -154,55 +112,44 @@ def _armed_step1_locks(armed: dict[str, Any]) -> list[tuple[str, dict[str, Any]]
     return found
 
 
-def armed_topology_signals(armed: dict[str, Any] | None) -> list[str]:
-    """Topology-rewrite triggers derived from the resolved armed packet.
+def _truthy_topology_law(value: Any) -> bool:
+    if value is True:
+        return True
+    if isinstance(value, str) and value.strip().lower() in {"true", "1", "yes"}:
+        return True
+    return False
 
-    Law, not prose: a reworded ask cannot disarm the axis, because the triggers
-    are the locked refuse codes, the structural Success / done_when text, and the
-    topology-law lock the operator armed.
-    """
+
+def topology_law_armed(armed: dict[str, Any] | None) -> bool:
+    """True only when Prefer/locks set topology_law: true (exact field)."""
     armed = armed if isinstance(armed, dict) else {}
     if not armed:
-        return []
-    signals: list[str] = []
+        return False
     locks = armed.get("locks") if isinstance(armed.get("locks"), dict) else {}
-    step1_locks = _armed_step1_locks(armed)
+    if _truthy_topology_law(armed.get("topology_law")):
+        return True
+    if _truthy_topology_law(locks.get("topology_law")):
+        return True
+    for _key, holder in _armed_step1_locks(armed):
+        if _truthy_topology_law(holder.get("topology_law")):
+            return True
+    return False
 
-    for key, holder in step1_locks:
-        refuses = holder.get("refuse")
-        if isinstance(refuses, str):
-            refuses = [refuses]
-        for code in refuses or []:
-            code_s = str(code).strip()
-            if code_s in ARMED_TOPOLOGY_REFUSES:
-                signals.append(f"armed_lock_refuse:{key}:{code_s}")
 
-    law_fields: list[tuple[str, Any]] = [
-        ("structural_success", armed.get("structural_success")),
-        ("done_when", armed.get("done_when")),
-        ("hard_prefer_gaps", armed.get("hard_prefer_gaps")),
-    ]
-    for key, holder in step1_locks:
-        for field in ("structural_success", "law", "replace_live_assumption"):
-            law_fields.append((f"{key}.{field}", holder.get(field)))
-    for label, value in law_fields:
-        if _names_lattice_topology(_law_text(value)):
-            signals.append(f"armed_structural_topology:{label}")
+def prefer_class_exact(armed: dict[str, Any] | None) -> str:
+    armed = armed if isinstance(armed, dict) else {}
+    return str(armed.get("prefer_class") or "").strip().lower()
 
-    prefer = bool(
-        armed.get("prefer_authorship")
-        or armed.get("step1_authorship")
-        or locks.get("step1_authorship")
-        or locks.get("step1_occupancy")
-    )
-    topology_law = (
-        armed.get("topology_law")
-        or locks.get("topology_law")
-        or any(h.get("topology_law") or h.get("topology_cite") for _k, h in step1_locks)
-    )
-    if prefer and topology_law:
-        signals.append("armed_prefer_authorship_with_topology_law")
-    return sorted(set(signals))
+
+def armed_topology_signals(armed: dict[str, Any] | None) -> list[str]:
+    """Topology-rewrite triggers — **only** explicit ``topology_law: true``.
+
+    Refuse codes (incl. ``explicit_met_implicit_miss``), Success prose containing
+    lattice words, and place/dual name substrings do **not** arm the axis.
+    """
+    if topology_law_armed(armed):
+        return ["armed_topology_law:true"]
+    return []
 
 
 def armed_triggers_topology_rewrite(armed: dict[str, Any] | None) -> bool:
@@ -262,30 +209,35 @@ def compose_implicit_intent_bind(
     """Build bind artifact dict (does not write)."""
     ask = (explicit_ask or "").strip() or f"slice:{slice_id}"
     refuses = list(refuse or [])
-    # Armed law is primary: locked topology refuses / structural Success / topology law.
+    armed = armed if isinstance(armed, dict) else {}
     sources = list(armed_topology_signals(armed))
-    sources.extend(
-        f"composed_refuse:{code}"
-        for code in refuses
-        if str(code) in TOPOLOGY_REFUSES
-    )
-    # Prose wording is the weakest signal — a reworded ask must not disarm the axis.
-    if ask_triggers_topology_rewrite(ask):
-        sources.append("ask_prose")
-    if ask_triggers_topology_rewrite(slice_id):
-        sources.append("slice_id_prose")
     topology = bool(sources)
-    for code in BASE_REFUSES:
-        if code not in refuses:
-            refuses.append(code)
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    # Moment (default when unset and not contract) may carry inspiration refuse.
+    if proof_shape != "contract":
+        for code in MOMENT_BASE_REFUSES:
+            if code not in refuses:
+                refuses.append(code)
+    # craft_cam_* only when prefer_class is exactly place|craft AND topology_law.
+    if prefer_class_exact(armed) in PLACE_OR_CRAFT_CLASSES and topology:
+        for code in CRAFT_CAM_REFUSES:
+            if code not in refuses:
+                refuses.append(code)
     if topology:
         for code in TOPOLOGY_REFUSES:
             if code not in refuses:
                 refuses.append(code)
     success = (structural_success or "").strip()
     if not success:
-        success = DEFAULT_STRUCTURAL_SUCCESS if topology else ask
-    cites = list(inspiration_cites or DEFAULT_INSPIRATION_CITES)
+        # Prefer Success text, else the ask — never a silent hex-lattice default.
+        success = str(armed.get("structural_success") or "").strip() or ask
+    if inspiration_cites is not None:
+        cites = list(inspiration_cites)
+    elif proof_shape == "contract":
+        cites = []
+    else:
+        raw = armed.get("inspiration_cites")
+        cites = list(raw) if isinstance(raw, (list, tuple)) else []
     return {
         "schema_version": BIND_SCHEMA_VERSION,
         "slice_id": slice_id,
@@ -443,27 +395,28 @@ def validate_bind_artifact(data: dict[str, Any] | None) -> list[str]:
     if not data:
         return ["implicit_bind_missing"]
     violations: list[str] = []
-    for key in ("explicit_ask", "structural_success", "refuse", "inspiration_cites"):
-        if key not in data or data[key] in (None, "", []):
+    for key in ("explicit_ask", "structural_success"):
+        if key not in data or data[key] in (None, ""):
             violations.append(f"implicit_bind_incomplete:{key}")
-    refuse = data.get("refuse") or []
-    if not isinstance(refuse, list) or len(refuse) < 1:
+    if "refuse" not in data or not isinstance(data.get("refuse"), list):
         violations.append("implicit_bind_incomplete:refuse")
-    ask = str(data.get("explicit_ask") or "")
-    success = str(data.get("structural_success") or "")
-    if (
-        ask_triggers_topology_rewrite(ask)
-        or ask_triggers_topology_rewrite(str(data.get("slice_id") or ""))
-        or bool(data.get("topology_rewrite"))
-        or any(str(code) in TOPOLOGY_REFUSES for code in refuse if isinstance(refuse, list))
+    if "inspiration_cites" not in data or not isinstance(
+        data.get("inspiration_cites"), list
     ):
+        # Empty list is valid (contract / no silent Townscaper cites).
+        violations.append("implicit_bind_incomplete:inspiration_cites")
+    refuse = data.get("refuse") if isinstance(data.get("refuse"), list) else []
+    success = str(data.get("structural_success") or "")
+    # Topology terms required only when topology_rewrite is actually armed.
+    if bool(data.get("topology_rewrite")):
         for code in ("points_as_grid", "count_equals_topology"):
             if code not in refuse:
                 violations.append(f"implicit_bind_missing_refuse:{code}")
-        # Structural success must not merely restate a bare point count.
         if re.search(r"^\s*\d+\s*points?\s*$", success, re.I):
             violations.append("implicit_bind_points_only_success")
-        if not re.search(r"\b(edge|face|cell|lattice|graph|vertex|vertices)\b", success, re.I):
+        if not re.search(
+            r"\b(edge|face|cell|lattice|graph|vertex|vertices)\b", success, re.I
+        ):
             violations.append("implicit_bind_success_missing_topology_terms")
     return violations
 

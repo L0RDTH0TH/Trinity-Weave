@@ -56,7 +56,8 @@ def _good_armed() -> dict:
         "ticket_map_id": "GEN-terrain-product",
         "prefer_authorship": True,
         "prefer_concept_required": True,
-        "claim_class": "staging",
+        "proof_shape": "moment",
+        "claim_class": "ask_success",
         "success_object": "generated_land_water_height_rivers_from_ui",
         "structural_success": (
             "Player sets bounds dials, presses a Generate control (not a taught hotkey), "
@@ -229,7 +230,8 @@ def test_fat_polygon_job_consumes_siblings_fails():
     fat = {
         "ticket_map_id": "WB-polygon-substrate",
         "prefer_authorship": True,
-        "claim_class": "staging",
+        "proof_shape": "moment",
+        "claim_class": "ask_success",
         "success_object": "living_world_with_flight_and_dials",
         "structural_success": (
             "A GM can see and point at a living world made of low-fidelity polygon solids "
@@ -273,15 +275,16 @@ def test_narrow_polygon_prefer_passes_gate_a():
     armed = {
         "ticket_map_id": "WB-polygon-substrate",
         "prefer_authorship": True,
-        "claim_class": "staging",
+        "proof_shape": "contract",
+        "claim_class": "component",
+        "prefer_class": "foundation",
         "success_object": "point_at_polygon_stays_same_solid",
         "structural_success": job,
         "out_of_scope_ticket_ids": oos,
         "do_not_waive": list(PRODUCT_MAP_DO_NOT_WAIVE),
+        "checklist_ids": [],
         "behavior_keys": [
-            "point_selects_polygon_solid",
-            "selected_solid_unchanged_after_point",
-            "board_shows_low_fidelity_polygons",
+            "selected_solid_identity_holds",
         ],
     }
     result = validate_armed_map_fidelity(

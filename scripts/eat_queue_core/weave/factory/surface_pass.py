@@ -87,6 +87,8 @@ def _violations_from_live_probes(
     run_smokes: bool = False,
     project_id: str | None = None,
     checklist_ids: tuple[str, ...] | None = None,
+    map_ticket: bool = False,
+    proof_shape: str | None = None,
 ) -> list[str]:
     """Stage 2 (factory lane) — automatic structural/smoke probes only; ignores operator pass:false."""
     probes = run_kinesthetic_probes(
@@ -94,6 +96,8 @@ def _violations_from_live_probes(
         run_smokes=run_smokes,
         project_id=project_id,
         checklist_ids=checklist_ids,
+        map_ticket=map_ticket,
+        proof_shape=proof_shape,
     )
     out: list[str] = []
     for probe in probes:
@@ -114,6 +118,8 @@ def run_surface_pass(
     run_smokes: bool = False,
     gate_mode: str = "full",
     checklist_ids: tuple[str, ...] | None = None,
+    map_ticket: bool = False,
+    proof_shape: str | None = None,
 ) -> SurfacePassResult:
     """
     Surface seat / usability_pass — Tier B human gate.
@@ -166,6 +172,8 @@ def run_surface_pass(
                 run_smokes=run_smokes,
                 project_id=project_id,
                 checklist_ids=checklist_ids,
+                map_ticket=map_ticket,
+                proof_shape=proof_shape,
             )
         )
     else:
@@ -182,7 +190,9 @@ def run_surface_pass(
         )
         violations.extend(feedback_v)
 
-        pk = run_product_kinesthetic_honesty(vault_root, project_id=project_id)
+        pk = run_product_kinesthetic_honesty(
+            vault_root, project_id=project_id, proof_shape=proof_shape
+        )
         if not pk.ok:
             violations.extend(list(pk.violations))
 

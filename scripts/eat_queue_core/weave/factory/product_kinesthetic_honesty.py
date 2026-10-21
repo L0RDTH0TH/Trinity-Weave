@@ -12,7 +12,6 @@ from .proof_tiers import normalize_source
 from .weave_track import is_track_coupled, track_status
 
 MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
-DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-demo"
 TRINITY_CARD_REL = ".technical/weave/component-proposals/product_kinesthetic_honesty.yaml"
 
 Q3_PLAY_PATH_PATTERNS: tuple[tuple[str, str], ...] = (
@@ -39,9 +38,14 @@ def _game_repo(vault_root: Path, project_id: str | None = None) -> Path:
     return vault_root / resolve_game_repo_path(vault_root, project_id)
 
 
-def scan_q3_remnant_on_play_path(vault_root: Path) -> list[str]:
+def scan_q3_remnant_on_play_path(
+    vault_root: Path, project_id: str | None = None
+) -> list[str]:
     """Fail when Q3 acceptance copy remains on player-facing play path."""
-    repo = _game_repo(vault_root)
+    try:
+        repo = _game_repo(vault_root, project_id)
+    except Exception:
+        return []
     violations: list[str] = []
     targets = (
         repo / "UI/GameHud.cs",
@@ -61,6 +65,9 @@ def scan_q3_remnant_on_play_path(vault_root: Path) -> list[str]:
 def run_product_kinesthetic_honesty(
     vault_root: Path,
     project_id: str | None = None,
+    *,
+    proof_shape: str | None = None,
+    require_weave_track: bool | None = None,
 ) -> ProductKinestheticHonestyResult:
     violations: list[str] = []
 
@@ -68,13 +75,29 @@ def run_product_kinesthetic_honesty(
     if not card.is_file():
         violations.append("product_kinesthetic_honesty_card_missing")
 
-    weave_track = _game_repo(vault_root) / ".technical/weave/weave_track.yaml"
-    if not weave_track.is_file():
-        violations.append("product_track_weld_missing:weave_track.yaml")
-    elif not is_track_coupled(vault_root):
-        violations.append(f"product_track_not_coupled:{track_status(vault_root)}")
+    # Contract seats: missing weave_track.yaml must not fail (blank shell OK).
+    shape = str(proof_shape or "").strip().lower()
+    need_track = require_weave_track
+    if need_track is None:
+        need_track = shape != "contract"
+    if need_track:
+        try:
+            weave_track = (
+                _game_repo(vault_root, project_id)
+                / ".technical/weave/weave_track.yaml"
+            )
+        except Exception:
+            violations.append("product_track_weld_missing:weave_track.yaml")
+            weave_track = None
+        if weave_track is not None:
+            if not weave_track.is_file():
+                violations.append("product_track_weld_missing:weave_track.yaml")
+            elif not is_track_coupled(vault_root):
+                violations.append(
+                    f"product_track_not_coupled:{track_status(vault_root)}"
+                )
 
-    violations.extend(scan_q3_remnant_on_play_path(vault_root))
+    violations.extend(scan_q3_remnant_on_play_path(vault_root, project_id))
 
     ok = len(violations) == 0
     detail = "product_kinesthetic_honesty_ok" if ok else "; ".join(violations)

@@ -53,7 +53,7 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 ```markdown
 | Ticket | Status | Product job | Notes |
 |--------|--------|-------------|-------|
-| `SOME-id` | `open` | Player-visible job… | Prefer / proofs |
+| `SOME-id` | `open` | Capability this row adds… | Prefer / proofs |
 ```
 
 | `ticket_status` | Meaning |

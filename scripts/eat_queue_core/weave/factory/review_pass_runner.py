@@ -168,12 +168,20 @@ def _surface_pass_runner(vault_root: Path, *, gate_mode: str, **kw: Any) -> Any:
         checklist_ids = tuple(str(x) for x in raw_ids if x)
     else:
         checklist_ids = None
+    ticket_map_id = str(
+        params.get("ticket_map_id") or job.get("ticket_map_id") or ""
+    ).strip()
+    proof_shape = str(
+        params.get("proof_shape") or job.get("proof_shape") or ""
+    ).strip() or None
     return run_surface_pass(
         vault_root,
         run_probes=bool(run_probes),
         run_smokes=bool(kw.get("run_smokes", False)),
         gate_mode=gate_mode,
         checklist_ids=checklist_ids,
+        map_ticket=bool(ticket_map_id),
+        proof_shape=proof_shape,
     )
 
 

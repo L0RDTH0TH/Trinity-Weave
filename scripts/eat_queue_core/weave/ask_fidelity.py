@@ -7,7 +7,10 @@ from typing import Any, Mapping, MutableMapping, Sequence
 
 CLAIM_STAGING = "staging"
 CLAIM_ASK_SUCCESS = "ask_success"
-VALID_CLAIM_CLASSES = frozenset({CLAIM_STAGING, CLAIM_ASK_SUCCESS})
+CLAIM_COMPONENT = "component"
+VALID_CLAIM_CLASSES = frozenset(
+    {CLAIM_STAGING, CLAIM_ASK_SUCCESS, CLAIM_COMPONENT}
+)
 
 # Markers that indicate a forbidden substitute when claim_class is ask_success
 DEFAULT_SUBSTITUTE_MARKERS: dict[str, tuple[str, ...]] = {
@@ -102,6 +105,18 @@ def evaluate_ask_fidelity(
         ]
     ).lower()
 
+    ticket_map_id = str(
+        handoff.get("ticket_map_id") or receipt.get("ticket_map_id") or ""
+    ).strip()
+    if ticket_map_id and claim == CLAIM_STAGING:
+        return {
+            "ok": False,
+            "missing": ["map_ticket_staging_forbidden"],
+            "hint": "Map tickets must use claim_class component or ask_success — not staging.",
+            "category": "ask_fidelity_map_claim",
+            "reject_code": "map_ticket_staging_forbidden",
+        }
+
     if claim == CLAIM_STAGING:
         # Staging may omit full house evidence; still require ask identity on handoff
         if missing:
@@ -117,6 +132,41 @@ def evaluate_ask_fidelity(
             "missing": [],
             "hint": "",
             "category": "ask_fidelity_staging",
+            "reject_code": None,
+        }
+
+    if claim == CLAIM_COMPONENT:
+        # Contract altitude: ask + invariant done_when — not house feel / substitutes.
+        if missing:
+            return {
+                "ok": False,
+                "missing": missing,
+                "hint": "component requires ask_id + contract done_when (invariant bar).",
+                "category": "ask_fidelity_component",
+                "reject_code": None,
+            }
+        if quote and done_when:
+            if (
+                done_when.lower() not in quote.lower()
+                and quote.lower() not in done_when.lower()
+            ):
+                missing.append(
+                    "receipt.done_when_quote must quote/overlap handoff.done_when "
+                    "(contract invariant bar)"
+                )
+        if missing:
+            return {
+                "ok": False,
+                "missing": missing,
+                "hint": "Align done_when_quote with contract invariant.",
+                "category": "ask_fidelity_component",
+                "reject_code": None,
+            }
+        return {
+            "ok": True,
+            "missing": [],
+            "hint": "",
+            "category": "ask_fidelity_component",
             "reject_code": None,
         }
 
