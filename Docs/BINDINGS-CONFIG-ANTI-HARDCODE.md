@@ -13,8 +13,8 @@ The weave must not bake a product into harness Python. Families live in **projec
 
 | Branch | What Grok should read |
 |--------|------------------------|
-| `main` | `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `tests/test_harness_product_denylist.py`, `tests/test_bindings_resolve.py`, `tests/test_proof_runner.py` |
-| `project/<project_id>` | `Factory-DRB/bindings/{identity,engine,lanes,proof-catalog,host-law,legacy-refuse}.yaml` |
+| `main` | `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `prefer_authorship_contract.py`, `operator_feedback.py` (`required_playtest_ids`), `closed_alpha_passes.py`, `engine_preflight.py`, `implementation_handoff.py`, `lane_agent_registry.py`, `tests/test_harness_product_denylist.py` (Pass-4 tokens), `tests/test_bindings_resolve.py`, `tests/test_proof_runner.py`, `tests/test_blank_project_contract_eat.py` |
+| `project/<project_id>` | `Factory-DRB/bindings/{identity,engine,lanes,proof-catalog,host-law,legacy-refuse}.yaml` — Genesis tip: `host-law` `entries: []`, `proof-catalog.required_playtest_ids: []`, `engine.build_command: ''`, `identity.queue_lane` set |
 
 ## Rules (locked)
 
@@ -34,7 +34,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 1 | `ab3f217` | Resolver + Pass-1 denylist + fail-closed Family A (fixture-proven) |
 | 2 | `5ebe2d0` | `proof_runner`; delete `LANE_ADAPTER` / baked checklists; `half_b` purge; Pass-2 denylist |
 | 3 | `46183b0` (+ project `b847329`) | `host_law` evaluator; Half-B docs off main allowlist; Genesis bindings consumer on `project/genesis-mythos-master` |
-| 4 | *(this tip)* | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
+| 4 | `7b39fc9` (+ project `c5732fa`) | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
 
 ## Genesis is a consumer
 

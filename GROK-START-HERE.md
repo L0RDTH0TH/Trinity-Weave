@@ -6,7 +6,9 @@
 
 **Layout:** **`main`** = Trinity (**the system** — mint law + pack walk queue + **config anti-hardcode harness**). **`project/<project_id>`** = **the project being served** (PMG + full `Roadmap/` + **`Factory-DRB/bindings/`**). Mint uses both.
 
-**Config anti-hardcode (2026-10-21):** Product nouns (engine, lanes, probes, host-law refuses, `game_repo_path`) live in **project** `Factory-DRB/bindings/*.yaml`. Harness on **`main`** only has `scripts/eat_queue_core/weave/factory/bindings.py` (fail-closed resolve), `proof_runner.py` (engine-neutral ops), `host_law.py` (data-row evaluator), and a production denylist test. Do **not** expect Genesis/Godot constants in harness Python. See [Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md](BINDINGS-CONFIG-ANTI-HARDCODE.md).
+**Config anti-hardcode (2026-10-21):** Product nouns (engine, lanes, probes, host-law refuses, `game_repo_path`) live in **project** `Factory-DRB/bindings/*.yaml`. Harness on **`main`** only has fail-closed resolve + engine-neutral proof ops + host-law evaluator + denylist + Pass-4 eat-path fixture. Do **not** expect Genesis/Godot constants in harness Python. See [Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md](Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md).
+
+**Pass 4 tip (refuse-demo only — not a functional feedstock→Genesis line):** `main` `7b39fc9` (+ routing follow-up on this publish) · `project/genesis-mythos-master` `c5732fa`. Audit via BINDINGS doc Surfaces table + `tests/test_blank_project_contract_eat.py` + Pass-4 tokens in `tests/test_harness_product_denylist.py`. No GREENLIGHT.
 
 **Two-pass mint:** **Pass A** = lock `walk_tier: series` only, then Trinity-publish series (**one series noun per turn**). **Pass B** = after `children_greenlit`, validate the **active same-width child batch** via `CHILD-BATCH-STATUS` + `BATCH-DIGEST.md` → one receipt (`_shared/CHILD-BATCH-VALIDATION.md`). Full `WALK.md` only for flagged ids. **World ≠ campaign** — world is the durable container; campaigns (and casts) nest inside it.
 
@@ -55,6 +57,7 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
 | Project engine / lanes / probes / host-law | **`project/<id>`:** `Factory-DRB/bindings/` (`identity`, `engine`, `lanes`, `proof-catalog`, `host-law`, `legacy-refuse`) |
 | Harness resolve / denylist / proof ops | **`main`:** `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `tests/test_harness_product_denylist.py` |
+| Pass 4 eat-path fail-closed audit | **`main`:** `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` · `prefer_authorship_contract.py` · `operator_feedback.py` · `closed_alpha_passes.py` · `engine_preflight.py` · `implementation_handoff.py` · `lane_agent_registry.py` · `tests/test_blank_project_contract_eat.py` · denylist `PASS4_TOKENS` · **`project/genesis-mythos-master`:** bindings (`host-law` empty, `required_playtest_ids: []`, `build_command: ''`) |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
 | Gate B₂ weld intent (Prefer vs LIVE) | `Docs/Gate-B2-Weld-Intent-Hostile.md` + `Docs/Skills/prefer-weld-intent-validate/` · project Prefer law on `project/<id>` |
 | Live queue / Watcher / vault notes | Unavailable — ask for paste or fulfill |
@@ -78,7 +81,8 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | `scripts/eat_queue_core/harness.py` | CLI (operator/Cursor — pack emit / receipt validate) |
 | `scripts/eat_queue_core/weave/factory/bindings.py` | Fail-closed project bindings resolve (no silent product defaults) |
 | `Factory-DRB/bindings/` on `project/<id>` | Project-owned identity / engine / lanes / proof-catalog / host-law |
-| `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` | Anti-hardcode law + Pass 1–3 publish tips |
+| `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` | Anti-hardcode law + Pass 1–4 publish tips (Pass 4 = refuse-demo, not functional line) |
+| `scripts/eat_queue_core/tests/test_blank_project_contract_eat.py` | Pass 4 blank-project contract eat (bind + handoff + empty build preflight) |
 | `Docs/Gate-B2-Weld-Intent-Hostile.md` | **Gate B₂** rubric + three Grok guards + validator shape |
 | `Docs/Skills/prefer-weld-intent-validate/` | Published B₂ hostile skill |
 | `scripts/prefer_weld_intent_check.py` | B₂ CLI / receipt latch |
