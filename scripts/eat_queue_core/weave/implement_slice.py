@@ -137,7 +137,7 @@ def run_m1_vault_doc(
     *,
     repo_rel: str,
     spec_ref: str,
-    history_ref: str = "1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md",
+    history_ref: str = "",
 ) -> dict[str, Any]:
     vault_root = vault_root.resolve()
     repo = vault_root / repo_rel.strip("/")
@@ -295,16 +295,31 @@ def run_implement_slice(
         )
 
     milestone_id = str(params.get("milestone_id") or "").upper()
-    project_id = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
-    engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
+    project_id = str(entry.get("project_id") or params.get("project_id") or "").strip()
+    if not project_id:
+        return {
+            "ok": False,
+            "id": eid,
+            "error": "project_id_missing",
+            "hint": "Set entry/params project_id (no silent default)",
+            "segment": "IMPLEMENT_SLICE",
+        }
+    engine_adapter = str(params.get("engine_adapter") or "").strip()
+    if not engine_adapter:
+        try:
+            from .factory.bindings import resolve as bind_resolve
+
+            engine_adapter = str(
+                bind_resolve(vault_root, project_id, "engine", "adapter_id") or ""
+            ).strip()
+        except Exception:
+            engine_adapter = ""
     repo_rel = str(params.get("repo_path") or "").strip()
     if not repo_rel:
-        # Fail-closed: factory-project.yaml game_repo_path (no genesis-mythos-demo fallback).
         try:
-            from .factory.factory_project import load_factory_project
+            from .factory.bindings import game_repo_path as bind_game_repo
 
-            fp = load_factory_project(vault_root, project_id)
-            repo_rel = str((fp or {}).get("game_repo_path") or "").strip()
+            repo_rel = bind_game_repo(vault_root, project_id)
         except Exception:
             repo_rel = ""
     if not repo_rel:
@@ -312,7 +327,7 @@ def run_implement_slice(
             "ok": False,
             "id": eid,
             "error": "missing_game_repo_path",
-            "hint": "Set params.repo_path or Factory-DRB/factory-project.yaml game_repo_path",
+            "hint": "Set params.repo_path or bindings/identity.yaml game_repo_path",
             "segment": "IMPLEMENT_SLICE",
         }
     repo_rel = repo_rel.rstrip("/") + "/"
@@ -375,7 +390,7 @@ def run_implement_slice(
             spec_ref=str(params.get("demo_spec_ref") or hints.get("demo_spec_ref") or ""),
             history_ref=str(
                 hints.get("prototype_history_ref")
-                or "1-Projects/genesis-mythos-master/GMM-Godot-Prototype-History.md"
+                or ""
             ),
         )
     else:

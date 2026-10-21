@@ -12,9 +12,12 @@ from .proof_tiers import (
     source_may_ship_kinesthetic,
 )
 
-DEFAULT_FEEDBACK_REL = (
-    "1-Projects/genesis-mythos-master/Factory-DRB/operator-feedback/godot-closed-alpha-kinesthetic.yaml"
-)
+def default_feedback_rel(project_id: str) -> str:
+    from .bindings import factory_drb_rel
+    return factory_drb_rel(project_id, "operator-feedback", "kinesthetic.yaml")
+
+# Back-compat name — must not embed a product slug; callers must pass project_id.
+DEFAULT_FEEDBACK_REL = ""  # use default_feedback_rel(project_id)
 
 KINESTHETIC_CHECKLIST_IDS: tuple[str, ...] = (
     "Nav_LookWhileMove_FP",

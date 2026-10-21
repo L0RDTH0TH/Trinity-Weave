@@ -495,7 +495,7 @@ _POINT_CLOUD_SIGNALS: tuple[tuple[str, re.Pattern[str]], ...] = (
 def _code_only(text: str) -> str:
     """Strip comments and literals — claims in prose/logs are not evidence.
 
-    Single left-to-right scan, because `"res://x"` must not read as a comment and
+    Single left-to-right scan, because `"asset-uri:x"` must not read as a comment and
     a literal containing a quote must not desynchronize the rest of the file.
     """
     out: list[str] = []

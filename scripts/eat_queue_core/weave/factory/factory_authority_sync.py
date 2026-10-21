@@ -38,7 +38,7 @@ def sync_goal_authority_from_vault_feed(
     if not isinstance(data, dict):
         return {"ok": False, "error": "goal_authority_invalid"}
 
-    pid = project_id or str(data.get("project_id") or "genesis-mythos-master")
+    pid = project_id or str(data.get("project_id"))
     pf = load_product_factory(vault_root, pid)
     active = pf.get("active_slice") if isinstance(pf.get("active_slice"), dict) else {}
     row_ids = [str(x) for x in (active.get("row_ids") or []) if x]
@@ -79,7 +79,7 @@ def sync_goal_authority_from_vault_feed(
         updated.append("last_completed_factory_slice")
 
     hints["feed_authority"] = "vault_roadmap"
-    hints.setdefault("user_release_label", "closed_alpha")
+    # No silent closed_alpha label — project/operator must set user_release_label if used.
     updated.append("feed_authority")
 
     for legacy_key in (

@@ -42,11 +42,12 @@ PROJECT_ALLOWED_EXACT = frozenset(
         "AGENTS.md",
     }
 )
+# Live game tree prefix from project identity — do not bake an exhibit folder name here.
+_ATTACH = "5-Attachments/"
 PROJECT_ALLOWED_PREFIXES = (
     "Roadmap/",
     "Factory-DRB/",
-    "5-Attachments/Code-Repos/",
-    "5-Attachments/Code-Exhibit/",  # legacy alias; LIVE path is Code-Repos
+    _ATTACH,  # game_repo_path under attachments resolved per project bindings
 )
 
 _COPY_IGNORE = shutil.ignore_patterns(

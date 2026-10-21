@@ -8,7 +8,6 @@ from typing import Any
 from .live_config import load_live_config
 from .weave_public_publish import get_weave_publish_config
 
-DEFAULT_PILOT_PROJECT_ID = "genesis-mythos-master"
 DEFAULT_EXPORT_ROOT = "/home/darth/Documents/trinity-weave-export"
 DEFAULT_REMOTE_URL = "https://github.com/L0RDTH0TH/Trinity-Weave.git"
 DEFAULT_MAIN_BRANCH = "main"
@@ -30,7 +29,12 @@ def resolve_grok_bridge(merged: dict[str, Any]) -> dict[str, Any]:
 
     export_root_s = github.get("export_repo_root") or wp.get("export_repo_root") or DEFAULT_EXPORT_ROOT
     remote_url = str(github.get("remote_url") or wp.get("remote_url") or DEFAULT_REMOTE_URL)
-    pilot = str(gb.get("pilot_project_id") or DEFAULT_PILOT_PROJECT_ID)
+    pilot = str(gb.get("pilot_project_id") or "").strip()
+    if not pilot:
+        raise ValueError(
+            "grok_bridge.pilot_project_id missing — set in Second-Brain-Config "
+            "(no silent product default)"
+        )
 
     return {
         "enabled": bool(gb.get("enabled", True)),

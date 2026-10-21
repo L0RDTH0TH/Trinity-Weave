@@ -14,14 +14,14 @@ def load_bootstrap_policy(queue: dict[str, Any]) -> dict[str, Any]:
     raw = queue.get("factory_bootstrap")
     if not isinstance(raw, dict):
         return {
-            "gates_before_slices": True,
+            "gates_before_slices": False,
             "bootstrap_waiver": False,
-            "require_weave_track_coupled": True,
+            "require_weave_track_coupled": False,
         }
     return {
-        "gates_before_slices": raw.get("gates_before_slices", True) is not False,
+        "gates_before_slices": raw.get("gates_before_slices") is True,
         "bootstrap_waiver": raw.get("bootstrap_waiver") is True,
-        "require_weave_track_coupled": raw.get("require_weave_track_coupled", True) is not False,
+        "require_weave_track_coupled": raw.get("require_weave_track_coupled") is True,
     }
 
 

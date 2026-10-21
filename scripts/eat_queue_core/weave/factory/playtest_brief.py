@@ -12,9 +12,9 @@ import yaml
 from .factory_orchestrator import DEFAULT_QUEUE_REL, load_alpha_queue
 from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS, load_operator_feedback
 
-BRIEF_DIR_REL = "1-Projects/genesis-mythos-master/Factory-DRB/operator-feedback/playtest-briefs"
+BRIEF_DIR_REL = ""
 GAME_CHECKLIST_REL = ".technical/weave/kinesthetic_checklist.yaml"
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = ""
 
 
 @dataclass(frozen=True)
@@ -39,7 +39,7 @@ def _utc_stamp() -> str:
 
 def _game_repo_rel(vault_root: Path) -> str:
     manifest = vault_root / MANIFEST_REL
-    rel = "5-Attachments/Code-Repos/genesis-mythos-alpha"
+    rel = ""  # require bindings.game_repo_path
     if manifest.is_file():
         data = yaml.safe_load(manifest.read_text(encoding="utf-8")) or {}
         if isinstance(data, dict) and data.get("game_repo_path"):

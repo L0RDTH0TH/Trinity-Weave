@@ -13,8 +13,8 @@ import yaml
 from .operator_feedback import DEFAULT_FEEDBACK_REL, KINESTHETIC_CHECKLIST_IDS
 from .product_kinesthetic_honesty import row_is_protected_override
 
-DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-alpha"
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+# game repo from bindings.game_repo_path only
+MANIFEST_REL = ""
 OPERATOR_VERDICTS = frozenset({"pass", "fail", "skip", "unsure"})
 
 
@@ -40,14 +40,12 @@ class PlaytestIngestResult:
         return out
 
 
-def _game_repo(vault_root: Path) -> Path:
-    manifest = vault_root / MANIFEST_REL
-    rel = DEFAULT_GAME_REPO_REL
-    if manifest.is_file():
-        data = yaml.safe_load(manifest.read_text(encoding="utf-8")) or {}
-        if isinstance(data, dict) and data.get("game_repo_path"):
-            rel = str(data["game_repo_path"])
-    return vault_root / rel
+def _game_repo(vault_root: Path, project_id: str | None = None) -> Path:
+    from .bindings import game_repo_path
+    from .project_identity import resolve_project_id
+
+    pid = resolve_project_id(vault_root, project_id)
+    return vault_root / game_repo_path(vault_root, pid)
 
 
 def _latest_session(repo: Path) -> Path | None:

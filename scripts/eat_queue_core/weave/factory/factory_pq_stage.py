@@ -150,7 +150,7 @@ def factory_lane_entries_from_dispatch(
     repo_rel = str(
         jobs[0].get("game_repo_rel") if jobs else hints.get("repo_path") or ""
     ).rstrip("/") + "/"
-    project_id = str(packet.get("project_id") or "genesis-mythos-master")
+    project_id = str(packet.get("project_id"))
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     existing = _existing_factory_jobs(vault_root, lane)
     vault_lanes = sorted({str(j.get("lane_id")) for j in jobs if j.get("lane_id")})
@@ -230,7 +230,7 @@ def factory_lane_entries_from_dispatch(
             "zone_write": job.get("zone_write") or [],
             "checklist_ids": job.get("checklist_ids") or [],
             "repo_path": repo_rel,
-            "engine_adapter": hints.get("engine_adapter") or "godot_4_6_3_dotnet",
+            "engine_adapter": str(hints.get("engine_adapter") or "").strip(),
             "factory_dispatch_run_id": run_id,
             "catalog_row_id": job.get("catalog_row_id") or "",
             "target_depth": job.get("target_depth"),
@@ -302,7 +302,7 @@ def _prepare_factory_dispatch(
     vault_root = vault_root.resolve()
     lane = lane.strip().lower()
     hints = packet.get("planner_hints") if isinstance(packet.get("planner_hints"), dict) else {}
-    project_id = str(packet.get("project_id") or hints.get("project_id") or "genesis-mythos-master")
+    project_id = str(packet.get("project_id") or hints.get("project_id"))
 
     from .implementation_handoff_ready import implementation_handoff_ready
 
@@ -644,6 +644,6 @@ def append_factory_rework(
         entries,
         source="factory_pq_stage_rework",
     )
-    project_id = str(packet.get("project_id") or "genesis-mythos-master")
+    project_id = str(packet.get("project_id"))
     update_implementation_cell(vault_root, project_id, {"phase": "lanes_running"})
     return {"ok": True, "appended": len(entries), "lane_id": lane_id, "rework_iteration": rework_iteration}

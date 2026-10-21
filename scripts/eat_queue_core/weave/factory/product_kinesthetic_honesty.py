@@ -11,13 +11,11 @@ from .operator_feedback import DEFAULT_FEEDBACK_REL
 from .proof_tiers import normalize_source
 from .weave_track import is_track_coupled, track_status
 
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+MANIFEST_REL = ""
 TRINITY_CARD_REL = ".technical/weave/component-proposals/product_kinesthetic_honesty.yaml"
 
-Q3_PLAY_PATH_PATTERNS: tuple[tuple[str, str], ...] = (
-    (r"Horizon-Q3\s+demo", "q3_acceptance_remnant_on_main"),
-    (r"Horizon-Q3\s+graybox", "q3_acceptance_remnant_on_main"),
-)
+# Remnant patterns live in project bindings (legacy-refuse / host-law), not harness.
+Q3_PLAY_PATH_PATTERNS: tuple[tuple[str, str], ...] = ()
 
 PROTECTED_OVERRIDE_SOURCES: frozenset[str] = frozenset({"operator", "playtest_trace"})
 

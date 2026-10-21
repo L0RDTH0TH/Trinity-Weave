@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from eat_queue_core.weave.factory.bindings import add_project_id_argument
 import json
 import sys
 from pathlib import Path
@@ -61,7 +62,7 @@ def _resolve_active_slice(
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Smoke test vault_roadmap factory feed")
     parser.add_argument("--vault-root", type=Path, default=Path.cwd())
-    parser.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(parser, required=True)
     parser.add_argument("--lane", default="godot")
     parser.add_argument("--row-id", default="", help="Loop 3 catalog row (smoke override)")
     parser.add_argument("--dispatch-depth", type=int, default=None, help="Loop 3 dispatch depth")

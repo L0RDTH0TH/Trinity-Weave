@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .factory_project import load_factory_project
 from .project_identity import (
     ProjectIdMissingError,
     resolve_project_id,
@@ -67,19 +66,11 @@ def stack_domain_registry_path(vault_root: Path, project_id: str | None = None) 
 
 
 def resolve_game_repo_path(vault_root: Path, project_id: str | None = None) -> str:
-    """Game repo relative path from factory-project.yaml or tech stack manifest."""
-    import yaml
+    """Game repo relative path — sole source identity.yaml via bindings (no silent default)."""
+    from .bindings import game_repo_path as bind_game_repo
 
-    boot = load_factory_project(vault_root, project_id)
-    rel = str(boot.get("game_repo_path") or "").strip("/")
-    if rel:
-        return rel
-    manifest_path = tech_stack_manifest_path(vault_root, project_id)
-    if manifest_path.is_file():
-        data = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
-        if isinstance(data, dict) and data.get("game_repo_path"):
-            return str(data["game_repo_path"]).strip("/")
-    return "game"
+    pid = resolve_project_id(vault_root, project_id)
+    return bind_game_repo(vault_root, pid)
 
 
 def scaffold_factory_project(
@@ -87,20 +78,49 @@ def scaffold_factory_project(
     *,
     project_id: str,
     game_repo_path: str,
-    release_tier: str = "closed_alpha",
+    release_tier: str = "",
 ) -> dict[str, Any]:
-    """Create minimal Factory-DRB + factory-project.yaml for a new project_id."""
+    """Create minimal Factory-DRB + bindings identity + eat-latch factory-project.yaml.
+
+    Does **not** write weave_track.yaml or default require_weave_track_coupled true.
+    game_repo_path lives in bindings/identity.yaml only.
+    """
     import yaml
+
+    from .bindings import bindings_family_path
 
     vault_root = vault_root.resolve()
     drb = factory_drb_dir(vault_root, project_id)
     drb.mkdir(parents=True, exist_ok=True)
     (drb / "Release-Definitions").mkdir(parents=True, exist_ok=True)
+    (drb / "bindings").mkdir(parents=True, exist_ok=True)
+
+    identity_path = bindings_family_path(vault_root, project_id, "identity")
+    identity_path.write_text(
+        yaml.dump(
+            {
+                "project_id": project_id,
+                "game_repo_path": game_repo_path.strip("/"),
+                "archive_path": "",
+            },
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
+    for fam, body in (
+        ("engine", {"adapter_id": "", "build_command": "", "ports": {}}),
+        ("proof-catalog", {"probes": {}}),
+        ("lanes", {"lane_ids": [], "order": []}),
+        ("host-law", {"entries": []}),
+        ("legacy-refuse", {"refuse_strings": []}),
+    ):
+        bindings_family_path(vault_root, project_id, fam).write_text(
+            yaml.dump(body, sort_keys=False), encoding="utf-8"
+        )
 
     manifest_body = {
         "schema_version": 1,
         "project_id": project_id,
-        "game_repo_path": game_repo_path.strip("/"),
         "operator_stack_baseline_vetted": False,
         "pipeline_certified": False,
         "rows": [],
@@ -114,7 +134,7 @@ def scaffold_factory_project(
         encoding="utf-8",
     )
     (drb / "lane-map.yaml").write_text(
-        yaml.dump({"default_lanes": ["module", "presentation"]}),
+        yaml.dump({"default_lanes": []}),
         encoding="utf-8",
     )
     (drb / "factory-project.yaml").write_text(
@@ -122,13 +142,12 @@ def scaffold_factory_project(
             {
                 "schema_version": 1,
                 "project_id": project_id,
-                "game_repo_path": game_repo_path.strip("/"),
-                "feed_authority": "vault_roadmap",
-                "release_tier": release_tier,
+                "factory_greenlit": False,
+                "slice_factory_greenlit": False,
                 "factory_bootstrap": {
-                    "gates_before_slices": True,
+                    "gates_before_slices": False,
                     "bootstrap_waiver": False,
-                    "require_weave_track_coupled": True,
+                    "require_weave_track_coupled": False,
                 },
             },
             sort_keys=False,
@@ -141,25 +160,21 @@ def scaffold_factory_project(
                 "versioning": {
                     "bom_schema_version": 2,
                     "bom_revision": 1,
-                    "product_version": release_tier,
+                    "product_version": release_tier or "",
                 },
                 "product_id": project_id,
             }
         ),
         encoding="utf-8",
     )
-    (drb / "Release-Definitions" / f"{release_tier}.md").write_text(
-        f"---\ntitle: {release_tier}\ngame_repo: {game_repo_path.strip('/')}\n---\n",
-        encoding="utf-8",
-    )
+    if release_tier.strip():
+        (drb / "Release-Definitions" / f"{release_tier.strip()}.md").write_text(
+            f"---\ntitle: {release_tier.strip()}\ngame_repo: {game_repo_path.strip('/')}\n---\n",
+            encoding="utf-8",
+        )
     repo = vault_root / game_repo_path.strip("/")
     repo.mkdir(parents=True, exist_ok=True)
-    weave = repo / ".technical" / "weave"
-    weave.mkdir(parents=True, exist_ok=True)
-    (weave / "weave_track.yaml").write_text(
-        yaml.dump({"track_status": "coupled", "schema_version": 1}),
-        encoding="utf-8",
-    )
+    # Do not write weave_track.yaml — coupling is operator/project data, not scaffold default.
     return {
         "ok": True,
         "project_id": project_id,

@@ -831,14 +831,36 @@ def validate_armed_map_fidelity(
     )
 
 
-def load_prefer_result(vault_root: Path, slice_id: str) -> dict[str, Any] | None:
+def load_prefer_result(
+    vault_root: Path,
+    slice_id: str,
+    *,
+    project_id: str | None = None,
+) -> dict[str, Any] | None:
     if not slice_id:
         return None
-    candidates = [
-        vault_root
-        / "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs"
-        / f"{slice_id}.prefer-result.json",
-    ]
+    from .bindings import factory_drb_rel
+
+    candidates: list[Path] = []
+    pid = str(project_id or "").strip()
+    if pid:
+        candidates.append(
+            vault_root
+            / factory_drb_rel(pid, "slice-briefs", f"{slice_id}.prefer-result.json")
+        )
+    else:
+        # Fail soft: search under any project's slice-briefs (no baked slug).
+        root = vault_root / "1-Projects"
+        if root.is_dir():
+            for proj in root.iterdir():
+                if not proj.is_dir():
+                    continue
+                candidates.append(
+                    proj
+                    / "Factory-DRB"
+                    / "slice-briefs"
+                    / f"{slice_id}.prefer-result.json"
+                )
     for p in candidates:
         if p.is_file():
             try:

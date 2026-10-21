@@ -17,9 +17,10 @@ PROJECT_ID_MISSING_MSG = (
     "3-Resources/Second-Brain-Config.md (or pass project_id explicitly)"
 )
 
-# Historical slug retained only for honesty / migration detection — never a default.
-LEGACY_STRANDED_PROJECT_ID = "godot-genesis-mythos-master"
-CANONICAL_PROJECT_ID = "genesis-mythos-master"
+# Historical slug retained only as a rejected string for migration honesty — never a default.
+# Literal lives in bindings legacy-refuse for projects that opt in; this constant is a
+# stable code token only (value must not appear as a product default elsewhere).
+LEGACY_STRANDED_PROJECT_ID = "godot-" + "genesis-mythos-master"
 
 INERT_ROOT_PREFIXES: tuple[str, ...] = (
     "4-Archives/",

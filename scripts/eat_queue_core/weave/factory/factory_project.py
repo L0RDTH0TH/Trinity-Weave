@@ -77,10 +77,11 @@ def load_factory_project(
     if not isinstance(bootstrap_raw, dict) and isinstance(legacy.get("factory_bootstrap"), dict):
         bootstrap_raw = legacy["factory_bootstrap"]
 
-    bootstrap = {
-        "gates_before_slices": True,
+    # No silent track-coupled / closed-alpha defaults — project must declare bootstrap.
+    bootstrap: dict[str, Any] = {
+        "gates_before_slices": False,
         "bootstrap_waiver": False,
-        "require_weave_track_coupled": True,
+        "require_weave_track_coupled": False,
     }
     if isinstance(bootstrap_raw, dict):
         bootstrap.update(bootstrap_raw)
@@ -93,15 +94,33 @@ def load_factory_project(
     if not isinstance(runtime, dict):
         runtime = None
 
+    # game_repo_path / archive: identity.yaml only — never merge factory-project / config / legacy.
+    game_repo = ""
+    archive_repo = ""
+    try:
+        from .bindings import game_repo_path as bind_game_repo
+        from .bindings import resolve as bind_resolve
+
+        game_repo = bind_game_repo(vault_root, pid)
+        try:
+            archive_repo = str(
+                bind_resolve(vault_root, pid, "identity", "archive_path") or ""
+            ).strip().strip("/")
+        except Exception:
+            archive_repo = ""
+    except Exception:
+        game_repo = ""
+        archive_repo = ""
+
     out: dict[str, Any] = {
         "schema_version": manifest.get("schema_version") or 1,
         "project_id": pid,
-        "game_repo_path": str(_pick("game_repo_path")).strip("/"),
-        "archive_repo_path": str(_pick("archive_repo_path")).strip("/"),
+        "game_repo_path": game_repo,
+        "archive_repo_path": archive_repo,
         "execution_roadmap_ref": str(_pick("execution_roadmap_ref")),
-        "release_tier": str(_pick("release_tier", default="closed_alpha")),
+        "release_tier": str(_pick("release_tier", default="")),
         "feed_authority": str(
-            manifest.get("feed_authority") or cfg.get("feed_authority") or "vault_roadmap"
+            manifest.get("feed_authority") or cfg.get("feed_authority") or ""
         ),
         "factory_bootstrap": bootstrap,
         "forbidden_shortcuts": list(shortcuts),

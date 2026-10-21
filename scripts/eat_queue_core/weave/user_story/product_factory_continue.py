@@ -208,7 +208,7 @@ def maybe_append_continues_for_consumed_entries(
         params = row.get("params") if isinstance(row.get("params"), dict) else {}
         run_id = str(params.get("product_factory_run_id") or "")
         project_id = str(
-            entry.project_id or params.get("project_id") or "genesis-mythos-master"
+            entry.project_id or params.get("project_id")
         )
         dedupe = f"{run_id}:{entry.id}"
         if dedupe in seen_run:

@@ -231,7 +231,7 @@ def build_factory_lane_handoff(
         params.get("ticket_map_id") or armed.get("ticket_map_id") or ""
     ).strip()
     project_id = str(
-        params.get("project_id") or armed.get("project_id") or "genesis-mythos-master"
+        params.get("project_id") or armed.get("project_id")
     )
     vault_feed_block = ""
     allow_ux = False

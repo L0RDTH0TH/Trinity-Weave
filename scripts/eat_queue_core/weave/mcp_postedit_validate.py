@@ -92,7 +92,7 @@ def run_mcp_postedit_validate(
     checks: list[dict[str, str]] = []
 
     if smoke or milestone_id.upper() == "M0":
-        repo = Path(repo_root or "5-Attachments/Code-Repos/genesis-mythos-demo")
+        repo = Path(repo_root or "")
         if not repo.is_absolute():
             repo = vault_root / repo
         pg = repo / "project.godot"

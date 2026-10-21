@@ -178,7 +178,7 @@ def build_observability_payload(
             "weave_design": {"repo": "Trinity-Weave", "branch": "main"},
             "project_roadmap": {
                 "repo": "Trinity-Weave",
-                "branch": "project/genesis-mythos-master",
+                "branch": "",  # set per deployment; no baked product slug
             },
             "queue_automation": {
                 "repo": "Trinity-Weave",

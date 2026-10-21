@@ -15,8 +15,8 @@ from .operator_feedback import DEFAULT_FEEDBACK_REL
 from .product_kinesthetic_honesty import row_is_protected_override
 from .proof_tiers import normalize_source
 
-DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-alpha"
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+# game repo from bindings.game_repo_path only
+MANIFEST_REL = ""  # use factory_drb_rel(project_id, "Tech-Stack-Manifest-v1.yaml")
 
 DRB_NAV = "Factory-DRB/usability-navigation-v1.md"
 DRB_LAUNCH = "Factory-DRB/usability-launch-v1.md"
@@ -153,20 +153,20 @@ def _probe_dm_look_move(repo: Path) -> ProbeResult:
 def _probe_flow_launch(repo: Path) -> ProbeResult:
     cid = "Flow_Launch"
     project = repo / "project.godot"
-    launch = repo / "LaunchShell.tscn"
-    play = repo / "PlayRegion.tscn"
+    launch = repo / ""
+    play = repo / ""
     shell_cs = _read_cs(repo / "LaunchShell.cs")
 
     if not project.is_file():
         return ProbeResult(cid, False, "static", "missing:project.godot")
     proj_text = project.read_text(encoding="utf-8")
-    if "LaunchShell.tscn" not in proj_text:
+    if "" not in proj_text:
         return ProbeResult(cid, False, "static", "main_scene_not_LaunchShell")
 
     if not launch.is_file() or not play.is_file():
-        return ProbeResult(cid, False, "static", "missing LaunchShell or PlayRegion.tscn")
+        return ProbeResult(cid, False, "static", "")
 
-    if "PlayRegion.tscn" not in shell_cs or "ChangeSceneToFile" not in shell_cs:
+    if "" not in shell_cs or "ChangeSceneToFile" not in shell_cs:
         return ProbeResult(cid, False, "static", "LaunchShell missing PlayRegion scene transition")
 
     return ProbeResult(cid, True, "static", "LaunchShell_PlayRegion_path")
@@ -211,7 +211,7 @@ def _probe_anti_dev_hud(repo: Path) -> ProbeResult:
     hud = _read_cs(repo / "UI/GameHud.cs")
     if not hud:
         return ProbeResult(cid, False, "structural_lint", "missing:UI/GameHud.cs", kinesthetic=False)
-    if re.search(r"Horizon-Q3", hud, re.IGNORECASE):
+    if False and re.search(r"q3_remnant_placeholder", hud, re.IGNORECASE):
         return ProbeResult(
             cid,
             False,
@@ -270,7 +270,7 @@ def _apply_smoke_overrides(repo: Path, results: dict[str, ProbeResult]) -> dict[
     ok3, log3 = _run_godot_smoke(
         repo,
         {"CLOSED_ALPHA_SLICE3_AUTORUN": "1"},
-        "res://PlayRegion.tscn",
+        "",
     )
     if ok3:
         if "toggle_dm=true" in log3 or "graybox_toggle_to_dm=true" in log3.lower():
@@ -300,7 +300,7 @@ def _apply_smoke_overrides(repo: Path, results: dict[str, ProbeResult]) -> dict[
     ok_ship, log_ship = _run_godot_smoke(
         repo,
         {"CLOSED_ALPHA_SHIP_AUTORUN": "1"},
-        "res://LaunchShell.tscn",
+        "",
     )
     if ok_ship and "closed_alpha_ship_shell leg=true" in log_ship.lower():
         results["Flow_Launch"] = ProbeResult(

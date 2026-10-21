@@ -13,6 +13,7 @@ from ...goal_authority_io import goal_authority_path_for_lane
 from ...lane_bundle import bundle_dir_for_lane
 from ..user_story.product_factory_budget import budget_row_ids
 from ..user_story.catalog_io import load_json, user_story_paths
+from .bindings import add_project_id_argument
 
 
 def _utc_iso() -> str:
@@ -23,7 +24,7 @@ def refresh_goal_packet_vault_feed(
     vault_root: Path,
     *,
     lane: str,
-    project_id: str = "genesis-mythos-master",
+    project_id: str,
 ) -> dict[str, Any]:
     """Rewrite goal-authority for levels+waves (vault_roadmap). closed_alpha = user label only."""
     vault_root = vault_root.resolve()
@@ -102,14 +103,14 @@ def refresh_goal_packet_vault_feed(
             "target_depth": target_depth,
             "current_depth": current_depth,
             "dispatch_depth": 1,
-            "user_release_label": "closed_alpha",
-            "repo_path": "5-Attachments/Code-Repos/genesis-mythos-alpha/",
-            "engine_adapter": "godot_4_6_3_dotnet",
-            "launch_scene": "5-Attachments/Code-Repos/genesis-mythos-alpha/LaunchShell.tscn",
-            "play_region_scene": "5-Attachments/Code-Repos/genesis-mythos-alpha/PlayRegion.tscn",
+            "user_release_label": "",
+            "repo_path": "",
+            "engine_adapter": "",
+            "launch_scene": "",
+            "play_region_scene": "",
             "operator_feedback_ref": (
                 f"1-Projects/{project_id}/Factory-DRB/operator-feedback/"
-                "godot-closed-alpha-kinesthetic.yaml"
+                "kinesthetic.yaml"
             ),
             "factory_ship_valid": False,
             "legacy_alpha_queue_ref": (
@@ -173,8 +174,8 @@ def clear_legacy_alpha_pq(vault_root: Path, *, lane: str) -> dict[str, Any]:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Prep vault-feed factory re-run")
     p.add_argument("--vault-root", type=Path, default=Path("."))
-    p.add_argument("--lane", default="godot")
-    p.add_argument("--project-id", default="genesis-mythos-master")
+    p.add_argument("--lane", required=True)
+    add_project_id_argument(p, required=True)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("goal-packet", help="Refresh goal-authority.json for vault_roadmap")
     sub.add_parser("clear-pq", help="Archive legacy alpha-queue PQ lines")

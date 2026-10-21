@@ -123,7 +123,7 @@ def scan_core_narrative_drift(vault_root: Path, *, game_repo_rel: str | None = N
     if game_repo_rel:
         core = vault_root / game_repo_rel.strip("/") / "Core"
     else:
-        core = vault_root / "5-Attachments/Code-Repos/genesis-mythos-alpha/Core"
+        core = vault_root / "_unset_game_repo_/Core"  # resolve via bindings before scan
     if not core.is_dir():
         return []
     hits: list[NarrativeDriftHit] = []

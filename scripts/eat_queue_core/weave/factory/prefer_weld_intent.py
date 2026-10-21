@@ -979,7 +979,7 @@ def load_prefer_result(vault_root: Path, slice_id: str) -> dict[str, Any] | None
         return None
     candidates = [
         vault_root
-        / "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs"
+        / ""
         / f"{slice_id}.prefer-result.json",
     ]
     for p in candidates:

@@ -10,8 +10,8 @@ import yaml
 
 from .factory_little_val import FactoryLittleValResult
 
-DEFAULT_ZONES_REL = "1-Projects/genesis-mythos-master/Factory-DRB/FACTORY_ZONES.yaml"
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
+DEFAULT_ZONES_REL = ""
+MANIFEST_REL = ""
 
 
 @dataclass(frozen=True)
@@ -30,7 +30,7 @@ class StructurePassResult:
 
 def _game_repo(vault_root: Path) -> Path:
     manifest = vault_root / MANIFEST_REL
-    rel = "5-Attachments/Code-Repos/genesis-mythos-demo"
+    rel = ""  # require bindings / param
     if manifest.is_file():
         data = yaml.safe_load(manifest.read_text(encoding="utf-8")) or {}
         if isinstance(data, dict) and data.get("game_repo_path"):
@@ -114,9 +114,9 @@ def run_structure_pass(
 
     if changed_paths is None:
         changed_paths = (
-            "PlayRegion.tscn",
+            "",
             "PlayRegion.cs",
-            "LaunchShell.tscn",
+            "",
             "LaunchShell.cs",
             "Player/PlayerFP.cs",
             "Camera/SparkyDmFreeCamRig.cs",

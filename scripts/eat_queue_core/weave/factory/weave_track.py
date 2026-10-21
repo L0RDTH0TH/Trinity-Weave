@@ -8,8 +8,8 @@ from typing import Any
 
 import yaml
 
-MANIFEST_REL = "1-Projects/genesis-mythos-master/Factory-DRB/Tech-Stack-Manifest-v1.yaml"
-DEFAULT_GAME_REPO_REL = "5-Attachments/Code-Repos/genesis-mythos-demo"
+MANIFEST_REL = ""
+# game repo from bindings.game_repo_path only
 
 TRACK_COUPLED = "coupled"
 TRACK_DISCONNECTED = "disconnected"

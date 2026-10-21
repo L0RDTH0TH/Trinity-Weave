@@ -249,11 +249,41 @@ def run_factory_lane_job(
     eid = str(entry.get("id") or "")
     slice_id = str(params.get("slice_id") or "")
     lane_id = str(params.get("lane_id") or "")
-    project_id = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
-    engine_adapter = str(params.get("engine_adapter") or "godot_4_6_3_dotnet")
-    repo_rel = str(
-        params.get("repo_path") or "5-Attachments/Code-Repos/genesis-mythos-alpha/"
-    ).rstrip("/") + "/"
+    project_id = str(entry.get("project_id") or params.get("project_id") or "").strip()
+    if not project_id:
+        return {
+            "ok": False,
+            "id": eid,
+            "error": "project_id_missing",
+            "segment": "IMPLEMENT_SLICE",
+        }
+    engine_adapter = str(params.get("engine_adapter") or "").strip()
+    if not engine_adapter:
+        try:
+            from .bindings import resolve as bind_resolve
+
+            engine_adapter = str(
+                bind_resolve(vault_root, project_id, "engine", "adapter_id") or ""
+            ).strip()
+        except Exception:
+            engine_adapter = ""
+    repo_rel = str(params.get("repo_path") or "").strip()
+    if not repo_rel:
+        try:
+            from .bindings import game_repo_path as bind_game_repo
+
+            repo_rel = bind_game_repo(vault_root, project_id)
+        except Exception:
+            repo_rel = ""
+    if not repo_rel:
+        return {
+            "ok": False,
+            "id": eid,
+            "error": "missing_game_repo_path",
+            "hint": "Set params.repo_path or bindings/identity.yaml game_repo_path",
+            "segment": "IMPLEMENT_SLICE",
+        }
+    repo_rel = repo_rel.rstrip("/") + "/"
     packet = load_goal_authority(vault_root, queue_lane, require_confirmed=False)
 
     from .implementation_cursor import reconcile_implementation_cursor
@@ -1138,7 +1168,7 @@ def run_factory_lane_job(
     if advance.get("vault_feed") and packet:
         from .factory_authority_sync import sync_goal_authority_from_vault_feed
 
-        pid = str(entry.get("project_id") or params.get("project_id") or "genesis-mythos-master")
+        pid = str(entry.get("project_id") or params.get("project_id"))
         auth = sync_goal_authority_from_vault_feed(
             vault_root, queue_lane, advance, project_id=pid
         )

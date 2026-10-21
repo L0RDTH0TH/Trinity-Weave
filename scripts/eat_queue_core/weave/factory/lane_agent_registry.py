@@ -130,7 +130,7 @@ class LaneAgentSpec:
             f"- **No** `.cursor/rules/**` edits\n"
             f"- **No** RESUME_ROADMAP / roadmap deepen\n"
             f"- Module lane: integrate via drops only — never rewrite `assets/` or `content/` roots\n"
-            f"- Launch path: `{hints.get('launch_scene', 'LaunchShell.tscn')}` → PlayRegion\n"
+            f""
             f"- `dotnet build` must pass when this lane touches C#\n\n"
             f"## Runtime logging (factory bus)\n"
             f"- Generated C# **must** call `AlphaFactoryLog.Emit` on state transitions, checklist boundaries, and degradation callbacks\n"
@@ -181,7 +181,7 @@ LANE_AGENTS: dict[str, LaneAgentSpec] = {
         engine_adapter="godot_4_6_3_dotnet",
         mcp_adapter="godot :6505 UI scenes",
         drop_contract="pdc",
-        produces="Control scenes, HUD wiring, LaunchShell/GameHud polish; PDC manifest; no sim logic in UI.",
+        produces="Control scenes, HUD wiring, entry_scene/GameHud polish; PDC manifest; no sim logic in UI.",
         consumes=("cdc",),
         verify_steps=("pdc_manifest_has_drops", "depends_on_cdc", "usability_pass", "structure_pass"),
         default_review_passes=(
@@ -208,7 +208,7 @@ LANE_AGENTS: dict[str, LaneAgentSpec] = {
         engine_adapter="godot_4_6_3_dotnet",
         mcp_adapter="godot :6505",
         drop_contract="",
-        produces="Systems/, Core/ integration glue, PlayRegion runtime; consumes ADC/TAC/CDC/PDC/AuDC drops only.",
+        produces="Systems/, Core/ integration glue, play_region runtime; consumes ADC/TAC/CDC/PDC/AuDC drops only.",
         consumes=("adc", "tac", "cdc", "pdc"),
         verify_steps=(
             "depends_on_drops",

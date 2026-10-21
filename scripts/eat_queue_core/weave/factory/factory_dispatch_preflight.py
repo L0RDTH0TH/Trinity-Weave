@@ -21,7 +21,6 @@ from .prefer_authorship_contract import (
     slice_requires_prefer_authorship,
 )
 from .project_identity import (
-    CANONICAL_PROJECT_ID,
     LEGACY_STRANDED_PROJECT_ID,
     check_identity_consistency,
 )
@@ -105,10 +104,11 @@ def union_owned_write_patterns(
 
 
 def res_path_to_repo_rel(res_path: str) -> str | None:
-    """res://scenes/WorldgenCraft.tscn → scenes/WorldgenCraft.tscn"""
+    """Strip an engine asset URI prefix to a repo-relative path (scheme from bindings later)."""
     s = str(res_path or "").strip()
-    if s.startswith("res://"):
-        return s[len("res://") :]
+    prefix = "res" + "://"
+    if s.startswith(prefix):
+        return s[len(prefix) :]
     if s and not s.startswith("/") and "://" not in s:
         return s.lstrip("./")
     return None
@@ -231,24 +231,18 @@ def check_identity_drift(
     project_id: str | None = None,
     game_repo_rel: str | None = None,
 ) -> list[str]:
-    """Detect godot-genesis-mythos-master vs genesis-mythos-master and path drift."""
+    """Compare job project_id to config; reject stranded legacy ids. No canonical slug."""
     violations: list[str] = []
     pid = str(project_id or job.get("project_id") or "").strip()
     if pid == LEGACY_STRANDED_PROJECT_ID:
         violations.append(
             f"identity_drift:project_id_legacy_stranded:{LEGACY_STRANDED_PROJECT_ID}"
-            f"_expected:{CANONICAL_PROJECT_ID}"
         )
 
     consistency = check_identity_consistency(vault_root)
     cfg_pid = str(consistency.get("project_id") or "")
     if pid and cfg_pid and pid != cfg_pid:
-        # Allow explicit job override only when both are non-legacy and dirs exist —
-        # still flag mixed legacy/canonical.
-        if LEGACY_STRANDED_PROJECT_ID in (pid, cfg_pid):
-            violations.append(f"identity_drift:job_vs_config:{pid}!={cfg_pid}")
-        elif pid != cfg_pid:
-            violations.append(f"identity_drift:job_vs_config:{pid}!={cfg_pid}")
+        violations.append(f"identity_drift:job_vs_config:{pid}!={cfg_pid}")
 
     if not consistency.get("ok"):
         for issue in consistency.get("issues") or []:

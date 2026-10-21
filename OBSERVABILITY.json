@@ -4,8 +4,8 @@
   "remote": "https://github.com/L0RDTH0TH/Trinity-Weave",
   "branch": "main",
   "weave_core_version": "2026.07.17-grok-bridge",
-  "last_publish_utc": "2026-10-21T05:12:21Z",
-  "fingerprint": "c0d5f955876a8a9683e796ec5bca6e7f7fadcac1a2fc60b6f8683b047b922e21",
+  "last_publish_utc": "2026-10-21T06:13:49Z",
+  "fingerprint": "b0e7cc0e0ad761e94589385e6c86ba9cc5882a760903414cc806d843e54fab6a",
   "last_commit": null,
   "grok_start_here": "GROK-START-HERE.md",
   "bone_pilot_docs_path": "meat-suit-entry/README.md",
@@ -21,7 +21,7 @@
     },
     "project_roadmap": {
       "repo": "Trinity-Weave",
-      "branch": "project/genesis-mythos-master"
+      "branch": ""
     },
     "queue_automation": {
       "repo": "Trinity-Weave",

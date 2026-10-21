@@ -95,11 +95,19 @@ def _read_json_or_yaml_file(path: Path) -> dict[str, Any]:
     return data
 
 
+from eat_queue_core.weave.factory.bindings import add_project_id_argument
 from .parallel_context_util import (
     infer_lane_from_context_path,
     parallel_context_from_config_track,
     synthetic_parallel_context_for_lane,
 )
+
+
+def _require_project_id(args) -> str:
+    pid = str(getattr(args, "project_id", None) or "").strip()
+    if not pid:
+        raise SystemExit("project_id_missing")
+    return pid
 
 
 def _infer_lane_from_context_path(path: Path) -> str | None:
@@ -2979,7 +2987,7 @@ def cmd_user_story_rollout(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_rollout_slicer(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         rollout_version=getattr(args, "rollout_version", None),
         row_assignments=assignments,
         generate_beats=not getattr(args, "no_beats", False),
@@ -2994,7 +3002,7 @@ def cmd_user_story_beats(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_beat_auto_generate(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
     )
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok") else 1
@@ -3009,7 +3017,7 @@ def cmd_depth_slice(vault_root: Path, args: argparse.Namespace) -> int:
     row_ids = [x.strip() for x in row_ids_raw.split(",") if x.strip()] if row_ids_raw else None
     out = run_depth_slicer(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         row_id=row_id,
         row_ids=row_ids,
         bootstrap_l5=not getattr(args, "no_bootstrap", False),
@@ -3026,7 +3034,7 @@ def cmd_factory_bom(vault_root: Path, args: argparse.Namespace) -> int:
     sections = tuple(x.strip() for x in sections_raw.split(",") if x.strip()) if sections_raw else None
     out = evaluate_factory_bom(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         sections=sections,
     )
     print(json.dumps(out.to_dict(), indent=2))
@@ -3038,7 +3046,7 @@ def cmd_factory_bom_brief(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = write_factory_bom_brief(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
     )
     print(json.dumps(out.to_dict(), indent=2))
     return 0 if out.ok else 1
@@ -3051,7 +3059,7 @@ def cmd_catalog_coverage(vault_root: Path, args: argparse.Namespace) -> int:
     planned_tuple = tuple(x.strip() for x in planned.split(",") if x.strip()) if planned else None
     out = run_catalog_coverage(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         planned_row_ids=planned_tuple,
     )
     print(json.dumps(out.to_dict(), indent=2))
@@ -3063,7 +3071,7 @@ def cmd_conceptual_feed_gate(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = conceptual_factory_feed_report(
         vault_root,
-        str(getattr(args, "project_id", "genesis-mythos-master")),
+        str(getattr(args, "project_id", None)),
         mint_batch=getattr(args, "mint_batch", None) or None,
     )
     print(json.dumps(out, indent=2))
@@ -3077,7 +3085,7 @@ def cmd_reconcile_conceptual_telemetry(vault_root: Path, args: argparse.Namespac
 
     out = reconcile_workflow_state_telemetry(
         vault_root,
-        str(getattr(args, "project_id", "genesis-mythos-master")),
+        str(getattr(args, "project_id", None)),
     )
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok") else 1
@@ -3088,7 +3096,7 @@ def cmd_catalog_freeze_gate(vault_root: Path, args: argparse.Namespace) -> int:
 
     out = run_catalog_freeze_gate(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
     )
     print(json.dumps(out, indent=2))
     return 0 if out.get("ok") else 1
@@ -3099,7 +3107,7 @@ def cmd_catalog_mint_pack_emit(vault_root: Path, args: argparse.Namespace) -> in
 
     out = emit_catalog_mint_pack(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         set_active=not bool(getattr(args, "no_set_active", False)),
         include_neighbors=bool(getattr(args, "include_neighbors", False)),
         neighbor_cap=int(getattr(args, "neighbor_cap", 3) or 3),
@@ -3126,7 +3134,7 @@ def cmd_catalog_mint_receipt_validate(vault_root: Path, args: argparse.Namespace
         return 2
     out = validate_catalog_mint_receipt(
         vault_root,
-        project_id=str(getattr(args, "project_id", "genesis-mythos-master")),
+        project_id=_require_project_id(args),
         receipt=raw,
     )
     print(json.dumps(out.to_dict(), indent=2))
@@ -4874,7 +4882,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Write slice-depth-budget from operator row assignments (SET_ROLLOUT_BUDGET)",
         parents=[common],
     )
-    usr.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(usr, required=True)
     usr.add_argument("--rollout-version", type=int, default=None)
     usr.add_argument(
         "--assignments-json",
@@ -4889,7 +4897,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Auto-generate beats from slice-depth-budget (BEAT_GENERATE)",
         parents=[common],
     )
-    usb.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(usb, required=True)
     usb.set_defaults(func=cmd_user_story_beats)
 
     ds = sub.add_parser(
@@ -4897,7 +4905,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Top-down depth slicer — L5 complete → L4..L1 scope files (DEPTH_SLICE)",
         parents=[common],
     )
-    ds.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(ds, required=True)
     ds.add_argument("--row-id", default=None, help="Single catalog row id")
     ds.add_argument("--row-ids", default=None, help="Comma-separated row ids")
     ds.add_argument("--no-bootstrap", action="store_true", help="Do not bootstrap L5 scaffold")
@@ -4908,7 +4916,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Evaluate Product Factory BOM (setup checklist → Product)",
         parents=[common],
     )
-    fbom.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(fbom, required=True)
     fbom.add_argument("--sections", default=None, help="Comma-separated BOM sections")
     fbom.set_defaults(func=cmd_factory_bom)
 
@@ -4917,7 +4925,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Write operator Factory BOM brief markdown",
         parents=[common],
     )
-    fbb.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(fbb, required=True)
     fbb.set_defaults(func=cmd_factory_bom_brief)
 
     cc = sub.add_parser(
@@ -4925,7 +4933,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Validate slice-catalog completeness and execution pins",
         parents=[common],
     )
-    cc.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(cc, required=True)
     cc.add_argument("--planned-rows", default=None, help="Comma-separated expected row ids")
     cc.set_defaults(func=cmd_catalog_coverage)
 
@@ -4934,7 +4942,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Loop 2 levels gate — catalog signed, depth charter, influence deck",
         parents=[common],
     )
-    cfg.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(cfg, required=True)
     cfg.set_defaults(func=cmd_catalog_freeze_gate)
 
     cmpe = sub.add_parser(
@@ -4942,7 +4950,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Emit Docs/catalog-mint/<project_id>/ pack (conceptual + stack + pins + manifest)",
         parents=[common],
     )
-    cmpe.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(cmpe, required=True)
     cmpe.add_argument(
         "--no-set-active",
         action="store_true",
@@ -4974,7 +4982,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         proposals = raw if isinstance(raw, list) else (raw or {}).get("proposals") or []
         out = emit_pin_derive_batch(
             vault_root,
-            str(getattr(args, "project_id", "genesis-mythos-master")),
+            str(getattr(args, "project_id", None)),
             list(proposals),
         )
         print(_json.dumps(out, indent=2))
@@ -4985,7 +4993,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Emit PIN-DERIVE cards + STATUS from a proposals YAML file",
         parents=[common],
     )
-    pde.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(pde, required=True)
     pde.add_argument("--proposals-file", required=True)
     pde.set_defaults(func=cmd_pin_derive_emit)
 
@@ -4994,7 +5002,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Fail-closed validate one catalog mint YAML receipt against pack",
         parents=[common],
     )
-    cmrv.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(cmrv, required=True)
     cmrv.add_argument("--receipt-file", default=None)
     cmrv.add_argument("--receipt-yaml", default=None)
     cmrv.set_defaults(func=cmd_catalog_mint_receipt_validate)
@@ -5004,7 +5012,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Rung 1 factory feed readiness (mint-batch-scoped)",
         parents=[common],
     )
-    cfeed.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(cfeed, required=True)
     cfeed.add_argument("--mint-batch", default=None, help="pmg_phases | presentation_first")
     cfeed.set_defaults(func=cmd_conceptual_feed_gate)
 
@@ -5013,7 +5021,7 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
         help="Demote legacy workflow_state rollup closed stamps when feed gate is red",
         parents=[common],
     )
-    ctele.add_argument("--project-id", default="genesis-mythos-master")
+    add_project_id_argument(ctele, required=True)
     ctele.set_defaults(func=cmd_reconcile_conceptual_telemetry)
 
     rfe = sub.add_parser(

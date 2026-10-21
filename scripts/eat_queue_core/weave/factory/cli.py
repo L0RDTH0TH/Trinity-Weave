@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from .bindings import add_project_id_argument
 from .factory_research_enqueue import DEPRECATED_SIDE_QUEUE, enqueue_stack_research
 from .gap_research_router import detect_and_route_gaps
 from .interop_pass import run_interop_pass
@@ -151,7 +152,7 @@ def main(argv: list[str] | None = None) -> int:
     ms.add_argument("--job-id", type=str, default=None, help="Show one job state JSON")
 
     fb = sub.add_parser("factory-bom", help="Evaluate Product Factory BOM (setup checklist)")
-    fb.add_argument("--project-id", type=str, default="genesis-mythos-master")
+    add_project_id_argument(fb, required=True)
     fb.add_argument(
         "--sections",
         type=str,
@@ -160,12 +161,12 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     fbb = sub.add_parser("factory-bom-brief", help="Write operator Factory BOM brief markdown")
-    fbb.add_argument("--project-id", type=str, default="genesis-mythos-master")
+    add_project_id_argument(fbb, required=True)
 
     sc = sub.add_parser("scaffold-project", help="Bootstrap Factory-DRB for a new project_id")
     sc.add_argument("--project-id", type=str, required=True)
     sc.add_argument("--game-repo-path", type=str, required=True)
-    sc.add_argument("--release-tier", type=str, default="closed_alpha")
+    sc.add_argument("--release-tier", type=str, default="")
 
     args = parser.parse_args(argv)
     vault = args.vault_root.resolve()

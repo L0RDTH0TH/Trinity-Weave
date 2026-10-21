@@ -93,6 +93,10 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "scripts/eat_queue_core/schedule_state.py",
     "scripts/eat_queue_core/schedule_config.py",
     "scripts/eat_queue_core/pseudo_clock.py",
+    "scripts/eat_queue_core/post_queue_gitforge.py",
+    "scripts/eat_queue_core/stall_compensator.py",
+    "scripts/eat_queue_core/lane_board_posture.py",
+    "scripts/eat_queue_core/lane_board_goal_packets.py",
     "scripts/eat_queue_core/requirements.txt",
 )
 
@@ -109,6 +113,8 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_prefer_authorship_host_law.py",
     "scripts/eat_queue_core/tests/test_map_to_product_harness.py",
     "scripts/eat_queue_core/tests/test_ticket_map_schema.py",
+    "scripts/eat_queue_core/tests/test_harness_product_denylist.py",
+    "scripts/eat_queue_core/tests/test_bindings_resolve.py",
 )
 
 
