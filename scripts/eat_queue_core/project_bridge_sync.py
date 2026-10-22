@@ -185,12 +185,15 @@ def heal_stale_session(vault_root: Path, export_root: Path, cfg: dict[str, Any])
 
 
 def _read_game_repo_path(project_root: Path) -> str | None:
-    """Vault-relative LIVE game path from Factory-DRB/factory-project.yaml when present."""
-    fp = project_root / "Factory-DRB" / "factory-project.yaml"
-    if not fp.is_file():
+    """Vault-relative LIVE game path — sole source bindings/identity.yaml.
+
+    Do not heal from factory-project.yaml (duplicate game_repo_path is a Prefer-align block).
+    """
+    identity = project_root / "Factory-DRB" / "bindings" / "identity.yaml"
+    if not identity.is_file():
         return None
     try:
-        text = fp.read_text(encoding="utf-8")
+        text = identity.read_text(encoding="utf-8")
     except OSError:
         return None
     for line in text.splitlines():

@@ -8,7 +8,7 @@
 
 **Config anti-hardcode (2026-10-21):** Product nouns (engine, lanes, probes, host-law refuses, `game_repo_path`) live in **project** `Factory-DRB/bindings/*.yaml`. Harness on **`main`** only has fail-closed resolve + engine-neutral proof ops + host-law evaluator + denylist + Pass-4 eat-path fixture. Do **not** expect Genesis/Godot constants in harness Python. See [Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md](Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md).
 
-**Pass 6 Prefer-align (not GREENLIGHT):** `main` `e60fdff` — `prefer_align.py` + `tests/test_prefer_align_eat.py`. Tip B Genesis scrub next.
+**Pass 6 Prefer-align (not GREENLIGHT):** `main` `e60fdff` — `prefer_align.py` + `tests/test_prefer_align_eat.py`. Tip B Genesis Prefer/identity scrub on `project/genesis-mythos-master` (not GREENLIGHT).
 
 **Pass 5 Tip A (single-seat check — not GREENLIGHT):** `main` `c25a447`. See `Docs/HALF-B-CONTRACT.md` + `tests/test_implementation_single_seat.py`.
 
