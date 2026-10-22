@@ -19,6 +19,8 @@ audience: grok_github_integration
 
 **Pass 7 evidence law (not GREENLIGHT):** discover write-target entries into Prefer-align; eat Success = `evaluate_behavior_evidence` only (agent pack rejected). Re-run B₁ before GREENLIGHT.
 
+**Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r2` archived — none armed on `WB-polygon-substrate`. Fresh Ticketment required. Do not Prefer-join `wb-polygon-substrate-r2-retired-*`. Not GREENLIGHT. See `project/genesis-mythos-master`.
+
 **Pass 5 Tip A (single-seat check — not GREENLIGHT):** `main` `c25a447`. See `Docs/HALF-B-CONTRACT.md` + `tests/test_implementation_single_seat.py`.
 
 **Pass 4 tip (refuse-demo only — not a functional feedstock→Genesis line):** code tip `main` `7b39fc9` · routing tip `main` `0dab4f0` · `project/genesis-mythos-master` `c5732fa`. Audit via BINDINGS doc Surfaces table + `tests/test_blank_project_contract_eat.py` + Pass-4 tokens in `tests/test_harness_product_denylist.py`. No GREENLIGHT.
