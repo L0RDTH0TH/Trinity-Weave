@@ -36,6 +36,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 3 | `46183b0` (+ project `b847329`) | `host_law` evaluator; Half-B docs off main allowlist; Genesis bindings consumer on `project/genesis-mythos-master` |
 | 4 | `7b39fc9` (+ project `c5732fa`) | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
 | 5 | `c25a447` | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
+| 6 | *(this tip)* | Prefer-align fail-closed + exit evidence pack = `behavior_keys` each true; live eat calls align before agent; blank fixture. **Not GREENLIGHT. Tip B Genesis scrub later.** |
 
 ## Genesis is a consumer
 
@@ -48,3 +49,7 @@ After Pass 4 the factory can **refuse a demo injection**. It does **not** claim 
 ## Pass 5 tip claim
 
 After Pass 5 Tip A the factory can dispatch **one** seat whose handoff is Prefer keys only, with no method invent when `build_command` is empty. It does **not** GREENLIGHT, weld, F5, or turn on multi-lane concert. Genesis consumer is Tip B after this tip is on `origin/main`.
+
+## Pass 6 tip claim
+
+Prefer-align blocks dispatch when Prefer and project config disagree; exit Success is an evidence pack for Prefer `behavior_keys` only. No Prefer rewrite. No GREENLIGHT. Tip B (Genesis Prefer/identity scrub) follows on the project branch after this tip is on `origin/main`.

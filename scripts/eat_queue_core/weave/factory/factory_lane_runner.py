@@ -370,22 +370,56 @@ def run_factory_lane_job(
     }
     enrich_job_from_charter(vault_root, job)
 
-    # Prefer worldgen: ensure do_not_waive lists product seats (cannot be waived).
-    from .prefer_authorship_contract import (
-        PRODUCT_PREFER_DO_NOT_WAIVE,
-        slice_requires_prefer_authorship,
+    # Prefer-align fail-closed — before agent. Writes nothing. Prefer is source of truth.
+    from .prefer_align import (
+        evaluate_behavior_key_evidence,
+        run_prefer_align,
     )
+    from .prefer_authorship_contract import load_armed_packet
 
-    if slice_requires_prefer_authorship(str(job.get("slice_id") or ""), job):
-        dn = job.get("do_not_waive")
-        if isinstance(dn, str):
-            dn = [dn]
-        elif not isinstance(dn, list):
-            dn = []
-        for code in PRODUCT_PREFER_DO_NOT_WAIVE:
-            if code not in dn:
-                dn.append(code)
-        job["do_not_waive"] = dn
+    armed = load_armed_packet(vault_root, job)
+    if not armed and params.get("armed_packet_path"):
+        armed = load_armed_packet(vault_root, {"armed_packet_path": params.get("armed_packet_path")})
+    observed = params.get("observed_entries") or job.get("observed_entries") or []
+    if not isinstance(observed, list):
+        observed = []
+    umbrella = str(
+        params.get("umbrella_slice_id")
+        or job.get("umbrella_slice_id")
+        or ""
+    ).strip() or None
+    align = run_prefer_align(
+        vault_root,
+        armed=armed,
+        project_id=project_id,
+        observed_entries=[str(x) for x in observed if x],
+        umbrella_slice_id=umbrella,
+    )
+    if not align.ok:
+        mstate = init_machine_state(
+            entry_id=eid,
+            slice_id=slice_id,
+            lane_id=lane_id,
+            queue_lane=queue_lane,
+            run_id=parent_run_id or eid,
+            chain_id=parent_run_id or eid,
+        )
+        mstate = mark_jam(mstate, machine="preflight", error="prefer_align_failed")
+        _persist_state(vault_root, mstate)
+        return {
+            "ok": False,
+            "id": eid,
+            "slice_id": slice_id,
+            "lane_id": lane_id,
+            "error": "prefer_align_failed",
+            "prefer_align": align.to_dict(),
+            "segment": "IMPLEMENT_SLICE",
+            "hard_block": True,
+            "stop_eat": True,
+            "resume_from": "preflight",
+        }
+    # In-memory only — attach aligned context to job for the seat (no vault write).
+    job["prefer_align_context"] = align.context
 
     # Fail-closed topology / identity / checklist preflight BEFORE first lane agent.
     dispatch_pf = run_factory_dispatch_preflight(
@@ -612,6 +646,36 @@ def run_factory_lane_job(
                 "error": "agent_run_failed",
                 "agent": agent_out,
                 "segment": "IMPLEMENT_SLICE",
+                "resume_from": "agent",
+            }
+
+        # Exit Success = evidence pack keys == Prefer behavior_keys, each True.
+        # Handoff text / Prefer body / keys_ok stamp do not count.
+        prefer_keys = list(align.context.get("behavior_keys") or [])
+        evidence_pack = agent_out.get("evidence_pack")
+        if not isinstance(evidence_pack, dict):
+            evidence_pack = agent_out.get("behavior_key_evidence")
+        ev_ok, ev_violations = evaluate_behavior_key_evidence(prefer_keys, evidence_pack)
+        if not ev_ok:
+            release_lane_job(vault_root, job, ok=False)
+            mstate = mark_jam(
+                mstate,
+                machine="agent",
+                error="behavior_key_evidence_failed",
+                agent_log_path=agent_out.get("log_path"),
+            )
+            _persist_state(vault_root, mstate)
+            return {
+                "ok": False,
+                "id": eid,
+                "slice_id": slice_id,
+                "lane_id": lane_id,
+                "error": "behavior_key_evidence_failed",
+                "evidence_violations": ev_violations,
+                "agent": agent_out,
+                "prefer_align": align.to_dict(),
+                "segment": "IMPLEMENT_SLICE",
+                "hard_block": True,
                 "resume_from": "agent",
             }
 

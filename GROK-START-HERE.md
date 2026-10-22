@@ -59,6 +59,7 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
 | Project engine / lanes / probes / host-law | **`project/<id>`:** `Factory-DRB/bindings/` (`identity`, `engine`, `lanes`, `proof-catalog`, `host-law`, `legacy-refuse`) |
 | Harness resolve / denylist / proof ops | **`main`:** `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `tests/test_harness_product_denylist.py` |
+| Prefer-align gate | **`main`:** `weave/factory/prefer_align.py` · `tests/test_prefer_align_eat.py` · live eat blocks before agent |
 | Half B contract / single-seat check | **`main`:** `Docs/HALF-B-CONTRACT.md` · `tests/test_implementation_single_seat.py` · `lane_factories.dispatch_slice_lanes` · `implementation_handoff.py` · `review_seats.run_integration_pass` |
 | Pass 4 eat-path fail-closed audit | **`main`:** `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` · `prefer_authorship_contract.py` · `operator_feedback.py` · `closed_alpha_passes.py` · `engine_preflight.py` · `implementation_handoff.py` · `lane_agent_registry.py` · `tests/test_blank_project_contract_eat.py` · denylist `PASS4_TOKENS` · **`project/genesis-mythos-master`:** bindings (`host-law` empty, `required_playtest_ids: []`, `build_command: ''`) |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |

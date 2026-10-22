@@ -19,6 +19,9 @@ from .host_law import (
     matching_refuse_codes,
 )
 
+# Prefer packet owns do_not_waive. No baked product refuse catalog in harness.
+PRODUCT_PREFER_DO_NOT_WAIVE: tuple[str, ...] = ()
+
 
 def load_armed_packet(vault_root: Path, job: dict[str, Any] | None) -> dict[str, Any]:
     path_s = str((job or {}).get("armed_packet_path") or "").strip()
