@@ -1046,14 +1046,20 @@ Path (binding, in order — do not skip):
 2) Gate B₁ Prefer hostile → map_fidelity_hostile_ok: true
    STOP if B₁ fails. Do not greenlight. Do not weld.
 3) STOP for operator GREENLIGHT WELD (explicit). No weld without it.
-4) Weld LIVE (factory path only — named live_write_target)
-5) Gate B₂ weld intent hostile → weld_intent_hostile_ok: true
+4) Prefer-align (factory eat preflight before the implementation seat)
+   Prefer ↔ identity / factory-project. Writes nothing. Does not rewrite Prefer or point configs.
+   Empty behavior_keys, unnamed entries, host-law cite with empty host_law_ids,
+   factory-project game_repo_path disagreeing with identity/Prefer, or umbrella pointing
+   elsewhere → block. STOP if Prefer-align fails. Do not run the seat.
+5) Weld LIVE (factory path only — named live_write_target; after Prefer-align ok)
+6) Gate B₂ weld intent hostile → weld_intent_hostile_ok: true
    Evidence = behavior (required keys for ticket class). Tags/logs may indict, never acquit.
-   Bare weld_intent_hostile_ok stamp = fail. B₂ must not rewrite Prefer Success.
+   Bare weld_intent_hostile_ok stamp = fail. Implementer {{key: true}} / agent evidence_pack = fail.
+   Eat Success uses evaluate_behavior_evidence only (pass_basis: behavior). B₂ must not rewrite Prefer Success.
    STOP if B₂ fails → rework weld, re-run B₂. Do not ask for F5.
-6) STOP for operator F5 (feel). No KEEP / ask_success / next_world_armed without F5.
-7) After F5 pass: stamp map ticket Status → f5_good; bump map updated.
-   KEEP / pointer only if A + B₁ + B₂ + F5 (and map law).
+7) STOP for operator F5 (feel). No KEEP / ask_success / next_world_armed without F5.
+8) After F5 pass: stamp map ticket Status → f5_good; bump map updated.
+   KEEP / pointer only if A + B₁ + Prefer-align + B₂ + F5 (and map law).
 
 Defaults:
 - Default factory. Chat LIVE hotfix = STOP and ASK \"Skip factory Prefer+hostile and weld in chat?\"

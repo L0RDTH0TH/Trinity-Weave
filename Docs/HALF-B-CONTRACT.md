@@ -44,9 +44,12 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 - Empty `behavior_keys` → block.
 - Host-law cite (incl. `locks.*.law_cite` / `prefer_law`) while `host_law_ids` empty → block.
 - Topology arm only via `topology_law: true` (refuse names are not arms).
-- Entry Prefer did not name → block. No product scene names in the gate module.
+- Live runner **discovers** files under the write target and passes them as `observed_entries`. Empty `allowed_entries` + any discovered entry → block. No product scene names in the gate module.
 - `factory-project.yaml` `game_repo_path` disagreeing with identity/Prefer → block.
-- Exit Success = post-seat evidence pack: keys equal Prefer `behavior_keys`, each true. Handoff text / `keys_ok` stamp do not count.
+
+## Exit Success (one path)
+
+After the agent, eat Success is **only** `prefer_weld_intent.evaluate_behavior_evidence` (`pass_basis: behavior`). Implementer `{key: true}` / agent `evidence_pack` fails (`agent_sourced`). Bare `weld_intent_hostile_ok` stamp fails. Empty proof catalog → stay red. Do not keep a second key-stamp exit checker. Do not write the B₂ stamp from the eat.
 
 ## Tip claim
 

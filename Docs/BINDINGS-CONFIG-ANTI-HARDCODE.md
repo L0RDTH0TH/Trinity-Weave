@@ -38,6 +38,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 5 | `c25a447` | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
 | 6 | `e60fdff` | Prefer-align fail-closed + exit evidence pack = `behavior_keys` each true; live eat calls align before agent; blank fixture. **Not GREENLIGHT.** |
 | 6b | `d50c3bb` (project) | Genesis Prefer/identity scrub so r2 can pass Prefer-align: empty `game_repo_path`, `host_law_ids: []`, cites/stamp/umbrella cleared. **Not GREENLIGHT.** |
+| 7 | *(this tip)* | Discover write-target entries into Prefer-align; exit Success = `evaluate_behavior_evidence` only (reject agent-sourced pack). **Not GREENLIGHT. Re-run B₁ before any ticket.** |
 
 ## Genesis is a consumer
 
@@ -54,3 +55,7 @@ After Pass 5 Tip A the factory can dispatch **one** seat whose handoff is Prefer
 ## Pass 6 tip claim
 
 Prefer-align blocks dispatch when Prefer and project config disagree; exit Success is an evidence pack for Prefer `behavior_keys` only. No Prefer rewrite. No GREENLIGHT. Tip B (Genesis Prefer/identity scrub) follows on the project branch after this tip is on `origin/main`.
+
+## Pass 7 tip claim
+
+Live runner discovers write-target files into Prefer-align. Exit Success is **only** B₂ `evaluate_behavior_evidence` (`pass_basis: behavior`); agent `{key: true}` fails. Empty proof catalog stays red. **Not GREENLIGHT.** Re-run Gate B₁ on scrubbed r2 before any GREENLIGHT.

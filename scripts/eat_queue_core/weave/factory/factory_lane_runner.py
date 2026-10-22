@@ -372,7 +372,8 @@ def run_factory_lane_job(
 
     # Prefer-align fail-closed — before agent. Writes nothing. Prefer is source of truth.
     from .prefer_align import (
-        evaluate_behavior_key_evidence,
+        discover_write_target_entries,
+        resolve_write_target_rel,
         run_prefer_align,
     )
     from .prefer_authorship_contract import load_armed_packet
@@ -380,9 +381,22 @@ def run_factory_lane_job(
     armed = load_armed_packet(vault_root, job)
     if not armed and params.get("armed_packet_path"):
         armed = load_armed_packet(vault_root, {"armed_packet_path": params.get("armed_packet_path")})
-    observed = params.get("observed_entries") or job.get("observed_entries") or []
-    if not isinstance(observed, list):
-        observed = []
+    # Discover entries in the write target — empty allowed_entries + any file blocks.
+    # Do not trust a caller-empty observed_entries to hide product files.
+    write_rel = resolve_write_target_rel(
+        vault_root, armed=armed, project_id=project_id
+    )
+    discovered = discover_write_target_entries(vault_root, write_rel)
+    caller_obs = params.get("observed_entries") or job.get("observed_entries") or []
+    if not isinstance(caller_obs, list):
+        caller_obs = []
+    observed = sorted(
+        {
+            str(x).strip()
+            for x in list(discovered) + list(caller_obs)
+            if str(x).strip()
+        }
+    )
     umbrella = str(
         params.get("umbrella_slice_id")
         or job.get("umbrella_slice_id")
@@ -392,7 +406,7 @@ def run_factory_lane_job(
         vault_root,
         armed=armed,
         project_id=project_id,
-        observed_entries=[str(x) for x in observed if x],
+        observed_entries=observed,
         umbrella_slice_id=umbrella,
     )
     if not align.ok:
@@ -649,19 +663,24 @@ def run_factory_lane_job(
                 "resume_from": "agent",
             }
 
-        # Exit Success = evidence pack keys == Prefer behavior_keys, each True.
-        # Handoff text / Prefer body / keys_ok stamp do not count.
-        prefer_keys = list(align.context.get("behavior_keys") or [])
-        evidence_pack = agent_out.get("evidence_pack")
-        if not isinstance(evidence_pack, dict):
-            evidence_pack = agent_out.get("behavior_key_evidence")
-        ev_ok, ev_violations = evaluate_behavior_key_evidence(prefer_keys, evidence_pack)
-        if not ev_ok:
+        # Exit Success = one path only: prefer_weld_intent.evaluate_behavior_evidence.
+        # Implementer return dict is never evidence. Empty proof catalog → stay red.
+        # Do not write weld_intent_hostile_ok from the eat. Bare stamp still fails.
+        from .prefer_map_fidelity import load_prefer_result
+        from .prefer_weld_intent import (
+            _extract_evidence_pack,
+            evaluate_behavior_evidence,
+        )
+
+        agent_self = agent_out.get("evidence_pack")
+        if not isinstance(agent_self, dict):
+            agent_self = agent_out.get("behavior_key_evidence")
+        if isinstance(agent_self, dict) and agent_self:
             release_lane_job(vault_root, job, ok=False)
             mstate = mark_jam(
                 mstate,
                 machine="agent",
-                error="behavior_key_evidence_failed",
+                error="weld_intent_evidence_failed",
                 agent_log_path=agent_out.get("log_path"),
             )
             _persist_state(vault_root, mstate)
@@ -670,8 +689,40 @@ def run_factory_lane_job(
                 "id": eid,
                 "slice_id": slice_id,
                 "lane_id": lane_id,
-                "error": "behavior_key_evidence_failed",
-                "evidence_violations": ev_violations,
+                "error": "weld_intent_evidence_failed",
+                "evidence_violations": ["weld_intent:agent_sourced_evidence_pack"],
+                "agent": agent_out,
+                "prefer_align": align.to_dict(),
+                "segment": "IMPLEMENT_SLICE",
+                "hard_block": True,
+                "resume_from": "agent",
+            }
+
+        prefer_result = load_prefer_result(vault_root, slice_id) if slice_id else None
+        evidence_pack = _extract_evidence_pack(prefer_result, None)
+        beh = evaluate_behavior_evidence(
+            evidence_pack,
+            armed=armed if isinstance(armed, dict) else None,
+            prefer_result=prefer_result if isinstance(prefer_result, dict) else None,
+            vault_root=vault_root,
+        )
+        if not beh.ok:
+            release_lane_job(vault_root, job, ok=False)
+            mstate = mark_jam(
+                mstate,
+                machine="agent",
+                error="weld_intent_evidence_failed",
+                agent_log_path=agent_out.get("log_path"),
+            )
+            _persist_state(vault_root, mstate)
+            return {
+                "ok": False,
+                "id": eid,
+                "slice_id": slice_id,
+                "lane_id": lane_id,
+                "error": "weld_intent_evidence_failed",
+                "evidence_violations": list(beh.violations),
+                "weld_intent": beh.as_dict(),
                 "agent": agent_out,
                 "prefer_align": align.to_dict(),
                 "segment": "IMPLEMENT_SLICE",

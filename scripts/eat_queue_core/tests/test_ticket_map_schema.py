@@ -145,6 +145,8 @@ def test_prefer_join_and_prompt():
     prompt = build_factory_weld_prompt(map_doc=alpha, ticket=ticket, prefer=prefer)
     assert "FACTORY GREENLIGHT WELD — ALPHA-open" in prompt
     assert "Gate B₁" in prompt and "Gate B₂" in prompt
+    assert "Prefer-align" in prompt
+    assert "Writes nothing" in prompt
     assert "alpha_open_r1" in prompt
     assert "GREENLIGHT WELD" in prompt
 

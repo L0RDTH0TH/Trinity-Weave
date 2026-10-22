@@ -141,54 +141,53 @@ def _load_factory_project_game_repo(vault_root: Path, project_id: str) -> str | 
     return str(raw).strip().strip("/")
 
 
-def evaluate_behavior_key_evidence(
-    prefer_keys: list[str],
-    evidence_pack: dict[str, Any] | None,
-) -> tuple[bool, list[str]]:
-    """Exit Success: evidence pack keys == prefer_keys and each value is True.
+def discover_write_target_entries(
+    vault_root: Path, write_target: str | None
+) -> list[str]:
+    """List non-dot files under Prefer/identity write target (relative paths).
 
-    Handoff text, Prefer body, and keys_ok stamps are not evidence.
+    No product nouns. Empty target → []. Caller passes this list as
+    ``observed_entries`` so unnamed entries block when Prefer names none.
     """
-    violations: list[str] = []
-    if not prefer_keys:
-        return False, ["behavior_keys_empty"]
-    if not isinstance(evidence_pack, dict):
-        return False, ["evidence_pack_missing"]
-    # Reject boolean stamp masquerading as pack.
-    if evidence_pack.get("keys_ok") is True and set(evidence_pack.keys()) <= {
-        "keys_ok",
-        "ok",
-        "detail",
-    }:
-        return False, ["evidence_pack_keys_ok_stamp_rejected"]
-    want = set(prefer_keys)
-    # Only consider key→bool attestations (ignore metadata fields).
-    got_true = {
-        str(k)
-        for k, v in evidence_pack.items()
-        if str(k) in want and v is True
-    }
-    got_any = {str(k) for k in evidence_pack.keys() if str(k) in want}
-    missing = sorted(want - got_true)
-    extras = sorted(
-        str(k)
-        for k, v in evidence_pack.items()
-        if str(k) not in want
-        and str(k) not in {"ok", "detail", "source", "notes"}
-        and v is True
-    )
-    if missing:
-        violations.append("evidence_keys_not_all_true:" + ",".join(missing))
-    if extras:
-        violations.append("evidence_keys_extra:" + ",".join(extras))
-    if got_any != want and not missing:
-        # present but not all True already covered; if some False:
-        false_keys = sorted(
-            str(k) for k in want if evidence_pack.get(k) is not True
-        )
-        if false_keys:
-            violations.append("evidence_keys_false:" + ",".join(false_keys))
-    return len(violations) == 0, violations
+    rel = str(write_target or "").strip().strip("/")
+    if not rel:
+        return []
+    root = (vault_root / rel).resolve()
+    vault = vault_root.resolve()
+    try:
+        root.relative_to(vault)
+    except ValueError:
+        return []
+    if not root.is_dir():
+        return []
+    found: list[str] = []
+    for path in sorted(root.rglob("*")):
+        if not path.is_file():
+            continue
+        name = path.name
+        if name.startswith("."):
+            continue
+        found.append(path.relative_to(root).as_posix())
+    return found
+
+
+def resolve_write_target_rel(
+    vault_root: Path,
+    *,
+    armed: dict[str, Any] | None,
+    project_id: str,
+) -> str:
+    """Prefer live_write_target, else identity game_repo_path. No silent heal."""
+    armed = armed if isinstance(armed, dict) else {}
+    live = str(armed.get("live_write_target") or "").strip().strip("/")
+    if live:
+        return live
+    from .bindings import BindingMissingError, game_repo_path as bind_game_repo
+
+    try:
+        return str(bind_game_repo(vault_root, project_id) or "").strip().strip("/")
+    except BindingMissingError:
+        return ""
 
 
 def run_prefer_align(

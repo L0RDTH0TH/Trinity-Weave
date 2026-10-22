@@ -569,6 +569,19 @@ def evaluate_behavior_evidence(
     violations: list[str] = []
     warnings: list[str] = []
 
+    # Implementer / agent self-attestation is not Success evidence.
+    src = str(pack.get("source") or pack.get("evidence_source") or "").strip().lower()
+    if src in {
+        "agent",
+        "implementer",
+        "implementation_agent",
+        "implementation",
+        "lane_agent",
+        "seat",
+        "self",
+    }:
+        violations.append("weld_intent:agent_sourced_evidence_pack")
+
     pass_basis = pass_basis_candidate
     if pass_basis in _FORBIDDEN_PASS_MODES:
         violations.append(f"weld_intent:forbidden_pass_basis:{pass_basis}")
