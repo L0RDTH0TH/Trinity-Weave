@@ -38,7 +38,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 5 | `c25a447` | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
 | 6 | `e60fdff` | Prefer-align fail-closed + exit evidence pack = `behavior_keys` each true; live eat calls align before agent; blank fixture. **Not GREENLIGHT.** |
 | 6b | `d50c3bb` (project) | Genesis Prefer/identity scrub so r2 can pass Prefer-align: empty `game_repo_path`, `host_law_ids: []`, cites/stamp/umbrella cleared. **Not GREENLIGHT.** |
-| 7 | *(this tip)* | Discover write-target entries into Prefer-align; exit Success = `evaluate_behavior_evidence` only (reject agent-sourced pack). **Not GREENLIGHT. Re-run B₁ before any ticket.** |
+| 7 | `cf36166` | Discover write-target entries into Prefer-align; exit Success = `evaluate_behavior_evidence` only (reject agent-sourced pack). **Not GREENLIGHT. Re-run B₁ before any ticket.** |
 
 ## Genesis is a consumer
 
