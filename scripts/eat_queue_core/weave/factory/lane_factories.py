@@ -64,6 +64,10 @@ def enrich_job_from_charter(vault_root: Path, job: dict[str, Any]) -> dict[str, 
     return job
 
 
+# Prefer silent on lanes → one seat. Not a catalog id. Not looked up in LANE_AGENTS.
+SINGLE_SEAT_ID = "implementation"
+
+
 def build_lane_job(
     vault_root: Path,
     *,
@@ -71,6 +75,17 @@ def build_lane_job(
     slice_id: str,
     game_repo_rel: str,
 ) -> LaneDispatchJob | None:
+    if lane_id == SINGLE_SEAT_ID:
+        return LaneDispatchJob(
+            lane_id=SINGLE_SEAT_ID,
+            factory_name="Implementation",
+            primary_artifact="",
+            slice_id=slice_id,
+            zone_write=(),
+            agent_mode="IMPLEMENT_SLICE",
+            checklist_ids=(),
+            game_repo_rel=game_repo_rel,
+        )
     charter = load_lane_charter(vault_root, lane_id)
     if charter is None:
         return None
@@ -99,8 +114,21 @@ def dispatch_slice_lanes(
     lane_ids: tuple[str, ...],
     game_repo_rel: str,
 ) -> list[LaneDispatchJob]:
+    """Prefer-named lanes only. Empty Prefer lane list → exactly one seat.
+
+    Does **not** iterate project ``lanes.yaml`` / LANE_AGENTS when Prefer is silent.
+    """
+    ids = tuple(str(x).strip() for x in lane_ids if str(x).strip())
+    if not ids:
+        job = build_lane_job(
+            vault_root,
+            lane_id=SINGLE_SEAT_ID,
+            slice_id=slice_id,
+            game_repo_rel=game_repo_rel,
+        )
+        return [job] if job is not None else []
     jobs: list[LaneDispatchJob] = []
-    for lid in lane_ids:
+    for lid in ids:
         job = build_lane_job(
             vault_root, lane_id=lid, slice_id=slice_id, game_repo_rel=game_repo_rel
         )

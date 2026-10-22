@@ -64,6 +64,7 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | Mint / walk for a named project | **`main` (system):** catalog_mint + pack walk queue · **`project/<id>` (served):** PMG + Roadmap grounding |
 | Project engine / lanes / probes / host-law | **`project/<id>`:** `Factory-DRB/bindings/` (`identity`, `engine`, `lanes`, `proof-catalog`, `host-law`, `legacy-refuse`) |
 | Harness resolve / denylist / proof ops | **`main`:** `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `tests/test_harness_product_denylist.py` |
+| Half B contract / single-seat check | **`main`:** `Docs/HALF-B-CONTRACT.md` · `tests/test_implementation_single_seat.py` · `lane_factories.dispatch_slice_lanes` · `implementation_handoff.py` · `review_seats.run_integration_pass` |
 | Pass 4 eat-path fail-closed audit | **`main`:** `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` · `prefer_authorship_contract.py` · `operator_feedback.py` · `closed_alpha_passes.py` · `engine_preflight.py` · `implementation_handoff.py` · `lane_agent_registry.py` · `tests/test_blank_project_contract_eat.py` · denylist `PASS4_TOKENS` · **`project/genesis-mythos-master`:** bindings (`host-law` empty, `required_playtest_ids: []`, `build_command: ''`) |
 | Weave cards / host-weld / harness | `weave/components/`, `weave/component-proposals/` |
 | Gate B₂ weld intent (Prefer vs LIVE) | `Docs/Gate-B2-Weld-Intent-Hostile.md` + `Docs/Skills/prefer-weld-intent-validate/` · project Prefer law on `project/<id>` |
@@ -90,6 +91,8 @@ Bone pilot / Cursor must **publish** pack updates here for Grok to see them. Sta
 | `Factory-DRB/bindings/` on `project/<id>` | Project-owned identity / engine / lanes / proof-catalog / host-law |
 | `Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md` | Anti-hardcode law + Pass 1–4 publish tips (Pass 4 = refuse-demo, not functional line) |
 | `scripts/eat_queue_core/tests/test_blank_project_contract_eat.py` | Pass 4 blank-project contract eat (bind + handoff + empty build preflight) |
+| `Docs/HALF-B-CONTRACT.md` | Pass 5 Half B what→check contract (no method inputs) |
+| `scripts/eat_queue_core/tests/test_implementation_single_seat.py` | Pass 5 single-seat + keys-from-packet + empty-build integration |
 | `Docs/Gate-B2-Weld-Intent-Hostile.md` | **Gate B₂** rubric + three Grok guards + validator shape |
 | `Docs/Skills/prefer-weld-intent-validate/` | Published B₂ hostile skill |
 | `scripts/prefer_weld_intent_check.py` | B₂ CLI / receipt latch |

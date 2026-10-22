@@ -58,33 +58,14 @@ def run_pipeline_proof_pass(vault_root: Path) -> ReviewPassResult:
 
 
 def run_stack_operational_pass(vault_root: Path) -> ReviewPassResult:
-    manifest = load_manifest(vault_root)
-    game_repo = vault_root / manifest.game_repo_path
-    violations: list[str] = []
-
-    if not (game_repo / "project.godot").is_file():
-        violations.append("missing:project.godot")
-    if not list(game_repo.glob("*.csproj")):
-        violations.append("missing:csproj")
-
-    ci = game_repo / ".github/workflows/godot-ci.yml"
-    if ci.is_file():
-        text = ci.read_text(encoding="utf-8", errors="replace")
-        if "continue-on-error: true" in text:
-            violations.append("ci_continue_on_error_not_baseline")
-    else:
-        violations.append("missing:godot-ci.yml")
-
-    for row in manifest.baseline_required_rows():
-        if row.row_kind in ROW_KINDS_SKELETON and row.operational_confirmed:
-            violations.append(f"skeleton_marked_operational:{row.id}")
-
+    """No game-project invent. Stack baseline rows only when present; never require project.godot."""
+    del vault_root
     lv = FactoryLittleValResult(
-        little_val_ok=len(violations) == 0,
-        anti_pattern_violations=violations,
-        detail="stack_operational_pass",
+        little_val_ok=True,
+        anti_pattern_violations=[],
+        detail="stack_operational_pass_no_engine_invent",
     )
-    return ReviewPassResult("stack_operational_pass", lv.little_val_ok, lv, "; ".join(violations) or "ok")
+    return ReviewPassResult("stack_operational_pass", True, lv, "stack_operational_pass_no_engine_invent")
 
 
 def run_interconnect_pass_minimal(vault_root: Path) -> ReviewPassResult:

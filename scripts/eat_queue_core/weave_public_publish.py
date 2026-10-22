@@ -51,6 +51,7 @@ DEFAULT_INCLUDE_PATHS: tuple[str, ...] = (
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.md",
     "3-Resources/Second-Brain/Docs/Grok-Bridge-Status.json",
     "3-Resources/Second-Brain/Docs/BINDINGS-CONFIG-ANTI-HARDCODE.md",
+    "3-Resources/Second-Brain/Docs/HALF-B-CONTRACT.md",
     # Product-mode docs stay off main allowlist (Pass 3/4) — project branch only.
     "3-Resources/Second-Brain/Docs/MCP-Playtest-WalkLook.md",
     "3-Resources/Second-Brain/Docs/Gate-B2-Weld-Intent-Hostile.md",
@@ -117,6 +118,7 @@ DEFAULT_TEST_GLOBS: tuple[str, ...] = (
     "scripts/eat_queue_core/tests/test_bindings_resolve.py",
     "scripts/eat_queue_core/tests/test_proof_runner.py",
     "scripts/eat_queue_core/tests/test_blank_project_contract_eat.py",
+    "scripts/eat_queue_core/tests/test_implementation_single_seat.py",
 )
 
 

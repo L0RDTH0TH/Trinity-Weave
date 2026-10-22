@@ -13,7 +13,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 
 | Branch | What Grok should read |
 |--------|------------------------|
-| `main` | `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `prefer_authorship_contract.py`, `operator_feedback.py` (`required_playtest_ids`), `closed_alpha_passes.py`, `engine_preflight.py`, `implementation_handoff.py`, `lane_agent_registry.py`, `tests/test_harness_product_denylist.py` (Pass-4 tokens), `tests/test_bindings_resolve.py`, `tests/test_proof_runner.py`, `tests/test_blank_project_contract_eat.py` |
+| `main` | `scripts/eat_queue_core/weave/factory/bindings.py`, `proof_runner.py`, `host_law.py`, `prefer_authorship_contract.py`, `operator_feedback.py` (`required_playtest_ids`), `closed_alpha_passes.py`, `engine_preflight.py`, `implementation_handoff.py`, `lane_agent_registry.py`, `tests/test_harness_product_denylist.py` (Pass-4 tokens), `tests/test_bindings_resolve.py`, `tests/test_proof_runner.py`, `tests/test_blank_project_contract_eat.py`, `tests/test_implementation_single_seat.py`, `Docs/HALF-B-CONTRACT.md` |
 | `project/<project_id>` | `Factory-DRB/bindings/{identity,engine,lanes,proof-catalog,host-law,legacy-refuse}.yaml` — Genesis tip: `host-law` `entries: []`, `proof-catalog.required_playtest_ids: []`, `engine.build_command: ''`, `identity.queue_lane` set |
 
 ## Rules (locked)
@@ -35,6 +35,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 2 | `5ebe2d0` | `proof_runner`; delete `LANE_ADAPTER` / baked checklists; `half_b` purge; Pass-2 denylist |
 | 3 | `46183b0` (+ project `b847329`) | `host_law` evaluator; Half-B docs off main allowlist; Genesis bindings consumer on `project/genesis-mythos-master` |
 | 4 | `7b39fc9` (+ project `c5732fa`) | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
+| 5 | *(this tip)* | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
 
 ## Genesis is a consumer
 
@@ -43,3 +44,7 @@ Harness tests use a blank **fixture-project** id synthesized in tests — not Ge
 ## Pass 4 tip claim
 
 After Pass 4 the factory can **refuse a demo injection**. It does **not** claim a working production line from feedstock to a Genesis capability. Feedstock→Genesis remains a later fixture, then r2 — not this publish. No GREENLIGHT.
+
+## Pass 5 tip claim
+
+After Pass 5 Tip A the factory can dispatch **one** seat whose handoff is Prefer keys only, with no method invent when `build_command` is empty. It does **not** GREENLIGHT, weld, F5, or turn on multi-lane concert. Genesis consumer is Tip B after this tip is on `origin/main`.

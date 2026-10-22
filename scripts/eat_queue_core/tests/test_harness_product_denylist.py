@@ -59,6 +59,17 @@ PASS4_TOKENS: tuple[str, ...] = (
     "resolve_godot_binary",
 )
 
+
+# Pass 5 Tip A — Half B single-seat; same commit that deletes these.
+PASS5_TOKENS: tuple[str, ...] = (
+    "missing:project.godot",
+    "missing:csproj",
+    "missing_systems_or_core",
+    "Restate the UX goal",
+    "Systems/, Core/ integration glue",
+    "play-region runtime",
+)
+
 # Structural — engine/path product shapes outside the one bindings path helper.
 STRUCTURAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("res_uri", re.compile(r"res://")),
@@ -144,6 +155,21 @@ class HarnessProductDenylistTests(unittest.TestCase):
             hits,
             [],
             "Pass-4 denylist tokens still in production:\n" + "\n".join(hits),
+        )
+
+
+    def test_pass5_tokens_absent_from_production(self) -> None:
+        hits: list[str] = []
+        for path in _iter_production_py():
+            text = path.read_text(encoding="utf-8", errors="replace")
+            rel = path.relative_to(SCRIPTS_ROOT).as_posix()
+            for tok in PASS5_TOKENS:
+                if tok in text:
+                    hits.append(f"{rel}:{tok}")
+        self.assertEqual(
+            hits,
+            [],
+            "Pass-5 denylist tokens still in production:\n" + "\n".join(hits),
         )
 
     def test_structural_product_shapes_absent(self) -> None:

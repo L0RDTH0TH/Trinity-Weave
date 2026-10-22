@@ -81,43 +81,63 @@ def run_art_direction_pass(vault_root: Path, *, game_repo_rel: str = "", **_: An
     return _seat("art_direction_pass", ok, violations, "; ".join(violations) or "art_direction_pass_ok")
 
 
-def run_integration_pass(vault_root: Path, *, game_repo_rel: str = "", **_: Any) -> ReviewPassResult:
-    violations: list[str] = []
-    if not game_repo_rel:
-        return _seat("integration_pass", False, ["missing_game_repo"], "missing_game_repo")
-    repo = _repo(vault_root, game_repo_rel)
-    if not (repo / "project.godot").is_file():
-        violations.append("missing:project.godot")
-    csprojs = list(repo.glob("*.csproj"))
-    if not csprojs:
-        violations.append("missing:csproj")
-    else:
-        dotnet = os.environ.get("DOTNET_ROOT", str(Path.home() / ".dotnet"))
-        dotnet_bin = Path(dotnet) / "dotnet" if Path(dotnet).is_dir() else Path("dotnet")
+def run_integration_pass(
+    vault_root: Path,
+    *,
+    game_repo_rel: str = "",
+    project_id: str | None = None,
+    build_command: str | None = None,
+    **_: Any,
+) -> ReviewPassResult:
+    """Keys / build only when engine.build_command is non-empty. No game-project invent."""
+    cmd = (build_command or "").strip()
+    if not cmd and project_id:
         try:
-            r = subprocess.run(
-                [str(dotnet_bin), "build", str(csprojs[0])],
-                cwd=repo,
-                capture_output=True,
-                text=True,
-                timeout=180,
-            )
-            if r.returncode != 0:
-                violations.append("dotnet_build_fail")
-        except (subprocess.TimeoutExpired, OSError) as e:
-            violations.append(f"dotnet_build_error:{e}")
-    ok = not violations
-    return _seat("integration_pass", ok, violations, "; ".join(violations) or "integration_pass_ok")
+            from .bindings import resolve as bind_resolve
+
+            cmd = str(
+                bind_resolve(vault_root, project_id, "engine", "build_command") or ""
+            ).strip()
+        except Exception:
+            cmd = ""
+    if not cmd:
+        # Empty build_command → do not look for project.godot / csproj / dotnet / binary.
+        return _seat(
+            "integration_pass",
+            True,
+            [],
+            "integration_pass_skipped_empty_build_command",
+        )
+    # Non-empty build_command: run via engine preflight argv only (no invent path).
+    from ..engine_preflight import run_engine_preflight
+
+    rel = (game_repo_rel or "").strip()
+    if not rel:
+        return _seat("integration_pass", False, ["missing_game_repo"], "missing_game_repo")
+    out = run_engine_preflight(
+        vault_root,
+        rel,
+        project_id=project_id,
+        build_command=cmd,
+    )
+    violations = [
+        f"build_command_fail:{c.get('detail') or c.get('error') or c.get('check')}"
+        for c in (out.get("checks") or [])
+        if isinstance(c, dict) and c.get("status") == "fail"
+    ]
+    ok = bool(out.get("ok")) and not violations
+    return _seat(
+        "integration_pass",
+        ok,
+        violations,
+        "; ".join(violations) or "integration_pass_ok",
+    )
 
 
 def run_reliability_pass(vault_root: Path, *, game_repo_rel: str = "", **_: Any) -> ReviewPassResult:
-    violations: list[str] = []
-    if game_repo_rel:
-        repo = _repo(vault_root, game_repo_rel)
-        if not (repo / "Systems").is_dir() and not (repo / "Core").is_dir():
-            violations.append("missing_systems_or_core")
-    ok = not violations
-    return _seat("reliability_pass", ok, violations, "; ".join(violations) or "reliability_pass_ok")
+    # No folder-layout invent (Systems/Core). Prefer keys own the check.
+    del vault_root, game_repo_rel
+    return _seat("reliability_pass", True, [], "reliability_pass_no_layout_invent")
 
 
 TAGGED_STUB_SEATS = frozenset({"perf_pass", "balance_pass", "juice_pass"})

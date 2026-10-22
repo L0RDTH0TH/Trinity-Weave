@@ -34,195 +34,21 @@ class LaneAgentSpec:
         job: dict[str, Any],
         goal_packet: dict[str, Any] | None,
     ) -> str:
-        vault_root = vault_root.resolve()
-        from ..implementation_handoff import _mission_first_block
+        """Keys-only handoff — does not invent method from baked produces."""
+        del self, repo_rel, slice_id
+        from ..implementation_handoff import build_implementation_handoff
 
-        hints = (goal_packet or {}).get("planner_hints") or {}
-        zone_write = job.get("zone_write") or []
-        checklists = job.get("checklist_ids") or []
-        drb_ref = str(job.get("drb_ref") or "")
-        drop_manifest = DROP_CONTRACTS.get(self.drop_contract, "")
-        mission_block = _mission_first_block(vault_root, job)
-        prefer_block = ""
-        overlay_brief = str(job.get("overlay_brief_path") or "")
-        armed_packet = str(job.get("armed_packet_path") or "")
-        prefer_proof = str(job.get("prefer_proof") or "")
-        ask_id = str(job.get("ask_id") or "")
-        if overlay_brief or armed_packet or prefer_proof:
-            from .prefer_authorship_contract import (
-                authorship_overlay_markdown,
-                slice_requires_prefer_authorship,
-            )
-
-            prefer_excerpt = ""
-            if overlay_brief:
-                bp = vault_root / overlay_brief
-                if bp.is_file():
-                    prefer_excerpt = bp.read_text(encoding="utf-8", errors="replace")[:2800]
-            prefer_block = (
-                f"\n## Prefer overlay (hand-off law — MUST load)\n"
-                f"- **ask_id:** `{ask_id or '(see brief)'}`\n"
-                f"- **overlay_slice_id:** `{job.get('overlay_slice_id') or ''}`\n"
-                f"- **brief:** `{overlay_brief}`\n"
-                f"- **armed packet:** `{armed_packet}`\n"
-                f"- **prefer_proof:** {prefer_proof or '(see brief done_when)'}\n"
-                f"- **do_not_waive:** `{job.get('do_not_waive')}`\n"
-                f"- **waive_shell_era_seats:** `{job.get('waive_shell_era_seats')}` "
-                f"(shell-era only — **cannot** silence prefer_authorship_pass)\n"
-                f"- **Hostile Prefer (Gate B₁)** required before any Success claim "
-                f"(staging or KEEP) pre-GREENLIGHT — mechanical Gate A alone never greens; "
-                f"`VALIDATE prefer_map_fidelity` → `map_fidelity_hostile_ok`\n"
-                f"- **Weld intent (Gate B₂)** after GREENLIGHT → weld LIVE — Prefer "
-                f"Success painting brief vs LIVE Play-path; logs/tags indict only; "
-                f"`VALIDATE prefer_weld_intent` → `weld_intent_hostile_ok`; B₂ does "
-                f"**not** rewrite Prefer Success\n"
-                f"- Operator F5 = feel / intended behavior, not Prefer shape or tags; "
-                f"Gate B₁ blocks `intent_collapsed_to_mechanics`\n"
-                f"- **Chat default = factory.** Before hotfix / direct LIVE skip of "
-                f"Prefer: STOP and ASK operator to skip factory; only on explicit yes; "
-                f"receipt `factory_bypass: true` + ack quote; never stamp "
-                f"`factory_greenlit: true` on bypass; greenlit/Success without B₂ = fail\n\n"
-            )
-            if slice_requires_prefer_authorship(slice_id, job):
-                prefer_block += authorship_overlay_markdown(slice_id=slice_id) + "\n"
-            if prefer_excerpt:
-                prefer_block += f"### Prefer brief excerpt\n{prefer_excerpt}\n\n"
-        zone_block = (
-            "\n".join(f"- `{repo_rel.rstrip('/')}/{z}`" for z in zone_write)
-            if zone_write
-            else f"- Only paths under `{repo_rel}` matching lane `{self.lane_id}` zone"
-        )
-        checklist_block = (
-            "\n".join(f"- `{c}`" for c in checklists) if checklists else "- (usability DRB checklist IDs)"
-        )
-        consume_block = (
-            "\n".join(f"- `{c}` drop contract must exist before you integrate" for c in self.consumes)
-            if self.consumes
-            else "- No upstream drop required for this lane"
-        )
-        verify_block = "\n".join(f"- `{v}`" for v in self.verify_steps)
-
-        return (
-            f"# Implementation Factory — **{self.factory_name}** lane agent\n\n"
-            f"You are agent **`{self.lane_id}`** inside the **Implementation Factory** "
-            f"(not a roadmap item — a factory worker).\n\n"
-            f"| Field | Value |\n|-------|-------|\n"
-            f"| Vault | `{vault_root}` |\n"
-            f"| Queue lane | `{queue_lane}` |\n"
-            f"| Factory lane | `{self.lane_id}` |\n"
-            f"| Slice | `{slice_id}` |\n"
-            f"| MCP adapter | `{self.mcp_adapter}` |\n"
-            f"| Engine | `{self.engine_adapter}` |\n"
-            f"| Drop contract | `{self.drop_contract.upper()}` → `{repo_rel}/{drop_manifest}` |\n\n"
-            f"{mission_block}"
-            f"{prefer_block}"
-            f"## Produce\n{self.produces}\n\n"
-            f"## Consume (drops only — no cross-zone edits)\n{consume_block}\n\n"
-            f"## Zone write (ONLY these paths)\n{zone_block}\n\n"
-            f"## DRB\n`{drb_ref or 'see lane charter'}`\n\n"
-            f"## Kinesthetic checklist IDs (operator confirms — you design for them)\n{checklist_block}\n\n"
-            f"## Post-work verification (factory will run)\n{verify_block}\n\n"
-            f"## Hard rules\n"
-            f"- **No** claiming Success without real artifacts in zone + drop manifest update\n"
-            f"- **No** Q3 graybox / demo acceptance copy on play path\n"
-            f"- **No** `.cursor/rules/**` edits\n"
-            f"- **No** RESUME_ROADMAP / roadmap deepen\n"
-            f"- Module lane: integrate via drops only — never rewrite `assets/` or `content/` roots\n"
-            f""
-            f"- Build only when engine.yaml build_command is non-empty\n\n"
-            f"## Runtime logging (factory bus)\n"
-            f"- Emit factory bus logs on state transitions and checklist boundaries\n"
-            f"- **Forbidden:** seat-critical events via raw print-only (fail-visible degrade anti-pattern)\n"
-            f"- Map touched checklist IDs to explicit log emissions at boundaries\n\n"
-            f"## Report on finish\n"
-            f"List every file changed (repo-relative), drop IDs registered, and build result."
+        entry = {"params": dict(job) if isinstance(job, dict) else {}}
+        return build_implementation_handoff(
+            vault_root,
+            lane=queue_lane or "implementation",
+            entry=entry,
+            charter={},
+            goal_packet=goal_packet,
         )
 
 
-LANE_AGENTS: dict[str, LaneAgentSpec] = {
-    "asset": LaneAgentSpec(
-        lane_id="asset",
-        factory_name="AssetContent",
-        engine_adapter="blender_mcp",
-        mcp_adapter="blender :9876",
-        drop_contract="adc",
-        produces="Meshes, rigs, GLTF exports, env kit scenes under assets/; register ADC manifest rows.",
-        consumes=(),
-        verify_steps=("adc_manifest_has_drops", "structure_pass", "compliance_pass"),
-        default_review_passes=("structure_pass", "compliance_pass", "art_direction_pass"),
-    ),
-    "techart": LaneAgentSpec(
-        lane_id="techart",
-        factory_name="TechArt",
-        engine_adapter="from_bindings",
-        mcp_adapter="from_bindings",
-        drop_contract="tac",
-        produces="Materials, shaders, LOD rules, import presets under assets/_techart/; TAC manifest.",
-        consumes=("adc",),
-        verify_steps=("tac_manifest_has_drops", "depends_on_adc", "structure_pass"),
-        default_review_passes=("structure_pass", "art_direction_pass", "compliance_pass"),
-    ),
-    "content": LaneAgentSpec(
-        lane_id="content",
-        factory_name="Content",
-        engine_adapter="vault_only",
-        mcp_adapter="vault_only",
-        drop_contract="cdc",
-        produces="World/sim/narrative data, menu-tree YAML, canon refs under content/; CDC + canon-index.",
-        consumes=(),
-        verify_steps=("cdc_manifest_has_drops", "canon_pass", "structure_pass"),
-        default_review_passes=("structure_pass", "interpretation_pass", "canon_pass", "compliance_pass"),
-    ),
-    "presentation": LaneAgentSpec(
-        lane_id="presentation",
-        factory_name="Presentation",
-        engine_adapter="from_bindings",
-        mcp_adapter="from_bindings",
-        drop_contract="pdc",
-        produces="Control scenes, HUD wiring, entry polish; PDC manifest; no sim logic in UI.",
-        consumes=("cdc",),
-        verify_steps=("pdc_manifest_has_drops", "depends_on_cdc", "usability_pass", "structure_pass"),
-        default_review_passes=(
-            "interpretation_pass",
-            "structure_pass",
-            "usability_pass",
-            "integration_pass",
-        ),
-    ),
-    "audio": LaneAgentSpec(
-        lane_id="audio",
-        factory_name="Audio",
-        engine_adapter="vault_only",
-        mcp_adapter="vault + optional TTS tooling",
-        drop_contract="audc",
-        produces="SFX/music stems, cue maps, TTS scripts under audio/; AuDC manifest (authored clips v1).",
-        consumes=(),
-        verify_steps=("audc_manifest_has_drops", "narrative_audio_pass", "compliance_pass"),
-        default_review_passes=("structure_pass", "narrative_audio_pass", "compliance_pass"),
-    ),
-    "module": LaneAgentSpec(
-        lane_id="module",
-        factory_name="Module",
-        engine_adapter="from_bindings",
-        mcp_adapter="from_bindings",
-        drop_contract="",
-        produces="Systems/, Core/ integration glue, play-region runtime; consumes ADC/TAC/CDC/PDC/AuDC drops only.",
-        consumes=("adc", "tac", "cdc", "pdc"),
-        verify_steps=(
-            "depends_on_drops",
-            "module_fit_pass",
-            "integration_pass",
-            "build_command_when_set",
-        ),
-        default_review_passes=(
-            "interpretation_pass",
-            "structure_pass",
-            "module_fit_pass",
-            "integration_pass",
-            "reliability_pass",
-        ),
-    ),
-}
+LANE_AGENTS: dict[str, LaneAgentSpec] = {}
 
 
 def get_lane_agent(lane_id: str) -> LaneAgentSpec | None:

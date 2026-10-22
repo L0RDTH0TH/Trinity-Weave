@@ -69,28 +69,12 @@ def _parse_iso(value: Any) -> datetime | None:
 
 
 def slice_requires_implicit_bind(slice_id: str, job: dict[str, Any] | None = None) -> bool:
-    """True when Prefer authorship applies or slice is townscaper / tutorial ladder."""
-    if slice_requires_prefer_authorship(slice_id, job):
-        return True
-    blob = " ".join(
-        [
-            str(slice_id or ""),
-            str((job or {}).get("ask_id") or ""),
-            str((job or {}).get("series_id") or ""),
-            str((job or {}).get("armed_packet_path") or ""),
-        ]
-    ).lower()
-    return any(
-        m in blob
-        for m in (
-            "townscaper",
-            "tutorial_s",
-            "dualgrid",
-            "dual_grid",
-            "occupancy",
-            "worldgen",
-        )
-    )
+    """True only when Prefer lists non-empty host_law_ids (authorship opt-in).
+
+    Substrings (worldgen / occupancy / dual / townscaper) and prefer_authorship
+    flags do **not** arm bind. Topology rewrite stays ``topology_law: true`` only.
+    """
+    return slice_requires_prefer_authorship(slice_id, job)
 
 
 def ask_triggers_topology_rewrite(text: str) -> bool:
