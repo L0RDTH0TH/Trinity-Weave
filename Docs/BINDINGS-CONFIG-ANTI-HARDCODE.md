@@ -35,7 +35,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 2 | `5ebe2d0` | `proof_runner`; delete `LANE_ADAPTER` / baked checklists; `half_b` purge; Pass-2 denylist |
 | 3 | `46183b0` (+ project `b847329`) | `host_law` evaluator; Half-B docs off main allowlist; Genesis bindings consumer on `project/genesis-mythos-master` |
 | 4 | `7b39fc9` (+ project `c5732fa`) | Eat-path fail-closed: `host_law_ids` only; delete closed-alpha release alias; `proof-catalog.required_playtest_ids`; lane from identity; no Godot binary invent; blank-project contract-eat fixture; Half-B pilots off main; Pass-4 denylist. **Refuse demo injection — not a functional feedstock→Genesis line.** |
-| 5 | *(this tip)* | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
+| 5 | `c25a447` | Half B single-seat check: `Docs/HALF-B-CONTRACT.md`; empty Prefer lanes → one `implementation` seat (not catalog); handoff = `behavior_keys` from armed Prefer; `integration_pass` invents nothing when `build_command` empty; bind = `topology_law` + `host_law_ids` only. **Prove the check — not GREENLIGHT / weld / concert.** |
 
 ## Genesis is a consumer
 
