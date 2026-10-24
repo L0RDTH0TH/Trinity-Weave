@@ -189,6 +189,86 @@ _INVARIANT_KEY_RE = re.compile(
     re.I,
 )
 
+# Play-path words in Prefer success text — not allowed on proof_shape: contract
+# when the check is only a yaml/state lookup (anti-demo must not delete the ask).
+_PLAY_PATH_SUCCESS_RE = re.compile(
+    r"\b("
+    r"point(?:s|ed|ing)?(?:\s+at)?|"
+    r"see(?:s|ing)?|"
+    r"watch(?:es|ing)?|"
+    r"look(?:s|ing)?(?:\s+at)?|"
+    r"visible|on[- ]?screen|stay(?:s|ing)?\s+on[- ]?screen|"
+    r"stranger[- ]?watchable|play[- ]?path|"
+    r"\bGM\b.*\bpoint|"
+    r"polygon\s+solid|"
+    r"board\b"
+    r")\b",
+    re.I,
+)
+
+
+def prefer_success_text(armed: dict[str, Any] | None) -> str:
+    """Combine Prefer success surfaces for play-path / contract mismatch checks."""
+    if not isinstance(armed, dict):
+        return ""
+    parts = [
+        str(armed.get("structural_success") or ""),
+        str(armed.get("intent_invariant") or ""),
+        str(armed.get("success_object") or ""),
+        str(armed.get("done_when") or ""),
+        str(armed.get("operator_prompt") or ""),
+    ]
+    return " ".join(parts)
+
+
+def success_has_play_path_words(armed: dict[str, Any] | None) -> bool:
+    """True when Prefer success asks for point/see/watch/on-screen (a moment ask)."""
+    return bool(_PLAY_PATH_SUCCESS_RE.search(prefer_success_text(armed)))
+
+
+def contract_check_is_yaml_state_lookup(
+    vault_root: Path | None,
+    project_id: str,
+    armed: dict[str, Any] | None,
+) -> bool:
+    """True when Prefer's behavior_key_checks resolve to equals_from state lookup.
+
+    That check is a library/index fact — lawful for contract only when success
+    text is also a contract (no play-path words).
+    """
+    if not isinstance(armed, dict):
+        return False
+    checks = armed.get("behavior_key_checks")
+    if not isinstance(checks, dict) or not checks:
+        # Empty checklist / no named check — treat as yaml-lookup class only when
+        # Prefer already named equals_from-shaped probes via catalog (below).
+        return False
+    if vault_root is None or not str(project_id or "").strip():
+        # Without catalog, Prefer naming checks alone is not enough to classify.
+        return False
+    try:
+        from .bindings import load_family, require_project_id
+        from .proof_runner import BEHAVIOR_KEY_ATTEST_OP
+
+        pid = require_project_id(project_id)
+        catalog = load_family(vault_root, pid, "proof-catalog")
+    except Exception:
+        return False
+    probes = catalog.get("probes") if isinstance(catalog, dict) else None
+    if not isinstance(probes, dict):
+        return False
+    for _key, probe_id in checks.items():
+        entry = probes.get(str(probe_id or "").strip())
+        if not isinstance(entry, dict):
+            continue
+        op = str(entry.get("op") or "").strip()
+        args = entry.get("args") if isinstance(entry.get("args"), dict) else {}
+        if not args:
+            args = {k: v for k, v in entry.items() if k not in ("op", "args", "id")}
+        if op == BEHAVIOR_KEY_ATTEST_OP and isinstance(args.get("equals_from"), dict):
+            return True
+    return False
+
 
 def classify_behavior_key_role(key: str) -> str:
     """Return ``visibility`` | ``invariant`` | ``unknown`` for a behavior key."""
@@ -771,6 +851,17 @@ def _run_gate_a_mechanical(
                 violations.append("map_fidelity:contract_visibility_key_forbidden")
             if not any(r == "invariant" for r in roles):
                 violations.append("map_fidelity:contract_missing_invariant_key")
+            # Contract success must be a function/file fact — no point/see/GM/board.
+            # Anti-demo must not delete the ask by rewriting a moment into yaml lookup.
+            if success_has_play_path_words(armed):
+                violations.append(
+                    "map_fidelity:contract_success_has_play_path_words"
+                )
+                pid = str(armed.get("project_id") or "").strip()
+                if contract_check_is_yaml_state_lookup(vault_root, pid, armed):
+                    violations.append(
+                        "map_fidelity:contract_play_path_words_with_yaml_lookup"
+                    )
         elif proof_shape == "moment":
             if len(keys_list) < 3 or len(keys_list) > 5:
                 violations.append(

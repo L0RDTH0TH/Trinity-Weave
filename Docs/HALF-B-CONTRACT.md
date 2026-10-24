@@ -1,7 +1,7 @@
 ---
 title: Half B contract
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-24
 audience: grok_github_integration
 factory_greenlit: false
 ---
@@ -46,6 +46,15 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 - Topology arm only via `topology_law: true` (refuse names are not arms).
 - Live runner **discovers** files under the write target and passes them as `observed_entries`. Empty `allowed_entries` + any discovered entry → block. No product scene names in the gate module.
 - `factory-project.yaml` `game_repo_path` disagreeing with identity/Prefer → block.
+
+## Ticket kinds (do not blur)
+
+| Kind | Success text | Check | Operator F5 |
+|------|--------------|-------|-------------|
+| **Contract** | A function or file fact. No “point,” “see,” “GM,” or “board.” | Probe only (`behavior_key_checks`). | Do **not** ask. Probe pass closes the Prefer. |
+| **Moment** | A thing you can point at or watch. | The **same** act, on a tiny board. | You look. No stamp without that. |
+
+Refuse (Gate A + Prefer-align): if success says point / see / stay-on-screen / board / GM-point and `proof_shape: contract`, fail — especially when the check is only a yaml/state lookup. That scope cut deleted the ask; do not greenlight it. A contract Prefer is allowed only when its sentence is also a contract.
 
 ## Prefer-named check (contract how)
 

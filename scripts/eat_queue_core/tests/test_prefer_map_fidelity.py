@@ -254,7 +254,8 @@ def test_fat_polygon_job_consumes_siblings_fails():
     assert any("job_consumes_sibling" in v for v in result.violations), result.violations
 
 
-def test_narrow_polygon_prefer_passes_gate_a():
+def test_contract_prefer_with_play_path_success_fails_gate_a():
+    """Scope-cut refuse: contract + point/see/GM success must not green Gate A."""
     from eat_queue_core.weave.factory.prefer_map_fidelity import (
         PRODUCT_MAP_DO_NOT_WAIVE,
         validate_armed_map_fidelity,
@@ -275,6 +276,7 @@ def test_narrow_polygon_prefer_passes_gate_a():
     armed = {
         "ticket_map_id": "WB-polygon-substrate",
         "prefer_authorship": True,
+        "project_id": "genesis-mythos-master",
         "proof_shape": "contract",
         "claim_class": "component",
         "prefer_class": "foundation",
@@ -286,8 +288,67 @@ def test_narrow_polygon_prefer_passes_gate_a():
         "behavior_keys": [
             "selected_solid_identity_holds",
         ],
+        "behavior_key_checks": {
+            "selected_solid_identity_holds": "polygon_select_identity_holds",
+        },
     }
     result = validate_armed_map_fidelity(
         vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
     )
-    assert result.ok is True, result.violations
+    assert result.ok is False, result.violations
+    assert any(
+        "contract_success_has_play_path_words" in v for v in result.violations
+    ), result.violations
+    assert any(
+        "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
+    ), result.violations
+
+
+def test_contract_prefer_library_success_passes_gate_a():
+    """Contract Prefer whose success is a file/index fact (no play-path words) may pass."""
+    from eat_queue_core.weave.factory.prefer_map_fidelity import (
+        PRODUCT_MAP_DO_NOT_WAIVE,
+        validate_armed_map_fidelity,
+    )
+    from eat_queue_core.weave.factory.ticket_map_schema import (
+        load_ticket_map_rows,
+        resolve_active_ticket_map_rel,
+        section_open_neighbor_ids,
+    )
+
+    vault = _live_vault()
+    rel = resolve_active_ticket_map_rel(
+        vault, project_id="genesis-mythos-master", ticket_map_id="WB-polygon-substrate"
+    )
+    rows = load_ticket_map_rows(vault, map_rel=rel, ticket_map_id="WB-polygon-substrate")
+    oos = section_open_neighbor_ids(rows, "WB-polygon-substrate")
+    # Deliberately NOT the map job (map job has point/GM) — library-fact rewrite.
+    armed = {
+        "ticket_map_id": "WB-polygon-substrate",
+        "prefer_authorship": True,
+        "project_id": "genesis-mythos-master",
+        "proof_shape": "contract",
+        "claim_class": "component",
+        "prefer_class": "foundation",
+        "success_object": "index_lookup_returns_solid_id_in_state",
+        "structural_success": (
+            "Index lookup returns the durable solid id recorded in state for the "
+            "chosen row. Function/file fact only."
+        ),
+        "out_of_scope_ticket_ids": oos,
+        "do_not_waive": list(PRODUCT_MAP_DO_NOT_WAIVE),
+        "checklist_ids": [],
+        "behavior_keys": [
+            "selected_solid_identity_holds",
+        ],
+    }
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
+    )
+    # May still fail job-bind (library rewrite ≠ map job) — must NOT fail play-path refuse.
+    assert not any(
+        "contract_success_has_play_path_words" in v for v in result.violations
+    ), result.violations
+    assert not any(
+        "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
+    ), result.violations

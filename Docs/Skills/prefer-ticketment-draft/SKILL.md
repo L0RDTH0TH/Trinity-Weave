@@ -44,10 +44,10 @@ Write/update `{slice_id}.armed.yaml` (and Prefer brief if used) with:
 | Field | Rule |
 |-------|------|
 | `ticket_map_id` | Exact row id |
-| `proof_shape` | **Required.** `contract` (invariant capability) or `moment` (stranger-watchable play) |
+| `proof_shape` | **Required.** `contract` (function/file fact; probe-only) or `moment` (point/watch act on a tiny board). Pick one — do not blur |
 | `claim_class` | Map tickets: `component` (with contract) or `ask_success` (with moment). **Never** `staging` |
 | `prefer_class` | `foundation` for contract substrate rows; `place` / `craft` only when the row is that seat **and** you set `topology_law: true` |
-| `structural_success` | This row’s **capability** after sibling words are removed — narrowing is correct; copying a fat neighbor job is wrong |
+| `structural_success` | This row’s **capability** after sibling words are removed — narrowing is correct; copying a fat neighbor job is wrong. **Contract:** no “point,” “see,” “GM,” or “board.” **Moment:** the same act you will F5 |
 | `out_of_scope_ticket_ids` | **Exact** list from the bundle (Gate A fails if missing or mismatched) |
 | `behavior_keys` | **Contract:** ≥1 invariant/operation key; **zero** visibility keys (mixed fails). **Moment:** 3–5 stranger-watchable keys. Do not fatten contract Prefers to 3–8. Classify by role, not a denylist of two example strings |
 | `behavior_key_checks` | **Required when `behavior_keys` non-empty.** Map each key → one opaque proof-catalog probe id. One probe must not green every key. Silence stays a fail |
@@ -62,8 +62,8 @@ Do **not** set `factory_greenlit: true`. Do **not** FactoryEat.
 
 ## After draft
 
-1. Gate A: `prefer_map_fidelity_check.py --armed …`
+1. Gate A: `prefer_map_fidelity_check.py --armed …` (refuses contract + play-path success / yaml-lookup scope cut)
 2. Gate B₁: `prefer-map-fidelity-validate` (sibling swallow still fails)
-3. Operator GREENLIGHT only → weld → B₂ → F5
+3. Operator GREENLIGHT only → weld → B₂ → **F5 only for moment**; contract closes on probe pass (do not ask F5)
 
-If B₁ can pass a Prefer whose success describes a different open ticket, Ticketment is not done — re-draft from the bundle.
+If B₁ can pass a Prefer whose success describes a different open ticket, Ticketment is not done — re-draft from the bundle. If the map job is a point/see/board ask, draft a **moment** Prefer — do not rewrite it into a contract yaml lookup.

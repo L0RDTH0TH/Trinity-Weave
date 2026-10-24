@@ -238,6 +238,22 @@ def run_prefer_align(
                     + ",".join(extras[:8])
                 )
 
+    # Contract Prefer whose success still says point/see/board is a scope cut —
+    # refuse before the seat (do not greenlight a yaml-lookup "product").
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    if proof_shape == "contract":
+        from .prefer_map_fidelity import (
+            contract_check_is_yaml_state_lookup,
+            success_has_play_path_words,
+        )
+
+        if success_has_play_path_words(armed):
+            violations.append("prefer_align:contract_success_has_play_path_words")
+            if contract_check_is_yaml_state_lookup(vault_root, project_id, armed):
+                violations.append(
+                    "prefer_align:contract_play_path_words_with_yaml_lookup"
+                )
+
     host_ids = _host_law_ids(armed)
     cites = _collect_cite_strings(armed)
     if cites and not host_ids:

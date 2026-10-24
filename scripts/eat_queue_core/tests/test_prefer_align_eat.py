@@ -256,6 +256,36 @@ class PreferAlignEatTests(unittest.TestCase):
             any("behavior_key_checks_missing" in v for v in r.violations)
         )
 
+    def test_align_blocks_contract_play_path_success(self) -> None:
+        rel = _write_blank(
+            self.root,
+            armed_extra={
+                "structural_success": (
+                    "A GM can point at a polygon solid and that solid stays "
+                    "the same one that was pointed at."
+                ),
+                "intent_invariant": "point and stay on screen",
+            },
+        )
+        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
+        r = run_prefer_align(
+            self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
+        )
+        self.assertFalse(r.ok)
+        self.assertTrue(
+            any(
+                "contract_success_has_play_path_words" in v for v in r.violations
+            ),
+            r.violations,
+        )
+        self.assertTrue(
+            any(
+                "contract_play_path_words_with_yaml_lookup" in v
+                for v in r.violations
+            ),
+            r.violations,
+        )
+
     def test_probe_literal_equals_forbidden(self) -> None:
         _write_blank(self.root)
         out = run_named_probes(self.root, FIXTURE_PROJECT_ID, [PROBE_LITERAL])
