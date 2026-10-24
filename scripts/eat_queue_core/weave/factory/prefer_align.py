@@ -212,6 +212,32 @@ def run_prefer_align(
     if not keys:
         violations.append("prefer_align:behavior_keys_empty")
 
+    # Prefer must name a check per key — silence stays a fail.
+    checks_raw = armed.get("behavior_key_checks")
+    checks: dict[str, str] = {}
+    if isinstance(checks_raw, dict):
+        checks = {
+            str(k).strip(): str(v).strip()
+            for k, v in checks_raw.items()
+            if str(k).strip() and str(v).strip()
+        }
+    if keys:
+        if not checks:
+            violations.append("prefer_align:behavior_key_checks_missing")
+        else:
+            missing = [k for k in keys if k not in checks]
+            if missing:
+                violations.append(
+                    "prefer_align:behavior_key_checks_incomplete:"
+                    + ",".join(missing[:8])
+                )
+            extras = sorted(set(checks) - set(keys))
+            if extras:
+                violations.append(
+                    "prefer_align:behavior_key_checks_extra:"
+                    + ",".join(extras[:8])
+                )
+
     host_ids = _host_law_ids(armed)
     cites = _collect_cite_strings(armed)
     if cites and not host_ids:
@@ -293,6 +319,7 @@ def run_prefer_align(
     ctx = {
         "write_target": write_target,
         "behavior_keys": keys,
+        "behavior_key_checks": dict(checks),
         "host_law_ids": host_ids,
         "allowed_entries": sorted(named),
         "zone_ownership": armed.get("zone_ownership")

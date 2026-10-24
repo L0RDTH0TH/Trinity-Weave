@@ -663,12 +663,11 @@ def run_factory_lane_job(
                 "resume_from": "agent",
             }
 
-        # Exit Success = one path only: prefer_weld_intent.evaluate_behavior_evidence.
-        # Implementer return dict is never evidence. Empty proof catalog → stay red.
-        # Do not write weld_intent_hostile_ok from the eat. Bare stamp still fails.
+        # Exit Success = Prefer-named entrypoint compare → evaluate_behavior_evidence.
+        # Agent return-dict / exit-code-alone / agent stamp files are not evidence.
         from .prefer_map_fidelity import load_prefer_result
         from .prefer_weld_intent import (
-            _extract_evidence_pack,
+            collect_behavior_evidence_from_prefer_checks,
             evaluate_behavior_evidence,
         )
 
@@ -699,13 +698,30 @@ def run_factory_lane_job(
             }
 
         prefer_result = load_prefer_result(vault_root, slice_id) if slice_id else None
-        evidence_pack = _extract_evidence_pack(prefer_result, None)
+        evidence_pack, check_violations = collect_behavior_evidence_from_prefer_checks(
+            vault_root,
+            project_id,
+            armed if isinstance(armed, dict) else None,
+        )
         beh = evaluate_behavior_evidence(
             evidence_pack,
             armed=armed if isinstance(armed, dict) else None,
             prefer_result=prefer_result if isinstance(prefer_result, dict) else None,
             vault_root=vault_root,
         )
+        if check_violations:
+            merged = list(beh.violations) + [
+                v for v in check_violations if v not in beh.violations
+            ]
+            from .prefer_weld_intent import WeldIntentResult
+
+            beh = WeldIntentResult(
+                ok=False,
+                violations=merged,
+                warnings=list(beh.warnings),
+                applicable=True,
+                evidence_pack=evidence_pack or {},
+            )
         if not beh.ok:
             release_lane_job(vault_root, job, ok=False)
             mstate = mark_jam(

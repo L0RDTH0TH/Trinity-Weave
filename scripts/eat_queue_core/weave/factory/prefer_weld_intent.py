@@ -387,14 +387,28 @@ def _declared_behavior_keys(
     pack: dict[str, Any] | None,
     prefer_result: dict[str, Any] | None,
 ) -> tuple[str, ...] | None:
-    """Prefer-authored behavior keys (3–8). Producer booleans alone are not enough."""
+    """Prefer-authored behavior keys. Contract/foundation: ≥1. Moment: 3–5 (cap 8)."""
+    proof_shape = ""
+    prefer_class = ""
+    for blob in (armed, pack, prefer_result):
+        if not isinstance(blob, dict):
+            continue
+        if not proof_shape:
+            proof_shape = str(blob.get("proof_shape") or "").strip().lower()
+        if not prefer_class:
+            prefer_class = str(blob.get("prefer_class") or "").strip().lower()
+    # Contract / foundation: one invariant key is lawful (Host Law).
+    min_keys = 1 if (
+        proof_shape == "contract"
+        or prefer_class in {"foundation", "contract", "component"}
+    ) else 3
     for blob in (pack, armed, prefer_result):
         if not isinstance(blob, dict):
             continue
         raw = blob.get("behavior_keys") or blob.get("prefer_behavior_keys")
-        if isinstance(raw, (list, tuple)) and len(raw) >= 3:
+        if isinstance(raw, (list, tuple)) and len(raw) >= min_keys:
             keys = [str(x).strip() for x in raw if str(x).strip()]
-            if len(keys) >= 3:
+            if len(keys) >= min_keys:
                 return tuple(keys[:8])
     return None
 
@@ -523,6 +537,91 @@ def _extract_evidence_pack(
                 proof_tags=list(nested.get("proof_tags") or []),
             )
     return None
+
+
+def collect_behavior_evidence_from_prefer_checks(
+    vault_root: Path,
+    project_id: str,
+    armed: dict[str, Any] | None,
+) -> tuple[dict[str, Any] | None, list[str]]:
+    """Run Prefer behavior_key_checks → harness evidence pack.
+
+    Each key maps to its own probe. Pack sets that key true only when that probe
+    passed with op entrypoint_result_equals (operation + compared value).
+    ``command_exits_zero`` / agent stamp files do not attest behavior keys.
+    """
+    from .proof_runner import (
+        BEHAVIOR_KEY_ATTEST_OP,
+        UnknownProbeError,
+        probe_op_for_id,
+        run_named_probes,
+    )
+
+    violations: list[str] = []
+    armed = armed if isinstance(armed, dict) else {}
+    keys_raw = armed.get("behavior_keys")
+    keys = (
+        [str(x).strip() for x in keys_raw if str(x).strip()]
+        if isinstance(keys_raw, list)
+        else []
+    )
+    checks_raw = armed.get("behavior_key_checks")
+    checks: dict[str, str] = {}
+    if isinstance(checks_raw, dict):
+        checks = {
+            str(k).strip(): str(v).strip()
+            for k, v in checks_raw.items()
+            if str(k).strip() and str(v).strip()
+        }
+    if not keys:
+        return None, ["weld_intent:behavior_keys_empty"]
+    if not checks:
+        return None, ["weld_intent:behavior_key_checks_missing"]
+
+    behavior: dict[str, Any] = {}
+    for key in keys:
+        probe_id = checks.get(key)
+        if not probe_id:
+            violations.append(f"weld_intent:behavior_key_check_missing:{key}")
+            behavior[key] = False
+            continue
+        op = probe_op_for_id(vault_root, project_id, probe_id)
+        if op != BEHAVIOR_KEY_ATTEST_OP:
+            # Exit-code-only / file stamp ops are not behavior-key evidence.
+            violations.append(
+                f"weld_intent:probe_op_not_compare:{key}:{op or 'missing'}"
+            )
+            behavior[key] = False
+            continue
+        try:
+            outcomes = run_named_probes(vault_root, project_id, [probe_id])
+        except UnknownProbeError:
+            violations.append(f"weld_intent:unknown_probe:{probe_id}")
+            behavior[key] = False
+            continue
+        except Exception as exc:  # noqa: BLE001
+            violations.append(f"weld_intent:probe_error:{key}:{exc}")
+            behavior[key] = False
+            continue
+        ok = bool(outcomes) and all(o.ok for o in outcomes)
+        behavior[key] = True if ok else False
+        if not ok:
+            detail = outcomes[0].detail if outcomes else "no_outcome"
+            violations.append(f"weld_intent:probe_failed:{key}:{detail}")
+
+    pack = build_evidence_pack(
+        prefer_success=str(armed.get("structural_success") or ""),
+        behavior=behavior,
+        pass_basis="behavior",
+        prefer_class=str(armed.get("prefer_class") or ""),
+        notes="harness Prefer-named entrypoint compare; not agent return-dict",
+    )
+    pack["source"] = "proof_catalog"
+    pack["evidence_source"] = "proof_catalog"
+    # Exact key set for contract: every Prefer key present (true or false).
+    if any(v is not True for v in behavior.values()) or violations:
+        return pack, violations
+    return pack, []
 
 
 def evaluate_behavior_evidence(

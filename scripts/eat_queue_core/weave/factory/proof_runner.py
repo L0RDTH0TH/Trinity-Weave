@@ -1,6 +1,10 @@
 """Engine-neutral Prefer probes — ops only; project nouns live in proof-catalog.yaml.
 
-Ops: file_exists | file_contains | field_equals | command_exits_zero.
+Ops: file_exists | file_contains | field_equals | command_exits_zero |
+entrypoint_result_equals.
+
+Behavior-key Success uses entrypoint_result_equals only: runner invokes Prefer-named
+entrypoint and compares result to catalog ``equals``. Exit code alone is not evidence.
 Runner does not know scenes, engines, or C# types. Never iterates the whole catalog.
 """
 
@@ -15,12 +19,17 @@ import yaml
 
 from .bindings import BindingMissingError, UNKNOWN_PROBE, load_family, require_project_id
 
+# Sole op that may attest Prefer behavior_keys (operation + compared value).
+BEHAVIOR_KEY_ATTEST_OP = "entrypoint_result_equals"
+
 
 @dataclass(frozen=True)
 class ProbeOutcome:
     probe_id: str
     ok: bool
     detail: str
+    op: str = ""
+    observed: str = ""
 
 
 class UnknownProbeError(KeyError):
@@ -31,7 +40,13 @@ class UnknownProbeError(KeyError):
 
 
 _OPS = frozenset(
-    {"file_exists", "file_contains", "field_equals", "command_exits_zero"}
+    {
+        "file_exists",
+        "file_contains",
+        "field_equals",
+        "command_exits_zero",
+        BEHAVIOR_KEY_ATTEST_OP,
+    }
 )
 
 
@@ -95,6 +110,33 @@ def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tupl
             return False, f"command_exits_zero:error:{exc}"
         return proc.returncode == 0, f"command_exits_zero:rc={proc.returncode}"
 
+    if op == BEHAVIOR_KEY_ATTEST_OP:
+        # Invoke Prefer-named entrypoint; compare stdout to catalog equals.
+        # Exit code 0 alone is not Success — must match equals.
+        argv = args.get("argv")
+        if not isinstance(argv, list) or not argv:
+            return False, "entrypoint_result_equals:missing_argv"
+        if "equals" not in args:
+            return False, "entrypoint_result_equals:missing_equals"
+        expect = args.get("equals")
+        cmd = [str(x) for x in argv]
+        try:
+            proc = subprocess.run(
+                cmd,
+                cwd=str(repo),
+                capture_output=True,
+                text=True,
+                timeout=int(args.get("timeout_sec") or 120),
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return False, f"entrypoint_result_equals:error:{exc}"
+        if proc.returncode != 0:
+            return False, f"entrypoint_result_equals:rc={proc.returncode}"
+        observed = (proc.stdout or "").strip()
+        # Compare as strings — expected value lives in catalog, not agent return.
+        ok = observed == str(expect).strip()
+        return ok, f"entrypoint_result_equals:observed={observed!r}"
+
     return False, f"unknown_op:{op}"
 
 
@@ -145,5 +187,27 @@ def run_named_probes(
         if not args:
             args = {k: v for k, v in entry.items() if k not in ("op", "args", "id")}
         ok, detail = _run_op(repo, vault_root, op, args)
-        out.append(ProbeOutcome(cid, ok, detail))
+        observed = ""
+        if detail.startswith("entrypoint_result_equals:observed="):
+            # detail carries observed for audit; ProbeOutcome.observed is the raw compare side
+            observed = detail.split("observed=", 1)[-1].strip().strip("'\"")
+        out.append(ProbeOutcome(cid, ok, detail, op=op, observed=observed))
     return out
+
+
+def probe_op_for_id(
+    vault_root: Path, project_id: str, probe_id: str
+) -> str | None:
+    """Return catalog op for probe_id, or None if missing."""
+    pid = require_project_id(project_id)
+    try:
+        catalog = load_family(vault_root, pid, "proof-catalog")
+    except BindingMissingError:
+        return None
+    probes = catalog.get("probes")
+    if not isinstance(probes, dict):
+        return None
+    entry = probes.get(str(probe_id or "").strip())
+    if not isinstance(entry, dict):
+        return None
+    return str(entry.get("op") or "").strip() or None

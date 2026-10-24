@@ -41,7 +41,7 @@ Pass only if **all** are true:
 3. `out_of_scope_ticket_ids` present and equal to same-section open neighbors from the map (Gate A already checks; B₁ re-checks intent).
 4. `success_object` names a **player-visible** Play-path outcome on the project’s LIVE entry. Refuse `contract_bound` / `meta_written` / `hotkey_bound`.
 5. Required `do_not_waive` includes product-map codes plus session-prep codes on `world-builder-session-prep`.
-6. `behavior_keys` (3–8 for non-place): stranger-watchable claims from **this** row. Reject `file_exists`, `compiles`, `menu_opens`, and the two generic B₂ booleans alone.
+6. `behavior_keys`: **Contract / foundation** — ≥1 invariant/operation key, zero visibility. **Moment** — 3–5 stranger-watchable keys from **this** row. Do not fatten a contract Prefer to 3–8 to satisfy an old habit. Reject `file_exists`, `compiles`, `menu_opens`, and the two generic B₂ booleans alone.
 7. Inspiration altitude (Azgaar / Townscaper / FG / etc.) **only** when the Prefer cites that exemplar.
 8. Partial hit → **staging incomplete**, never KEEP. Staging without hostile → **fail**.
 9. Do **not** treat project `factory_greenlit: true` as Prefer Success.

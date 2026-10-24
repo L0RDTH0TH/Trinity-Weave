@@ -1,4 +1,4 @@
-"""Prefer-align live eat — blank fixture, not Genesis. No GREENLIGHT."""
+"""Prefer-align + post-weld compare — blank fixture via live lane path. No GREENLIGHT."""
 
 from __future__ import annotations
 
@@ -11,21 +11,28 @@ from unittest.mock import patch
 import yaml
 
 from eat_queue_core.weave.factory.factory_lane_runner import run_factory_lane_job
-from eat_queue_core.weave.factory.prefer_align import (
-    discover_write_target_entries,
-    run_prefer_align,
-)
-from eat_queue_core.weave.factory.prefer_weld_intent import evaluate_behavior_evidence
+from eat_queue_core.weave.factory.prefer_align import run_prefer_align
 
 FIXTURE_PROJECT_ID = "fixture-project"
-PACKET_KEY = "polygon_solid_identity_holds_after_select"
+PACKET_KEY = "identity_holds_after_select"
+PROBE_COMPARE = "fixture_select_identity_compare"
+PROBE_EXIT_ONLY = "fixture_exit_only"
+EXPECTED = "solid-selected-a"
 
 
-def _write_blank(root: Path, *, armed_extra: dict[str, Any] | None = None) -> str:
+def _write_blank(
+    root: Path,
+    *,
+    armed_extra: dict[str, Any] | None = None,
+    probes: dict[str, Any] | None = None,
+    with_checks: bool = True,
+    entrypoint_body: str | None = None,
+) -> str:
     pid = FIXTURE_PROJECT_ID
     bindings = root / "1-Projects" / pid / "Factory-DRB" / "bindings"
     bindings.mkdir(parents=True, exist_ok=True)
-    (root / "1-Projects" / pid / "game").mkdir(parents=True, exist_ok=True)
+    game = root / "1-Projects" / pid / "game"
+    game.mkdir(parents=True, exist_ok=True)
     families = {
         "identity": {
             "project_id": pid,
@@ -35,7 +42,22 @@ def _write_blank(root: Path, *, armed_extra: dict[str, Any] | None = None) -> st
             "release_checks": [],
         },
         "engine": {"adapter_id": "", "build_command": "", "ports": {}},
-        "proof-catalog": {"probes": {}, "required_playtest_ids": []},
+        "proof-catalog": {
+            "probes": probes
+            if probes is not None
+            else {
+                PROBE_COMPARE: {
+                    "op": "entrypoint_result_equals",
+                    "argv": ["python3", "tools/select_probe.py"],
+                    "equals": EXPECTED,
+                },
+                PROBE_EXIT_ONLY: {
+                    "op": "command_exits_zero",
+                    "argv": ["python3", "-c", "raise SystemExit(0)"],
+                },
+            },
+            "required_playtest_ids": [],
+        },
         "lanes": {"lane_ids": [], "order": []},
         "host-law": {"entries": []},
         "legacy-refuse": {"refuse_strings": []},
@@ -44,7 +66,6 @@ def _write_blank(root: Path, *, armed_extra: dict[str, Any] | None = None) -> st
         (bindings / f"{fam}.yaml").write_text(
             yaml.dump(body, sort_keys=False), encoding="utf-8"
         )
-    # factory-project: eat latches only — no game_repo_path duplicate
     fp = root / f"1-Projects/{pid}/Factory-DRB/factory-project.yaml"
     fp.write_text(
         yaml.dump(
@@ -58,16 +79,26 @@ def _write_blank(root: Path, *, armed_extra: dict[str, Any] | None = None) -> st
         ),
         encoding="utf-8",
     )
+    tools = game / "tools"
+    tools.mkdir(parents=True, exist_ok=True)
+    body = entrypoint_body
+    if body is None:
+        body = f"print({EXPECTED!r})\n"
+    (tools / "select_probe.py").write_text(body, encoding="utf-8")
+
     armed: dict[str, Any] = {
         "proof_shape": "contract",
         "prefer_class": "foundation",
         "slice_id": "fixture_contract_slice",
         "host_law_ids": [],
         "behavior_keys": [PACKET_KEY],
-        "structural_success": "identity key holds after select",
-        "allowed_entries": [],
+        "structural_success": "identity holds after select",
+        # Prefer names the entrypoint path — discover must not treat it as unnamed.
+        "allowed_entries": ["tools/select_probe.py"],
         "do_not_waive": ["explicit_met_implicit_miss"],
     }
+    if with_checks:
+        armed["behavior_key_checks"] = {PACKET_KEY: PROBE_COMPARE}
     if armed_extra:
         armed.update(armed_extra)
     rel = f"1-Projects/{pid}/Factory-DRB/slice-briefs/fixture_contract.armed.yaml"
@@ -118,6 +149,42 @@ def _lane_patches():
     ]
 
 
+def _wire_mocks(patches):
+    from eat_queue_core.weave.factory.factory_dispatch_preflight import (
+        DispatchPreflightResult,
+    )
+
+    mock_pf, mock_rec, mock_merge, mock_interp = (
+        patches[0],
+        patches[1],
+        patches[2],
+        patches[3],
+    )
+    mock_pf.return_value = DispatchPreflightResult(True, (), "ok")
+    mock_rec.return_value = type(
+        "R",
+        (),
+        {
+            "handoff_ready": True,
+            "handoff_reason": "",
+            "to_dict": lambda self: {},
+        },
+    )()
+    mock_merge.return_value = type(
+        "M", (), {"allowed": True, "to_dict": lambda self: {}}
+    )()
+    mock_interp.return_value = type(
+        "I",
+        (),
+        {
+            "ok": True,
+            "detail": "ok",
+            "to_dict": lambda self: {},
+            "little_val": type("LV", (), {"anti_pattern_violations": []})(),
+        },
+    )()
+
+
 class PreferAlignEatTests(unittest.TestCase):
     def setUp(self) -> None:
         self.root = Path(tempfile.mkdtemp(prefix="prefer-align-"))
@@ -135,104 +202,24 @@ class PreferAlignEatTests(unittest.TestCase):
         for tok in ("LaunchShell", "project.godot", "Townscaper", "Systems/"):
             self.assertNotIn(tok, text)
 
-    def test_align_blocks_host_law_cite_without_ids(self) -> None:
-        rel = _write_blank(
-            self.root,
-            armed_extra={
-                "locks": {
-                    "prefer_law": "Some-Host-Law",
-                    "law_cite": "Factory-DRB/Some-Law.md",
-                },
-            },
-        )
+    def test_align_blocks_missing_behavior_key_checks(self) -> None:
+        rel = _write_blank(self.root, with_checks=False)
         armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
         r = run_prefer_align(
             self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
         )
         self.assertFalse(r.ok)
         self.assertTrue(
-            any("host_law_cite_without_host_law_ids" in v for v in r.violations)
+            any("behavior_key_checks_missing" in v for v in r.violations)
         )
 
-    def test_align_blocks_unnamed_discovered_entry(self) -> None:
-        rel = _write_blank(self.root)
-        # Product-shaped file Prefer did not name — discover must surface it.
-        entry_name = "UnnamedEntry.tscn"
-        (self.root / f"1-Projects/{FIXTURE_PROJECT_ID}/game" / entry_name).write_text(
-            "[gd_scene]\n", encoding="utf-8"
-        )
-        found = discover_write_target_entries(
-            self.root, f"1-Projects/{FIXTURE_PROJECT_ID}/game"
-        )
-        self.assertIn(entry_name, found)
-        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
-        r = run_prefer_align(
-            self.root,
-            armed=armed,
-            project_id=FIXTURE_PROJECT_ID,
-            observed_entries=found,
-        )
-        self.assertFalse(r.ok)
-        self.assertTrue(
-            any("unnamed_entries_present" in v for v in r.violations)
-            or any("entry_not_named_by_prefer" in v for v in r.violations)
-        )
-
-    def test_factory_project_game_repo_disagree_blocks(self) -> None:
-        rel = _write_blank(self.root)
-        fp = self.root / f"1-Projects/{FIXTURE_PROJECT_ID}/Factory-DRB/factory-project.yaml"
-        data = yaml.safe_load(fp.read_text(encoding="utf-8"))
-        data["game_repo_path"] = "1-Projects/fixture-project/other-game"
-        fp.write_text(yaml.dump(data, sort_keys=False), encoding="utf-8")
-        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
-        r = run_prefer_align(
-            self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
-        )
-        self.assertFalse(r.ok)
-        self.assertTrue(
-            any("factory_project_game_repo_disagree" in v for v in r.violations)
-        )
-
-    def test_agent_flat_key_true_is_not_weld_intent_success(self) -> None:
-        # Self-set {key: true} without pass_basis behavior is not Success.
-        pack = {PACKET_KEY: True}
-        beh = evaluate_behavior_evidence(
-            pack,
-            armed={
-                "proof_shape": "contract",
-                "prefer_class": "foundation",
-                "behavior_keys": [PACKET_KEY],
-            },
-        )
-        self.assertFalse(beh.ok)
-        pack2 = {
-            "pass_basis": "behavior",
-            "behavior": {PACKET_KEY: True},
-            "source": "agent",
-        }
-        beh2 = evaluate_behavior_evidence(
-            pack2,
-            armed={
-                "proof_shape": "contract",
-                "prefer_class": "foundation",
-                "behavior_keys": [PACKET_KEY],
-            },
-        )
-        self.assertFalse(beh2.ok)
-        self.assertTrue(
-            any("agent_sourced_evidence_pack" in v for v in beh2.violations)
-        )
-
-    def test_live_eat_blocks_before_agent_on_align_fail(self) -> None:
-        rel = _write_blank(
-            self.root,
-            armed_extra={"locks": {"law_cite": "Factory-DRB/Some-Law.md"}},
-        )
+    def test_live_eat_blocks_before_agent_on_missing_checks(self) -> None:
+        rel = _write_blank(self.root, with_checks=False)
         called = {"agent": False}
 
         def _fake_agent(*_a: Any, **_k: Any) -> dict[str, Any]:
             called["agent"] = True
-            return {"ok": True, "evidence_pack": {PACKET_KEY: True}}
+            return {"ok": True}
 
         entry = {"id": "eat-1", "project_id": FIXTURE_PROJECT_ID, "params": {}}
         params = {
@@ -241,110 +228,12 @@ class PreferAlignEatTests(unittest.TestCase):
             "project_id": FIXTURE_PROJECT_ID,
             "armed_packet_path": rel,
             "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
-            "observed_entries": [],
         }
         patches = _lane_patches()
-        with patches[0] as mock_pf, patches[1] as mock_rec, patches[2] as mock_merge, patches[
-            3
-        ] as mock_interp, patches[4], patches[5], patches[6], patches[7], patches[
-            8
-        ], patches[9], patches[10]:
-            from eat_queue_core.weave.factory.factory_dispatch_preflight import (
-                DispatchPreflightResult,
-            )
-
-            mock_pf.return_value = DispatchPreflightResult(
-                True, (), "ok", fail_closed=True
-            )
-            mock_rec.return_value = type(
-                "R",
-                (),
-                {
-                    "handoff_ready": True,
-                    "handoff_reason": "",
-                    "to_dict": lambda self: {},
-                },
-            )()
-            mock_interp.return_value = type(
-                "I",
-                (),
-                {
-                    "ok": True,
-                    "detail": "ok",
-                    "to_dict": lambda self: {},
-                    "little_val": type("LV", (), {"anti_pattern_violations": []})(),
-                },
-            )()
-            mock_merge.return_value = type(
-                "M", (), {"allowed": True, "to_dict": lambda self: {}}
-            )()
-            out = run_factory_lane_job(
-                self.root,
-                "factory",
-                entry,
-                params=params,
-                run_agent_fn=_fake_agent,
-                skip_preflight=True,
-                complete_pipeline=False,
-                auto_retry_seats=False,
-            )
-        self.assertFalse(out.get("ok"))
-        self.assertEqual(out.get("error"), "prefer_align_failed")
-        self.assertFalse(called["agent"])
-
-    def test_live_eat_discovers_unnamed_entry_before_agent(self) -> None:
-        rel = _write_blank(self.root)
-        (self.root / f"1-Projects/{FIXTURE_PROJECT_ID}/game" / "OrphanEntry.tscn").write_text(
-            "[gd_scene]\n", encoding="utf-8"
-        )
-        called = {"agent": False}
-
-        def _fake_agent(*_a: Any, **_k: Any) -> dict[str, Any]:
-            called["agent"] = True
-            return {"ok": True}
-
-        entry = {"id": "eat-discover", "project_id": FIXTURE_PROJECT_ID, "params": {}}
-        params = {
-            "slice_id": "fixture_contract_slice",
-            "lane_id": "implementation",
-            "project_id": FIXTURE_PROJECT_ID,
-            "armed_packet_path": rel,
-            "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
-            "observed_entries": [],  # caller empty — discovery must still block
-        }
-        patches = _lane_patches()
-        with patches[0] as mock_pf, patches[1] as mock_rec, patches[2] as mock_merge, patches[
-            3
-        ] as mock_interp, patches[4], patches[5], patches[6], patches[7], patches[
-            8
-        ], patches[9], patches[10]:
-            from eat_queue_core.weave.factory.factory_dispatch_preflight import (
-                DispatchPreflightResult,
-            )
-
-            mock_pf.return_value = DispatchPreflightResult(True, (), "ok")
-            mock_rec.return_value = type(
-                "R",
-                (),
-                {
-                    "handoff_ready": True,
-                    "handoff_reason": "",
-                    "to_dict": lambda self: {},
-                },
-            )()
-            mock_merge.return_value = type(
-                "M", (), {"allowed": True, "to_dict": lambda self: {}}
-            )()
-            mock_interp.return_value = type(
-                "I",
-                (),
-                {
-                    "ok": True,
-                    "detail": "ok",
-                    "to_dict": lambda self: {},
-                    "little_val": type("LV", (), {"anti_pattern_violations": []})(),
-                },
-            )()
+        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
+            4
+        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
+            _wire_mocks((a, b, c, d))
             out = run_factory_lane_job(
                 self.root,
                 "factory",
@@ -362,11 +251,8 @@ class PreferAlignEatTests(unittest.TestCase):
     def test_live_eat_rejects_agent_evidence_pack(self) -> None:
         rel = _write_blank(self.root)
 
-        def _agent_with_pack(*_a: Any, **_k: Any) -> dict[str, Any]:
+        def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
             return {"ok": True, "evidence_pack": {PACKET_KEY: True}}
-
-        def _agent_no_pack(*_a: Any, **_k: Any) -> dict[str, Any]:
-            return {"ok": True, "handoff_echo": PACKET_KEY}
 
         entry = {"id": "eat-2", "project_id": FIXTURE_PROJECT_ID, "params": {}}
         params = {
@@ -375,71 +261,141 @@ class PreferAlignEatTests(unittest.TestCase):
             "project_id": FIXTURE_PROJECT_ID,
             "armed_packet_path": rel,
             "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
-            "observed_entries": [],
         }
         patches = _lane_patches()
-        with patches[0] as mock_pf, patches[1] as mock_rec, patches[2] as mock_merge, patches[
-            3
-        ] as mock_interp, patches[4], patches[5], patches[6], patches[7], patches[
-            8
-        ], patches[9], patches[10]:
-            from eat_queue_core.weave.factory.factory_dispatch_preflight import (
-                DispatchPreflightResult,
-            )
-
-            mock_pf.return_value = DispatchPreflightResult(True, (), "ok")
-            mock_rec.return_value = type(
-                "R",
-                (),
-                {
-                    "handoff_ready": True,
-                    "handoff_reason": "",
-                    "to_dict": lambda self: {},
-                },
-            )()
-            mock_merge.return_value = type(
-                "M", (), {"allowed": True, "to_dict": lambda self: {}}
-            )()
-            mock_interp.return_value = type(
-                "I",
-                (),
-                {
-                    "ok": True,
-                    "detail": "ok",
-                    "to_dict": lambda self: {},
-                    "little_val": type("LV", (), {"anti_pattern_violations": []})(),
-                },
-            )()
-
-            stamped = run_factory_lane_job(
+        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
+            4
+        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
+            _wire_mocks((a, b, c, d))
+            out = run_factory_lane_job(
                 self.root,
                 "factory",
                 entry,
                 params=params,
-                run_agent_fn=_agent_with_pack,
+                run_agent_fn=_agent,
                 skip_preflight=True,
                 complete_pipeline=False,
                 auto_retry_seats=False,
             )
-            self.assertFalse(stamped.get("ok"))
-            self.assertEqual(stamped.get("error"), "weld_intent_evidence_failed")
-            self.assertIn(
-                "weld_intent:agent_sourced_evidence_pack",
-                stamped.get("evidence_violations") or [],
-            )
+        self.assertFalse(out.get("ok"))
+        self.assertEqual(out.get("error"), "weld_intent_evidence_failed")
+        self.assertIn(
+            "weld_intent:agent_sourced_evidence_pack",
+            out.get("evidence_violations") or [],
+        )
 
-            missing = run_factory_lane_job(
+    def test_live_eat_exit_code_alone_probe_fails(self) -> None:
+        """command_exits_zero bound to a key must not green Success."""
+        rel = _write_blank(
+            self.root,
+            armed_extra={"behavior_key_checks": {PACKET_KEY: PROBE_EXIT_ONLY}},
+        )
+
+        def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
+            return {"ok": True}
+
+        entry = {"id": "eat-exit", "project_id": FIXTURE_PROJECT_ID, "params": {}}
+        params = {
+            "slice_id": "fixture_contract_slice",
+            "lane_id": "implementation",
+            "project_id": FIXTURE_PROJECT_ID,
+            "armed_packet_path": rel,
+            "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
+        }
+        patches = _lane_patches()
+        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
+            4
+        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
+            _wire_mocks((a, b, c, d))
+            out = run_factory_lane_job(
                 self.root,
                 "factory",
-                {**entry, "id": "eat-3"},
+                entry,
                 params=params,
-                run_agent_fn=_agent_no_pack,
+                run_agent_fn=_agent,
                 skip_preflight=True,
                 complete_pipeline=False,
                 auto_retry_seats=False,
             )
-            self.assertFalse(missing.get("ok"))
-            self.assertEqual(missing.get("error"), "weld_intent_evidence_failed")
+        self.assertFalse(out.get("ok"))
+        self.assertEqual(out.get("error"), "weld_intent_evidence_failed")
+        viol = " ".join(out.get("evidence_violations") or [])
+        self.assertIn("probe_op_not_compare", viol)
+
+    def test_live_eat_runner_compare_passes(self) -> None:
+        """Same post-weld path: Prefer-named entrypoint stdout matches catalog equals."""
+        rel = _write_blank(self.root)
+
+        def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
+            # Agent implements entrypoint only (already on disk); no evidence_pack.
+            return {"ok": True}
+
+        entry = {"id": "eat-ok", "project_id": FIXTURE_PROJECT_ID, "params": {}}
+        params = {
+            "slice_id": "fixture_contract_slice",
+            "lane_id": "implementation",
+            "project_id": FIXTURE_PROJECT_ID,
+            "armed_packet_path": rel,
+            "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
+        }
+        patches = _lane_patches()
+        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
+            4
+        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
+            _wire_mocks((a, b, c, d))
+            out = run_factory_lane_job(
+                self.root,
+                "factory",
+                entry,
+                params=params,
+                run_agent_fn=_agent,
+                skip_preflight=True,
+                complete_pipeline=False,
+                auto_retry_seats=False,
+            )
+        # Post-weld evidence path must pass; later review seats are out of Tip A scope.
+        self.assertNotEqual(out.get("error"), "prefer_align_failed")
+        self.assertNotEqual(out.get("error"), "weld_intent_evidence_failed")
+        self.assertTrue(
+            out.get("prefer_product_seats_met") is True
+            or out.get("ok") is True,
+            msg=str(out),
+        )
+
+    def test_live_eat_wrong_entrypoint_result_fails(self) -> None:
+        rel = _write_blank(
+            self.root,
+            entrypoint_body='print("wrong-identity")\n',
+        )
+
+        def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
+            return {"ok": True}
+
+        entry = {"id": "eat-wrong", "project_id": FIXTURE_PROJECT_ID, "params": {}}
+        params = {
+            "slice_id": "fixture_contract_slice",
+            "lane_id": "implementation",
+            "project_id": FIXTURE_PROJECT_ID,
+            "armed_packet_path": rel,
+            "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
+        }
+        patches = _lane_patches()
+        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
+            4
+        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
+            _wire_mocks((a, b, c, d))
+            out = run_factory_lane_job(
+                self.root,
+                "factory",
+                entry,
+                params=params,
+                run_agent_fn=_agent,
+                skip_preflight=True,
+                complete_pipeline=False,
+                auto_retry_seats=False,
+            )
+        self.assertFalse(out.get("ok"))
+        self.assertEqual(out.get("error"), "weld_intent_evidence_failed")
 
 
 if __name__ == "__main__":

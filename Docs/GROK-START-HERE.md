@@ -1,7 +1,7 @@
 ---
 title: Grok — start here (Trinity-Weave)
 created: 2026-06-09
-updated: 2026-10-21
+updated: 2026-10-22
 audience: grok_github_integration
 ---
 
@@ -19,7 +19,9 @@ audience: grok_github_integration
 
 **Pass 7 evidence law (not GREENLIGHT):** discover write-target entries into Prefer-align; eat Success = `evaluate_behavior_evidence` only (agent pack rejected). Re-run B₁ before GREENLIGHT.
 
-**Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r2` archived — none armed on `WB-polygon-substrate`. Fresh Ticketment required. Do not Prefer-join `wb-polygon-substrate-r2-retired-*`. Not GREENLIGHT. See `project/genesis-mythos-master`.
+**Pass 8 contract how (not GREENLIGHT):** Prefer `behavior_key_checks` + catalog `entrypoint_result_equals` (runner compares result to catalog `equals`). Exit-code alone / agent stamp fail. Genesis binding after this tip is on `origin/main`.
+
+**Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r3` B₁-ready on `WB-polygon-substrate` (armed/stageable for factory feed). Do not Prefer-join archived `wb-polygon-substrate-r2-retired-*` / r1. Not GREENLIGHT. See `project/genesis-mythos-master`.
 
 **Pass 5 Tip A (single-seat check — not GREENLIGHT):** `main` `c25a447`. See `Docs/HALF-B-CONTRACT.md` + `tests/test_implementation_single_seat.py`.
 

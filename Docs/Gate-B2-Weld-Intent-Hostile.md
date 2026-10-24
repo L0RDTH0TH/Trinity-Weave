@@ -54,6 +54,8 @@ Queue / Task: `VALIDATE` with `params.validation_type: prefer_weld_intent`.
 
 **Picture question:** If Prefer is the painting brief, are LIVE mechanics brush strokes for that picture — or another picture sharing labels?
 
+**Contract Prefers:** Prefer names `behavior_key_checks` (one probe per key). Harness runs `entrypoint_result_equals` (operation + compared value). Agent return-dict, agent stamp files, and exit-code-alone are **not** evidence. Feedstock is not re-read at B₂.
+
 Pass only if **all** are true:
 
 1. Play-path / behavior matches Prefer Success (behavior evidence, not AST).

@@ -47,9 +47,17 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 - Live runner **discovers** files under the write target and passes them as `observed_entries`. Empty `allowed_entries` + any discovered entry → block. No product scene names in the gate module.
 - `factory-project.yaml` `game_repo_path` disagreeing with identity/Prefer → block.
 
+## Prefer-named check (contract how)
+
+- Prefer must set `behavior_key_checks: { <behavior_key>: <probe_id> }` for every key. Silence → Prefer-align fail.
+- Catalog probe for a behavior key is **operation + value to compare** (`entrypoint_result_equals`): runner invokes Prefer-named entrypoint and compares the result to catalog `equals`.
+- Agent may implement the entrypoint. Agent may **not** write the expected value, the pass bit, or the program that decides pass.
+- Exit code alone (`command_exits_zero`) is **not** behavior-key evidence.
+- Feedstock stays in Ticketment. B₂ does not re-open roadmaps to invent what feedstock wanted.
+
 ## Exit Success (one path)
 
-After the agent, eat Success is **only** `prefer_weld_intent.evaluate_behavior_evidence` (`pass_basis: behavior`). Implementer `{key: true}` / agent `evidence_pack` fails (`agent_sourced`). Bare `weld_intent_hostile_ok` stamp fails. Empty proof catalog → stay red. Do not keep a second key-stamp exit checker. Do not write the B₂ stamp from the eat.
+After the agent, eat Success runs Prefer-named probes → harness pack (`source: proof_catalog`) → `evaluate_behavior_evidence` only (`pass_basis: behavior`). Each key true only when **that** key’s probe passed. Implementer `{key: true}` / agent `evidence_pack` fails. Bare `weld_intent_hostile_ok` stamp fails. Empty binding / empty catalog / wrong op → stay red. Do not write the B₂ stamp from the eat.
 
 ## Tip claim
 

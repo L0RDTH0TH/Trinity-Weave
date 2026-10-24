@@ -49,10 +49,11 @@ Write/update `{slice_id}.armed.yaml` (and Prefer brief if used) with:
 | `prefer_class` | `foundation` for contract substrate rows; `place` / `craft` only when the row is that seat **and** you set `topology_law: true` |
 | `structural_success` | This row’s **capability** after sibling words are removed — narrowing is correct; copying a fat neighbor job is wrong |
 | `out_of_scope_ticket_ids` | **Exact** list from the bundle (Gate A fails if missing or mismatched) |
-| `behavior_keys` | **Contract:** ≥1 invariant/operation key; **zero** visibility keys (mixed fails). **Moment:** 3–5 stranger-watchable keys. Classify by role, not a denylist of two example strings |
+| `behavior_keys` | **Contract:** ≥1 invariant/operation key; **zero** visibility keys (mixed fails). **Moment:** 3–5 stranger-watchable keys. Do not fatten contract Prefers to 3–8. Classify by role, not a denylist of two example strings |
+| `behavior_key_checks` | **Required when `behavior_keys` non-empty.** Map each key → one opaque proof-catalog probe id. One probe must not green every key. Silence stays a fail |
 | `success_object` | Capability outcome for this row (not a LaunchShell / demo synonym) |
 | `do_not_waive` | Full product-map set (incl. session-prep codes on this map) |
-| `checklist_ids` | Prefer-declared only. Contract default = `[]`. `None` on a map eat fails closed |
+| `checklist_ids` | Prefer-declared only. Contract default = `[]`. `None` on a map eat fails closed. Not a substitute for `behavior_key_checks` |
 | `welds` / `W1`… | Only if the row’s **Welds** column explicitly lists them — never invent from free Notes |
 | `catalog_row_id` / `lane` / `launch_scene` | Only if the **map row names** that exact value. Body prose (“not LaunchShell”) does not set `launch_scene` |
 | `topology_law` | Set `true` **only** when this Prefer truly rewrites topology. Refuse codes / “lattice” prose do **not** arm it |
