@@ -1,0 +1,133 @@
+schema_version: 1
+status: prefer_b1_ready_awaiting_greenlight
+armed_at: '2026-10-24T18:07:40Z'
+composed_at: '2026-10-24T18:07:40Z'
+b1_passed_at: '2026-10-24T18:11:29Z'
+map_fidelity_hostile_ok: true
+factory_greenlit: false
+live_weld_greenlit: false
+live_weld_landed: false
+proof_shape: moment
+claim_class: ask_success
+prefer_class: foundation
+ask_id: alpha0_wb_polygon_substrate
+slice_id: alpha0_wb_polygon_substrate_r4
+series_id: alpha0_world_builder_session_prep_r1
+series_step: wb_polygon_substrate
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_wb_polygon_substrate_r4.md
+prior_map_id: world-builder-session-prep
+prior_map_note: >-
+  Moment Prefer r4 on world-builder-session-prep after scrap of ticket+weld
+  (wb-polygon-substrate-ticket-and-weld-scrapped-20261024T171321Z) and r3 scope-cut
+  reject (wb-polygon-substrate-r3-scope-cut-rejected-20261024T054001Z). Ticketment
+  only — one ugly polygon, one point, same solid stays. Do not Prefer-join archives.
+  Tip B scrub: host_law_ids []. No GREENLIGHT.
+next_in_chain: null
+do_not_arm_next: WB-world-container
+next_world_armed: false
+depends_on: null
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-align
+mode: wb_polygon_substrate_moment
+prefer_authorship: true
+prefer_concept_required: true
+ticket_map_id: WB-polygon-substrate
+success_object: point_and_stay_polygon_solid
+exemplar_altitude: low_fidelity_polygon_board
+exemplar_not: living_world_or_flight_or_dials
+hands: fresh_polygon_board
+host_law_ids: []
+allowed_entries: []
+behavior_keys:
+- shows_low_fidelity_polygon
+- points_at_that_polygon
+- sees_same_polygon_after_point
+- watches_pointed_solid_stay
+behavior_key_checks:
+  shows_low_fidelity_polygon: moment_shows_low_fidelity_polygon
+  points_at_that_polygon: moment_points_at_that_polygon
+  sees_same_polygon_after_point: moment_sees_same_polygon_after_point
+  watches_pointed_solid_stay: moment_watches_pointed_solid_stay
+checklist_ids: []
+intent_invariant: >-
+  Foundation — A GM can point at a low-fidelity polygon solid and that solid
+  stays the same polygon that was pointed at.
+structural_success: >-
+  Foundation — A GM can point at a low-fidelity polygon solid and that solid
+  stays the same polygon that was pointed at.
+path_position: >-
+  virgin Code-Repos/genesis-mythos-align → this Prefer (point-and-stay moment
+  only) → WB-world-container next (not armed)
+zone_ownership: {}
+do_not_waive:
+- hotkey_as_product_ux
+- config_meta_without_effect
+- stub_as_hours
+- map_job_name_only
+- explicit_met_implicit_miss
+- intent_collapsed_to_mechanics
+- separate_wiki_as_prep
+- campaign_unscoped
+- rail_collapsed
+- inherited_prior_keep
+- hidden_default_dial
+- old_host_as_new_product
+locks:
+  operator_confirmed: true
+  claim_class_clean_slate: true
+  ticketment_regen: '2026-10-24T18:07:40Z'
+  tip_b_scrub_retained: true
+  step1_authorship:
+    structural_success: >-
+      Foundation — A GM can point at a low-fidelity polygon solid and that solid
+      stays the same polygon that was pointed at. Point-and-stay moment only.
+      Living / flight / controls / occupancy / hierarchy records / deep authoring
+      / save are later seats.
+    success_object: point_and_stay_polygon_solid
+    refuse:
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - separate_wiki_as_prep
+    - campaign_unscoped
+    - rail_collapsed
+    - inherited_prior_keep
+    - hidden_default_dial
+    - old_host_as_new_product
+    - living_as_substrate
+    - flight_as_substrate
+    - controls_as_substrate
+    - occupancy_records_as_substrate
+    - hierarchy_records_as_substrate
+    - deep_authoring_as_substrate
+    - proxy_substitution
+    - verify_mcp_only
+    - high_fidelity_as_substrate
+    - art_reskin_as_legibility
+    - ghost_mesh_as_commit_mesh
+    - yaml_lookup_as_point_and_stay
+done_when: >-
+  Moment proof: a stranger watches the GM point at one low-fidelity polygon solid
+  on a tiny board and that same solid stays the one pointed at. Operator F5
+  required before KEEP. Process entry is not Success. MCP ≠ Success. Do not arm
+  WB-world-container until this Prefer is B₁-ready and operator greenlights
+  advance. factory_greenlit false until GREENLIGHT.
+operator_prompt: >-
+  Ticketment moment Prefer WB-polygon-substrate r4 armed for factory feed.
+  Gate A then B₁. No GREENLIGHT. host_law_ids []. next_world_armed false. Do not
+  arm WB-world-container. Awaiting Gate B₁ then operator GREENLIGHT — no KEEP yet.
+out_of_scope_ticket_ids:
+- CAMP-cast-seam
+- CAMP-create
+- CAMP-scope-split
+- CAMP-select
+- CAMP-switch
+- WB-sim-clock
+- WB-world-container
+- WB-world-document
+- WELD-one-world

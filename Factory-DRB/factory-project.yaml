@@ -1,0 +1,54 @@
+schema_version: 1
+project_id: genesis-mythos-master
+feed_authority: vault_roadmap
+execution_roadmap_ref: 1-Projects/genesis-mythos-master/Roadmap/
+release_tier: closed_alpha
+factory_bootstrap:
+  gates_before_slices: true
+  bootstrap_waiver: false
+  require_weave_track_coupled: false
+  bootstrap_waiver_reason: null
+factory_greenlit: false
+slice_factory_greenlit: false
+ticket_map_runtime:
+  status: active
+  map_id: world-builder-session-prep
+  map_note: 1-Projects/genesis-mythos-master/Factory-DRB/World-Builder-Session-Prep-Ticket-Map.md
+  prior_map_id: world-builder-mini-game
+  prior_map_archive: 4-Archives/Projects/genesis-mythos-master/world-builder-mini-game-ticket-map-retired-20261019T203200Z
+  prior_live_archive: 4-Archives/Projects/genesis-mythos-master/world-builder-mini-game-live-and-debris-scrapped-20261019T204500Z
+active_series_id: alpha0_world_builder_session_prep_r1
+brush_series_id: null
+active_recovery: WB-polygon-substrate
+active_recovery_slice_id: alpha0_wb_polygon_substrate_r4
+active_recovery_packet: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_wb_polygon_substrate_r4.armed.yaml
+active_recovery_disposition: prefer_moment_b1_ready_awaiting_greenlight
+armed_slice_id: alpha0_wb_polygon_substrate_r4
+armed_ask_id: alpha0_wb_polygon_substrate
+armed_packet: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_wb_polygon_substrate_r4.armed.yaml
+armed_slice_stageable: true
+armed_status: armed
+next_world_pointer: WB-world-container
+next_world_armed: false
+do_not_arm: WB-world-container
+freeze_no_keep_product_success: []
+active_craft_chain: []
+chained_eat:
+  enabled: false
+  sequence: []
+git:
+  push_enabled: false
+  curator_forbidden: true
+prefer_track:
+  track_id: prefer_authorship_harden_track_r1
+  umbrella_slice_id: ''
+  nested_companion_slice_id: ''
+  audit: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+  factory_greenlit: false
+  status: prefer_moment_r4_b1_ready
+  note: "2026-10-24 — Moment Prefer alpha0_wb_polygon_substrate_r4 Gate A + B₁\
+    \ green for WB-polygon-substrate (point-and-stay). Armed/stageable for factory\
+    \ feed. Awaiting operator GREENLIGHT. Prior scrap/reject archives — do not\
+    \ Prefer-join. Do not arm WB-world-container."
+game_repo_path_note: "canonical source is bindings/identity.yaml — do not merge"
+prior_prefer_archive: 4-Archives/Projects/genesis-mythos-master/wb-polygon-substrate-ticket-and-weld-scrapped-20261024T171321Z

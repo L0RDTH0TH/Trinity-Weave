@@ -1,0 +1,148 @@
+# Armed Prefer packet — dual object identity seat (nested under intent-validates-gates).
+# GREENLIT Prefer/weave — factory_greenlit true. Companion to prefer_intent_validates_gates_r1.
+
+schema_version: 1
+greenlit_at: '2026-10-04T00:00:00Z'
+status: greenlit_prefer_weave
+armed_at: '2026-10-03T22:44:30Z'
+law_amended_at: '2026-10-03T22:44:30Z'
+factory_greenlit: true
+claim_class: staging
+ticket_kind: prefer_weave_nested_seat
+umbrella_ask_id: prefer_intent_validates_gates
+umbrella_slice_id: prefer_intent_validates_gates_r1
+ask_id: prefer_dual_object_identity
+slice_id: prefer_dual_object_identity_r1
+series_id: prefer_authorship_harden_track_r1
+series_step: dual_seat
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/prefer_dual_object_identity_r1.md
+exemplar_wrong_object_slice_id: alpha0_stalberg_dual_neighborhood_r1
+exemplar_rewrite_slice_id: alpha0_stalberg_dual_lattice_r1
+project_id: genesis-mythos-master
+mode: prefer_dual_object_identity_seat
+prefer_authorship: true
+lane: module
+live_write_forbidden: true
+
+zone_ownership:
+  module:
+  - scripts/eat_queue_core/weave/factory/prefer_authorship_contract.py
+  - scripts/eat_queue_core/tests/test_prefer_authorship_host_law.py
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  dual_object_identity:
+    draft: false
+    law: >-
+      Dual Prefer altitudes must name success_object as dual-lattice cell class
+      (half-step OrganicDualOffsetLattice), not primary organic face neighborhood.
+      Emit primary_face_as_dual for any dual Prefer altitude. Stable ≤4 of wrong
+      object = proxy_substitution instance.
+    success_object_required: organic_dual_offset_lattice_cell
+    not_success_object:
+    - primary_organic_face
+    - org_face_index_neighborhood
+    - centroid_stamp_tile
+    emit_refuse_on_dual_prefer:
+    - primary_face_as_dual
+    - stamp_as_dual
+    - proxy_substitution
+  step1_authorship:
+    structural_success: >-
+      Dual Prefer: ownership/highlight/evidence keyed to half-step dual lattice
+      cells whose corners are logic points; never primary-face 2×2 as dual Success.
+    success_object: organic_dual_offset_lattice_cell
+    intent_invariant: >-
+      Player edits logic points; dual cells are the half-offset quads whose corners
+      are those points.
+    end_state: Dual Prefer fails r1-shaped primary-face host; passes lattice+invariant host
+    path_position: prefer_intent_validates_gates_r1 → prefer_dual_object_identity_r1 → Genesis dual LIVE paused
+    refuse:
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - primary_face_as_dual
+    - stamp_as_dual
+    - unstable_dual_neighborhood
+    - over_neighbor_paint
+    - skip_dual_offset
+  dual_neighborhood:
+    deferred_note: product dual_neighborhood_r1 is exemplar partial_wrong_object
+  dual_lattice:
+    law: success_object must be dual lattice cell not primary face
+    refuse:
+    - primary_face_as_dual
+    - skip_dual_offset
+  dual_visual:
+    deferred: true
+    note: art/density out — Prefer object identity only
+
+conceptual_leg:
+  end_state: Dual Prefer fails r1-shaped primary-face host; passes lattice+invariant host
+  path_position: prefer_intent_validates_gates_r1 → prefer_dual_object_identity_r1 → Genesis dual LIVE paused
+  intent_invariant: >-
+    Player edits logic points; dual cells are the half-offset quads whose corners
+    are those points.
+  structural_success: >-
+    Dual Prefer: ownership/highlight/evidence keyed to half-step dual lattice
+    cells whose corners are logic points; never primary-face 2×2 as dual Success.
+  success_object: organic_dual_offset_lattice_cell
+
+hard_prefer_gaps:
+- id: success_object_dual_cell
+  must: dual_prefer_declares_success_object_organic_dual_offset_lattice_cell
+  refuse:
+  - proxy_substitution
+  - primary_face_as_dual
+- id: emit_primary_face_as_dual_any_dual_altitude
+  must: dual_prefer_altitudes_include_primary_face_as_dual_in_refuse_and_do_not_waive
+- id: unit_fail_wrong_object_host
+  must: prefer_fails_r1_shaped_stable_primary_face_host
+- id: unit_pass_intent_aligned_dual_host
+  must: prefer_passes_dual_lattice_aligned_host_fixture
+- id: scope_prefer_only
+  must: no_genesis_f5_no_dual_visual_art_no_density
+
+done_when: >-
+  Prefer/weave: dual altitudes require success_object dual-cell class; emit
+  primary_face_as_dual; unit tests fail wrong-object host and pass intent-aligned
+  dual host. Nested under prefer_intent_validates_gates_r1.
+
+refuse_codes:
+- proxy_substitution
+- primary_face_as_dual
+- stamp_as_dual
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- skip_dual_offset
+- points_as_grid
+- stretch_as_variant
+- inspiration_shape_miss
+
+do_not_waive:
+- prefer_authorship_pass
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- primary_face_as_dual
+- stamp_as_dual
+- unstable_dual_neighborhood
+- over_neighbor_paint
+- skip_dual_offset
+
+dispatch:
+  must_trigger: Prefer/weave nested seat under umbrella — NOT Genesis IMPLEMENT_SLICE
+  steps:
+  - Land only with or after prefer_intent_validates_gates_r1 GREENLIGHT WELD
+  - success_object + emit primary_face_as_dual + unit tests
+  - No LIVE Genesis / dual_visual art / density
+  - Do NOT Curator push
+
+fresh_chat_instruction: >-
+  GREENLIT nested dual seat under prefer_intent_validates_gates_r1. success_object +
+  primary_face_as_dual emit + unit tests. Harness + host law binding.
+  No Curator. No LIVE Genesis.

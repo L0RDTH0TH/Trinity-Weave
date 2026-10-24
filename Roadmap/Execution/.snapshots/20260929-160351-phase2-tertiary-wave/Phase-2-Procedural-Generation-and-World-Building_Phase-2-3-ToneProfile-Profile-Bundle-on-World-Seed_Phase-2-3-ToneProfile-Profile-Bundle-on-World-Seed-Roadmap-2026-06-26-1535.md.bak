@@ -1,0 +1,222 @@
+---
+title: Phase 2.3 — ToneProfile Profile Bundle on World Seed (Execution)
+roadmap-level: secondary
+phase-number: 2
+subphase-index: "2.3"
+project-id: genesis-mythos-master
+roadmap_track: execution
+conceptual_counterpart: '[[1-Projects/genesis-mythos-master/Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed-Roadmap-2026-06-26-1535]]'
+status: active
+priority: high
+progress: 45
+handoff_readiness: 72
+package_id: pkg_world_shell
+catalog_row_ids:
+- ux_world_generation
+product_factory_run_id: overnight-exec-20260928
+persona_id: half_a.execution_tech_lead
+created: 2026-09-29
+updated: 2026-09-29
+tags:
+- roadmap
+- genesis-mythos-master
+- phase-2
+- tone-profile
+- world-seed
+- execution
+- pkg_world_shell
+para-type: Project
+links:
+- '[[1-Projects/genesis-mythos-master/Roadmap/Phase-2-Procedural-Generation-and-World-Building/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed/Phase-2-3-ToneProfile-Profile-Bundle-on-World-Seed-Roadmap-2026-06-26-1535]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-2-Procedural-Generation-and-World-Building/Phase-2-Procedural-Generation-and-World-Building-Roadmap-2026-06-26-0914]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-2-Procedural-Generation-and-World-Building/Phase-2-1-Generation-Pipeline-Stages/Phase-2-1-Generation-Pipeline-Stages-Roadmap-2026-06-26-1515]]'
+- '[[1-Projects/genesis-mythos-master/Roadmap/Execution/Phase-2-Procedural-Generation-and-World-Building/Phase-2-2-Canon-Registry-and-Intent-Resolver/Phase-2-2-Canon-Registry-and-Intent-Resolver-Roadmap-2026-06-26-1530]]'
+- '[[Ingest/Agent-Research/godot-phase1-layer-decoupling-citations-gmm-2026-09-29-0144]]'
+---
+
+# Phase 2.3 — ToneProfile Profile Bundle on World Seed (Execution)
+
+Execution secondary for session-0 ToneProfileBundle attachment on SeedBundle, ArchetypeRegistry, ProfileWeightManifest inject, ToneCompatibilityGate, and ToneFallbackResolver. Parallel spine under `Roadmap/Execution/Phase-2-…/Phase-2-3-…/`. **No Half B code. No L5 / factory.**
+
+### Intent Mapping
+
+| Field | Value |
+|-------|--------|
+| Design intent | One replaceable campaign tone contract biasing proc-gen + canon gates ([[conceptual 2.3#Behavior]]) |
+| Inspiration (studied) | (1) Conceptual 2.3 + tertiary 2.3.1 ProfileWeightManifest. (2) Execution 1.2 ToneProfileInjector. (3) Execution 2.1 SeedParser tone-required gate. (4) Execution 2.2 CanonFactValidator tone gate. |
+| L5 / package crosswalk | `pkg_world_shell` / `ux_world_generation` — read-only; no L5 edit |
+| Execution mechanism | GDScript interfaces + pseudo for ArchetypeRegistry, ToneProfileBundle, SeedBundleToneAttachment, ToneProfileInjector, ToneCompatibilityGate, ToneFallbackResolver |
+| Validation signal | Tertiary **2.3.1** ProfileWeightManifest next after 2.1.1 / 2.2.1 |
+
+### ux_context crosswalk
+
+| Envelope key | This run |
+|--------------|----------|
+| `catalog_row_ids` | `ux_world_generation` |
+| `package_id` | `pkg_world_shell` |
+| `l5_path` | `Roadmap/User-Story/scopes/ux_world_generation/L5.md` (read-only) |
+| `conceptual_pin` | Frozen conceptual 2.3 + 2.3.1 |
+| `dispatch_scope` | Execution secondary **2.3** mint (FAST wave) |
+
+## Module map
+
+| Module | Responsibility |
+|--------|----------------|
+| `ArchetypeRegistry` | Built-in High / Medium / Low / Grimdark profiles |
+| `Session0ToneSelector` | Table/DM choice + Palette veto hooks |
+| `ToneProfileBundle` | Immutable-for-session: profile_id + weight_manifest + provenance |
+| `ProfileWeightManifest` | Namespaced bias tables (detail → **2.3.1**) |
+| `SeedBundleToneAttachment` | Embed tone fingerprint into SeedBundle |
+| `ToneProfileInjector` | Apply weights at receptive 2.1 stages |
+| `ToneCompatibilityGate` | CanonFactValidator hook (2.2) |
+| `ToneFallbackResolver` | Unknown profile_id → Medium Fantasy + bus event |
+
+## Interfaces
+
+```text
+enum ToneArchetypeId {
+  HIGH_FANTASY,      # tone.high_fantasy
+  MEDIUM_FANTASY,    # tone.medium_fantasy (default fallback)
+  LOW_FANTASY,       # tone.low_fantasy
+  GRIMDARK           # tone.grimdark
+}
+
+ToneProfileBundle (RefCounted):
+  + profile_id: StringName
+  + weight_manifest: Dictionary  # terrain.* biome.* weather.* entity.* event.* quest.*
+  + palette_overrides: PackedStringArray
+  + fingerprint: String
+  + provenance: Dictionary
+  + to_dict() -> Dictionary
+
+ArchetypeRegistry (RefCounted):
+  + get(profile_id: StringName) -> Dictionary
+  + list_builtin() -> Array[Dictionary]
+  + register_extension(entry: Dictionary) -> Error
+  signals: archetype_resolved(profile_id), archetype_missing(profile_id)
+
+Session0ToneSelector (RefCounted):
+  + select(profile_id: StringName, palette_vetoes: PackedStringArray) -> Dictionary
+  # returns { ok:bool, bundle:ToneProfileBundle, error:Error }
+  signals: tone_selected(profile_id), palette_veto_applied(keys)
+
+SeedBundleToneAttachment (RefCounted):
+  + attach(bundle: SeedBundle, tone: ToneProfileBundle) -> Error
+  # missing tone → ERR_INVALID_PARAMETER (same severity as missing map_seed)
+
+ToneProfileInjector (RefCounted):
+  + apply(stage_id: int, profile_id: StringName, receptive: Dictionary) -> Dictionary
+  signals: weights_applied(stage_id, profile_id), tone_fallback_applied(profile_id)
+
+ToneCompatibilityGate (RefCounted):
+  + check(fact: Dictionary, active: ToneProfileBundle) -> Dictionary
+  # { ok:bool, reasons:PackedStringArray }
+  signals: tone_compat_pass(fact_id), tone_compat_fail(fact_id, reasons)
+
+ToneFallbackResolver (RefCounted):
+  + resolve(profile_id: StringName) -> StringName
+  # unknown → &"tone.medium_fantasy" + emit session.tone_fallback_applied
+```
+
+## Pseudo-code
+
+```pseudo
+# Phase 2.3 — ToneProfile on world seed (Godot 4 stable Error/OK + signals).
+# Citations: docs.godotengine.org/en/stable/ (RefCounted, Dictionary, StringName, signals).
+# Reject: Autoload ToneProfileBundle; silent missing tone; unknown id without fallback event.
+
+class_name SeedBundleToneAttachment
+extends RefCounted
+
+func attach(seed: SeedBundle, tone: ToneProfileBundle) -> Error:
+    if tone == null or tone.profile_id == &"":
+        return ERR_INVALID_PARAMETER  # SeedParser treats same as missing map_seed
+    seed.tone_profile_id = tone.profile_id
+    seed.tone_fingerprint = tone.fingerprint
+    return OK
+
+class_name ToneProfileInjector
+extends RefCounted
+
+signal weights_applied(stage_id, profile_id)
+signal tone_fallback_applied(profile_id)
+
+var _registry: ArchetypeRegistry
+var _fallback: ToneFallbackResolver
+
+func apply(stage_id: int, profile_id: StringName, receptive: Dictionary) -> Dictionary:
+    var entry: Dictionary = _registry.get(profile_id)
+    if entry.is_empty():
+        var fb := _fallback.resolve(profile_id)
+        tone_fallback_applied.emit(profile_id)
+        entry = _registry.get(fb)
+        profile_id = fb
+    var weights: Dictionary = entry.get("weight_manifest", {}).duplicate(true)
+    # Palette vetoes already stripped at Session0ToneSelector
+    var out := receptive.duplicate(true)
+    out["weights"] = weights
+    out["profile_id"] = profile_id
+    weights_applied.emit(stage_id, profile_id)
+    return out
+
+class_name ToneCompatibilityGate
+extends RefCounted
+
+signal tone_compat_pass(fact_id)
+signal tone_compat_fail(fact_id, reasons)
+
+func check(fact: Dictionary, active: ToneProfileBundle) -> Dictionary:
+    var reasons: PackedStringArray = []
+    # Example bound: grimdark rejects wonder-forward quest framing tags on accept path
+    if active.profile_id == &"tone.grimdark" and fact.get("payload", {}).get("framing", "") == "wonder":
+        reasons.append("tone_bound_wonder")
+    var ok := reasons.is_empty()
+    if ok:
+        tone_compat_pass.emit(fact.get("fact_id", &""))
+    else:
+        tone_compat_fail.emit(fact.get("fact_id", &""), reasons)
+    return {"ok": ok, "reasons": reasons}
+
+# Built-in archetypes (lean ids): tone.high_fantasy | tone.medium_fantasy |
+# tone.low_fantasy | tone.grimdark — defaults, not stereotypes; Palette may veto keys.
+```
+
+## Acceptance criteria (execution)
+
+- [x] Parallel spine path under `Execution/Phase-2-…/Phase-2-3-…/` (not flat)
+- [x] Path-qualified `conceptual_counterpart` → conceptual 2.3
+- [x] Interfaces + pseudo for ToneProfileBundle / Injector / CompatibilityGate / Fallback
+- [x] Tone required on SeedBundle (block severity = missing map seed)
+- [ ] Tertiary **2.3.1** ProfileWeightManifest Archetype Tables minted
+- [ ] Edge-case ACs on tertiary (unknown id fallback, Palette veto, grimdark bounds)
+- [ ] Half B / playable ladder later
+
+## Research integration
+
+### Key takeaways
+
+- Tone attachment is **session-scoped RefCounted**, not Autoload gameplay singleton.
+- Missing tone blocks SeedBundle formation (2.1 SeedParser) at same severity as missing map seed.
+- Unknown profile_id → Medium Fantasy + explicit `tone_fallback_applied` signal/bus event.
+- ToneCompatibilityGate is invoked from CanonFactValidator (2.2) — not from stage executors directly.
+
+### Verbatim anchors
+
+> "OK = 0 — Methods that return Error return OK when no error occurred."
+> — https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-error
+
+> "class_name MyNode extends Node"
+> — https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html
+
+### Links
+
+- [[Ingest/Agent-Research/godot-phase1-layer-decoupling-citations-gmm-2026-09-29-0144]]
+
+## Subphase next
+
+1. After **2.1.1** / **2.2.1**, mint **2.3.1** ProfileWeightManifest.
+2. Phase-2 secondary wave complete → DFS tertiaries then Phase 3 primary.
+
+## Status
+
+`deepen_complete: true` for Execution **2.3** secondary mint. Nested V/IRA skipped (operator batch-later). Phase-2 secondary wave complete enough for next PQ → **2.1.1**.

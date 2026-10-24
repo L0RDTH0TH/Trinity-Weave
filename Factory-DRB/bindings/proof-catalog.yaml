@@ -1,0 +1,58 @@
+probes:
+  moment_shows_low_fidelity_polygon:
+    op: entrypoint_result_equals
+    argv:
+      - python3
+      - tools/point_select_entrypoint.py
+      - --mode
+      - show
+    selector:
+      point:
+        - 0.2
+        - 0.2
+    equals_from:
+      path: state/solids.yaml
+      key: solids.0.id
+  moment_points_at_that_polygon:
+    op: entrypoint_result_equals
+    argv:
+      - python3
+      - tools/point_select_entrypoint.py
+      - --mode
+      - point
+    selector:
+      point:
+        - 0.5
+        - 0.5
+    equals_from:
+      path: state/solids.yaml
+      key: solids.0.id
+  moment_sees_same_polygon_after_point:
+    op: entrypoint_result_equals
+    argv:
+      - python3
+      - tools/point_select_entrypoint.py
+      - --mode
+      - repoint
+    selector:
+      point:
+        - 0.5
+        - 0.5
+    equals_from:
+      path: state/solids.yaml
+      key: solids.0.selection_id
+  moment_watches_pointed_solid_stay:
+    op: entrypoint_result_equals
+    argv:
+      - python3
+      - tools/point_select_entrypoint.py
+      - --mode
+      - stay
+    selector:
+      point:
+        - 0.55
+        - 0.55
+    equals_from:
+      path: state/solids.yaml
+      key: solids.0.commit_id
+required_playtest_ids: []

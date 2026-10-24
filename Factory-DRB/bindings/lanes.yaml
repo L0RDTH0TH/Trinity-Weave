@@ -1,0 +1,21 @@
+lane_ids:
+- asset
+- techart
+- content
+- presentation
+- audio
+- module
+order:
+- module
+- presentation
+- content
+- techart
+- asset
+- audio
+lane_adapters:
+  asset: blender_mcp
+  techart: godot_4_6_3_dotnet
+  content: vault_only
+  presentation: godot_4_6_3_dotnet
+  audio: vault_only
+  module: godot_4_6_3_dotnet
