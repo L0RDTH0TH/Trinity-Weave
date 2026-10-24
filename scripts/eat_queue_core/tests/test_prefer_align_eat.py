@@ -12,12 +12,41 @@ import yaml
 
 from eat_queue_core.weave.factory.factory_lane_runner import run_factory_lane_job
 from eat_queue_core.weave.factory.prefer_align import run_prefer_align
+from eat_queue_core.weave.factory.proof_runner import run_named_probes
 
 FIXTURE_PROJECT_ID = "fixture-project"
 PACKET_KEY = "identity_holds_after_select"
 PROBE_COMPARE = "fixture_select_identity_compare"
 PROBE_EXIT_ONLY = "fixture_exit_only"
-EXPECTED = "solid-selected-a"
+PROBE_LITERAL = "fixture_literal_equals"
+SOLID_ID = "solid-dyn-fixture-9f3a"
+
+
+_HONEST_ENTRYPOINT = """\
+import sys
+import yaml
+from pathlib import Path
+
+idx = None
+argv = sys.argv[1:]
+if "--index" in argv:
+    idx = int(argv[argv.index("--index") + 1])
+else:
+    raise SystemExit(2)
+state = yaml.safe_load(Path("state/solids.yaml").read_text(encoding="utf-8"))
+print(state["solids"][idx]["id"])
+"""
+
+_CONSTANT_ENTRYPOINT = f'print("{SOLID_ID}")\n'
+_ECHO_ARG_ENTRYPOINT = """\
+import sys
+argv = sys.argv[1:]
+# Echo selector index — must fail
+if "--index" in argv:
+    print(argv[argv.index("--index") + 1])
+else:
+    print("nope")
+"""
 
 
 def _write_blank(
@@ -27,12 +56,36 @@ def _write_blank(
     probes: dict[str, Any] | None = None,
     with_checks: bool = True,
     entrypoint_body: str | None = None,
+    solid_id: str = SOLID_ID,
 ) -> str:
     pid = FIXTURE_PROJECT_ID
     bindings = root / "1-Projects" / pid / "Factory-DRB" / "bindings"
     bindings.mkdir(parents=True, exist_ok=True)
     game = root / "1-Projects" / pid / "game"
     game.mkdir(parents=True, exist_ok=True)
+    (game / "state").mkdir(parents=True, exist_ok=True)
+    (game / "state" / "solids.yaml").write_text(
+        yaml.dump({"solids": [{"id": solid_id}]}, sort_keys=False),
+        encoding="utf-8",
+    )
+    default_probes = {
+        PROBE_COMPARE: {
+            "op": "entrypoint_result_equals",
+            "argv": ["python3", "tools/select_probe.py"],
+            "selector": {"index": 0},
+            "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+        },
+        PROBE_EXIT_ONLY: {
+            "op": "command_exits_zero",
+            "argv": ["python3", "-c", "raise SystemExit(0)"],
+        },
+        PROBE_LITERAL: {
+            "op": "entrypoint_result_equals",
+            "argv": ["python3", "tools/select_probe.py"],
+            "selector": {"index": 0},
+            "equals": solid_id,
+        },
+    }
     families = {
         "identity": {
             "project_id": pid,
@@ -43,19 +96,7 @@ def _write_blank(
         },
         "engine": {"adapter_id": "", "build_command": "", "ports": {}},
         "proof-catalog": {
-            "probes": probes
-            if probes is not None
-            else {
-                PROBE_COMPARE: {
-                    "op": "entrypoint_result_equals",
-                    "argv": ["python3", "tools/select_probe.py"],
-                    "equals": EXPECTED,
-                },
-                PROBE_EXIT_ONLY: {
-                    "op": "command_exits_zero",
-                    "argv": ["python3", "-c", "raise SystemExit(0)"],
-                },
-            },
+            "probes": probes if probes is not None else default_probes,
             "required_playtest_ids": [],
         },
         "lanes": {"lane_ids": [], "order": []},
@@ -81,10 +122,10 @@ def _write_blank(
     )
     tools = game / "tools"
     tools.mkdir(parents=True, exist_ok=True)
-    body = entrypoint_body
-    if body is None:
-        body = f"print({EXPECTED!r})\n"
-    (tools / "select_probe.py").write_text(body, encoding="utf-8")
+    (tools / "select_probe.py").write_text(
+        entrypoint_body if entrypoint_body is not None else _HONEST_ENTRYPOINT,
+        encoding="utf-8",
+    )
 
     armed: dict[str, Any] = {
         "proof_shape": "contract",
@@ -93,8 +134,10 @@ def _write_blank(
         "host_law_ids": [],
         "behavior_keys": [PACKET_KEY],
         "structural_success": "identity holds after select",
-        # Prefer names the entrypoint path — discover must not treat it as unnamed.
-        "allowed_entries": ["tools/select_probe.py"],
+        "allowed_entries": [
+            "tools/select_probe.py",
+            "state/solids.yaml",
+        ],
         "do_not_waive": ["explicit_met_implicit_miss"],
     }
     if with_checks:
@@ -213,6 +256,29 @@ class PreferAlignEatTests(unittest.TestCase):
             any("behavior_key_checks_missing" in v for v in r.violations)
         )
 
+    def test_probe_literal_equals_forbidden(self) -> None:
+        _write_blank(self.root)
+        out = run_named_probes(self.root, FIXTURE_PROJECT_ID, [PROBE_LITERAL])
+        self.assertEqual(len(out), 1)
+        self.assertFalse(out[0].ok)
+        self.assertIn("literal_equals_forbidden", out[0].detail)
+
+    def test_probe_constant_print_fails_when_state_differs(self) -> None:
+        _write_blank(
+            self.root,
+            entrypoint_body=_CONSTANT_ENTRYPOINT,
+            solid_id="other-solid-id-not-constant",
+        )
+        # Constant script still prints SOLID_ID; state has other id → fail
+        out = run_named_probes(self.root, FIXTURE_PROJECT_ID, [PROBE_COMPARE])
+        self.assertFalse(out[0].ok)
+
+    def test_probe_echo_selector_arg_fails(self) -> None:
+        _write_blank(self.root, entrypoint_body=_ECHO_ARG_ENTRYPOINT)
+        out = run_named_probes(self.root, FIXTURE_PROJECT_ID, [PROBE_COMPARE])
+        self.assertFalse(out[0].ok)
+        self.assertIn("echoed_selector_arg", out[0].detail)
+
     def test_live_eat_blocks_before_agent_on_missing_checks(self) -> None:
         rel = _write_blank(self.root, with_checks=False)
         called = {"agent": False}
@@ -285,7 +351,6 @@ class PreferAlignEatTests(unittest.TestCase):
         )
 
     def test_live_eat_exit_code_alone_probe_fails(self) -> None:
-        """command_exits_zero bound to a key must not green Success."""
         rel = _write_blank(
             self.root,
             armed_extra={"behavior_key_checks": {PACKET_KEY: PROBE_EXIT_ONLY}},
@@ -323,11 +388,9 @@ class PreferAlignEatTests(unittest.TestCase):
         self.assertIn("probe_op_not_compare", viol)
 
     def test_live_eat_runner_compare_passes(self) -> None:
-        """Same post-weld path: Prefer-named entrypoint stdout matches catalog equals."""
         rel = _write_blank(self.root)
 
         def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
-            # Agent implements entrypoint only (already on disk); no evidence_pack.
             return {"ok": True}
 
         entry = {"id": "eat-ok", "project_id": FIXTURE_PROJECT_ID, "params": {}}
@@ -353,49 +416,12 @@ class PreferAlignEatTests(unittest.TestCase):
                 complete_pipeline=False,
                 auto_retry_seats=False,
             )
-        # Post-weld evidence path must pass; later review seats are out of Tip A scope.
         self.assertNotEqual(out.get("error"), "prefer_align_failed")
         self.assertNotEqual(out.get("error"), "weld_intent_evidence_failed")
         self.assertTrue(
-            out.get("prefer_product_seats_met") is True
-            or out.get("ok") is True,
+            out.get("prefer_product_seats_met") is True or out.get("ok") is True,
             msg=str(out),
         )
-
-    def test_live_eat_wrong_entrypoint_result_fails(self) -> None:
-        rel = _write_blank(
-            self.root,
-            entrypoint_body='print("wrong-identity")\n',
-        )
-
-        def _agent(*_a: Any, **_k: Any) -> dict[str, Any]:
-            return {"ok": True}
-
-        entry = {"id": "eat-wrong", "project_id": FIXTURE_PROJECT_ID, "params": {}}
-        params = {
-            "slice_id": "fixture_contract_slice",
-            "lane_id": "implementation",
-            "project_id": FIXTURE_PROJECT_ID,
-            "armed_packet_path": rel,
-            "repo_path": f"1-Projects/{FIXTURE_PROJECT_ID}/game",
-        }
-        patches = _lane_patches()
-        with patches[0] as a, patches[1] as b, patches[2] as c, patches[3] as d, patches[
-            4
-        ], patches[5], patches[6], patches[7], patches[8], patches[9], patches[10]:
-            _wire_mocks((a, b, c, d))
-            out = run_factory_lane_job(
-                self.root,
-                "factory",
-                entry,
-                params=params,
-                run_agent_fn=_agent,
-                skip_preflight=True,
-                complete_pipeline=False,
-                auto_retry_seats=False,
-            )
-        self.assertFalse(out.get("ok"))
-        self.assertEqual(out.get("error"), "weld_intent_evidence_failed")
 
 
 if __name__ == "__main__":

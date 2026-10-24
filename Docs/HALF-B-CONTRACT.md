@@ -50,8 +50,9 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 ## Prefer-named check (contract how)
 
 - Prefer must set `behavior_key_checks: { <behavior_key>: <probe_id> }` for every key. Silence → Prefer-align fail.
-- Catalog probe for a behavior key is **operation + value to compare** (`entrypoint_result_equals`): runner invokes Prefer-named entrypoint and compares the result to catalog `equals`.
+- Catalog probe for a behavior key is **operation + compare** (`entrypoint_result_equals`): runner reads expected id from write-target state (`equals_from`), invokes Prefer-named entrypoint with a **selector** (index/point — never the id), and compares stdout to that id. Catalog must **not** store expected stdout. Literal `equals` is forbidden.
 - Agent may implement the entrypoint. Agent may **not** write the expected value, the pass bit, or the program that decides pass.
+- A script that prints a constant, or echoes its selector argument, fails.
 - Exit code alone (`command_exits_zero`) is **not** behavior-key evidence.
 - Feedstock stays in Ticketment. B₂ does not re-open roadmaps to invent what feedstock wanted.
 

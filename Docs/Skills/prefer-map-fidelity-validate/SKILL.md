@@ -39,7 +39,7 @@ Pass only if **all** are true:
 1. **Own row bind.** `structural_success` matches **this** MAP product job (necessary). Narrowing after sibling words are removed is **correct**. A thinner rewrite of *this* row is not a fail.
 2. **No sibling swallow.** Prefer success / `behavior_keys` must not overlap any other **open** map row’s job more than they overlap this row. If they describe a different open ticket → **fail** (`job_consumes_sibling`). This is the regression that matters.
 3. `out_of_scope_ticket_ids` present and equal to same-section open neighbors from the map (Gate A already checks; B₁ re-checks intent).
-4. `success_object` names a **player-visible** Play-path outcome on the project’s LIVE entry. Refuse `contract_bound` / `meta_written` / `hotkey_bound`.
+4. `success_object`: **Contract / foundation** — names this row’s invariant capability (operation + identity result), not a stranger demo / LaunchShell moment. **Moment** — names a player-visible Play-path outcome on the project’s LIVE entry. Refuse `contract_bound` / `meta_written` / `hotkey_bound`. Do not fatten a contract Prefer into a Play-path demo to satisfy an old habit.
 5. Required `do_not_waive` includes product-map codes plus session-prep codes on `world-builder-session-prep`.
 6. `behavior_keys`: **Contract / foundation** — ≥1 invariant/operation key, zero visibility. **Moment** — 3–5 stranger-watchable keys from **this** row. Do not fatten a contract Prefer to 3–8 to satisfy an old habit. Reject `file_exists`, `compiles`, `menu_opens`, and the two generic B₂ booleans alone.
 7. Inspiration altitude (Azgaar / Townscaper / FG / etc.) **only** when the Prefer cites that exemplar.

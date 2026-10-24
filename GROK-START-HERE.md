@@ -12,7 +12,7 @@
 
 **Pass 7 evidence law (not GREENLIGHT):** discover write-target entries into Prefer-align; eat Success = `evaluate_behavior_evidence` only (agent pack rejected). Re-run B₁ before GREENLIGHT.
 
-**Pass 8 contract how (not GREENLIGHT):** Prefer `behavior_key_checks` + catalog `entrypoint_result_equals` (runner compares result to catalog `equals`). Exit-code alone / agent stamp fail. Genesis binding after this tip is on `origin/main`.
+**Pass 8 contract how (not GREENLIGHT):** Prefer `behavior_key_checks` + `entrypoint_result_equals` with `equals_from` (runner reads id from write-target state, selector index/point, compare stdout). Literal catalog `equals` forbidden. Genesis Tip B probe after main tip.
 
 **Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r3` B₁-ready on `WB-polygon-substrate` (armed/stageable for factory feed). Do not Prefer-join archived `wb-polygon-substrate-r2-retired-*` / r1. Not GREENLIGHT. See `project/genesis-mythos-master`.
 

@@ -40,6 +40,7 @@ The weave must not bake a product into harness Python. Families live in **projec
 | 6b | `d50c3bb` (project) | Genesis Prefer/identity scrub so r2 can pass Prefer-align: empty `game_repo_path`, `host_law_ids: []`, cites/stamp/umbrella cleared. **Not GREENLIGHT.** |
 | 7 | `cf36166` | Discover write-target entries into Prefer-align; exit Success = `evaluate_behavior_evidence` only (reject agent-sourced pack). **Not GREENLIGHT. Re-run B₁ before any ticket.** |
 | 8 | `6d9ce10` | Prefer `behavior_key_checks`; `entrypoint_result_equals` (op+compare); exit-code alone not evidence; contract one-key; B₁ skill stop demanding 3–8 stranger keys. Blank fixture via live post-weld path. **Not GREENLIGHT. Genesis Tip B after origin/main.** |
+| 8b | *(this tip)* | `equals_from` write-target state + selector (index/point); literal catalog `equals` forbidden; B₁ skill rule 4 contract success_object. Then Genesis Tip B probe. **Not GREENLIGHT.** |
 
 ## Genesis is a consumer
 
