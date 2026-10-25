@@ -286,6 +286,133 @@ class PreferAlignEatTests(unittest.TestCase):
             r.violations,
         )
 
+    def test_align_blocks_moment_act_words_with_index_shell(self) -> None:
+        """Moment + play-path success + all index/shell probes → align fail."""
+        keys = [
+            "points_at_that_polygon",
+            "sees_same_polygon_after_point",
+            "watches_pointed_solid_stay",
+        ]
+        probes = {
+            "shell_a": {
+                "op": "entrypoint_result_equals",
+                "argv": ["python3", "tools/select_probe.py"],
+                "selector": {"index": 0},
+                "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+            },
+            "shell_b": {
+                "op": "entrypoint_result_equals",
+                "argv": ["python3", "tools/select_probe.py"],
+                "selector": {"index": 0},
+                "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+            },
+            "shell_c": {
+                "op": "field_equals",
+                "path": "state/solids.yaml",
+                "key": "solids",
+                "equals": [],
+            },
+        }
+        rel = _write_blank(
+            self.root,
+            probes=probes,
+            armed_extra={
+                "proof_shape": "moment",
+                "claim_class": "ask_success",
+                "prefer_class": "foundation",
+                "structural_success": (
+                    "A GM can point at a polygon solid on the board and see "
+                    "that solid stay the same one that was pointed at."
+                ),
+                "success_object": "point_and_stay_polygon_solid",
+                "behavior_keys": keys,
+                "behavior_key_checks": {
+                    keys[0]: "shell_a",
+                    keys[1]: "shell_b",
+                    keys[2]: "shell_c",
+                },
+            },
+        )
+        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
+        r = run_prefer_align(
+            self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
+        )
+        self.assertFalse(r.ok)
+        self.assertTrue(
+            any(
+                "moment_act_words_with_index_shell_lookup" in v for v in r.violations
+            ),
+            r.violations,
+        )
+        self.assertFalse(
+            any(
+                "contract_play_path_words_with_yaml_lookup" in v
+                for v in r.violations
+            ),
+            r.violations,
+        )
+
+    def test_align_allows_moment_point_act_probes(self) -> None:
+        """r4-shaped moment: equals_from + selector.point must not get shell refuse."""
+        keys = [
+            "points_at_that_polygon",
+            "sees_same_polygon_after_point",
+            "watches_pointed_solid_stay",
+        ]
+        probes = {
+            "point_a": {
+                "op": "entrypoint_result_equals",
+                "argv": ["python3", "tools/point_select_entrypoint.py"],
+                "selector": {"point": [0.5, 0.5]},
+                "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+            },
+            "point_b": {
+                "op": "entrypoint_result_equals",
+                "argv": ["python3", "tools/point_select_entrypoint.py"],
+                "selector": {"point": [0.2, 0.2]},
+                "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+            },
+            "point_c": {
+                "op": "entrypoint_result_equals",
+                "argv": ["python3", "tools/point_select_entrypoint.py"],
+                "selector": {"point": {"x": 0.55, "y": 0.55}},
+                "equals_from": {
+                    "path": "state/solids.yaml",
+                    "key": "solids.0.commit_id",
+                },
+            },
+        }
+        rel = _write_blank(
+            self.root,
+            probes=probes,
+            armed_extra={
+                "proof_shape": "moment",
+                "claim_class": "ask_success",
+                "prefer_class": "foundation",
+                "structural_success": (
+                    "A GM can point at a polygon solid on the board and see "
+                    "that solid stay the same one that was pointed at."
+                ),
+                "success_object": "point_and_stay_polygon_solid",
+                "behavior_keys": keys,
+                "behavior_key_checks": {
+                    keys[0]: "point_a",
+                    keys[1]: "point_b",
+                    keys[2]: "point_c",
+                },
+            },
+        )
+        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
+        r = run_prefer_align(
+            self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
+        )
+        self.assertFalse(
+            any(
+                "moment_act_words_with_index_shell_lookup" in v for v in r.violations
+            ),
+            r.violations,
+        )
+
     def test_probe_literal_equals_forbidden(self) -> None:
         _write_blank(self.root)
         out = run_named_probes(self.root, FIXTURE_PROJECT_ID, [PROBE_LITERAL])

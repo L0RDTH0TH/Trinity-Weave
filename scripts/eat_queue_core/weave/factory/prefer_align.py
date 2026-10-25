@@ -240,6 +240,8 @@ def run_prefer_align(
 
     # Contract Prefer whose success still says point/see/board is a scope cut —
     # refuse before the seat (do not greenlight a yaml-lookup "product").
+    # Moment Prefer with play-path act words + only index/shell probes is the
+    # same scope cut under a moment label (not equals_from alone — point-act OK).
     proof_shape = str(armed.get("proof_shape") or "").strip().lower()
     if proof_shape == "contract":
         from .prefer_map_fidelity import (
@@ -253,6 +255,18 @@ def run_prefer_align(
                 violations.append(
                     "prefer_align:contract_play_path_words_with_yaml_lookup"
                 )
+    elif proof_shape == "moment":
+        from .prefer_map_fidelity import (
+            all_behavior_key_checks_are_index_shell_lookup,
+            success_has_play_path_words,
+        )
+
+        if success_has_play_path_words(armed) and all_behavior_key_checks_are_index_shell_lookup(
+            vault_root, project_id, armed
+        ):
+            violations.append(
+                "prefer_align:moment_act_words_with_index_shell_lookup"
+            )
 
     host_ids = _host_law_ids(armed)
     cites = _collect_cite_strings(armed)

@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import textwrap
 from pathlib import Path
+from typing import Any
+
+import yaml
 
 from eat_queue_core.weave.factory.prefer_map_fidelity import (
     WORLD_GEN_MAP_DO_NOT_WAIVE,
@@ -13,6 +16,26 @@ from eat_queue_core.weave.factory.prefer_map_fidelity import (
     parse_ticket_map_rows,
     validate_armed_map_fidelity,
 )
+
+# Catalog shapes for moment Gate A (index/shell vs point-act).
+_INDEX_SHELL_PROBE = {
+    "op": "entrypoint_result_equals",
+    "argv": ["python3", "tools/select_probe.py"],
+    "selector": {"index": 0},
+    "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+}
+_POINT_ACT_PROBE = {
+    "op": "entrypoint_result_equals",
+    "argv": ["python3", "tools/point_select_entrypoint.py", "--mode", "point"],
+    "selector": {"point": [0.5, 0.5]},
+    "equals_from": {"path": "state/solids.yaml", "key": "solids.0.id"},
+}
+_FIELD_EQUALS_SHELL = {
+    "op": "field_equals",
+    "path": "state/solids.yaml",
+    "key": "solids",
+    "equals": [],
+}
 
 
 SAMPLE_MAP = textwrap.dedent(
@@ -48,6 +71,20 @@ def _map_vault(tmp_path: Path) -> Path:
         encoding="utf-8",
     )
     return tmp_path
+
+
+def _install_proof_catalog(
+    vault: Path, probes: dict[str, Any], *, project_id: str = "genesis-mythos-master"
+) -> None:
+    bindings = vault / f"1-Projects/{project_id}/Factory-DRB/bindings"
+    bindings.mkdir(parents=True, exist_ok=True)
+    (bindings / "proof-catalog.yaml").write_text(
+        yaml.dump(
+            {"probes": probes, "required_playtest_ids": []},
+            sort_keys=False,
+        ),
+        encoding="utf-8",
+    )
 
 
 def _good_armed() -> dict:
@@ -288,8 +325,9 @@ def test_contract_prefer_with_play_path_success_fails_gate_a():
         "behavior_keys": [
             "selected_solid_identity_holds",
         ],
+        # Any equals_from probe trips contract yaml-lookup refuse (not moment predicate).
         "behavior_key_checks": {
-            "selected_solid_identity_holds": "polygon_select_identity_holds",
+            "selected_solid_identity_holds": "moment_points_at_that_polygon",
         },
     }
     result = validate_armed_map_fidelity(
@@ -301,6 +339,153 @@ def test_contract_prefer_with_play_path_success_fails_gate_a():
     ), result.violations
     assert any(
         "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
+    ), result.violations
+
+
+def test_moment_act_words_with_all_index_shell_probes_fails_gate_a(tmp_path: Path):
+    """Moment + play-path success + every check index/shell → Gate A fail."""
+    vault = _map_vault(tmp_path)
+    _install_proof_catalog(
+        vault,
+        {
+            "shell_index_a": _INDEX_SHELL_PROBE,
+            "shell_index_b": dict(_INDEX_SHELL_PROBE),
+            "shell_field": _FIELD_EQUALS_SHELL,
+        },
+    )
+    armed = _good_armed()
+    armed["project_id"] = "genesis-mythos-master"
+    armed["structural_success"] = (
+        "Player can point at land on the board and see height stay readable "
+        "when Generate runs. W1 Generate control. W2 dials. W3 land water. "
+        "W4 height. W5 rivers."
+    )
+    armed["success_object"] = "point_and_see_land_on_board"
+    armed["behavior_keys"] = [
+        "points_at_land_on_board",
+        "sees_height_stay_readable",
+        "watches_generate_control",
+    ]
+    armed["behavior_key_checks"] = {
+        "points_at_land_on_board": "shell_index_a",
+        "sees_height_stay_readable": "shell_index_b",
+        "watches_generate_control": "shell_field",
+    }
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result=_hostile_ok()
+    )
+    assert result.ok is False, result.violations
+    assert any(
+        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    ), result.violations
+    # Must not misuse contract equals_from predicate as the moment fail code.
+    assert not any(
+        "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
+    ), result.violations
+
+
+def test_moment_act_words_with_point_act_probes_no_shell_violation(tmp_path: Path):
+    """r4-shaped moment: equals_from + selector.point must NOT get shell refuse."""
+    vault = _map_vault(tmp_path)
+    _install_proof_catalog(
+        vault,
+        {
+            "moment_point_a": _POINT_ACT_PROBE,
+            "moment_point_b": {
+                **_POINT_ACT_PROBE,
+                "selector": {"point": [0.2, 0.2]},
+            },
+            "moment_point_c": {
+                **_POINT_ACT_PROBE,
+                "selector": {"point": {"x": 0.55, "y": 0.55}},
+            },
+        },
+    )
+    armed = _good_armed()
+    armed["project_id"] = "genesis-mythos-master"
+    armed["structural_success"] = (
+        "Player can point at land on the board and see height stay readable "
+        "when Generate runs. W1 Generate control. W2 dials. W3 land water. "
+        "W4 height. W5 rivers."
+    )
+    armed["success_object"] = "point_and_see_land_on_board"
+    armed["behavior_keys"] = [
+        "points_at_land_on_board",
+        "sees_height_stay_readable",
+        "watches_generate_control",
+    ]
+    armed["behavior_key_checks"] = {
+        "points_at_land_on_board": "moment_point_a",
+        "sees_height_stay_readable": "moment_point_b",
+        "watches_generate_control": "moment_point_c",
+    }
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result=_hostile_ok()
+    )
+    assert not any(
+        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    ), result.violations
+
+
+def test_moment_mixed_point_and_shell_no_all_shell_violation(tmp_path: Path):
+    """At least one point-act probe → do not fire all-shell refuse."""
+    vault = _map_vault(tmp_path)
+    _install_proof_catalog(
+        vault,
+        {
+            "shell_index_a": _INDEX_SHELL_PROBE,
+            "moment_point_a": _POINT_ACT_PROBE,
+            "shell_field": _FIELD_EQUALS_SHELL,
+        },
+    )
+    armed = _good_armed()
+    armed["project_id"] = "genesis-mythos-master"
+    armed["structural_success"] = (
+        "Player can point at land on the board and see rivers stay on screen. "
+        "W1 Generate control. W2 dials. W3 land water. W4 height. W5 rivers."
+    )
+    armed["success_object"] = "point_and_see_land_on_board"
+    armed["behavior_keys"] = [
+        "points_at_land_on_board",
+        "sees_height_stay_readable",
+        "watches_generate_control",
+    ]
+    armed["behavior_key_checks"] = {
+        "points_at_land_on_board": "shell_index_a",
+        "sees_height_stay_readable": "moment_point_a",
+        "watches_generate_control": "shell_field",
+    }
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result=_hostile_ok()
+    )
+    assert not any(
+        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    ), result.violations
+
+
+def test_live_r4_moment_point_probes_no_shell_violation():
+    """Live r4 Prefer catalog (selector.point + equals_from) must pass shell refuse."""
+    from eat_queue_core.weave.factory.prefer_map_fidelity import (
+        PRODUCT_MAP_DO_NOT_WAIVE,
+        load_armed_yaml,
+        validate_armed_map_fidelity,
+    )
+
+    vault = _live_vault()
+    armed_path = (
+        vault
+        / "1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs"
+        / "alpha0_wb_polygon_substrate_r4.armed.yaml"
+    )
+    if not armed_path.is_file():
+        return
+    armed = load_armed_yaml(armed_path)
+    armed.setdefault("do_not_waive", list(PRODUCT_MAP_DO_NOT_WAIVE))
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
+    )
+    assert not any(
+        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
     ), result.violations
 
 

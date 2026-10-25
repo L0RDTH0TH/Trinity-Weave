@@ -47,11 +47,11 @@ Write/update `{slice_id}.armed.yaml` (and Prefer brief if used) with:
 | `proof_shape` | **Required.** `contract` (function/file fact; probe-only) or `moment` (point/watch act on a tiny board). Pick one — do not blur |
 | `claim_class` | Map tickets: `component` (with contract) or `ask_success` (with moment). **Never** `staging` |
 | `prefer_class` | `foundation` for contract substrate rows; `place` / `craft` only when the row is that seat **and** you set `topology_law: true` |
-| `structural_success` | This row’s **capability** after sibling words are removed — narrowing is correct; copying a fat neighbor job is wrong. **Contract:** no “point,” “see,” “GM,” or “board.” **Moment:** the same act you will F5 |
+| `structural_success` | This row’s **capability** after sibling words are removed — narrowing is correct; copying a fat neighbor job is wrong. You may drop sibling jobs; you may **not** replace this row’s act with a lookup/shell while keeping the act’s words. **Contract:** no “point,” “see,” “GM,” or “board.” **Moment:** the same act you will F5 (point/see/stay on a tiny board) |
 | `out_of_scope_ticket_ids` | **Exact** list from the bundle (Gate A fails if missing or mismatched) |
 | `behavior_keys` | **Contract:** ≥1 invariant/operation key; **zero** visibility keys (mixed fails). **Moment:** 3–5 stranger-watchable keys. Do not fatten contract Prefers to 3–8. Classify by role, not a denylist of two example strings |
-| `behavior_key_checks` | **Required when `behavior_keys` non-empty.** Map each key → one opaque proof-catalog probe id. One probe must not green every key. Silence stays a fail |
-| `success_object` | Capability outcome for this row (not a LaunchShell / demo synonym) |
+| `behavior_key_checks` | **Required when `behavior_keys` non-empty.** Map each key → one opaque proof-catalog probe id. **Moment:** probes need point (or equivalent act) selectors — `equals_from` alone with index/shell is a scope cut. One probe must not green every key. Silence stays a fail |
+| `success_object` | **Contract:** capability outcome for this row. **Moment:** the visible board act. “Demo” = sibling system / LaunchShell — not the board; do not delete the act by framing success as “not a demo” |
 | `do_not_waive` | Full product-map set (incl. session-prep codes on this map) |
 | `checklist_ids` | Prefer-declared only. Contract default = `[]`. `None` on a map eat fails closed. Not a substitute for `behavior_key_checks` |
 | `welds` / `W1`… | Only if the row’s **Welds** column explicitly lists them — never invent from free Notes |
@@ -62,8 +62,8 @@ Do **not** set `factory_greenlit: true`. Do **not** FactoryEat.
 
 ## After draft
 
-1. Gate A: `prefer_map_fidelity_check.py --armed …` (refuses contract + play-path success / yaml-lookup scope cut)
-2. Gate B₁: `prefer-map-fidelity-validate` (sibling swallow still fails)
+1. Gate A: `prefer_map_fidelity_check.py --armed …` (refuses contract + play-path success / yaml-lookup; refuses moment + play-path act words + all index/shell probes)
+2. Gate B₁: `prefer-map-fidelity-validate` (sibling swallow still fails; Gate A non-zero blocks B₁ stamp)
 3. Operator GREENLIGHT only → weld → B₂ → **F5 only for moment**; contract closes on probe pass (do not ask F5)
 
-If B₁ can pass a Prefer whose success describes a different open ticket, Ticketment is not done — re-draft from the bundle. If the map job is a point/see/board ask, draft a **moment** Prefer — do not rewrite it into a contract yaml lookup.
+If B₁ can pass a Prefer whose success describes a different open ticket, Ticketment is not done — re-draft from the bundle. If the map job is a point/see/board ask, draft a **moment** Prefer with point-act probes — do not rewrite it into a contract yaml lookup or a moment-labeled index shell.

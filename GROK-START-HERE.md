@@ -14,7 +14,7 @@
 
 **Pass 8 contract how (not GREENLIGHT):** Prefer `behavior_key_checks` + `entrypoint_result_equals` with `equals_from` (runner reads id from write-target state, selector index/point, compare stdout). Literal catalog `equals` forbidden. Genesis Tip B probe after main tip.
 
-**Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r3` B₁-ready on `WB-polygon-substrate` (armed/stageable for factory feed). Do not Prefer-join archived `wb-polygon-substrate-r2-retired-*` / r1. Not GREENLIGHT. See `project/genesis-mythos-master`.
+**Genesis Prefer status (project tip):** `alpha0_wb_polygon_substrate_r4` moment Prefer on `WB-polygon-substrate` — Gate A + B₁ green; armed/stageable for factory feed (point-and-stay). Do not Prefer-join archived r1–r3 / ticket-weld scrap. Not GREENLIGHT. See `project/genesis-mythos-master`.
 
 **Pass 5 Tip A (single-seat check — not GREENLIGHT):** `main` `c25a447`. See `Docs/HALF-B-CONTRACT.md` + `tests/test_implementation_single_seat.py`.
 
