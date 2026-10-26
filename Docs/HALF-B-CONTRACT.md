@@ -54,14 +54,15 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 | **Contract** | A function or file fact. No “point,” “see,” “GM,” or “board.” | Probe only (`behavior_key_checks`). | Do **not** ask. Probe pass closes the Prefer. |
 | **Moment** | A thing you can point at or watch. | The **same** act, on a tiny board. | You look. No stamp without that. |
 
-Refuse (Gate A + Prefer-align): if success says point / see / stay-on-screen / board / GM-point and `proof_shape: contract`, fail — especially when the check is only a yaml/state lookup. That scope cut deleted the ask; do not greenlight it. A contract Prefer is allowed only when its sentence is also a contract.
+Refuse (Gate A + Prefer-align): play-path words in Prefer text **or** the map-row product job → every `behavior_key_check` op must be costume-free `point_hits_solid`. Empty / unresolved / missing probe = fail. `entrypoint_result_equals` (including with `selector.point`) fails. Dropping “point” from Prefer text does not bypass a play-path map job. A contract Prefer is allowed only when its sentence is also a contract (and the map job is not a play-path act).
 
-## Prefer-named check (contract how)
+## Prefer-named check
 
 - Prefer must set `behavior_key_checks: { <behavior_key>: <probe_id> }` for every key. Silence → Prefer-align fail.
-- Catalog probe for a behavior key is **operation + compare** (`entrypoint_result_equals`): runner reads expected id from write-target state (`equals_from`), invokes Prefer-named entrypoint with a **selector** (index/point — never the id), and compares stdout to that id. Catalog must **not** store expected stdout. Literal `equals` is forbidden.
-- Agent may implement the entrypoint. Agent may **not** write the expected value, the pass bit, or the program that decides pass.
-- A script that prints a constant, or echoes its selector argument, fails.
+- **Play-path / moment act:** catalog op must be `point_hits_solid`. Runner loads bounds, computes expected id from geometry, gives the program under test the **point only** (never the id). Catalog entry must **not** carry `equals_from`, `entrypoint`, or `selector`. Literal `equals` is forbidden.
+- **Library / contract compare (non–play-path):** may use `entrypoint_result_equals` + `equals_from` + selector (index/point — never the id). Catalog must **not** store expected stdout.
+- Agent may implement the program under test. Agent may **not** write the expected value, the pass bit, or the program that decides pass.
+- A script that prints a constant, or echoes its point/selector argument, fails.
 - Exit code alone (`command_exits_zero`) is **not** behavior-key evidence.
 - Feedstock stays in Ticketment. B₂ does not re-open roadmaps to invent what feedstock wanted.
 

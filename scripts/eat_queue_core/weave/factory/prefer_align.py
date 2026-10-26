@@ -238,34 +238,51 @@ def run_prefer_align(
                     + ",".join(extras[:8])
                 )
 
-    # Contract Prefer whose success still says point/see/board is a scope cut —
-    # refuse before the seat (do not greenlight a yaml-lookup "product").
-    # Moment Prefer with play-path act words + only index/shell probes is the
-    # same scope cut under a moment label (not equals_from alone — point-act OK).
+    # Play-path allowlist (same Gate A helper): Prefer text or map-row job →
+    # every check must resolve to costume-free point_hits_solid.
+    from .prefer_map_fidelity import (
+        contract_check_is_yaml_state_lookup,
+        play_path_allowlist_violation,
+        success_has_play_path_words,
+    )
+
+    map_job = ""
+    tid = str(armed.get("ticket_map_id") or "").strip()
+    if tid:
+        try:
+            from .ticket_map_schema import (
+                load_ticket_map_rows,
+                resolve_active_ticket_map_rel,
+            )
+
+            rel = resolve_active_ticket_map_rel(
+                vault_root, project_id=project_id, ticket_map_id=tid
+            )
+            rows = load_ticket_map_rows(
+                vault_root, map_rel=rel, ticket_map_id=tid
+            )
+            row = rows.get(tid) if rows else None
+            if row is not None:
+                map_job = str(getattr(row, "product_job", "") or "")
+        except Exception:
+            map_job = ""
+
+    allow_v = play_path_allowlist_violation(
+        vault_root,
+        project_id,
+        armed,
+        map_product_job=map_job,
+        code_prefix="prefer_align",
+    )
+    if allow_v:
+        violations.append(allow_v)
+
     proof_shape = str(armed.get("proof_shape") or "").strip().lower()
-    if proof_shape == "contract":
-        from .prefer_map_fidelity import (
-            contract_check_is_yaml_state_lookup,
-            success_has_play_path_words,
-        )
-
-        if success_has_play_path_words(armed):
-            violations.append("prefer_align:contract_success_has_play_path_words")
-            if contract_check_is_yaml_state_lookup(vault_root, project_id, armed):
-                violations.append(
-                    "prefer_align:contract_play_path_words_with_yaml_lookup"
-                )
-    elif proof_shape == "moment":
-        from .prefer_map_fidelity import (
-            all_behavior_key_checks_are_index_shell_lookup,
-            success_has_play_path_words,
-        )
-
-        if success_has_play_path_words(armed) and all_behavior_key_checks_are_index_shell_lookup(
-            vault_root, project_id, armed
-        ):
+    if proof_shape == "contract" and success_has_play_path_words(armed):
+        violations.append("prefer_align:contract_success_has_play_path_words")
+        if contract_check_is_yaml_state_lookup(vault_root, project_id, armed):
             violations.append(
-                "prefer_align:moment_act_words_with_index_shell_lookup"
+                "prefer_align:contract_play_path_words_with_yaml_lookup"
             )
 
     host_ids = _host_law_ids(armed)

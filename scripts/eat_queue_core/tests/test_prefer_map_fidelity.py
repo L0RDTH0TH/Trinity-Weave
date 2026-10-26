@@ -342,60 +342,15 @@ def test_contract_prefer_with_play_path_success_fails_gate_a():
     ), result.violations
 
 
-def test_moment_act_words_with_all_index_shell_probes_fails_gate_a(tmp_path: Path):
-    """Moment + play-path success + every check index/shell → Gate A fail."""
+def test_r4_catalog_shape_fails_play_path_allowlist(tmp_path: Path):
+    """Fixture: entrypoint_result_equals + selector.point + equals_from + play-path → red."""
     vault = _map_vault(tmp_path)
     _install_proof_catalog(
         vault,
         {
-            "shell_index_a": _INDEX_SHELL_PROBE,
-            "shell_index_b": dict(_INDEX_SHELL_PROBE),
-            "shell_field": _FIELD_EQUALS_SHELL,
-        },
-    )
-    armed = _good_armed()
-    armed["project_id"] = "genesis-mythos-master"
-    armed["structural_success"] = (
-        "Player can point at land on the board and see height stay readable "
-        "when Generate runs. W1 Generate control. W2 dials. W3 land water. "
-        "W4 height. W5 rivers."
-    )
-    armed["success_object"] = "point_and_see_land_on_board"
-    armed["behavior_keys"] = [
-        "points_at_land_on_board",
-        "sees_height_stay_readable",
-        "watches_generate_control",
-    ]
-    armed["behavior_key_checks"] = {
-        "points_at_land_on_board": "shell_index_a",
-        "sees_height_stay_readable": "shell_index_b",
-        "watches_generate_control": "shell_field",
-    }
-    result = validate_armed_map_fidelity(
-        vault, armed, prefer_result=_hostile_ok()
-    )
-    assert result.ok is False, result.violations
-    assert any(
-        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
-    ), result.violations
-    # Must not misuse contract equals_from predicate as the moment fail code.
-    assert not any(
-        "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
-    ), result.violations
-
-
-def test_moment_act_words_with_point_act_probes_no_shell_violation(tmp_path: Path):
-    """r4-shaped moment: equals_from + selector.point must NOT get shell refuse."""
-    vault = _map_vault(tmp_path)
-    _install_proof_catalog(
-        vault,
-        {
-            "moment_point_a": _POINT_ACT_PROBE,
-            "moment_point_b": {
-                **_POINT_ACT_PROBE,
-                "selector": {"point": [0.2, 0.2]},
-            },
-            "moment_point_c": {
+            "r4_a": _POINT_ACT_PROBE,
+            "r4_b": {**_POINT_ACT_PROBE, "selector": {"point": [0.2, 0.2]}},
+            "r4_c": {
                 **_POINT_ACT_PROBE,
                 "selector": {"point": {"x": 0.55, "y": 0.55}},
             },
@@ -415,56 +370,81 @@ def test_moment_act_words_with_point_act_probes_no_shell_violation(tmp_path: Pat
         "watches_generate_control",
     ]
     armed["behavior_key_checks"] = {
-        "points_at_land_on_board": "moment_point_a",
-        "sees_height_stay_readable": "moment_point_b",
-        "watches_generate_control": "moment_point_c",
+        "points_at_land_on_board": "r4_a",
+        "sees_height_stay_readable": "r4_b",
+        "watches_generate_control": "r4_c",
     }
     result = validate_armed_map_fidelity(
         vault, armed, prefer_result=_hostile_ok()
     )
-    assert not any(
-        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    assert result.ok is False, result.violations
+    assert any(
+        "play_path_success_requires_point_hits_solid" in v for v in result.violations
     ), result.violations
 
 
-def test_moment_mixed_point_and_shell_no_all_shell_violation(tmp_path: Path):
-    """At least one point-act probe → do not fire all-shell refuse."""
+def test_empty_checks_with_play_path_fails_allowlist(tmp_path: Path):
+    """Unresolved / zero checks is not all-passed under play-path trigger."""
     vault = _map_vault(tmp_path)
-    _install_proof_catalog(
-        vault,
-        {
-            "shell_index_a": _INDEX_SHELL_PROBE,
-            "moment_point_a": _POINT_ACT_PROBE,
-            "shell_field": _FIELD_EQUALS_SHELL,
-        },
-    )
+    _install_proof_catalog(vault, {})
     armed = _good_armed()
     armed["project_id"] = "genesis-mythos-master"
     armed["structural_success"] = (
-        "Player can point at land on the board and see rivers stay on screen. "
+        "Player can point at land on the board. W1 Generate control. W2 dials. "
+        "W3 land water. W4 height. W5 rivers."
+    )
+    armed["behavior_key_checks"] = {}
+    result = validate_armed_map_fidelity(
+        vault, armed, prefer_result=_hostile_ok()
+    )
+    assert any(
+        "play_path_success_requires_point_hits_solid" in v for v in result.violations
+    ), result.violations
+
+
+def test_map_row_play_path_triggers_even_if_prefer_text_drops_point(tmp_path: Path):
+    """Map-row product job with play-path words still fires allowlist."""
+    vault = _map_vault(tmp_path)
+    # Override map so GEN-terrain-product job names point/see.
+    map_rel = (
+        "1-Projects/genesis-mythos-master/Factory-DRB/"
+        "World-Builder-Session-Prep-Ticket-Map.md"
+    )
+    (vault / map_rel).write_text(
+        "---\nticket_map: true\nmap_id: fixture-session-prep\n"
+        "map_status: active\nproject-id: genesis-mythos-master\n---\n"
+        "| Ticket | Product job | Welds |\n"
+        "|--------|-------------|-------|\n"
+        "| `GEN-terrain-product` | A GM can point at land and see it stay. | "
+        "**W1** Generate. **W2** dials. **W3** land. **W4** height. **W5** rivers. |\n"
+        "| `PLACE-coast` | Coasts read as coasts. | Bits. |\n"
+        "| `GEN-biomes` | Biomes with tags. | Tag. |\n",
+        encoding="utf-8",
+    )
+    _install_proof_catalog(vault, {"shell": _INDEX_SHELL_PROBE})
+    armed = _good_armed()
+    armed["project_id"] = "genesis-mythos-master"
+    # Prefer text deliberately drops play-path words.
+    armed["structural_success"] = (
+        "Index lookup returns durable land id after Generate. "
         "W1 Generate control. W2 dials. W3 land water. W4 height. W5 rivers."
     )
-    armed["success_object"] = "point_and_see_land_on_board"
-    armed["behavior_keys"] = [
-        "points_at_land_on_board",
-        "sees_height_stay_readable",
-        "watches_generate_control",
-    ]
+    armed["success_object"] = "index_lookup_land_id"
     armed["behavior_key_checks"] = {
-        "points_at_land_on_board": "shell_index_a",
-        "sees_height_stay_readable": "moment_point_a",
-        "watches_generate_control": "shell_field",
+        "generate_control_changes_land_water": "shell",
+        "river_dial_moves_watercourse": "shell",
+        "height_reads_on_dual_grid": "shell",
     }
     result = validate_armed_map_fidelity(
         vault, armed, prefer_result=_hostile_ok()
     )
-    assert not any(
-        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    assert any(
+        "play_path_success_requires_point_hits_solid" in v for v in result.violations
     ), result.violations
 
 
-def test_live_r4_moment_point_probes_no_shell_violation():
-    """Live r4 Prefer catalog (selector.point + equals_from) must pass shell refuse."""
+def test_live_r4_fails_play_path_allowlist():
+    """Live r4 Prefer (entrypoint + selector.point + equals_from) must go Gate A red."""
     from eat_queue_core.weave.factory.prefer_map_fidelity import (
         PRODUCT_MAP_DO_NOT_WAIVE,
         load_armed_yaml,
@@ -484,13 +464,14 @@ def test_live_r4_moment_point_probes_no_shell_violation():
     result = validate_armed_map_fidelity(
         vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
     )
-    assert not any(
-        "moment_act_words_with_index_shell_lookup" in v for v in result.violations
+    assert result.ok is False, result.violations
+    assert any(
+        "play_path_success_requires_point_hits_solid" in v for v in result.violations
     ), result.violations
 
 
-def test_contract_prefer_library_success_passes_gate_a():
-    """Contract Prefer whose success is a file/index fact (no play-path words) may pass."""
+def test_contract_prefer_library_still_hits_map_row_allowlist():
+    """Dropping play-path from Prefer text cannot bypass map-row play-path job."""
     from eat_queue_core.weave.factory.prefer_map_fidelity import (
         PRODUCT_MAP_DO_NOT_WAIVE,
         validate_armed_map_fidelity,
@@ -507,7 +488,6 @@ def test_contract_prefer_library_success_passes_gate_a():
     )
     rows = load_ticket_map_rows(vault, map_rel=rel, ticket_map_id="WB-polygon-substrate")
     oos = section_open_neighbor_ids(rows, "WB-polygon-substrate")
-    # Deliberately NOT the map job (map job has point/GM) — library-fact rewrite.
     armed = {
         "ticket_map_id": "WB-polygon-substrate",
         "prefer_authorship": True,
@@ -523,17 +503,14 @@ def test_contract_prefer_library_success_passes_gate_a():
         "out_of_scope_ticket_ids": oos,
         "do_not_waive": list(PRODUCT_MAP_DO_NOT_WAIVE),
         "checklist_ids": [],
-        "behavior_keys": [
-            "selected_solid_identity_holds",
-        ],
+        "behavior_keys": ["selected_solid_identity_holds"],
+        "behavior_key_checks": {
+            "selected_solid_identity_holds": "moment_points_at_that_polygon",
+        },
     }
     result = validate_armed_map_fidelity(
         vault, armed, prefer_result={"map_fidelity_hostile_ok": True}
     )
-    # May still fail job-bind (library rewrite ≠ map job) — must NOT fail play-path refuse.
-    assert not any(
-        "contract_success_has_play_path_words" in v for v in result.violations
-    ), result.violations
-    assert not any(
-        "contract_play_path_words_with_yaml_lookup" in v for v in result.violations
+    assert any(
+        "play_path_success_requires_point_hits_solid" in v for v in result.violations
     ), result.violations

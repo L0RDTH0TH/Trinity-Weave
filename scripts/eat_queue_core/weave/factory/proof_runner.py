@@ -1,13 +1,15 @@
 """Engine-neutral Prefer probes — ops only; project nouns live in proof-catalog.yaml.
 
 Ops: file_exists | file_contains | field_equals | command_exits_zero |
-entrypoint_result_equals.
+entrypoint_result_equals | point_hits_solid.
 
-Behavior-key Success uses entrypoint_result_equals only: runner reads expected id
-from write-target state (``equals_from``), invokes Prefer-named entrypoint with a
-selector (index/point — never the id), and compares stdout to that id.
-Catalog must not store expected stdout. Exit code alone is not evidence.
-Literal ``equals`` is not behavior-key evidence.
+Play-path / moment act checks use ``point_hits_solid`` only: runner loads bounds,
+computes expected solid id from geometry for a point, invokes Prefer-named
+program with the **point only** (never the id), and compares stdout.
+``point_hits_solid`` must not carry ``equals_from`` / ``entrypoint`` / ``selector``.
+
+Library/contract compares may still use entrypoint_result_equals + equals_from.
+Exit code alone is not evidence. Literal ``equals`` is not behavior-key evidence.
 Runner does not know scenes, engines, or C# types. Never iterates the whole catalog.
 """
 
@@ -22,8 +24,11 @@ import yaml
 
 from .bindings import BindingMissingError, UNKNOWN_PROBE, load_family, require_project_id
 
-# Sole op that may attest Prefer behavior_keys (operation + compared value).
+# Library/contract attest op (equals_from + selector). Not lawful for play-path.
 BEHAVIOR_KEY_ATTEST_OP = "entrypoint_result_equals"
+# Play-path / moment act op — expected id computed from bounds, not equals_from.
+POINT_HITS_SOLID_OP = "point_hits_solid"
+_POINT_HITS_SOLID_COSTUME = frozenset({"equals_from", "entrypoint", "selector"})
 
 
 @dataclass(frozen=True)
@@ -49,6 +54,7 @@ _OPS = frozenset(
         "field_equals",
         "command_exits_zero",
         BEHAVIOR_KEY_ATTEST_OP,
+        POINT_HITS_SOLID_OP,
     }
 )
 
@@ -113,11 +119,69 @@ def _selector_argv(selector: Any) -> tuple[list[str], list[str], str]:
         ban.append(idx)
         return ["--index", idx], ban, ""
     point = selector.get("point")
+    if isinstance(point, (list, tuple)) and len(point) >= 2:
+        xs, ys = str(point[0]).strip(), str(point[1]).strip()
+        ban.extend([xs, ys])
+        return ["--point", xs, ys], ban, ""
     if isinstance(point, dict) and "x" in point and "y" in point:
         xs, ys = str(point.get("x")).strip(), str(point.get("y")).strip()
         ban.extend([xs, ys])
         return ["--point", xs, ys], ban, ""
     return [], [], "entrypoint_result_equals:selector_not_index_or_point"
+
+
+def _parse_point(raw: Any) -> tuple[float, float] | None:
+    if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+        try:
+            return float(raw[0]), float(raw[1])
+        except (TypeError, ValueError):
+            return None
+    if isinstance(raw, dict) and "x" in raw and "y" in raw:
+        try:
+            return float(raw["x"]), float(raw["y"])
+        except (TypeError, ValueError):
+            return None
+    return None
+
+
+def _solid_contains(solid: dict[str, Any], x: float, y: float) -> bool:
+    """Axis-aligned rect: x0,y0,x1,y1 (inclusive)."""
+    try:
+        x0, y0 = float(solid["x0"]), float(solid["y0"])
+        x1, y1 = float(solid["x1"]), float(solid["y1"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    lo_x, hi_x = (x0, x1) if x0 <= x1 else (x1, x0)
+    lo_y, hi_y = (y0, y1) if y0 <= y1 else (y1, y0)
+    return lo_x <= x <= hi_x and lo_y <= y <= hi_y
+
+
+def _expected_id_from_bounds(repo: Path, bounds_rel: str, x: float, y: float) -> tuple[str | None, str]:
+    """Compute solid id from geometry. Does not read selection_id / commit_id / equals_from."""
+    path = repo / bounds_rel
+    if not path.is_file():
+        return None, f"point_hits_solid:bounds_missing:{bounds_rel}"
+    try:
+        raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError) as exc:
+        return None, f"point_hits_solid:bounds_unreadable:{exc}"
+    solids = raw.get("solids") if isinstance(raw, dict) else None
+    if not isinstance(solids, list):
+        return None, "point_hits_solid:bounds_missing_solids"
+    hits: list[str] = []
+    for row in solids:
+        if not isinstance(row, dict):
+            continue
+        sid = str(row.get("id") or "").strip()
+        if not sid:
+            continue
+        if _solid_contains(row, x, y):
+            hits.append(sid)
+    if not hits:
+        return None, "point_hits_solid:point_outside_all_bounds"
+    if len(hits) > 1:
+        return None, "point_hits_solid:ambiguous_hit"
+    return hits[0], "ok"
 
 
 def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tuple[bool, str]:
@@ -212,6 +276,44 @@ def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tupl
             return False, "entrypoint_result_equals:echoed_selector_arg"
         ok = observed == expect
         return ok, f"entrypoint_result_equals:observed={observed!r};expect={expect!r}"
+
+    if op == POINT_HITS_SOLID_OP:
+        # Costume keys mean this is still a yaml/entrypoint compare wearing a new name.
+        if any(k in args for k in _POINT_HITS_SOLID_COSTUME):
+            return False, "point_hits_solid:costume_forbidden"
+        bounds_rel = str(args.get("bounds") or "").strip()
+        if not bounds_rel:
+            return False, "point_hits_solid:missing_bounds"
+        parsed = _parse_point(args.get("point"))
+        if parsed is None:
+            return False, "point_hits_solid:missing_point"
+        x, y = parsed
+        expect, err = _expected_id_from_bounds(repo, bounds_rel, x, y)
+        if expect is None:
+            return False, err
+        argv = args.get("argv")
+        if not isinstance(argv, list) or not argv:
+            return False, "point_hits_solid:missing_argv"
+        # SUT gets the point only — never the solid id.
+        xs, ys = str(x), str(y)
+        cmd = [str(a) for a in argv] + ["--point", xs, ys]
+        try:
+            proc = subprocess.run(
+                cmd,
+                cwd=str(repo),
+                capture_output=True,
+                text=True,
+                timeout=int(args.get("timeout_sec") or 120),
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return False, f"point_hits_solid:error:{exc}"
+        if proc.returncode != 0:
+            return False, f"point_hits_solid:rc={proc.returncode}"
+        observed = (proc.stdout or "").strip()
+        if observed in (xs, ys, f"{xs},{ys}", f"{xs} {ys}"):
+            return False, "point_hits_solid:echoed_point"
+        ok = observed == expect
+        return ok, f"point_hits_solid:observed={observed!r};expect={expect!r}"
 
     return False, f"unknown_op:{op}"
 

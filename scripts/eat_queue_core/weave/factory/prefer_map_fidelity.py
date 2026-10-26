@@ -226,6 +226,26 @@ def success_has_play_path_words(armed: dict[str, Any] | None) -> bool:
     return bool(_PLAY_PATH_SUCCESS_RE.search(prefer_success_text(armed)))
 
 
+def text_has_play_path_words(text: str | None) -> bool:
+    """True when free text (e.g. map-row product job) has play-path act words."""
+    return bool(_PLAY_PATH_SUCCESS_RE.search(str(text or "")))
+
+
+def play_path_triggered(
+    armed: dict[str, Any] | None,
+    *,
+    map_product_job: str | None = None,
+) -> bool:
+    """Play-path Gate A trigger: Prefer text **or** bound map-row product job.
+
+    Dropping ``point`` from ``structural_success`` must not turn the lookup back
+    on when the map row still names the act.
+    """
+    if success_has_play_path_words(armed):
+        return True
+    return text_has_play_path_words(map_product_job)
+
+
 def _probe_entry_args(entry: dict[str, Any]) -> dict[str, Any]:
     """Normalize catalog probe args (nested ``args`` or top-level shorthand)."""
     args = entry.get("args") if isinstance(entry.get("args"), dict) else {}
@@ -250,6 +270,69 @@ def _load_proof_catalog_probes(
     return probes if isinstance(probes, dict) else None
 
 
+# Allowlisted act op — play-path success may only name this catalog op.
+POINT_HITS_SOLID_OP = "point_hits_solid"
+# Old costume keys — a probe named point_hits_solid that still carries these fails.
+_POINT_HITS_SOLID_COSTUME_KEYS = frozenset({"equals_from", "entrypoint", "selector"})
+
+
+def probe_is_lawful_point_hits_solid(entry: dict[str, Any] | None) -> bool:
+    """True when catalog entry is op point_hits_solid with no old costume keys."""
+    if not isinstance(entry, dict):
+        return False
+    op = str(entry.get("op") or "").strip()
+    if op != POINT_HITS_SOLID_OP:
+        return False
+    args = _probe_entry_args(entry)
+    if any(k in args for k in _POINT_HITS_SOLID_COSTUME_KEYS):
+        return False
+    return True
+
+
+def all_behavior_key_checks_are_point_hits_solid(
+    vault_root: Path | None,
+    project_id: str,
+    armed: dict[str, Any] | None,
+) -> bool:
+    """True only when every check **resolves** to costume-free ``point_hits_solid``.
+
+    Empty checks, empty/missing catalog, missing probe id, or unloadable entry
+    → **False** (unresolved is a fail — zero checks is not all-passed).
+    """
+    if not isinstance(armed, dict):
+        return False
+    checks = armed.get("behavior_key_checks")
+    if not isinstance(checks, dict) or not checks:
+        return False
+    probes = _load_proof_catalog_probes(vault_root, project_id)
+    if not probes:
+        return False
+    for _key, probe_id in checks.items():
+        cid = str(probe_id or "").strip()
+        if not cid:
+            return False
+        entry = probes.get(cid)
+        if not probe_is_lawful_point_hits_solid(entry if isinstance(entry, dict) else None):
+            return False
+    return True
+
+
+def play_path_allowlist_violation(
+    vault_root: Path | None,
+    project_id: str,
+    armed: dict[str, Any] | None,
+    *,
+    map_product_job: str | None = None,
+    code_prefix: str = "map_fidelity",
+) -> str | None:
+    """Return violation code when play-path is triggered and allowlist fails."""
+    if not play_path_triggered(armed, map_product_job=map_product_job):
+        return None
+    if all_behavior_key_checks_are_point_hits_solid(vault_root, project_id, armed):
+        return None
+    return f"{code_prefix}:play_path_success_requires_point_hits_solid"
+
+
 def contract_check_is_yaml_state_lookup(
     vault_root: Path | None,
     project_id: str,
@@ -257,19 +340,13 @@ def contract_check_is_yaml_state_lookup(
 ) -> bool:
     """True when Prefer's behavior_key_checks resolve to equals_from state lookup.
 
-    That check is a library/index fact — lawful for contract only when success
-    text is also a contract (no play-path words).
-
-    **Not** the moment Gate A fail predicate: good moment Prefers (r4-shaped)
-    also use ``equals_from`` with ``selector.point``. Use
-    ``all_behavior_key_checks_are_index_shell_lookup`` for moment scope-cut.
+    Library/index fact — extra refuse for contract packets that still carry
+    play-path words. Not the play-path allowlist predicate.
     """
     if not isinstance(armed, dict):
         return False
     checks = armed.get("behavior_key_checks")
     if not isinstance(checks, dict) or not checks:
-        # Empty checklist / no named check — treat as yaml-lookup class only when
-        # Prefer already named equals_from-shaped probes via catalog (below).
         return False
     probes = _load_proof_catalog_probes(vault_root, project_id)
     if not probes:
@@ -285,86 +362,6 @@ def contract_check_is_yaml_state_lookup(
         if op == BEHAVIOR_KEY_ATTEST_OP and isinstance(args.get("equals_from"), dict):
             return True
     return False
-
-
-def probe_has_point_act_selector(entry: dict[str, Any]) -> bool:
-    """True when catalog probe carries a point (or equivalent act) selector.
-
-    List ``[x, y]`` and dict ``{x, y}`` both count. Index-only selectors do not.
-    """
-    if not isinstance(entry, dict):
-        return False
-    selector = _probe_entry_args(entry).get("selector")
-    if not isinstance(selector, dict):
-        return False
-    point = selector.get("point")
-    if point is None:
-        return False
-    if isinstance(point, (list, tuple)) and len(point) >= 2:
-        return True
-    if isinstance(point, dict) and "x" in point and "y" in point:
-        return True
-    return point not in ("", [], {}, ())
-
-
-def probe_is_index_shell_without_point_act(entry: dict[str, Any]) -> bool:
-    """True for index / field_equals / shell probes with no point-act selector.
-
-    Distinct from ``contract_check_is_yaml_state_lookup`` (any ``equals_from``).
-    Good moment probes may use ``equals_from`` **and** ``selector.point``.
-    """
-    if not isinstance(entry, dict):
-        return False
-    if probe_has_point_act_selector(entry):
-        return False
-    op = str(entry.get("op") or "").strip()
-    if op in {
-        "field_equals",
-        "file_exists",
-        "file_contains",
-        "command_exits_zero",
-    }:
-        return True
-    from .proof_runner import BEHAVIOR_KEY_ATTEST_OP
-
-    # entrypoint with index selector (or no point-act) = shell lookup.
-    if op == BEHAVIOR_KEY_ATTEST_OP:
-        return True
-    # Unknown ops without a point-act selector count as shell-class.
-    return True
-
-
-def all_behavior_key_checks_are_index_shell_lookup(
-    vault_root: Path | None,
-    project_id: str,
-    armed: dict[str, Any] | None,
-) -> bool:
-    """True iff every named behavior_key_check is index/shell (no point-act).
-
-    Fires Gate A moment refuse only when **all** resolved checks are shell.
-    At least one point-act probe → False (mixed packets do not fail this gate).
-    Empty / unresolved checks → False (do not fire).
-    """
-    if not isinstance(armed, dict):
-        return False
-    checks = armed.get("behavior_key_checks")
-    if not isinstance(checks, dict) or not checks:
-        return False
-    probes = _load_proof_catalog_probes(vault_root, project_id)
-    if not probes:
-        return False
-    saw_any = False
-    for _key, probe_id in checks.items():
-        cid = str(probe_id or "").strip()
-        if not cid:
-            return False
-        entry = probes.get(cid)
-        if not isinstance(entry, dict):
-            return False
-        saw_any = True
-        if not probe_is_index_shell_without_point_act(entry):
-            return False
-    return saw_any
 
 
 def classify_behavior_key_role(key: str) -> str:
@@ -948,8 +945,7 @@ def _run_gate_a_mechanical(
                 violations.append("map_fidelity:contract_visibility_key_forbidden")
             if not any(r == "invariant" for r in roles):
                 violations.append("map_fidelity:contract_missing_invariant_key")
-            # Contract success must be a function/file fact — no point/see/GM/board.
-            # Anti-demo must not delete the ask by rewriting a moment into yaml lookup.
+            # Prefer-text play-path on a contract packet is still a shape mismatch.
             if success_has_play_path_words(armed):
                 violations.append(
                     "map_fidelity:contract_success_has_play_path_words"
@@ -964,17 +960,20 @@ def _run_gate_a_mechanical(
                 violations.append(
                     f"map_fidelity:moment_behavior_key_count:{len(keys_list)}"
                 )
-            # Moment label must not bypass act fidelity: play-path success words
-            # with every check an index/shell lookup (no point-act selector) → fail.
-            # Good r4-shaped moment: equals_from + selector.point still passes.
-            if success_has_play_path_words(armed):
-                pid = str(armed.get("project_id") or "").strip()
-                if all_behavior_key_checks_are_index_shell_lookup(
-                    vault_root, pid, armed
-                ):
-                    violations.append(
-                        "map_fidelity:moment_act_words_with_index_shell_lookup"
-                    )
+
+    # Allowlist (both shapes): play-path Prefer text OR map-row job → every
+    # behavior_key_check must resolve to costume-free point_hits_solid.
+    # Unresolved / empty / missing probe = fail. entrypoint_result_equals fails.
+    pid = str(armed.get("project_id") or "").strip()
+    allow_v = play_path_allowlist_violation(
+        vault_root,
+        pid,
+        armed,
+        map_product_job=str(getattr(row, "product_job", "") or ""),
+        code_prefix="map_fidelity",
+    )
+    if allow_v:
+        violations.append(allow_v)
 
     return tid
 
