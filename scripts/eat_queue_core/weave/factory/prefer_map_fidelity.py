@@ -1,11 +1,10 @@
-"""Ticket-map Prefer fidelity — mechanical Gate A + hostile Gate B latch.
+"""Ticket-map Prefer fidelity — mechanical Gate A + harness Gate B₁ latch.
 
-Prefer Success must bind to **this** map row's product job (and weld proofs when
-present). It must **not** consume a sibling open row's job more than its own.
+Gate A is form completeness only: row bind, verbatim product job, observe↔shape,
+catalog ids exist, do_not_waive, no author hostile bits. A does not judge truth.
 
-Mechanical Gate A: fields, deny-list, do_not_waive, ``out_of_scope_ticket_ids``
-(section neighbors), sibling-overlap. Hostile Prefer (Gate B₁) is still required
-on every Prefer-applicable Success claim — staging and KEEP.
+Gate B₁ is a separate harness reader: runner observe class vs map ``observe``.
+Author/skill ``map_fidelity_hostile_ok`` is ignored; only ``source: harness_b1``.
 
 Cite: Prefer-Authorship-Host-Law §C.3 · active ticket map via
 factory-project.yaml ``ticket_map_runtime`` / discovery (no product hardwire).
@@ -189,71 +188,6 @@ _INVARIANT_KEY_RE = re.compile(
     re.I,
 )
 
-# Play-path words in Prefer success text — not allowed on proof_shape: contract
-# when the check is only a yaml/state lookup (anti-demo must not delete the ask).
-_PLAY_PATH_SUCCESS_RE = re.compile(
-    r"\b("
-    r"point(?:s|ed|ing)?(?:\s+at)?|"
-    r"see(?:s|ing)?|"
-    r"watch(?:es|ing)?|"
-    r"look(?:s|ing)?(?:\s+at)?|"
-    r"visible|on[- ]?screen|stay(?:s|ing)?\s+on[- ]?screen|"
-    r"stranger[- ]?watchable|play[- ]?path|"
-    r"\bGM\b.*\bpoint|"
-    r"polygon\s+solid|"
-    r"board\b"
-    r")\b",
-    re.I,
-)
-
-
-def prefer_success_text(armed: dict[str, Any] | None) -> str:
-    """Combine Prefer success surfaces for play-path / contract mismatch checks."""
-    if not isinstance(armed, dict):
-        return ""
-    parts = [
-        str(armed.get("structural_success") or ""),
-        str(armed.get("intent_invariant") or ""),
-        str(armed.get("success_object") or ""),
-        str(armed.get("done_when") or ""),
-        str(armed.get("operator_prompt") or ""),
-    ]
-    return " ".join(parts)
-
-
-def success_has_play_path_words(armed: dict[str, Any] | None) -> bool:
-    """True when Prefer success asks for point/see/watch/on-screen (a moment ask)."""
-    return bool(_PLAY_PATH_SUCCESS_RE.search(prefer_success_text(armed)))
-
-
-def text_has_play_path_words(text: str | None) -> bool:
-    """True when free text (e.g. map-row product job) has play-path act words."""
-    return bool(_PLAY_PATH_SUCCESS_RE.search(str(text or "")))
-
-
-def play_path_triggered(
-    armed: dict[str, Any] | None,
-    *,
-    map_product_job: str | None = None,
-) -> bool:
-    """Play-path Gate A trigger: Prefer text **or** bound map-row product job.
-
-    Dropping ``point`` from ``structural_success`` must not turn the lookup back
-    on when the map row still names the act.
-    """
-    if success_has_play_path_words(armed):
-        return True
-    return text_has_play_path_words(map_product_job)
-
-
-def _probe_entry_args(entry: dict[str, Any]) -> dict[str, Any]:
-    """Normalize catalog probe args (nested ``args`` or top-level shorthand)."""
-    args = entry.get("args") if isinstance(entry.get("args"), dict) else {}
-    if not args:
-        args = {k: v for k, v in entry.items() if k not in ("op", "args", "id")}
-    return args if isinstance(args, dict) else {}
-
-
 def _load_proof_catalog_probes(
     vault_root: Path | None, project_id: str
 ) -> dict[str, Any] | None:
@@ -270,98 +204,57 @@ def _load_proof_catalog_probes(
     return probes if isinstance(probes, dict) else None
 
 
-# Allowlisted act op — play-path success may only name this catalog op.
-POINT_HITS_SOLID_OP = "point_hits_solid"
-# Old costume keys — a probe named point_hits_solid that still carries these fails.
-_POINT_HITS_SOLID_COSTUME_KEYS = frozenset({"equals_from", "entrypoint", "selector"})
-
-
-def probe_is_lawful_point_hits_solid(entry: dict[str, Any] | None) -> bool:
-    """True when catalog entry is op point_hits_solid with no old costume keys."""
-    if not isinstance(entry, dict):
-        return False
-    op = str(entry.get("op") or "").strip()
-    if op != POINT_HITS_SOLID_OP:
-        return False
-    args = _probe_entry_args(entry)
-    if any(k in args for k in _POINT_HITS_SOLID_COSTUME_KEYS):
-        return False
-    return True
-
-
-def all_behavior_key_checks_are_point_hits_solid(
-    vault_root: Path | None,
-    project_id: str,
-    armed: dict[str, Any] | None,
-) -> bool:
-    """True only when every check **resolves** to costume-free ``point_hits_solid``.
-
-    Empty checks, empty/missing catalog, missing probe id, or unloadable entry
-    → **False** (unresolved is a fail — zero checks is not all-passed).
-    """
+def _author_set_hostile_bits(armed: dict[str, Any] | None) -> list[str]:
+    """Gate A refuse: Prefer packet must not carry author-set hostile bits."""
     if not isinstance(armed, dict):
-        return False
+        return []
+    out: list[str] = []
+    if armed.get("map_fidelity_hostile_ok") is True:
+        out.append("map_fidelity:author_set_map_fidelity_hostile_ok")
+    if armed.get("weld_intent_hostile_ok") is True:
+        out.append("map_fidelity:author_set_weld_intent_hostile_ok")
+    nested_m = armed.get("map_fidelity_hostile")
+    if isinstance(nested_m, dict) and nested_m.get("ok") is True:
+        out.append("map_fidelity:author_set_map_fidelity_hostile")
+    nested_w = armed.get("weld_intent_hostile")
+    if isinstance(nested_w, dict) and nested_w.get("ok") is True:
+        out.append("map_fidelity:author_set_weld_intent_hostile")
+    return out
+
+
+def _behavior_key_catalog_violations(
+    vault_root: Path,
+    armed: dict[str, Any],
+    keys_list: list[str],
+) -> list[str]:
+    """Each behavior_key needs exactly one existing catalog id."""
+    violations: list[str] = []
     checks = armed.get("behavior_key_checks")
-    if not isinstance(checks, dict) or not checks:
-        return False
-    probes = _load_proof_catalog_probes(vault_root, project_id)
-    if not probes:
-        return False
-    for _key, probe_id in checks.items():
-        cid = str(probe_id or "").strip()
-        if not cid:
-            return False
-        entry = probes.get(cid)
-        if not probe_is_lawful_point_hits_solid(entry if isinstance(entry, dict) else None):
-            return False
-    return True
-
-
-def play_path_allowlist_violation(
-    vault_root: Path | None,
-    project_id: str,
-    armed: dict[str, Any] | None,
-    *,
-    map_product_job: str | None = None,
-    code_prefix: str = "map_fidelity",
-) -> str | None:
-    """Return violation code when play-path is triggered and allowlist fails."""
-    if not play_path_triggered(armed, map_product_job=map_product_job):
-        return None
-    if all_behavior_key_checks_are_point_hits_solid(vault_root, project_id, armed):
-        return None
-    return f"{code_prefix}:play_path_success_requires_point_hits_solid"
-
-
-def contract_check_is_yaml_state_lookup(
-    vault_root: Path | None,
-    project_id: str,
-    armed: dict[str, Any] | None,
-) -> bool:
-    """True when Prefer's behavior_key_checks resolve to equals_from state lookup.
-
-    Library/index fact — extra refuse for contract packets that still carry
-    play-path words. Not the play-path allowlist predicate.
-    """
-    if not isinstance(armed, dict):
-        return False
-    checks = armed.get("behavior_key_checks")
-    if not isinstance(checks, dict) or not checks:
-        return False
-    probes = _load_proof_catalog_probes(vault_root, project_id)
-    if not probes:
-        return False
-    from .proof_runner import BEHAVIOR_KEY_ATTEST_OP
-
-    for _key, probe_id in checks.items():
-        entry = probes.get(str(probe_id or "").strip())
-        if not isinstance(entry, dict):
+    if not isinstance(checks, dict):
+        checks = {}
+    pid = str(armed.get("project_id") or "").strip()
+    probes = _load_proof_catalog_probes(vault_root, pid)
+    key_set = {str(x).strip() for x in keys_list if str(x).strip()}
+    for key in keys_list:
+        k = str(key).strip()
+        if not k:
             continue
-        op = str(entry.get("op") or "").strip()
-        args = _probe_entry_args(entry)
-        if op == BEHAVIOR_KEY_ATTEST_OP and isinstance(args.get("equals_from"), dict):
-            return True
-    return False
+        if k not in checks:
+            violations.append(f"map_fidelity:behavior_key_missing_check:{k}")
+            continue
+        cid = str(checks.get(k) or "").strip()
+        if not cid:
+            violations.append(f"map_fidelity:behavior_key_empty_probe_id:{k}")
+            continue
+        if probes is None or cid not in probes:
+            violations.append(f"map_fidelity:behavior_key_probe_missing:{k}:{cid}")
+    for ck in checks:
+        cks = str(ck).strip()
+        if cks and cks not in key_set:
+            violations.append(f"map_fidelity:behavior_key_check_extra:{ck}")
+    if key_set and (not isinstance(checks, dict) or not checks):
+        violations.append("map_fidelity:behavior_key_checks_empty")
+    return violations
 
 
 def classify_behavior_key_role(key: str) -> str:
@@ -764,12 +657,13 @@ def _proof_tokens(welds: str) -> list[str]:
 
 
 def _hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
+    """True only for harness B₁ attestation. Author bare ok is ignored."""
     if not isinstance(prefer_result, dict):
         return False
-    if prefer_result.get("map_fidelity_hostile_ok") is True:
-        return True
     nested = prefer_result.get("map_fidelity_hostile")
-    return isinstance(nested, dict) and nested.get("ok") is True
+    if not isinstance(nested, dict):
+        return False
+    return nested.get("source") == "harness_b1" and nested.get("ok") is True
 
 
 def _run_gate_a_mechanical(
@@ -780,7 +674,15 @@ def _run_gate_a_mechanical(
     tid: str,
     violations: list[str],
 ) -> str:
-    """Mutate violations; return resolved ticket_map_id (may be empty)."""
+    """Gate A forms only. Mutate violations; return resolved ticket_map_id."""
+    from .observe_class import (
+        OBSERVE_VALUES,
+        claim_class_for_observe,
+        proof_shape_for_observe,
+    )
+
+    violations.extend(_author_set_hostile_bits(armed))
+
     if not tid:
         violations.append("map_fidelity:missing_ticket_map_id")
         return ""
@@ -804,32 +706,20 @@ def _run_gate_a_mechanical(
         return tid
     tid = row.ticket_map_id
 
+    if (row.status or "").lower() != SELECTABLE_TICKET_STATUS:
+        violations.append(f"map_fidelity:ticket_map_id_not_open:{tid}")
+
+    observe = str(getattr(row, "observe", "") or "").strip().lower()
+    if observe not in OBSERVE_VALUES:
+        violations.append("map_fidelity:missing_or_invalid_observe")
+
     structural = str(
         armed.get("structural_success") or armed.get("intent_invariant") or ""
-    )
-    if len(structural.strip()) < 24:
-        violations.append("map_fidelity:structural_success_too_thin")
+    ).strip()
+    job = str(row.product_job or "").strip()
+    if structural != job:
+        violations.append("map_fidelity:structural_success_not_verbatim_product_job")
 
-    # Own-row bind (necessary). Narrowing OK — do not require fat whole-map prose.
-    own_score = jaccard_overlap(structural, row.product_job)
-    if own_score < 0.12 and len(content_tokens(row.product_job)) >= 3:
-        # Fallback: distinctive own tokens present in structural.
-        own_toks = content_tokens(row.product_job)
-        sib_union: set[str] = set()
-        for sid, srow in rows.items():
-            if sid == tid or (srow.status or "").lower() != SELECTABLE_TICKET_STATUS:
-                continue
-            sib_union |= set(content_tokens(srow.product_job))
-        distinctive = own_toks - sib_union
-        check = distinctive or own_toks
-        struct_toks = content_tokens(structural)
-        hits = len(check & struct_toks)
-        if hits < max(2, (len(check) + 2) // 3):
-            violations.append(
-                "map_fidelity:structural_success_misses_map_product_job"
-            )
-
-    # Section neighbors must be declared out_of_scope (config off the map).
     expected_oos = section_open_neighbor_ids(rows, tid)
     raw_oos = armed.get("out_of_scope_ticket_ids")
     if raw_oos is None:
@@ -848,16 +738,22 @@ def _run_gate_a_mechanical(
                 + ",".join(expected_oos[:12])
             )
 
-    # Sibling swallow — map-wide open rows (not only section).
-    open_siblings = {
-        sid: srow
-        for sid, srow in rows.items()
-        if sid != tid and (srow.status or "").lower() == SELECTABLE_TICKET_STATUS
-    }
-    claim = claim_text_from_armed(armed)
-    violations.extend(
-        sibling_job_consume_violations(claim, row.product_job, open_siblings)
-    )
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    claim = str(armed.get("claim_class") or "").strip().lower()
+    expect_shape = proof_shape_for_observe(observe) if observe in OBSERVE_VALUES else None
+    expect_claim = claim_class_for_observe(observe) if observe in OBSERVE_VALUES else None
+    if not proof_shape:
+        violations.append("map_fidelity:missing_proof_shape")
+    elif expect_shape and proof_shape != expect_shape:
+        violations.append(
+            f"map_fidelity:proof_shape_observe_mismatch:{proof_shape}:{observe}"
+        )
+    if not claim:
+        violations.append("map_fidelity:missing_claim_class")
+    elif expect_claim and claim != expect_claim:
+        violations.append(
+            f"map_fidelity:claim_class_observe_mismatch:{claim}:{observe}"
+        )
 
     keys_raw = armed.get("behavior_keys") or armed.get("prefer_behavior_keys") or []
     if isinstance(keys_raw, str):
@@ -866,29 +762,7 @@ def _run_gate_a_mechanical(
         keys_list = [str(x) for x in keys_raw]
     else:
         keys_list = []
-    if keys_list:
-        violations.extend(
-            behavior_key_sibling_violations(keys_list, row.product_job, open_siblings)
-        )
-
-    struct_norm = _norm(structural)
-    for tok in _proof_tokens(row.welds):
-        if tok.startswith("W") and tok[1:].isdigit():
-            if tok.lower() not in struct_norm and tok not in structural:
-                welds_field = armed.get("welds")
-                if isinstance(welds_field, dict) and tok in {
-                    str(k).upper() for k in welds_field
-                }:
-                    continue
-                if isinstance(welds_field, str) and tok in welds_field.upper():
-                    continue
-                violations.append(f"map_fidelity:missing_weld_proof:{tok}")
-
-    so = str(armed.get("success_object") or "").strip().lower()
-    if not so:
-        violations.append("map_fidelity:missing_success_object")
-    elif so in SUCCESS_OBJECT_DENY or any(d in so for d in SUCCESS_OBJECT_DENY):
-        violations.append(f"map_fidelity:success_object_denied:{so}")
+    violations.extend(_behavior_key_catalog_violations(vault_root, armed, keys_list))
 
     dnw = armed.get("do_not_waive") or []
     if isinstance(dnw, str):
@@ -903,79 +777,111 @@ def _run_gate_a_mechanical(
             "map_fidelity:missing_do_not_waive:" + ",".join(missing)
         )
 
-    # --- Map Prefer contract (Ticketment / eat guards) ---
-    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
-    if not proof_shape:
-        violations.append("map_fidelity:missing_proof_shape")
-    elif proof_shape not in {"contract", "moment"}:
-        violations.append(f"map_fidelity:invalid_proof_shape:{proof_shape}")
-
-    claim = str(armed.get("claim_class") or "").strip().lower()
-    if claim not in _MAP_ALLOWED_CLAIM_CLASSES:
-        violations.append(
-            f"map_fidelity:map_claim_class_forbidden:{claim or 'empty'}"
-        )
-    elif proof_shape == "contract" and claim != "component":
-        violations.append("map_fidelity:contract_requires_claim_class_component")
-    elif proof_shape == "moment" and claim != "ask_success":
-        violations.append("map_fidelity:moment_requires_claim_class_ask_success")
-
-    invented = prefer_invented_weld_tokens(armed)
-    authorized = row_explicit_weld_tokens(row)
-    for tok in sorted(invented - authorized):
-        violations.append(f"map_fidelity:weld_invented:{tok}")
-
-    for field in _ROW_GATED_PREFER_FIELDS:
-        raw = armed.get(field)
-        if raw is None or str(raw).strip() == "":
-            continue
-        val = str(raw).strip()
-        if (
-            field == "prefer_class"
-            and val.strip().lower() in _ROW_FREE_PREFER_CLASSES
-        ):
-            continue
-        if not row_names_field_value(row, field, val):
-            violations.append(f"map_fidelity:prefer_field_not_on_row:{field}")
-
-    if keys_list:
-        roles = [classify_behavior_key_role(k) for k in keys_list]
-        if proof_shape == "contract":
-            if any(r == "visibility" for r in roles):
-                violations.append("map_fidelity:contract_visibility_key_forbidden")
-            if not any(r == "invariant" for r in roles):
-                violations.append("map_fidelity:contract_missing_invariant_key")
-            # Prefer-text play-path on a contract packet is still a shape mismatch.
-            if success_has_play_path_words(armed):
-                violations.append(
-                    "map_fidelity:contract_success_has_play_path_words"
-                )
-                pid = str(armed.get("project_id") or "").strip()
-                if contract_check_is_yaml_state_lookup(vault_root, pid, armed):
-                    violations.append(
-                        "map_fidelity:contract_play_path_words_with_yaml_lookup"
-                    )
-        elif proof_shape == "moment":
-            if len(keys_list) < 3 or len(keys_list) > 5:
-                violations.append(
-                    f"map_fidelity:moment_behavior_key_count:{len(keys_list)}"
-                )
-
-    # Allowlist (both shapes): play-path Prefer text OR map-row job → every
-    # behavior_key_check must resolve to costume-free point_hits_solid.
-    # Unresolved / empty / missing probe = fail. entrypoint_result_equals fails.
-    pid = str(armed.get("project_id") or "").strip()
-    allow_v = play_path_allowlist_violation(
-        vault_root,
-        pid,
-        armed,
-        map_product_job=str(getattr(row, "product_job", "") or ""),
-        code_prefix="map_fidelity",
-    )
-    if allow_v:
-        violations.append(allow_v)
-
     return tid
+
+
+def run_harness_b1(
+    vault_root: Path,
+    armed: dict[str, Any],
+    *,
+    map_rel: str | None = None,
+    write_result: bool = True,
+) -> dict[str, Any]:
+    """Gate B₁ harness second reader — runner class vs row observe.
+
+    Inputs: map row + observe + named probe ids. Not the author summary.
+    Writes prefer-result only with ``source: harness_b1``. Skills must not stamp.
+    """
+    from .observe_class import OBSERVE_VALUES
+    from .proof_runner import classify_catalog_probe
+
+    tid = str(armed.get("ticket_map_id") or "").strip()
+    pid = str(armed.get("project_id") or "").strip()
+    slice_id = str(armed.get("slice_id") or "").strip()
+    payload: dict[str, Any] = {
+        "ok": False,
+        "source": "harness_b1",
+        "ticket_map_id": tid,
+        "classes": {},
+        "violations": [],
+    }
+    if not tid or not pid:
+        payload["violations"].append("b1:missing_ticket_or_project")
+        return payload
+
+    resolved_rel = map_rel or resolve_active_ticket_map_rel(
+        vault_root, ticket_map_id=tid
+    )
+    rows = load_ticket_map_rows(
+        vault_root, map_rel=resolved_rel, ticket_map_id=tid
+    )
+    row = rows.get(tid) or rows.get(tid.replace("_", "-"))
+    if row is None:
+        payload["violations"].append("b1:ticket_not_on_map")
+        return payload
+    observe = str(getattr(row, "observe", "") or "").strip().lower()
+    payload["observe"] = observe
+    if observe not in OBSERVE_VALUES:
+        payload["violations"].append("b1:missing_observe")
+        return payload
+
+    checks = armed.get("behavior_key_checks")
+    if not isinstance(checks, dict) or not checks:
+        payload["violations"].append("b1:no_probes")
+        return payload
+
+    classes: dict[str, str] = {}
+    for key, probe_id in checks.items():
+        cid = str(probe_id or "").strip()
+        cls = classify_catalog_probe(vault_root, pid, cid) if cid else None
+        if cls is None:
+            payload["violations"].append(f"b1:probe_unclassifiable:{key}:{cid}")
+            continue
+        classes[str(key)] = cls
+        if cls != observe:
+            payload["violations"].append(
+                f"b1:runner_class_mismatch:{key}:{cls}:{observe}"
+            )
+    payload["classes"] = classes
+    payload["ok"] = not payload["violations"]
+
+    if write_result and slice_id:
+        from .bindings import factory_drb_rel
+
+        pr_path = (
+            vault_root
+            / factory_drb_rel(pid)
+            / "slice-briefs"
+            / f"{slice_id}.prefer-result.json"
+        )
+        existing: dict[str, Any] = {}
+        if pr_path.is_file():
+            try:
+                existing = json.loads(pr_path.read_text(encoding="utf-8"))
+                if not isinstance(existing, dict):
+                    existing = {}
+            except (OSError, json.JSONDecodeError, ValueError):
+                existing = {}
+        # Never honor author bare ok — clear it; only harness nested counts.
+        existing.pop("map_fidelity_hostile_ok", None)
+        existing["map_fidelity_hostile"] = {
+            "ok": payload["ok"],
+            "source": "harness_b1",
+            "observe": observe,
+            "classes": classes,
+            "violations": list(payload["violations"]),
+        }
+        if payload["ok"]:
+            existing["map_fidelity_hostile_ok"] = True
+        else:
+            existing["map_fidelity_hostile_ok"] = False
+        pr_path.parent.mkdir(parents=True, exist_ok=True)
+        pr_path.write_text(
+            json.dumps(existing, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        payload["prefer_result_path"] = str(pr_path)
+
+    return payload
 
 
 def validate_armed_map_fidelity(
@@ -986,12 +892,7 @@ def validate_armed_map_fidelity(
     prefer_result: dict[str, Any] | None = None,
     require_hostile_for_keep: bool = True,
 ) -> MapFidelityResult:
-    """Gate A (mechanical) + Gate B (hostile) — binding on staging and KEEP.
-
-    ``require_hostile_for_keep`` retained for CLI compatibility; when True,
-    hostile Prefer is required for **all** Success claim classes including
-    staging (mechanical-shape Success must never green).
-    """
+    """Gate A (forms) + Gate B₁ latch (harness attestation only)."""
     gate_a = armed_requires_ticket_map_fidelity(armed)
     gate_b = armed_requires_hostile_prefer(armed)
     if not gate_a and not gate_b:
@@ -1003,13 +904,10 @@ def validate_armed_map_fidelity(
     tid = str(armed.get("ticket_map_id") or "").strip()
 
     if gate_a:
-        # Prefer-product without explicit ticket_map_id still needs MAP bind when
-        # Gate A fired via markers — missing id is a hard violation.
         tid = _run_gate_a_mechanical(
             vault_root, armed, map_rel=map_rel, tid=tid, violations=violations
         )
 
-    # Gate B — required on staging AND KEEP. Never warning-only.
     claim = str(armed.get("claim_class") or "").strip().lower()
     hostile_ok = _hostile_ok(prefer_result)
     if require_hostile_for_keep and gate_b and claim in _SUCCESS_CLAIM_CLASSES:

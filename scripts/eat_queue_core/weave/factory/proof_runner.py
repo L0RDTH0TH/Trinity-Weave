@@ -1,14 +1,12 @@
 """Engine-neutral Prefer probes — ops only; project nouns live in proof-catalog.yaml.
 
 Ops: file_exists | file_contains | field_equals | command_exits_zero |
-entrypoint_result_equals | point_hits_solid.
+entrypoint_result_equals | point_hits_solid | window_pointer_inject.
 
-Play-path / moment act checks use ``point_hits_solid`` only: runner loads bounds,
-computes expected solid id from geometry for a point, invokes Prefer-named
-program with the **point only** (never the id), and compares stdout.
-``point_hits_solid`` must not carry ``equals_from`` / ``entrypoint`` / ``selector``.
+Each run emits ``observe_class`` from the code path taken (person|record), not
+from catalog labels. File/stdout/command compares are ``record``. Window +
+pointer inject is ``person``. Catalog keys cannot override.
 
-Library/contract compares may still use entrypoint_result_equals + equals_from.
 Exit code alone is not evidence. Literal ``equals`` is not behavior-key evidence.
 Runner does not know scenes, engines, or C# types. Never iterates the whole catalog.
 """
@@ -16,17 +14,22 @@ Runner does not know scenes, engines, or C# types. Never iterates the whole cata
 from __future__ import annotations
 
 import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 import yaml
 
 from .bindings import BindingMissingError, UNKNOWN_PROBE, load_family, require_project_id
+from .observe_class import (
+    OBSERVE_PERSON,
+    OBSERVE_RECORD,
+    WINDOW_POINTER_OP,
+    classify_op_path,
+)
 
-# Library/contract attest op (equals_from + selector). Not lawful for play-path.
+# Record-path compare ops (stdout / file / command).
 BEHAVIOR_KEY_ATTEST_OP = "entrypoint_result_equals"
-# Play-path / moment act op — expected id computed from bounds, not equals_from.
 POINT_HITS_SOLID_OP = "point_hits_solid"
 _POINT_HITS_SOLID_COSTUME = frozenset({"equals_from", "entrypoint", "selector"})
 
@@ -38,6 +41,41 @@ class ProbeOutcome:
     detail: str
     op: str = ""
     observed: str = ""
+    observe_class: str = OBSERVE_RECORD
+    window_opened: bool = False
+    pointer_injected: bool = False
+    files_read: tuple[str, ...] = ()
+    process_started: bool = False
+
+
+@dataclass
+class ProbeTranscript:
+    """Harness transcript for B₂ — class comes from what ran, not author booleans."""
+
+    probe_id: str
+    op: str
+    observe_class: str
+    ok: bool
+    detail: str
+    window_opened: bool = False
+    pointer_injected: bool = False
+    files_read: list[str] = field(default_factory=list)
+    process_started: bool = False
+    observed: str = ""
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "probe_id": self.probe_id,
+            "op": self.op,
+            "observe_class": self.observe_class,
+            "ok": self.ok,
+            "detail": self.detail,
+            "window_opened": self.window_opened,
+            "pointer_injected": self.pointer_injected,
+            "files_read": list(self.files_read),
+            "process_started": self.process_started,
+            "observed": self.observed,
+        }
 
 
 class UnknownProbeError(KeyError):
@@ -55,6 +93,7 @@ _OPS = frozenset(
         "command_exits_zero",
         BEHAVIOR_KEY_ATTEST_OP,
         POINT_HITS_SOLID_OP,
+        WINDOW_POINTER_OP,
     }
 )
 
@@ -184,47 +223,87 @@ def _expected_id_from_bounds(repo: Path, bounds_rel: str, x: float, y: float) ->
     return hits[0], "ok"
 
 
-def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tuple[bool, str]:
+def _meta_record(
+    *,
+    files_read: list[str] | None = None,
+    process_started: bool = False,
+    observed: str = "",
+) -> dict[str, Any]:
+    return {
+        "observe_class": OBSERVE_RECORD,
+        "window_opened": False,
+        "pointer_injected": False,
+        "files_read": list(files_read or []),
+        "process_started": process_started,
+        "observed": observed,
+    }
+
+
+def _meta_person(
+    *,
+    window_opened: bool,
+    pointer_injected: bool,
+    process_started: bool = False,
+    observed: str = "",
+) -> dict[str, Any]:
+    return {
+        "observe_class": OBSERVE_PERSON,
+        "window_opened": window_opened,
+        "pointer_injected": pointer_injected,
+        "files_read": [],
+        "process_started": process_started,
+        "observed": observed,
+    }
+
+
+def _run_op(
+    repo: Path, vault_root: Path, op: str, args: dict[str, Any]
+) -> tuple[bool, str, dict[str, Any]]:
+    """Run one op. Returns (ok, detail, transcript_meta). Class from code path."""
     if op == "file_exists":
         rel = str(args.get("path") or "").strip()
         if not rel:
-            return False, "file_exists:missing_path"
+            return False, "file_exists:missing_path", _meta_record()
         target = repo / rel
-        return target.is_file() or target.is_dir(), f"file_exists:{rel}"
+        ok = target.is_file() or target.is_dir()
+        return ok, f"file_exists:{rel}", _meta_record(files_read=[rel] if ok else [])
 
     if op == "file_contains":
         rel = str(args.get("path") or "").strip()
         needle = str(args.get("contains") or "")
         if not rel:
-            return False, "file_contains:missing_path"
+            return False, "file_contains:missing_path", _meta_record()
         path = repo / rel
         if not path.is_file():
-            return False, f"file_contains:missing:{rel}"
+            return False, f"file_contains:missing:{rel}", _meta_record()
         text = path.read_text(encoding="utf-8", errors="replace")
-        return needle in text, f"file_contains:{rel}"
+        return needle in text, f"file_contains:{rel}", _meta_record(files_read=[rel])
 
     if op == "field_equals":
         rel = str(args.get("path") or "").strip()
         key = str(args.get("key") or "").strip()
         expect = args.get("equals")
         if not rel or not key:
-            return False, "field_equals:missing_path_or_key"
+            return False, "field_equals:missing_path_or_key", _meta_record()
         path = repo / rel
         if not path.is_file():
-            # Also allow vault-relative paths
             path = vault_root / rel
         if not path.is_file():
-            return False, f"field_equals:missing:{rel}"
+            return False, f"field_equals:missing:{rel}", _meta_record()
         raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         if not isinstance(raw, dict):
-            return False, f"field_equals:not_mapping:{rel}"
+            return False, f"field_equals:not_mapping:{rel}", _meta_record(files_read=[rel])
         actual = raw.get(key)
-        return actual == expect, f"field_equals:{key}"
+        return (
+            actual == expect,
+            f"field_equals:{key}",
+            _meta_record(files_read=[rel]),
+        )
 
     if op == "command_exits_zero":
         argv = args.get("argv")
         if not isinstance(argv, list) or not argv:
-            return False, "command_exits_zero:missing_argv"
+            return False, "command_exits_zero:missing_argv", _meta_record()
         cmd = [str(x) for x in argv]
         try:
             proc = subprocess.run(
@@ -235,29 +314,38 @@ def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tupl
                 timeout=int(args.get("timeout_sec") or 120),
             )
         except (OSError, subprocess.TimeoutExpired) as exc:
-            return False, f"command_exits_zero:error:{exc}"
-        return proc.returncode == 0, f"command_exits_zero:rc={proc.returncode}"
+            return False, f"command_exits_zero:error:{exc}", _meta_record(process_started=True)
+        return (
+            proc.returncode == 0,
+            f"command_exits_zero:rc={proc.returncode}",
+            _meta_record(process_started=True),
+        )
 
     if op == BEHAVIOR_KEY_ATTEST_OP:
-        # Expected value from write-target state at probe time — not catalog stdout.
-        # Literal catalog ``equals`` is a stamp — refuse.
         if "equals" in args and args.get("equals") not in (None, ""):
-            return False, "entrypoint_result_equals:literal_equals_forbidden"
+            return (
+                False,
+                "entrypoint_result_equals:literal_equals_forbidden",
+                _meta_record(),
+            )
         equals_from = args.get("equals_from")
         if not isinstance(equals_from, dict):
-            return False, "entrypoint_result_equals:missing_equals_from"
+            return False, "entrypoint_result_equals:missing_equals_from", _meta_record()
         expect, err = _resolve_equals_from(repo, equals_from)
         if expect is None:
-            return False, err
+            return False, err, _meta_record(
+                files_read=[str(equals_from.get("path") or "")]
+            )
 
         argv = args.get("argv")
         if not isinstance(argv, list) or not argv:
-            return False, "entrypoint_result_equals:missing_argv"
+            return False, "entrypoint_result_equals:missing_argv", _meta_record()
         sel_extra, ban_tokens, sel_err = _selector_argv(args.get("selector"))
         if sel_err:
-            return False, sel_err
+            return False, sel_err, _meta_record()
 
         cmd = [str(x) for x in argv] + sel_extra
+        files = [str(equals_from.get("path") or "")]
         try:
             proc = subprocess.run(
                 cmd,
@@ -267,34 +355,48 @@ def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tupl
                 timeout=int(args.get("timeout_sec") or 120),
             )
         except (OSError, subprocess.TimeoutExpired) as exc:
-            return False, f"entrypoint_result_equals:error:{exc}"
+            return (
+                False,
+                f"entrypoint_result_equals:error:{exc}",
+                _meta_record(files_read=files, process_started=True),
+            )
         if proc.returncode != 0:
-            return False, f"entrypoint_result_equals:rc={proc.returncode}"
+            return (
+                False,
+                f"entrypoint_result_equals:rc={proc.returncode}",
+                _meta_record(files_read=files, process_started=True),
+            )
         observed = (proc.stdout or "").strip()
-        # Echoing selector args is not identity.
         if observed and observed in ban_tokens:
-            return False, "entrypoint_result_equals:echoed_selector_arg"
+            return (
+                False,
+                "entrypoint_result_equals:echoed_selector_arg",
+                _meta_record(files_read=files, process_started=True, observed=observed),
+            )
         ok = observed == expect
-        return ok, f"entrypoint_result_equals:observed={observed!r};expect={expect!r}"
+        return (
+            ok,
+            f"entrypoint_result_equals:observed={observed!r};expect={expect!r}",
+            _meta_record(files_read=files, process_started=True, observed=observed),
+        )
 
     if op == POINT_HITS_SOLID_OP:
-        # Costume keys mean this is still a yaml/entrypoint compare wearing a new name.
+        # Still a record path (stdout compare). Costume keys fail the op.
         if any(k in args for k in _POINT_HITS_SOLID_COSTUME):
-            return False, "point_hits_solid:costume_forbidden"
+            return False, "point_hits_solid:costume_forbidden", _meta_record()
         bounds_rel = str(args.get("bounds") or "").strip()
         if not bounds_rel:
-            return False, "point_hits_solid:missing_bounds"
+            return False, "point_hits_solid:missing_bounds", _meta_record()
         parsed = _parse_point(args.get("point"))
         if parsed is None:
-            return False, "point_hits_solid:missing_point"
+            return False, "point_hits_solid:missing_point", _meta_record()
         x, y = parsed
         expect, err = _expected_id_from_bounds(repo, bounds_rel, x, y)
         if expect is None:
-            return False, err
+            return False, err, _meta_record(files_read=[bounds_rel])
         argv = args.get("argv")
         if not isinstance(argv, list) or not argv:
-            return False, "point_hits_solid:missing_argv"
-        # SUT gets the point only — never the solid id.
+            return False, "point_hits_solid:missing_argv", _meta_record(files_read=[bounds_rel])
         xs, ys = str(x), str(y)
         cmd = [str(a) for a in argv] + ["--point", xs, ys]
         try:
@@ -306,16 +408,98 @@ def _run_op(repo: Path, vault_root: Path, op: str, args: dict[str, Any]) -> tupl
                 timeout=int(args.get("timeout_sec") or 120),
             )
         except (OSError, subprocess.TimeoutExpired) as exc:
-            return False, f"point_hits_solid:error:{exc}"
+            return (
+                False,
+                f"point_hits_solid:error:{exc}",
+                _meta_record(files_read=[bounds_rel], process_started=True),
+            )
         if proc.returncode != 0:
-            return False, f"point_hits_solid:rc={proc.returncode}"
+            return (
+                False,
+                f"point_hits_solid:rc={proc.returncode}",
+                _meta_record(files_read=[bounds_rel], process_started=True),
+            )
         observed = (proc.stdout or "").strip()
         if observed in (xs, ys, f"{xs},{ys}", f"{xs} {ys}"):
-            return False, "point_hits_solid:echoed_point"
+            return (
+                False,
+                "point_hits_solid:echoed_point",
+                _meta_record(
+                    files_read=[bounds_rel], process_started=True, observed=observed
+                ),
+            )
         ok = observed == expect
-        return ok, f"point_hits_solid:observed={observed!r};expect={expect!r}"
+        return (
+            ok,
+            f"point_hits_solid:observed={observed!r};expect={expect!r}",
+            _meta_record(
+                files_read=[bounds_rel], process_started=True, observed=observed
+            ),
+        )
 
-    return False, f"unknown_op:{op}"
+    if op == WINDOW_POINTER_OP:
+        # Person path: must open a window and inject pointer. No stdout-id compare.
+        argv = args.get("argv")
+        if not isinstance(argv, list) or not argv:
+            return False, "window_pointer_inject:missing_argv", _meta_person(
+                window_opened=False, pointer_injected=False
+            )
+        parsed = _parse_point(args.get("point"))
+        if parsed is None:
+            return False, "window_pointer_inject:missing_point", _meta_person(
+                window_opened=False, pointer_injected=False
+            )
+        x, y = parsed
+        cmd = [str(a) for a in argv] + ["--window", "--inject-pointer", str(x), str(y)]
+        try:
+            proc = subprocess.run(
+                cmd,
+                cwd=str(repo),
+                capture_output=True,
+                text=True,
+                timeout=int(args.get("timeout_sec") or 120),
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return (
+                False,
+                f"window_pointer_inject:error:{exc}",
+                _meta_person(
+                    window_opened=False, pointer_injected=False, process_started=True
+                ),
+            )
+        out = (proc.stdout or "") + "\n" + (proc.stderr or "")
+        window_opened = "window_opened=1" in out or "WINDOW_OPEN" in out
+        pointer_injected = "pointer_injected=1" in out or "POINTER_INJECT" in out
+        ok = proc.returncode == 0 and window_opened and pointer_injected
+        return (
+            ok,
+            f"window_pointer_inject:rc={proc.returncode};window={window_opened};pointer={pointer_injected}",
+            _meta_person(
+                window_opened=window_opened,
+                pointer_injected=pointer_injected,
+                process_started=True,
+                observed=(proc.stdout or "").strip(),
+            ),
+        )
+
+    return False, f"unknown_op:{op}", _meta_record()
+
+
+def _entry_args(entry: dict[str, Any]) -> dict[str, Any]:
+    args = entry.get("args") if isinstance(entry.get("args"), dict) else {}
+    if not args:
+        args = {k: v for k, v in entry.items() if k not in ("op", "args", "id")}
+    return args if isinstance(args, dict) else {}
+
+
+def classify_catalog_probe(
+    vault_root: Path, project_id: str, probe_id: str
+) -> str | None:
+    """Dry-classify probe observe class from runner op path. None if missing."""
+    op = probe_op_for_id(vault_root, project_id, probe_id)
+    if not op:
+        return None
+    return classify_op_path(op, None)
 
 
 def run_named_probes(
@@ -358,19 +542,60 @@ def run_named_probes(
             continue
         op = str(entry.get("op") or "").strip()
         if op not in _OPS:
-            out.append(ProbeOutcome(cid, False, f"unsupported_op:{op}"))
+            out.append(
+                ProbeOutcome(
+                    cid,
+                    False,
+                    f"unsupported_op:{op}",
+                    op=op,
+                    observe_class=classify_op_path(op),
+                )
+            )
             continue
-        args = entry.get("args") if isinstance(entry.get("args"), dict) else {}
-        # Allow top-level keys as args shorthand
-        if not args:
-            args = {k: v for k, v in entry.items() if k not in ("op", "args", "id")}
-        ok, detail = _run_op(repo, vault_root, op, args)
-        observed = ""
-        if detail.startswith("entrypoint_result_equals:observed="):
-            # detail carries observed for audit; ProbeOutcome.observed is the raw compare side
-            observed = detail.split("observed=", 1)[-1].strip().strip("'\"")
-        out.append(ProbeOutcome(cid, ok, detail, op=op, observed=observed))
+        args = _entry_args(entry)
+        ok, detail, meta = _run_op(repo, vault_root, op, args)
+        observed = str(meta.get("observed") or "")
+        out.append(
+            ProbeOutcome(
+                cid,
+                ok,
+                detail,
+                op=op,
+                observed=observed,
+                observe_class=str(meta.get("observe_class") or OBSERVE_RECORD),
+                window_opened=bool(meta.get("window_opened")),
+                pointer_injected=bool(meta.get("pointer_injected")),
+                files_read=tuple(str(x) for x in (meta.get("files_read") or []) if x),
+                process_started=bool(meta.get("process_started")),
+            )
+        )
     return out
+
+
+def run_named_probes_with_transcript(
+    vault_root: Path,
+    project_id: str,
+    probe_ids: list[str] | tuple[str, ...],
+) -> tuple[list[ProbeOutcome], list[ProbeTranscript]]:
+    """Run probes and return outcomes plus B₂ transcripts."""
+    outcomes = run_named_probes(vault_root, project_id, probe_ids)
+    transcripts: list[ProbeTranscript] = []
+    for o in outcomes:
+        transcripts.append(
+            ProbeTranscript(
+                probe_id=o.probe_id,
+                op=o.op,
+                observe_class=o.observe_class,
+                ok=o.ok,
+                detail=o.detail,
+                window_opened=o.window_opened,
+                pointer_injected=o.pointer_injected,
+                files_read=list(o.files_read),
+                process_started=o.process_started,
+                observed=o.observed,
+            )
+        )
+    return outcomes, transcripts
 
 
 def probe_op_for_id(

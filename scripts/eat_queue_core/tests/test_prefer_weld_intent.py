@@ -18,9 +18,11 @@ from eat_queue_core.weave.factory.prefer_weld_intent import (
 def _b2_ok() -> dict:
     return {
         "map_fidelity_hostile_ok": True,
+        "map_fidelity_hostile": {"ok": True, "source": "harness_b1"},
         "weld_intent_hostile_ok": True,
         "weld_intent_hostile": {
             "ok": True,
+            "source": "harness_b2",
             "verdict": "pass",
             "pass_basis": "behavior",
         },
@@ -239,8 +241,11 @@ def test_chat_receipt_embedded_on_armed_is_scanned():
 
 def test_weld_intent_hostile_ok_helper():
     assert weld_intent_hostile_ok(None) is False
-    assert weld_intent_hostile_ok({"weld_intent_hostile_ok": True}) is True
-    assert weld_intent_hostile_ok({"weld_intent_hostile": {"ok": True}}) is True
+    assert weld_intent_hostile_ok({"weld_intent_hostile_ok": True}) is False
+    assert weld_intent_hostile_ok({"weld_intent_hostile": {"ok": True}}) is False
+    assert weld_intent_hostile_ok(
+        {"weld_intent_hostile": {"ok": True, "source": "harness_b2"}}
+    ) is True
     assert weld_intent_hostile_ok({"map_fidelity_hostile_ok": True}) is False
 
 

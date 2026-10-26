@@ -137,7 +137,9 @@ def build_ticketment_bundle(
             "status": row.status,
             "product_job": row.product_job,
             "notes": row.welds,
+            "observe": getattr(row, "observe", "") or "",
         },
+        "observe": getattr(row, "observe", "") or "",
         "out_of_scope_ticket_ids": oos,
         "section_open_neighbors": neighbors,
         "load_dual_grid_host_law": is_place_seat,
@@ -145,13 +147,18 @@ def build_ticketment_bundle(
             "ticket_map_id",
             "structural_success",
             "out_of_scope_ticket_ids",
+            "proof_shape",
+            "claim_class",
             "behavior_keys",
-            "success_object",
             "do_not_waive",
         ],
         "notes": (
-            "structural_success = this row's product_job after sibling words removed; "
-            "behavior_keys = 3–5 stranger-watchable claims on THIS row only; "
-            "do not FactoryEat; do not set factory_greenlit."
+            "Copy the row. structural_success = product_job verbatim. "
+            "proof_shape/claim_class from observe (person→moment/ask_success, "
+            "record→contract/component). Attach a probe only when its runner "
+            "class matches observe; otherwise leave behavior_key_checks empty "
+            "and name the missing observer. Do not shop the catalog for Gate A. "
+            "Do not set map_fidelity_hostile_ok or weld_intent_hostile_ok. "
+            "Do not FactoryEat; do not set factory_greenlit."
         ),
     }

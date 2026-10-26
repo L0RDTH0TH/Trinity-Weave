@@ -238,16 +238,13 @@ def run_prefer_align(
                     + ",".join(extras[:8])
                 )
 
-    # Play-path allowlist (same Gate A helper): Prefer text or map-row job →
-    # every check must resolve to costume-free point_hits_solid.
-    from .prefer_map_fidelity import (
-        contract_check_is_yaml_state_lookup,
-        play_path_allowlist_violation,
-        success_has_play_path_words,
-    )
+    # Forms only: proof_shape must match map observe; probe ids must exist.
+    # Runner class match is Gate B₁ — align does not allowlist op names.
+    from .observe_class import OBSERVE_VALUES, proof_shape_for_observe
+    from .prefer_map_fidelity import _load_proof_catalog_probes
 
-    map_job = ""
     tid = str(armed.get("ticket_map_id") or "").strip()
+    observe = ""
     if tid:
         try:
             from .ticket_map_schema import (
@@ -263,27 +260,24 @@ def run_prefer_align(
             )
             row = rows.get(tid) if rows else None
             if row is not None:
-                map_job = str(getattr(row, "product_job", "") or "")
+                observe = str(getattr(row, "observe", "") or "").strip().lower()
         except Exception:
-            map_job = ""
-
-    allow_v = play_path_allowlist_violation(
-        vault_root,
-        project_id,
-        armed,
-        map_product_job=map_job,
-        code_prefix="prefer_align",
-    )
-    if allow_v:
-        violations.append(allow_v)
+            observe = ""
 
     proof_shape = str(armed.get("proof_shape") or "").strip().lower()
-    if proof_shape == "contract" and success_has_play_path_words(armed):
-        violations.append("prefer_align:contract_success_has_play_path_words")
-        if contract_check_is_yaml_state_lookup(vault_root, project_id, armed):
+    if observe in OBSERVE_VALUES:
+        expect = proof_shape_for_observe(observe)
+        if expect and proof_shape and proof_shape != expect:
             violations.append(
-                "prefer_align:contract_play_path_words_with_yaml_lookup"
+                f"prefer_align:proof_shape_observe_mismatch:{proof_shape}:{observe}"
             )
+    elif tid:
+        violations.append("prefer_align:missing_or_invalid_observe")
+
+    probes = _load_proof_catalog_probes(vault_root, project_id)
+    for key, cid in checks.items():
+        if probes is None or cid not in probes:
+            violations.append(f"prefer_align:probe_missing:{key}:{cid}")
 
     host_ids = _host_law_ids(armed)
     cites = _collect_cite_strings(armed)

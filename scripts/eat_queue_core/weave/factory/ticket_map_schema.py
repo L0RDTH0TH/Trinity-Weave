@@ -22,15 +22,18 @@ MAP_STATUSES = frozenset({"active", "deferred", "complete"})
 HIDDEN_TICKET_STATUSES = frozenset({"deferred", "superseded"})
 SELECTABLE_TICKET_STATUS = "open"
 GREYED_TICKET_STATUS = "f5_good"
+OBSERVE_VALUES = frozenset({"person", "record"})
 
 _FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.S)
 
-# Canonical: | `id` | status | job | notes |
+# Canonical: | `id` | status | job | notes | observe |
+# observe is person|record; Ticketment / status stamp must not rewrite it.
 _ROW_STATUS_RE = re.compile(
     r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
     r"\s*`?(?P<status>open|f5_good|deferred|superseded)`?\s*\|"
     r"\s*(?P<job>[^|]*?)\s*\|"
-    r"\s*(?P<notes>[^|]*?)\s*\|\s*$",
+    r"\s*(?P<notes>[^|]*?)\s*\|"
+    r"(?:\s*`?(?P<observe>person|record)`?\s*\|)?\s*$",
     re.M | re.I,
 )
 
@@ -64,6 +67,7 @@ _HEADER_SKIP = frozenset(
         "row",
         "was",
         "now",
+        "observe",
     }
 )
 
@@ -77,6 +81,8 @@ class MapTicketRow:
     source_line: str = ""
     # Nearest ``##`` heading above the table row (empty if none).
     section_heading: str = ""
+    # person | record — human-authored; generators must not edit.
+    observe: str = ""
 
     @property
     def proof_blob(self) -> str:
@@ -268,9 +274,9 @@ def prefer_b1_ok(
 ) -> bool:
     """Gate B₁ fail-closed for factory launch.
 
-    True only when ``slice-briefs/<slice_id>.prefer-result.json`` exists and
-    ``map_fidelity_hostile_ok`` is exactly ``true``. Missing file or any other
-    value → False (Prefer is still a draft for launch purposes).
+    True only when prefer-result carries harness attestation
+    ``map_fidelity_hostile.source == harness_b1`` and ``ok is true``.
+    Bare ``map_fidelity_hostile_ok: true`` (author/skill stamp) is ignored.
     """
     vault_root = vault_root.resolve()
     ap = Path(armed_path)
@@ -288,7 +294,10 @@ def prefer_b1_ok(
         return False
     if not isinstance(data, dict):
         return False
-    return data.get("map_fidelity_hostile_ok") is True
+    nested = data.get("map_fidelity_hostile")
+    if not isinstance(nested, dict):
+        return False
+    return nested.get("source") == "harness_b1" and nested.get("ok") is True
 
 
 def _parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
@@ -410,6 +419,10 @@ def parse_ticket_map_rows_ordered(
         status = m.group("status").strip().lower()
         job = " ".join(m.group("job").split())
         notes = " ".join(m.group("notes").split())
+        obs_raw = m.groupdict().get("observe") or ""
+        observe = str(obs_raw).strip().lower()
+        if observe and observe not in OBSERVE_VALUES:
+            observe = ""
         if _skip_job(job) or status not in TICKET_STATUSES:
             continue
         _put(
@@ -421,6 +434,7 @@ def parse_ticket_map_rows_ordered(
                 status=status,
                 source_line=m.group(0)[:200],
                 section_heading=_section_heading_at(scan, m.start()),
+                observe=observe,
             ),
         )
 

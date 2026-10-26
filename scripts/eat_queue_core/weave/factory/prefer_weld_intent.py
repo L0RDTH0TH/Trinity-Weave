@@ -177,13 +177,13 @@ class WeldIntentResult:
 
 
 def weld_intent_hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
-    """True when Gate B₂ stamp field is set (necessary, not sufficient)."""
+    """True only for harness B₂ attestation. Author bare ok is ignored."""
     if not isinstance(prefer_result, dict):
         return False
-    if prefer_result.get("weld_intent_hostile_ok") is True:
-        return True
     nested = prefer_result.get("weld_intent_hostile")
-    return isinstance(nested, dict) and nested.get("ok") is True
+    if not isinstance(nested, dict):
+        return False
+    return nested.get("source") == "harness_b2" and nested.get("ok") is True
 
 
 def has_factory_bypass_flag(
@@ -543,18 +543,19 @@ def collect_behavior_evidence_from_prefer_checks(
     vault_root: Path,
     project_id: str,
     armed: dict[str, Any] | None,
+    *,
+    row_observe: str | None = None,
 ) -> tuple[dict[str, Any] | None, list[str]]:
-    """Run Prefer behavior_key_checks → harness evidence pack.
+    """Run Prefer behavior_key_checks → harness evidence + transcript.
 
-    Each key maps to its own probe. Pack sets that key true only when that probe
-    passed with op entrypoint_result_equals (operation + compared value).
-    ``command_exits_zero`` / agent stamp files do not attest behavior keys.
+    B₂ requires transcript ``observe_class`` to match the map row ``observe``.
+    A green stdout / ``{key: true}`` alone is not a pass. Op name is not gated.
     """
-    from .proof_runner import (
-        BEHAVIOR_KEY_ATTEST_OP,
-        UnknownProbeError,
-        probe_op_for_id,
-        run_named_probes,
+    from .observe_class import OBSERVE_PERSON, OBSERVE_VALUES
+    from .proof_runner import UnknownProbeError, run_named_probes_with_transcript
+    from .ticket_map_schema import (
+        load_ticket_map_rows,
+        resolve_active_ticket_map_rel,
     )
 
     violations: list[str] = []
@@ -578,23 +579,34 @@ def collect_behavior_evidence_from_prefer_checks(
     if not checks:
         return None, ["weld_intent:behavior_key_checks_missing"]
 
+    observe = str(row_observe or "").strip().lower()
+    if observe not in OBSERVE_VALUES:
+        tid = str(armed.get("ticket_map_id") or "").strip()
+        if tid:
+            rel = resolve_active_ticket_map_rel(
+                vault_root, project_id=project_id, ticket_map_id=tid
+            )
+            rows = load_ticket_map_rows(
+                vault_root, map_rel=rel, ticket_map_id=tid
+            )
+            row = rows.get(tid) if rows else None
+            if row is not None:
+                observe = str(getattr(row, "observe", "") or "").strip().lower()
+    if observe not in OBSERVE_VALUES:
+        return None, ["weld_intent:missing_or_invalid_observe"]
+
     behavior: dict[str, Any] = {}
+    transcripts: list[dict[str, Any]] = []
     for key in keys:
         probe_id = checks.get(key)
         if not probe_id:
             violations.append(f"weld_intent:behavior_key_check_missing:{key}")
             behavior[key] = False
             continue
-        op = probe_op_for_id(vault_root, project_id, probe_id)
-        if op != BEHAVIOR_KEY_ATTEST_OP:
-            # Exit-code-only / file stamp ops are not behavior-key evidence.
-            violations.append(
-                f"weld_intent:probe_op_not_compare:{key}:{op or 'missing'}"
-            )
-            behavior[key] = False
-            continue
         try:
-            outcomes = run_named_probes(vault_root, project_id, [probe_id])
+            outcomes, trs = run_named_probes_with_transcript(
+                vault_root, project_id, [probe_id]
+            )
         except UnknownProbeError:
             violations.append(f"weld_intent:unknown_probe:{probe_id}")
             behavior[key] = False
@@ -603,25 +615,104 @@ def collect_behavior_evidence_from_prefer_checks(
             violations.append(f"weld_intent:probe_error:{key}:{exc}")
             behavior[key] = False
             continue
-        ok = bool(outcomes) and all(o.ok for o in outcomes)
+        if not outcomes:
+            violations.append(f"weld_intent:probe_no_outcome:{key}")
+            behavior[key] = False
+            continue
+        o = outcomes[0]
+        t = trs[0]
+        transcripts.append(t.as_dict())
+        if t.observe_class != observe:
+            violations.append(
+                f"weld_intent:transcript_class_mismatch:{key}:{t.observe_class}:{observe}"
+            )
+            behavior[key] = False
+            continue
+        if observe == OBSERVE_PERSON and not (
+            t.window_opened and t.pointer_injected
+        ):
+            violations.append(
+                f"weld_intent:person_requires_window_and_pointer:{key}"
+            )
+            behavior[key] = False
+            continue
+        ok = bool(o.ok)
         behavior[key] = True if ok else False
         if not ok:
-            detail = outcomes[0].detail if outcomes else "no_outcome"
-            violations.append(f"weld_intent:probe_failed:{key}:{detail}")
+            violations.append(f"weld_intent:probe_failed:{key}:{o.detail}")
 
     pack = build_evidence_pack(
         prefer_success=str(armed.get("structural_success") or ""),
         behavior=behavior,
         pass_basis="behavior",
         prefer_class=str(armed.get("prefer_class") or ""),
-        notes="harness Prefer-named entrypoint compare; not agent return-dict",
+        notes="harness transcript class must match map observe",
     )
-    pack["source"] = "proof_catalog"
-    pack["evidence_source"] = "proof_catalog"
-    # Exact key set for contract: every Prefer key present (true or false).
+    pack["source"] = "harness_b2"
+    pack["evidence_source"] = "harness_transcript"
+    pack["observe"] = observe
+    pack["transcripts"] = transcripts
     if any(v is not True for v in behavior.values()) or violations:
         return pack, violations
     return pack, []
+
+
+
+def run_harness_b2(
+    vault_root: Path,
+    project_id: str,
+    armed: dict[str, Any] | None,
+    *,
+    write_result: bool = True,
+) -> dict[str, Any]:
+    """Harness B₂: run probes, keep transcript, attest only with source harness_b2."""
+    pack, violations = collect_behavior_evidence_from_prefer_checks(
+        vault_root, project_id, armed
+    )
+    ok = bool(pack) and not violations and all(
+        v is True for v in (pack or {}).get("behavior", {}).values()
+    ) if isinstance((pack or {}).get("behavior"), dict) else False
+    payload: dict[str, Any] = {
+        "ok": ok,
+        "source": "harness_b2",
+        "violations": list(violations),
+        "evidence": pack or {},
+    }
+    armed = armed if isinstance(armed, dict) else {}
+    slice_id = str(armed.get("slice_id") or "").strip()
+    if write_result and slice_id:
+        from .bindings import factory_drb_rel
+
+        pr_path = (
+            vault_root
+            / factory_drb_rel(project_id)
+            / "slice-briefs"
+            / f"{slice_id}.prefer-result.json"
+        )
+        existing: dict[str, Any] = {}
+        if pr_path.is_file():
+            try:
+                existing = json.loads(pr_path.read_text(encoding="utf-8"))
+                if not isinstance(existing, dict):
+                    existing = {}
+            except (OSError, json.JSONDecodeError, ValueError):
+                existing = {}
+        existing.pop("weld_intent_hostile_ok", None)
+        existing["weld_intent_hostile"] = {
+            "ok": ok,
+            "source": "harness_b2",
+            "violations": list(violations),
+            "evidence": pack or {},
+        }
+        existing["weld_intent_hostile_ok"] = bool(ok)
+        if pack:
+            existing["weld_intent_evidence"] = pack
+        pr_path.parent.mkdir(parents=True, exist_ok=True)
+        pr_path.write_text(
+            json.dumps(existing, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        payload["prefer_result_path"] = str(pr_path)
+    return payload
 
 
 def evaluate_behavior_evidence(

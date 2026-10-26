@@ -51,10 +51,17 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 ## Ticket rows (canonical)
 
 ```markdown
-| Ticket | Status | Product job | Notes |
-|--------|--------|-------------|-------|
-| `SOME-id` | `open` | Capability this row adds… | Prefer / proofs |
+| Ticket | Status | Product job | Notes | Observe |
+|--------|--------|-------------|-------|---------|
+| `SOME-id` | `open` | Capability this row adds… | Prefer / proofs | `person` |
 ```
+
+| `Observe` | Meaning |
+|-----------|---------|
+| `person` | Someone does the act and can tell it happened. Prefer `proof_shape: moment`. |
+| `record` | A file or return value is the whole claim. Prefer `proof_shape: contract`. |
+
+`Observe` is human-authored. Ticketment / status stamp / Prefer emit **must not** rewrite it. Missing cell → Gate A fail closed.
 
 | `ticket_status` | Meaning |
 |-----------------|--------|
@@ -71,13 +78,13 @@ Legacy 3-column rows (`Ticket | job | notes`) still parse; status is inferred fr
 
 | Condition | Picker |
 |-----------|--------|
-| Map Status `open` **and** `slice-briefs/<slice_id>.prefer-result.json` has `map_fidelity_hostile_ok: true` | **Launchable** |
-| Map Status `open` but prefer-result missing or `map_fidelity_hostile_ok` not exactly `true` | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
+| Map Status `open` **and** prefer-result has `map_fidelity_hostile.source: harness_b1` with `ok: true` | **Launchable** |
+| Map Status `open` but prefer-result missing, or only bare `map_fidelity_hostile_ok: true` (author/skill) | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
 | Map Status `f5_good` Prefer-linked | Grey trail (browse only) |
 
 Fail closed: missing prefer-result or any non-`true` stamp → not launchable.
 
-Stamp path: Gate B₁ (`VALIDATE prefer_map_fidelity`) writes `map_fidelity_hostile_ok: true` into the prefer-result JSON next to the armed packet.
+Stamp path: harness CLI `prefer_map_fidelity_check.py --write-b1` writes `map_fidelity_hostile: { ok, source: harness_b1, ... }`. Skills must not stamp. Bare author `map_fidelity_hostile_ok: true` is ignored.
 
 ## Picker = map ∩ Prefer (binding)
 

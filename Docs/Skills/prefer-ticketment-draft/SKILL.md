@@ -67,3 +67,7 @@ Do **not** set `factory_greenlit: true`. Do **not** FactoryEat.
 3. Operator GREENLIGHT only → weld → B₂ → **F5 only for moment**; contract closes on probe pass (do not ask F5)
 
 If B₁ can pass a Prefer whose success describes a different open ticket, Ticketment is not done — re-draft from the bundle. If the map job is a point/see/board ask, Prefer checks must be `point_hits_solid` — do not use `entrypoint_result_equals` / yaml lookup wearing a coordinate.
+
+## Observe (binding)
+
+Copy the row. Set `proof_shape`/`claim_class` from map `observe` (`person`→moment/ask_success, `record`→contract/component). `structural_success` = product job **verbatim**. Attach a probe only when its runner class matches `observe`; otherwise leave `behavior_key_checks` empty and name the missing observer. Do **not** shop the catalog for Gate A. Do **not** set hostile ok bits.
