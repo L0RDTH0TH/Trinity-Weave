@@ -127,7 +127,12 @@ def _good_armed() -> dict:
 def _hostile_ok() -> dict:
     return {
         "map_fidelity_hostile_ok": True,
-        "map_fidelity_hostile": {"ok": True, "source": "harness_b1"},
+        "map_fidelity_hostile": {
+            "ok": True,
+            "source": "cursor_senior_b1",
+            "role": "prefer_b1_senior",
+            "trinity_stamped": True,
+        },
     }
 
 

@@ -177,13 +177,10 @@ class WeldIntentResult:
 
 
 def weld_intent_hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
-    """True only for harness B₂ attestation. Author bare ok is ignored."""
-    if not isinstance(prefer_result, dict):
-        return False
-    nested = prefer_result.get("weld_intent_hostile")
-    if not isinstance(nested, dict):
-        return False
-    return nested.get("source") == "harness_b2" and nested.get("ok") is True
+    """True only for Trinity-stored Cursor senior B₂. Author/harness_b2 ignored."""
+    from .prefer_senior_gates import senior_pass_ok
+
+    return senior_pass_ok(prefer_result, gate="b2")
 
 
 def has_factory_bypass_flag(
@@ -665,54 +662,26 @@ def run_harness_b2(
     *,
     write_result: bool = True,
 ) -> dict[str, Any]:
-    """Harness B₂: run probes, keep transcript, attest only with source harness_b2."""
+    """DEPRECATED — probe/print classifier is not Gate B₂.
+
+    May still collect claim packs for the senior to read. Does not stamp
+    launchable / KEEP. Factory order calls ``prefer_senior_gates.run_senior_gate``.
+    """
+    _ = write_result
     pack, violations = collect_behavior_evidence_from_prefer_checks(
         vault_root, project_id, armed
     )
-    ok = bool(pack) and not violations and all(
-        v is True for v in (pack or {}).get("behavior", {}).values()
-    ) if isinstance((pack or {}).get("behavior"), dict) else False
-    payload: dict[str, Any] = {
-        "ok": ok,
+    return {
+        "ok": False,
         "source": "harness_b2",
-        "violations": list(violations),
+        "violations": [
+            "b2:python_classifier_not_authoritative",
+            "b2:use_factory_order_senior_gate",
+            *list(violations),
+        ],
         "evidence": pack or {},
+        "claim_pack_only": True,
     }
-    armed = armed if isinstance(armed, dict) else {}
-    slice_id = str(armed.get("slice_id") or "").strip()
-    if write_result and slice_id:
-        from .bindings import factory_drb_rel
-
-        pr_path = (
-            vault_root
-            / factory_drb_rel(project_id)
-            / "slice-briefs"
-            / f"{slice_id}.prefer-result.json"
-        )
-        existing: dict[str, Any] = {}
-        if pr_path.is_file():
-            try:
-                existing = json.loads(pr_path.read_text(encoding="utf-8"))
-                if not isinstance(existing, dict):
-                    existing = {}
-            except (OSError, json.JSONDecodeError, ValueError):
-                existing = {}
-        existing.pop("weld_intent_hostile_ok", None)
-        existing["weld_intent_hostile"] = {
-            "ok": ok,
-            "source": "harness_b2",
-            "violations": list(violations),
-            "evidence": pack or {},
-        }
-        existing["weld_intent_hostile_ok"] = bool(ok)
-        if pack:
-            existing["weld_intent_evidence"] = pack
-        pr_path.parent.mkdir(parents=True, exist_ok=True)
-        pr_path.write_text(
-            json.dumps(existing, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-        )
-        payload["prefer_result_path"] = str(pr_path)
-    return payload
 
 
 def evaluate_behavior_evidence(

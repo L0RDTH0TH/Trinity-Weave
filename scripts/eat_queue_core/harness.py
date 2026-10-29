@@ -2882,6 +2882,44 @@ def cmd_git_push_policy(vault_root: Path, args: argparse.Namespace) -> int:
     return 0 if snap.get("push_enabled") else 1
 
 
+def cmd_prefer_senior_gate(vault_root: Path, args: argparse.Namespace) -> int:
+    """Factory-order Gate B₁/B₂ senior via agent -p (no --force). Stores latch."""
+    from eat_queue_core.weave.factory.prefer_map_fidelity import load_armed_yaml
+    from eat_queue_core.weave.factory.prefer_senior_gates import run_senior_gate
+
+    if not getattr(args, "factory_order", False):
+        print(
+            json.dumps(
+                {
+                    "ok": False,
+                    "violations": ["senior:store_requires_factory_order"],
+                },
+                indent=2,
+            )
+        )
+        return 2
+    armed_path = Path(args.armed)
+    if not armed_path.is_absolute():
+        armed_path = vault_root / armed_path
+    if not armed_path.is_file():
+        print(json.dumps({"ok": False, "error": f"missing_armed:{armed_path}"}))
+        return 2
+    armed = load_armed_yaml(armed_path)
+    result = run_senior_gate(
+        vault_root,
+        armed,
+        gate=str(args.gate),
+        factory_order=True,
+        store=True,
+        model=str(getattr(args, "model", None) or "auto"),
+        feedstock_note=str(getattr(args, "feedstock_note", "") or ""),
+        probe_claim=str(getattr(args, "probe_claim", "") or ""),
+        diff_claim=str(getattr(args, "diff_claim", "") or ""),
+    )
+    print(json.dumps(result.as_dict(), indent=2))
+    return 0 if result.ok else 2
+
+
 def cmd_project_bridge_sync(vault_root: Path, args: argparse.Namespace) -> int:
     """Regenerate project indexes and sync to Trinity-Weave project branch (local commit)."""
     result = run_project_bridge_sync(
@@ -3434,6 +3472,25 @@ Examples — JSONL must come from stdin (heredoc/pipe) or --lines-file:
     wps.add_argument("--dry-run", action="store_true", help="Sync to export checkout without commit/push")
     wps.add_argument("--summary", default="", help="Commit message suffix")
     wps.set_defaults(func=cmd_weave_public_sync)
+
+    psg = sub.add_parser(
+        "prefer_senior_gate",
+        help="Factory-order B1/B2 senior (agent -p, no --force). Requires --factory-order.",
+        parents=[common],
+    )
+    add_parallel(psg)
+    psg.add_argument("--armed", required=True, help="Path to *.armed.yaml")
+    psg.add_argument("--gate", choices=("b1", "b2"), required=True)
+    psg.add_argument(
+        "--factory-order",
+        action="store_true",
+        help="Required. Sole caller that may store the senior latch.",
+    )
+    psg.add_argument("--model", default="auto")
+    psg.add_argument("--feedstock-note", default="")
+    psg.add_argument("--probe-claim", default="")
+    psg.add_argument("--diff-claim", default="")
+    psg.set_defaults(func=cmd_prefer_senior_gate)
 
     pbs = sub.add_parser(
         "project_bridge_sync",

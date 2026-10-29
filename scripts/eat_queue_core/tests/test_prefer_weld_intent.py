@@ -18,11 +18,18 @@ from eat_queue_core.weave.factory.prefer_weld_intent import (
 def _b2_ok() -> dict:
     return {
         "map_fidelity_hostile_ok": True,
-        "map_fidelity_hostile": {"ok": True, "source": "harness_b1"},
+        "map_fidelity_hostile": {
+            "ok": True,
+            "source": "cursor_senior_b1",
+            "role": "prefer_b1_senior",
+            "trinity_stamped": True,
+        },
         "weld_intent_hostile_ok": True,
         "weld_intent_hostile": {
             "ok": True,
-            "source": "harness_b2",
+            "source": "cursor_senior_b2",
+            "role": "prefer_b2_senior",
+            "trinity_stamped": True,
             "verdict": "pass",
             "pass_basis": "behavior",
         },
@@ -245,6 +252,16 @@ def test_weld_intent_hostile_ok_helper():
     assert weld_intent_hostile_ok({"weld_intent_hostile": {"ok": True}}) is False
     assert weld_intent_hostile_ok(
         {"weld_intent_hostile": {"ok": True, "source": "harness_b2"}}
+    ) is False
+    assert weld_intent_hostile_ok(
+        {
+            "weld_intent_hostile": {
+                "ok": True,
+                "source": "cursor_senior_b2",
+                "role": "prefer_b2_senior",
+                "trinity_stamped": True,
+            }
+        }
     ) is True
     assert weld_intent_hostile_ok({"map_fidelity_hostile_ok": True}) is False
 

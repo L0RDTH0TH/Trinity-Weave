@@ -78,13 +78,13 @@ Legacy 3-column rows (`Ticket | job | notes`) still parse; status is inferred fr
 
 | Condition | Picker |
 |-----------|--------|
-| Map Status `open` **and** prefer-result has `map_fidelity_hostile.source: harness_b1` with `ok: true` | **Launchable** |
-| Map Status `open` but prefer-result missing, or only bare `map_fidelity_hostile_ok: true` (author/skill) | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
+| Map Status `open` **and** prefer-result has Trinity-stored `map_fidelity_hostile` with `source: cursor_senior_b1`, `trinity_stamped: true`, `ok: true` | **Launchable** |
+| Map Status `open` but prefer-result missing, disk-shaped JSON without Trinity stamp, `harness_b1`, or bare author ok | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
 | Map Status `f5_good` Prefer-linked | Grey trail (browse only) |
 
 Fail closed: missing prefer-result or any non-`true` stamp → not launchable.
 
-Stamp path: harness CLI `prefer_map_fidelity_check.py --write-b1` writes `map_fidelity_hostile: { ok, source: harness_b1, ... }`. Skills must not stamp. Bare author `map_fidelity_hostile_ok: true` is ignored.
+Stamp path: factory-order only — `harness prefer_senior_gate --gate b1 --factory-order --armed …` (Trinity invokes senior, stamps source, stores from stdout). No chat `--write-b1`. Ticketment must not call the store.
 
 ## Picker = map ∩ Prefer (binding)
 

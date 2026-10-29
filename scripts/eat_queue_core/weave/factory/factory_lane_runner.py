@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -666,10 +667,7 @@ def run_factory_lane_job(
         # Exit Success = Prefer-named entrypoint compare → evaluate_behavior_evidence.
         # Agent return-dict / exit-code-alone / agent stamp files are not evidence.
         from .prefer_map_fidelity import load_prefer_result
-        from .prefer_weld_intent import (
-            collect_behavior_evidence_from_prefer_checks,
-            evaluate_behavior_evidence,
-        )
+        from .prefer_weld_intent import collect_behavior_evidence_from_prefer_checks
 
         agent_self = agent_out.get("evidence_pack")
         if not isinstance(agent_self, dict):
@@ -698,36 +696,40 @@ def run_factory_lane_job(
             }
 
         prefer_result = load_prefer_result(vault_root, slice_id) if slice_id else None
+        # Probe pack is a CLAIM for the senior — not the B₂ pass bit.
         evidence_pack, check_violations = collect_behavior_evidence_from_prefer_checks(
             vault_root,
             project_id,
             armed if isinstance(armed, dict) else None,
         )
-        beh = evaluate_behavior_evidence(
-            evidence_pack,
-            armed=armed if isinstance(armed, dict) else None,
-            prefer_result=prefer_result if isinstance(prefer_result, dict) else None,
-            vault_root=vault_root,
-        )
-        if check_violations:
-            merged = list(beh.violations) + [
-                v for v in check_violations if v not in beh.violations
-            ]
-            from .prefer_weld_intent import WeldIntentResult
+        from .prefer_senior_gates import run_senior_gate, senior_pass_ok
 
-            beh = WeldIntentResult(
-                ok=False,
-                violations=merged,
-                warnings=list(beh.warnings),
-                applicable=True,
-                evidence_pack=evidence_pack or {},
-            )
-        if not beh.ok:
+        probe_claim = json.dumps(
+            {
+                "note": "untrusted_claim_not_evidence",
+                "pack": evidence_pack or {},
+                "probe_notes": list(check_violations),
+            },
+            default=str,
+        )[:12000]
+        senior_b2 = run_senior_gate(
+            vault_root,
+            armed if isinstance(armed, dict) else {},
+            gate="b2",
+            factory_order=True,
+            store=True,
+            probe_claim=probe_claim,
+            diff_claim=str(agent_out.get("log_path") or agent_out.get("summary") or ""),
+        )
+        prefer_result = load_prefer_result(vault_root, slice_id) if slice_id else prefer_result
+        if not senior_b2.ok or not senior_pass_ok(
+            prefer_result if isinstance(prefer_result, dict) else None, gate="b2"
+        ):
             release_lane_job(vault_root, job, ok=False)
             mstate = mark_jam(
                 mstate,
                 machine="agent",
-                error="weld_intent_evidence_failed",
+                error="weld_intent_senior_failed",
                 agent_log_path=agent_out.get("log_path"),
             )
             _persist_state(vault_root, mstate)
@@ -736,16 +738,16 @@ def run_factory_lane_job(
                 "id": eid,
                 "slice_id": slice_id,
                 "lane_id": lane_id,
-                "error": "weld_intent_evidence_failed",
-                "evidence_violations": list(beh.violations),
-                "weld_intent": beh.as_dict(),
+                "error": "weld_intent_senior_failed",
+                "evidence_violations": list(senior_b2.violations),
+                "weld_intent": senior_b2.as_dict(),
+                "claim_pack": evidence_pack or {},
                 "agent": agent_out,
                 "prefer_align": align.to_dict(),
                 "segment": "IMPLEMENT_SLICE",
                 "hard_block": True,
                 "resume_from": "agent",
             }
-
         verify_preflight = run_engine_preflight(
             vault_root, repo_rel, requires_mcp=False, run_dotnet_build=True
         )

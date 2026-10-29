@@ -657,13 +657,10 @@ def _proof_tokens(welds: str) -> list[str]:
 
 
 def _hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
-    """True only for harness B₁ attestation. Author bare ok is ignored."""
-    if not isinstance(prefer_result, dict):
-        return False
-    nested = prefer_result.get("map_fidelity_hostile")
-    if not isinstance(nested, dict):
-        return False
-    return nested.get("source") == "harness_b1" and nested.get("ok") is True
+    """True only for Trinity-stored Cursor senior B₁. Author/harness_b1 ignored."""
+    from .prefer_senior_gates import senior_pass_ok
+
+    return senior_pass_ok(prefer_result, gate="b1")
 
 
 def _run_gate_a_mechanical(
@@ -787,101 +784,21 @@ def run_harness_b1(
     map_rel: str | None = None,
     write_result: bool = True,
 ) -> dict[str, Any]:
-    """Gate B₁ harness second reader — runner class vs row observe.
+    """DEPRECATED — Python classifier is not Gate B₁.
 
-    Inputs: map row + observe + named probe ids. Not the author summary.
-    Writes prefer-result only with ``source: harness_b1``. Skills must not stamp.
+    Does not write a launchable latch. Factory order must call
+    ``prefer_senior_gates.run_senior_gate`` instead. ``write_result`` ignored.
     """
-    from .observe_class import OBSERVE_VALUES
-    from .proof_runner import classify_catalog_probe
-
-    tid = str(armed.get("ticket_map_id") or "").strip()
-    pid = str(armed.get("project_id") or "").strip()
-    slice_id = str(armed.get("slice_id") or "").strip()
-    payload: dict[str, Any] = {
+    _ = (vault_root, armed, map_rel, write_result)
+    return {
         "ok": False,
         "source": "harness_b1",
-        "ticket_map_id": tid,
+        "violations": [
+            "b1:python_classifier_not_authoritative",
+            "b1:use_factory_order_senior_gate",
+        ],
         "classes": {},
-        "violations": [],
     }
-    if not tid or not pid:
-        payload["violations"].append("b1:missing_ticket_or_project")
-        return payload
-
-    resolved_rel = map_rel or resolve_active_ticket_map_rel(
-        vault_root, ticket_map_id=tid
-    )
-    rows = load_ticket_map_rows(
-        vault_root, map_rel=resolved_rel, ticket_map_id=tid
-    )
-    row = rows.get(tid) or rows.get(tid.replace("_", "-"))
-    if row is None:
-        payload["violations"].append("b1:ticket_not_on_map")
-        return payload
-    observe = str(getattr(row, "observe", "") or "").strip().lower()
-    payload["observe"] = observe
-    if observe not in OBSERVE_VALUES:
-        payload["violations"].append("b1:missing_observe")
-        return payload
-
-    checks = armed.get("behavior_key_checks")
-    if not isinstance(checks, dict) or not checks:
-        payload["violations"].append("b1:no_probes")
-        return payload
-
-    classes: dict[str, str] = {}
-    for key, probe_id in checks.items():
-        cid = str(probe_id or "").strip()
-        cls = classify_catalog_probe(vault_root, pid, cid) if cid else None
-        if cls is None:
-            payload["violations"].append(f"b1:probe_unclassifiable:{key}:{cid}")
-            continue
-        classes[str(key)] = cls
-        if cls != observe:
-            payload["violations"].append(
-                f"b1:runner_class_mismatch:{key}:{cls}:{observe}"
-            )
-    payload["classes"] = classes
-    payload["ok"] = not payload["violations"]
-
-    if write_result and slice_id:
-        from .bindings import factory_drb_rel
-
-        pr_path = (
-            vault_root
-            / factory_drb_rel(pid)
-            / "slice-briefs"
-            / f"{slice_id}.prefer-result.json"
-        )
-        existing: dict[str, Any] = {}
-        if pr_path.is_file():
-            try:
-                existing = json.loads(pr_path.read_text(encoding="utf-8"))
-                if not isinstance(existing, dict):
-                    existing = {}
-            except (OSError, json.JSONDecodeError, ValueError):
-                existing = {}
-        # Never honor author bare ok — clear it; only harness nested counts.
-        existing.pop("map_fidelity_hostile_ok", None)
-        existing["map_fidelity_hostile"] = {
-            "ok": payload["ok"],
-            "source": "harness_b1",
-            "observe": observe,
-            "classes": classes,
-            "violations": list(payload["violations"]),
-        }
-        if payload["ok"]:
-            existing["map_fidelity_hostile_ok"] = True
-        else:
-            existing["map_fidelity_hostile_ok"] = False
-        pr_path.parent.mkdir(parents=True, exist_ok=True)
-        pr_path.write_text(
-            json.dumps(existing, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-        )
-        payload["prefer_result_path"] = str(pr_path)
-
-    return payload
 
 
 def validate_armed_map_fidelity(

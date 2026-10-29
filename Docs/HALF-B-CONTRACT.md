@@ -54,7 +54,7 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 | **Contract** | A function or file fact. No “point,” “see,” “GM,” or “board.” | Probe only (`behavior_key_checks`). | Do **not** ask. Probe pass closes the Prefer. |
 | **Moment** | A thing you can point at or watch. | The **same** act, on a tiny board. | You look. No stamp without that. |
 
-Roles (no name ban): **Gate A** = forms only (row bind, verbatim product job, `observe`↔`proof_shape`, catalog ids exist, no author hostile bits). **B₁** = harness second reader: runner `observe_class` must match map `observe` (`person`|`record`). **B₂** = harness transcript class must match; green stdout / `{key: true}` / author stamp is not a pass. Map column `Observe` is human-only; Ticketment copies it into `proof_shape` and does not shop the catalog.
+Roles (no name ban): **Gate A** = Python forms only. **B₁ / B₂** = Cursor senior via Trinity factory-order `agent -p` **without** `--force` (`prefer_senior_gate --factory-order`). Trinity stamps `source` (`cursor_senior_b1` / `cursor_senior_b2`) and stores the latch from **stdout** only. Disk prefer-result written by the agent, model-supplied source tags, print-flag probes, and chat `VALIDATE` are not the latch. B₁ ok → launchable only (operator owns GREENLIGHT). Senior that edits ticket/catalog/diff → fail closed.
 
 ## Prefer-named check
 

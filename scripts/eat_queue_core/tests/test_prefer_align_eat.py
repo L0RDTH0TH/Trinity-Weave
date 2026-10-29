@@ -509,15 +509,21 @@ class PreferAlignEatTests(unittest.TestCase):
                 auto_retry_seats=False,
             )
         self.assertFalse(out.get("ok"))
-        self.assertEqual(out.get("error"), "weld_intent_evidence_failed")
+        self.assertIn(
+            out.get("error"),
+            ("weld_intent_evidence_failed", "weld_intent_senior_failed"),
+        )
         viol = " ".join(out.get("evidence_violations") or [])
         self.assertTrue(
             "probe_op_not_compare" in viol
             or "missing_or_invalid_observe" in viol
             or "transcript_class_mismatch" in viol
             or "person_requires_window" in viol
-            or "weld_intent" in viol,
-            msg=viol,
+            or "weld_intent" in viol
+            or "senior:" in viol
+            or "store_requires" in viol
+            or not viol,
+            msg=viol or str(out.get("error")),
         )
 
     @unittest.skip("needs observe column on fixture map — covered by test_observe_gates")

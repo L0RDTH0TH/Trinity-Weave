@@ -274,10 +274,13 @@ def prefer_b1_ok(
 ) -> bool:
     """Gate B₁ fail-closed for factory launch.
 
-    True only when prefer-result carries harness attestation
-    ``map_fidelity_hostile.source == harness_b1`` and ``ok is true``.
-    Bare ``map_fidelity_hostile_ok: true`` (author/skill stamp) is ignored.
+    True only when prefer-result was stored by Trinity after a senior
+    ``agent -p`` invoke (``source: cursor_senior_b1``, ``trinity_stamped: true``).
+    Bare author ok, disk-shaped JSON without Trinity stamp, and ``harness_b1``
+    are ignored.
     """
+    from .prefer_senior_gates import senior_pass_ok
+
     vault_root = vault_root.resolve()
     ap = Path(armed_path)
     if not ap.is_absolute():
@@ -294,10 +297,7 @@ def prefer_b1_ok(
         return False
     if not isinstance(data, dict):
         return False
-    nested = data.get("map_fidelity_hostile")
-    if not isinstance(nested, dict):
-        return False
-    return nested.get("source") == "harness_b1" and nested.get("ok") is True
+    return senior_pass_ok(data, gate="b1")
 
 
 def _parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
