@@ -66,14 +66,27 @@ def trinity_stamped_source(role: str) -> str | None:
     return None
 
 
-def senior_pass_ok(prefer_result: dict[str, Any] | None, *, gate: str) -> bool:
+def senior_pass_ok(
+    prefer_result: dict[str, Any] | None,
+    *,
+    gate: str,
+    armed: dict[str, Any] | None = None,
+) -> bool:
     """True when Trinity-stored nested record has Trinity-stamped source + ok.
 
     ``gate`` is ``b1`` or ``b2``. Bare author ok and model-supplied source alone
     (without matching Trinity nested record) stay red. Disk-shaped JSON that was
     never written by :func:`store_senior_verdict` is not accepted here — callers
     only pass prefer-result loaded after a store, or check nested fields.
+
+    Incomplete Prefer packets (empty checks + named ``missing_observer``) never
+    pass, even if prefer-result has nested ``ok: true``.
     """
+    if armed is not None:
+        from .prefer_map_fidelity import is_incomplete_missing_observer_packet
+
+        if is_incomplete_missing_observer_packet(armed):
+            return False
     if not isinstance(prefer_result, dict):
         return False
     if gate == "b1":
@@ -369,6 +382,27 @@ def run_senior_gate(
             source="",
             role="",
             violations=[f"senior:unknown_gate:{gate}"],
+        )
+
+    # Dedicated forms_ok gate — incomplete has ok:false + empty violations and
+    # must not fall through into a senior launch.
+    from .prefer_map_fidelity import STATUS_FORMS_OK, validate_armed_map_fidelity
+
+    fidelity = validate_armed_map_fidelity(
+        vault_root,
+        armed,
+        map_rel=map_rel,
+        prefer_result=None,
+        require_hostile_for_keep=False,
+    )
+    if fidelity.gate_a_applicable and fidelity.status != STATUS_FORMS_OK:
+        return SeniorGateResult(
+            ok=False,
+            source=source,
+            role=role,
+            summary=f"gate_a_status:{fidelity.status}",
+            violations=[f"senior:gate_a_status:{fidelity.status}"],
+            launched=False,
         )
 
     pid = str(armed.get("project_id") or "").strip()

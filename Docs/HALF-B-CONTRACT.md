@@ -54,16 +54,19 @@ Fail-closed. Writes nothing. Prefer is source of truth.
 | **Contract** | A function or file fact. No “point,” “see,” “GM,” or “board.” | Probe only (`behavior_key_checks`). | Do **not** ask. Probe pass closes the Prefer. |
 | **Moment** | A thing you can point at or watch. | The **same** act, on a tiny board. | You look. No stamp without that. |
 
-Roles (no name ban): **Gate A** = Python forms only. **B₁ / B₂** = Cursor senior via Trinity factory-order `agent -p` **without** `--force` (`prefer_senior_gate --factory-order`). Trinity stamps `source` (`cursor_senior_b1` / `cursor_senior_b2`) and stores the latch from **stdout** only. Disk prefer-result written by the agent, model-supplied source tags, print-flag probes, and chat `VALIDATE` are not the latch. B₁ ok → launchable only (operator owns GREENLIGHT). Senior that edits ticket/catalog/diff → fail closed.
+Roles (no name ban): **Gate A** = Python forms only (`forms_ok` | `forms_fail` | `incomplete_missing_observer`). **B₁ / B₂** = Cursor senior via Trinity factory-order `agent -p` **without** `--force` (`prefer_senior_gate --factory-order`) **only when Gate A `status` is `forms_ok`**. Trinity stamps `source` (`cursor_senior_b1` / `cursor_senior_b2`) and stores the latch from **stdout** only. Disk prefer-result written by the agent, model-supplied source tags, print-flag probes, and chat `VALIDATE` are not the latch. B₁ ok → launchable only (operator owns GREENLIGHT). Senior that edits ticket/catalog/diff → fail closed.
 
 ## Prefer-named check
 
-- Prefer must set `behavior_key_checks: { <behavior_key>: <probe_id> }` for every key, or leave checks empty and name the missing observer (empty → Gate A fail).
-- Runner class comes from code path: window + pointer inject → `person`; stdout / file / command compare → `record`. Catalog keys cannot override. Renaming `entrypoint` to `argv` does nothing.
-- Agent may implement the program under test. Agent may **not** write the pass bit (`map_fidelity_hostile` / `weld_intent_hostile` — harness only, `source: harness_b1` / `harness_b2`).
+- Prefer may set `behavior_key_checks: { <behavior_key>: <probe_id> }` only when the harness owns that observer. Otherwise leave checks empty, set `missing_observer`, and `status: incomplete_missing_observer`.
+- Gate A incomplete: `ok: false`, **empty violations**, CLI exit ≠ 0, short-circuits before empty-check. Not launchable. Eat and `prefer_senior_gate` refuse unless `status == forms_ok` (dedicated check — empty violations must still block). `senior_pass_ok` stays false on incomplete even with a forged senior `ok: true`.
+- `person_observer_ready` is harness-owned and false until a real window inject exists. Prefer YAML cannot set it true. Catalog `argv` does not qualify.
+- Runner class comes from code path: window + pointer inject → `person`; stdout / file / command compare → `record`. Catalog keys cannot override.
+- Agent may implement the program under test. Agent may **not** write the pass bit. Trinity stamps `cursor_senior_b1` / `cursor_senior_b2` only.
 - A script that prints a constant, or echoes its point/selector argument, fails.
 - Exit code alone (`command_exits_zero`) is **not** person-row evidence.
 - Feedstock stays in Ticketment. B₂ does not re-open roadmaps to invent what feedstock wanted.
+- **Deferred B₁ repair (repairable vs terminal, fail cap 2): not implemented — do not build.**
 
 ## Exit Success (one path)
 

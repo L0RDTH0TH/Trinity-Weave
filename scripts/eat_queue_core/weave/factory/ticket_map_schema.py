@@ -279,6 +279,7 @@ def prefer_b1_ok(
     Bare author ok, disk-shaped JSON without Trinity stamp, and ``harness_b1``
     are ignored.
     """
+    from .prefer_map_fidelity import load_armed_yaml
     from .prefer_senior_gates import senior_pass_ok
 
     vault_root = vault_root.resolve()
@@ -288,6 +289,12 @@ def prefer_b1_ok(
     sid = (slice_id or "").strip()
     if not sid:
         return False
+    armed: dict | None = None
+    if ap.is_file():
+        try:
+            armed = load_armed_yaml(ap)
+        except (OSError, ValueError):
+            armed = None
     pr = ap.parent / f"{sid}.prefer-result.json"
     if not pr.is_file():
         return False
@@ -297,7 +304,7 @@ def prefer_b1_ok(
         return False
     if not isinstance(data, dict):
         return False
-    return senior_pass_ok(data, gate="b1")
+    return senior_pass_ok(data, gate="b1", armed=armed if isinstance(armed, dict) else None)
 
 
 def _parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:

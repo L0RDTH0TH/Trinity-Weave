@@ -8,6 +8,7 @@ Catalog keys and Prefer prose cannot override. Renaming argv fields does nothing
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 OBSERVE_PERSON = "person"
@@ -49,3 +50,13 @@ def claim_class_for_observe(observe: str) -> str | None:
     if o == OBSERVE_RECORD:
         return "component"
     return None
+
+
+def person_observer_ready(vault_root: Path | None = None) -> bool:
+    """True only when Trinity owns a real window + pointer inject harness.
+
+    Prefer YAML cannot set this. False until the person observer lands on main
+    (catalog argv / print flags do not qualify).
+    """
+    _ = vault_root
+    return False

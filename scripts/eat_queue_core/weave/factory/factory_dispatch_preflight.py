@@ -421,6 +421,7 @@ def check_map_prefer_eat_guards(
             violations.append("eat_preflight:map_checklist_ids_bad_type")
 
     from .prefer_map_fidelity import (
+        STATUS_FORMS_OK,
         launch_scene_from_armed_fields,
         load_prefer_result,
         validate_armed_map_fidelity,
@@ -434,10 +435,10 @@ def check_map_prefer_eat_guards(
     fidelity = validate_armed_map_fidelity(
         vault_root, armed, prefer_result=pr, require_hostile_for_keep=False
     )
-    # Eat path still requires Gate A mechanical; hostile may be pending.
-    if fidelity.gate_a_applicable and not fidelity.ok:
-        # When only hostile latch is missing, allow through for B₁ staging;
-        # all other Gate A violations block eat.
+    # Dedicated status check: incomplete is ok:false with empty violations and
+    # must not fall through the old "copy violations only" path.
+    if fidelity.gate_a_applicable and fidelity.status != STATUS_FORMS_OK:
+        violations.append(f"eat_preflight:gate_a_status:{fidelity.status}")
         residual = [
             v
             for v in fidelity.violations

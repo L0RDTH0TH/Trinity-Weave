@@ -19,11 +19,16 @@ from pathlib import Path
 from typing import Any
 
 from .factory_project import load_factory_project
+from .observe_class import person_observer_ready
 from .ticket_map_schema import (
     load_ticket_map_doc,
     resolve_active_ticket_map_rel,
     section_open_neighbor_ids,
 )
+
+
+def _person_observer_ready(vault_root: Path) -> bool:
+    return bool(person_observer_ready(vault_root))
 
 _DONE_HEADING_RE = re.compile(
     r"^##\s+What done means\s*$", re.M | re.I
@@ -152,13 +157,17 @@ def build_ticketment_bundle(
             "behavior_keys",
             "do_not_waive",
         ],
+        "person_observer_ready": _person_observer_ready(vault_root),
         "notes": (
             "Copy the row. structural_success = product_job verbatim. "
             "proof_shape/claim_class from observe (person→moment/ask_success, "
-            "record→contract/component). Attach a probe only when its runner "
-            "class matches observe; otherwise leave behavior_key_checks empty "
-            "and name the missing observer. Do not shop the catalog for Gate A. "
+            "record→contract/component). Attach a probe only when harness owns "
+            "that observer (person_observer_ready for person; catalog argv does "
+            "not qualify). Otherwise behavior_key_checks: {}, missing_observer "
+            "named, status: incomplete_missing_observer — do not arm factory, "
+            "do not call B1. Do not shop the catalog for Gate A. "
             "Do not set map_fidelity_hostile_ok or weld_intent_hostile_ok. "
-            "Do not FactoryEat; do not set factory_greenlit."
+            "Do not FactoryEat; do not set factory_greenlit. "
+            "B1 terminal → archive; do not re-author from refuse strings."
         ),
     }

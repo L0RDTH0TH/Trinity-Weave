@@ -72,19 +72,20 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 
 Legacy 3-column rows (`Ticket | job | notes`) still parse; status is inferred from Notes when Status column absent. **New writes must include Status.**
 
-## Launchable = open + Gate B₁ (binding)
+## Launchable = open + Gate A forms_ok + Gate B₁ (binding)
 
-**Prefer + Gate A + B₁ = ticket** for FACTORY WELD launch purposes.
+**Prefer + Gate A (`forms_ok`) + B₁ = ticket** for FACTORY WELD launch purposes.
 
 | Condition | Picker |
 |-----------|--------|
-| Map Status `open` **and** prefer-result has Trinity-stored `map_fidelity_hostile` with `source: cursor_senior_b1`, `trinity_stamped: true`, `ok: true` | **Launchable** |
+| Map Status `open` **and** Gate A `forms_ok` **and** prefer-result has Trinity-stored `map_fidelity_hostile` with `source: cursor_senior_b1`, `trinity_stamped: true`, `ok: true` | **Launchable** |
+| Prefer `incomplete_missing_observer` (empty checks + named `missing_observer`) | **Incomplete** — not launchable; do not call B₁; factory `armed_slice_id` stays null |
 | Map Status `open` but prefer-result missing, disk-shaped JSON without Trinity stamp, `harness_b1`, or bare author ok | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
 | Map Status `f5_good` Prefer-linked | Grey trail (browse only) |
 
-Fail closed: missing prefer-result or any non-`true` stamp → not launchable.
+Fail closed: incomplete Prefer, missing prefer-result, or any non-`true` stamp → not launchable. `armed_slice_id` only after stored B₁ `ok: true` on a `forms_ok` Prefer.
 
-Stamp path: factory-order only — `harness prefer_senior_gate --gate b1 --factory-order --armed …` (Trinity invokes senior, stamps source, stores from stdout). No chat `--write-b1`. Ticketment must not call the store.
+Stamp path: factory-order only — `harness prefer_senior_gate --gate b1 --factory-order --armed …` (Trinity invokes senior, stamps source, stores from stdout). No chat `--write-b1`. Ticketment must not call the store. Incomplete packets never enter senior.
 
 ## Picker = map ∩ Prefer (binding)
 

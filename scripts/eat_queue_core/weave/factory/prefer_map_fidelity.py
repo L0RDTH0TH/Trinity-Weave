@@ -3,8 +3,12 @@
 Gate A is form completeness only: row bind, verbatim product job, observe↔shape,
 catalog ids exist, do_not_waive, no author hostile bits. A does not judge truth.
 
-Gate B₁ is a separate harness reader: runner observe class vs map ``observe``.
-Author/skill ``map_fidelity_hostile_ok`` is ignored; only ``source: harness_b1``.
+Third Gate A status ``incomplete_missing_observer``: empty checks + named
+``missing_observer``, forms otherwise bindable → ``ok: false``, empty
+violations, short-circuit before catalog empty-check. Not launchable. Not a pass.
+
+Gate B₁ is factory-order Cursor senior (``cursor_senior_b1``). Author
+``map_fidelity_hostile_ok`` is ignored.
 
 Cite: Prefer-Authorship-Host-Law §C.3 · active ticket map via
 factory-project.yaml ``ticket_map_runtime`` / discovery (no product hardwire).
@@ -48,6 +52,10 @@ PRODUCT_MAP_DO_NOT_WAIVE: tuple[str, ...] = (
 )
 # Back-compat alias for callers / tests.
 WORLD_GEN_MAP_DO_NOT_WAIVE: tuple[str, ...] = PRODUCT_MAP_DO_NOT_WAIVE
+
+STATUS_FORMS_OK = "forms_ok"
+STATUS_FORMS_FAIL = "forms_fail"
+STATUS_INCOMPLETE_MISSING_OBSERVER = "incomplete_missing_observer"
 
 SUCCESS_OBJECT_DENY: tuple[str, ...] = (
     "contract_bound",
@@ -355,10 +363,12 @@ class MapFidelityResult:
     applicable: bool = False
     gate_a_applicable: bool = False
     gate_b_applicable: bool = False
+    status: str = STATUS_FORMS_OK
 
     def as_dict(self) -> dict[str, Any]:
         return {
             "ok": self.ok,
+            "status": self.status,
             "applicable": self.applicable,
             "gate_a_applicable": self.gate_a_applicable,
             "gate_b_applicable": self.gate_b_applicable,
@@ -366,6 +376,24 @@ class MapFidelityResult:
             "violations": list(self.violations),
             "warnings": list(self.warnings),
         }
+
+
+def behavior_key_checks_empty(armed: dict[str, Any] | None) -> bool:
+    if not isinstance(armed, dict):
+        return True
+    checks = armed.get("behavior_key_checks")
+    return not isinstance(checks, dict) or len(checks) == 0
+
+
+def named_missing_observer(armed: dict[str, Any] | None) -> str:
+    if not isinstance(armed, dict):
+        return ""
+    return str(armed.get("missing_observer") or "").strip()
+
+
+def is_incomplete_missing_observer_packet(armed: dict[str, Any] | None) -> bool:
+    """Empty checks + named missing_observer → incomplete candidate (Gate A)."""
+    return behavior_key_checks_empty(armed) and bool(named_missing_observer(armed))
 
 
 def _armed_blob(armed: dict[str, Any]) -> str:
@@ -656,11 +684,15 @@ def _proof_tokens(welds: str) -> list[str]:
     return tokens
 
 
-def _hostile_ok(prefer_result: dict[str, Any] | None) -> bool:
+def _hostile_ok(
+    prefer_result: dict[str, Any] | None,
+    *,
+    armed: dict[str, Any] | None = None,
+) -> bool:
     """True only for Trinity-stored Cursor senior B₁. Author/harness_b1 ignored."""
     from .prefer_senior_gates import senior_pass_ok
 
-    return senior_pass_ok(prefer_result, gate="b1")
+    return senior_pass_ok(prefer_result, gate="b1", armed=armed)
 
 
 def _run_gate_a_mechanical(
@@ -670,8 +702,13 @@ def _run_gate_a_mechanical(
     map_rel: str | None,
     tid: str,
     violations: list[str],
+    include_catalog: bool = True,
 ) -> str:
-    """Gate A forms only. Mutate violations; return resolved ticket_map_id."""
+    """Gate A forms only. Mutate violations; return resolved ticket_map_id.
+
+    When ``include_catalog`` is False, skip behavior_key catalog / empty-check
+    (incomplete short-circuit path).
+    """
     from .observe_class import (
         OBSERVE_VALUES,
         claim_class_for_observe,
@@ -759,7 +796,8 @@ def _run_gate_a_mechanical(
         keys_list = [str(x) for x in keys_raw]
     else:
         keys_list = []
-    violations.extend(_behavior_key_catalog_violations(vault_root, armed, keys_list))
+    if include_catalog:
+        violations.extend(_behavior_key_catalog_violations(vault_root, armed, keys_list))
 
     dnw = armed.get("do_not_waive") or []
     if isinstance(dnw, str):
@@ -809,30 +847,56 @@ def validate_armed_map_fidelity(
     prefer_result: dict[str, Any] | None = None,
     require_hostile_for_keep: bool = True,
 ) -> MapFidelityResult:
-    """Gate A (forms) + Gate B₁ latch (harness attestation only)."""
+    """Gate A (forms) + Gate B₁ latch read. Incomplete is not a pass."""
     gate_a = armed_requires_ticket_map_fidelity(armed)
     gate_b = armed_requires_hostile_prefer(armed)
     if not gate_a and not gate_b:
-        return MapFidelityResult(True, applicable=False)
+        return MapFidelityResult(True, applicable=False, status=STATUS_FORMS_OK)
 
     assert isinstance(armed, dict)
     violations: list[str] = []
     warnings: list[str] = []
     tid = str(armed.get("ticket_map_id") or "").strip()
+    incomplete_candidate = is_incomplete_missing_observer_packet(armed)
 
     if gate_a:
+        # Incomplete short-circuit: skip catalog empty-check / allowlist so
+        # Ticketment is not pushed to shop stubs to clear a red.
         tid = _run_gate_a_mechanical(
-            vault_root, armed, map_rel=map_rel, tid=tid, violations=violations
+            vault_root,
+            armed,
+            map_rel=map_rel,
+            tid=tid,
+            violations=violations,
+            include_catalog=not incomplete_candidate,
+        )
+
+    if gate_a and incomplete_candidate and not violations:
+        return MapFidelityResult(
+            ok=False,
+            violations=[],
+            warnings=sorted(set(warnings)),
+            ticket_map_id=tid,
+            applicable=True,
+            gate_a_applicable=gate_a,
+            gate_b_applicable=gate_b,
+            status=STATUS_INCOMPLETE_MISSING_OBSERVER,
         )
 
     claim = str(armed.get("claim_class") or "").strip().lower()
-    hostile_ok = _hostile_ok(prefer_result)
-    if require_hostile_for_keep and gate_b and claim in _SUCCESS_CLAIM_CLASSES:
+    hostile_ok = _hostile_ok(prefer_result, armed=armed)
+    if (
+        require_hostile_for_keep
+        and gate_b
+        and claim in _SUCCESS_CLAIM_CLASSES
+        and not incomplete_candidate
+    ):
         if not hostile_ok:
             violations.append(
                 "map_fidelity:hostile_prefer_required_before_success"
             )
 
+    status = STATUS_FORMS_OK if not violations else STATUS_FORMS_FAIL
     return MapFidelityResult(
         ok=not violations,
         violations=sorted(set(violations)),
@@ -841,6 +905,7 @@ def validate_armed_map_fidelity(
         applicable=True,
         gate_a_applicable=gate_a,
         gate_b_applicable=gate_b,
+        status=status,
     )
 
 

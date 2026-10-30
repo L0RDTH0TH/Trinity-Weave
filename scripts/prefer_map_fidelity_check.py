@@ -67,6 +67,7 @@ def main() -> int:
     else:
         print(
             f"applicable={result.applicable} ok={result.ok} "
+            f"status={getattr(result, 'status', '-') } "
             f"gate_a={result.gate_a_applicable} gate_b={result.gate_b_applicable} "
             f"ticket_map_id={result.ticket_map_id or '-'}"
         )
@@ -76,7 +77,10 @@ def main() -> int:
             print(f"WARNING {w}")
     if not result.applicable:
         return 0
-    return 0 if result.ok else 2
+    from eat_queue_core.weave.factory.prefer_map_fidelity import STATUS_FORMS_OK
+
+    # Incomplete is ok:false with empty violations — not exit 0.
+    return 0 if (result.ok and result.status == STATUS_FORMS_OK) else 2
 
 
 if __name__ == "__main__":
