@@ -23,17 +23,21 @@ HIDDEN_TICKET_STATUSES = frozenset({"deferred", "superseded"})
 SELECTABLE_TICKET_STATUS = "open"
 GREYED_TICKET_STATUS = "f5_good"
 OBSERVE_VALUES = frozenset({"person", "record"})
+TOUCH_VALUES = frozenset({"f5", "none"})
 
 _FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.S)
 
-# Canonical: | `id` | status | job | notes | observe |
-# observe is person|record; Ticketment / status stamp must not rewrite it.
+# Canonical: | `id` | status | job | notes | observe | touch |
+# observe is person|record; touch is f5|none and must match observe.
+# Ticketment / status stamp must not rewrite either cell.
+# Back-compat: observe-only (no touch) still parses.
 _ROW_STATUS_RE = re.compile(
     r"^\|\s*`(?P<id>[A-Za-z0-9][A-Za-z0-9_-]*)`(?:\s*\([^)]*\))?\s*\|"
     r"\s*`?(?P<status>open|f5_good|deferred|superseded)`?\s*\|"
     r"\s*(?P<job>[^|]*?)\s*\|"
     r"\s*(?P<notes>[^|]*?)\s*\|"
-    r"(?:\s*`?(?P<observe>person|record)`?\s*\|)?\s*$",
+    r"(?:\s*`?(?P<observe>person|record)`?\s*\|"
+    r"(?:\s*`?(?P<touch>f5|none)`?\s*\|)?)?\s*$",
     re.M | re.I,
 )
 
@@ -68,6 +72,7 @@ _HEADER_SKIP = frozenset(
         "was",
         "now",
         "observe",
+        "touch",
     }
 )
 
@@ -83,6 +88,8 @@ class MapTicketRow:
     section_heading: str = ""
     # person | record — human-authored; generators must not edit.
     observe: str = ""
+    # f5 | none — matches observe (person→f5, record→none); generators must not edit.
+    touch: str = ""
 
     @property
     def proof_blob(self) -> str:
@@ -430,6 +437,10 @@ def parse_ticket_map_rows_ordered(
         observe = str(obs_raw).strip().lower()
         if observe and observe not in OBSERVE_VALUES:
             observe = ""
+        touch_raw = m.groupdict().get("touch") or ""
+        touch = str(touch_raw).strip().lower()
+        if touch and touch not in TOUCH_VALUES:
+            touch = ""
         if _skip_job(job) or status not in TICKET_STATUSES:
             continue
         _put(
@@ -442,6 +453,7 @@ def parse_ticket_map_rows_ordered(
                 source_line=m.group(0)[:200],
                 section_heading=_section_heading_at(scan, m.start()),
                 observe=observe,
+                touch=touch,
             ),
         )
 

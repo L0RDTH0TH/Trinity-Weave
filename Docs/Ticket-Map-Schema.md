@@ -51,9 +51,9 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 ## Ticket rows (canonical)
 
 ```markdown
-| Ticket | Status | Product job | Notes | Observe |
-|--------|--------|-------------|-------|---------|
-| `SOME-id` | `open` | Capability this row adds… | Prefer / proofs | `person` |
+| Ticket | Status | Product job | Notes | Observe | Touch |
+|--------|--------|-------------|-------|---------|-------|
+| `SOME-id` | `open` | Capability this row adds… | Prefer / proofs | `person` | `f5` |
 ```
 
 | `Observe` | Meaning |
@@ -61,7 +61,12 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 | `person` | Someone does the act and can tell it happened. Prefer `proof_shape: moment`. |
 | `record` | A file or return value is the whole claim. Prefer `proof_shape: contract`. |
 
-`Observe` is human-authored. Ticketment / status stamp / Prefer emit **must not** rewrite it. Missing cell → Gate A fail closed.
+| `Touch` | Meaning |
+|---------|---------|
+| `f5` | Row contains the user act. Matches `person`. Operator F5 is that row's product job only. |
+| `none` | Probe closes the row. Matches `record`. Demanding F5 on `none` is a fail. |
+
+`Observe` and `Touch` are human-authored and must match (`person`↔`f5`, `record`↔`none`). Ticketment / status stamp / Prefer emit **must not** rewrite them. Missing Observe → Gate A fail closed. System / Walk section text is not a Prefer field and must not be copied into `structural_success` or checks.
 
 | `ticket_status` | Meaning |
 |-----------------|--------|

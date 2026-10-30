@@ -747,6 +747,21 @@ def _run_gate_a_mechanical(
     if observe not in OBSERVE_VALUES:
         violations.append("map_fidelity:missing_or_invalid_observe")
 
+    touch = str(getattr(row, "touch", "") or "").strip().lower()
+    if touch:
+        from .ticket_map_schema import TOUCH_VALUES
+
+        if touch not in TOUCH_VALUES:
+            violations.append(f"map_fidelity:invalid_touch:{touch}")
+        else:
+            expect_touch = "f5" if observe == "person" else (
+                "none" if observe == "record" else ""
+            )
+            if expect_touch and touch != expect_touch:
+                violations.append(
+                    f"map_fidelity:touch_observe_mismatch:{touch}:{observe}"
+                )
+
     structural = str(
         armed.get("structural_success") or armed.get("intent_invariant") or ""
     ).strip()
