@@ -143,8 +143,10 @@ def build_ticketment_bundle(
             "product_job": row.product_job,
             "notes": row.welds,
             "observe": getattr(row, "observe", "") or "",
+            "touch": getattr(row, "touch", "") or "",
         },
         "observe": getattr(row, "observe", "") or "",
+        "touch": getattr(row, "touch", "") or "",
         "out_of_scope_ticket_ids": oos,
         "section_open_neighbors": neighbors,
         "load_dual_grid_host_law": is_place_seat,
@@ -159,15 +161,14 @@ def build_ticketment_bundle(
         ],
         "person_observer_ready": _person_observer_ready(vault_root),
         "notes": (
-            "Copy the row. structural_success = product_job verbatim. "
-            "proof_shape/claim_class from observe (person→moment/ask_success, "
-            "record→contract/component). Attach a probe only when harness owns "
-            "that observer (person_observer_ready for person; catalog argv does "
-            "not qualify). Otherwise behavior_key_checks: {}, missing_observer "
-            "named, status: incomplete_missing_observer — do not arm factory, "
-            "do not call B1. Do not shop the catalog for Gate A. "
-            "Do not set map_fidelity_hostile_ok or weld_intent_hostile_ok. "
+            "Copy the row. structural_success = product_job verbatim only — "
+            "never System or Walk. proof_shape/claim_class from observe. "
+            "Touch is map-authored (f5|none); do not write Touch. "
+            "f5 + person_observer_ready false → incomplete_missing_observer "
+            "(empty checks + person missing_observer); do not arm; do not B1. "
+            "none → harness record probe or stop; never person_window_pointer. "
+            "Do not shop catalog stubs for Gate A. Do not set hostile ok bits. "
             "Do not FactoryEat; do not set factory_greenlit. "
-            "B1 terminal → archive; do not re-author from refuse strings."
+            "B1 terminal → archive. B2 may cite Walk as gap question only."
         ),
     }

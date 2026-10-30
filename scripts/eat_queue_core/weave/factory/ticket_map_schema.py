@@ -37,7 +37,8 @@ _ROW_STATUS_RE = re.compile(
     r"\s*(?P<job>[^|]*?)\s*\|"
     r"\s*(?P<notes>[^|]*?)\s*\|"
     r"(?:\s*`?(?P<observe>person|record)`?\s*\|"
-    r"(?:\s*`?(?P<touch>f5|none)`?\s*\|)?)?\s*$",
+    # Touch may be empty on a Touch table (Gate A missing_touch); do not invent f5|none.
+    r"(?:\s*`?(?P<touch>f5|none)?`?\s*\|)?)?\s*$",
     re.M | re.I,
 )
 

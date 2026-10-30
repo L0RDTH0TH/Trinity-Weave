@@ -107,6 +107,8 @@ MAP_TICKET_PREFIXES: tuple[str, ...] = (
     "ctrl_",
     "weld-",
     "weld_",
+    "mass-",
+    "mass_",
 )
 
 # Align with host-law / Prefer class PLACE|craft|dual signals (no baked markers).
@@ -391,9 +393,125 @@ def named_missing_observer(armed: dict[str, Any] | None) -> str:
     return str(armed.get("missing_observer") or "").strip()
 
 
-def is_incomplete_missing_observer_packet(armed: dict[str, Any] | None) -> bool:
-    """Empty checks + named missing_observer → incomplete candidate (Gate A)."""
-    return behavior_key_checks_empty(armed) and bool(named_missing_observer(armed))
+def is_incomplete_missing_observer_packet(
+    armed: dict[str, Any] | None,
+    *,
+    touch: str | None = None,
+) -> bool:
+    """Empty checks + named missing_observer → incomplete candidate (Gate A).
+
+    Touch ``none`` rows cannot take the person incomplete path — they close by
+    probe (``none_demands_person`` if Prefer asks for person/F5).
+    """
+    if not (behavior_key_checks_empty(armed) and bool(named_missing_observer(armed))):
+        return False
+    if str(touch or "").strip().lower() == "none":
+        return False
+    return True
+
+
+def map_table_has_touch_column(map_text: str) -> bool:
+    return bool(re.search(r"\|\s*Touch\s*\|", map_text or "", re.I))
+
+
+def _extract_section_walk(map_text: str, section_heading: str) -> str:
+    """Body under ``### Walk`` in the ticket's lettered section (not System)."""
+    text = map_text or ""
+    if not section_heading.strip():
+        return ""
+    # Find the ## section that matches this heading, then ### Walk inside it.
+    sec_re = re.compile(
+        r"^##\s+" + re.escape(section_heading.strip()) + r"\s*$", re.M | re.I
+    )
+    m = sec_re.search(text)
+    if not m:
+        # section_heading may be "A — …" while stored as fuller title
+        loose = re.compile(
+            r"^##\s+.*" + re.escape(section_heading.strip()[:12]) + r".*$",
+            re.M | re.I,
+        )
+        m = loose.search(text)
+    if not m:
+        return ""
+    rest = text[m.end() :]
+    next_h2 = re.search(r"^##\s+", rest, re.M)
+    chunk = rest[: next_h2.start()] if next_h2 else rest
+    walk_m = re.search(r"^###\s+Walk\b.*$", chunk, re.M | re.I)
+    if not walk_m:
+        return ""
+    walk_body = chunk[walk_m.end() :]
+    next_h3 = re.search(r"^###\s+", walk_body, re.M)
+    if next_h3:
+        walk_body = walk_body[: next_h3.start()]
+    # Stop before the ticket table
+    table = re.search(r"^\|\s*Ticket\s*\|", walk_body, re.M | re.I)
+    if table:
+        walk_body = walk_body[: table.start()]
+    return walk_body.strip()
+
+
+def _walk_paste_violations(
+    map_text: str,
+    section_heading: str,
+    armed: dict[str, Any],
+) -> list[str]:
+    """Fail when Prefer surfaces paste distinctive Walk step text."""
+    walk = _extract_section_walk(map_text, section_heading)
+    if not walk:
+        return []
+    structural = str(
+        armed.get("structural_success") or armed.get("intent_invariant") or ""
+    )
+    keys = armed.get("behavior_keys") or armed.get("prefer_behavior_keys") or []
+    if isinstance(keys, str):
+        keys_blob = keys
+    elif isinstance(keys, (list, tuple)):
+        keys_blob = " ".join(str(x) for x in keys)
+    else:
+        keys_blob = ""
+    checks = armed.get("behavior_key_checks")
+    if isinstance(checks, dict):
+        checks_blob = " ".join(f"{k} {v}" for k, v in checks.items())
+    else:
+        checks_blob = ""
+    surfaces = (structural, keys_blob, checks_blob)
+    spans: list[str] = []
+    for line in walk.splitlines():
+        raw = line.strip()
+        if not raw or raw.startswith("#"):
+            continue
+        step = re.match(r"^\d+\.\s*`[^`]+`\s*[—\-]\s*(.+)$", raw)
+        if step:
+            span = step.group(1).strip()
+            if len(span) >= 28:
+                spans.append(span)
+            continue
+        if len(raw) >= 48 and not raw.lower().startswith("not eat"):
+            spans.append(raw)
+    for span in spans:
+        for surf in surfaces:
+            if span and surf and span in surf:
+                return ["map_fidelity:walk_pasted_as_success"]
+    return []
+
+
+def _none_demands_person_violations(
+    touch: str, armed: dict[str, Any]
+) -> list[str]:
+    """Touch none rows close by probe — not moment / F5 / person missing_observer."""
+    if touch != "none":
+        return []
+    hits: list[str] = []
+    proof_shape = str(armed.get("proof_shape") or "").strip().lower()
+    claim = str(armed.get("claim_class") or "").strip().lower()
+    miss = named_missing_observer(armed).lower()
+    if proof_shape == "moment":
+        hits.append("map_fidelity:none_demands_person")
+    elif claim in {"ask_success", "staging"}:
+        hits.append("map_fidelity:none_demands_person")
+    elif miss.startswith("person") or "person_window" in miss:
+        hits.append("map_fidelity:none_demands_person")
+    return hits
 
 
 def _armed_blob(armed: dict[str, Any]) -> str:
@@ -724,6 +842,11 @@ def _run_gate_a_mechanical(
     resolved_rel = map_rel or resolve_active_ticket_map_rel(
         vault_root, ticket_map_id=tid
     )
+    map_text = ""
+    if resolved_rel:
+        mp = vault_root / resolved_rel
+        if mp.is_file():
+            map_text = mp.read_text(encoding="utf-8", errors="replace")
     rows = load_ticket_map_rows(
         vault_root, map_rel=resolved_rel, ticket_map_id=tid
     )
@@ -747,10 +870,14 @@ def _run_gate_a_mechanical(
     if observe not in OBSERVE_VALUES:
         violations.append("map_fidelity:missing_or_invalid_observe")
 
-    touch = str(getattr(row, "touch", "") or "").strip().lower()
-    if touch:
-        from .ticket_map_schema import TOUCH_VALUES
+    from .ticket_map_schema import TOUCH_VALUES
 
+    touch = str(getattr(row, "touch", "") or "").strip().lower()
+    has_touch_col = map_table_has_touch_column(map_text)
+    if has_touch_col and not touch:
+        # Do not default from Observe — Ticketment must not write Touch.
+        violations.append("map_fidelity:missing_touch")
+    elif touch:
         if touch not in TOUCH_VALUES:
             violations.append(f"map_fidelity:invalid_touch:{touch}")
         else:
@@ -761,6 +888,11 @@ def _run_gate_a_mechanical(
                 violations.append(
                     f"map_fidelity:touch_observe_mismatch:{touch}:{observe}"
                 )
+
+    violations.extend(_none_demands_person_violations(touch, armed))
+    violations.extend(
+        _walk_paste_violations(map_text, str(row.section_heading or ""), armed)
+    )
 
     structural = str(
         armed.get("structural_success") or armed.get("intent_invariant") or ""
@@ -872,7 +1004,21 @@ def validate_armed_map_fidelity(
     violations: list[str] = []
     warnings: list[str] = []
     tid = str(armed.get("ticket_map_id") or "").strip()
-    incomplete_candidate = is_incomplete_missing_observer_packet(armed)
+    # Peek Touch before incomplete short-circuit (none rows are not incomplete).
+    peek_touch = ""
+    if tid and gate_a:
+        peek_rel = map_rel or resolve_active_ticket_map_rel(
+            vault_root, ticket_map_id=tid
+        )
+        peek_rows = load_ticket_map_rows(
+            vault_root, map_rel=peek_rel, ticket_map_id=tid
+        )
+        prow = peek_rows.get(tid) or peek_rows.get(tid.replace("_", "-"))
+        if prow is not None:
+            peek_touch = str(getattr(prow, "touch", "") or "").strip().lower()
+    incomplete_candidate = is_incomplete_missing_observer_packet(
+        armed, touch=peek_touch
+    )
 
     if gate_a:
         # Incomplete short-circuit: skip catalog empty-check / allowlist so
