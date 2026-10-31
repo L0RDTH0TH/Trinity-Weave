@@ -1,11 +1,12 @@
 """Ticket-map Prefer fidelity — mechanical Gate A + harness Gate B₁ latch.
 
 Gate A is form completeness only: row bind, verbatim product job, observe↔shape,
-catalog ids exist, do_not_waive, no author hostile bits. A does not judge truth.
+Touch match, Walk-not-in-Prefer, do_not_waive, no author hostile bits. A does
+not judge truth and does **not** require a harness person robot before eat.
 
-Third Gate A status ``incomplete_missing_observer``: empty checks + named
-``missing_observer``, forms otherwise bindable → ``ok: false``, empty
-violations, short-circuit before catalog empty-check. Not launchable. Not a pass.
+``f5`` / person rows use ``observer: operator`` + ``observer_when: after_build``
+with empty ``behavior_key_checks`` legal before eat. Named ``missing_observer``
+(person window) is ``forms_fail`` — incomplete-until-robot is retired.
 
 Gate B₁ is factory-order Cursor senior (``cursor_senior_b1``). Author
 ``map_fidelity_hostile_ok`` is ignored.
@@ -55,6 +56,8 @@ WORLD_GEN_MAP_DO_NOT_WAIVE: tuple[str, ...] = PRODUCT_MAP_DO_NOT_WAIVE
 
 STATUS_FORMS_OK = "forms_ok"
 STATUS_FORMS_FAIL = "forms_fail"
+# Retired as a normal Gate A path (incomplete-until-robot). Kept as a string
+# constant so old packets/logs remain searchable; Gate A no longer returns it.
 STATUS_INCOMPLETE_MISSING_OBSERVER = "incomplete_missing_observer"
 
 SUCCESS_OBJECT_DENY: tuple[str, ...] = (
@@ -232,16 +235,29 @@ def _author_set_hostile_bits(armed: dict[str, Any] | None) -> list[str]:
     return out
 
 
+def is_operator_after_build(armed: dict[str, Any] | None) -> bool:
+    """f5 person close: operator looks after build — not a pre-eat harness robot."""
+    if not isinstance(armed, dict):
+        return False
+    obs = str(armed.get("observer") or "").strip().lower()
+    when = str(armed.get("observer_when") or "").strip().lower()
+    return obs == "operator" and when == "after_build"
+
+
 def _behavior_key_catalog_violations(
     vault_root: Path,
     armed: dict[str, Any],
     keys_list: list[str],
 ) -> list[str]:
-    """Each behavior_key needs exactly one existing catalog id."""
+    """Validate named probe ids when present. Empty checks are legal before eat."""
     violations: list[str] = []
     checks = armed.get("behavior_key_checks")
     if not isinstance(checks, dict):
         checks = {}
+    # Empty checks are legal before eat (operator after_build, or record later).
+    # Requiring probe ids here caused stub-shopping and the incomplete trap.
+    if not checks:
+        return []
     pid = str(armed.get("project_id") or "").strip()
     probes = _load_proof_catalog_probes(vault_root, pid)
     key_set = {str(x).strip() for x in keys_list if str(x).strip()}
@@ -262,8 +278,6 @@ def _behavior_key_catalog_violations(
         cks = str(ck).strip()
         if cks and cks not in key_set:
             violations.append(f"map_fidelity:behavior_key_check_extra:{ck}")
-    if key_set and (not isinstance(checks, dict) or not checks):
-        violations.append("map_fidelity:behavior_key_checks_empty")
     return violations
 
 
@@ -398,16 +412,31 @@ def is_incomplete_missing_observer_packet(
     *,
     touch: str | None = None,
 ) -> bool:
-    """Empty checks + named missing_observer → incomplete candidate (Gate A).
+    """Retired. Incomplete-until-robot is no longer a Gate A status.
 
-    Touch ``none`` rows cannot take the person incomplete path — they close by
-    probe (``none_demands_person`` if Prefer asks for person/F5).
+    Always False. Named ``missing_observer`` is ``forms_fail`` instead.
+    ``touch`` retained for call-site compatibility.
     """
-    if not (behavior_key_checks_empty(armed) and bool(named_missing_observer(armed))):
-        return False
-    if str(touch or "").strip().lower() == "none":
-        return False
-    return True
+    _ = (armed, touch)
+    return False
+
+
+def _missing_observer_violations(armed: dict[str, Any]) -> list[str]:
+    """Person-window missing_observer is forbidden (gate costume for product work)."""
+    miss = named_missing_observer(armed)
+    if not miss:
+        return []
+    return [f"map_fidelity:missing_observer_forbidden:{miss}"]
+
+
+def _f5_operator_observer_violations(touch: str, observe: str, armed: dict[str, Any]) -> list[str]:
+    """f5 / person Prefer must name operator after_build (not a harness robot)."""
+    personish = touch == "f5" or observe == "person"
+    if not personish:
+        return []
+    if is_operator_after_build(armed):
+        return []
+    return ["map_fidelity:f5_requires_operator_after_build"]
 
 
 def map_table_has_touch_column(map_text: str) -> bool:
@@ -890,6 +919,8 @@ def _run_gate_a_mechanical(
                 )
 
     violations.extend(_none_demands_person_violations(touch, armed))
+    violations.extend(_missing_observer_violations(armed))
+    violations.extend(_f5_operator_observer_violations(touch, observe, armed))
     violations.extend(
         _walk_paste_violations(map_text, str(row.section_heading or ""), armed)
     )
@@ -994,7 +1025,7 @@ def validate_armed_map_fidelity(
     prefer_result: dict[str, Any] | None = None,
     require_hostile_for_keep: bool = True,
 ) -> MapFidelityResult:
-    """Gate A (forms) + Gate B₁ latch read. Incomplete is not a pass."""
+    """Gate A (forms) + Gate B₁ latch read."""
     gate_a = armed_requires_ticket_map_fidelity(armed)
     gate_b = armed_requires_hostile_prefer(armed)
     if not gate_a and not gate_b:
@@ -1004,54 +1035,20 @@ def validate_armed_map_fidelity(
     violations: list[str] = []
     warnings: list[str] = []
     tid = str(armed.get("ticket_map_id") or "").strip()
-    # Peek Touch before incomplete short-circuit (none rows are not incomplete).
-    peek_touch = ""
-    if tid and gate_a:
-        peek_rel = map_rel or resolve_active_ticket_map_rel(
-            vault_root, ticket_map_id=tid
-        )
-        peek_rows = load_ticket_map_rows(
-            vault_root, map_rel=peek_rel, ticket_map_id=tid
-        )
-        prow = peek_rows.get(tid) or peek_rows.get(tid.replace("_", "-"))
-        if prow is not None:
-            peek_touch = str(getattr(prow, "touch", "") or "").strip().lower()
-    incomplete_candidate = is_incomplete_missing_observer_packet(
-        armed, touch=peek_touch
-    )
 
     if gate_a:
-        # Incomplete short-circuit: skip catalog empty-check / allowlist so
-        # Ticketment is not pushed to shop stubs to clear a red.
         tid = _run_gate_a_mechanical(
             vault_root,
             armed,
             map_rel=map_rel,
             tid=tid,
             violations=violations,
-            include_catalog=not incomplete_candidate,
-        )
-
-    if gate_a and incomplete_candidate and not violations:
-        return MapFidelityResult(
-            ok=False,
-            violations=[],
-            warnings=sorted(set(warnings)),
-            ticket_map_id=tid,
-            applicable=True,
-            gate_a_applicable=gate_a,
-            gate_b_applicable=gate_b,
-            status=STATUS_INCOMPLETE_MISSING_OBSERVER,
+            include_catalog=True,
         )
 
     claim = str(armed.get("claim_class") or "").strip().lower()
     hostile_ok = _hostile_ok(prefer_result, armed=armed)
-    if (
-        require_hostile_for_keep
-        and gate_b
-        and claim in _SUCCESS_CLAIM_CLASSES
-        and not incomplete_candidate
-    ):
+    if require_hostile_for_keep and gate_b and claim in _SUCCESS_CLAIM_CLASSES:
         if not hostile_ok:
             violations.append(
                 "map_fidelity:hostile_prefer_required_before_success"

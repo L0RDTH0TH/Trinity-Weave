@@ -19,16 +19,12 @@ from pathlib import Path
 from typing import Any
 
 from .factory_project import load_factory_project
-from .observe_class import person_observer_ready
 from .ticket_map_schema import (
     load_ticket_map_doc,
     resolve_active_ticket_map_rel,
     section_open_neighbor_ids,
 )
 
-
-def _person_observer_ready(vault_root: Path) -> bool:
-    return bool(person_observer_ready(vault_root))
 
 _DONE_HEADING_RE = re.compile(
     r"^##\s+What done means\s*$", re.M | re.I
@@ -159,16 +155,16 @@ def build_ticketment_bundle(
             "behavior_keys",
             "do_not_waive",
         ],
-        "person_observer_ready": _person_observer_ready(vault_root),
         "notes": (
             "Copy the row. structural_success = product_job verbatim only — "
             "never System or Walk. proof_shape/claim_class from observe. "
             "Touch is map-authored (f5|none); do not write Touch. "
-            "f5 + person_observer_ready false → incomplete_missing_observer "
-            "(empty checks + person missing_observer); do not arm; do not B1. "
-            "none → harness record probe or stop; never person_window_pointer. "
+            "f5/person → observer: operator, observer_when: after_build, "
+            "behavior_key_checks: {}, no missing_observer. Empty checks are "
+            "legal before eat; do not stop for a missing harness robot. "
+            "none/record → never person_window_pointer / moment / ask_success. "
             "Do not shop catalog stubs for Gate A. Do not set hostile ok bits. "
             "Do not FactoryEat; do not set factory_greenlit. "
-            "B1 terminal → archive. B2 may cite Walk as gap question only."
+            "B1 terminal → archive. B2 may cite Walk after build only."
         ),
     }

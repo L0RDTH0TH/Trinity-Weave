@@ -66,7 +66,7 @@ Harness: `resolve_active_ticket_map_rel` in `ticket_map_schema.py`.
 | `f5` | Row contains the user act. Matches `person`. Operator F5 is that row's product job only. |
 | `none` | Probe closes the row. Matches `record`. Demanding F5 on `none` is a fail. |
 
-`Observe` and `Touch` are human-authored and must match (`person`↔`f5`, `record`↔`none`). Ticketment / status stamp / Prefer emit **must not** rewrite them. Missing Observe → Gate A fail closed. On maps whose table header includes `Touch`, an empty Touch cell is Gate A `forms_fail` (`missing_touch`) — do not default it from Observe. System / Walk section text is not a Prefer field. Gate A fails if a Prefer pastes distinctive Walk step text into `structural_success`, `behavior_keys`, or `behavior_key_checks` (`walk_pasted_as_success`). Touch `none` cannot demand a person close (`none_demands_person`). Gate B₂ may cite the section Walk and report a gap naming the row; B₂ cannot stamp Walk done, cannot set hostile ok / `f5_good`, and cannot GREENLIGHT. There is no `walk_ok` latch.
+`Observe` and `Touch` are human-authored and must match (`person`↔`f5`, `record`↔`none`). Ticketment / status stamp / Prefer emit **must not** rewrite them. Missing Observe → Gate A fail closed. On maps whose table header includes `Touch`, an empty Touch cell is Gate A `forms_fail` (`missing_touch`) — do not default it from Observe. System / Walk section text is not a Prefer field. Gate A fails if a Prefer pastes distinctive Walk step text into `structural_success`, `behavior_keys`, or `behavior_key_checks` (`walk_pasted_as_success`). Touch `none` cannot demand a person close (`none_demands_person`). **Person check is the operator after build** (`observer: operator`, `observer_when: after_build`); empty `behavior_key_checks` are legal before eat. Extending the harness is not a Gate A entrance fee — incomplete-until-robot is retired; named `missing_observer` is `forms_fail`. Gate B₂ may cite the section Walk after build and hand the operator the f5 list; B₂ cannot stamp Walk done, cannot set hostile ok / `f5_good`, and cannot GREENLIGHT. There is no `walk_ok` latch.
 
 | `ticket_status` | Meaning |
 |-----------------|--------|
@@ -84,7 +84,7 @@ Legacy 3-column rows (`Ticket | job | notes`) still parse; status is inferred fr
 | Condition | Picker |
 |-----------|--------|
 | Map Status `open` **and** Gate A `forms_ok` **and** prefer-result has Trinity-stored `map_fidelity_hostile` with `source: cursor_senior_b1`, `trinity_stamped: true`, `ok: true` | **Launchable** |
-| Prefer `incomplete_missing_observer` (empty checks + named `missing_observer`) | **Incomplete** — not launchable; do not call B₁; factory `armed_slice_id` stays null |
+| Named `missing_observer` / person-window fields on Prefer | **forms_fail** — not launchable (robot-as-gate retired) |
 | Map Status `open` but prefer-result missing, disk-shaped JSON without Trinity stamp, `harness_b1`, or bare author ok | **Draft / B₁ pending** — omitted from default list; with `--all-tickets` shown disabled (`B₁ pending`) |
 | Map Status `f5_good` Prefer-linked | Grey trail (browse only) |
 

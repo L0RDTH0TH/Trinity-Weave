@@ -121,6 +121,8 @@ def _good_armed() -> dict:
             "river_dial_moves_watercourse": "p2",
             "height_reads_on_dual_grid": "p3",
         },
+        "observer": "operator",
+        "observer_when": "after_build",
     }
 
 

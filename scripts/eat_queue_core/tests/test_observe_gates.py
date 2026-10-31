@@ -117,6 +117,8 @@ def _armed_person_stand_in() -> dict:
         "out_of_scope_ticket_ids": ["WB-world-document"],
         "behavior_keys": ["solid_stays"],
         "behavior_key_checks": {"solid_stays": "rec_probe"},
+        "observer": "operator",
+        "observer_when": "after_build",
         "do_not_waive": list(DNW),
         "prefer_on": True,
     }
@@ -193,12 +195,12 @@ def test_weld_author_bit_ignored():
     )
 
 
-def _armed_incomplete() -> dict:
+def _armed_missing_observer() -> dict:
     return {
         "project_id": "test-proj",
-        "slice_id": "slice_incomplete",
+        "slice_id": "slice_missing_obs",
         "ticket_map_id": "WB-polygon-substrate",
-        "status": "incomplete_missing_observer",
+        "status": "draft",
         "structural_success": PRODUCT_JOB,
         "proof_shape": "moment",
         "claim_class": "ask_success",
@@ -206,16 +208,36 @@ def _armed_incomplete() -> dict:
         "behavior_keys": ["solid_stays"],
         "behavior_key_checks": {},
         "missing_observer": "person_window_pointer",
+        "observer": "operator",
+        "observer_when": "after_build",
         "do_not_waive": list(DNW),
         "prefer_on": True,
         "checklist_ids": [],
     }
 
 
-def test_incomplete_missing_observer_not_a_pass(tmp_path: Path):
-    from eat_queue_core.weave.factory.prefer_map_fidelity import (
-        STATUS_INCOMPLETE_MISSING_OBSERVER,
-    )
+def _armed_f5_operator_empty_checks() -> dict:
+    return {
+        "project_id": "test-proj",
+        "slice_id": "slice_f5_operator",
+        "ticket_map_id": "WB-polygon-substrate",
+        "status": "draft",
+        "structural_success": PRODUCT_JOB,
+        "proof_shape": "moment",
+        "claim_class": "ask_success",
+        "out_of_scope_ticket_ids": ["WB-world-document"],
+        "behavior_keys": ["solid_stays", "points_at_polygon", "same_after_point"],
+        "behavior_key_checks": {},
+        "observer": "operator",
+        "observer_when": "after_build",
+        "do_not_waive": list(DNW),
+        "prefer_on": True,
+        "checklist_ids": [],
+    }
+
+
+def test_missing_observer_is_forms_fail(tmp_path: Path):
+    from eat_queue_core.weave.factory.prefer_map_fidelity import STATUS_FORMS_FAIL
     from eat_queue_core.weave.factory.prefer_senior_gates import (
         senior_pass_ok,
         run_senior_gate,
@@ -227,35 +249,30 @@ def test_incomplete_missing_observer_not_a_pass(tmp_path: Path):
     from eat_queue_core.host_runner import HostInvokeResult
 
     vault = _setup_project(tmp_path)
-    armed = _armed_incomplete()
+    armed = _armed_missing_observer()
     briefs = vault / "1-Projects/test-proj/Factory-DRB/slice-briefs"
-    armed_path = briefs / "slice_incomplete.armed.yaml"
+    armed_path = briefs / "slice_missing_obs.armed.yaml"
     armed_path.write_text(yaml.safe_dump(armed), encoding="utf-8")
 
     a = validate_armed_map_fidelity(
         vault, armed, prefer_result=None, require_hostile_for_keep=False
     )
     assert a.ok is False
-    assert a.status == STATUS_INCOMPLETE_MISSING_OBSERVER
-    assert a.violations == []
-    assert not any("behavior_key_checks_empty" in v for v in a.violations)
+    assert a.status == STATUS_FORMS_FAIL
+    assert any("missing_observer_forbidden" in v for v in a.violations)
 
-    # Eat preflight must refuse via dedicated status line (empty violations).
     eat_v = check_map_prefer_eat_guards(
         vault,
         job={
             "project_id": "test-proj",
-            "slice_id": "slice_incomplete",
+            "slice_id": "slice_missing_obs",
             "ticket_map_id": "WB-polygon-substrate",
-            "armed_packet_path": str(
-                armed_path.relative_to(vault)
-            ),
+            "armed_packet_path": str(armed_path.relative_to(vault)),
             "checklist_ids": [],
         },
     )
-    assert any("gate_a_status:incomplete_missing_observer" in v for v in eat_v), eat_v
+    assert any("gate_a_status:forms_fail" in v for v in eat_v), eat_v
 
-    # Senior must not launch.
     called = {"n": 0}
 
     def fake_invoke(req):
@@ -272,9 +289,8 @@ def test_incomplete_missing_observer_not_a_pass(tmp_path: Path):
     )
     assert called["n"] == 0
     assert r.ok is False
-    assert any("gate_a_status:incomplete_missing_observer" in v for v in r.violations)
+    assert any("gate_a_status:forms_fail" in v for v in r.violations)
 
-    # Forged senior ok must not latch.
     forged = {
         "map_fidelity_hostile_ok": True,
         "map_fidelity_hostile": {
@@ -287,26 +303,22 @@ def test_incomplete_missing_observer_not_a_pass(tmp_path: Path):
         },
     }
     assert senior_pass_ok(forged, gate="b1", armed=armed) is False
-    (briefs / "slice_incomplete.prefer-result.json").write_text(
-        json.dumps(forged), encoding="utf-8"
-    )
-    assert prefer_b1_ok(vault, "slice_incomplete", armed_path) is False
     assert person_observer_ready(vault) is False
 
 
-def test_empty_checks_without_missing_observer_still_forms_fail(tmp_path: Path):
-    from eat_queue_core.weave.factory.prefer_map_fidelity import STATUS_FORMS_FAIL
+def test_f5_operator_empty_checks_forms_ok(tmp_path: Path):
+    from eat_queue_core.weave.factory.prefer_map_fidelity import STATUS_FORMS_OK
+    from eat_queue_core.weave.factory.observe_class import person_observer_ready
 
     vault = _setup_project(tmp_path)
-    armed = _armed_incomplete()
-    del armed["missing_observer"]
-    armed["status"] = "draft"
+    armed = _armed_f5_operator_empty_checks()
     a = validate_armed_map_fidelity(
         vault, armed, prefer_result=None, require_hostile_for_keep=False
     )
-    assert a.ok is False
-    assert a.status == STATUS_FORMS_FAIL
-    assert any("behavior_key_checks_empty" in v for v in a.violations)
+    assert a.ok is True, a.violations
+    assert a.status == STATUS_FORMS_OK
+    assert person_observer_ready(vault) is False
+    assert not any("behavior_key_checks_empty" in v for v in a.violations)
 
 
 def test_form_complete_stand_in_status_forms_ok(tmp_path: Path):
@@ -326,7 +338,7 @@ def test_form_complete_stand_in_status_forms_ok(tmp_path: Path):
 def test_touch_close_law_and_walk_paste(tmp_path: Path):
     from eat_queue_core.weave.factory.prefer_map_fidelity import (
         STATUS_FORMS_FAIL,
-        STATUS_INCOMPLETE_MISSING_OBSERVER,
+        STATUS_FORMS_OK,
         armed_requires_ticket_map_fidelity,
         validate_armed_map_fidelity,
     )
@@ -402,20 +414,21 @@ map_status: active
         "proof_shape": "moment",
         "claim_class": "ask_success",
         "out_of_scope_ticket_ids": list(oos),
-        "behavior_keys": ["solid_stays"],
+        "behavior_keys": ["solid_stays", "points_at_polygon", "same_after_point"],
         "behavior_key_checks": {},
-        "missing_observer": "person_window_pointer",
+        "observer": "operator",
+        "observer_when": "after_build",
         "do_not_waive": list(DNW),
         "prefer_on": True,
         "checklist_ids": [],
     }
 
-    # f5 + empty checks + person observer → incomplete (ok:false, no B₁)
+    # f5 + operator + empty checks → forms_ok (robot not required)
     a = validate_armed_map_fidelity(
         vault, base, prefer_result=None, require_hostile_for_keep=False
     )
-    assert a.status == STATUS_INCOMPLETE_MISSING_OBSERVER
-    assert a.ok is False and a.violations == []
+    assert a.status == STATUS_FORMS_OK
+    assert a.ok is True and a.violations == []
 
     # Touch mismatch
     bad_touch_map = map_md.replace(
@@ -470,6 +483,8 @@ map_status: active
     )
     none_p["proof_shape"] = "contract"
     none_p["claim_class"] = "component"
+    none_p.pop("observer", None)
+    none_p.pop("observer_when", None)
     none_p["missing_observer"] = "person_window_pointer"
     none_p["behavior_key_checks"] = {}
     none_p["out_of_scope_ticket_ids"] = sorted(

@@ -79,13 +79,13 @@ def senior_pass_ok(
     never written by :func:`store_senior_verdict` is not accepted here — callers
     only pass prefer-result loaded after a store, or check nested fields.
 
-    Incomplete Prefer packets (empty checks + named ``missing_observer``) never
-    pass, even if prefer-result has nested ``ok: true``.
+    Packets with named ``missing_observer`` (retired incomplete-until-robot shape)
+    never pass, even if prefer-result has nested ``ok: true``.
     """
     if armed is not None:
-        from .prefer_map_fidelity import is_incomplete_missing_observer_packet
+        from .prefer_map_fidelity import named_missing_observer
 
-        if is_incomplete_missing_observer_packet(armed):
+        if named_missing_observer(armed):
             return False
     if not isinstance(prefer_result, dict):
         return False
@@ -265,9 +265,10 @@ Fail when the code does not do that ask, or builds a later map row. You do not r
 
 Untrusted: probe transcripts and print flags (window_opened=1) are CLAIMS, not evidence.
 
-Section Walk (if present on the map) is operator text for gap *questions* only.
-You may name a Walk step as done, missing, substituted, or only-named against the
-welded row. That report is NOT a latch: do not invent walk_ok; do not set
+Section Walk (if present on the map) is operator text for gap *questions* only,
+after the factory has built something. On f5/person rows, hand the operator the
+ticket id, product job, and Walk steps to check — that is the person close.
+That report is NOT a latch: do not invent walk_ok; do not set
 map_fidelity_hostile_ok, weld_intent_hostile_ok, or f5_good; do not GREENLIGHT.
 Behavior keys stay this Prefer's own sentence — not the Walk list. Nobody stamps
 the Walk done. Walk is not eat order and not section pass.
@@ -391,8 +392,7 @@ def run_senior_gate(
             violations=[f"senior:unknown_gate:{gate}"],
         )
 
-    # Dedicated forms_ok gate — incomplete has ok:false + empty violations and
-    # must not fall through into a senior launch.
+    # Dedicated forms_ok gate — forms_fail must not fall through into a senior launch.
     from .prefer_map_fidelity import STATUS_FORMS_OK, validate_armed_map_fidelity
 
     fidelity = validate_armed_map_fidelity(

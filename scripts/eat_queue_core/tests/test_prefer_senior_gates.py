@@ -90,6 +90,8 @@ project-id: test-proj
         "out_of_scope_ticket_ids": ["WB-world-document"],
         "behavior_keys": ["solid_stays"],
         "behavior_key_checks": {"solid_stays": "p1"},
+        "observer": "operator",
+        "observer_when": "after_build",
         "do_not_waive": list(DNW),
         "prefer_on": True,
     }
