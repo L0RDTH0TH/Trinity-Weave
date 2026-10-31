@@ -330,3 +330,34 @@ def test_wb_auth_place_does_not_inherit_dual_grid_place_class():
     assert (
         resolve_prefer_behavior_class({"ticket_map_id": "PLACE-product"}) == "place"
     )
+
+
+def test_operator_after_build_empty_checks_not_missing(tmp_path):
+    """B₂ claim pack must not tax empty checks on f5 operator-after-build Prefers."""
+    from pathlib import Path
+
+    from eat_queue_core.weave.factory.prefer_weld_intent import (
+        collect_behavior_evidence_from_prefer_checks,
+    )
+
+    vault = Path(tmp_path)
+    armed = {
+        "project_id": "x",
+        "ticket_map_id": "WB-polygon-substrate",
+        "proof_shape": "moment",
+        "prefer_class": "foundation",
+        "structural_success": "point and stay",
+        "observer": "operator",
+        "observer_when": "after_build",
+        "behavior_keys": ["a", "b", "c"],
+        "behavior_key_checks": {},
+    }
+    pack, violations = collect_behavior_evidence_from_prefer_checks(
+        vault, "x", armed, row_observe="person"
+    )
+    assert violations == []
+    assert pack is not None
+    assert pack.get("pass_basis") == "operator_after_build"
+    ev = evaluate_behavior_evidence(pack, armed=armed, vault_root=vault)
+    assert ev.ok is True, ev.violations
+    assert not any("behavior_key_checks_missing" in v for v in ev.violations)

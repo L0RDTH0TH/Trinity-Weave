@@ -42,7 +42,7 @@ Method, engine, scene path, folder layout (`Systems/`, `Core/`, …), or other p
 Fail-closed. Writes nothing. Prefer is source of truth.
 
 - Empty `behavior_keys` → block.
-- Empty `behavior_key_checks` → **legal** when `observer: operator` + `observer_when: after_build` (same as Gate A). Contract / non-operator Prefers still require named checks when keys are present. Align must not recreate the robot-as-gate tax.
+- Empty `behavior_key_checks` → **legal** when `observer: operator` + `observer_when: after_build` (Gate A, Prefer-align, and B₂ claim pack). Contract / non-operator Prefers still require named checks when keys are present. Do not recreate the robot-as-gate tax on either Gate B side.
 - Host-law cite (incl. `locks.*.law_cite` / `prefer_law`) while `host_law_ids` empty → block.
 - Topology arm only via `topology_law: true` (refuse names are not arms).
 - Live runner **discovers** files under the write target and passes them as `observed_entries`. Empty `allowed_entries` + any discovered entry → block. No product scene names in the gate module.

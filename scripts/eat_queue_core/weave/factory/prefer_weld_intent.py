@@ -573,8 +573,8 @@ def collect_behavior_evidence_from_prefer_checks(
         }
     if not keys:
         return None, ["weld_intent:behavior_keys_empty"]
-    if not checks:
-        return None, ["weld_intent:behavior_key_checks_missing"]
+
+    from .prefer_map_fidelity import is_operator_after_build
 
     observe = str(row_observe or "").strip().lower()
     if observe not in OBSERVE_VALUES:
@@ -589,6 +589,28 @@ def collect_behavior_evidence_from_prefer_checks(
             row = rows.get(tid) if rows else None
             if row is not None:
                 observe = str(getattr(row, "observe", "") or "").strip().lower()
+
+    # f5 / person: empty checks are legal — operator closes after build (F5).
+    # Do not recreate the robot-as-gate tax on the B₂ claim pack.
+    if not checks and is_operator_after_build(armed):
+        if observe not in OBSERVE_VALUES:
+            observe = OBSERVE_PERSON
+        pack = build_evidence_pack(
+            prefer_success=str(armed.get("structural_success") or ""),
+            behavior={k: "awaiting_operator_f5" for k in keys},
+            pass_basis="operator_after_build",
+            prefer_class=str(armed.get("prefer_class") or ""),
+            notes="f5 person close is operator F5; empty checks legal before/after weld",
+        )
+        pack["source"] = "operator_after_build"
+        pack["evidence_source"] = "operator_after_build"
+        pack["observe"] = observe
+        pack["transcripts"] = []
+        return pack, []
+
+    if not checks:
+        return None, ["weld_intent:behavior_key_checks_missing"]
+
     if observe not in OBSERVE_VALUES:
         return None, ["weld_intent:missing_or_invalid_observe"]
 
@@ -742,6 +764,9 @@ def evaluate_behavior_evidence(
         violations.append("weld_intent:agent_sourced_evidence_pack")
 
     pass_basis = pass_basis_candidate
+    from .prefer_map_fidelity import is_operator_after_build
+
+    operator_after = is_operator_after_build(armed)
     if pass_basis in _FORBIDDEN_PASS_MODES:
         violations.append(f"weld_intent:forbidden_pass_basis:{pass_basis}")
 
@@ -758,7 +783,11 @@ def evaluate_behavior_evidence(
         # Prefer-word → method-name string match as pass = B₂ fail.
         violations.append("weld_intent:string_match_as_pass")
 
-    if pass_basis != "behavior":
+    if pass_basis == "operator_after_build":
+        if not operator_after:
+            violations.append("weld_intent:operator_after_build_without_observer")
+        # Probe True not required; KEEP still needs operator_f5_ok at keep_latch.
+    elif pass_basis != "behavior":
         if pass_basis in {"", "proof_tag", "factory_log", "keep_header"}:
             violations.append("weld_intent:no_behavior_evidence")
         else:
@@ -803,6 +832,11 @@ def evaluate_behavior_evidence(
             violations.append(
                 f"weld_intent:unknown_prefer_class_fail_closed:{prefer_class or 'unknown'}"
             )
+    elif pass_basis == "operator_after_build" and operator_after:
+        # Keys may be awaiting_operator_f5 — probe True is not the f5 close.
+        for key in required:
+            if key not in behavior:
+                violations.append(f"weld_intent:behavior_key_missing:{key}")
     else:
         # Contract/foundation: evidence keys must equal Prefer behavior_keys exactly.
         if prefer_class in _EXACT_BEHAVIOR_KEY_CLASSES or str(
