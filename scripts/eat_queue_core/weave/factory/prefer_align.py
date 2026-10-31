@@ -212,7 +212,11 @@ def run_prefer_align(
     if not keys:
         violations.append("prefer_align:behavior_keys_empty")
 
-    # Prefer must name a check per key — silence stays a fail.
+    # Empty checks are legal when the Prefer closes by operator after build
+    # (f5 / person). Requiring probe ids here recreated the robot-as-gate tax
+    # and blocked GREENLIGHT → weld after Gate A already allowed empty checks.
+    from .prefer_map_fidelity import is_operator_after_build
+
     checks_raw = armed.get("behavior_key_checks")
     checks: dict[str, str] = {}
     if isinstance(checks_raw, dict):
@@ -221,9 +225,11 @@ def run_prefer_align(
             for k, v in checks_raw.items()
             if str(k).strip() and str(v).strip()
         }
+    operator_after = is_operator_after_build(armed)
     if keys:
         if not checks:
-            violations.append("prefer_align:behavior_key_checks_missing")
+            if not operator_after:
+                violations.append("prefer_align:behavior_key_checks_missing")
         else:
             missing = [k for k in keys if k not in checks]
             if missing:

@@ -246,6 +246,7 @@ class PreferAlignEatTests(unittest.TestCase):
             self.assertNotIn(tok, text)
 
     def test_align_blocks_missing_behavior_key_checks(self) -> None:
+        # Contract / non-operator Prefer still requires named checks.
         rel = _write_blank(self.root, with_checks=False)
         armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
         r = run_prefer_align(
@@ -253,6 +254,36 @@ class PreferAlignEatTests(unittest.TestCase):
         )
         self.assertFalse(r.ok)
         self.assertTrue(
+            any("behavior_key_checks_missing" in v for v in r.violations)
+        )
+
+    def test_align_allows_empty_checks_for_operator_after_build(self) -> None:
+        rel = _write_blank(
+            self.root,
+            with_checks=False,
+            armed_extra={
+                "proof_shape": "moment",
+                "claim_class": "ask_success",
+                "observer": "operator",
+                "observer_when": "after_build",
+                "behavior_keys": [
+                    "shows_low_fidelity_polygon",
+                    "points_at_that_polygon",
+                    "sees_same_polygon_after_point",
+                ],
+                "behavior_key_checks": {},
+                "structural_success": (
+                    "Foundation — A GM can point at a low-fidelity polygon solid "
+                    "and that solid stays the same polygon that was pointed at."
+                ),
+            },
+        )
+        armed = yaml.safe_load((self.root / rel).read_text(encoding="utf-8"))
+        r = run_prefer_align(
+            self.root, armed=armed, project_id=FIXTURE_PROJECT_ID, observed_entries=[]
+        )
+        self.assertTrue(r.ok, r.violations)
+        self.assertFalse(
             any("behavior_key_checks_missing" in v for v in r.violations)
         )
 
