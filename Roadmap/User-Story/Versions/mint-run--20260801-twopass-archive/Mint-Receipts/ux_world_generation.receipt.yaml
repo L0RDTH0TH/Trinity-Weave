@@ -1,0 +1,34 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T05:32:23Z'
+lock_state: applied
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: DM-led wizard+preview container; structure menu create|import|attach; DM
+    retcon on all world-hitting changes.
+row:
+  id: ux_world_generation
+  dimension: world_gen
+  label: DM can create (table can shape) a persistent living world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on: []
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- one world equals exactly one campaign forever
+- worldgen is only a Session 0 checkbox with no persistent container
+- players author the first world
+- world create forces unconstrained multi-knob fresh-noise every time
+- world creation's default next step is player character creation
+alternatives_not_banned:
+- Nth campaign in a long-lived world vs first campaign in a newly wizard-created world
+- Thin shape+preview accept vs deeper multi-step wizard on first create
+- Import vs in-tool wizard-create only
+- World empty of campaigns vs world carrying prior scars/legacies
+- Directional world-tone × campaign-tone combinations
+- Adaptation heavy vs light (still always DM-gated and retconnable)

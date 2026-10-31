@@ -1,0 +1,185 @@
+# Armed Prefer packet — INTENT VALIDATES GATES (umbrella Prefer/weave).
+# GREENLIT Prefer/weave — factory_greenlit true. Harness + host law § C.2 binding.
+# No LIVE Genesis dual weld.
+
+schema_version: 1
+greenlit_at: '2026-10-04T00:00:00Z'
+status: greenlit_prefer_weave
+armed_at: '2026-10-03T22:44:30Z'
+law_amended_at: '2026-10-03T22:44:30Z'
+factory_greenlit: true
+claim_class: staging
+ticket_kind: prefer_weave_product
+umbrella_ask_id: prefer_authorship_harden_track
+ask_id: prefer_intent_validates_gates
+slice_id: prefer_intent_validates_gates_r1
+series_id: prefer_authorship_harden_track_r1
+series_step: umbrella
+catalog_row_id: ux_world_generation
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/prefer_intent_validates_gates_r1.md
+nested_companion_slice_id: prefer_dual_object_identity_r1
+audit_ref: 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Audit-proxy-substitution-pattern-2026-10-03.md
+project_id: genesis-mythos-master
+mode: prefer_intent_validates_gates_umbrella
+prefer_authorship: true
+lane: module
+live_write_forbidden: true
+note: >-
+  Prefer/weave product ticket only. Do not stage IMPLEMENT_SLICE against
+  Code-Repos until a separate Genesis greenlight. Dual harden nests under
+  prefer_dual_object_identity_r1.
+
+zone_ownership:
+  module:
+  - scripts/eat_queue_core/weave/factory/prefer_authorship_contract.py
+  - scripts/eat_queue_core/weave/factory/implicit_intent_bind.py
+  - scripts/eat_queue_core/tests/test_prefer_authorship_host_law.py
+  - scripts/eat_queue_core/tests/test_implicit_intent_bind.py
+  - 1-Projects/genesis-mythos-master/Factory-DRB/Prefer-Authorship-Host-Law.md
+  - 1-Projects/genesis-mythos-master/Factory-DRB/Grid-Topology-Host-Law.md
+
+locks:
+  feedstock_shape: feedstock_shape_v1
+  operator_confirmed: true
+  host_weld_pilots:
+  - implementation_factory_loop
+  - product_factory_pipeline
+  topology_law: Grid-Topology-Host-Law
+  prefer_law: Prefer-Authorship-Host-Law
+  intent_validates_gates:
+    draft: false
+    law: >-
+      Intent validates the gate's shape. Gates serve intent; Prefer/refuse/decision
+      matrix may change when intent requires. Mechanical Prefer green does not prove
+      intent. Prefer pass requires intent-evidence alignment (success_object matches
+      named structural_success), not scanner symbols alone.
+    require_fields:
+    - structural_success
+    - success_object
+    refuse_class: proxy_substitution
+    refuse_instances:
+    - points_as_grid
+    - count_equals_topology
+    - stretch_as_variant
+    - primary_face_as_dual
+    - stamp_as_dual
+    - explicit_met_implicit_miss
+  step1_authorship:
+    yt: https://www.youtube.com/watch?v=Y19Mw5YsgjI
+    vault_cite: Factory-DRB/Townscaper-Dual-Grid-Craft-Grammar-Y19Mw5YsgjI.md
+    topology_cite: Factory-DRB/Grid-Topology-Host-Law.md
+    law_cite: Factory-DRB/Prefer-Authorship-Host-Law.md
+    structural_success: >-
+      Prefer/weave: armed packets declare intent (structural_success) plus
+      success_object (geometric/object class); Prefer fails when evidence object
+      class mismatches named intent even if scanner symbols are green; host law
+      states mechanical Prefer green does not prove intent.
+    success_object: prefer_intent_evidence_alignment
+    intent_invariant: >-
+      Intent validates Prefer gate shape; Prefer pass requires intent-evidence
+      alignment, not scanner symbols alone.
+    end_state: Prefer harness refuses proxy_substitution; concept Prefer gates dual chain-advance
+    path_position: draft_prefer_track → prefer_intent_validates_gates_r1 greenlit → dual concept Prefer / Genesis LIVE later
+    refuse:
+    - proxy_substitution
+    - intent_collapsed_to_mechanics
+    - points_as_grid
+    - stretch_as_variant
+    - primary_face_as_dual
+    - stamp_as_dual
+    - count_equals_topology
+    - explicit_met_implicit_miss
+    - inspiration_shape_miss
+
+conceptual_leg:
+  end_state: Prefer harness refuses proxy_substitution; concept Prefer gates dual chain-advance
+  path_position: draft_prefer_track → prefer_intent_validates_gates_r1 greenlit → dual concept Prefer / Genesis LIVE later
+  intent_invariant: >-
+    Intent validates Prefer gate shape; Prefer pass requires intent-evidence
+    alignment, not scanner symbols alone.
+  structural_success: >-
+    Prefer/weave: armed packets declare intent (structural_success) plus
+    success_object; Prefer fails proxy-host fixtures and passes intent-aligned fixtures.
+  success_object: prefer_intent_evidence_alignment
+
+matrix_quotes:
+  intent_before_gate:
+    prefer: >-
+      Quote structural_success + success_object before choosing Prefer refuse/gate
+      shape; revise gates when intent demands; Prefer pass = intent-evidence
+      alignment.
+    never: >-
+      Treat Prefer scanner green as intent proof; stable metric of wrong object;
+      proxy_substitution sold as Success; Genesis F5 / dual_visual / density this ticket.
+
+hard_prefer_gaps:
+- id: declare_intent_and_success_object
+  must: armed_packet_has_structural_success_and_success_object
+  refuse:
+  - proxy_substitution
+  - explicit_met_implicit_miss
+- id: intent_evidence_alignment
+  must: evidence_object_class_matches_named_intent
+  refuse:
+  - proxy_substitution
+  - primary_face_as_dual
+  - points_as_grid
+  - stretch_as_variant
+  - stamp_as_dual
+- id: host_law_mechanical_green_not_intent
+  must: prefer_authorship_host_law_states_intent_shapes_gates
+- id: unit_tests_proxy_vs_intent
+  must: proxy_host_prefer_fails_and_intent_aligned_host_prefer_passes
+- id: dual_seat_nested_not_umbrella
+  must: prefer_dual_object_identity_r1_is_companion_not_whole_ticket
+- id: scope_prefer_weave_only
+  must: no_genesis_f5_no_dual_visual_art_no_density
+  refuse:
+  - terrain3d_in_scope
+
+done_when: >-
+  Prefer/weave greenlight weld: host law + harness require intent + success_object;
+  Prefer fails proxy-host unit fixtures and passes intent-aligned fixtures;
+  proxy_substitution class + instances non-waivable; dual companion nested;
+  no Genesis F5 / dual_visual art / density on this ticket.
+
+refuse_codes:
+- proxy_substitution
+- points_as_grid
+- count_equals_topology
+- stretch_as_variant
+- primary_face_as_dual
+- stamp_as_dual
+- explicit_met_implicit_miss
+- inspiration_shape_miss
+- terrain3d_in_scope
+- verify_mcp_only
+
+do_not_waive:
+- prefer_authorship_pass
+- proxy_substitution
+- intent_collapsed_to_mechanics
+- points_as_grid
+- count_equals_topology
+- stretch_as_variant
+- primary_face_as_dual
+- stamp_as_dual
+- explicit_met_implicit_miss
+- inspiration_shape_miss
+
+dispatch:
+  must_trigger: Prefer/weave harden only — NOT Genesis IMPLEMENT_SLICE
+  require_implicit_bind: true
+  steps:
+  - Operator GREENLIGHT WELD Prefer/weave-only — factory_greenlit true
+  - Promote draft host-law §§ (intent validates gates; proxy_substitution)
+  - Implement Prefer harness success_object + intent-evidence alignment + tests
+  - Nested companion prefer_dual_object_identity_r1 (dual emit + tests)
+  - Do NOT LIVE Genesis weld / dual_visual art / density this Prefer
+  - Trinity push Prefer main + project
+  - Do NOT Curator push
+
+fresh_chat_instruction: >-
+  GREENLIT. Umbrella Prefer/weave — intent validates gates; success_object required;
+  proxy_substitution class. Dual seat nests as prefer_dual_object_identity_r1.
+  No Curator. No LIVE Genesis.

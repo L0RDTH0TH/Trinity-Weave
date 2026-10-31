@@ -1,0 +1,12 @@
+{
+  "map_fidelity_hostile": {
+    "ok": true,
+    "role": "prefer_b1_senior",
+    "source": "cursor_senior_b1",
+    "stored_at": "2026-10-31T07:40:22Z",
+    "summary": "Prefer restates WB-polygon-substrate\u2019s person/f5 point-and-stay job with operator after_build, empty checks, and moment keys\u2014no probe or print stand-in for the row.",
+    "trinity_stamped": true,
+    "violations": []
+  },
+  "map_fidelity_hostile_ok": true
+}

@@ -1,0 +1,594 @@
+# Tech-Stack-Manifest-v1 — Genesis Mythos external BOM (Path B vetted)
+# Game repo: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos/
+# Synced from Path B tracker — all rows integrated/locked
+# fresh_generation_seed: 2026-07-21 — name re-slug + cert flags reset; currency pass stamped 2026-07-21
+
+schema_version: 2
+manifest_id: tech-stack-manifest-v1
+project_id: genesis-mythos-master
+game_repo_path: 5-Attachments/Code-Repos/genesis-mythos-alpha-20260930/genesis-mythos
+stack_domain_registry_ref: Factory-DRB/Stack-Domain-Registry-v1.yaml
+tech_stack_ref: 3-Resources/genesis-mythos-master/Godot-CSharp-Best-Practices/institute-godot-full-research-1-12-gmm-2026-06-09.md
+release_definition_ref: Factory-DRB/Release-Definitions/stack-baseline-v1.md
+currency_pass_at: "2026-07-21"
+currency_pass_receipt: Factory-DRB/Currency-Pass-2026-07-21.md
+pipeline_certified: false
+pipeline_certified_at: '2026-06-11T00:00:00Z'
+pipeline_proof_receipt: Factory-DRB/Pipeline-Proof-Receipt.md
+operator_stack_baseline_vetted: true
+operator_stack_baseline_vetted_at: "2026-07-22T04:51:52Z"
+operator_stack_baseline_signoff_receipt: Factory-DRB/Validation-Summary-Pre-Mint-2026-07-21.md
+operator_signed_at: '2026-06-14T09:45:00Z'
+operator_review_receipt: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operator-stack-baseline-review-2026-06-14.md
+release_tier_target: closed_alpha
+operator_closed_alpha_vetted: false
+operator_closed_alpha_retract_at: '2026-06-15T12:00:00Z'
+operator_closed_alpha_retract_receipt: Factory-DRB/operator-feedback/closed-alpha-kinesthetic.yaml
+operator_closed_alpha_signed_at: '2026-06-15T00:04:52Z'
+operator_closed_alpha_review_receipt: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operator-closed-alpha-review-2026-06-15.md
+operator_closed_alpha_provisional: true
+factory_ship_valid: false
+factory_ship_invalidated_at: "2026-06-15T12:00:00Z"
+factory_ship_invalidation_reason: "operator F6 retract — camera/GUI/polish; probes insufficient for product bar"
+surface_pass_required: true
+surface_pass_receipt: Factory-DRB/Factory-Corrective-Receipt-Surface-Seat-2026-06-15.md
+operator_feedback_ref: Factory-DRB/operator-feedback/closed-alpha-kinesthetic.yaml
+constitution_signed: true
+constitution_signed_at: "2026-06-10T18:00:00Z"
+constitution_review_receipt: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operator-constitution-review-2026-06-10.md
+path_b_tracker_ref: Factory-DRB/Stack-Operational-Tracker-PathB-v1.yaml
+closed_alpha_release_ref: Factory-DRB/Release-Definitions/closed-alpha-v1.md
+trinity_honesty_ref: Factory-DRB/Stack-Baseline-Honesty-Trinity-v1.md
+rows:
+- id: engine-godot-463-dotnet
+  stack_domain_id: engine_runtime
+  category: engine_runtime
+  row_kind: locked
+  status: locked
+  vendor_or_source: Godot 4.6.3 .NET / .NET 8 SDK
+  license_spdx: MIT
+  source_url: https://godotengine.org/
+  wrap_policy: null
+  repo_path: project.godot
+  research_receipt_id: institute-godot-full-research-1-12-gmm-2026-06-09
+  research_domain_id: null
+  integrate_receipt_id: factory-pipeline-proof-20260611
+  interop_receipt_id: null
+  operational_confirmed: true
+  operational_receipt_id: null
+  poc_canonical: false
+  interop_required: false
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: "Locked engine — Godot 4.6.3 .NET / .NET 8; not engine-swappable. 4.7 is rc1 only — stay on 4.6.3."
+- id: stack-seed-authority
+  stack_domain_id: world_gen_pipeline
+  category: world_gen_pipeline
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: ISeedAuthority
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-seed-authority-2026-06-14.md
+  research_domain_id: world_gen_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-seed-authority-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-seed-authority-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: "First-party ISeedAuthority spine re-affirmed (currency 2026-07-21) — vendor seeds normalize in; not source of truth."
+- id: stack-world-gen-pipeline
+  stack_domain_id: world_gen_pipeline
+  category: world_gen_pipeline
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IWorldGenStage
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-world-gen-pipeline-2026-06-14.md
+  research_domain_id: world_gen_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-world-gen-pipeline-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-world-gen-pipeline-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Pipeline orchestrator (staged DAG)
+- id: stack-procedural-maps
+  stack_domain_id: procedural_maps
+  category: procedural_maps
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IMapGenAuthority
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-2026-06-14.md
+  research_domain_id: procedural_maps_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Overland map authority (2D)
+- id: stack-hydrology
+  stack_domain_id: procedural_maps
+  category: procedural_maps
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IHydrologyStage
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-hydrology-2026-06-14.md
+  research_domain_id: procedural_maps_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-hydrology-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-hydrology-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Hydrology (rivers, lakes, watersheds)
+- id: stack-biome-assignment
+  stack_domain_id: world_gen_pipeline
+  category: world_gen_pipeline
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IBiomeStage
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-biome-assignment-2026-06-14.md
+  research_domain_id: world_gen_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-biome-assignment-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-biome-assignment-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Biome classification & splat/material weights
+- id: stack-poi-settlement
+  stack_domain_id: world_gen_pipeline
+  category: world_gen_pipeline
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IPOIStage
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-poi-settlement-2026-06-14.md
+  research_domain_id: world_gen_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-poi-settlement-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-poi-settlement-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — POI, settlements, roads/trails
+- id: stack-procedural-terrain
+  stack_domain_id: procedural_terrain
+  category: procedural_terrain
+  row_kind: integrated
+  status: locked
+  vendor_or_source: res://addons/terrain_3d/
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: ITerrainAuthority
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-terrain-2026-06-13.md
+  research_domain_id: procedural_terrain_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-terrain-2026-06-13.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-terrain-2026-06-13.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — 3D terrain authority & streaming
+- id: stack-entity-bootstrap
+  stack_domain_id: world_gen_pipeline
+  category: world_gen_pipeline
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IEntityBootstrapStage
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-entity-bootstrap-2026-06-14.md
+  research_domain_id: world_gen_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-entity-bootstrap-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-entity-bootstrap-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Entity / prop bootstrap from world data
+- id: stack-procedural-maps-gaea-parallel
+  stack_domain_id: null
+  category: platform
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: null
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-gaea-parallel-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-gaea-parallel-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b1-wave1-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-procedural-maps-gaea-parallel-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — stack-procedural-maps-gaea-parallel
+- id: stack-simulation-tick
+  stack_domain_id: simulation_tick
+  category: simulation_tick
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: ISimTickHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-simulation-tick-2026-06-14.md
+  research_domain_id: simulation_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-simulation-tick-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-simulation-tick-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Sim tick & event bus
+- id: stack-weather-ambience
+  stack_domain_id: simulation_tick
+  category: simulation_tick
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IWeatherModule
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-weather-ambience-2026-06-14.md
+  research_domain_id: simulation_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-weather-ambience-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-weather-ambience-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Weather & ambient systems
+- id: stack-npc-schedules
+  stack_domain_id: simulation_tick
+  category: simulation_tick
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: INPCScheduleModule
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-npc-schedules-2026-06-14.md
+  research_domain_id: simulation_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-npc-schedules-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-npc-schedules-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — NPC schedules & faction ripples
+- id: stack-rules-engine
+  stack_domain_id: rules_engine
+  category: rules_engine
+  row_kind: integrated
+  status: locked
+  vendor_or_source: "IRulesPluginHost + IDiceRoller → skizzerz/DiceRoller (MIT); Pathfinder 1e (PF1) first-plugin posture (pending content remint); ref jamesplotts/opencombatengine"
+  license_spdx: MIT
+  source_url: https://github.com/skizzerz/DiceRoller
+  wrap_policy: IRulesPluginHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-rules-engine-2026-06-14.md
+  research_domain_id: rules_engine_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-rules-engine-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-rules-engine-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: gap-stack-rules-engine
+  conceptual_decision_record: Roadmap/Conceptual-Decision-Records/rules-base-pathfinder-pf1-2026-09-29.md
+  currency_checked_at: "2026-09-29"
+  notes: "Adopt DiceRoller behind IDiceRoller / IRulesPluginHost.Roll; exclude AGPL kupka/libsrd5 + vokimon/godot-dice-roller; ruleset-agnostic host on Godot (not engine swap). Content base: Pathfinder 1e (PF1) (supersedes SRD 5.1). CDR: rules-base-pathfinder-pf1-2026-09-29."
+- id: stack-character-creation
+  stack_domain_id: character_creation
+  category: character_creation
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — Pathfinder 1e (PF1) creation tables (pending remint; was SRD 5.1 species-baked)
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: ICharacterCreationHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-character-creation-2026-06-14.md
+  research_domain_id: character_creation_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-character-creation-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-character-creation-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: gap-stack-character-creation
+  conceptual_decision_record: Roadmap/Conceptual-Decision-Records/rules-base-pathfinder-pf1-2026-09-29.md
+  currency_checked_at: "2026-09-29"
+  notes: "PF1 character creation content pending remint (was SRD 5.1 species-baked). CDR: rules-base-pathfinder-pf1-2026-09-29."
+- id: stack-intent-lore-loop
+  stack_domain_id: intent_lore_loop
+  category: intent_lore_loop
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IIntentResolver
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-intent-lore-loop-2026-06-14.md
+  research_domain_id: intent_lore_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-intent-lore-loop-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b2-wave2-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-intent-lore-loop-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Intent parser & lore → systemic hooks
+- id: stack-perspective-camera
+  stack_domain_id: perspective_camera
+  category: perspective_camera
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: ICameraRig
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-perspective-camera-2026-06-14.md
+  research_domain_id: perspective_camera_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-perspective-camera-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b3-wave3-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-perspective-camera-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Sparky camera (FP, free-cam, ortho tabletop)
+- id: stack-vtt-overlays
+  stack_domain_id: null
+  category: presentation
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IVttOverlayHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-vtt-overlays-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-vtt-overlays-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b3-wave3-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-vtt-overlays-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — VTT overlay modules
+- id: stack-ui-hosts
+  stack_domain_id: null
+  category: presentation
+  row_kind: integrated
+  status: locked
+  vendor_or_source: "First-party IUiHost + CommunityToolkit.Mvvm; optional DotPudica / GUML"
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IUiHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ui-hosts-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ui-hosts-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b3-wave3-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ui-hosts-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: gap-stack-ui-hosts
+  currency_checked_at: "2026-07-21"
+  notes: "First-party UI spine re-affirmed; CommunityToolkit.Mvvm default; DotPudica/GUML currency noted as optional spikes (2026-07-21)."
+- id: stack-input-intent
+  stack_domain_id: null
+  category: play
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IInputIntentHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-input-intent-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-input-intent-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b3-wave3-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-input-intent-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Input loop & interaction raycasts
+- id: stack-dm-overwrites
+  stack_domain_id: null
+  category: play
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IDmOverwriteHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-dm-overwrites-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-dm-overwrites-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b3-wave3-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-dm-overwrites-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — DM live overwrites vs structural regen gate
+- id: stack-regional-modules
+  stack_domain_id: regional_modules
+  category: regional_modules
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IRegionalModuleHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-regional-modules-2026-06-14.md
+  research_domain_id: regional_modules_vetting
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-regional-modules-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b4-wave4-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-regional-modules-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Regional module host & re-generation boundaries
+- id: stack-persistence-snapshots
+  stack_domain_id: null
+  category: platform
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IPersistenceHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-persistence-snapshots-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-persistence-snapshots-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b4-wave4-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-persistence-snapshots-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Snapshots, dry-run, provenance
+- id: stack-ci-gdunit4net
+  stack_domain_id: ci_tooling
+  category: ci_tooling
+  row_kind: integrated
+  status: locked
+  vendor_or_source: "godot-gdunit-labs/gdUnit4Net (ex MikeSchulze); gdUnit4 6.1.x + gdUnit4.api 5.x + gdUnit4.test.adapter 3.0.0 + Microsoft.NET.Test.Sdk 18.0.0"
+  license_spdx: MIT
+  source_url: https://github.com/godot-gdunit-labs/gdUnit4Net
+  wrap_policy: null
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ci-gdunit4net-2026-06-13.md
+  research_domain_id: ci_tooling
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ci-gdunit4net-2026-06-13.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b4-wave4-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-ci-gdunit4net-2026-06-13.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: gap-stack-ci-gdunit4net
+  currency_checked_at: "2026-07-21"
+  notes: "Org migrate MikeSchulze → godot-gdunit-labs. Pins: gdUnit4 plugin 6.1.x (Godot 4.6.3), gdUnit4.api 5.x, gdUnit4.test.adapter 3.0.0, Microsoft.NET.Test.Sdk 18.0.0. Action godot-gdunit-labs/gdUnit4-action@v1."
+- id: stack-editor-tooling
+  stack_domain_id: null
+  category: platform
+  row_kind: integrated
+  status: locked
+  vendor_or_source: Path B first-party — see operational receipt
+  license_spdx: Proprietary-first-party
+  source_url: null
+  wrap_policy: IEditorToolHost
+  repo_path: null
+  research_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-editor-tooling-2026-06-14.md
+  research_domain_id: null
+  integrate_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-editor-tooling-2026-06-14.md
+  interop_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b4-wave4-interop-pass-2026-06-13.md
+  operational_confirmed: true
+  operational_receipt_id: Ingest/Agent-Research/Raw/Stack-Vetting/b5-operational-stack-editor-tooling-2026-06-14.md
+  poc_canonical: false
+  interop_required: true
+  baseline_required: true
+  gap_id: null
+  currency_checked_at: "2026-07-21"
+  notes: Path B operational — Editor tooling & map preview

@@ -1,0 +1,36 @@
+schema_version: 1
+project_id: genesis-mythos-master
+locked_at: '2026-07-30T04:15:08Z'
+lock_state: applied
+apply_after: ux_world_generation
+focal_remains: ux_world_generation
+friction_check:
+  persona_friction_reduced: true
+  single_plot_as_default: false
+  notes: Capability contract for campaign frame inside world; structure menu of attach/seed
+    styles; exits to world or session prep.
+row:
+  id: ux_dm_campaign_creation
+  dimension: session_bootstrap
+  label: DM can bootstrap a campaign frame inside a world
+  planned: true
+  mint_status: proposed
+  conceptual_pin: needs pin
+  execution_pins: []
+  depends_on:
+  - ux_world_generation
+  touchstone_refs: []
+  stack_domain_ids: []
+  spine_interfaces: []
+does_not_mandate:
+- every campaign begins in captivity
+- offline Microscope play is required before Session 0
+- starting a campaign must regenerate the whole world
+- campaign creation's default next step is player character creation
+- DM is the primary author of player characters after frame bootstrap
+alternatives_not_banned:
+- Second campaign in a long-lived world vs first campaign in a new world
+- Thin collaborative seed (table proposes; DM accepts) vs DM-solo then reveal public
+  slice
+- Minimal quick-start frame vs deep Session 0 on top of an existing world
+applied_at: '2026-07-30T05:32:23Z'

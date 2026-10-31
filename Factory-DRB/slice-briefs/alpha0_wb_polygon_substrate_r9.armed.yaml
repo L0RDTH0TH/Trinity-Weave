@@ -1,0 +1,112 @@
+schema_version: 1
+status: draft
+composed_at: '2026-10-31T07:35:26Z'
+factory_greenlit: false
+live_weld_greenlit: false
+live_weld_landed: false
+proof_shape: moment
+claim_class: ask_success
+prefer_class: foundation
+ask_id: alpha0_wb_polygon_substrate
+slice_id: alpha0_wb_polygon_substrate_r9
+series_id: alpha0_world_builder_session_prep_r1
+series_step: wb_polygon_substrate
+package_id: pkg_world_shell
+wave: alpha
+brief_path: 1-Projects/genesis-mythos-master/Factory-DRB/slice-briefs/alpha0_wb_polygon_substrate_r9.md
+prior_map_id: world-builder-session-prep
+prior_map_note: Remint after incomplete-until-robot retired (tip 9eb70d5). r8 archived.
+  Same map row WB-polygon-substrate. observer operator after_build. Empty checks legal.
+  Gate A forms_ok. B1 stored ok. Armed stageable. factory_greenlit false until GREENLIGHT.
+  Do not Prefer-join r1–r8.
+next_in_chain: null
+do_not_arm_next: WB-world-container
+next_world_armed: false
+depends_on: null
+project_id: genesis-mythos-master
+live_write_target: 5-Attachments/Code-Repos/genesis-mythos-align
+mode: wb_polygon_substrate_moment
+prefer_authorship: true
+prefer_concept_required: true
+prefer_on: true
+ticket_map_id: WB-polygon-substrate
+success_object: point_and_stay_polygon_solid
+exemplar_altitude: low_fidelity_polygon_board
+exemplar_not: living_world_or_flight_or_dials
+hands: fresh_polygon_board
+host_law_ids: []
+allowed_entries: []
+behavior_keys:
+- shows_low_fidelity_polygon
+- points_at_that_polygon
+- sees_same_polygon_after_point
+behavior_key_checks: {}
+observer: operator
+observer_when: after_build
+checklist_ids: []
+intent_invariant: Foundation — A GM can point at a low-fidelity polygon solid and
+  that solid stays the same polygon that was pointed at.
+structural_success: Foundation — A GM can point at a low-fidelity polygon solid and
+  that solid stays the same polygon that was pointed at.
+path_position: virgin Code-Repos/genesis-mythos-align → Gate A → B1 → operator GREENLIGHT
+  → build → operator F5
+zone_ownership: {}
+do_not_waive:
+- hotkey_as_product_ux
+- config_meta_without_effect
+- stub_as_hours
+- map_job_name_only
+- explicit_met_implicit_miss
+- intent_collapsed_to_mechanics
+- separate_wiki_as_prep
+- campaign_unscoped
+- rail_collapsed
+- inherited_prior_keep
+- hidden_default_dial
+- old_host_as_new_product
+locks:
+  operator_confirmed: true
+  claim_class_clean_slate: true
+  ticketment_regen: '2026-10-31T07:35:26Z'
+  tip_b_scrub_retained: true
+  step1_authorship:
+    structural_success: Foundation — A GM can point at a low-fidelity polygon solid
+      and that solid stays the same polygon that was pointed at. Point-and-stay moment
+      only.
+    success_object: point_and_stay_polygon_solid
+    refuse:
+    - hotkey_as_product_ux
+    - config_meta_without_effect
+    - stub_as_hours
+    - map_job_name_only
+    - explicit_met_implicit_miss
+    - intent_collapsed_to_mechanics
+    - separate_wiki_as_prep
+    - campaign_unscoped
+    - rail_collapsed
+    - inherited_prior_keep
+    - hidden_default_dial
+    - old_host_as_new_product
+    - living_as_substrate
+    - flight_as_substrate
+    - yaml_lookup_as_point_and_stay
+    - print_flag_as_person
+    - window_pointer_inject_name_as_person
+    - catalog_argv_as_person
+    - incomplete_until_robot
+done_when: Gate A forms_ok → factory-order senior B1 → operator GREENLIGHT → weld →
+  B2 may hand Walk list → operator F5 before KEEP. Do not arm WB-world-container.
+  factory_greenlit false until GREENLIGHT.
+operator_prompt: r9 Prefer armed after Gate A + B1. observer operator after_build.
+  Empty checks. No missing_observer. Awaiting operator GREENLIGHT for factory feed.
+  Do not arm WB-world-container. host_law_ids [].
+out_of_scope_ticket_ids:
+- CAMP-cast-seam
+- CAMP-create
+- CAMP-scope-split
+- CAMP-select
+- CAMP-switch
+- WB-sim-clock
+- WB-world-container
+- WB-world-document
+- WELD-one-world
